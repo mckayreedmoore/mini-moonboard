@@ -8427,6 +8427,111 @@ remedies stay deferred and actual observations blank. All three records,
 their sources and earlier failures remain active; nothing is archived or
 pruned. The full engineering completion goal remains active and unachieved.
 
+<a id="current-flange-net-bar-stability"></a>
+**Conditional flange net-bar stability comparison.** Reuse all **264** saved
+flange/case envelopes and their finite load footprints. Adding column-strength
+and local bending amplification gives **1,584** bar/region comparisons,
+all below one; the guarded maximum is **0.984262**. This resolves the nominal
+bar-model comparison under its stated support assumptions, without changing
+the original section results or establishing actual fitting restraint.
+
+The method question was whether conventional steel member provisions could
+close the remaining straight-plate duty. The published
+[ANSI/AISC 360-22 text](https://welovesteelconstruction.ssi-steel.com/wp-content/uploads/2024/08/Specification-AISC-360-22_Specification-for-Structural-Steel-Buildings.pdf),
+E3/E4, F11, H2, J4.4–5 and Appendix 8, supplies a bounded bar comparison.
+Its Commentary H3.3, printed p.416 / PDF p.484, describes elastic stress
+analysis for the non-HSS combined-torsion route. The retained Prandtl roof is
+a plastic static strength mode, not that elastic solution. Do not relabel
+the existing low section index as complete AISC H3.3 acceptance. A matching
+conventional elastic treatment or complete static transfer construction
+remains engineering work; no new solver or external sign-off is imposed.
+
+Retain the three **13.05 / 38.8 / 13.05-mm** net ligaments and t6.35. For this
+reference only, assume held end translations and twist restraint at supports;
+take **L=88.9 mm, K=2, Cm=1**, **E=200,000 MPa**, **G=77,200 MPa**,
+the existing **Fy235** hypothesis and **Omega=1.67**. Actual timber/bolt/heel
+restraint is not established by those assumptions. The current nominal
+actions remain unchanged; no new ASD load-combination authentication follows.
+
+For each rectangular bar, include its compressive chord force from strong-axis
+plate bending. With its centroid yc and width w, use these component bounds:
+
+```text
+Fe = pi^2*E*(t^2/12)/(K*L)^2
+Fn = 0.658^(Fy/Fe)*Fy                         [current E3 branch]
+sa = Nmax/A + Mzmax*|yc|/Iz
+sb = Mymax/Sy + Mzmax*w/(2*Iz)
+B1 = 1/(1 - 1.6*sa/Fe)
+DeltaU = Omega*[(1/Fn - 1/Fy)*sa + (B1 - 1)*sb/Fy]
+Ubar = Uoriginal + DeltaU + 1e-6
+```
+
+Thus net axial force alone cannot decide buckling: bending also compresses
+the outer chords. Component maxima come from the existing convex event
+reducer; finite-normal and partial-bore allowances are added componentwise.
+The axial-stress upper is taken uniformly for amplification. This is the
+individual-member B1 comparison under the declared held-translation model,
+not a frame B2 calculation or a changed response field.
+
+The weak-axis elastic stress is **209.813019 MPa**, with E3 nominal stress
+**147.052598 MPa**. For torsional buckling, an inscribed-circle Prandtl trial
+gives `J >= pi*(t/2)^4/2`; its minimum `GJ/(Iy+Iz)` is **388.280092 MPa**,
+above the weak-axis value. F11 nominal strong-bending strengths are at least
+**1.492459 times Fy*S** for these bars, so the retained Fy*S bending reference
+is not reduced by that check. The largest B1 is **1.081705**.
+
+| Current case | Bar/region comparisons | Guarded maximum |
+| --- | ---: | ---: |
+| `a12-forward` | 264 | 0.924111 |
+| `a12-rear` | 264 | 0.810993 |
+| `a12-left` | 264 | **0.984262** |
+| `k12-right` | 264 | 0.974446 |
+| `k12-rear` | 264 | 0.825773 |
+| `a1-rear` | 264 | 0.590485 |
+
+Table values round upward. The governing left top single angle / arm-z /
+`a12-left` outer bars have **sa=2.622807 MPa**, **sb=48.798201 MPa** and
+**B1=1.020410**. Their added index is **0.018224699**. Adding the existing
+raw **0.966035508** and the unchanged **1e-6** arithmetic guard gives the
+new bound. The guard is not a manufacturing or physical-response allowance.
+
+An independent exact-rational prefix-force/origin-moment reduction checks
+all **792 region records / 7,824 event-side wrenches** from the original load
+aliases. Maximum difference is **5.773e-12 N or Nmm**. Independent 70-digit
+Decimal evaluation checks all **1,584** comparisons; maximum arithmetic
+difference is **1.447e-14**. All **129 source pins** and every original section
+row/constant remain unchanged. Producer/checker replays are byte-identical;
+scoped Ruff passes. All **220 affected development/documentation checks**,
+**seven** added-line local links/fragments, source/artifact hashes, **six**
+case-table values and whitespace checks pass; the summary stays at **150 lines**.
+The existing Python **3.12.3**, NumPy **2.5.2** and SciPy **1.18.1** runtime
+is reused.
+
+The **1,136,813 arithmetic-evidence bytes** stay active in the existing ignored
+closure folder. One shared **16,135,278-byte** standard PDF is retained for
+the operative clauses; its final August 1, 2022 cover was inspected. The
+publisher download returned 403, so the public mirror is identified above;
+publisher byte identity is not claimed. All reused inputs and failed attempts
+remain active. No native/frame/CAD/contact solve, geometry or physical change,
+dependency installation, permanent asset, archive or prune occurs. The full
+goal remains active; complete fitting/wood-joint resistance and physical
+restraint/response remain open, with 100 bolts, 66 Hillman axes and both corners.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flange-bar-stability-v1.py` | 8,945 | `36739e58b281aef13cf127d84d6ad6b82e6061a4185d79dbfbeb58dc058a9701` |
+| `current-flange-bar-stability-attempt01.json` | 1,118,225 | `c06e258d4fdc6846fad1808f26227e13318d834bb2b2e0ecf276b2de005a0265` |
+| `current-flange-bar-stability-verification-v1.json` | 9,643 | `e3f4991a6188b06f46916f43041dc26ed8e7acfa51018b7943ff04111b65cf32` |
+| `method-source-cache/aisc-360-22-published-ssi.pdf` | 16,135,278 | `ebb52b06ebb1eda425f01f8582836e1574a357cca129018d0f32823f9aea29ee` |
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-bar-stability-v1.py /tmp/eoere-flange-bar-stability-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with fresh output
+filenames. PyMuPDF **1.26.4** was used only for source-page inspection.
+
 <a id="current-unholed-flange-root-interaction"></a>
 **Simultaneous actions at the unholed flange roots.** The current six-case
 comparison covers **264 roots**: both flanges of all 22 fittings in each
