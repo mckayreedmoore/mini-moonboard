@@ -7499,6 +7499,117 @@ Sources, failed attempts and current inputs remain active. No geometry,
 force authority, native/frame response or physical operation changes.
 The complete engineering goal remains active and unachieved.
 
+<a id="current-finite-backing-pressure-construction"></a>
+**Finite normal pressure on the current backing lands.** The engineering
+question is whether ordinary, nonnegative finite pressure can carry the
+**original six-case flange-backing forces and normal moments** on the
+recorded holed lands within the existing timber bearing reference. It can,
+under the following nominal geometry and material hypotheses. This completes
+that interface statics and local normal-compression comparison; it does not
+complete the fitting, internal wood-seat transfer or physical contact law.
+
+Reuse the 352 symmetric finite-area supports already frozen in
+`current-normal-patch-supports-attempt01.json`, SHA-256
+`9a54365d1188a71c12fb904396619df9f3d513a20a799561870b61f116d41422`,
+and the 88 analytic domains in `current-normal-patch-bound-attempt01.json`,
+SHA-256 `c9b453dcfe677b451f0512f45a7dd6a1d331f5616beb18ae9f989bbb5c0ddda9`.
+These remain in the existing ignored engineering-closure folder. Only their
+**geometry** is reused here, independently of their earlier continuous-normal
+energy calculations. No previous dual bound is transferred, and no changed
+equilibrium or contact solution is calculated.
+
+Each original cell force is spread as constant normal traction on its own
+support union. Across all supports, the 6,688 rectangles lie strictly inside
+the nominal outer polygons and outside both holes. Exact rational area and first-moment
+identities place every union centroid at its original local sample. Own-cell
+supports are disjoint. All **4,480** coplanar same-receiver box pairs from
+different patches are also separated, with minimum calculated separation
+**1.416960 mm**; their pressures therefore do not superpose. The margins and
+support controls are proof geometry, not shop tolerances or measured gaps.
+
+Use `p_i = |F_i| / A_i`, with the complete union area transformed by its
+source plane's area metric, and the source normal direction. Preserve each
+own signed action and world position; no equal bolt shares or new prying
+forces are assumed. The existing DF-L No.2 dry, `CD=1` normal-compression
+reference is **4.309223 MPa**, with no bearing-area increase. Results are:
+
+| Current case | Maximum constructed pressure, MPa | Active cells / 352 |
+| --- | ---: | ---: |
+| `a12-forward` | 0.620484 | 109 |
+| `a12-rear` | 0.565287 | 112 |
+| `a12-left` | **0.703048** | 110 |
+| `k12-right` | 0.702065 | 113 |
+| `k12-rear` | 0.583073 | 114 |
+| `a1-rear` | 0.490012 | 112 |
+
+All **2,112 cell/case comparisons**, including 670 active actions, are below
+that reference. Maximum index is **0.163149571**, at the left top angle's
+`post/1` backing on `base_side_left`, cell 2, `a12-left`: **456.709263 N**
+on **649.613265 mm²**. This explicit holed, disjoint support construction
+replaces using a whole-cell area alone as evidence of a realizable pressure
+field. It remains a constructed distribution, **not an upper bound on actual
+pressure** or proof of elastic/plastic compatibility with the fitting.
+
+All **528 patch/case six-component normal wrenches** are recovered, with
+maximum world-origin component discrepancy **2.328307e-10 Nmm**. The
+largest local-to-world centroid discrepancy is **3.763678e-9 mm**. Thus the
+recorded normal moments are retained, rather than dropped in a force-only
+comparison. Original point free couples are zero and checked as such; the
+aggregate couples from force offsets remain nonzero. Lateral bore forces,
+shaft bending, axial washer lands and alternative wood/wood allocations
+are unchanged and retain their separate evidence.
+
+This recovery uses the **registered source normal directions**. Their
+largest cross-product discrepancy from the stored plane bases is
+**3.166025e-10**. Projecting onto those rounded planes would alter a cell
+force by at most **6.387632e-8 N** and its world-origin moment by
+**2.168771e-4 Nmm**; that projection is not applied. The separate alignment
+diagnostic retains the initially exceeded **1e-10** diagnostic cutoff.
+It was not an adopted geometry, resistance or manufacturing criterion;
+no source, force or adopted gate is changed. The construction retains this
+source-coordinate precision limit rather than claiming an exact continuum
+certificate on unrounded CAD faces.
+
+The existing ignored engineering-closure folder retains four new active
+records, **580,671 bytes** total; no field, solid or manual is copied:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-backing-pressure-v1.py` | 11,291 | `b3c0ec678bde3d6a14bf0284a7c1e718be0087867abec6fe8bb6a4d722a88dc4` |
+| `current-backing-pressure-attempt01.json` | 556,057 | `c6eee01b181d1d237bac602c632c67f1f4a1d086bd3c18f7ca9ef65596a4d4db` |
+| `current-backing-pressure-verification-v1.json` | 9,028 | `57075c42429223c1035ae9f405528d0d713812d2931e2300022a32b6a5a5cc20` |
+| `current-backing-normal-alignment-diagnostic-v1.json` | 4,295 | `5a16bcca5af6b697d47020c8c80583a48c6c500285fed4d8aeba765c3d9eda55` |
+
+The result binds 13 direct inputs and rechecks 70 inherited bindings,
+**75 unique source files** in total. Independent polygon shoelace integration
+checks all 352 areas and first moments; polygon clipping independently finds
+all 4,480 cross-patch intersections empty. Direct source reconstruction
+checks all 2,112 pressures and 528 complete normal wrenches: maximum force
+error **5.684342e-14 N**, moment error **2.328307e-10 Nmm** and pressure
+error **3.469447e-18 MPa**. The independent check uses the timber-side forces,
+opposite the producer's fitting-side convention. Both scripts pass scoped
+Ruff checks, and fresh producer and embedded-checker replays are identical.
+The alignment diagnostic embeds its own source, passes scoped Ruff and
+replays identically. All **220 affected development/documentation checks**
+pass; the maintained summary stays at 148 lines.
+Reproduce into a fresh destination; the verification JSON embeds its full
+independent `verification_python_source`:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-backing-pressure-v1.py /tmp/eoere-backing-pressure-replay.json
+```
+
+**Next transfer duty:** connect the retained normal boundary actions and
+complete shaft wrenches through the holed flanges, bend and timber interior
+with an applicable simultaneous flange/prying/seat treatment. The finite
+pressure witness does not validate the source capture/contact stiffness,
+the 56.6-mm response, local splitting, shear, end-load introduction or the
+eight mixed stacks' complete behavior. The original forces, 100 bolts,
+66 Hillman axes and retained corners stay fixed. The full goal remains
+active and unachieved; panel/screw remedies stay deferred and actual fit
+excluded. All inputs, earlier failures and these four records remain
+active; nothing is archived or pruned.
+
 ### Cleat transverse wrenches and the three qualification limits
 
 The owner requested investigation of cleat transverse resistance,
