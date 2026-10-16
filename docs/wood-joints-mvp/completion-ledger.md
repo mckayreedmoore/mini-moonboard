@@ -9019,6 +9019,103 @@ diff. This source followup changes only the maintained summary and ledger;
 the later [geometry-source audit](#geometry-factor-source-and-applicability-followup)
 records the preceding goal's blocked disposition.
 
+<a id="current-cleat-published-splitting-method-audit"></a>
+**Retained-corner splitting rules: complete current trace census.** The method
+question is whether an ordinary published splitting expression can complete
+the retained corners by substituting their net opening force or the saved
+necessary tensile resultant. Reuse the authenticated transverse-wrench record
+and six current fields; do not repeat a frame, contact or fracture calculation.
+
+The [JRC connection lecture](https://eurocodes.jrc.ec.europa.eu/sites/default/files/2022-06/EN1995_5_Leijten.pdf),
+slides 63–64, shows the first-generation EC5 rule
+`F90,Rk = 14*b*w*sqrt(he/(1-he/h))` and its comparison to the larger shear
+force beside the connection. The softwood expression needs no C16 class
+property or separately measured fracture energy. Those are **not missing
+inputs to that particular planar expression**. Its result still needs the
+matching design format and applicable beam arrangement; it is not a general
+three-dimensional cleat capacity. Neither net Fy nor a lower bound on tensile
+resultant is automatically its design shear action.
+
+The previously cached [Quenneville paper](https://www.timberdesign.org.nz/library/design-of-bolted-connections-a-comparison-of-a-proposal-and-various-existing-standards),
+printed pp.3–7, does provide an exterior location factor **Kloc=0.5**. Its
+Eq.9 also requires **phi, gamma, k1 and k2**: strength reduction, conversion
+from the mean to the fifth percentile, duration and service factors. It defines these
+factors but supplies no numerical assignment for the current detail. Its
+comparison uses 15-minute experimental means, including D-fir specimens;
+those plotted predictions are not design resistances. Its format based on
+uncoupled force components supplies no allocation of the present width moments, axial
+seats or contact duties. This is a scope conclusion, not failure of its
+finite-end method or of the physical corner.
+
+The [COST review](https://www.cost.eu/wp-content/uploads/2018/11/Design-of-Connections-in-Timber-Structures.pdf),
+Jockwer and Dietsch, printed pp.149–155, identifies the two-dimensional basis
+and distinguishes connection-specific transverse-tension parameters from
+general EN338/EN14080 transverse-tension values (§3.1). Substituting the C16
+table's 0.4 MPa alone therefore does not complete connection splitting.
+
+For each original signed trace, with tension-positive N, width b and height h,
+the existing equilibrium bound is:
+
+```text
+Tfull >= [N + max(abs(N), 2*abs(Mz)/b, 2*abs(Mx)/h)] / 2
+Twithout-width >= [N + max(abs(N), 2*abs(Mx)/h)] / 2
+```
+
+Exact rational arithmetic over the saved numerical values confirms that the
+**width-moment term controls all 24 traces**, covering both cleats, all six
+cases and both point-action boundary
+allocations. Omitting it strictly reduces every lower bound, by **14.508616–
+269.600372 N**. The two boundary allocations agree at the displayed precision:
+
+| Current case | Left: full / without width moment, N | Right: full / without width moment, N |
+| --- | ---: | ---: |
+| `a12-forward` | 110.389851 / 27.917423 | 57.010420 / 18.650345 |
+| `a12-rear` | 72.765659 / 21.456518 | 76.418714 / 15.923601 |
+| `a12-left` | 295.602493 / 26.002121 | 144.640467 / 22.172506 |
+| `k12-right` | 145.770665 / 23.842299 | 293.920011 / 25.802773 |
+| `k12-rear` | 70.025244 / 16.232696 | 74.104644 / 21.472470 |
+| `a1-rear` | 17.567440 / 3.058824 | 28.723269 / 7.948939 |
+
+**Disposition:** close direct scalar substitution as a complete-corner route
+for these original saved allocations. No case escapes the width duty through
+its small net Fy. Even Tfull remains a **necessary lower**, not a sufficient
+design action or splitting capacity. A justified three-dimensional allocation
+or matching complete-detail resistance evidence must cover that duty and the
+retained shear/torque before a planar component check can contribute to a
+complete conclusion. The existing changed bridge/loop allocations require
+their own rebind; this census does not classify them. Geometry, hardware,
+material hypotheses and acceptance criteria are unchanged. The full goal
+remains active and unachieved.
+
+An independent 70-digit Decimal check uses `T-C=N` and the two moment-radius
+inequalities, verifies every exact fraction, and integrates all **96 existing
+normal-hull witness points**. Maximum display-bound, witness-force and witness-
+moment differences are **4.47e-14 N, 9.18e-14 N and 3.28e-12 Nmm**. All **ten
+direct source pins** remain unchanged. The first checker stopped on a record-
+key typo; its complete source and stop reason are embedded in the corrected
+verification record. No arithmetic, input or criterion changed. Producer and
+checker replays are byte-identical, and scoped Ruff passes. All **220 affected
+Node checks**, the new internal fragment, all table values, the **148-line**
+summary and whitespace checks pass.
+
+These **67,113 bytes** remain active in the existing ignored engineering-closure
+folder; cached manuals and prior evidence are reused. No native/frame solve,
+CAD rebuild, new dependency, physical operation, archive or prune occurs.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-splitting-method-audit-v1.py` | 8,171 | `1681b96ca25a1e2ec9a92edeff854307e7383ccd76b4eaeef9e6c1608601f8fe` |
+| `current-cleat-splitting-method-audit-attempt01.json` | 45,330 | `f968af9f689a49c56862270967688989f02bd12a5035e80ecf0f9bb63efe81ce` |
+| `current-cleat-splitting-method-verification-v2.json` | 13,612 | `b3a583f57ad2d7d9f8702a36d20ef501bedd6fa566eb48a68e9a8000a7cbd2bc` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-splitting-method-audit-v1.py /tmp/eoere-cleat-splitting-method-replay.json
+```
+
+The audit embeds `reproduction_python_source`; the verification record embeds
+`verification_python_source`. Run the checker from the repository root with a
+fresh output filename as its sole argument. It checks saved arithmetic only.
+
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
 The current six fields instead declare **1,000 N/mm screw stiffness**,
