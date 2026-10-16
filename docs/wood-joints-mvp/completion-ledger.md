@@ -574,6 +574,9 @@ The new raw outputs and their source inputs stay active.
 
 The pinned NDS 2024 Chapter 12, printed pp.96–99, distinguishes **load angle
 to the fastener axis** (§12.3.9 and Figure 12E) from load angle to grain.
+Its §12.1.2.2, printed p.81, defines end distance from a square-cut end. The
+sloping-cleat helper trials therefore retain their recorded applicability
+limit; this review assigns no sloping-end reduction factor.
 The lateral component uses the own wood bearing lengths; the axial component
 requires bearing support. Section 12.5.1.2 permits reductions for end
 distance, equivalent end shear area and spacing within a row. Section
@@ -3939,6 +3942,126 @@ Each final verification JSON embeds its full `verification_python_source`;
 calling its `verify(record_path, record_sha256)` reproduces the independent
 checks without another LP. Original failed pressure, original-force mixed-stack
 and intermediate allocation results retain their original meanings.
+
+<a id="current-coupled-full-wrench-cut-reference"></a>
+**Simultaneous complete-cut traction reference.** The fixed V4 allocation now
+has **36 complete six-component cut constructions** within the unchanged
+working section law: 24 cleat traces, including both point-action boundary
+allocations, and twelve receiving-side cuts. The prior worksheet established
+normal transfer and lateral shaft/bore comparisons; this closes its missing
+simultaneous normal/shear/torque **section-reference** comparison. All P/G
+values, own port forces/couples, 100 bolts, 66 Hillman axes and current fields
+remain unchanged. No new reaction sharing or frame response is selected.
+
+Reuse the [existing traction equations](../../scripts/eoere_cleat_section_reference.py)
+and their declared C16/divisor-2 law:
+
+```text
+max(sigma/Ft, -sigma/Fc) + abs(tau_grain)/Fv + abs(tau_X)/Fr <= 1
+Ft=0.2, Fc=1.1, Fv=1.072, Fr=0.4 MPa
+```
+
+These remain explicit intact-section hypotheses, including the positive
+linear interaction and rolling-shear reference. They are not an observed C16
+assignment, an NDS conversion or complete connection-fracture resistance.
+
+**Cleats.** Use the already contained central-cut prism, inset **0.001 mm**
+from each rectangle edge: **38.098 × 277.940094 mm**. In the proper
+normal/grain/X basis, let half-width be a, half-height d, A=4ad and normalized
+grain/X coordinates be u/v. The reused field is:
+
+```text
+sigma     = N/A - 3*Mx*u/(A*d) + 3*Mg*v/(A*a)
+tau_grain = [3*Vg/(2*A) - 9*T*v/(16*a*a*d)] * (1-u*u)
+tau_X     = [3*VX/(2*A) + 9*T*u/(16*a*d*d)] * (1-v*v)
+```
+
+It recovers all six prescribed resultants, including both normal-force
+moments and the cut-normal torque. The original one-sided tangential actions
+are kept separately; the V4 free-couple correction is retained in T. Exact
+Bernstein subdivision gives maximum upper **0.881439791**, left `a12-left`.
+A separate interval proof over **1,024 boxes per trace** supplies the
+independently established conservative upper **0.885776** for all 24 traces.
+
+Every final affine field uses some **positive transverse normal stress**;
+the largest is **0.089073404 MPa**. Thus this is not the earlier
+compression-only normal-pressure construction. That separate normal witness
+cannot be combined with this shear proof and described as one compression-only
+field. Local splitting and the material applicability of transverse tension
+remain explicit in the complete-joint work.
+
+**Receiving side members.** Retain their original normal-pressure rectangles
+and their complete N/Mg/Mx. Put shear on the full **88.8998 × 100-mm** regions
+of the same two previously contained prisms at grain offsets **150 / 2,100 mm**.
+Their X centers are zero; the normal rectangles keep their own X centers.
+Opposite transverse shears recover T through the 1,950-mm separation:
+`VX1=(2100*VX-T)/1950`, `VX2=(T-150*VX)/1950`.
+Same-sign grain shears follow a closed-form balance of the two peak gauges;
+the existing containment receipts apply. Add each original normal-pressure
+gauge to the full-region shear peak as a conservative upper.
+All twelve full wrenches recover exactly in source-decimal rational arithmetic;
+the largest upper is **0.396433**, right `k12-right`.
+
+| Current case | Independent cleat upper, both sides/traces | Receiving-side upper, both sides |
+| --- | ---: | ---: |
+| `a12-forward` | 0.530139 | 0.305449 |
+| `a12-rear` | 0.290281 | 0.295238 |
+| `a12-left` | 0.885776 | 0.391571 |
+| `k12-right` | 0.880985 | 0.396433 |
+| `k12-rear` | 0.298007 | 0.278459 |
+| `a1-rear` | 0.088546 | 0.060007 |
+
+All displayed table uppers round upward. The failed first trial is preserved:
+combining the earlier cleat pressure shapes with the full shear field exceeds
+the same law in six traces; even its triangular variant has a real witness
+**>1.195406**. Confined host shear on the narrow normal rectangles exceeds in
+two cuts, with governing peak **>4.432270**. These reject those chosen fields.
+The final construction changes internal cut tractions, with the same force allocation,
+geometry and criterion; no failed result is erased or relabeled as a physical
+wood failure.
+
+The independent check directly integrates all 36 constructions with 3×3 Gauss
+quadrature and separately reconstructs the twelve host wrenches from the
+original individual action tables and V4 increments. Maximum force, moment
+and host-source rejoin differences are **4.55e-13 N, 2.33e-10 Nmm and
+5.46e-11 N/Nmm**. Its **24,576 exact-rational interval boxes** establish the
+cleat nonexceedance independently of the tighter Bernstein result; it does
+not claim to reproduce that tighter maximum. All **48 source pins** remain
+unchanged. Failed/final producer and independent-checker replays are
+byte-identical; scoped Ruff passes. All **220 affected development/documentation
+checks**, the complete case/member/boundary census, new internal fragment,
+table values/digests, **148-line** summary and whitespace checks pass.
+
+**Disposition:** this simultaneous section-reference duty is complete for
+the fixed V4 allocation and declared law. It supplies no compatible
+three-dimensional timber field, bore concentration, local split/edge or
+end-load resistance, physical force sharing or restraint/response bound.
+The host's intervening bores remain outside the two supported cut regions;
+the calculation does not prove transfer around them through the member.
+The separate short-edge and five-member-loop results retain their limits.
+Complete joints and the full engineering goal remain open.
+
+The **331,707 bytes** below remain active in the existing ignored closure
+folder. Existing kernels, fields and containment receipts are reused; no
+manual/dependency copy, native/frame solve, CAD rebuild, physical operation,
+archive or prune occurs.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-coupled-cut-traction-v1.py` | 16,029 | `62e1184528e44d47d4f761a1d58a1349c07b44e9ad77f2298e4588bc1c285b49` |
+| `current-coupled-cut-traction-attempt01.json` | 142,886 | `3674135db0237b33c8112181f8562417a6d5d66c5dc23ef35c75e97da245854f` |
+| `current-coupled-cut-traction-v2.py` | 7,290 | `fbdaa8e40e52f5c33ce2275cd3f6ff4f3a994344ebeb9c3ac66d936efe92bb7f` |
+| `current-coupled-cut-traction-attempt02.json` | 146,891 | `61c395ee843274e2bc043fe76d1fcd6b0ad7c8dc8aa5b0a04a500dcb2945f579` |
+| `current-coupled-cut-traction-verification-v1.json` | 18,611 | `1d31f6d83be266612518003c385ae463104ca1c950b8f75f39c2c59128f7377e` |
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-coupled-cut-traction-v2.py /tmp/eoere-coupled-cut-traction-replay.json
+```
+
+Python **3.12.3** and NumPy **2.5.2** are retained. The result embeds
+`reproduction_python_source`; the verification record embeds its complete
+`verification_python_source`. Run the latter from the repository root with
+a fresh output filename. Both perform saved-action arithmetic only.
 
 <a id="current-short-edge-and-compression-family-bound"></a>
 **Short-edge force/moment check and the compression-only route.** Passing
