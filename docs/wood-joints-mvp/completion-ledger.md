@@ -5986,12 +5986,12 @@ adjusted ASD and delivered-part qualification remain outside it.
 
 **The rear-foot hold is not cleared.** This is one consistent local statics
 construction, rather than a physical response or complete member/joint proof.
-Next assess the altered foot/recess and runner rear-miter load introduction,
-finite wood-interior/brittle/end-group transfer, normal/tangent compatibility
-and supported restraint/response. In particular the original **8.332984-N**
-runner rear-tip reaction moves inward, so its rear end region needs its own
-changed-action treatment. The scalar bearing, lateral shaft and nominal
-bore-window comparisons above do not supply those conclusions. Retain all
+The [end-section followup](#current-rear-foot-400n-end-section-completion)
+below closes the changed unbored-foot and runner-miter nominal comparisons.
+Complete wood-interior/brittle/end-group load introduction, normal/tangent
+compatibility and supported restraint/response remain required. The original
+**8.332984-N** runner rear-tip reaction moves inward; its changed end-section
+calculation does not itself qualify that complete transfer. Retain all
 four original source shear failures, other holds and false/null acceptance,
 physical-demand and observation flags. The full engineering goal remains active.
 
@@ -6034,6 +6034,90 @@ PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/gener
 Results embed their producers; verification embeds its checker and fresh replay
 paths. Use new output paths. Both corners, 100 bolt axes, 66 Hillman axes and
 blank actual observations stay fixed. Panel/screw remedies remain deferred.
+
+<a id="current-rear-foot-400n-end-section-completion"></a>
+**400-N allocation: unbored foot and runner-miter nominal sections completed.**
+Reuse the preceding fixed floor/shaft allocation without another load-sharing
+search. The specific question is whether its changed end actions satisfy the
+existing nominal normal and rectangular shear/torsion references below the
+leg's first bore band and throughout the runner's rear bevel. This closes
+those two section regions within the original point-contact/affine-gravity
+hypotheses, not complete end-load or support resistance.
+
+For the leg, the loaded unbored grain interval is **−374.992229 to
+−309.483970 mm**. The nominal cut depth rises from approximately **69.85 to
+139.7 mm** at fixed **50.8-mm width**. Seven intervals separate every point
+event, the two finite-triangle pressure endpoints and the full-depth
+transition. Below the first action, the **17.203977-mm** clipped tip is
+unloaded in this source model. The floor triangle's exact partial force is
+`N*u²`; its centroid is `Xnear−B*u/3, Ymax−2*H*u/3`, with u the included
+height fraction. The existing complete-cut interval kernel retains every
+other point force/couple and affine selfweight. Nested retained rectangles
+and the existing clipped-section bound enclose centroid shifts and normal
+stress; no absent outer wood is used as the strength section.
+
+The runner bevel spans **Y1605.538528–1639.946483 mm**. Its only nonzero
+point action is the retained **33.751121-N** side contact at **Y1612.469997 /
+Z18.991601 mm**; all bolt and new floor-pressure regions are forward of it.
+The part nearer the tip contains only affine gravity. Writing delta for
+distance from the tip, cut depth is approximately **4.060108*delta**, gravity shear is
+`w0*delta−w1*delta²/2` and bending magnitude is
+`w0*delta²/2−w1*delta³/6`. Thus the nominal normal and direct-shear limits
+are finite as delta approaches zero, with zero torque there. The section
+with side contact has minimum depth **111.557492 mm**. Independent upper
+force/moment bounds cover that entire second branch.
+
+| Named end-region comparison | Maximum reference upper |
+| --- | ---: |
+| Unbored leg-foot normal | **0.351933** |
+| Unbored leg-foot rectangular shear plus torsion | **0.313924** |
+| Runner-miter normal, both branches | **0.001098** |
+| Runner-miter rectangular shear plus torsion, both branches | **0.052306** |
+
+Keep the unchanged DF-L No.2 dry/CD1 references. The torsion comparison
+reuses coefficient **5** and its frozen prismatic/isotropic-shear-plane
+Saint-Venant hypothesis; it does not become a nonprismatic/orthotropic or
+warping proof. No notch factor, local boundary concentration, splitting,
+finite tangential floor law or complete combined member capacity is assigned.
+The retained tangent point is still an analytical no-slip support. End-load
+introduction, timber-interior and physical restraint/response holds remain;
+the three front-post and six channel failures are unchanged.
+
+The independent checker verifies **31 source bindings**, **35 foot cuts**
+using polygon clipping and two-point gravity quadrature, and **eight runner
+upper-portion cuts**. All 35 foot six-vectors lie within the continuous
+interval bounds; the runner cuts satisfy both branch references. A separate
+**70-digit** check explicitly includes/omits
+the side force at the same contact station: shear/torsion indices are
+**0.040489368 / 0.000196046**, within their corresponding branch bounds.
+Analytic tip limits are **0.000119798-MPa normal / 0.000243197-MPa shear**.
+Two cached-finished-solid queries confirm the complete end crops are planar
+and unbored. Both nominal-minus-cached and cached-minus-nominal difference
+volumes are zero within the existing **0.001-mm³ numerical gate**; this is
+nominal CAD evidence, not inspection or exact-arithmetic containment.
+The producer replay is byte-identical. Python **3.12.3**, NumPy **2.5.2**,
+CadQuery **2.8.0**, scoped Ruff, all **220** targeted documentation/development
+tests, changed links/digests and whitespace checks pass; the summary stays
+150 lines.
+
+These **90,863 active bytes** stay in the same ignored closure folder.
+Results embed the producer/checker. Earlier sources and failed trials remain
+active; no frame/native solve, CAD rebuild, design change, physical operation,
+observation, dependency, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-foot-400n-end-sections-v1.py` | 14,800 | `716b3c62aee4d38aa3c0bce160c8b8d64fd1fdd9f3e1d1a1e6706ea0781bddfd` |
+| `current-rear-foot-400n-end-sections-attempt01.json` | 52,636 | `1cc167eb1cd42aa390e8f2c682ad56a0ad59efa781455d2793b95c23de35d7fc` |
+| `current-rear-foot-400n-end-sections-verification-v1.json` | 23,427 | `5061ec0cdad82b0fe4eed85545b120718532172bf823c4d4832905138f13b27e` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-end-sections-v1.py /tmp/eoere-rear-foot-400n-end-sections-replay.json
+```
+
+Use a fresh output. Continue with the complete local transfer and floor-contact
+duties above; no repeat of these nominal end sections or the unchanged leg
+taper is needed unless actions, geometry or the method question changes.
 
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
