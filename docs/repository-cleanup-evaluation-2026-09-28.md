@@ -1,5 +1,179 @@
 # Repository cleanup evaluation
 
+## Senior design-engineering evaluation
+
+Reviewed October 10, 2026, on `master` at `da0bac07`, from the perspective of
+physical design supported by software. This assessment covers the active
+`compact-bolted-frame-development` lane, its relationship to the selected
+baseline, and the software used to substantiate them. It changes no design,
+acceptance criterion, frozen evidence or physical-work authorization. The
+following earlier organization reviews retain their own dates and scope.
+
+**Assessment:** configuration traceability is substantially stronger than
+design substantiation. The repository can identify its geometry and reproduce
+many numerical and nominal-fit checks, but it cannot yet establish the current
+frame's complete resistance or an achievable assembly process. The next useful
+engineering milestone is a disposition of the governing load path and model
+applicability, rather than another count of successful digital checks.
+
+### Engineering and software architecture
+
+The working chain is saved geometry and physical axes → case operators and
+own-case actions → component/joint assessments → conditional shop records.
+The viewer publishes geometry; it is not the mechanical authority. The
+[development index](bolted-frame-development/development-revisions.json)
+correctly gives geometry, hardware, optional grid, shop coverage and response
+different identities. `current-candidate.json` separately selects the baseline.
+
+Scores are qualitative, from 1 (weak) to 5 (strong), for engineering use of the
+software. They are not structural ratings or comparisons of climber capacity.
+
+| Criterion | Score | Engineering implication |
+| --- | ---: | --- |
+| Modularity | 3 | Producers and checks have bounded purposes; current tools still import helpers from historical candidate families. |
+| Cohesion | 3 | The compact entry is useful; resolving a joint still requires traversing a large ledger and nested followups. |
+| Separation of concerns | 4 | Current geometry, older response, unadopted proposals and physical acceptance are explicitly separated. |
+| Abstraction | 3 | Physical axis identities and own-port wrenches expose meaningful mechanics; historical paths remain part of operational interfaces. |
+| Loose coupling | 2 | Live modules, frozen source hashes, saved solids and ignored operator files remain tightly connected. |
+| Testability | 3 | Known answers and rejection controls are strong; passing those checks does not close current physical applicability or resistance. |
+| Deployability | 2 | Pages requires successful same-commit CI; master CI is red and newer evidence recovery is only partly bounded. |
+
+### Ranked engineering findings
+
+1. **High — demand validity is the first unresolved engineering question.**
+   The index explicitly says the six-case `eoere-base-side-edge-cleats-v1`
+   response does not apply to the raised-screw/current-hardware configuration.
+   Even that earlier response reports maximum interaction-point linear motion
+   **56.618189 mm** and relative timber/fitting-strip rotation
+   **0.107755392 rad, approximately 6.17°**, with no adopted small-motion
+   threshold or physical applicability bound. These are model diagnostics,
+   not measured movement or proof that the physical frame fails. Its tiny
+   equilibrium residual verifies solution consistency, not the adequacy of
+   first-order demands. The recorded static climber multiplier and no-slip
+   support remain assumptions, not impact or floor qualifications.
+   **Next decision:** use the existing method evidence to disposition demand
+   applicability under the recorded loads, then bind any required response to
+   the exact geometry, hardware and support scenario. A rerun alone cannot
+   resolve an unbounded model assumption. See the
+   [numerical record](wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion).
+
+2. **High — component checks do not yet substantiate a complete load path.**
+   All **24 complete connection-duty resistances remain null**, including the
+   eight mixed/shared stacks. The earlier own-case references retain generic
+   screw-head, panel-bending and rolling-shear ratios of **2.572553, 4.613408
+   and 2.451803** respectively. These are disclosed reference exceedances,
+   not qualified current Hillman or panel failure predictions. Potential
+   panel restraint also needs the screw-to-panel-to-frame return path; it
+   cannot be assumed independently while attachment strength is unresolved.
+   The nominal t6.35/Ri6.35 heel comparison leaves **0.7351%** reference margin
+   on the earlier geometry, without establishing formed-product resistance.
+   Longer purchased bolts resolve specific catalog-fit questions, while
+   thread-bearing, spacer contacts, splitting and compatible joint behavior
+   remain open. **Next decision:** prioritize the governing complete duty and
+   its simultaneous actions, resistance method and missing inputs in the
+   existing ledger. Preserve stopped remedies and record unresolved product
+   inputs; additional isolated bolt or washer passes will not close that duty.
+   See the [current mechanics gaps](wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#bounded-mechanics-review).
+   The official [AWC calculator](https://awc.org/resources/connection-calculator/)
+   describes individual-fastener lateral/withdrawal calculations; that scope
+   does not itself substantiate these complete three-dimensional joints.
+
+3. **High — the proposed drilling process has almost no allocated reserve.**
+   For `lumber_leg_bolt_left_1`, the recorded 177.8-mm wood path, 19.05-mm
+   guide, 13.49375-mm shop bit and 12.7-mm shaft provide 0.396875-mm radial
+   clearance. Proposed entry error uses 0.1984375 mm and assumed 0.02-mm
+   diametral guide play uses another 0.1866667 mm, leaving **0.0117708 mm**.
+   This is the remaining allowance in that scenario, not an absolute
+   hole-location tolerance. Runout, guide compliance, actual part dimensions
+   and wood movement have no established allowance within it. Nominal guide
+   support therefore does not establish a robust handheld process.
+   **Next decision:** disposition the proposed tolerance stack and matched-part
+   fixture method against achievable inputs before calling it a usable drilling
+   method. Keep unknown observations blank; no new hole size, fixture purchase
+   or physical trial is adopted. See the
+   [guide requirements](wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#drill-guide-and-clamp-requirements).
+
+4. **High — the selected baseline still has a configuration inconsistency.**
+   The selected A12 geometry binds `compact_floor_flush_frame.py` at
+   `4cc03e08…`, while the live module, selected viewer and construction manifest
+   bind `8764bec5…`. The later header-clip station change therefore shares a
+   candidate name with an older mechanical record. The checker correctly stops
+   this mismatch; the active bolted-lane index does not repair the separate
+   baseline boundary. **Next decision:** explicitly distinguish current
+   viewer/shop geometry from recorded mechanical geometry and disposition the
+   change's applicability. Preserve the frozen hashes. Do not suppress the
+   check or relabel old passes. The existing
+   [CI diagnosis](#observed-ci-publication-hold) records the issue; another worker
+   owns its current repair. [CI for the reviewed commit](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/38021246260)
+   is confirmed failed, so focused local passes do not establish publication.
+
+5. **Medium — final-position tool access leaves assembly-state feasibility open.**
+   The nominal access study clears box-wrench insertion, a 60° sweep,
+   counterhold and removal at all 200 sides. Its frame-stage queries remove
+   panels, screws and services. Twelve sides require a raised or reoriented
+   setup, with up to **93.222 mm** clearance below the frame; temporary support
+   and stability are explicitly unqualified. The roughly **219.52-kg** planning
+   mass and 100 bolt stacks make staging and repeated individual-member
+   transport meaningful design concerns, even when every final-position
+   envelope clears. **Next decision:** link the existing assembly sequence to
+   its supported intermediate states, shared-shaft dependencies and practical
+   access assumptions. Keep this distinct from the in-service panel-restraint
+   question. No lift capacity, actual tool fit or supported setup is inferred.
+   See the [nominal installation limits](wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#nominal-wrench-socket-and-removal-method).
+
+6. **Medium — evidence integrity exceeds portable reproduction coverage.**
+   The persistent recovery kit has a verified 1,219-input scope. It explicitly
+   excludes newer selected-hardware raw work; current hardware/access studies
+   describe 1,446/1,535 pins. Those are different sets, so subtracting the
+   counts would not measure a recovery gap. The lightweight development checker
+   also explicitly reports `full_ignored_input_closure_checked: false` and
+   `mechanics_executed: false`. These are honest boundaries, but a passing
+   checkout check cannot substitute for recovering the exact analysis inputs.
+   Historical helpers importing live shared modules add change coupling even
+   when receipts remain intact. **Next decision:** maintain separate, bounded
+   identity/synthetic and source-replay gates, and extend verified recovery to
+   the exact active consumer closure before archival. Reuse the existing
+   [archive/recovery workflow](#recovery-extension-and-persistent-placement);
+   no broad relocation, witness rewrite or pruning is justified.
+
+### Verification, strengths and disposition
+
+The maintained index and negative controls materially reduce the risk of
+transferring historical passes. Source hashes, same-state signed wrenches,
+equilibrium audits, known answers and preserved failed attempts are valuable
+engineering controls. The missing physical evidence is disclosed rather than
+represented by a convenient default capacity.
+
+At the reviewed revision, `node --test tests/test_bolted_development.mjs`
+passed **23 tests**. The existing hardware/access suite, run as
+`uv run pytest -q tests/test_eoere_current_shop_followup.py tests/test_eoere_nominal_access.py -k 'not production_'`,
+passed **32 tests**, with 14 production-query cases deliberately not run.
+Those focused checks cover claim boundaries, catalog arithmetic, drilling
+budgets and saved access requirements. They do not constitute a full mechanical
+replay. Direct JSON inspection independently confirmed the motion maxima,
+critical tolerance row and selected-baseline source conflict.
+
+Priority is demand applicability and the governing complete load path, then
+manufacturing/assembly feasibility using the existing plans. CI repair is
+already owned separately. Keep the current geometry, all frozen predecessor
+evidence, ignored active solids/operators and failed method attempts active.
+The optional grid stays separately scoped and off for the base configuration;
+Z180 remains unadopted. This review archives nothing and runs no CAD rebuild,
+native solve or physical operation. Review source pins, arithmetic and test
+observations are retained in ignored
+`fea/generated/repository-navigation-v1/senior-design-review-v1/`.
+
+The owner's October 15 direction to publish the complete working set retains
+four earlier adjusted-base/optional-grid geometry receipts and their four
+compressed scenes at their existing paths. The scenes total **14,559,685
+bytes** and the receipts **1,010,356 bytes**. Their parent/decoded-scene and
+layout hashes preserve the frozen v1/v2 history; they are not current geometry
+or adopted mechanics. Fourteen previously local correction/remedy helpers
+total **301,840 bytes** and retain their source bytes and historical scope.
+They preserve reproduction paths rather than introduce new current remedies.
+All active cached solids, fields, operators and new worksheet raw evidence
+stay in their existing ignored locations; nothing is archived or pruned.
+
 ## Current repository evaluation
 
 Reviewed October 9, 2026, at `352b50ac` on `master`, after eleven publication

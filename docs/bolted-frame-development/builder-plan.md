@@ -67,6 +67,24 @@ and U includes unpriced wood, services and tools. It is not a live quote.
 Six four-packs provide 22 installed angles and two spares; pack spares do
 not increase the installed counts above.
 
+### SendCutSend sourcing fallback
+
+The owner selects **SendCutSend as the planned angle sourcing alternative**
+if the [primary Amazon Eoere listing](https://www.amazon.com/dp/B0C7V7VS89)
+disappears. Keep the current factory angles as the primary purchase option.
+The October 14, 2026 public configurator comparison priced 22 identical
+four-hole, one-bend, ¼-inch mild-steel angles with approximately 3½-inch
+legs and 3½-inch width at **$14.84 each / $326.48 unfinished**, or
+**$26.29 each / $578.38 with clear zinc**. These are representative planning
+prices before tax and fasteners, not quotes for the current eight-hole fitting.
+Retain the detailed quote observations in
+`fea/generated/sendcutsend-feasibility-v1/price-comparison.json`.
+The next fallback work is a maintained part drawing with the final hole
+pattern, specified material and vendor-compatible bend geometry, followed by
+its fit and complete-joint assessment. The sourcing decision selects a supplier
+route; the custom part remains a proposal, and the separately priced flat
+cleat-replacement plates retain their separate scope.
+
 ## 1. Label faces and lay out the cuts
 
 Label every member and each matched left/right set before transferring marks.
