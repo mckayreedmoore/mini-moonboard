@@ -10857,6 +10857,108 @@ construction. Full fitting/joint resistance, cleat splitting, internal wood
 load entry and the full completion goal remain open. All earlier failures
 and these inputs/results stay active; no archive or pruning is performed.
 
+<a id="current-washer-axial-compliance-bound"></a>
+**Elastic compliance of the washer and spacer normal path.** The saved
+[axial fields](#current-axial-washer-and-spacer-transfer) support a bounded
+elastic constituent calculation without another plate/contact solve. Reuse
+their prescribed rings and statically admissible stresses. Retain the
+[working steel constants](#current-flange-net-bar-stability)
+**E=200,000 / G=77,200 MPa**, giving **nu=57/193≈0.295337**. These remain
+material hypotheses, not guaranteed or observed catalog minima.
+
+For a unit normal load, complementary energy bounds its conjugate compliance.
+The [MIT force-controlled example, slides 13–14](https://ocw.mit.edu/courses/1-050-engineering-mechanics-i-fall-2007/17dbb6a7318ca4c032d795af353a86a3_lec32.pdf)
+illustrates the bound's direction and factor two. The three-dimensional
+identity follows from [virtual work](https://solidmechanics.org/Text/Chapter2_5/Chapter2_5.htm):
+the stress difference from the elastic solution has zero virtual work under
+the same tractions, leaving a nonnegative quadratic complementary-energy gap.
+Thus, for the saved unit-load stress sigma*, volume Vol and elastic compliance
+tensor S_el:
+
+```text
+C_mode <= integral(sigma*:S_el:sigma*) dVol
+sigma:S_el:sigma = (sigma:sigma)/(2G) - (nu/E)*(trace sigma)^2
+H=2/(pi*t^2); Smax=1/(pi*a*t); P=max(pt_unit,pb_unit)
+C_washer <= Vol*(H^2+P^2+2*Smax^2)/(2G)
+Vol=pi*(b^2-a^2)*t
+C_spacer <= L/[E*pi*(c^2-a^2)]
+```
+
+The shear appears **twice** in the tensor norm. The spacer bound uses the
+existing matched annular column; uniaxial compliance is exactly `1/E` in its
+energy integrand. The two metal fields have matching interface pressures,
+so their compliance uppers add. Dimensions and normal forces are unchanged.
+The closure below is the difference between **pressure-weighted mean normal
+displacements** of the prescribed load/support rings. It is not a pointwise
+deformation or the response to arbitrary redistributed contact pressure.
+
+| Profile scope, all 200 ends | Largest partial metal compliance upper, mm/N | Conditional metal-mode stiffness lower, N/mm |
+| --- | ---: | ---: |
+| Five profiles per end | **0.000287961434** | **3472.687** |
+| Nominal profiles | 0.000141814840 | 7051.448 |
+
+The governing all-profile geometry is shared by several 3/8-inch spacer ends;
+`eoere_bolt_065/nut-capture/catalog-1` is one recorded representative. Source-force
+scaling gives the following normal contributions under the linear model:
+
+| Normal modes | Comparisons | Largest weighted closure upper, mm |
+| --- | ---: | ---: |
+| All ends/cases/profiles | **6,000** | **0.183969** |
+| Nominal profiles | 1,200 | 0.063795 |
+| Eight mixed axes, included above | 480 | 0.120275 |
+| Eight spacer ends, included above | 240 | 0.096447 |
+
+The overall closure governs at right leg bolt 2/head, `k12-right`. There are
+**5,800 positive-load modes**; zero-load records retain only a hypothetical
+closed-contact unit mode. No preload, gap closure or actual contact is inferred.
+
+**Capture comparison:** each original end uses a 1,000-N/mm scalar prior.
+In the prescribed one-dimensional series reference, every profile leaves a
+positive budget for the other end components. A uniform sufficient condition is
+**C_remaining≤0.000712038566 mm/N**. A rounded sufficient remaining stiffness
+is **1404.419 N/mm**. This is a sufficient budget, not a measured or derived
+wood/head/thread/contact compliance. The old bolt-stem scalar references stay
+separate; no full-root strength sensitivity or actual shank claim is adopted.
+
+**Disposition:** the metal normal-mode comparison is complete under these
+elastic and pressure hypotheses. Wood/embedment, head/nut/thread transfer,
+surface contact and mixed lateral/couple behavior still need their own
+compatible treatment before crediting the capture prior or a brace return
+path. This is neither an elastic peak-stress/yield check nor a replacement
+frame spring or physical demand bound. Complete fittings, local wood strength,
+restraint/response and all earlier holds remain open under the full active goal.
+
+An independent **80-digit Decimal** check reconstructs all **1,000** unit
+profiles, **200** end budgets and the canonical **6,000-mode** receipt. Four
+constitutive controls check trace/shear factors; a force-controlled two-bar
+known answer verifies the compliance-bound direction and factor two. Original
+force-vector norms differ by **<3.540e-14 N**. Component rounding adds
+**<7.585e-13 mm/N**; the complete pi/rounding allowance is **<1.156e-9 mm/N**.
+All **12 source bindings** pass. Producer/checker replays are byte-identical;
+scoped Ruff, all **220** targeted development/documentation checks, changed
+links, tables and whitespace checks pass. The summary stays 150 lines.
+Standard-library Python **3.12.3** suffices. The pi enclosure and rounding
+are arithmetic controls, not physical uncertainty estimates.
+
+These **521,405 active bytes** stay in the existing ignored closure folder.
+Profile IDs reference the existing geometry; mode receipts avoid copying
+all 6,000 rows or any original field/solid. No native/frame/CAD/contact/plate
+solve, dependency, manual copy, model/hardware/spring change, physical
+operation, observation, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-washer-axial-compliance-bound-v1.py` | 11,865 | `c145640e1bd0534f32b1aaaefcfa04bd9e4b8e5de708940d0ab2f66da079ba5d` |
+| `current-washer-axial-compliance-bound-attempt01.json` | 492,385 | `0f184c19cf4c682d9d31a9f2088420f03491216a0ff60da076d267b56fd6879e` |
+| `current-washer-axial-compliance-verification-v1.json` | 17,155 | `5629b6e4612819a0b1a99bd6b64f5c8a080bead14ed1bbe6bce631d96a670cb7` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-washer-axial-compliance-bound-v1.py /tmp/eoere-washer-axial-compliance-replay.json
+```
+
+The producer and checker records embed complete sources. Use fresh outputs
+from the repository root. All current/frozen inputs and failed evidence stay active.
+
 ### Cleat transverse wrenches and the three qualification limits
 
 The owner requested investigation of cleat transverse resistance,
