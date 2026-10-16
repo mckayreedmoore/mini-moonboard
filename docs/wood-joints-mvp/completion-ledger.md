@@ -5286,8 +5286,9 @@ softwoods. It is an available reference, rather than another net-section
 stress calculation. Applying it to the finite rounded channels still needs
 a justified geometry/strength-format mapping and coverage of their other
 simultaneous actions; that alone supplies no NDS notch-location permission.
-No new slit calculation or machining release is issued here. The existing
-shared chapter PDF and its recorded hash are reused.
+The [planar followup](#current-central-channel-slit-reference) below supplies
+the current M/V binding; it issues no machining release. The existing shared
+chapter PDF and its recorded hash are reused.
 
 The independent check reconstructs all **60 support enclosures in world X**
 from the original source tables and checks all four extreme support-end pairs
@@ -5319,6 +5320,88 @@ Python **3.12.3** and its standard library suffice. The result embeds
 fresh output filename. Existing sources, normal results, manuals and failed
 experiments stay active; nothing is archived or pruned. No native/frame solve,
 CAD rebuild, new dependency, copied manual or physical observation is added.
+
+<a id="current-central-channel-slit-reference"></a>
+**Six central channels: bounded planar slit reference.** Apply the already
+identified [USDA Wood Handbook, Chapter 9](https://research.fs.usda.gov/treesearch/62251),
+printed p.9–12, Eq.9–21 / Figure 9–14, to the six held central-channel M/V
+pairs in all six current cases. Reuse the checked channel geometry and
+continuous six-wrench intervals; no new frame, native or CAD calculation.
+
+For the auxiliary slit model, use numerical geometry enclosures
+**h≥139.699 mm**, **b≥38.099 mm**, **a≤14.351 mm**, so **a/h<0.11**.
+Coarse upward Figure 9–14 readings over that depth band give the recorded
+boxes **A_t,A_c≤0.025** and **B≤0.05**, in `(MPa sqrt(mm))^-1`.
+The plot's readings **0.25 / 0.5** multiply `1e-4` in
+`(kPa sqrt(mm))^-1`; converting to MPa supplies those boxes. These are
+graphical readings, not published table entries or a new DF-L No.2 allowable.
+Use the larger A box for either bending sign:
+
+```text
+U = sqrt(h) * [A*6*abs(M)/(b*h^2) + B*3*abs(V)/(2*b*h)]
+```
+
+Each channel band is enclosed by its own saved parent interval; retaining
+that complete interval can only overbound the selected M/V values. Their
+cut origins match the gross beam centers within **3.742e-10 mm**. Add a
+**1e-6-mm** axial-force moment-arm allowance, **1e-3 Nmm** moment allowance
+and **1e-5 N** shear allowance; bound `1/sqrt(h)` upward by exact squaring.
+These are arithmetic controls, not observed stock or cutting tolerances.
+
+| Held central channel's member | Governing source case | Upper planar slit reference |
+| --- | --- | ---: |
+| Bottom half-rail, left | `a1-rear` | **0.335919** |
+| Bottom half-rail, right | `a12-left` | 0.055893 |
+| Lower service half-rail, left | `k12-right` | 0.020354 |
+| Lower service half-rail, right | `a12-left` | 0.020983 |
+| Upper service half-rail, left | `k12-right` | 0.025478 |
+| Upper service half-rail, right | `a12-left` | 0.026174 |
+
+All **36** comparisons are below one on the unchanged nominal action basis.
+This evaluates the published planar reference. A compatible design action
+multiplier lambda and strength fraction eta would have the sufficient
+reference condition
+`lambda*U_upper <= eta`; neither conversion is assigned here.
+
+**Disposition:** the M/V reference does not itself exclude this alternative,
+but it does not qualify the actual finite rounded notch. Each real channel
+is approximately **20.428 mm long / 14.350 mm deep**. Its complete geometry
+must have an applicable conservative mapping before the slit coefficients
+can establish resistance. Moreover, **all four other wrench components** —
+grain force, weak-direction shear, torque and weak-axis moment — are nonzero
+in **every one of the 36 records** and remain explicitly saved. They receive
+no resistance from Eq.9–21. The six failed NDS location checks and machining
+holds remain unchanged; no allowable climber load, complete member pass,
+physical observation or release follows. The full engineering goal stays active.
+
+An independent **80-digit Decimal** check rejoins all six authenticated fields,
+all 36 parent intervals, target bands and complete component bounds. It uses
+the original printed formula and independently checks the unit conversion,
+origin transport and reference maxima. Maximum index difference is **1e-81**;
+the deliberate square-root enclosure adds at most **2.278e-6** to U. All
+**14 source bindings** pass. Producer/checker replays are byte-identical;
+scoped Ruff, all **220** targeted development/documentation checks, changed
+links, numeric/artifact tables and whitespace checks pass. The summary stays
+150 lines. Standard-library Python **3.12.3** performs the arithmetic; cached
+PyMuPDF **1.26.4** only inspects the existing chapter's figure and units.
+
+These **116,911 active bytes** stay in the existing ignored closure folder.
+The existing channel census, interval verification, pure square-root helper
+and shared manual are reused. No dependency, copied manual, physical/model
+change, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-central-channel-slit-reference-v1.py` | 10,477 | `70edc5d41feb81bd1201639b65dbb4f2891a65aa7cb7d964cea2023b6a4fb55b` |
+| `current-central-channel-slit-reference-attempt01.json` | 77,625 | `b13c0aa7da017f793619bb4666b21c882f5dfc8d9f1cd78dc3bf23d58fd22850` |
+| `current-central-channel-slit-reference-verification-v1.json` | 28,809 | `8a3e8c03c87fa78b1e92125566e37bc05fbe3a7383ca343a03c4ef6762f845e4` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-central-channel-slit-reference-v1.py /tmp/eoere-central-channel-slit-replay.json
+```
+
+The records embed complete producer/checker sources. Use fresh outputs from
+the repository root. All prior/current sources and failed evidence stay active.
 
 <a id="current-side-positive-bearing"></a>
 **Two paired-edge cases: positive-side bearing with complete lateral shaft statics.**
