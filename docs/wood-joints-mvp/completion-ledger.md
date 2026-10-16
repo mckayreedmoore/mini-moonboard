@@ -7618,6 +7618,120 @@ active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
 
+<a id="current-unholed-flange-root-interaction"></a>
+**Simultaneous actions at the unholed flange roots.** The current six-case
+comparison covers **264 roots**: both flanges of all 22 fittings in each
+case, at **X=12.7 mm**, where the working rounded heel meets each straight
+flange. The root section is the full **88.9 × 6.35-mm rectangle**. The nearest
+unused factory-hole edge is **6.1125 mm** beyond it. All original fine
+bearing, axial-capture and backing actions and the retained straight-flange
+gravity partition contribute to each root's complete signed wrench.
+
+This resolves the previously uncombined **root section-strength comparison**.
+Use the published rectangular-element interaction in
+[Dowswell (2019), Eqs.43/61, printed pp.72/80](https://ej.aisc.org/index.php/engj/article/download/1147/1146/1146),
+originating in Dowswell (2015), Eq.67. In the own flange chart, N is along the
+flange, V is the resultant of its two transverse forces, T is torque about
+the flange, and My/Mz are weak/strong-axis moments. With absolute ratios,
+the comparison is:
+
+```text
+I = (N/Nc)^2 + (V/Vc)^4 + (T/Tc)^2
+    + [(My/Myc)^1.7 + (Mz/Mzc)^1.7]^0.59 <= 1
+```
+
+Retain conditional **Fy=235 MPa**, nominal **t=6.35 mm** and factor **1.67**.
+Use elastic bending strengths Fy*S below the plastic section strengths,
+shear yield Fy/sqrt(3), and uniform torsion only. The exact rectangular
+Prandtl-roof field gives **Tn=(Fy/sqrt(3))*(b*t²/2-t³/6)**. Its integral is
+checked independently, including the square-section control. No warping or
+Wagner resistance is credited. Available N/V/T/My/Mz are **79,437.740 N /
+45,863.401 N / 142,149.242 Nmm / 84,071.608 Nmm / 1,177,002.508 Nmm**.
+These are working comparison strengths, not delivered-product ratings.
+
+| Current case | Roots | Maximum root interaction |
+| --- | ---: | ---: |
+| `a12-forward` | 44 | 0.252111 |
+| `a12-rear` | 44 | 0.189085 |
+| `a12-left` | 44 | **0.252816** |
+| `k12-right` | 44 | 0.249071 |
+| `k12-rear` | 44 | 0.187662 |
+| `a1-rear` | 44 | 0.131937 |
+
+The governing root is the left base angle, **arm-z / a12-left**, with signed
+**[N,Vy,Vz]=[-362.481614,341.481879,-217.176479] N** and
+**[T,My,Mz]=[18579.532091,19896.052589,-3365.564215] Nmm**. The exact stored
+interaction is **0.2528158699630581**. Under this nominal fixed-action
+comparison, root section strength is not the governing unresolved duty.
+
+Keep a separate **hypothetical gross-solid cantilever comparison**. It uses
+E=200,000 MPa, length 76.2 mm, effective compression/LTB length 152.4 mm and
+Cb=1, with [AISC 360-16 E3/F11](https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_march-2021.pdf)
+and the 2019 paper's torsion amplification. Its Euler load is **161,213.534 N**;
+its axial load envelope is the sum of own force magnitudes, at most
+**2,052.221 N**. The resulting local magnifiers reach **1.012894** for the
+selected axial comparison and **1.000006854** for torsion. Its maximum
+combined index is **0.2557678394128884**. It assumes a fixed root and omits
+the holes along the length. **It does not qualify actual flange stability,
+heel restraint, frame response or a physical demand bound.** It is separate
+from the root section result above; neither calculation supplies full
+fitting acceptance.
+
+The [common-flat backing construction](#current-flat-flange-backing-pressure)
+preserves every original normal patch wrench beyond X=12.700999 mm. An
+additional **2,640 steel washer profile/case support checks** place all their
+finite annuli beyond **X=52.006499 mm**. Thus those finite normal-load
+constructions preserve the complete root wrenches; no cut through a loaded
+footprint is substituted by its centroid. This does not transfer the root
+method to a holed section or establish matching bend-end tractions.
+
+A scalar force/cross-product reduction independently recovers all 264
+wrenches, with maximum differences **1.136869e-13 N / 3.637979e-12 Nmm**.
+Independent **70-digit Decimal** arithmetic recovers all ratios and both
+indices; maximum interaction difference is **1.110224e-16**. The published
+ASD examples recompute to **0.8146555601 / 0.9560726528**, matching their
+rounded **0.815 / 0.956**. All **127 unique root, inherited pressure and
+washer/checker source bindings** are rechecked unchanged. The paper was read
+through its primary indexed PDF text; no local PDF copy/hash is claimed.
+
+Five active files in the existing ignored engineering-closure folder total
+**510,604 bytes**. Attempt 01 stopped before producing engineering results:
+the source stores its minimum as rational text `12701/1000`, while the first
+reader compared it directly with a float. V2 retains V1 and explicitly parses
+that one value in a private input adapter. No criterion or source value changes.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flange-root-interaction-v1.py` | 11,656 | `d97ba1418e4f9144c6faf8cb3140ab32fbd24c6fc3f65df18f419eaff03267c2` |
+| `current-flange-root-interaction-attempt01-stop.json` | 636 | `8de4d65c233dd217a0a2c691ce744131361452c20817c2316c9a633b505942a5` |
+| `current-flange-root-interaction-v2.py` | 1,828 | `2c0f268e1d7cd23bc9b9ad852c0e62b7a0543507cff31808adcdc0642ab19db9` |
+| `current-flange-root-interaction-attempt02.json` | 483,784 | `7520cf969559c1da0493022456003a490f47f5761d63b17616904b091c029bdb` |
+| `current-flange-root-interaction-verification-v1.json` | 12,700 | `e9e40350c118d712a9a3218bdc8e72b65eaa792d9cd9574e692a0cb25b153679` |
+
+The verification JSON embeds its complete checker. Reproduce into fresh
+outputs; no new frame, native, CAD, contact or local plate solve is involved:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-root-interaction-v2.py /tmp/eoere-flange-root-replay.json
+```
+
+Scoped Ruff checks pass for both producers and the independent checker.
+Fresh producer/checker replays are identical. All **220 affected development
+and documentation checks**, six changed local links/fragments and owned
+whitespace checks pass. The maintained summary stays at 148 lines; only
+the two maintained documents enter the commit.
+
+The published interaction is an engineering approximation for rectangular
+elements, not an everywhere stress certificate. It supplies no net-hole,
+local bearing/prying, timber-interior, splitting or complete flange/bend
+transfer conclusion. Next complete the hole/load-entry duty using the
+retained bore and block-path evidence with an applicable net-section method;
+keep physical restraint in the complete-joint disposition. Both cleats, all
+100 bolts and 66 Hillman axes remain fixed. Panel/screw remedies remain
+deferred and actual observations blank. All five files and reused sources
+remain active; nothing is archived or pruned. The full engineering completion
+goal remains active and unachieved.
+
 <a id="current-flat-flange-backing-pressure"></a>
 **Backing pressure on material common to the nominal and rounded models.**
 Before applying a full-flange interaction method, check whether the existing
