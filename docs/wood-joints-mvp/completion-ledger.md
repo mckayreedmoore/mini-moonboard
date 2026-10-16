@@ -5568,6 +5568,120 @@ observed Actual/Disposition entry is added. The full engineering goal remains
 active and unachieved, including the clipped, paired-edge, complete-joint,
 restraint/response and held-detail duties.
 
+<a id="current-floor-and-shear-sharing-limits"></a>
+**Floor reactions and limits of bolt-only shear redistribution.** The existing
+moment-only five-member loop cannot supply the net-force reductions needed
+by the three failed front-post comparisons under their unchanged loaded-edge
+basis. At the failed rear-foot cut, bore-force redistribution alone also leaves
+the source-model shear unchanged when floor and other non-bore actions stay
+fixed. This closes those specific shortcuts; it does not exclude every wider
+allocation or establish a physical failure load.
+
+First recover the horizontal floor reactions from whole-frame equilibrium.
+In the current support model, all normal forces act at Z0; only the two rear
+centroid stations carry horizontal force. Their Y coordinates are identical,
+**1568.009014811115 mm**, and their X coordinates are **−1282.7 / 1279.525 mm**.
+With required floor resultant Fx/Fy and yaw moment Mz:
+
+```text
+RyL + RyR = Fy
+xL*RyL + xR*RyR - y0*Fx = Mz
+```
+
+Thus both Ry values are unique under these frozen first-order loads and
+coordinates, independently of joint stiffness or vertical support sharing.
+The individual Rx values remain statically indeterminate. Direct reduction
+of all **5,010 external-load records** gives the following values, rounded
+to six decimals; no favorable horizontal reaction is selected:
+
+| Current case | Left rear Ry, N | Right rear Ry, N |
+| --- | ---: | ---: |
+| `a12-forward` | 269.147909 | 30.852091 |
+| `a12-rear` | −269.147909 | −30.852091 |
+| `a12-left` | −2.160846 | 2.160846 |
+| `k12-right` | 2.160846 | −2.160846 |
+| `k12-rear` | −34.976436 | −265.023564 |
+| `a1-rear` | −269.147909 | −30.852091 |
+
+The largest difference from the saved reactions is **5.206e-7 N**, below
+the existing **1e-5-N** arithmetic allowance. This is a result for the
+declared centroid/no-slip model, not verified floor friction, an anchor or
+a finite-geometry demand bound. The 32 normal reactions retain their
+unqualified vertical sharing; exact Ry does not qualify that response.
+
+At each joint, the existing loop adds opposing forces and optional opposing
+free couples. Its **ten host/joint net-force sums are zero**. A cut enclosing
+both bolt stations therefore has zero shear-force increment for every
+amplitude in that family. All three failed post cuts include their complete
+front pair and exclude the other post pair. The previously recorded net-force
+and outside-band reduction targets consequently remain unchanged. Altering
+individual loaded-edge signs requires its own applicable treatment; leaving
+the original same-edge method does not supply a passing result.
+
+For left `a12-forward`, take the rear-foot cut at world grain
+**−309.483970676071 mm**, just below the complete lowest bore. All four leg
+bore supports lie above it, with numerical enclosing clearance **>0.00099 mm**.
+The original point actions and affine selfweight give shear **−823.830500 N**
+there, still exceeding the retained negative-edge upper reference
+**733.572610 N** after the existing allowance. The full six-component cut
+is retained; this is a particular cut inside the earlier interval enclosure,
+not a replacement or tightening of that frozen envelope.
+
+Changing bore forces or couples above this cut cannot alter its free-body
+force. If the current loaded edge, Ry, other contact actions and affine
+gravity stay fixed, reducing the leg's total vertical floor reaction Rz by
+dRz reduces this shear magnitude by **0.239151831953*dRz**. Removing even
+this witnessed exceedance needs **dRz >377.408 N**, from the source
+**Rz=2355.100929 N** to **Rz <1977.693 N**. These are necessary targets,
+not a statically balanced or compatible redistribution, a sufficient strength
+check or permission to unload a credited rear support. Any proposed vertical
+sharing change must carry the displaced force and moments through the retained
+frame and recheck the affected joints, members and restraint.
+
+**Next action:** retain all four source shear failures and six channel holds.
+Do not sweep moment-loop amplitudes to seek a force reduction that this
+family cannot produce. A supported force-transferring allocation, vertical
+support-sharing treatment or applicable alternative strength method is needed
+before the affected holds can clear. Complete fitting, wood-interior,
+splitting and response duties remain required; the full goal is unachieved.
+
+An independent exact-rational check uses six small Gaussian eliminations,
+all **288 floor-action records**, the three post inclusion checks, ten loop
+net-force sums and all four rear-bore enclosures. It reconstructs all six rear
+cut components directly from the primitive tables and a dimensionless affine
+gravity integral: maximum differences **9.586e-14 N / 3.329e-10 Nmm**.
+The vertical-reduction difference is **2.116e-13 N**. **17 source bindings**,
+including producer and result, recheck; synthetic floor/null-mode and unit
+vertical-unloading controls pass. Producer/checker replays are byte-identical
+and scoped Ruff passes. Python **3.12.3** and its standard library suffice.
+The first intake guard stopped on an omitted optional zero-couple key; V2
+uses the existing `free_moment` convention. That stop and source stay frozen.
+No load, reference, geometry or actual observation changes.
+All **220** targeted development/documentation tests pass. Changed-line checks
+resolve **12 local links/fragments**, authenticate the five artifact rows and
+match twelve signed-reaction values and five rear-cut/target values. The main
+summary remains 150 lines; whitespace checks pass.
+
+The existing ignored closure folder retains these **56,988 active bytes**;
+no manual, native/frame/contact solve, CAD rebuild, dependency, archive or
+pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-floor-and-shear-sharing-limits-v1.py` | 13,225 | `03cdd2604643c18c36b48a5e93267f4cfe8d5b4a3f50238ca3073d087212613f` |
+| `current-floor-and-shear-sharing-limits-attempt01-stop.json` | 13,986 | `b13a903ba7ad3c21fd7b796201b4b527367b1e33521f07288bd6f616d2bc3fe6` |
+| `current-floor-and-shear-sharing-limits-v2.py` | 1,571 | `bb99762cf7900bc66fdcd2ac15a6a96fc64f0f5300e9f3a3f31e7b3f5011a8ca` |
+| `current-floor-and-shear-sharing-limits-attempt02.json` | 17,319 | `1811941202ab81248eb7e2940e22ec1bba26cc31669cc5330381f7d2e9f33ff6` |
+| `current-floor-and-shear-sharing-limits-verification-v1.json` | 10,887 | `ec8113dad858a4d4469c244ccdb0c89ae1ddfaa4d0ee2940ebef86c429a82d92` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-floor-and-shear-sharing-limits-v2.py /tmp/eoere-floor-sharing-replay.json
+```
+
+The result embeds V2 and pins V1; verification embeds its complete checker.
+Use fresh output names. Both retained corners, 100 bolts, 66 Hillman axes,
+panel/screw deferral and blank actual observations remain unchanged.
+
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
 The four header groups, four top-rail groups and two center-post groups pass
@@ -5623,7 +5737,10 @@ comparisons is unchanged**, rather than merely recovering the same complete
 body wrench. Changing only P/G at those upper interfaces cannot affect this
 post criterion. The wider [five-member loop](#current-five-member-existing-bolt-loop)
 was evaluated only for left `a1-rear`, which is not one of the failed cases.
-Its passing shaft references do not clear the other cases.
+The [sharing-limit check](#current-floor-and-shear-sharing-limits) now shows
+that its opposing-force/couple family cannot reduce these same-edge failure
+witnesses. A force-transferring allocation or supported floor-reaction change
+requires its own evidence.
 
 At the **unchanged +Y loaded edge and upper capacity enclosure**, the known
 shortfalls give the following strictly positive reduction targets. Values
