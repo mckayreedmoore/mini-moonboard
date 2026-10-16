@@ -11738,6 +11738,93 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. No prior result or capacity is reclassified.
 
+<a id="current-cleat-omission-and-ring-mapping"></a>
+**Cleat omission and ring-rule mapping: no complete exemption established.**
+The cached [NZ Wood guide](https://cms.timberunlimited.co.nz/assets/Resources/reinforcement_of_timber_members.pdf?v=1689136441),
+printed pp.23–25, provides a `de/d>=0.7` transverse-load omission criterion.
+Chapter 10, printed pp.53–54, separately discusses moment connections and
+fastener rings. Check those possible shortcuts before assigning another
+resistance. Reuse the existing group geometry, 58 directional components
+and 96 complete own dowel loads; no force or moment changes.
+
+| Allocation | Directional components | Numeric axis ratios ≥0.7 | Uniform recorded-band ratios ≥0.7 |
+| --- | ---: | ---: | ---: |
+| Source | 24 | 1 | 0 |
+| Coupled V4 | 34 | 10 | 0 |
+
+The favorable upper front-loaded ratio is approximately **0.714833** at
+the bolt axis, but its recorded sloping band spans **0.692338–0.738839**.
+The single source occurrence is left upper `a1-rear`; the ten coupled
+occurrences retain their own active rows and signs. These are geometric
+screens. A constant-depth rule is not adopted for the sloping body merely
+because its centerline ratio passes. The conservative uniform-band mapping
+does not establish an omission; its miss is not a physical splitting failure.
+
+All four centers on each cleat are concyclic in YZ, with rectangle dimensions
+**50.8×142.0875 mm**. Their connectivity is nevertheless:
+
+```mermaid
+flowchart LR
+  P[Outer post] ---|2 lower bolts| C[Wood cleat]
+  C ---|2 upper shared shafts| U[Side timber and angle]
+```
+
+The opposing member sets have no member common to all four axes. For this
+geometry, shear in the fastener plane produces a moment about **world X**.
+All **48 actual interface-group records** also retain axial X force or
+out-of-plane Y/Z moments; maximum group **|Mx|=31818.810930 Nmm** and
+**|Mz|=8472.848688 Nmm**. The planar ring calculation alone cannot verify
+those additional components. Absence of a ring reduction supplies no absolute
+resistance. A single four-bolt, two-member connection model is not established
+by the concyclic centers.
+
+Combining all four bores gives net Y at most **2.914e-10 N**, while their
+sum of absolute individual Y forces reaches **911.302610 N**. That numerical
+cancellation cannot erase local demand at the two interfaces. Retain each
+group and own width couple; do not assign a net-force exemption, generic
+15% factor or an independent centric resistance to every bore.
+
+**Disposition:** the omission/ring shortcuts do not qualify the complete
+corner. Reuse the unchanged effective-area requirements and eccentric-dowel
+records; a capacity assignment still needs a matching finite/end/group and
+three-dimensional transfer basis. No physical corner failure or redesign
+decision follows. The full goal stays active, and the corner holds remain.
+
+Independent exact-rational reconstruction from the original YZ polygons
+checks all **58 ratios**, with maximum depth/ratio differences
+**<2.985e-14 mm / <1.711e-16**. Summing the 96 own dowel records reconstructs
+all **24 four-bore wrenches with zero difference**. Sixteen planar unit-load
+controls verify the moment-axis mapping; source receiver sets are checked.
+The first verifier stopped on exact equality between the fine-bearing sum
+and its stored floating-point port alias. Preserve that stop. The corrected
+check keeps exact fine sums and separately bounds every alias discrepancy,
+maximum **2e-14 N**, below the existing **1e-9-N** join gate. No engineering
+input, criterion or result changes. All **20 source bindings** pass;
+producer/checker replays are byte-identical. Scoped Ruff, all **220** targeted
+development/documentation tests, changed links, artifact/table values and
+whitespace checks pass; the summary stays 150 lines.
+
+These **127,119 active bytes** stay in the existing ignored closure folder.
+The guide and earlier evidence are reused; the stop and evaluated checker
+sources remain embedded and recoverable. No copied manual, dependency,
+native/frame solve, CAD query/rebuild, geometry change, physical operation,
+observation, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-omission-and-ring-scope-v1.py` | 10,101 | `05036442568833d34c9ce623ae439f3a304cbb1a612c28d95d91fb283cfa54dd` |
+| `current-cleat-omission-and-ring-scope-attempt01.json` | 92,976 | `9e1600451f3100ff269b6900b71fc706780579e585c1bfded9ba360eac548364` |
+| `current-cleat-omission-and-ring-check-attempt01-stop.json` | 8,215 | `8d4a2b36e41b64613ae2a61320475eb70238c693ce398dad707f124f06a2b3c7` |
+| `current-cleat-omission-and-ring-scope-verification-v2.json` | 15,827 | `f9a4eb147482a3fc5dfe172d40d1d54df9f6b79611843b8a9606fc18c978055a` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-omission-and-ring-scope-v1.py /tmp/eoere-cleat-omission-ring-replay.json
+```
+
+The producer and verification records embed their complete sources. Use
+fresh outputs. Standard-library Python **3.12.3** performs the arithmetic;
+the existing shared PyMuPDF **1.26.4** only inspects the cached source pages.
+
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
 The current six fields instead declare **1,000 N/mm screw stiffness**,
