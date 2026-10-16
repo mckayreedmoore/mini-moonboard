@@ -10959,6 +10959,96 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 The producer and checker records embed complete sources. Use fresh outputs
 from the repository root. All current/frozen inputs and failed evidence stay active.
 
+<a id="current-grade5-axial-proof-reference"></a>
+**Selected Grade 5 bolt/nut axial proof comparison.** Reuse the existing
+[100-stack purchase selection](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv),
+six own fields and capture forces. This completes **600 bolt and 600 nut
+axial proof-mode references**, including **48 shared-stack cases**. It adds
+no thread-contact model or replacement joint resistance.
+
+The [J429 Grade 5 table](https://www.portlandbolt.com/technical/specifications/sae-j429/)
+gives **85-ksi bolt proof stress** at both selected sizes. The
+[J995 standard-hex Grade 5 table](https://www.portlandbolt.com/technical/specifications/sae-j995/)
+gives **120-ksi nut proof stress**. The
+[UNC thread-area table](https://www.portlandbolt.com/technical/thread-pitch-chart/)
+supplies **0.0775 / 0.1419 in²** for 3/8-16 / 1/2-13. The selected
+[2571](https://boltdepot.com/Product-Details?product=2571) and
+[2573](https://boltdepot.com/Product-Details?product=2573) nuts retain their
+SAE J995 / ASME B18.2.2 specification. Apply those purchase specifications
+conditionally with standard full-form engagement. The nominal seating and
+two-pitch margins are positive for every stack; actual engagement and
+conformity remain unobserved, and the earlier conflicting listing fields
+remain unverified.
+
+Include the source hardware's own gravity rather than comparing bare end
+forces alone. For each shaft, W is **all** its hardware weight, including
+any spacer. Let d be its recorded near-unit axis and eps=1e-9; its squared
+norm is verified inside `(1±eps)^2`. Conservative axial-resultant bounds are:
+
+```text
+Tbolt = (1+eps)*max(Nhead,Nnut) + W + sum(abs(Fbore dot d))/(1-eps)
+Tnut  = (1+eps)*Nnut + W
+Pproof = published proof stress * conventional tensile stress area
+U = 1.67*T/Pproof
+```
+
+The nut comparison charges more than its own share of assembly weight. The
+largest W is **3.059029 N**; the summed bearing-axis projection is below
+**3.581e-14 N**. Own capture free couples are zero and checked. The inherited
+**1.67 working factor** is explicit; this is not a new ASD/ULS load-combination
+authentication, code allowable or instruction to perform a proof test.
+
+| Thread / axes | Bolt proof reference, kN | Nut proof reference, kN | Largest bolt U | Largest nut U |
+| --- | ---: | ---: | ---: | ---: |
+| 3/8-16 / 96 | 29.30265 | 41.36846 | **0.025737** | **0.018230** |
+| 1/2-13 / 4 | 53.65222 | 75.74431 | **0.026509** | **0.018778** |
+
+Proof references round downward; indices round upward. Both global maxima
+occur at `lumber_leg_bolt_right_2 / k12-right`, with a bolt axial upper
+**851.651503 N**. The eight shared axes include four one-wood/two-flange and
+four two-wood/one-flange stacks; their largest bolt index is **0.024027**,
+`eoere_bolt_067 / a12-left`. Every axis uses its own selected nut and thread.
+
+**Disposition:** the catalog axial proof comparison is complete. It does
+not establish local head/nut/washer bearing transfer, root concentration,
+reduced engagement, installation torque/preload, or simultaneous bending,
+shear and torsion. The existing partial-thread/body combined-yield result and
+non-adopted full-root sensitivity keep their separate meanings. No proof
+stress is assigned to washers or spacers, no tensile stress area replaces a
+bore/root diameter, and no capture compliance or complete joint is qualified.
+
+An independent **80-digit Decimal** check recomputes all **1,200** references
+and the twelve case/size maxima. Differences are at most **1e-81** in the
+checked scalar values; source mass times gravity agrees with the separate
+metal load sums within **4.547e-16 N**. All **ten source pins**, unit/load and
+triangle controls pass. The first checker omitted the one-wood/two-flange
+shared layout; its source/stop record is preserved. V2 fixes that census only.
+Producer/checker replays are byte-identical; scoped Ruff, all **220 affected
+development/documentation checks**, changed links/tables and whitespace pass.
+
+The **71,534 active bytes** below remain in the existing ignored closure
+folder. The small facts record transcribes the operative public tables with
+their URLs; no full manual, field or dependency is copied. The producer,
+verification and stopped check embed their complete Python sources:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-grade5-axial-proof-facts-v1.json` | 2,265 | `83e588c694cf00df41ef758a39cbe431083a248bfaa45c9346470d6dfc90ec1f` |
+| `current-grade5-axial-proof-reference-v1.py` | 10,537 | `d6d23921e30ec27395c0143518b3ea28ff944f9a2c8372a7fe7107503779269a` |
+| `current-grade5-axial-proof-reference-attempt01.json` | 39,342 | `5f62e4ad6018d042fc1241e1f829b1f3f1ff248d866356658f1ab9e7c381f471` |
+| `current-grade5-axial-proof-check-attempt01-stop.json` | 7,541 | `330328f88de35a99c69ddf7b40f9b7214a285499edda2f8ce3439b6d12910d68` |
+| `current-grade5-axial-proof-verification-v2.json` | 11,849 | `c424c270b598f665a9b4f0137b7651dfd5b2e006bc39866140c7e40b750d605c` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-grade5-axial-proof-reference-v1.py /tmp/eoere-grade5-axial-proof-replay.json
+```
+
+Use fresh outputs from the repository root. The geometry, 100 bolts and
+66 Hillman axes are unchanged. No native/frame/CAD solve, physical operation,
+observation, archive or pruning occurs. The coupled timber return, local
+splitting, complete holed fitting and restraint/response work remain open;
+the full engineering goal remains active and unachieved.
+
 <a id="current-cleat-normal-return-wrench"></a>
 **Cleat normal-pressure return and the compression-column limit.** Before
 assigning wood compression stiffness to the remaining capture budget, check
