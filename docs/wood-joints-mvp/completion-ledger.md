@@ -4932,6 +4932,146 @@ fresh output filename. Existing sources, normal results, manuals and failed
 experiments stay active; nothing is archived or pruned. No native/frame solve,
 CAD rebuild, new dependency, copied manual or physical observation is added.
 
+<a id="current-mitered-prismatic-connection-shear"></a>
+**Prismatic receiver bands before miters: 144 comparisons and one added failure.**
+The current six-case continuation adds **138 conservative passes, one failed
+rear-foot component and five paired-edge comparisons on hold**. The coverage
+join now accounts for **all 120 own wood receiver occurrences on all 100 bolt
+axes**, grouped into 60 physical two-bolt receiving groups. Of 324 source-case
+comparisons within the assigned rectangular-component scope, **315 pass,
+four fail and five remain held**. Six clipped groups, or **36 case/group
+classifications**, remain outside that rule. The [earlier rail](#current-rail-end-connection-shear),
+[front](#current-front-end-connection-shear), [remaining rectangular](#current-remaining-rectangular-connection-shear)
+and [lower-cleat](#retained-cleat-reference-audit) results are reused within
+their limits. This census does not complete the joints or member qualification.
+
+**Method applicability.** [NDS 2024](https://awc.org/resources/2024-nds/),
+§3.4.4.1, printed p.21, gives the rectangular bending-member connection-shear
+rule; it does not state a square-cut-end requirement. This continuation
+applies its **local shear component** where the complete bore band lies in
+an unchanged prismatic region clear of the mitered ends. Raw/finished outer-plane
+inequalities enclose all section corners at both band ends. Convexity covers
+the intervening band; no miter is replaced by an assumed square cut.
+Use the least end distance over the whole depth to select the conservative
+near/far branch. **96 comparisons use Eq.3.4-6; 48 use Eq.3.4-7.**
+End/edge/group anchorage and complete miter/recess behavior remain separate.
+
+The [2018 NDS commentary](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf),
+C3.4.3.3, printed p.204, explains that V is the member shear from all loads,
+including connection loads. The current clause is renumbered §3.4.4.1;
+use the retained current equation and [March 2026 errata](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf).
+The worksheet therefore includes the complete original action set and affine
+selfweight. Explicit point-action prefixes handle one-sided cuts on inclined
+grain axes. The frozen `stress_range` kernel supplies outward bounds over
+**1,032 action intervals**, without another response calculation.
+The existing dry DF-L No.2/CD1 **Fv'=180 psi**, **0.001-mm** geometry and
+**1e-5-N** force enclosures remain. These are analytical numerical allowances,
+not actual-stock tolerances or physical pressure bounds.
+
+The two foot bands use their actual **50.8-mm** remaining widths. The two
+upper-leg bands retain **88.9 mm**, with all four complete bands clear of the
+recorded **457.2-mm** taper. Six genuinely clipped bands are withheld:
+the upper pair on each cleat, its receiving pair on each side member, and
+the lower mixed pair on each center principal. The two existing runner-front
+and two lower-cleat groups are identified as reuse, not new results.
+
+| Added receiver family | Comparisons | Conservative passes | Failed component | Held paired-edge comparison |
+| --- | ---: | ---: | ---: | ---: |
+| Runner rears | 12 | 12 | 0 | 0 |
+| Center principals | 48 | 48 | 0 | 0 |
+| Exterior side members | 60 | 55 | 0 | 5 |
+| Rear-leg feet and upper pairs | 24 | 23 | **1** | 0 |
+
+**Added hold: left rear-leg recessed-foot connection, `a12-forward`.**
+The guarded shear upper is **823.830509 N**, giving **1.123212** against
+the conservative smaller-edge reference. A complete action interval has
+shear magnitude **>823.767 N**, while the upper enclosure of the relevant
+loaded-edge reference is **<733.573 N**. Both own bolt resultants point toward
+that weaker edge: **−401.289929 / −348.969193 N** along the leg's transverse
+axis. This is an exceedance under the current saved-field/NDS component basis;
+physical collapse or failure of every possible redistribution is not inferred.
+**The left rear-leg foot connection remains held; do not release its two
+receiver holes or assembly on these calculations.** The three front-post
+component failures and six central-channel machining holds remain active.
+
+The five side/upper-leg-pair comparisons exceed the smaller-edge screen but
+retain a larger reference in the net-force direction. Their original bearing
+forces act in both transverse directions across the width; their moments
+cannot be dropped to select that favorable reference:
+
+| Current case | Receiving side | Smaller-edge screen ratio |
+| --- | --- | ---: |
+| `a12-forward` | Left | 1.365667 |
+| `a12-rear` | Left | **1.795941** |
+| `a12-left` | Left | 1.629034 |
+| `k12-right` | Right | 1.609679 |
+| `k12-rear` | Right | 1.773561 |
+
+The independent signed-bearing followup rejoins all ten own port forces and
+width moments from their primitive bearing/capture actions. For a one-sided
+line field `0<=q<=c`, length L, resultant F>0 and centered first moment S,
+packing the pressure at an end gives the necessary inequality:
+
+```text
+abs(S) <= F*(L-F/c)/2
+```
+
+Under the previously declared [minimum-radial-Fe/catalog-body/divisor-5
+working cap](#current-rear-leg-outer-core-load-entry), favorably rounded to
+**c=55.257 N/mm** across the full **88.9-mm** side bearing, exact rational
+certificates exclude every nonnegative field for **both bolts in three
+cases**: left `a12-forward`, left `a12-rear` and right `k12-rear`. The other
+four scalar inequalities do not establish a simultaneous vector/shaft/wood
+field. This closes that one-sided-pressure shortcut for those six ports,
+not the full strength question. The five paired-edge comparisons remain held
+for a supported coupled treatment; no favorable-edge pass or new allocation
+is assigned from this followup.
+
+Independent **70-digit Decimal** arithmetic reproduces all 144 comparisons,
+1,032 intervals, six clipped classifications and the failure/review split.
+Maximum force-bound endpoint / reference differences are
+**6.200e-13 / 1.831e-11 N**; the index difference is **8.351e-15**. Original
+bore force/moment joins differ by at most **1.017e-13 N / 1.085e-10 Nmm**.
+All **81 producer / 85 verification bindings** remain unchanged. A separate
+six-packet coverage join verifies 120 occurrences, all 100 bolt IDs, 60 groups
+and two duplicate runner-front records. The producer, checker and coverage
+replays are byte-identical; all four new arithmetic sources pass scoped Ruff.
+All **220 development/documentation checks**, **25** added-line local links
+and their fragments, **22** case/family table values, artifact digests/sizes
+and whitespace checks pass. The maintained summary stays at **150 lines**.
+
+The first attempt stopped at a bookkeeping guard requiring more than 200 mm
+between groups; the two cleat groups are **142.0875 mm** apart. V2 changes
+only that separation guard to **>100 mm**, retaining the original source and
+stop record. This is not a strength result, geometry change or relaxed shear
+criterion. Python **3.12.3 / NumPy 2.5.2** use existing shared dependencies.
+
+These **801,254 bytes** remain active in the existing ignored closure folder.
+The interval/census records retain the evidence for the full receiver join;
+no bulky permanent artifact or copied manual is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-mitered-prismatic-connection-shear-v1.py` | 13,699 | `28d7a864718dca39d05c2a348a78e167cc34aa42cf0807a05e70ab36fa7115c2` |
+| `current-mitered-prismatic-connection-shear-v2.py` | 1,380 | `5942fe678012a260f490c3c2ae357fdaaa6cd592ec04b080163da99c60dbacba` |
+| `current-mitered-prismatic-connection-shear-attempt01-stop.json` | 987 | `61ad47d01fa75a306d893420e58e4703c90f7b951440562113ff8a9aae7803a7` |
+| `current-mitered-prismatic-connection-shear-attempt02.json` | 738,661 | `7de3111e718a831b229ec42621548a50886b5af1f9ddbc0f43556ef0a6a90418` |
+| `current-mitered-prismatic-connection-shear-verification-v1.json` | 26,328 | `696e7dee90c4ba421a9e709e135dc21002f81dec7a2eda78ad045c2c9fc8fb8a` |
+| `current-connection-shear-coverage-v1.json` | 20,199 | `3661c43ab3e881e400bdd478ee870cb8db09d37baac7d3415845f0f77b8d328f` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mitered-prismatic-connection-shear-v2.py /tmp/eoere-mitered-shear-replay.json
+```
+
+The result embeds its V2 source and pins V1. The verification and coverage
+JSON records embed complete `reproduction_python_source`; run extracted
+sources from the repository root with fresh output filenames. Preserve all
+source profiles, admitted fields, prior passes and failed evidence. No CAD
+query/rebuild, native/frame solve, redesign, physical work, archive, prune or
+observed Actual/Disposition entry is added. The full engineering goal remains
+active and unachieved, including the clipped, paired-edge, complete-joint,
+restraint/response and held-detail duties.
+
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
 The four header groups, four top-rail groups and two center-post groups pass
@@ -5396,7 +5536,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). The [72 rail-end connection-shear comparisons](#current-rail-end-connection-shear) pass, maximum **0.411073**; [60 additional rectangular-receiver comparisons](#current-remaining-rectangular-connection-shear) pass, maximum **0.885777**. | The [six central rail channels fail the NDS prescriptive location gate](#current-channel-notch-location-gate) under the frame-support basis and their machining is held. The [36 front-post/runner-front shear comparisons](#current-front-end-connection-shear) add **three failed front-post cases**, maximum **1.505549**, with both post connections held; the other 33 component comparisons pass. **Other local channel strength, combined recess duty and support/load introduction, clipped-end loading and remaining profile coverage stay unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). The [72 rail-end connection-shear comparisons](#current-rail-end-connection-shear) pass, maximum **0.411073**; [60 additional rectangular-receiver comparisons](#current-remaining-rectangular-connection-shear) pass, maximum **0.885777**. | The [six central rail channels fail the NDS prescriptive location gate](#current-channel-notch-location-gate) under the frame-support basis and their machining is held. The [36 front-post/runner-front shear comparisons](#current-front-end-connection-shear) add **three failed front-post cases**, maximum **1.505549**, with both post connections held; the other 33 component comparisons pass. The [full receiver shear census](#current-mitered-prismatic-connection-shear) now covers all 120 wood occurrences: **315 passes, four failures and five held paired-edge comparisons** within its assigned component scope, plus six clipped groups outside that rule. The added left rear-leg foot failure reaches **1.123212** and its connection is held. **Other local channel strength, combined recess duty and support/load introduction, clipped-end loading and remaining profile coverage stay unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
