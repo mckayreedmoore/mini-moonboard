@@ -667,6 +667,118 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. No complete connection or historical resistance is reclassified.
 
+<a id="current-prismatic-pair-nominal-placement"></a>
+**Regular wood/steel placement extension: 36 pairs carried through V4.**
+The active nominal-placement registry now combines the preceding twenty
+square-ended pairs with **sixteen additional locally prismatic pairs**.
+Together they cover **72 axes**, **432 lateral references** and **216 member-shear
+references per allocation**, all passing under their recorded assumptions.
+The original and coupled V4 allocations give the same values for these
+references. Maximum combined indices remain **0.616955 lateral / 0.885777
+member shear**. This extends the earlier record's scope; its frozen bytes
+and twenty-pair result remain unchanged.
+
+Reuse the [existing mitered-receiver census](#current-mitered-prismatic-connection-shear)
+and [nominal placement basis](#current-square-pair-nominal-placement).
+The source's common full-depth rectangular core is obtained from every
+end half-plane over the complete cross-section. **Fourteen** new groups
+have at least **103.187499977 mm** to either core end, exceeding 7D = 66.675 mm.
+The other **two**, upper center-principal pairs `007/011` and `008/012`, are
+controlled by their **square upper end**, approximately 65.0875 mm away.
+The same conservative **Cdelta,placement = 0.97** is below their calculated
+end factor. No reduced factor is extrapolated onto a sloping end.
+
+Each complete nominal cross-section over the checked 7D grain envelope lies
+within the source outer planes under the existing **1e-6-mm coordinate
+enclosure**. Maximum computed plane violation is **7.652e-7 mm**. This is a
+nominal placement description; internal voids, local fracture and actual
+wood remain separate. The retained lower wedges still need their local
+checks. The published equivalent-shear-area
+clause concerns loading at an angle to the fastener axis; no broader
+sloping-end rule is inferred from it.
+
+The four receivers retain **44 bores**, including twelve outside these new
+pairs. All **208 neighbor pairs containing a selected bore** are checked.
+Other connection bands are separated by at least **214.894668 mm** along
+grain; their own placement/resistance dispositions are not reclassified.
+Own paired rows remain 50.8 mm apart. The largest whole-receiver row spread
+is bounded by **67.192802 mm**. For the longer 88.9-mm side bearings,
+the parallel-edge half-spread requirement is at most **33.596401 mm**;
+the reversible 4D = **38.1 mm** edge requirement still governs and is met.
+
+The attached flanges have **96 hole-pair distances** matching the already
+checked opposite-arm patterns on the same fittings. The maximum distance
+difference is **1.107e-9 mm**, within the numerical enclosure. Direct checks
+also retain the AISC center/clear spacing minima, including unused near holes.
+This reuses the nominal 10-mm factory-hole model and establishes no new
+fitting strength, material qualification or prying resistance.
+
+| Additional family | Pairs | Lateral comparisons | Member-shear comparisons reused | Maximum group/placement lateral index | Maximum member-shear index |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Two side members | 8 | 96 | 48 | **0.369598** | **0.610933** |
+| Two center principals | 8 | 96 | 48 | 0.173238 | 0.106128 |
+
+Values round upward. The new lateral maximum is `006 / a12-left`; the
+member-shear maximum is left side pair `006/010 / a12-rear`. Their **192
+lateral comparisons** use the unchanged six-mode values, Cg lower bound
+0.5 and nominal placement factor 0.97. All **96 own member-shear comparisons**
+are joined directly to the existing prismatic-band result without another
+force recovery, frame solve or CAD calculation.
+
+The V4 binding checks all **72 regular shaft axes** against the actual raw
+port increments: none changes. Its changed host ports lie outside the
+**96 new receiver bands**, and each band's complete incremental prefix
+wrench is zero. **48 side-member checks** include the two changed ports;
+48 center-principal checks have no own increment. The twenty earlier pairs'
+ten receivers have no changed ports, preserving their 120 shear comparisons.
+Thus the combined 432/216 numerical references carry through V4 without
+transferring its separate C16/divisor-2 or bore/shaft working-law passes.
+This does not establish compatible physical pressure sharing or response.
+
+**Ten ordinary groups remain outside this placement scope:** two lower
+diagonal principal/angle groups `068/072` and `069/073`, plus eight wood/wood
+groups. The diagonal receiver bands remain clipped, with the recorded
+short-edge/projected-row questions. The eight mixed stacks retain their
+own duties. Full local/eccentric splitting, finished cuts, axial seats,
+combined transfer and response remain open. The six channel machining holds,
+four failed post/leg comparisons, retained geometry/hardware and full
+engineering goal are unchanged.
+Next check the two straight post/cleat groups on their own two-wood basis,
+then the six staggered starting-frame pairs and the two clipped diagonal pairs.
+
+Independent Decimal arithmetic reconstructs all sixteen core intervals
+from source planes, the complete 7D envelopes, both edges, neighboring bands,
+attached steel patterns, 192 original component joins and 96 existing shear
+joins. It independently verifies the V4 prefix wrenches and combined coverage.
+All **17 direct pins** pass. Maximum core-coordinate difference is
+**2.433e-13 mm**, lateral-index difference **4.188e-17**, and V4 prefix-wrench
+difference **zero**. Producer/checker replays are byte-identical; scoped Ruff
+passes. Python **3.12.3** and its standard library suffice; existing pure
+placement helpers are reused.
+All **220 affected Node checks**, **eight added-line local links/fragments**,
+three artifact hash/byte rows, ten numeric table cells, combined source/V4
+coverage, the **150-line** summary and whitespace checks pass.
+
+The existing ignored closure folder retains **346,633 arithmetic-evidence
+bytes**. Both placement packets, their sources and prior failed results stay
+active; none is archived or pruned. No manual copy, tracked asset, dependency,
+native/frame solve, CAD query/rebuild, geometry change or physical operation
+is added.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-prismatic-pair-placement-v1.py` | 14,518 | `cd7cce1c54776f98faec496053389456e26f438f73f02506cb75179616c9ddfe` |
+| `current-prismatic-pair-placement-attempt01.json` | 317,406 | `3ed61735b8d05ea45f8abc58a2cad884e30ae10e9cb0da72764429b15001a5e9` |
+| `current-prismatic-pair-placement-verification-v1.json` | 14,709 | `3f13999e25eb7432f347687ad0fde4ae21fb8610394335e5b60912ee0507f28c` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-prismatic-pair-placement-v1.py /tmp/eoere-prismatic-pair-placement-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. No complete connection resistance is assigned.
+
 ##### Geometry-factor source and applicability followup
 
 The pinned NDS 2024 Chapter 12, printed pp.96–99, distinguishes **load angle
@@ -7902,7 +8014,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 
 | Current duty | Completed checks to retain | Specific inference still missing |
 | --- | --- | --- |
-| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [twenty square wood/steel pairs](#current-square-pair-nominal-placement) now have 240 passing group/nominal-placement references and 120 reused passing member-shear comparisons. | Finish placement for the other 26 ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The twenty-pair placement assumption does not qualify splitting, combined duty or physical sharing. |
+| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [36 regular wood/steel pairs](#current-prismatic-pair-nominal-placement) now have 432 passing group/nominal-placement references and 216 reused passing member-shear comparisons, unchanged under V4. | Finish placement for the other ten ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
 | Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
