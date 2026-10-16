@@ -5920,6 +5920,121 @@ embeds its complete checker. Use fresh outputs. Both retained corners, all
 100 bolt axes, 66 Hillman axes and blank actual observations stay fixed.
 Panel/screw remedies remain deferred.
 
+<a id="current-rear-foot-400n-fixed-sharing"></a>
+**400-N rear-foot sharing: balanced component construction, hold retained.**
+The [necessary envelope](#current-rear-foot-sharing-envelope) leaves a narrow
+range between the **>377.408-N** shear-relief target and the **<716-N** transfer
+ceiling. This followup answers whether one finite positive pressure allocation
+inside that range can satisfy both existing bolts' complete own lateral
+wrenches and the two affected nominal bore-window comparisons. It changes only
+left `a12-forward` normal floor actions and `rail_rear_bolt_left_1` / `_2`
+transfers between `lumber_leg_left` and `base_floor_left`. The source fields,
+geometry, hardware, horizontal floor actions, axial captures, gravity and every
+other interface remain fixed.
+
+Move **400 N** from the leg's **2355.100929 N** normal reaction to the runner's
+**8.332984 N** reaction. A uniform **9-MPa triangle** on the recorded leg foot
+has an **18-mm Y height**, **24.137049-mm X base**, **0.5-mm edge inset** and
+centroid **Y1502.571547 mm**: **6.5 mm** inward, below the envelope's
+**7.618527-mm** limit. A **20×40-mm** uniform runner rectangle has centroid
+**X−1244.369259 / Y1467.885608 mm**. Both regions lie within the recorded
+existing footprints. Their forces and X/Y moments exactly recover the original
+two-body normal-floor wrench. Their normal mean-bearing ratios are
+**0.948194 / 0.118448**, using the existing leg direction reference and runner
+625-psi reference. These are analytical pressure regions, not added pads or
+observed contacts; the no-slip floor assumption remains unverified.
+
+The initial equal-force-norm split misses the final working lateral reference:
+**1.008561 / 1.034589** after both own moments are fixed. Its **0.973026 /
+0.974431** free-couple values are search aids only. The subsequent joined
+calculation reuses the two existing **16-cell / 32-facet** vector worksheets,
+adds one force exchange along the bolt-pair separation and constrains the sum
+of both actual leg couples. A known-answer join with exchange fixed at zero
+exactly reproduces the independent auxiliary minimax **0.974430677162**.
+The actual construction exchanges **12.083613 N** and reaches **0.984951**.
+Every recovered force and couple is then independently rejoined to its own
+wood interval and prescribed in two fresh final worksheets; neither final
+worksheet has free first moments. Both pass the unchanged working divisor-5
+lateral reference, maximum **0.984950106368**. No capacity or factor is relaxed.
+
+| Same allocation, affected component | Source index | 400-N construction index |
+| --- | ---: | ---: |
+| Leg foot, conservative both-edge connection shear | 1.123212 | **0.992788** |
+| Runner rear, conservative both-edge connection shear | 0.034410 | **0.708047** |
+| Leg foot, projected net normal | 0.255165 | **0.255165** |
+| Runner rear, projected net normal | 0.103474 | **0.103051** |
+
+These cut comparisons reuse the existing DF-L No.2 dry/CD1 references, complete
+point wrenches and affine gravity. Both source baselines reproduce exactly.
+Each finite pressure region lies entirely below its bore band, so its centroid
+wrench is exact there. The sufficient shear comparison encloses both loaded
+edges even though the changed leg forces have opposing transverse components.
+It does not establish finite bore-traction loading through the timber interior.
+Incremental force/moment equilibrium holds for both whole timbers and both
+shafts; cumulative increments vanish at the upper-leg and front-runner bands.
+The three front-post failures and six central-channel failures are unchanged.
+
+The changed bolts also receive a fresh combined axial/shear/bending metal
+envelope using the existing circular-section helper and Grade 5 yield scenario.
+Applying the source **7.31774-mm reference minimum circle** over each entire
+shaft conservatively encloses its original body/root windows. Independent
+continuous shear and bending maxima are combined with the unchanged axial
+captures and zero torque; the smooth-circle first-yield upper is **0.440717**.
+This local envelope neither selects full-thread bolts nor changes the failed
+whole-frame full-root sensitivity. Root-notch, head/nut, stripping, fatigue,
+adjusted ASD and delivered-part qualification remain outside it.
+
+**The rear-foot hold is not cleared.** This is one consistent local statics
+construction, rather than a physical response or complete member/joint proof.
+Next assess the altered foot/recess and runner rear-miter load introduction,
+finite wood-interior/brittle/end-group transfer, normal/tangent compatibility
+and supported restraint/response. In particular the original **8.332984-N**
+runner rear-tip reaction moves inward, so its rear end region needs its own
+changed-action treatment. The scalar bearing, lateral shaft and nominal
+bore-window comparisons above do not supply those conclusions. Retain all
+four original source shear failures, other holds and false/null acceptance,
+physical-demand and observation flags. The full engineering goal remains active.
+
+Independent checks authenticate **23 source pins**, integrate all **68 final
+line cells** into four own forces/couples, and reconstruct **234 continuous
+moment traces** directly from the tractions and point loads. The largest own
+couple discrepancy is **<7.276e-12 Nmm**. The final fields also pass the
+existing independent continuous-extrema verifier. All four producer replays
+are byte-identical. The metal followup authenticates its five bindings; a
+separate **70-digit Decimal** calculation matches both envelope indices within
+**6.599e-17**. Python **3.12.3**, NumPy **2.5.2**, SciPy **1.18.1** and scoped
+Ruff pass. All **220** targeted development/documentation tests pass; changed
+links, artifact digests and whitespace are checked. The summary stays 150 lines.
+
+These **726,288 active bytes** remain in the existing ignored closure folder.
+The failed simple split, joined control and fully fixed fields stay recoverable.
+All earlier inputs/results remain active. No manual, dependency, native/frame
+solve, CAD rebuild, contact/fracture framework, physical operation, observation,
+redesign, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-foot-400n-sharing-v1.py` | 15,066 | `dc09db15a2aa8a00221352c7ccfad652d219cff909acfcbf56a6b0f75cb45e01` |
+| `current-rear-foot-400n-sharing-attempt01.json` | 323,517 | `4f0845edb611d672b7f3870760596424a2c47bad6a21a3a7d87dcbc667922f03` |
+| `current-rear-foot-400n-coupled-v1.py` | 13,331 | `9a5343f7de3cae82e17a9925d0cae9bc33a1d6256323f0ccb99c5a32de1f675b` |
+| `current-rear-foot-400n-coupled-attempt01.json` | 127,926 | `5e6c16b7503cd4d74a27ac126e7780fbf985e8555def8fc8c7e8a46c0418752c` |
+| `current-rear-foot-400n-fixed-v1.py` | 13,993 | `6a73f6edc2a924bb7db197fcb61110b10cc2532536fdf68a7d6c7ead42ae668d` |
+| `current-rear-foot-400n-fixed-attempt01.json` | 195,074 | `6c9f6326c10e0437a9160dd73d5cd192b6271450e319ff4058c4532b54cbc57a` |
+| `current-rear-foot-400n-verification-attempt01.json` | 16,591 | `f226984506db45720212b9ba1f92db8e5249bbc9f963abce6ad7b7f120601f33` |
+| `current-rear-foot-400n-bolt-metal-v1.py` | 5,814 | `8dedf77166ed789f03f85415653efc66d8e10f6d1ec133ddcdce76fa9efd5b44` |
+| `current-rear-foot-400n-bolt-metal-attempt01.json` | 14,976 | `8cf710c41719a57c936e415d640bac49a478880394cc4da8de29bc7f6f64c56a` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-sharing-v1.py /tmp/eoere-rear-foot-400n-sharing-replay.json
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-coupled-v1.py /tmp/eoere-rear-foot-400n-coupled-replay.json
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-fixed-v1.py /tmp/eoere-rear-foot-400n-fixed-replay.json
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-bolt-metal-v1.py /tmp/eoere-rear-foot-400n-metal-replay.json
+```
+
+Results embed their producers; verification embeds its checker and fresh replay
+paths. Use new output paths. Both corners, 100 bolt axes, 66 Hillman axes and
+blank actual observations stay fixed. Panel/screw remedies remain deferred.
+
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
 The four header groups, four top-rail groups and two center-post groups pass
