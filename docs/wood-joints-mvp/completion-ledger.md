@@ -4891,6 +4891,16 @@ turn this failed prescriptive route into a pass. No redesign or blanket
 external sign-off prerequisite is introduced. Other joint/member work and
 the full engineering goal remain active.
 
+The existing [USDA Wood Handbook, Chapter 9](https://research.fs.usda.gov/treesearch/62251),
+printed p.9–12, Eq.9–21/Figure 9–14, supplies a planar slit crack-initiation
+criterion in M and V, with coefficients described as conservative for most
+softwoods. It is an available reference, rather than another net-section
+stress calculation. Applying it to the finite rounded channels still needs
+a justified geometry/strength-format mapping and coverage of their other
+simultaneous actions; that alone supplies no NDS notch-location permission.
+No new slit calculation or machining release is issued here. The existing
+shared chapter PDF and its recorded hash are reused.
+
 The independent check reconstructs all **60 support enclosures in world X**
 from the original source tables and checks all four extreme support-end pairs
 for each rail channel. The inequalities are affine in the support endpoints,
@@ -9463,6 +9473,115 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 The audit embeds `reproduction_python_source`; the verification record embeds
 `verification_python_source`. Run the checker from the repository root with a
 fresh output filename as its sole argument. It checks saved arithmetic only.
+
+<a id="current-cleat-dowel-eccentricity"></a>
+**Published eccentric-dowel component: actual bore-load binding.** The
+retained corner now has a case-by-case binding to a published width-moment
+approximation. It exposes a local tradeoff in the coupled V4 allocation;
+the passing central-cut references do not remove this local demand.
+
+[Danielsson's 2013 thesis](https://portal.research.lu.se/sv/publications/perpendicular-to-grain-fracture-analysis-of-wooden-structural-ele/),
+Paper F, §2/Eq.4, printed p.3 / PDF p.173, proposes a stiff-dowel
+eccentricity correction requiring a matching centric critical load `Pc0`:
+
+```text
+eta = |M| / (|P|*b)
+ke = sqrt(1 + 4*eta^2) - 2*eta
+|P| <= ke * Pc0
+formal required Pc0 = 2*|M|/b + sqrt(P^2 + (2*M/b)^2)
+```
+
+Here P is the own dowel's perpendicular force, M its width moment and b its
+wood bearing width. The last line follows by algebra; it assigns no
+candidate resistance. The manuscript's numerical comparisons examine one
+plate and one beam geometry, with expressly illustrated `eta=0..0.5`
+conditions, and report no matching eccentric-load experiments (§5).
+Larger eta remains algebraically evaluable; it is outside that illustrated
+comparison band, not a demonstrated failure. The
+[2016 article record](https://portal.research.lu.se/en/publications/fracture-analysis-of-perpendicular-to-grain-loaded-dowel-type-con/)
+confirms publication of an approximation; this worksheet uses the cached
+2013 manuscript, without claiming byte/equation identity to the final paper.
+
+Rejoin the original two fine bearing forces for every own cleat bore in all
+six current fields. Their Y force and Z moment about the own bearing midpoint
+match the complete own-port aliases. The four own bores per cleat give
+**48 source components**. Apply the recorded V4 port increments to the
+**24 changed components** and retain the other 24, giving **48 coupled
+components**. All six force/moment components remain in each record;
+only the Y-force/Z-moment component enters this approximation. The own
+bearing width remains **38.1 mm**.
+
+| Current case | Source maximum formal Pc0 threshold, N | Coupled V4 maximum formal Pc0 threshold, N |
+| --- | ---: | ---: |
+| `a12-forward` | 438.403137 | 438.403137 |
+| `a12-rear` | 178.438146 | 259.370674 |
+| `a12-left` | 310.988127 | **866.130390** |
+| `k12-right` | 303.970424 | 857.555183 |
+| `k12-rear` | 173.483041 | 240.484741 |
+| `a1-rear` | 44.496103 | 102.079804 |
+
+Table values round upward. The source maximum is left
+`cleat_post_bolt_left_2 / a12-forward`; the coupled maximum is left
+`eoere_bolt_071 / a12-left`. Thus improving the central compression/traction
+construction does not monotonically improve the local dowel reference.
+**Three source and seventeen coupled components** exceed the illustrated
+`eta=0.5` band. These counts are method-scope flags, not resistance failures.
+The thresholds are in the manuscript's critical-load units; no NDS/ASD
+conversion or load-duration increase is adopted.
+
+The separate **24 original intact mid-Y cut traces** would give formal
+`eta=2.739491..10.891025` if substituted. Those cuts are neither the actual
+dowel loads nor the manuscript's crack plane. The new binding uses the
+actual bore actions instead. Do not assign the earlier NDS beam-shear
+reference or the C16 intact-section tensile hypothesis as `Pc0`.
+
+**Disposition:** the eccentricity component binding is complete for both
+allocations. A matching centric resistance for the finite sloping cleat's
+actual loaded edges/groups, scope beyond the illustrated eccentricity band
+and the simultaneous grain-force, axial-seat, other moment and local
+crack/group duties remain to be resolved.
+The approximation supplies neither a complete corner pass nor a physical
+failure finding. Preserve both corners, 100 bolt axes, 66 Hillman axes,
+the current load/hardware basis and blank actual observations. The full
+engineering goal stays active and unachieved.
+
+The independent checker rejoins every component through the original complete
+port aliases and V4 increments. Maximum difference from the producer's
+fine-force reduction is **1.432e-11 N or Nmm**. Exact rational inequalities
+enclose all **96** positive quadratic roots within **±1e-8 N**; integration
+of the corresponding signed plastic width-load distributions recovers their
+forces/moments within **0 / 2.229e-66 Nmm**. These are load-per-width
+constructions, not wood stresses or a complete fracture model. Three
+known-answer controls cover centric load, `eta=0.5` and the formal pure-moment
+limit. All **ten direct source pins** and the producer stay unchanged;
+producer/checker replays are byte-identical and scoped Ruff passes.
+All **220 affected development/documentation checks**, **eight** added-line
+local links and their fragments, artifact digest/size checks, rounded table
+values and whitespace checks pass. The maintained summary stays at **150 lines**.
+
+The existing ignored closure folder retains **198,795 arithmetic-evidence
+bytes**, plus one shared **33,497,488-byte** primary thesis PDF. The thesis
+contains the actual manuscript and its loading/validation figures; it is
+cached once rather than copied into individual attempts.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-dowel-eccentricity-v1.py` | 9,501 | `b82353fa183f537fb36d450c2ded3fc16c7d43994addb8ec100835d0791acb4e` |
+| `current-cleat-dowel-eccentricity-attempt01.json` | 181,889 | `58fa5796e7ff5d5e8157ae72d4248ae80015c55c495392acfe36a95e1563f427` |
+| `current-cleat-dowel-eccentricity-verification-v1.json` | 7,405 | `eb34b5ac559b7ba1baa90c41673beff6924497ff1917c9fdb81f53ffacaff87c` |
+| `method-source-cache/danielsson-2013-thesis.pdf` | 33,497,488 | `46170da1e7d5b8c0ee4ee1cc5ff080a4374c08a7342e2ce5c1ff14d904da11c9` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-dowel-eccentricity-v1.py /tmp/eoere-cleat-dowel-eccentricity-replay.json
+```
+
+Python **3.12.3** and its standard library suffice for arithmetic. The result
+embeds `reproduction_python_source`; the verification record embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. PyMuPDF **1.26.4** from the existing shared cache was used
+only to inspect source pages. No native/frame solve, CAD query/rebuild,
+new project dependency, physical operation, archive or pruning occurs.
+All current inputs, earlier failures and this source stay active.
 
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
