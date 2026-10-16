@@ -7618,6 +7618,168 @@ active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
 
+<a id="current-loaded-steel-hole-transfer"></a>
+**Combined three-dimensional transfer around the loaded steel holes.**
+The existing steel within **14 mm** of each loaded bolt admits a static
+construction carrying its separate bore forces, washer pressure and any
+backing pressure on the opposite face. All **528 hole/case states**, with
+five washer profiles each, are below the working reference. The maximum
+constructed stress upper is **37.638801 MPa**, against **235/1.67=140.718563
+MPa**. The guarded index upper is **0.267477**. This resolves the named
+local construction under its **generated outer tractions**; transfer of those
+tractions through the surrounding flange and bend remains open.
+
+These “collars” are analytical regions of the existing part, **not added
+hardware or cuts**. Each spans r=**5–14 mm**, with retained **t6.35**, around
+a far-row hole at X65.0875/Y±25.4 mm. Nominal clearances are **5.05 mm** to
+the transverse edge, **9.8125 mm** to the tip, **38.3875 mm** to the heel
+tangent and **22.275 mm** to the unused near hole; the two regions are
+**22.8 mm** apart. All five washer footprints fit inside r14. The retained
+straight-flange gravity resultants lie outside, with minimum **15.788824 mm**
+clearance from these regions, under the existing gravity-partition hypothesis.
+No physical uniform-gravity qualification is added.
+
+Apply the same [plastic lower-bound method, Bower §6.2.5](https://solidmechanics.org/Text/Chapter6_2_old/Chapter6_2.php)
+and cached cylindrical-coordinate source used by the
+[washer construction](#current-axial-washer-and-spacer-transfer). The field
+below is derived for this local subproblem. Its face pressures may vary
+with both r and theta; no axisymmetric backing pressure is assumed.
+Use the retained finite washer annulus and the projected common-flat
+backing footprints, restricted to the analytical region. An upper bound
+on backing pressure is the **sum of all eight cell pressures** on the own
+flange, without disjointness credit. That sum is only a bound; it does not
+replace or redistribute the source pressure footprints.
+
+Let pt/pb be the nonnegative pressures on the positive/negative z faces,
+with z measured from the local thickness midpoint. Define:
+
+```text
+a=5, R=14, t=6.35; u=2z/t; H=u-u|u|/2; p=pt-pb
+q(r,theta) = integral_a^r s*p(s,theta) ds / r
+A(r,theta) = integral_a^r (r-s)*s*p(s,theta) ds / r
+sigma_rr = 4*A*sign(u)/t^2 - a*p_bore(theta,z)/r
+sigma_theta_theta = 0
+tau_rz = 2*q*(1-|u|)/t
+sigma_zz = -(pt+pb)/2 - p*H
+all other cylindrical stress components = 0
+```
+
+The identities **A_r+A/r=q** and **q_r+q/r=p** give three-dimensional
+equilibrium. The normal-load field has zero radial traction at the inner
+bore. At the two flat faces it gives exactly the prescribed normal pressures
+and zero shear. At z=0, the normal and shear tractions are continuous despite
+the radial-stress jump. Angular pressure jumps have zero traction across
+radial interfaces. Thus piecewise source footprints and bands are retained
+in the weak equilibrium statement.
+
+The bore term carries each of the original **two** in-plane forces in its
+own **1.5875-mm** thickness band, using the preceding semicircular cosine
+pressure. The bands fit and are disjoint; their distinct mean z positions
+retain the full bending couple. Each source force has its own direction and
+magnitude. The radial compression field decays as a/r and transfers that
+force and thickness lever to the outer boundary. It introduces no point
+couple or rotational clamp. Both normal-loaded faces and the bore act
+**simultaneously** in the displayed tensor.
+
+For washer-pressure upper Pw, summed backing upper PB and largest own
+bore-band pressure Pbore, use these everywhere bounds:
+
+```text
+Pd=Pw+PB; P=max(Pw,PB)
+Q*=Pd*(R^2-a^2)/(2R)
+A*=Pd*(R^2/6-a^2/2+a^3/(3R))
+B=4*A*/t^2+Pbore; S=2*Q*/t
+VM_upper=sqrt(B^2+P^2+B*P+3*S^2)
+```
+
+Q*/A* increase to their displayed outer-radius maxima. The combined radial,
+axial and shear components give the stated Mises upper without sampling the
+interior. This is a ductile static strength construction under the retained
+Q235 hypothesis, not an elastic stress, deformation, physical pressure or
+finished-product rating. The washer's separate 33-ksi material hypothesis
+is not transferred to the flange.
+
+| Current case | Profile comparisons | Guarded local upper |
+| --- | ---: | ---: |
+| `a12-forward` | 440 | **0.267477** |
+| `a12-rear` | 440 | 0.221097 |
+| `a12-left` | 440 | 0.255673 |
+| `k12-right` | 440 | 0.257885 |
+| `k12-rear` | 440 | 0.227956 |
+| `a1-rear` | 440 | 0.170440 |
+
+The governing construction is **left base angle / arm-z / bolt 067 /
+a12-forward / catalog-2**, a mixed-stack steel end. It retains normal
+capture **415.004114 N**, the two original bearing vectors and their thickness
+stations, **Pw=1.048898 MPa**, summed **PB=0.870599 MPa**, and maximum bore
+pressure **32.149243 MPa**. Its raw index is **0.2674757307224353**; add
+**1e-6** as an arithmetic guard. Across the whole census there are **2,640**
+profile comparisons, including **360** steel-end comparisons on all eight
+mixed axes, **1,056** own bore bands and **2,112** backing cell/case states.
+Existing wood/shaft failures and coupled-allocation limits remain unchanged.
+
+An independent checker reuses four authenticated polynomial-arithmetic
+definitions from the frozen washer verifier. It adds exact radial-function
+and Cartesian-coordinate controls, with no symbolic package installation:
+**225 divergence identities**, **180 loaded-face identities**, **120 inner
+fan identities**, **90 midplane traction-continuity identities**, **seven
+Mises rotation identities** and **12 outer force/moment identities** pass.
+The equal opposing-face-pressure control reduces to through-thickness
+compression. The integral definitions supply the general pressure-field
+argument; the controls check its angular, radial and piecewise-z mapping.
+
+Independent **70-digit Decimal** arithmetic covers every comparison, with
+maximum differences **4.676632e-16 MPa** in pressure, **1.453824e-14 MPa**
+in stress and **8.209847e-17** in index. Projected chart Jacobians are at
+least **0.9999999999999998**. Maximum normal-load tangent and bore-normal
+coordinate components are **3.634486e-14 / 1.773928e-14 N**, retaining the
+recorded source-precision limits. The guard is a numerical control, not
+manufacturing tolerance or a physical demand-error bound.
+
+The first checker stopped before current-collar arithmetic: it evaluated
+each half-polynomial on both faces, including the face outside that branch.
+Its frozen source and stop receipt remain below. The corrected checker
+checks each face in its own half and all midplane traction jumps. No field,
+input, capacity or engineering criterion changes.
+
+Five active files in the existing ignored engineering-closure folder total
+**2,737,161 bytes**. All **132 unique direct/inherited/checker source bindings**
+remain unchanged. Existing pressure/washer fields and the two primary-source
+caches are reused; no manual, CAD, native installation or bulk field is copied.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-steel-hole-collar-v1.py` | 13,316 | `3c57cf28c51a1903269cd0a4eb372e82f66365e5e2bccbf852e93f63d6e4535c` |
+| `current-steel-hole-collar-attempt01.json` | 2,689,097 | `9ac9ab78d783e04897bb59582c7bb3e491834c5101d24739ae0d093fd163d840` |
+| `current-steel-hole-collar-check-attempt01-source.py` | 14,145 | `e43e378fe325ceeca9cb320bebae7d4a39134abb3114bc61b90f84e9dc6f5991` |
+| `current-steel-hole-collar-check-attempt01-stop.json` | 670 | `6d977257e0e65d0cfedeb4c0e78df34a60e779e0fb9f606d3377b45f28ea0be5` |
+| `current-steel-hole-collar-verification-v2.json` | 19,933 | `d6028dd0c2137d8eda7afaa166e0946c29f1f5517ad748507a6a9b6bec02d71f` |
+
+The verification JSON embeds its complete corrected checker. Reproduce the
+producer into a fresh output:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-steel-hole-collar-v1.py /tmp/eoere-steel-hole-collar-replay.json
+```
+
+Scoped Ruff checks pass for the producer and corrected checker. Fresh
+producer/checker replays are identical; both failed-checker records are
+unchanged. All **220 affected development/documentation checks**, eight
+changed local links/fragments and owned whitespace checks pass. The maintained
+summary stays at 148 lines; only the two maintained documents enter the commit.
+
+At r14 the generated outer traction is **[sigma_rr,0,tau_rz]**. Its resultant
+and complete moment balance the applied face and bore loads, but its
+distribution has **not** been matched to the surrounding plate. Incoming
+self-equilibrated outer stresses are also outside this construction. Next
+resolve that surrounding-flange transfer, the unused near holes and bend
+interfaces; retain physical restraint/response and wood-seat/splitting duties.
+No full fitting or joint pass is assembled from the separate constructions.
+The same 100 bolt axes, 66 Hillman axes and both retained cleats stay fixed.
+Panel/screw remedies remain deferred and actual observations blank. All five
+records, earlier failures and reused sources remain active; no archive or
+pruning occurs. The full engineering completion goal stays active and unachieved.
+
 <a id="current-continuous-flange-net-section-envelope"></a>
 **Continuous nominal net-section envelope for both hole rows.** All
 **264 flange/case combinations** satisfy a conservative combined section
