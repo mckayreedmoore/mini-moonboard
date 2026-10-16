@@ -10857,6 +10857,78 @@ construction. Full fitting/joint resistance, cleat splitting, internal wood
 load entry and the full completion goal remain open. All earlier failures
 and these inputs/results stay active; no archive or pruning is performed.
 
+<a id="current-seat-normal-bearing-interaction"></a>
+**Combined normal bearing at washer and fitting timber seats.** The local
+bearing interaction of the two prescribed pressure families is now complete
+under the recorded DF-L No.2/dry-service basis. Use
+[2024 NDS](https://awc.org/resources/2024-nds/) §3.10.2, printed p.26, and
+the existing [Supplement Table 4A](hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf),
+p.34, **Fc90=625 psi**. No duration or small-bearing-area increase is credited.
+The unchanged six fields give **1,200** normal/grain registrations: all
+112 wood washer seats and 88 fitting/wood patches are perpendicular to their
+own timber grain in every case. Actual observations remain blank.
+
+Reuse the preceding washer's **wood-side support pressures**, common-flat
+backing pressures and modeled wood-land proofs. Enclose each washer by the
+larger of its land radius and all five stored nominal/catalog radii. Exact
+squared-distance checks prove all **300 same-timber enclosing-ball pairs**
+disjoint, with recorded gap **>13.337999 mm**. The existing backing proof
+supplies 352 disjoint cell supports and **4,480** empty coplanar intersections.
+Consequently each pressure family contributes at most one pressure at a
+point on a timber bearing surface. Allow overlap between the two families:
+
+```text
+p_seat <= max(p_wood-side-washer) + max(p_fitting-backing)
+```
+
+This bounds all independent choices of the five washer profiles at the
+unchanged normal actions. Superposition retains the original normal forces
+and moments. Round each family upper upward to 0.000001 MPa and use the
+downward-rounded **4.309223-MPa** reference:
+
+| Case | Washer upper, MPa | Fitting upper, MPa | Combined upper, MPa | Reference-index upper |
+| --- | ---: | ---: | ---: | ---: |
+| `a12-forward` | 1.048898 | 0.870599 | 1.919497 | 0.445440 |
+| `a12-rear` | 0.974819 | 0.793153 | 1.767972 | 0.410277 |
+| `a12-left` | 1.138840 | 0.986444 | **2.125284** | **0.493195** |
+| `k12-right` | 1.125398 | 0.985064 | 2.110462 | 0.489755 |
+| `k12-rear` | 0.980747 | 0.818107 | 1.798854 | 0.417443 |
+| `a1-rear` | 0.720727 | 0.687533 | 1.408260 | 0.326802 |
+
+**Disposition: conditional normal-bearing interaction passes.** The assumed
+finite pressure distributions and modeled support retain their original
+limits. Internal timber transfer, bore/edge splitting, the other wood/wood
+and floor contacts, physical pressure/stiffness and complete joint resistance
+remain separate duties. Existing member failures and operation holds remain
+in force; the full engineering goal stays active and unachieved.
+
+The independent checker proves the washer separation with Cartesian
+enclosing cubes instead of distances, minimum coordinate gap **1.768717856
+mm**, and checks all **5,472 individual pressure inequalities** and six ratios
+using exact fractions. All **36 input pins**, including six current fields,
+22 finished timber sources and the two existing primary references, are
+unchanged. Both fresh-path replays are byte-identical. The worksheets use
+Python **3.12.3** and its standard library; scoped Ruff **0.16.6** and all
+**220 affected development/documentation checks** pass.
+The **23,833 bytes** below stay active in the existing ignored closure folder;
+no manual copy, CAD change, native/frame/contact solve, physical operation,
+archive or prune is added.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-seat-normal-bearing-overlap-v1.py` | 9,338 | `ce65c4fcf4e2a9cb75cd0bf9e85793eb4b758c1bcac416883f47b001365e8d07` |
+| `current-seat-normal-bearing-overlap-attempt01.json` | 9,652 | `ff789d1db89275268cf351d87822dd8100a3978cbbaf83f0b757b63044079f60` |
+| `current-seat-normal-bearing-check-v1.py` | 4,077 | `0f6de69caaa3c3a9ee385357a7763044d9403aa1fc985c02d8b39165592a2db4` |
+| `current-seat-normal-bearing-verification-v1.json` | 766 | `b1ba1f84d7cd937fe78393ec6bac42e813b6dffaa7af223772171f34e6a60020` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-seat-normal-bearing-overlap-v1.py /tmp/eoere-seat-bearing-replay.json
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-seat-normal-bearing-check-v1.py /tmp/eoere-seat-bearing-check.json
+```
+
+Use fresh output paths. This is an arithmetic worksheet over frozen results;
+it supplies no new pressure law or case forces.
+
 <a id="current-washer-axial-compliance-bound"></a>
 **Elastic compliance of the washer and spacer normal path.** The saved
 [axial fields](#current-axial-washer-and-spacer-transfer) support a bounded
