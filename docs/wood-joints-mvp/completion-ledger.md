@@ -4332,6 +4332,120 @@ added-line local link/fragment checks and whitespace checks; the maintained
 summary stays at **148 lines**. All inputs remain active.
 The engineering goal remains active; no complete member resistance is claimed.
 
+<a id="current-retained-leg-taper-normal-completion"></a>
+**Continuous retained-taper normal checks.** The outer-core shortcut above
+does not justify ignoring the recess. Reuse the actual recorded taper and
+the historical [analytic corner-extrema method](../../scripts/flush_taper_stress_diagnostic.py)
+on current actions instead. This completes the previously uncovered nominal
+normal check throughout both **457.2-mm (18-in)** tapers: width increases
+from **50.8 to 88.9 mm (2 to 3½ in)** at constant **139.7 mm (5½ in)** depth.
+The cached cut-plane/census joins locate the grain interval at approximately
+**−211.853545 to +245.346455 mm**. All four own bore envelopes are outside
+that interval, with no active point force/couple inside it.
+
+There are **13 own leg/load allocations**: both legs in the six current cases
+and the changed left `a1-rear` loop. Original point forces and free couples
+give constant axial force and affine moments in the taper. The earlier
+quadratic-over-width-squared corner method therefore still applies to those
+actions. The recorded **106.555304-N selfweight per leg** is retained through
+the existing affine-density/component-interval kernel, with the moving net
+centroid included. Bounds cover all four corners and every interior station;
+they do not assume that the largest stress occurs at a sampled endpoint.
+
+All **13 no-relief nominal axial-plus-bending comparisons** satisfy the
+unchanged DF-L No.2/dry/CD1 reference, maximum upper **0.345938**, left
+`a12-rear`. This closes the taper's named nominal normal arithmetic, without
+`CP`/`CL`, stability, local shear/torsion, transition or fracture acceptance.
+It supplements the 372 bore-window comparisons; those counts and results
+remain unchanged.
+
+The current fields also decide which tapered-face branch is needed.
+**Three allocations are compression-only throughout that face in the
+nominal model; ten have positive same-cut tensile witnesses.** The largest
+witness is **1.241321 MPa**, left `a12-left`; its conservative normal upper is
+**1.278643 MPa**. The `a1-rear` loop retains a positive **0.027025-MPa** witness.
+These are nominal longitudinal stresses, not recovered transverse stresses
+or material failures. They rule out treating every tapered face as compression-only.
+
+**Published tapered-normal reference.** The
+[Swedish Wood 2022 formulas](https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf),
+printed pp.7–10 and 26–28, provide material factors, combined normal checks
+and separate tensile/compressive taper coefficients. The
+[TEMTIS handbook](https://otto.vsb.cz/~acad/temtis/handbook_2_PL.pdf), §6.4.1,
+also retains axial force together with bending in the tapered-member treatment.
+Thus axial force is not itself a reason to discard that conventional route.
+Its application below is a separate material/reference hypothesis, not a
+transfer of an EC5 strength to the project's DF-L ASD schedule.
+
+Declare **C16**, `kmod=0.6`, `gammaM=1.3` and a **1.5 multiplier on every
+current stress bound, including gravity**. Characteristic bending, parallel
+tension/compression, transverse tension/compression and shear are respectively
+**16 / 8.5 / 17 / 0.4 / 2.2 / 3.2 MPa**. Reduce the shear reference by **0.67**
+inside the taper coefficient as an additional conservative substitution.
+At slope 1:12 the published coefficients become **0.752771298 in tension**
+and **0.922751637 in compression**. Apply the smaller coefficient to both
+bending directions, take `km=1`, and use linear no-relief axial/bending
+interaction. This deliberately retains both moments and penalizes every
+bending term with the less favorable tapered-face branch.
+
+All **13 factored tapered-normal references** remain below one, maximum
+upper **0.743849**, left `a12-rear`. C16 remains an unobserved additional
+material hypothesis; the 1.5 multiplier is an explicit comparison scenario,
+not a complete EC5 ULS load combination. This establishes the scoped
+tapered-normal comparison, not actual grade applicability, complete EC5
+compliance or the local support/notch/transition resistance. The earlier
+`kv=1` calculation still cannot replace the remaining coupled shear,
+transverse, torsion, local-transition and end-load treatment.
+
+**Verification and disposition.** A separate reduction uses stable relative
+gravity moments and quartic numerators over positive quadratic widths.
+Continuous rational Bernstein bounds, with 32 subintervals per corner,
+independently recover all 13 normal conclusions and face classifications.
+Same-cut and off-node polynomial recovery errors are at most
+**4.45e-16 / 6.10e-15 MPa**, with zero gravity-component bound misses.
+The **58 source pins** remain unchanged. A separate 50-digit Decimal check
+recovers the **62-pin** tapered-normal reference, with maximum coefficient,
+strength and index discrepancies **1.12e-16 / 8.89e-16 MPa / 1.12e-16**.
+
+Keep these normal calculations closed. The next taper work concerns the
+combined shear/transverse/torsional field, both slope transitions and actual
+support/load introduction under an applicable resistance treatment. No new
+native/frame solve or generic contact/fracture framework follows from this
+normal result; the full engineering goal remains active and unachieved.
+
+The first publisher stopped on a NumPy scalar during JSON writing. Its source,
+partial output and stop receipt remain frozen; that partial file is not
+consumable numerical evidence. V2 changes serialization only and writes a
+fully serialized payload to a fresh exclusive path. Both final producer
+replays are byte-identical. The **159,613 bytes** below stay active in the
+existing ignored closure folder; no field, manual, dependency installation,
+native/frame solve, CAD query/rebuild, model change or physical operation is
+added, and no prior evidence is archived or pruned.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-leg-taper-normal-v1.py` | 15,432 | `a70d9fbaa556e9a67d159f026f5ab7623693cdfa74ef1c89e86d20bb291af17b` |
+| `current-leg-taper-normal-attempt01.json` | 1,599 | `4860f87ba3ad216f30ec1138519820d5bb84263f8601a40150255e4bc7eb2f59` |
+| `current-leg-taper-normal-attempt01-stop.json` | 923 | `17d603df953baff3195d9ad817df214aecef80232f79568e9e14685090cf56cf` |
+| `current-leg-taper-normal-v2.py` | 1,984 | `145415f1b759db48b006112f3ee8dcfaf7f778d65c1388553958dc02db26d56f` |
+| `current-leg-taper-normal-attempt02.json` | 94,239 | `a78de8d9004095965233dcf5d7165064100068f34154fa236adf44f0e835f10b` |
+| `current-leg-taper-normal-verification-v1.json` | 15,827 | `c77e45f8e655d9444af2c5059c722548ff8b337c349fe95d3893247a5c3c72fd` |
+| `current-leg-taper-normal-reference-v1.py` | 5,959 | `161e484039d9734674e092898e78b47a1e2a440ef3268c2e484512126e084caa` |
+| `current-leg-taper-normal-reference-attempt01.json` | 19,710 | `b0c39c19c00654741bde8b1038f3477de23183ac5925bc2645bf8450d192b0a5` |
+| `current-leg-taper-normal-reference-verification-v1.json` | 3,940 | `58cfd776d10e80e3d4d8c6d06e597daa9cf5945e48ffcf29f2f7a229565cebb5` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-leg-taper-normal-v2.py /tmp/eoere-leg-taper-normal-v2-replay.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-leg-taper-normal-reference-v1.py /tmp/eoere-leg-taper-normal-reference-v1-replay.json
+```
+
+Both verification JSON files embed their full checkers. Load with
+`__name__="verification"` and call `verify(record_path, record_sha256)`.
+The producers and embedded checkers pass scoped **Ruff E9/F**. All **220
+development/documentation checks**, eight added-line local link/fragment
+checks and whitespace checks pass; the maintained summary stays at **148
+lines**. All inputs and stopped artifacts remain active.
+
 <a id="same-station-bore-window-normal-followup"></a>
 **Same-station bore-window normal followup.** Critical-section accounting
 finds that the 58 screened pairs occupy **116 distinct wood-bore occurrences**
@@ -4476,7 +4590,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows. | **Deep-recess/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the precise NDS limits above. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) recovers its normal floor wrench but retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Reuse the actual-taper method within its scope; retain local brittle/end-load and changed-section duties. The 34 compression-domain exceptions retain their conditional restraint dependence; completed normal comparisons are not reopened. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows; also [13 continuous taper normal checks and 13 explicit C16 tapered-normal references](#current-retained-leg-taper-normal-completion). | **Recess shear/transverse/torsion and local transitions/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the stated method limits. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) recovers its normal floor wrench but retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load and changed-section duties. The 34 compression-domain exceptions retain their conditional restraint dependence; completed normal comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
