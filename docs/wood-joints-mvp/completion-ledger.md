@@ -8195,7 +8195,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 | --- | --- | --- |
 | Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [38 covered ordinary pairs](#current-post-cleat-nominal-placement) now have 456 passing group/nominal-placement references and 240 reused passing member-shear comparisons, unchanged under V4. | The [other eight ordinary groups](#current-staggered-pair-placement-method-scope) fall outside the same sufficient cardinal method. Complete actual oblique placement and local brittle/eccentric transfer for the signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
-| Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. The [nominal elastic-torsion followup](#current-flange-elastic-window-comparison) now passes all 528 conditional region bounds, without qualifying complete plate transfer or physical restraint. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
+| Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. The [nominal elastic-torsion followup](#current-flange-elastic-window-comparison) now passes all 528 conditional region bounds. The [distributed-load gross-strip comparison](#current-distributed-flange-warping) includes warping normal and shear stresses under prescribed end conditions. Complete plate transfer and physical restraint remain unqualified. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
 | Finished members and restraint | 38 sampled planes/228 comparisons, 102 continuous rail-bore section comparisons and recorded geometric brace-return paths. | Three-dimensional transfer and local hole/notch fracture plus justified directional restraint/effective lengths. Section feasibility and a connected geometric path do not supply those properties. |
 | Physical demand and movement | Current scalar stiffness references and certified original-load comparator bounds; both credited rear legs bear in the control family. | A supported complete joint/contact and finite-geometry treatment or conservative physical-demand bound. The trial stiffness families are not physical extrema. The 56.6-mm interaction-point motion is not a measured hold deflection or an adopted serviceability failure. |
@@ -8244,7 +8244,8 @@ only the t6/Ri6 heel sensitivity has exceedances, retaining its seven rows.
 The straight-strip calculation already combines normal, transverse shear and
 nominal prismatic torsion; the issue is its applicability to the holed/formed
 three-dimensional fitting. The separate whole-flange warping result is not
-added to the half-band result. Ordinary hole bearing, tear-out, net sections
+added to the half-band result. The later [distributed-load comparison](#current-distributed-flange-warping)
+retains its own gross-strip and prescribed-end scope. Ordinary hole bearing, tear-out, net sections
 and those nominal combinations must not be described as unperformed work.
 Complete block/flexural rupture, local hole/contact transfer and the formed
 bend's simultaneous stress/warping behavior remain outside those references.
@@ -9517,6 +9518,134 @@ The results embed their reproduction source; each verification embeds its
 checker. Use fresh output filenames. V2/V3 reuse the preserved V1 finite-load
 records. V3 pins and loads the unchanged V2 implementation with only the
 documented interval-side correction; no field or geometry producer is repeated.
+
+<a id="current-distributed-flange-warping"></a>
+**Distributed-load gross-strip warping comparison.** All **264 flange/case
+records / 528 longitudinal-stress comparisons** meet the stated gross-strip
+reference, maximum **0.993809**. This adds distributed torque and direct axial
+warping work to a straight, unholed strip model. Its prescribed end conditions
+do not qualify the actual holed fitting, bend or timber-seat transfer.
+
+Reuse the earlier **0.695170** whole-flange diagnostic within its constant-root-
+torque assumptions and the separate completed net-section comparisons within
+theirs. The current calculation retains all **3,696 fine bearing/capture/backing
+forces**, every finite normal footprint, the established radial bore-pressure
+allowance and retained straight-flange gravity. **251/264** point-action sets
+have nonzero bilinear axial work. That projection is a generalized-load
+diagnostic, not an internal bimoment recovered from six force/moment resultants.
+
+[Dowswell (2019), printed pp.63–65, Eqs.1 and 9–15](https://ej.aisc.org/index.php/engj/article/download/1147/1146)
+supplies the conventional narrow-strip warping quantities. Keep **b88.9,
+t6.35, E200,000 MPa, G77,200 MPa, L88.9**, Fy235 and Omega1.67. Reuse the
+rectangular-series **J = 7,245.977304 mm4**; the strip approximation has
+**Cw = 1,249,292.022342 mm6**, **Wmax = 141.128750 mm2** and
+**a = 21.134396 mm**. With `u=theta'`, impose **u(0)=u(L)=0**, meaning
+blocked longitudinal warping at both ends. The actual frame does not yet
+establish those conditions. No warping resistance is assigned to the actual
+hole pattern by using these gross-section constants.
+
+For this declared scalar model, derive the following bounds from its
+positive Dirichlet Green kernel. Let `[Tlo,Thi]` enclose the torque profile
+and zero, `Tmax=max(abs(Tlo),abs(Thi))`, and Bvar bound the total variation
+of the direct axial-work loading for the mode `omega=-y*z`:
+
+```text
+-E*Cw*u'' + G*J*u = T(x) + beta(x)
+a = sqrt(E*Cw/(G*J))
+DeltaTu_B = Bvar*tanh(L/(2*a))/(2*a)
+abs(Tu) <= Tmax + DeltaTu_B
+abs(Tw) <= Thi-Tlo + DeltaTu_B
+sigma_w <= E*Wmax*Tmax*tanh(L/(2*a))/(G*J*a) + Wmax*Bvar/Cw
+tau_w,max <= 9*abs(Tw)/(b^2*t)
+```
+
+The torque kernel's derivative L1 norm is at most `tanh(L/(2*a))/a`.
+The maximum principle bounds the torque-driven uniform component within
+`[Tlo,Thi]`. Direct axial work adds the displayed uniform-torque allowance.
+Recovered warping shear uses
+`tau_xz=-Tw*y*(z^2-t^2/4)/(2*Cw)`; its cross-sectional torque is exactly Tw.
+The coefficient is **9/(b²t)**. Uniform-torsion and recovered warping shears
+are both included, then combined with direct shear by the triangle inequality.
+Add the warping normal bound to the unchanged gross N/My/Mz bound and compare
+the resulting Mises norm to **140.718563 MPa**. This is a longitudinal
+comparison under the declared strip hypothesis, not a complete 3D stress field.
+
+**V1/V2 combined pass counts are not adopted.** Those first implementations
+omitted axial-work-induced uniform shear and recovered warping shear.
+A unit midspan generalized axial load (**1 Nmm²**) with zero external torque gives
+**Tu = 0.022963468 Nmm**, whereas the earlier shear formula returned zero.
+V3 includes both contributions. The original load projections and pressure
+bounds remain useful; their incomplete combined-stress results stay frozen.
+
+V3 localizes the signed torque envelope over **7,284 intervals**, preserving
+each point substitution's own interval side. Within a footprint, retain the
+signed half-force correction and residual first-moment bounds. Inside the
+used-bore band retain the complete finite radial-pressure allowance. No
+force, free-couple duty, material value or external load is changed. The
+current gross-strip results are:
+
+| Current case | Longitudinal comparisons | At or below the reference | Guarded gross-strip upper |
+| --- | ---: | ---: | ---: |
+| `a12-forward` | 88 | 88 | 0.931457 |
+| `a12-rear` | 88 | 88 | 0.824945 |
+| `a12-left` | 88 | 88 | **0.993809** |
+| `k12-right` | 88 | 88 | 0.983307 |
+| `k12-rear` | 88 | 88 | 0.839730 |
+| `a1-rear` | 88 | 88 | 0.577702 |
+
+Uppers round upward. The governing left top single angle / arm-z /
+`a12-left`, outside the used-bore band, has direct normal **37.540753 MPa**,
+warping normal **82.910950 MPa**, direct shear **3.935261 MPa**, uniform
+torsion shear **29.682519 MPa** and recovered warping shear **7.405011 MPa**.
+The small gap below this reference is not physical reserve. Do not add or
+multiply the gross-strip, net-bar and ideal-bend indices to assert a joint
+capacity. Actual hole/neck/bend traction matching, local attachment stresses,
+prying, instability and physical restraint/response remain open. All earlier
+member/channel failures and the full engineering goal remain active.
+
+The independent 70-digit Decimal check rejoins all **3,696 fine forces** to
+the six authenticated fields. Maximum force difference is **6.228e-14 N**;
+bearing-point difference is **1.4e-13 mm**. It verifies **135 source pins**,
+every torque interval, direct-work bound and all 528 stress comparisons.
+Index difference is **2.614e-16**, torque-envelope difference below
+**4.522e-12 Nmm**, and axial-work-term difference below **1.142e-11 Nmm²**.
+Ten kernel controls, exact section-torque/peak and modal-equilibrium identities,
+the midpoint load-jump control and a zero-six-wrench/nonzero-work four-force
+control pass. The checker initially required every nonnegative work variation
+to be positive; its guard stop and complete source are retained. The corrected
+guard admits legitimate zero-work cases without changing the method.
+
+All three producer replays and the independent checker are byte-identical;
+scoped Ruff passes. Python **3.12.3** and existing shared dependencies suffice;
+the latest reduction and checker require only its standard library.
+The **220** targeted development/documentation tests pass. Changed-line checks
+resolve all **13 local links/fragments**, authenticate the eight file rows,
+and match all 18 case-table cells and five governing stress values. The main
+development summary remains 150 lines; whitespace checks pass.
+The existing ignored closure folder retains **3,365,414 arithmetic-evidence
+bytes** for the inputs, incomplete attempts and corrected comparison. The
+previously cached primary PDF is reused. All records stay active; none is
+archived or pruned. No permanent asset, dependency, native/frame/contact solve,
+CAD rebuild, geometry change, physical operation or observation is added.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flange-distributed-warping-v1.py` | 9,822 | `f7df441915bc0fb66afc1f9d0cf17f7f731f1e68818a4b98c1791666aa378cec` |
+| `current-flange-distributed-warping-attempt01.json` | 2,281,110 | `d5589cb3ee474bac5a28bd175458fab67e8447a974dbd6c038d2349db49e0f0b` |
+| `current-flange-distributed-warping-v2.py` | 7,199 | `d4dad61787f2df0037a6f4fa5e4a452633013ada3ca583db35dd1855d5a5d5ee` |
+| `current-flange-distributed-warping-attempt02.json` | 645,712 | `7fe30474f2013812cb19a7ea7356c9afc4c775257cfa6f51fbe8fd85993edf56` |
+| `current-flange-distributed-warping-v3.py` | 7,517 | `4ebbdaa676d4817c8f3f078997023635ad5b66b99b951062e60a7677b03b1a3b` |
+| `current-flange-distributed-warping-attempt03.json` | 387,283 | `aed4f358cc4b392d97efc00bdf4ee9a695cf1674359f8bc199cde0f215e42e01` |
+| `current-flange-distributed-warping-check-attempt01-stop.json` | 12,850 | `5646256458389fa758280f7b900853637058a66c3b92f1011bb42fdfa08eaac4` |
+| `current-flange-distributed-warping-verification-v2.json` | 13,921 | `81117f13a7969fed8a87ab98167276e79bfb411eef559c1961d7e4b8580b0bfb` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-distributed-warping-v3.py /tmp/eoere-distributed-warping-replay.json
+```
+
+The result embeds its reproduction source and pins the retained reducer and
+load records; verification embeds its complete checker. Use a fresh output.
+Actual fitting/joint qualification and the full goal remain unachieved.
 
 <a id="current-unholed-flange-root-interaction"></a>
 **Simultaneous actions at the unholed flange roots.** The current six-case
