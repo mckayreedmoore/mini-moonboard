@@ -12115,6 +12115,92 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. PyMuPDF **1.26.4** was used only for source-page inspection.
 
+<a id="current-cleat-adjacent-group-force-gate"></a>
+**Adjacent-group and free-end force thresholds.** The existing 58 directional
+components now have an explicit stricter supplementary gate. Retain their
+own forces, coefficients and unassigned moments; keep the two physical groups
+on each cleat. No merged-group width bonus or isolated full-strength credit
+is used.
+
+The [NZ guide](https://cms.timberunlimited.co.nz/assets/Resources/reinforcement_of_timber_members.pdf?v=1689136441),
+printed p.25, permits full group strength above one member depth and states
+its reinforcement threshold for more than two groups. The
+[COST review of DIN 1052](https://www.cost.eu/wp-content/uploads/2018/11/Design-of-Connections-in-Timber-Structures.pdf),
+printed p.153, Eq.38, instead uses two depths and a half-resistance threshold
+for two or more adjacent groups. Its near-cantilever-end threshold is half
+the unreduced resistance. These are distinct source policies. Use the older
+stricter policy only as a declared working supplement; no correction of the
+NZ guide or current German code adoption is claimed.
+
+The group centerlines are **142.0875 mm** apart. Enclosing all forty cleat
+washer profiles, including their **13.081-mm** maximum outer radii and a
+1e-8-mm numerical allowance, leaves **115.92549998 mm** between envelopes.
+The largest existing depth-parameter enclosure is **139.70000001 mm**.
+Both separation conventions fall between half and twice that depth. The
+interpolation gives **0.7542725483** at the centerlines and a lower enclosure
+**0.7074543664** at the washer envelopes. Select **k=0.707454**, rounded down.
+This is a conservative parameter choice for this worksheet, not a declaration
+of the standard's clear-joint-distance definition or a rectangular replacement
+for the sloping cleat. Each physical group's grainwise center span is zero,
+so its existing `k53=1` is retained.
+
+With the unchanged coefficient lower C and nominal action multiplier one:
+
+```text
+Gamma0 = phi*k1*k15*ft90_connection             [value unassigned]
+F <= 0.5*k*C*Gamma0  if  Gamma0 >= 2*F/(k*C)
+```
+
+Gamma0 excludes the adjacent-group factor; the earlier product included k55.
+Since k≤1, this condition also implies `F<=0.5*C*Gamma0`. The reviewed
+free-end half-reference threshold therefore adds no second factor of two.
+The sufficient material-product thresholds of this **force-only reference**,
+rounded upward, are:
+
+| Case | Source Gamma0, MPa | Coupled V4 Gamma0, MPa |
+| --- | ---: | ---: |
+| `a12-forward` | 0.046977 | 0.085026 |
+| `a12-rear` | 0.021069 | 0.021798 |
+| `a12-left` | 0.034712 | **0.100890** |
+| `k12-right` | 0.033958 | 0.099815 |
+| `k12-rear` | 0.020574 | 0.022331 |
+| `a1-rear` | 0.002881 | 0.010840 |
+
+**Disposition:** the supplementary force thresholds are complete. No
+connection-specific material/design product, independent dowel Pc0 or
+complete resistance is assigned. Sloping/finite-body applicability and
+simultaneous width moments, axial seats, other forces and crack interaction
+still require a matching treatment. No cancellation between opposed
+directional components is credited. The intact C16 section hypothesis does
+not fill Gamma0. Applying this reference does not clear any current hold.
+
+An independent Decimal check uses original shaft origins for the station
+geometry and the earlier product for all 58 threshold calculations. All
+twelve maxima, the half-reference implication, twenty source pins and the
+unchanged 58 parent moment records pass. Replays are byte-identical; scoped
+Ruff, all 220 affected development/documentation checks, changed links/tables
+and whitespace pass. Python 3.12.3 and its standard library perform the
+arithmetic; the maintained summary remains 150 lines.
+
+The following **95,774 active bytes** stay in the existing ignored closure
+folder. Sources and prior coefficients are reused; no manual or field is
+copied. The result and verification embed their complete Python sources:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-adjacent-group-gate-v1.py` | 9,885 | `bafb109453f4988360f1c9cf5b2df1a1f9f6e53efcd90f3ff9b0f98d387d2a3f` |
+| `current-cleat-adjacent-group-gate-attempt01.json` | 74,516 | `1be097d42e9727c755741c70db6842026a2a24f994f8ce28ea643d76e8a65e49` |
+| `current-cleat-adjacent-group-gate-verification-v1.json` | 11,373 | `18963fc49678b400feab9fa75efc8fc234ec47871fff4276623be27b486ce903` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-adjacent-group-gate-v1.py /tmp/eoere-cleat-adjacent-group-gate-replay.json
+```
+
+Use fresh outputs from the repository root. All inputs and failed evidence
+remain active. No native/frame/CAD solve, geometry/hardware change, physical
+operation, observation, archive or pruning occurs. Complete joints, member
+exceptions, restraint/response and the full engineering goal remain open.
+
 <a id="current-cleat-finite-end-applicability"></a>
 **Finite cleat ends: CWC table scope and the 2012 alternative.** The
 [CWC May 2023 errata](https://cwc.ca/wp-content/uploads/2023/05/WDM2020_May2023Errata.pdf),
