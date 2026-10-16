@@ -7503,8 +7503,13 @@ force authority, native/frame response or physical operation changes.
 The complete engineering goal remains active and unachieved.
 
 <a id="current-finite-backing-pressure-construction"></a>
-**Finite normal pressure on the current backing lands.** The engineering
-question is whether ordinary, nonnegative finite pressure can carry the
+**Finite normal pressure on the current backing lands.** This preceding
+construction uses the nominal sharp flat faces. The later
+[construction on common flat material](#current-flat-flange-backing-pressure) supplies
+the pressure footprint to use alongside the working rounded-heel model;
+the earlier source/result bytes and their narrower scope remain preserved.
+Its engineering question is whether ordinary, nonnegative finite pressure
+can carry the
 **original six-case flange-backing forces and normal moments** on the
 recorded holed lands within the existing timber bearing reference. It can,
 under the following nominal geometry and material hypotheses. This completes
@@ -7612,6 +7617,109 @@ eight mixed stacks' complete behavior. The original forces, 100 bolts,
 active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
+
+<a id="current-flat-flange-backing-pressure"></a>
+**Backing pressure on material common to the nominal and rounded models.**
+Before applying a full-flange interaction method, check whether the existing
+finite pressure supports fit the working `Ri=t=6.35 mm` bend geometry. Its
+flat flanges begin at **X=12.7 mm** in each own flange chart. **176/352**
+earlier support unions reach below that tangent, to approximately **7.937781
+mm**. They remain valid on their declared sharp nominal faces, but cannot
+serve as flat-face boundary pressures on that rounded strength model.
+This is a mismatch between analytical constructions, not an observed part
+failure or a reason to change the retained frame.
+
+The engineering question is whether all original normal forces and moments
+can instead be carried on the **common flat material** within the existing
+timber bearing reference. The answer is **yes**, under the retained nominal
+geometry/material hypotheses. Intersect each original support union with a
+symmetric coordinate band about its original centroid. Choose its half-width
+so the complete enclosing box has flange **X>=12.701 mm**, including the
+stored chart's small off-axis terms. This retains exact local first moments,
+strict material/hole clearance and disjointness. **176 unions are cropped;
+176 stay unchanged**, using one common geometry across all six cases.
+
+The **0.001-mm analytical margin is a proof control**, not a manufacturing
+tolerance, observed clearance or CAD-error envelope. Independent exact dot
+products of the stored source charts give minimum **X>12.700999 mm**;
+the largest coefficient discrepancy from the producer's binary64 chart
+calculation is **3.907053e-15**. The preceding source-plane precision limits
+remain. No CAD, member, hole, hardware, axis or response law changes.
+
+Every one of the **528 patch/case normal wrenches is identical** to the
+preceding finite construction, so its original force/moment inputs remain
+available to the bend and flange work. The same **2,112** normal states,
+including 670 active actions, have these maximum constructed pressures:
+
+| Current case | Maximum pressure, MPa |
+| --- | ---: |
+| `a12-forward` | 0.870599 |
+| `a12-rear` | 0.793153 |
+| `a12-left` | **0.986444** |
+| `k12-right` | 0.985064 |
+| `k12-rear` | 0.818107 |
+| `a1-rear` | 0.687533 |
+
+All remain below **Fc90=4.309223 MPa**; maximum reference index is
+**0.228914343**. The governing cell still carries **456.709263 N** at the
+left top angle / `base_side_left` / `a12-left`, now on **462.985954 mm²**.
+This is a constructive normal-pressure distribution, not a physical peak
+bound, a stiffness law or complete flange/wood resistance.
+
+Reuse the frozen pressure reducer with one explicit private parsed-input
+adapter. It authenticates the original support bytes, supplies only the
+derived geometry object, and reruns the reducer's original area, centroid,
+material, disjointness, pressure and wrench checks. Earlier continuous-normal
+energy columns/densities are omitted from the derived object. A separate
+checker uses the retained generic rational polygon clipper and independent
+shoelace integration, then reuses the frozen backing verifier through its
+own explicitly counted derived-input adapter. No frozen source is edited.
+
+Independent checks cover all **352 crops/areas/first moments**, **4,480**
+empty coplanar cross-patch intersections, **2,112** pressures and **528**
+complete wrenches. Maximum direct force/moment errors are **5.684342e-14 N /
+2.328307e-10 Nmm**; pressure error is **6.938894e-18 MPa**. All **80 unique
+construction source bindings** and the checker's three explicit source
+bindings are unchanged. The producer retains 18 direct and 70 inherited
+bindings, with their overlap counted once in the 80-file union.
+
+The existing ignored engineering-closure folder retains three active new
+records, **1,015,449 bytes** total. The detailed record defines the new
+supports by original tiles plus exact crop bands, avoiding another tile copy:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flat-flange-pressure-v1.py` | 9,759 | `5ba559eeaaee36e97b706c2e6545ae80371f864761adb4a0a1053d5d1d1235df` |
+| `current-flat-flange-pressure-attempt01.json` | 996,081 | `7482e480137506ff108f28121126f629dbfb8908d1f6a14dd3a5b39448a55df2` |
+| `current-flat-flange-pressure-verification-v1.json` | 9,609 | `9198b951f4cce2a0e1ad9386b0e098b53152bf0f5075809a716b026d12365e6b` |
+
+Both scripts pass scoped Ruff; fresh producer and embedded-checker replays
+are identical. Reproduce into a fresh output; the verification JSON embeds
+its complete checker and pins its reused definitions:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flat-flange-pressure-v1.py /tmp/eoere-flat-flange-pressure-replay.json
+```
+
+All **220 affected development/documentation checks**, five added local
+targets/fragments and owned whitespace checks pass. The maintained summary
+stays at 148 lines; only the two maintained documents enter the commit.
+
+Use this common-flat footprint for further combined flange/bend work.
+Geometric support compatibility does not supply matching bend-end stresses,
+complete hole/flange resistance, timber-interior transfer, physical sharing
+or deformation compatibility. The next conventional candidate is the
+full-load rectangular-element interaction in
+[Dowswell (2015), Eq.67](https://ej.aisc.org/index.php/engj/article/download/1077/1076/1076),
+also given in [Dowswell (2019), Eq.43](https://ej.aisc.org/index.php/engj/article/download/1147/1146/1146).
+Map its net-hole, local transfer and stability assumptions before using it
+as a fitting check; use its uniform-torsion contribution for the initial
+mapping. No capacity or geometry applicability is adopted by citing it.
+The original washer/spacer calculations and
+all earlier records retain their limits. Both corners, 100 bolt axes and
+66 Hillman axes stay fixed; panel/screw remedies remain deferred and actual
+fit excluded. All sources/results stay active, with no archive or pruning.
+The full engineering completion goal remains active and unachieved.
 
 <a id="current-axial-washer-and-spacer-transfer"></a>
 **Current axial washer and spacer transfer.** This completes a
