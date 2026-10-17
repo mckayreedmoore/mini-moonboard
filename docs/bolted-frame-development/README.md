@@ -101,7 +101,7 @@ changed-section strength remain unresolved. See the
 
 ## Remaining work and next actions
 
-The [bounded numerical assessment](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) is complete. The [full engineering completion goal](../wood-joints-mvp/completion-ledger.md#practical-engineering-completion-goal) remains **active and unachieved**; recording open checks does not satisfy it. Reuse the [existing historical reconciliation](../wood-joints-mvp/completion-ledger.md#historical-reuse-and-engineering-decision-sequence) and completed calculations. The four MVP gates are the fixed basis, complete joints, critical members/restraint and one consistent engineering disposition. The conditional basis is established; the remaining gates are below.
+The [bounded numerical assessment](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) is complete. The [full engineering completion goal](../wood-joints-mvp/completion-ledger.md#practical-engineering-completion-goal) is **blocked and unachieved** at the recorded [input and scope boundary](../wood-joints-mvp/completion-ledger.md#current-engineering-input-boundary); its full objective is unchanged, and recording open checks does not satisfy it. Reuse the [existing historical reconciliation](../wood-joints-mvp/completion-ledger.md#historical-reuse-and-engineering-decision-sequence) and completed calculations. The four MVP gates are the fixed basis, complete joints, critical members/restraint and one consistent engineering disposition. The conditional basis is established; the remaining gates are below.
 
 | Duty | Completed evidence to retain | Required next conclusion |
 | --- | --- | --- |

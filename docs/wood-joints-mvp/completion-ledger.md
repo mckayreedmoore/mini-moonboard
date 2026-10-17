@@ -49,7 +49,9 @@ The current [proportionate decision](#proportionate-qualification-decision)
 closes the bounded continuation with explicit acceptable, failed or unsupported
 detail outcomes. The owner has since authorized a new
 [full engineering completion goal](#practical-engineering-completion-goal).
-Its remaining joint, member and response checks are active work. Earlier
+Its remaining joint, member and response checks remain in scope. The current
+[input and scope boundary](#current-engineering-input-boundary) records why
+completion is blocked. Earlier
 custom-model queues retain their issue-time scope; the new goal uses practical
 engineering methods and the existing evidence rather than commissioning
 another modeling campaign.
@@ -3970,10 +3972,47 @@ Resolving
 additional nominal section arithmetic alone would not settle the governing
 joint gate. Expanding custom software, rerunning the original frame or
 altering a failed hypothesis to obtain a pass is outside this MVP. The full
-objective is **active and unachieved**; the earlier blocked stopping decision
-is superseded and does not close these tasks or turn the completed conditional
-assessment into structural acceptance.
+objective remains **unachieved**. The earlier blocked stopping decision did
+not close these tasks or turn the completed conditional assessment into
+structural acceptance. The later input and scope disposition below retains
+the full objective and all unfinished engineering duties.
 All current/frozen evidence remains active; nothing is archived or pruned.
+
+<a id="current-engineering-input-boundary"></a>
+**Current disposition: blocked, full objective unachieved.** Three consecutive
+audits find the same governing inputs and pending scope decision. The
+[four failed NDS shear comparisons](#current-shear-failure-basis-audit) remain
+failed under the fixed geometry, saved actions and DF-L No.2/CD1 basis.
+Corrective geometry work is outside the active authorization. The requested
+bounded stock study at the two front posts and left rear-leg foot still
+awaits the owner's scope decision; it would preserve both cleat corners,
+the climbing surface, all 100 bolt/66 Hillman axes and hardware. Such a study
+could advance those shear details but would not itself qualify the cleats
+or the complete frame. A supported alternative current force/resistance
+treatment could also change a failed comparison; none is established here.
+
+The [calibration review](#current-cleat-strength-calibration-evidence) records
+the other input boundary: the available sources do not assign a matching
+characteristic/design resistance to the retained finite joint's transverse
+failure mode. The recorded tensile and fracture-energy numbers are known
+model hypotheses, not missing numerical entries. The reviewed direct code
+routes retain their end/geometry limits; mean predictions and parametric
+force/couple thresholds do not supply an assigned current capacity. Full
+physical joint-response and restraint bounds are also unestablished.
+
+Complete force/couple allocation, holed-plate and timber-interior transfer,
+splitting and response remain engineering work, not completed tasks or
+blanket external-approval requirements. Their status is not changed by more
+passing scalar comparisons or by an unavailable PDF alone. Further progress
+needs an applicable resistance/transfer basis or the requested scope change
+for corrective design work. No new capacity, native/frame solve, physical
+test or external sign-off requirement is introduced. The model, held
+operations, blank observations and full completion criteria remain intact.
+This disposition supersedes the issue-time goal-status wording in earlier
+calculation entries; their engineering results and limits are unchanged.
+The five governing result bindings recheck unchanged, and all **220 affected
+development/documentation checks** pass. All evidence remains active;
+no archive or prune occurs.
 
 The following three tasks are the completion sequence. The table below them
 retains their present evidence and unsupported conclusions.
