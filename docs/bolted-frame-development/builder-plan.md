@@ -33,8 +33,8 @@ drawings and source datums describe their current geometry.
 | Wiring cuts and panel holes | [Narrower profile][narrow-profile], [32 revised route/receiver rows][narrow-datums], [340 panel datums][panels] and [panel plates][panel-plate] | Retain smaller-channel geometry, with the six central rail cuts on hold. Omit eleven filled principal arcs and use the two kicker screw positions at Z212 mm. |
 | Panel/kicker screw datums | [Two rebased right-post datum rows][post-screws], with the preserved 66 world axes | The right-post U datum moves inward 50.8 mm; the screws stay in place. All four outer kicker screws retain full modeled backing. |
 | Bolt lengths and spacers | [Eight revised stacks][post-hardware], [92 retained selections][hardware] and [composed layout](builder-layout.md) | Four 6-in front and four 7-in cleat bolts supersede the old eight lengths. Cleat nuts use two 12.7-mm spacers each. The old stack drawing applies only to retained stacks. |
-| Wrench, socket and removal access | [Current geometry checks](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry), [preceding study][installation] and [200-side table][access] | All 200 current sides have nominal wrench/removal alternatives. At bolt 081's nut, use 90° working and 60° counterhold instead of the old orientations. Actual tools and support remain unqualified. |
-| Loads and resistance status | [Six preceding 2×6-post cases][forces] and [qualification ledger][qualification] | New geometry has no matched force response or complete-joint pass. Original scalar forces are used only for the post shear screen. |
+| Wrench, socket and removal access | [4×6-post geometry checks](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry), [narrower-channel followup](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-tool-applicability), [preceding study][installation] and [200-side table][access] | All 200 sides retain nominal wrench/removal alternatives after checking restored channel material. At bolt 081's nut, use 90° working and 60° counterhold instead of the old orientations. Actual tools and support remain unqualified. |
+| Loads and resistance status | [Six preceding 2×6-post cases][forces] and [qualification ledger][qualification] | New geometry has no matched force response or complete-joint pass. Saved forces support only the identified bounded component comparisons. |
 
 The optional expanded grid and Z180 lower-corner proposal remain separate.
 Neither changes this guide's holes, services or assembly sequence.
@@ -258,8 +258,9 @@ working/insertion and 60° counterhold**. A 50.8-mm-long socket conflicts at 24 
 sides; 25.4-mm socket seating clears all sides but does not qualify its
 approach or driver. These are modeled tool envelopes, with actual tools
 and receiving observations still blank.
-The current check includes all eight revised stacks and their two-spacer
-removal envelopes. Actual installation and temporary support remain unqualified.
+The post-revision check includes all eight revised stacks and their two-spacer
+removal envelopes. The narrower-channel followup checks the added timber and
+retains these nominal results. Actual installation and temporary support remain unqualified.
 
 ## 5. Route services, then fit kickers and panels
 
@@ -306,6 +307,9 @@ releases both angles. Preserve labels and matched sets; no transport or
 lift rating is supplied by the sequence.
 
 ## What remains before this is an executable build packet?
+
+Use the [remaining-step decision table](../wood-joints-mvp/completion-ledger.md#remaining-review-after-4x6-posts)
+for the current engineering dependencies, retained holds and later shop observations.
 
 The [qualification ledger][qualification] separates completed numerical work
 from three remaining engineering limits: complete cleat force/moment

@@ -24,7 +24,7 @@ spacers overall**. Revised force response and complete joints remain unqualified
 | Current nominal shop instructions | [Builder plan](builder-plan.md) · [composed member/receiver layout](builder-layout.md) · [eight hardware overrides](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv) | Override the preserved packet for these members/stacks. Changed installation remains unqualified; observations stay blank. |
 | Revision authority | [Checked revision index](development-revisions.json) | Current geometry and overrides; the complete preceding revision remains separately bound. |
 | Latest numerical evidence | [Preserved six cases](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json) | Applies to the **2×6-post predecessor**, extra grid off; no response/pass transfers to the wider posts. |
-| Current checks and next steps | [Post revision](../wood-joints-mvp/completion-ledger.md#current-4x6-front-post-revision) · [changed bolts](../wood-joints-mvp/completion-ledger.md#current-4x6-post-bolt-reference-followup) · [installation geometry](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry) | Fixed-original-force post and Cg-only bolt uppers **0.722654 / 0.508716**. All 200 sides have nominal wrench/removal alternatives and all 120 receivers have guide/pad support; bolt 081 needs the revised wrench orientation. Revised response, complete joints and actual tools/tolerances remain open. |
+| Current checks and next steps | [Post revision](../wood-joints-mvp/completion-ledger.md#current-4x6-front-post-revision) · [changed bolts](../wood-joints-mvp/completion-ledger.md#current-4x6-post-bolt-reference-followup) · [installation geometry](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry) | Fixed-original-force post and Cg-only bolt uppers **0.722654 / 0.508716**. All 200 sides retain nominal wrench/removal alternatives and all 120 receivers retain guide/pad support after the restored-channel followup; bolt 081 needs the revised wrench orientation. Revised response, complete joints and actual tools/tolerances remain open. |
 
 ## Revision map
 
@@ -39,20 +39,20 @@ spacers overall**. Revised force response and complete joints remain unqualified
 
 ## Current disposition
 
-The new post geometry has twelve rectangular-core reference comparisons below
-one at the original scalar forces; it establishes no revised response or complete joint
-capacity. The [geometry receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json)
+The [conventional post review](../wood-joints-mvp/completion-ledger.md#current-4x6-post-conventional-review) retains 4×6 stock: net axial/bending **0.654785**, conditional compression **0.598883** at K≤2, and near-end shear **0.722654**.
+These saved-action comparisons establish no revised response, endpoint restraint or complete joint capacity.
+The [geometry receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json)
 records valid solids, retained axes/backing and positive selected hardware windows.
 The revised lower cleat/post bolts also pass the existing nominal-placement
-comparison at those saved forces, maximum **0.730193**. Front bolts retain
-the smaller thread-root diameter; complete placement and splitting remain open.
+comparison at those saved forces, maximum **0.730193**. Current front bolts retain
+the smaller thread-root basis; a [four-seat counterbore option](../wood-joints-mvp/completion-ledger.md#front-runner-counterbore-detail-option) has passing same-action component screens but remains unadopted. Complete joint resistance stays open.
 Both post blanks fit the existing rear-leg stock offcuts, retaining the nominal
 **13 sticks / 150 board feet**. New timber adds **1.666229 kg** at the recorded
 500-kg/m³ density. The predecessor's mass/cost results retain their original scope.
-Current nominal access/fixture checks are below; changed metal strength and response remain open.
+The restored-channel followup preserves nominal access/fixture applicability; changed metal strength, actual tools/tolerances and response remain open.
 
-The [narrower channel revision](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-revision) preserves every old timber region and restores material at 32 openings. The six central rail cuts and left rear foot retain their recorded holds.
-The [fixed-axis 6×6 rear-leg option](../wood-joints-mvp/completion-ledger.md#rear-leg-6x6-fixed-axis-feasibility) has positive bolt-window and stock screens; it remains unadopted. Panel/screw
+The [narrower channel revision](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-revision) restores material at 32 openings; the [same-action beam normal upper](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-strength-interpretation) remains **0.480823**. Six central cut holds and the [left/right foot coverage issue](../wood-joints-mvp/completion-ledger.md#current-left-right-rear-foot-comparison) remain.
+The [fixed-axis 6×6 rear-leg option](../wood-joints-mvp/completion-ledger.md#rear-leg-6x6-fixed-axis-feasibility) has positive bolt-window/stock screens and a [below-pair shear bound](../wood-joints-mvp/completion-ledger.md#rear-foot-global-statics-component-bound) of **0.983274** for the ten named cases under its support/weight assumptions; it remains unadopted. Panel/screw
 remedies remain deferred; the [calculation audit](../wood-joints-mvp/completion-ledger.md#current-exceedance-calculation-audit)
 corrected the predecessor's panel comparisons from 26 to 27 exceeded references.
 The predecessor's working 6.35-mm heel scenario has maximum 0.992604; seven
@@ -100,6 +100,7 @@ The **preceding 2×6-post** [bounded numerical assessment](../wood-joints-mvp/co
 is complete; the table below retains that predecessor's scope. Its passes
 do not transfer to the changed posts or bolts. The [current input boundary](../wood-joints-mvp/completion-ledger.md#current-engineering-input-boundary)
 records the missing cleat resistance and matching current-action treatment after the completed post/tool and stock checks.
+Use the [remaining-step decision table](../wood-joints-mvp/completion-ledger.md#remaining-review-after-4x6-posts) for priorities, dependencies and closing conditions, including deferred panel/attachment work.
 
 | Duty | Completed evidence to retain | Required next conclusion |
 | --- | --- | --- |
