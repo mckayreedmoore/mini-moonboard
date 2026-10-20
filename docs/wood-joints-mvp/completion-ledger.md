@@ -4045,7 +4045,7 @@ or pruned. This continuation runs no native/frame solve, optimization,
 full-frame CAD rebuild, redesign or physical operation.
 
 <a id="practical-engineering-completion-goal"></a>
-**Practical engineering completion goal — active; full objective unachieved.** The owner has directed completing
+**Practical engineering completion goal — blocked; full objective unachieved.** The owner has directed completing
 the remaining work as a human design engineer would, with limited time and
 little new code. After clearing the previous goal, the owner explicitly
 authorized a replacement **active goal for full engineering completion**.
@@ -4069,9 +4069,10 @@ must retain the governing force, moment and return path.
 **Latest owner direction after the full remaining-step review.** The owner
 explicitly requested a goal to complete every reviewed step, coordination
 with the other running agent, and the working style of a human design
-engineer with limited time and little code. A new full-completion goal is
-active in the narrower-channel session. Its scope includes the current
-action/load-coverage basis, retained cleat and complete joints, rear feet,
+engineer with limited time and little code. A new full-completion goal was
+set in the narrower-channel session. Its current blocked disposition is
+recorded below. Its full scope includes current actions and load coverage,
+the retained cleat and complete joints, rear feet,
 notches, member/restraint exceptions, panel/Hillman load path, and one
 consistent calculation/shop disposition. The earlier panel/screw deferral
 no longer stops engineering assessment under this later all-steps direction;
@@ -4086,9 +4087,10 @@ connection and rear-foot studies. This session owns the current basis/load
 coverage and panel/Hillman conventional assessment, reusing the existing
 saved fields and source-checked helpers. Use one compact worksheet per
 decision; do not repeat the existing insert/down-selection or saved-case
-campaign. The blocked audits below retain their issue-time input findings
-and no longer describe the new goal's status. No native/frame solve is
-commissioned, and no selected-baseline or frozen evidence is changed.
+campaign. The earlier blocked audits retain their issue-time input findings.
+The latest audit below records the present goal status and unresolved inputs.
+No native/frame solve is commissioned, and no selected-baseline or frozen
+evidence is changed.
 
 The owner subsequently reaffirmed retaining the current corners and directed
 pursuing the **minimum viable engineering completion**. The MVP is the
@@ -4178,6 +4180,57 @@ the full objective and all unfinished engineering duties.
 All current/frozen evidence remains active; nothing is archived or pruned.
 
 <a id="current-engineering-input-boundary"></a>
+**Current goal disposition: blocked; the full objective is unachieved.**
+The same essential retained cleat resistance and current joint force and
+transfer inputs remain unavailable through three consecutive goal turns:
+(1) the coordinated post/cleat/restraint review and all-face foot/cable
+bounds; (2) the finite local normal-cycle check; and (3) this current-source
+and acceptance-gate audit. Those turns made bounded progress without
+establishing the missing complete structural basis.
+
+The current revision index still binds **`eoere-narrow-channel-openings-v1`**
+with null current response, structural assessment and engineering assessment.
+The retained-cleat combination still has null complete resistance and false
+acceptance, with **295.602493 N** necessary transverse tension at the
+predecessor's governing complete cut. Its result, producer and **14 direct
+bindings** reauthenticate. This is a lower-bound demand, not a design-force
+upper or a physical failure finding. The current revised frame cannot
+inherit that predecessor response or a complete pass.
+
+The essential missing resistance input is a supported design strength and
+combined transfer treatment for the finite DF-L No.2 cleat's actual
+ends, two interfaces, bores, contacts and simultaneous opening/shear/moments.
+The [completed source review](#current-cleat-strength-calibration-evidence)
+explains why the related clear-wood means, other material populations and
+force-only rules do not populate that entry. A matching code/detail method
+or independently justified conservative resistance treatment could supply
+it; a proprietary rating, particular solver, physical test or external
+sign-off is not made mandatory. No arbitrary Ft90 or factor is assigned.
+
+A justified current force basis and transfer through the axial captures,
+seats and flanges are also missing. The [local normal-cycle example](#local-normal-prying-statics-limit)
+shows that the existing normal equilibrium and bearing conditions do not preserve
+the saved sufficient washer comparison for every static sharing. It does
+not predict preload, physical failure or the only possible stress field.
+The end-restraint screen remains conditional on its complete return path.
+
+The [remaining-step table](#remaining-review-after-4x6-posts) keeps every
+unfinished duty: current rear-foot acceptance, six central notch holds,
+complete joints and member exceptions, and the reopened panel/Hillman path.
+The 6×6 foot option and front-counterbore detail remain unadopted; evaluated
+cable detours exceed the recorded kit budget. None closes the missing
+complete joint basis. Additional section comparisons or pressure allocations
+cannot supply those missing inputs. The retained-corner decision stands;
+no repeat corner-choice question or rejected tie proposal is pending.
+
+This audit does not complete the goal or call the continuing CI job stopped.
+At this audit, the pushed `2d84d6a8` CI run **39369801985**, job
+**118454870894**, was confirmed live in its Test step; its preceding
+identity/synthetic and lint gates passed. Full CI and publication remain
+pending and separate from structural qualification. All evidence and failed launches remain active
+in their existing packets; nothing is archived or pruned. Actual observations
+remain blank, and no geometry, physical operation or release is adopted.
+
 **Earlier resumed-goal disposition: blocked, full objective unachieved.**
 The preceding goal turn made progress by rejecting the rear cable detour
 against the already identified V5 kit. This continuation closes the
@@ -5400,15 +5453,19 @@ Frozen records, the panel/screw policy and blank Actual cells are preserved.
 The existing ignored calculation/CAD packets remain active evidence; the
 one-spacer front option is closed exploration. No archive or pruning occurs.
 
-The owner's later **full-completion goal is active and unachieved**. Its
+The owner's later **full-completion goal is blocked and unachieved** after
+three consecutive turns with the same essential input gap. Its
 continuation adds the all-face rear-foot component bound, rejects the
 front-plane sideways cable detour at the recorded link budget and reopens
 the panel/Hillman engineering assessment. The coordinated cleat review
 also joins both actual interfaces and all 120 host wrenches; its ordinary
 method combination leaves the cross-grain return resistance unresolved.
-No additional scalar pass substitutes for that complete-joint duty.
-The two new short worksheets reproduce byte-for-byte. Independent statics,
-all 234 development/navigation controls, revision validation, current local
+No additional scalar pass substitutes for that complete-joint duty. The
+[local normal-cycle check](#local-normal-prying-statics-limit) also rules out
+inheriting the saved washer reference from balance/bearing limits alone.
+The foot, cable and local-cycle worksheets reproduce byte-for-byte.
+Independent statics, all 234 development/navigation controls, revision
+validation, current local
 target/fragment checks, scoped lint and whitespace checks pass.
 The summary remains 149 lines. The active ignored sources include the new
 results and both preserved failed intake checks; no raw source is archived
@@ -11463,6 +11520,61 @@ without another mechanics/test run. The two distinct new source/result
 records total **20,537 bytes** and remain active with the current fields,
 prior bend records and their frozen inputs. Replays and other sessions'
 files are preserved; no archive or pruning occurs.
+
+<a id="local-normal-prying-statics-limit"></a>
+**Local normal statics does not preserve the saved washer reference.** The
+remaining question was whether equilibrium plus the existing timber-bearing
+reference could close prying without a compatible connection treatment.
+One finite, positive force cycle shows why that inference is insufficient.
+The [primary prying reference](https://ej.aisc.org/index.php/engj/article/download/781/780)
+distinguishes applied tension from bolt force, `B=T+Q`. Only equilibrium is
+used here; no steel T-stub capacity is transferred to this timber joint.
+
+Use the unchanged top-left angle's **arm-z / `a12-left`** source actions.
+Bolt **006**, `eoere_bolt_006/head-capture`, originally carries
+**450.590244 N**. Increase its normal force to **600 N**, keeping bolt 010
+and all lateral/bore actions unchanged. Three existing cropped contact
+regions on `base_side_left` balance the added **149.409756 N**:
+
+| Existing region, `post/.../cell-...` | Fraction of extra bolt force | Added compression |
+| --- | ---: | ---: |
+| `-1 / cell-1` | 0.769260238310 | 114.934984 N |
+| `-1 / cell-2` | 0.082201514831 | 12.281708 N |
+| `+1 / cell-1` | 0.148538246859 | 22.193063 N |
+
+The fractions are positive and sum to one; their weighted X/Y centroid is
+the bolt center. They therefore preserve normal force and both bending
+moments. Uniform pressure on the same finite, disjoint source regions gives
+maximum backing pressure **0.986444 MPa**. The opposite wood washer's worst
+mean is **1.516464 MPa**; both remain below the **4.309223-MPa** reference.
+The bolt's opposite capture forces lie on the same shaft line, so that
+normal transfer introduces no discarded bolt couple.
+
+At 600 N the existing adverse catalogue washer stress construction reaches
+**1.185154**, versus **0.890032** at its source force. This is a sufficient
+constructed-field comparison: its exceedance does **not** prove washer
+failure or exclude another admissible stress field. The cycle is a static
+example, not a compatible response or an applied/predicted preload.
+**Decision:** normal balance and these bearing limits alone cannot justify
+inheriting the saved axial washer pass for every sharing. Resolve compatible
+capture/seat/flange transfer and the current-action basis; another static
+pressure allocation alone cannot close that duty. Complete timber-interior
+and joint resistance remain separate, with no geometry change or release.
+
+The ignored closure packet retains `current-local-prying-statics-v1.py`
+and `current-local-prying-statics-attempt01.json`, **6,766 / 8,073 bytes**.
+Result SHA-256 is
+`dc7a1729ce83e318287b299756d13636f44356deb08296f7c12aa4f8e4d90350`.
+All **12 input pins** and the producer authenticate. Independent 60-digit
+barycentric arithmetic reproduces the three fractions; the full original
+normal wrench is recovered within **5.69e-14 N / 1.64e-10 Nmm**. The saved
+launch stop records a missing repository `PYTHONPATH`, corrected without
+changing the source. Reuse the existing load reducer; no new frame/native
+model, pressure search framework, archive or pruning is introduced.
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-local-prying-statics-v1.py /tmp/eoere-local-prying-statics-replay.json
+```
 
 <a id="current-principal-block-shear-components"></a>
 **Current flange principal block-path components.** The next missing
