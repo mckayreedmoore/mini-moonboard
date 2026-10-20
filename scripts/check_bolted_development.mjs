@@ -9,6 +9,8 @@ import {gunzipSync} from 'node:zlib';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateSelectedHardware} from '../site/eoere-selected-hardware-overlay.mjs';
+import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
+import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const INDEX_PATH = 'docs/bolted-frame-development/development-revisions.json';
@@ -581,7 +583,169 @@ export function validateEngineeringAssessment(report, index) {
   assert.match(report.contact_probe_rows.sha256, /^[a-f0-9]{64}$/);
 }
 
-export function checkDevelopment(index = readIndex()) {
+function checkFrontPostRevision(index, entryChecks) {
+  assert.equal(index.schema, 'bolted_frame_development_revisions/v2');
+  const previous = index.preceding_revision;
+  assert.ok(previous, 'preserved preceding revision required');
+  checkDevelopment(previous, {entryChecks: false});
+  for (const key of ['candidate', 'evidence_candidate', 'selected_baseline'])
+    assert.deepEqual(index[key], previous[key], `preserved authority: ${key}`);
+  for (const key of ['fabrication_released', 'climbing_released']) assert.equal(index[key], false);
+  for (const key of ['current_response', 'structural_assessment', 'engineering_assessment'])
+    assert.equal(index[key], null, `new response/acceptance cannot be inherited: ${key}`);
+  const geometry = JSON.parse(bound(index.geometry.receipt));
+  assert.equal(geometry.schema, 'eoere_front_posts_4x6_geometry/v1');
+  assert.equal(index.geometry.revision, geometry.revision);
+  assert.equal(geometry.revision, 'eoere-4x6-front-posts-v1');
+  assert.equal(geometry.candidate, index.evidence_candidate);
+  bound({path: 'scripts/eoere_front_posts_4x6.py', sha256: geometry.source_sha256['scripts/eoere_front_posts_4x6.py']});
+  assert.deepEqual(geometry.parent_geometry, previous.geometry.receipt);
+  assert.deepEqual(geometry.parent_hardware, previous.hardware_model.receipt);
+  assert.deepEqual(geometry.parent_shop, previous.shop.result);
+  const parent = JSON.parse(bound(geometry.parent_geometry));
+  const axes = parent.axes.map(a => geometry.axis_overrides[a.id] || a);
+  assert.equal(axes.length, 100);
+  assert.equal(Object.keys(geometry.axis_overrides).length, 8);
+  for (const [i, a] of axes.entries()) {
+    const old = parent.axes[i];
+    assert.deepEqual(a.direction_xyz, old.direction_xyz);
+    assert.equal(a.diameter_mm, old.diameter_mm);
+    assert.equal(a.bore_diameter_mm, old.bore_diameter_mm);
+    const delta = a.point_xyz_mm.map((v, j) => v-old.point_xyz_mm[j]);
+    const along = delta.reduce((sum, v, j) => sum+v*a.direction_xyz[j], 0);
+    assert.ok(Math.hypot(...delta.map((v, j) => v-along*a.direction_xyz[j])) < 1e-8, `moved bolt line: ${a.id}`);
+    assert.deepEqual(a.receivers, old.receivers);
+  }
+  assert.equal(geometry.unchanged_bolt_axis_lines, 100);
+  assert.equal(geometry.unchanged_screw_axes, 66);
+  const posts = ['base_post_outer_left', 'base_post_outer_right'];
+  assert.deepEqual(Object.keys(geometry.profile_overrides).sort(), posts);
+  for (const p of Object.values(geometry.profile_overrides)) {
+    assert.deepEqual(p.blank_mm, [238.9, 139.7, 88.9]);
+    assert.equal(p.inner_kicker_facing_longitudinal_bevel_mm, 9.525);
+  }
+  assert.equal(geometry.selected_stack_overrides.length, 8);
+  for (const r of geometry.selected_stack_overrides) {
+    const cleat = r.axis_id.startsWith('cleat_post_bolt_');
+    assert.ok(Object.hasOwn(geometry.axis_overrides, r.axis_id));
+    assert.equal(r.selected_underhead_length_mm, cleat ? 177.8 : 152.4);
+    assert.equal(r.nut_side_spacer_mm, cleat ? 25.4 : 0);
+    assert.equal(r.spacer_piece_count, cleat ? 2 : 0);
+    for (const key of ['minimum_body_to_nominated_target_margin_mm', 'minimum_nut_seating_margin_mm', 'minimum_two_pitch_margin_mm'])
+      assert.ok(Number.isFinite(r[key]) && r[key] > 0, `stack window: ${r.axis_id}/${key}`);
+    assert.equal(r.Actual, ''); assert.equal(r.Disposition, '');
+  }
+  assert.equal(geometry.fixed_original_action_post_shear_screens.length, 12);
+  assert.equal(geometry.maximum_fixed_action_post_shear_ratio,
+    Math.max(...geometry.fixed_original_action_post_shear_screens.map(r => r.ratio_upper)));
+  assert.ok(geometry.maximum_fixed_action_post_shear_ratio < .724);
+  assert.equal(geometry.inner_kicker_facing_longitudinal_bevel_mm, 9.525);
+  assert.equal(geometry.minimum_full_depth_rectangular_core_width_mm, 79.375);
+  assert.equal(geometry.service_census.parts, 405);
+  assert.equal(geometry.service_census.post_service_comparisons, 810);
+  assert.equal(geometry.service_census.all_clear, true);
+  assert.equal(geometry.service_census.unbeveled_stock_failures.length, 2);
+  assert.deepEqual(geometry.service_census.refined_queries.map(r => r.service).sort(), ['hold_tnut_kicker_1', 'hold_tnut_kicker_10']);
+  assert.ok(geometry.service_census.refined_queries.every(r => r.intersection_volume_mm3 < 1e-7 && r.minimum_distance_mm > 2));
+  assert.equal(geometry.new_response_computed, false);
+  assert.equal(geometry.analysis_pass_transferred, false);
+  assert.ok(Object.values(geometry.release).every(v => v === false));
+  const decoded = gunzipSync(bound(index.geometry.scene));
+  assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+  const scene = validateFrontPosts(JSON.parse(decoded), index.geometry.receipt.sha256);
+  assert.deepEqual(scene.layout_report, index.geometry.receipt);
+  assert.equal(index.geometry.viewer, scene.keys.base);
+  assert.equal(index.optional_grid.viewer, scene.keys.extra);
+  assert.equal(index.optional_grid.default_enabled, false); assert.equal(index.optional_grid.official, false);
+  assert.deepEqual(index.optional_grid.receipt, index.geometry.receipt);
+  assert.deepEqual(index.optional_grid.inherited_grid_receipt, previous.optional_grid.receipt);
+  assert.equal(index.hardware_model.revision, geometry.revision);
+  assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+  assert.deepEqual(index.hardware_model.scene, index.geometry.scene);
+  assert.deepEqual(index.hardware_model.viewers, scene.keys);
+  assert.equal(index.hardware_model.analysis_pass_transferred, false);
+  assert.equal(index.hardware_model.actual_parts_verified, false);
+  assert.deepEqual(index.shop.geometry, index.geometry.receipt);
+  assert.deepEqual(index.shop.result, index.geometry.receipt);
+  assert.equal(index.shop.revision, geometry.revision);
+  assert.equal(index.shop.shop_planning_only, true);
+  assert.equal(index.shop.affected_installation_qualified, false);
+  assert.equal(index.shop.overrides.length, 3);
+  for (const ref of index.shop.overrides) {
+    bound(ref);
+    assert.equal(ref.sha256, geometry.shop_overrides[path.posix.basename(ref.path)].sha256);
+  }
+  assert.deepEqual(index.hardware_model.shop_override, index.shop.overrides[0]);
+  assert.ok(read(index.shop.packet).toString().includes(geometry.revision));
+  const html = read('site/index.html').toString();
+  for (const model of Object.values(scene.keys)) assert.equal(viewerModel(html, model), model);
+  assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+  if (entryChecks) assert.ok(html.includes(`href="?model=${index.geometry.viewer}&view=rear">Current eoere geometry`));
+  for (const [key, value] of Object.entries({url: path.basename(index.geometry.scene.path),
+    expectedSha256: index.geometry.scene.sha256, decodedSha256: index.geometry.scene.decoded_sha256,
+    layoutSha256: index.geometry.receipt.sha256})) {
+    assert.ok(html.includes(`${key}: frontPosts ? '${value}'`), `current scene binding: ${key}`);
+  }
+  if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+    validateEntry(read(name).toString(), index);
+  assert.ok(read('docs/bolted-frame-development/README.md').toString().trimEnd().split('\n').length <= 150);
+  return {passed: true, revision: geometry.revision, bolt_axes: 100, screw_axes: 66,
+    maximum_fixed_original_action_post_shear_ratio: geometry.maximum_fixed_action_post_shear_ratio,
+    current_response_revision: null, previous_response_revision: previous.current_response.revision,
+    mechanics_executed: false, full_ignored_input_closure_checked: false};
+}
+
+export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v3') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_narrow_channels_geometry/v1');
+    assert.equal(report.revision, index.geometry.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry.receipt);
+    assert.deepEqual(index.hardware_model, index.preceding_revision.hardware_model);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.equal(report.channel_count, 32); assert.equal(report.profile.front_width_mm, 14);
+    assert.equal(report.profile.rear_depth_mm, 14.35); assert.equal(report.central_notch_location_holds, 6);
+    assert.equal(report.unchanged_bolt_axis_lines, 100); assert.equal(report.unchanged_screw_axes, 66);
+    assert.equal(report.service_routes_changed, false); assert.equal(report.new_response_computed, false);
+    assert.equal(report.analysis_pass_transferred, false);
+    assert.equal(report.reconstruction_proofs.length, 8);
+    assert.equal(report.reconstruction_proofs.reduce((n, r) => n+r.channels, 0), 32);
+    assert.ok(report.reconstruction_proofs.every(r => r.old_reconstruction_difference_mm3 < .01 && r.restored_volume_mm3 > 0));
+    assert.equal(Object.keys(report.profile_overrides).length, 8); assert.equal(report.changed_finished_solids.length, 16);
+    for (const [variant, total] of [['base', 1033], ['extra', 1428]]) {
+      const c = report.clearance[variant]; assert.equal(c.parts, total); assert.equal(c.all_clear, true);
+      assert.equal(c.added_material_pair_comparisons, 8*(total-1));
+      assert.ok(c.exact_queries.length > 0 && c.exact_queries.every(r => r.intersection_mm3 < 1e-6));
+    }
+    bound({path: 'scripts/eoere_narrow_channels.py', sha256: report.source_sha256['scripts/eoere_narrow_channels.py']});
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateNarrowChannels(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.equal(index.geometry.viewer, scene.keys.base); assert.equal(index.optional_grid.viewer, scene.keys.extra);
+    assert.equal(index.optional_grid.default_enabled, false); assert.equal(index.optional_grid.official, false);
+    assert.deepEqual(index.shop.result, index.geometry.receipt); assert.equal(index.shop.revision, report.revision);
+    assert.equal(index.shop.overrides.length, 1); bound(index.shop.overrides[0]); bound(index.shop.channel_profile);
+    assert.equal(index.shop.overrides[0].sha256, report.shop_override.sha256);
+    for (const k of ['current_response', 'structural_assessment', 'engineering_assessment']) assert.equal(index[k], null);
+    for (const k of ['fabrication_released', 'climbing_released']) assert.equal(index[k], false);
+    assert.ok(Object.values(report.release).every(v => v === false));
+    const html = read('site/index.html').toString();
+    for (const model of Object.values(scene.keys)) assert.equal(viewerModel(html, model), model);
+    for (const [key, expected] of Object.entries({url: path.basename(index.geometry.scene.path),
+      expectedSha256: index.geometry.scene.sha256, decodedSha256: index.geometry.scene.decoded_sha256,
+      layoutSha256: index.geometry.receipt.sha256})) {
+      const expression = html.match(new RegExp(key + ': (frontPosts \\? [^\\n]+),?'))?.[1]?.replace(/,$/, '');
+      assert.ok(expression, `current viewer ${key} binding missing`);
+      assert.equal(runInNewContext(`(${expression})`, {frontPosts: false, narrowChannels: true}, {timeout: 1000}), expected);
+    }
+    if (entryChecks) {
+      for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
+      assert.ok(html.includes(`href="?model=${index.geometry.viewer}&view=rear">Current eoere geometry`));
+    }
+    return {...prior, revision: report.revision, narrowed_channels: 32, new_response_computed: false};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v2') return checkFrontPostRevision(index, entryChecks);
   assert.equal(index.schema, 'bolted_frame_development_revisions/v1');
   assert.equal(index.fabrication_released, false);
   assert.equal(index.climbing_released, false);
@@ -699,16 +863,16 @@ export function checkDevelopment(index = readIndex()) {
   assert.equal(viewerModel(html, null), baseline.candidate);
   for (const model of [index.geometry.viewer, index.optional_grid.viewer, index.unadopted_proposal.viewer])
     assert.equal(viewerModel(html, model), model, `unknown viewer model: ${model}`);
-  assert.ok(html.includes(`href="?model=${index.geometry.viewer}&view=rear">Current eoere geometry`));
+  if (entryChecks) assert.ok(html.includes(`href="?model=${index.geometry.viewer}&view=rear">Current eoere geometry`));
   for (const [key, expected] of Object.entries({url: path.basename(hardwareModel.scene.path),
     expectedSha256: hardwareModel.scene.sha256, decodedSha256: hardwareModel.scene.decoded_sha256,
     layoutSha256: hardwareModel.receipt.sha256})) {
-    const expression = html.match(new RegExp(`\\b${key}: (selectedHardware \\? .+),\\r?\\n`))?.[1];
+    const expression = html.match(new RegExp(`\\b${key}: ((?:frontPosts|selectedHardware) \\? .+),\\r?\\n`))?.[1];
     assert.ok(expression, `viewer ${key} binding missing`);
-    assert.equal(runInNewContext(`(${expression})`, {selectedHardware: true}, {timeout: 1000}), expected);
+    assert.equal(runInNewContext(`(${expression})`, {frontPosts: false, narrowChannels: false, selectedHardware: true}, {timeout: 1000}), expected);
   }
   const entries = ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'];
-  for (const name of entries) validateEntry(read(name).toString(), index);
+  if (entryChecks) for (const name of entries) validateEntry(read(name).toString(), index);
   assert.ok(read(entries[2]).toString().trimEnd().split('\n').length <= 150,
     'keep the development entry within 150 lines; link details from the ledger');
   return {passed: true, revision: geometry.revision, shop_revision: shop.revision, response_revision: index.response.revision,

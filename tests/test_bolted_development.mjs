@@ -3,12 +3,40 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex, checkDevelopment, validateEntry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
+import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
+import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
+
+// Keep exercising the preserved force/shop contracts against their own geometry.
+const readPostIndex = () => readCurrentIndex().preceding_revision;
+const readIndex = () => readPostIndex().preceding_revision;
+const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index, {entryChecks: false});
 
 test('current geometry/shop, preceding response and baseline keep their own identities', () => {
-  assert.equal(checkDevelopment().passed, true);
+  assert.equal(checkCurrentDevelopment().passed, true);
+});
+
+for (const [label, mutate] of [
+  ['stale post geometry', i => {i.geometry.revision = i.preceding_revision.geometry.revision;}],
+  ['post scene drift', i => {i.geometry.scene.sha256 = '0'.repeat(64);}],
+  ['old response transfer to 4x6 posts', i => {i.current_response = i.preceding_revision.current_response;}],
+  ['post hardware receipt drift', i => {i.hardware_model.receipt = i.preceding_revision.hardware_model.receipt;}],
+  ['post hardware override omission', i => {i.shop.overrides.pop();}],
+  ['post physical release', i => {i.fabrication_released = true;}],
+]) test(`reject ${label}`, () => {
+  const index = readPostIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+for (const [label, mutate] of [
+  ['second spacer hidden by a duplicate role', p => {p.replacements.find(r => r.name.endsWith('_spacer_2')).fabrication.hardware_role = 'spacer';}],
+  ['incomplete advertised stack roles', p => {p.replacements.find(r => r.fabrication.connection_name === 'cleat_post_bolt_left_1').fabrication.stack_roles.pop();}],
+]) test(`reject post viewer ${label}`, () => {
+  const index = readPostIndex(), scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validateFrontPosts(scene, index.geometry.receipt.sha256));
 });
 
 for (const [label, mutate] of [
@@ -163,10 +191,10 @@ for (const [label, mutate] of [
 });
 
 test('incoming descriptions reject a stale revision even when its link resolves', () => {
-  const index = readIndex(), root = readFileSync(path.join(ROOT, 'README.md'), 'utf8');
-  assert.throws(() => validateEntry(root.replaceAll(index.geometry.revision, index.response.revision), index));
+  const index = readCurrentIndex(), root = readFileSync(path.join(ROOT, 'README.md'), 'utf8');
+  assert.throws(() => validateEntry(root.replaceAll(index.geometry.revision, index.preceding_revision.geometry.revision), index));
   const html = readFileSync(path.join(ROOT, 'site/index.html'), 'utf8');
-  assert.equal(viewerModel(html, index.response.revision), index.selected_baseline.candidate);
+  assert.equal(viewerModel(html, index.preceding_revision.geometry.revision), index.selected_baseline.candidate);
 });
 
 for (const [label, mutate] of [
@@ -394,4 +422,21 @@ test('existing scene validators reject altered counts, moves and acceptance clai
     const changed = structuredClone(patch); mutate(changed);
     assert.throws(() => validate(changed, digest));
   }
+});
+
+for (const [label, mutate] of [
+  ['unsupported smaller harness envelope', p => {p.profile.front_width_mm = 8;}],
+  ['missing narrowed member', p => {p.replacements.base.pop();}],
+  ['notch physical release', p => {p.release.fabrication = true;}],
+]) test(`reject ${label}`, () => {
+  const index = readCurrentIndex();
+  const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene); assert.throws(() => validateNarrowChannels(scene, index.geometry.receipt.sha256));
+});
+for (const [label, mutate] of [
+  ['notch receipt drift', i => {i.geometry.receipt.sha256 = '0'.repeat(64);}],
+  ['missing narrowed shop coordinates', i => {i.shop.overrides = [];}],
+  ['notch response transfer', i => {i.current_response = i.preceding_revision.preceding_revision.current_response;}],
+]) test(`reject ${label}`, () => {
+  const index = readCurrentIndex(); mutate(index); assert.throws(() => checkCurrentDevelopment(index));
 });

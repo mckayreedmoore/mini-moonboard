@@ -38,14 +38,32 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
-  if (['eoere-selected-hardware-frame-development', 'eoere-selected-hardware-grid-development'].includes(model))
+  if (['eoere-narrow-channels-frame-development', 'eoere-narrow-channels-grid-development'].includes(model))
+    return [
+      {label: 'Current builder plan · narrower channel openings', path: current + 'builder-plan.md'},
+      {label: 'Current member and receiver layout', path: current + 'builder-layout.md'},
+      {label: '32 narrowed channel datums', path: evidence + 'narrow-channels-v1/service-channel-datums.csv'},
+      {label: 'Current narrower-channel geometry receipt', path: evidence + 'occupied-narrow-channels-v1.json'},
+      {label: 'Six preceding cases · extra grid off', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
+      {label: 'Notch-size revision and retained holds', path: ledger + '#current-narrow-channel-revision'},
+    ];
+  if (['eoere-4x6-front-posts-frame-development', 'eoere-4x6-front-posts-grid-development'].includes(model))
     return [
       {label: 'Current revision and evidence', path: current + 'README.md'},
       {label: 'Builder sequence and dimensions', path: current + 'builder-plan.md'},
       {label: 'Timber profiles and receiver datums', path: current + 'builder-layout.md'},
+      {label: '4×6 post geometry and bounded checks', path: evidence + 'occupied-front-posts-4x6-v1.json'},
+      {label: 'Eight revised bolt stacks', path: evidence + 'front-posts-4x6-v1/hardware-selection.csv'},
+      {label: 'Six preceding cases · 2×6 posts, extra grid off', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
+      {label: 'Current post revision and remaining checks', path: ledger + '#current-4x6-front-post-revision'},
+    ];
+  if (['eoere-selected-hardware-frame-development', 'eoere-selected-hardware-grid-development'].includes(model))
+    return [
+      {label: 'Preserved 2×6-post shop packet', path: evidence + 'shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md'},
+      {label: 'Active development · separate revision', path: current + 'README.md'},
       {label: 'Selected 100 bolt stacks', path: evidence + 'shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv'},
       {label: 'Selected hardware and nominal access', path: evidence + 'selected-hardware-v1/README.md'},
-      {label: 'Six current cases · extra grid off', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
+      {label: 'Six matching 2×6-post cases · extra grid off', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
       {label: 'Qualification limits and owner deferrals', path: ledger + '#engineering-closure-beyond-the-assessment'},
     ];
   if (model === 'eoere-lower-cleat-z180-development')

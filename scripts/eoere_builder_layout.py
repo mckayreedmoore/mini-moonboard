@@ -12,8 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = Path("docs/bolted-frame-development/development-revisions.json")
 OUTPUT = INDEX.parent / "builder-layout.md"
-REVISION = "eoere-raised-kicker-screws-v1"
-HARDWARE = "eoere-selected-purchase-hardware-v1"
+REVISION = "eoere-narrow-channel-openings-v1"
+HARDWARE = "eoere-4x6-front-posts-v1"
 
 
 def require(condition, message):
@@ -30,9 +30,19 @@ def read_bound(root, binding):
 
 def load_sources(root=ROOT):
     index = json.loads((root / INDEX).read_bytes())
-    require(index["geometry"]["revision"] == index["shop"]["revision"] == REVISION
+    channel_result = index['shop']['result'] if index['schema'] == 'bolted_frame_development_revisions/v3' else None
+    channels = json.loads(read_bound(root, channel_result)) if channel_result else None
+    if channels:
+        require(index['geometry']['revision'] == REVISION, 'Channel revision requires review')
+        index = index['preceding_revision']
+    require(index["schema"] == "bolted_frame_development_revisions/v2"
+            and index["geometry"]["revision"] == index["shop"]["revision"] == HARDWARE
             and index["hardware_model"]["revision"] == HARDWARE,
             "Builder guide revision requires review")
+    current_result = index["shop"]["result"]
+    revision = json.loads(read_bound(root, current_result))
+    overrides = {Path(r["path"]).name: r for r in index["shop"]["overrides"]}
+    index = index["preceding_revision"]
     require(index["hardware_model"]["shop_override"] in index["shop"]["overrides"],
             "Hardware overlay does not bind the shop selection")
     result = json.loads(read_bound(root, index["shop"]["result"]))
@@ -44,14 +54,31 @@ def load_sources(root=ROOT):
     def rows(payload):
         return list(csv.DictReader(io.StringIO(payload.decode())))
 
-    return {
+    data = {
         "profiles": json.loads(issued("current_profiles.json")),
         "members": rows(issued("members.csv")),
         "selected": rows(issued("hardware-selection.csv")),
         "drilling": rows(issued("drilling-requirements.csv")),
         "holes": rows(read_bound(root, result["reused_files"]["receiver-holes.csv"])),
-        "shop_result": index["shop"]["result"],
+        "shop_result": current_result,
     }
+    require(revision["parent_shop"] == index["shop"]["result"], "Post revision has a different shop parent")
+    data["profiles"].update(revision["profile_overrides"])
+    members = {r["member"]: r for r in revision["member_overrides"]}
+    data["members"] = [members.get(r["member"], r) for r in data["members"]]
+    selected = {r["axis_id"]: r for r in rows(read_bound(root, overrides["hardware-selection.csv"]))}
+    require(len(selected) == 8, "Eight revised bolt selections required")
+    data["selected"] = [{**r, **selected.get(r["axis_id"], {})} for r in data["selected"]]
+    holes = {(r["axis_id"], r["receiver"]): r for r in rows(read_bound(root, overrides["receiver-holes.csv"]))}
+    require(len(holes) == 16, "Sixteen revised receiver rows required")
+    data["holes"] = [holes.get((r["axis_id"], r["receiver"]), r) for r in data["holes"]]
+    data["drilling"] = [{**r, **({"nominal_wood_path_mm": "127.0"} if r["axis_id"] in selected else {})}
+                        for r in data["drilling"]]
+    if channels:
+        require(channels['parent_geometry'] == current_result, 'Channel parent differs')
+        data['profiles'].update(channels['profile_overrides'])
+        data['shop_result'] = channel_result
+    return data
 
 
 def validate(data):
@@ -116,7 +143,8 @@ def render(data):
         "# Current timber end and receiver coordinates", "",
         f"Applies to **`{REVISION}`** with **`{HARDWARE}`**, extra grid off.",
         "Use with the [builder plan](builder-plan.md); conditional nominal planning only.", "",
-        "Generated from the checked shop-result binding and its unchanged issued tables.",
+        "Generated from the checked post-revision binding and the preserved shop tables",
+        "with two stock, eight stack, sixteen receiver-row and eight channel-profile overrides.",
         f"Shop-result SHA-256: `{data['shop_result']['sha256']}`.",
         "The producer authenticates profiles, members, selected hardware, drilling paths",
         "and receiver rows, then checks both local endpoints against each world shaft axis.", "",
@@ -139,7 +167,9 @@ def render(data):
         "receivers in one supported setup; do not independently drill opposite marks.",
         "Bit choices are 13/32 in for 3/8-in bolts and 17/32 in for 1/2-in bolts.",
         "The selected underhead lengths supersede old modeled-length columns. Spacers",
-        "go between nut washer and nut. No Actual/Disposition values are supplied.", "",
+        "go between nut washer and nut. Each cleat/post stack uses two 12.7-mm",
+        "factory spacers (25.4 mm total); shared-header stacks retain one 12.7-mm spacer.",
+        "No Actual/Disposition values are supplied. Changed installation remains unqualified.", "",
         "Six decimal places preserve nominal source detail; they are not machining tolerances.",
         "Panel and screw datums remain in the current shop tables linked by the builder plan.", "",
     ]
@@ -160,6 +190,12 @@ def render(data):
             marks = [f"{j}: `{vector((vertices[j][0], vertices[j][2]))}`"
                      for j in indices if abs(vertices[j][1]) < 1e-7]
             lines.append(f"Raw end plane {i + 1}, U=0 marks: " + "; ".join(marks) + ".")
+        if profile.get("inner_kicker_facing_longitudinal_bevel_mm"):
+            corner = "U=88.9, V=139.7" if member.endswith("left") else "U=0, V=139.7"
+            lines += ["", "Finished profile: **9.525 × 9.525 mm, 45° longitudinal corner bevel**",
+                      f"at **{corner}**, for the full L=0–238.9 mm height.",
+                      "Raw marks above precede this T-nut clearance cut. Bolt receiver faces at",
+                      "their own stations retain the full 88.9-mm width; actual cuts remain unverified."]
         lines += ["", "| Axis | Entry (L, U, V) | Exit (L, U, V) | Bit (in) | Selected bolt Ø × underhead (mm) | Nut-side spacer (mm) |",
                   "| --- | --- | --- | --- | --- | --- |"]
         for row in data["holes"]:

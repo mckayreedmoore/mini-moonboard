@@ -70,7 +70,7 @@ test('rendered historical model menus resolve their actual document paths', () =
 
 test('current and unadopted menus expose their own shop records and response bindings', () => {
   const documents = slice('const v4Documents =', 'const first =');
-  const models = [index.geometry.viewer, index.optional_grid.viewer, index.unadopted_proposal.viewer,
+  const models = [index.geometry.viewer, index.optional_grid.viewer, index.preceding_revision.preceding_revision.unadopted_proposal.viewer,
     'wood-joints-reviewed', 'wood-joints-working-proposal', 'bolted-v4-development',
     'owner-corner-layout', 'owner-barrel-layout',
     ...runInNewContext(slice('const woodJointModels =', 'const modelLabel =') + '\nwoodJointModels.map(r => r[0]);', {requestedModel: null})];
@@ -87,7 +87,8 @@ test('current and unadopted menus expose their own shop records and response bin
     for (const row of rows) checkTarget(resolveDocumentPath(row.path));
     assert.ok(rows.every(r => r.label !== 'Current development ledger'));
     if ([index.geometry.viewer, index.optional_grid.viewer].includes(model)) {
-      assert.ok(rows.some(r => r.path === index.current_response.cases.path));
+      assert.ok(rows.some(r => r.path === index.preceding_revision.preceding_revision.current_response.cases.path));
+      assert.ok(rows.some(r => r.path === index.geometry.receipt.path));
       assert.ok(rows.some(r => r.path === 'docs/bolted-frame-development/builder-plan.md'));
       assert.ok(rows.some(r => /extra grid off/.test(r.label)));
     }
@@ -103,17 +104,18 @@ test('current and unadopted menus expose their own shop records and response bin
 
 test('loaded viewer status distinguishes completed current cases, optional grid and proposal', () => {
   const flags = slice("const reviewed = model ===", 'const sceneLoader =');
-  const status = slice("document.querySelector('#model-status').textContent = selectedHardware", 'const mass = data.meta');
+  const status = slice("document.querySelector('#model-status').textContent = narrowChannels", 'const mass = data.meta');
   function render(model) {
     const node = {};
     runInNewContext(flags + status, {model, document: {querySelector() { return node; }}});
     return node.textContent;
   }
   const current = render(index.geometry.viewer), optional = render(index.optional_grid.viewer);
-  assert.match(current, /Six matching first-order cases and bounded references are complete/);
-  assert.match(current, /resistance and physical stiffness\/restraint remain unqualified/);
-  assert.match(optional, /six matching first-order cases and bounded references cover extra grid off/);
-  const proposal = render(index.unadopted_proposal.viewer);
+  assert.match(current, /Solid 4×6 outer kicker posts/);
+  assert.match(current, /Revised response, complete joints and installation remain unqualified/);
+  assert.match(current, /Extra grid off/);
+  assert.match(optional, /Optional expanded grid on/);
+  const proposal = render(index.preceding_revision.preceding_revision.unadopted_proposal.viewer);
   assert.match(proposal, /Six separate own-case first-order results and component references are complete/);
   assert.match(proposal, /do not select this proposal or transfer to current Z200/);
   assert.match(render('hl35-counterbore-development'), /Preserved HL35/);

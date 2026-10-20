@@ -19,6 +19,15 @@ def test_current_layout_and_rejection_controls(tmp_path):
     validate(data)
     text = render(data)
     assert (ROOT / OUTPUT).read_text() == text
+    for name in ("base_post_outer_left", "base_post_outer_right"):
+        assert data["profiles"][name]["blank_mm"] == [238.9, 139.7, 88.9]
+        post_holes = [r for r in data["holes"] if r["receiver"] == name]
+        assert len(post_holes) == 4
+        assert all(float(r["saved_full_wall_length_mm"]) == pytest.approx(88.9) for r in post_holes)
+    for row in data["selected"]:
+        if row["axis_id"].startswith("cleat_post_bolt_"):
+            assert float(row["selected_underhead_length_mm"]) == 177.8
+            assert float(row["nut_side_spacer_mm"]) == 25.4
     # The header turns the section axes: U is depth and V is thickness.
     vertices = data["profiles"]["base_header"]["vertices_luv_mm"]
     assert max(v[1] for v in vertices) - min(v[1] for v in vertices) == pytest.approx(139.7)

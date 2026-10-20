@@ -2,14 +2,18 @@
 
 Use this maintained guide with the [revision index](development-revisions.json)
 and issued [current shop packet][shop]. It consolidates the existing plan for
-**`eoere-raised-kicker-screws-v1`** with
-**`eoere-selected-purchase-hardware-v1`**, **extra grid off**.
+**`eoere-narrow-channel-openings-v1`**, **extra grid off**, using the preserved
+shop packet with the retained **`eoere-4x6-front-posts-v1`** [post overrides][post-revision]
+and the [narrower-channel receipt][narrow-revision].
 The [viewer][viewer] shows that combination. The selected screw-and-bracket
 baseline and earlier wood-block plans have separate instructions.
 
 The nominal part geometry, cut records, 120 receiver occurrences, selected
-hardware and supported assembly order are documented. Six matching
-first-order load cases and bounded component comparisons are complete.
+hardware and supported assembly order are documented. Six preceding
+first-order cases apply to the 2×6-post model. The solid 4×6 outer posts
+have twelve fixed-original-force rectangular-core shear screens below one,
+maximum 0.722654, with the full-height corner bevel included;
+revised response and affected-joint/installation checks remain open.
 The packet remains conditional: complete joint/member resistance and physical
 stiffness/restraint are unqualified. Actual stock, tooling, support arrangements
 and hardware have not been inspected. This guide supplies no fabrication or
@@ -24,12 +28,13 @@ drawings and source datums describe their current geometry.
 
 | Operation | Controlling records | Earlier instruction superseded |
 | --- | --- | --- |
-| Timber blanks, angled ends, rear recesses and stock nesting | [Current profiles][profiles], [end datums][ends], [raw projections][projections], [rear recess][recess] and [nesting][nesting] | These unchanged records are deliberately reused; the current packet composes them. |
-| Through-bolt receivers | [Per-member layout](builder-layout.md), derived from [120 receiver rows][holes] | Old adjusted-base v1/v2 and aligned-wire-only drill layouts precede the current axes. |
-| Wiring cuts and panel holes | [Current channel drawing][channels], [32 route/receiver rows][channel-datums], [340 panel datums][panels] and [panel plates][panel-plate] | Retain smaller-channel geometry, with the six central rail cuts on hold. Omit eleven filled principal arcs and use the two kicker screw positions at Z212 mm. |
-| Bolt lengths and spacers | [100 selected stacks][hardware] and [stack drawing][stacks] | Old `bolt-stacks.csv` modeled lengths and earlier viewer lengths are not purchase instructions. The current hardware viewer applies the selection. |
-| Wrench, socket and removal access | Later [installation study][installation] and [200-side method table][access] | The shop packet's coarse 160-side unresolved screen has been refined. Nominal box-wrench access clears 200 sides; actual tools/supports remain unqualified. |
-| Current loads and resistance status | [Six current cases][forces] and [qualification ledger][qualification] | Earlier packet statements that matching response is missing describe their issue date. Earlier passes and proposals keep their own scope. |
+| Timber blanks, angled ends, rear recesses and stock nesting | [Post overrides][post-revision], [composed member layout](builder-layout.md); [preceding profiles][profiles], [end datums][ends], [raw projections][projections], [rear recess][recess] and [nesting][nesting] | Outer posts become 4×6. Cut their blanks from the two rear-leg stock offcuts; omit them from the old 2×6 header stick. Other blanks and recesses retain their records. |
+| Through-bolt receivers | [Composed per-member layout](builder-layout.md), [16 revised receiver rows][post-holes] and [104 unchanged rows][holes] | Wider posts change wall lengths; four front head datums shift along retained axis lines. Use the composed coordinates, not the old post U marks. |
+| Wiring cuts and panel holes | [Narrower profile][narrow-profile], [32 revised route/receiver rows][narrow-datums], [340 panel datums][panels] and [panel plates][panel-plate] | Retain smaller-channel geometry, with the six central rail cuts on hold. Omit eleven filled principal arcs and use the two kicker screw positions at Z212 mm. |
+| Panel/kicker screw datums | [Two rebased right-post datum rows][post-screws], with the preserved 66 world axes | The right-post U datum moves inward 50.8 mm; the screws stay in place. All four outer kicker screws retain full modeled backing. |
+| Bolt lengths and spacers | [Eight revised stacks][post-hardware], [92 retained selections][hardware] and [composed layout](builder-layout.md) | Four 6-in front and four 7-in cleat bolts supersede the old eight lengths. Cleat nuts use two 12.7-mm spacers each. The old stack drawing applies only to retained stacks. |
+| Wrench, socket and removal access | [Current geometry checks](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry), [preceding study][installation] and [200-side table][access] | All 200 current sides have nominal wrench/removal alternatives. At bolt 081's nut, use 90° working and 60° counterhold instead of the old orientations. Actual tools and support remain unqualified. |
+| Loads and resistance status | [Six preceding 2×6-post cases][forces] and [qualification ledger][qualification] | New geometry has no matched force response or complete-joint pass. Original scalar forces are used only for the post shear screen. |
 
 The optional expanded grid and Z180 lower-corner proposal remain separate.
 Neither changes this guide's holes, services or assembly sequence.
@@ -37,7 +42,7 @@ Neither changes this guide's holes, services or assembly sequence.
 ## Parts and stock
 
 The fixed inventory is **22 timbers, six panels, 22 Eoere angles, 100 bolts,
-100 nuts, 200 washers, eight spacers and 66 Hillman 42605 screws**. Hold
+100 nuts, 200 washers, twelve spacers and 66 Hillman 42605 screws**. Hold
 hardware, LEDs and cables retain their separate component specifications.
 
 The following are **raw blank dimensions**, in millimetres. Angled ends can
@@ -49,7 +54,8 @@ every blank length as a square-ended final cut.
 | --- | ---: | ---: |
 | `base_floor_left/right` runners | 2 | 1815.646483 × 139.7 × 38.1 |
 | `base_header` | 1 | 2435.225 × 139.7 × 38.1 |
-| `base_post_center_left/right`, `base_post_outer_left/right` | 4 | 238.9 × 139.7 × 38.1 |
+| `base_post_center_left/right` | 2 | 238.9 × 139.7 × 38.1 |
+| `base_post_outer_left/right` | 2 | 238.9 × 139.7 × 88.9; solid 4×6 |
 | `base_principal_center_left/right` | 2 | 2532.626012 × 139.7 × 38.1 |
 | Left bottom/lower-service/upper-service rails | 3 | 1041.25 × 139.7 × 38.1 |
 | Right bottom/lower-service/upper-service rails | 3 | 1077.275 × 139.7 × 38.1 |
@@ -60,15 +66,28 @@ every blank length as a square-ended final cut.
 | Four main panels | 4 | 1217.6125 width × 1219.2 height × 18.25625 |
 | Two whole kickers | 2 | 1217.6125 width × 277 height × 18.25625; retain the miter profile |
 
+Each outer post has a **9.525 × 9.525 mm (3/8 × 3/8 in), 45° bevel** along
+its full-height inner, kicker-facing corner. This clears the fixed outer
+kicker T-nut flanges; the uncut 4×6 blank intersects them. In local U/V,
+the left corner is **(88.9, 139.7)** and the right is **(0, 139.7)**; extend
+the bevel through L=0–238.9 mm. All bolt seats and four kicker screw axes
+remain on retained full material. The source-bound component screen uses
+the **79.375-mm full-depth rectangular core**; complete beveled-member/joint
+qualification remains open. The old square-post projections omit this cut.
+
 The recorded stock scenario uses **13 sticks / 150 nominal board feet**:
 six 2×6×8-ft, three 2×6×10-ft, two 4×6×8-ft and two 4×6×10-ft.
 Nesting reserves 3.175 mm kerf per output and 12.7 mm trim at each stock end.
 This is a nominal allocation, without an observed defect or usable-stock survey.
+The post revision puts one 238.9-mm outer-post blank in each 4×6 rear-leg
+stock remainder: **139.287012 mm** remains after its additional kerf. The
+2×6 header stick no longer supplies those posts. Purchases stay unchanged.
 The model's 47 15/16-in panel width is not proof of the owned panels' cut size.
 
-The [dated hardware basket][shop] is $148.51 before angles, tax and shipping.
-The complete scenario is `$148.51 + 6*C4 + U`: C4 is one Eoere four-pack,
-and U includes unpriced wood, services and tools. It is not a live quote.
+The [preceding dated hardware basket][shop] is $148.51 before angles, tax and
+shipping; it excludes this revision's eight bolt substitutions and four added
+spacers. Reconcile those changes before using a total. C4 remains one Eoere
+four-pack; unpriced wood, services and tools remain outside the basket.
 Six four-packs provide 22 installed angles and two spares; pack spares do
 not increase the installed counts above.
 
@@ -171,9 +190,10 @@ Additional guide flanges, pads or chip gaps increase reach and clamp opening
 one for one. A 1/2-in chuck needs the specified reduced 1/2-in shank for the
 long 17/32-in bit. Overall bit length alone does not prove usable projection.
 
-The later [fixture worksheet][fixtures] finds nominal guide support and two
-separate clamp-pad lands at all 120 receivers. Use its per-receiver pad
-coordinates; the initial symmetric pad pair only fits 108. Actual guide
+The [current fixture followup](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry) checks the sixteen changed receivers and
+authenticates the other 104; all 120 have nominal guide support and two
+separate clamp-pad lands. Use the unchanged offsets in the [fixture worksheet][fixtures]
+with current receiver datums; the initial symmetric pair only fits 108. Actual guide
 rigidity/play, clamp bodies and retention, drill/chuck approach and support
 stability remain unqualified. Even the assumed 0.02-mm diametral guide play
 leaves only **0.011771 mm** worst-case alignment reserve. A drilled wood
@@ -205,43 +225,52 @@ preload, friction or locking capacity is assigned.
 
 Use SAE J429 Grade 5 zinc-plated **full-body, partially threaded** hex cap
 screws and matching specified nuts/USS washers. Each of the 100 stacks gets
-one head washer and one nut washer. [Per-axis assignments][hardware] control
-product identity, minimum body/grip requirements and the recipe.
+one head washer and one nut washer. The [eight post overrides][post-hardware]
+supersede their rows in the [preceding per-axis assignments][hardware].
 
 | Bolt diameter / thread × underhead length | Installed |
 | --- | ---: |
 | 3/8-16 × 2.5 in | 60 |
 | 3/8-16 × 3.5 in | 4 |
-| 3/8-16 × 4 in | 4 |
-| 3/8-16 × 4.5 in | 8 |
+| 3/8-16 × 4.5 in | 4 |
 | 3/8-16 × 4.75 in | 16 |
+| 3/8-16 × 6 in | 4 |
 | 3/8-16 × 6.5 in | 4 |
+| 3/8-16 × 7 in | 4 |
 | 1/2-13 × 8.5 in | 4 |
 
 Only `eoere_bolt_065`, `_066`, `_079`, `_080` and the four
-`cleat_post_bolt_left/right_1/2` stacks receive the factory spacer:
+`cleat_post_bolt_left/right_1/2` stacks receive factory spacers:
 **12.7 mm long × 19.05 mm OD × 10.31875 mm ID, after the nut washer and
-before the nut**. Do not substitute washer packing. Nominal two-tip-pitch,
+before the nut**. Each of the four shared-header stacks retains one spacer;
+each of the four cleat/post stacks now uses **two**, for twelve pieces total.
+Do not substitute washer packing. Nominal two-tip-pitch,
 body and seating comparisons pass, but delivered shank/runout and actual
 contact remain unknown. The other 92 rows do not establish smooth body
 through every far wood surface; full-thread-root sensitivity is not adopted.
 
-The [installation study][installation] refines access to all 200 sides using
+The [current geometry followup](../wood-joints-mvp/completion-ledger.md#current-4x6-post-installation-geometry) checks all 200 sides using the [existing method][installation] and
 nominal 9/16- and 3/4-in box wrenches: axial insertion, a continuous 60°
 handle sweep, counterhold and complete removal. The modeled handle is
 152.4 × 19.05 mm, at most 6.35 mm thick. Use the table's different working
-and counterhold orientations. A 50.8-mm-long socket conflicts at 24 nut
+and counterhold orientations, with **bolt 081's nut side overridden to 90°
+working/insertion and 60° counterhold**. A 50.8-mm-long socket conflicts at 24 nut
 sides; 25.4-mm socket seating clears all sides but does not qualify its
 approach or driver. These are modeled tool envelopes, with actual tools
 and receiving observations still blank.
+The current check includes all eight revised stacks and their two-spacer
+removal envelopes. Actual installation and temporary support remain unqualified.
 
 ## 5. Route services, then fit kickers and panels
 
 **Keep the six central rail channels on hold**, as named in the
 [notch-location disposition](../wood-joints-mvp/completion-ledger.md#current-channel-notch-location-gate).
-The [current channel drawing][channels] and [receiver coordinates][channel-datums]
-remain geometry records. The common rounded section has
-R6.35 mm, center N8 mm, front opening 20.427677 mm and rear depth N14.35 mm.
+The [narrower profile][narrow-profile] and [revised receiver coordinates][narrow-datums]
+retain the same routes, R6.35 cap and N8 center. Clip each base-grid front opening
+to a **14-mm grain-direction band**; rear depth remains **N14.35 mm**. The
+[preceding drawing][channels] has wider 20.427677-mm openings. The measured maximum
+harness diameter is 12.7 mm; 4 mm remains a cable model assumption. These dimensions
+are nominal geometry, with no delivered-part or cutting-tolerance verification.
 Control-route vertices describe a rounded swept envelope, not sharp corners
 or a saw path. The recorded method assumes an open frame with power disconnected,
 supported relief cuts inside waste, and hand finishing of turns and depth.
@@ -281,7 +310,7 @@ lift rating is supplied by the sequence.
 The [qualification ledger][qualification] separates completed numerical work
 from three remaining engineering limits: complete cleat force/moment
 resistance; compatible mixed-joint and finished-member resistance; and
-physical stiffness/restraint sufficient to justify demands. Current cleat
+physical stiffness/restraint sufficient to justify demands. Preceding six-case cleat
 normal-force/moment actions require a 295.602493-N necessary tensile
 resultant in the governing case. It is a demand bound, without an adopted
 transverse-tension resistance. The smaller force-only value is incomplete.
@@ -296,12 +325,16 @@ Within the existing plan, affected operations still require compatible
 delivered bolt/body/contact dimensions, qualified drill/guide/clamp reach
 and alignment, and a stable support arrangement with the recorded access
 clearance. Those observations are not replaced by model clearance or this
-guide. No floor-friction test, native solve, geometry change or blanket
+guide. No floor-friction test, native solve or blanket
 external sign-off is introduced. See [the document-scope map](../README.md#which-documents-are-current)
 before following an older file that calls itself “current.”
 
 [shop]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md
-[viewer]: https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear
+[viewer]: https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear
+[post-revision]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json
+[post-hardware]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv
+[post-holes]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/receiver-holes.csv
+[post-screws]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/panel-screw-datums.csv
 [profiles]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/current_profiles.json
 [ends]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-end-datums.csv
 [projections]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md#current-coordinates-and-drawings
@@ -322,3 +355,7 @@ before following an older file that calls itself “current.”
 [cleats]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/extended-cleats.svg
 [forces]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json
 [qualification]: ../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment
+
+[narrow-revision]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json
+[narrow-datums]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/service-channel-datums.csv
+[narrow-profile]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/channel-profile.svg

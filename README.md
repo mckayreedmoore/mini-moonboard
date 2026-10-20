@@ -10,13 +10,14 @@ Start at the **[development summary and revision map](docs/bolted-frame-developm
 It identifies the current geometry, matching nominal shop records, applicable
 numerical evidence and remaining work.
 
-The current geometry is **`eoere-raised-kicker-screws-v1`**:
-[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear).
+The current geometry is **`eoere-narrow-channel-openings-v1`**:
+[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear).
 Its optional extra grid remains off and unofficial. The
 [checked revision index](docs/bolted-frame-development/development-revisions.json)
-binds this geometry, the matching shop plan, selected hardware and six current
-first-order load cases separately from preserved earlier results. The current viewer
-applies the selected bolt lengths and eight spacers through its hardware overlay.
+binds 32 narrower channel openings, the solid 4×6 outer kicker posts and eight
+changed bolt stacks. The viewer retains all bolt lines and uses twelve factory
+spacers. The six preceding first-order cases apply to the 2×6-post model; a
+matching revised response and complete joint acceptance remain open.
 Actual hardware-fit, installation and joint-strength holds remain. No fabrication or climbing
 release is established.
 

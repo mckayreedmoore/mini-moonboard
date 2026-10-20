@@ -1,10 +1,11 @@
 # Current timber end and receiver coordinates
 
-Applies to **`eoere-raised-kicker-screws-v1`** with **`eoere-selected-purchase-hardware-v1`**, extra grid off.
+Applies to **`eoere-narrow-channel-openings-v1`** with **`eoere-4x6-front-posts-v1`**, extra grid off.
 Use with the [builder plan](builder-plan.md); conditional nominal planning only.
 
-Generated from the checked shop-result binding and its unchanged issued tables.
-Shop-result SHA-256: `c316386f4e994ad97d0718404252d9f8195f10d6d547ffe3aae22f078ff44f07`.
+Generated from the checked post-revision binding and the preserved shop tables
+with two stock, eight stack, sixteen receiver-row and eight channel-profile overrides.
+Shop-result SHA-256: `871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932`.
 The producer authenticates profiles, members, selected hardware, drilling paths
 and receiver rows, then checks both local endpoints against each world shaft axis.
 
@@ -30,7 +31,9 @@ drill approach. Recessed entries remain on their recorded finished face. Join pa
 receivers in one supported setup; do not independently drill opposite marks.
 Bit choices are 13/32 in for 3/8-in bolts and 17/32 in for 1/2-in bolts.
 The selected underhead lengths supersede old modeled-length columns. Spacers
-go between nut washer and nut. No Actual/Disposition values are supplied.
+go between nut washer and nut. Each cleat/post stack uses two 12.7-mm
+factory spacers (25.4 mm total); shared-header stacks retain one 12.7-mm spacer.
+No Actual/Disposition values are supplied. Changed installation remains unqualified.
 
 Six decimal places preserve nominal source detail; they are not machining tolerances.
 Panel and screw datums remain in the current shop tables linked by the builder plan.
@@ -47,8 +50,8 @@ Raw end plane 2, U=0 marks: 3: `(1815.646483, 139.7)`; 2: `(1781.238528, 0)`.
 
 | Axis | Entry (L, U, V) | Exit (L, U, V) | Bit (in) | Selected bolt Ø × underhead (mm) | Nut-side spacer (mm) |
 | --- | --- | --- | --- | --- | --- |
-| `rail_front_bolt_left_1` | `(70.172141, 38.1, 69.527859)` | `(70.172141, 0, 69.527859)` | 13/32 | 9.525 × 101.6 | 0 |
-| `rail_front_bolt_left_2` | `(98.102859, 38.1, 41.597141)` | `(98.102859, 0, 41.597141)` | 13/32 | 9.525 × 101.6 | 0 |
+| `rail_front_bolt_left_1` | `(70.172141, 38.1, 69.527859)` | `(70.172141, 0, 69.527859)` | 13/32 | 9.525 × 152.4 | 0 |
+| `rail_front_bolt_left_2` | `(98.102859, 38.1, 41.597141)` | `(98.102859, 0, 41.597141)` | 13/32 | 9.525 × 152.4 | 0 |
 | `rail_rear_bolt_left_1` | `(1726.7, 38.1, 70.7)` | `(1726.7, 0, 70.7)` | 13/32 | 9.525 × 114.3 | 0 |
 | `rail_rear_bolt_left_2` | `(1692.7, 38.1, 42.2)` | `(1692.7, 0, 42.2)` | 13/32 | 9.525 × 114.3 | 0 |
 
@@ -64,8 +67,8 @@ Raw end plane 2, U=0 marks: 3: `(1815.646483, 139.7)`; 2: `(1781.238528, 0)`.
 
 | Axis | Entry (L, U, V) | Exit (L, U, V) | Bit (in) | Selected bolt Ø × underhead (mm) | Nut-side spacer (mm) |
 | --- | --- | --- | --- | --- | --- |
-| `rail_front_bolt_right_1` | `(70.172141, 0, 69.527859)` | `(70.172141, 38.1, 69.527859)` | 13/32 | 9.525 × 101.6 | 0 |
-| `rail_front_bolt_right_2` | `(98.102859, 0, 41.597141)` | `(98.102859, 38.1, 41.597141)` | 13/32 | 9.525 × 101.6 | 0 |
+| `rail_front_bolt_right_1` | `(70.172141, 0, 69.527859)` | `(70.172141, 38.1, 69.527859)` | 13/32 | 9.525 × 152.4 | 0 |
+| `rail_front_bolt_right_2` | `(98.102859, 0, 41.597141)` | `(98.102859, 38.1, 41.597141)` | 13/32 | 9.525 × 152.4 | 0 |
 | `rail_rear_bolt_right_1` | `(1726.7, 0, 70.7)` | `(1726.7, 38.1, 70.7)` | 13/32 | 9.525 × 114.3 | 0 |
 | `rail_rear_bolt_right_2` | `(1692.7, 0, 42.2)` | `(1692.7, 38.1, 42.2)` | 13/32 | 9.525 × 114.3 | 0 |
 
@@ -122,7 +125,7 @@ Raw end plane 2, U=0 marks: 3: `(238.9, 139.7)`; 1: `(238.9, 0)`.
 
 ## base_post_outer_left
 
-Raw blank L × depth × thickness: **238.9 × 139.7 × 38.1**.
+Raw blank L × depth × thickness: **238.9 × 139.7 × 88.9**.
 World datum XYZ: `(-1219.2, -175.7, 0)`.
 Positive L/U/V unit vectors: `(0, 0, 1)`; `(1, 0, 0)`; `(0, 1, 0)`.
 
@@ -130,29 +133,39 @@ Raw U=0 marks (vertex index: L, V): 0: `(0, 0)`; 1: `(238.9, 0)`; 2: `(0, 139.7)
 Raw end plane 1, U=0 marks: 0: `(0, 0)`; 2: `(0, 139.7)`.
 Raw end plane 2, U=0 marks: 3: `(238.9, 139.7)`; 1: `(238.9, 0)`.
 
+Finished profile: **9.525 × 9.525 mm, 45° longitudinal corner bevel**
+at **U=88.9, V=139.7**, for the full L=0–238.9 mm height.
+Raw marks above precede this T-nut clearance cut. Bolt receiver faces at
+their own stations retain the full 88.9-mm width; actual cuts remain unverified.
+
 | Axis | Entry (L, U, V) | Exit (L, U, V) | Bit (in) | Selected bolt Ø × underhead (mm) | Nut-side spacer (mm) |
 | --- | --- | --- | --- | --- | --- |
-| `cleat_post_bolt_left_1` | `(200, 0, 44.45)` | `(200, 38.1, 44.45)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `cleat_post_bolt_left_2` | `(200, 0, 95.25)` | `(200, 38.1, 95.25)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `rail_front_bolt_left_1` | `(70.172141, 38.1, 70.172141)` | `(70.172141, 0, 70.172141)` | 13/32 | 9.525 × 101.6 | 0 |
-| `rail_front_bolt_left_2` | `(98.102859, 38.1, 98.102859)` | `(98.102859, 0, 98.102859)` | 13/32 | 9.525 × 101.6 | 0 |
+| `cleat_post_bolt_left_1` | `(200, 0, 44.45)` | `(200, 88.9, 44.45)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `cleat_post_bolt_left_2` | `(200, 0, 95.25)` | `(200, 88.9, 95.25)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `rail_front_bolt_left_1` | `(70.172141, 88.9, 70.172141)` | `(70.172141, 0, 70.172141)` | 13/32 | 9.525 × 152.4 | 0 |
+| `rail_front_bolt_left_2` | `(98.102859, 88.9, 98.102859)` | `(98.102859, 0, 98.102859)` | 13/32 | 9.525 × 152.4 | 0 |
 
 ## base_post_outer_right
 
-Raw blank L × depth × thickness: **238.9 × 139.7 × 38.1**.
-World datum XYZ: `(1177.925, -175.7, 0)`.
+Raw blank L × depth × thickness: **238.9 × 139.7 × 88.9**.
+World datum XYZ: `(1127.125, -175.7, 0)`.
 Positive L/U/V unit vectors: `(0, 0, 1)`; `(1, 0, 0)`; `(0, 1, 0)`.
 
 Raw U=0 marks (vertex index: L, V): 0: `(0, 0)`; 1: `(238.9, 0)`; 2: `(0, 139.7)`; 3: `(238.9, 139.7)`.
 Raw end plane 1, U=0 marks: 0: `(0, 0)`; 2: `(0, 139.7)`.
 Raw end plane 2, U=0 marks: 3: `(238.9, 139.7)`; 1: `(238.9, 0)`.
 
+Finished profile: **9.525 × 9.525 mm, 45° longitudinal corner bevel**
+at **U=0, V=139.7**, for the full L=0–238.9 mm height.
+Raw marks above precede this T-nut clearance cut. Bolt receiver faces at
+their own stations retain the full 88.9-mm width; actual cuts remain unverified.
+
 | Axis | Entry (L, U, V) | Exit (L, U, V) | Bit (in) | Selected bolt Ø × underhead (mm) | Nut-side spacer (mm) |
 | --- | --- | --- | --- | --- | --- |
-| `cleat_post_bolt_right_1` | `(200, 38.1, 44.45)` | `(200, 0, 44.45)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `cleat_post_bolt_right_2` | `(200, 38.1, 95.25)` | `(200, 0, 95.25)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `rail_front_bolt_right_1` | `(70.172141, 0, 70.172141)` | `(70.172141, 38.1, 70.172141)` | 13/32 | 9.525 × 101.6 | 0 |
-| `rail_front_bolt_right_2` | `(98.102859, 0, 98.102859)` | `(98.102859, 38.1, 98.102859)` | 13/32 | 9.525 × 101.6 | 0 |
+| `cleat_post_bolt_right_1` | `(200, 88.9, 44.45)` | `(200, 0, 44.45)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `cleat_post_bolt_right_2` | `(200, 88.9, 95.25)` | `(200, 0, 95.25)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `rail_front_bolt_right_1` | `(70.172141, 0, 70.172141)` | `(70.172141, 88.9, 70.172141)` | 13/32 | 9.525 × 152.4 | 0 |
+| `rail_front_bolt_right_2` | `(98.102859, 0, 98.102859)` | `(98.102859, 88.9, 98.102859)` | 13/32 | 9.525 × 152.4 | 0 |
 
 ## base_principal_center_left
 
@@ -391,8 +404,8 @@ Raw end plane 2, U=0 marks: 2: `(361.186083, 139.7)`; 3: `(194.698106, 0)`.
 | --- | --- | --- | --- | --- | --- |
 | `eoere_bolt_067` | `(202.3875, 38.1, 44.45)` | `(202.3875, 0, 44.45)` | 13/32 | 9.525 × 165.1 | 0 |
 | `eoere_bolt_071` | `(202.3875, 38.1, 95.25)` | `(202.3875, 0, 95.25)` | 13/32 | 9.525 × 165.1 | 0 |
-| `cleat_post_bolt_left_1` | `(60.3, 0, 44.45)` | `(60.3, 38.1, 44.45)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `cleat_post_bolt_left_2` | `(60.3, 0, 95.25)` | `(60.3, 38.1, 95.25)` | 13/32 | 9.525 × 114.3 | 12.7 |
+| `cleat_post_bolt_left_1` | `(60.3, 0, 44.45)` | `(60.3, 38.1, 44.45)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `cleat_post_bolt_left_2` | `(60.3, 0, 95.25)` | `(60.3, 38.1, 95.25)` | 13/32 | 9.525 × 177.8 | 25.4 |
 
 ## eoere_cleat_right
 
@@ -408,8 +421,8 @@ Raw end plane 2, U=0 marks: 2: `(361.186083, 139.7)`; 3: `(194.698106, 0)`.
 | --- | --- | --- | --- | --- | --- |
 | `eoere_bolt_070` | `(202.3875, 0, 44.45)` | `(202.3875, 38.1, 44.45)` | 13/32 | 9.525 × 165.1 | 0 |
 | `eoere_bolt_074` | `(202.3875, 0, 95.25)` | `(202.3875, 38.1, 95.25)` | 13/32 | 9.525 × 165.1 | 0 |
-| `cleat_post_bolt_right_1` | `(60.3, 38.1, 44.45)` | `(60.3, 0, 44.45)` | 13/32 | 9.525 × 114.3 | 12.7 |
-| `cleat_post_bolt_right_2` | `(60.3, 38.1, 95.25)` | `(60.3, 0, 95.25)` | 13/32 | 9.525 × 114.3 | 12.7 |
+| `cleat_post_bolt_right_1` | `(60.3, 38.1, 44.45)` | `(60.3, 0, 44.45)` | 13/32 | 9.525 × 177.8 | 25.4 |
+| `cleat_post_bolt_right_2` | `(60.3, 38.1, 95.25)` | `(60.3, 0, 95.25)` | 13/32 | 9.525 × 177.8 | 25.4 |
 
 ## lumber_leg_left
 
