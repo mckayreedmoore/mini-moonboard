@@ -1,0 +1,531 @@
+{
+  "all_six_cases_admitted": false,
+  "cases": [
+    {
+      "case": "a12-forward",
+      "complete_joint_qualified": false,
+      "contact_classification_changes": 63,
+      "counts": {
+        "bearings": 472,
+        "contacts": 2150,
+        "dofs": 10274,
+        "end_captures": 212,
+        "fitting": 26,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 166,
+        "shaft": 106,
+        "timber": 28
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/field.json",
+        "sha256": "0d4bc608f65f2976c1585162b062c63263fd5233dd40cacf59be5083b9fe1a10"
+      },
+      "finite_arm_contacts": 968,
+      "finite_arm_diagnostic": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-finite-arm-review-v1.json",
+        "sha256": "040a8847f2dc3fe4ed22f437d314945c0ed39603a489ad9aa9535775daec3c3e"
+      },
+      "finite_response_or_physical_error_bound": false,
+      "gradient_inf_N": 1.2125807380414244e-06,
+      "leaf_maxima": [
+        {
+          "leaf": "eoere_cleat_left",
+          "reference_upper": 0.5221609485416605
+        },
+        {
+          "leaf": "eoere_cleat_left_outer",
+          "reference_upper": 0.7563353778665465
+        },
+        {
+          "leaf": "eoere_cleat_right",
+          "reference_upper": 0.24406022994010565
+        },
+        {
+          "leaf": "eoere_cleat_right_outer",
+          "reference_upper": 0.3329719823330794
+        }
+      ],
+      "leaf_moment_balance": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-balance-v1.json",
+        "sha256": "ea514351ee71eab896d45749389bde20eefc5f29be7960fb9085489e10b52f08"
+      },
+      "leaf_section_evidence": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-sections-v1.json",
+        "sha256": "0746acf7a6b03251dd5f44b4a3ae08ab230d12f47d2c883435acb733a6ac917d"
+      },
+      "leaf_section_reference_upper": 0.7563353778665465,
+      "leg_post_evidence": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-leg-post-v1.json",
+        "sha256": "d3f0f3e23ccbe7ba46ba366addede3f9b574ba5acadc3147cdd08031a4b58b58"
+      },
+      "leg_post_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "conservative_reference_index_CD1": 1.5002729534727557,
+          "demand_N": 841.5386331716446,
+          "duty": "leg_foot",
+          "member": "lumber_leg_left",
+          "reference_index_CD1": 0.8960003405500896,
+          "reference_positive_negative_CD1_N": [
+            560.9236847359633,
+            939.2168675460449
+          ],
+          "signed_loaded_edge_credit_used": true
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "conservative_reference_index_CD1": 0.09539583076839252,
+          "demand_N": 59.35720341202418,
+          "duty": "leg_upper",
+          "member": "lumber_leg_left",
+          "reference_index_CD1": 0.09539583076839252,
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "conservative_reference_index_CD1": 0.6446162975006569,
+          "demand_N": 729.0185437945154,
+          "duty": "post_front",
+          "member": "base_post_outer_left",
+          "reference_index_CD1": 0.6446162975006569,
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "conservative_reference_index_CD1": 0.26233160143415984,
+          "demand_N": 654.0055695961418,
+          "duty": "post_cleat",
+          "member": "base_post_outer_left",
+          "reference_index_CD1": 0.26233160143415984,
+          "reference_positive_negative_CD1_N": [
+            3366.1176344448754,
+            2493.0491256894356
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "conservative_reference_index_CD1": 0.4119633320494494,
+          "demand_N": 231.07999018928237,
+          "duty": "leg_foot",
+          "member": "lumber_leg_right",
+          "reference_index_CD1": 0.2460347531801048,
+          "reference_positive_negative_CD1_N": [
+            560.9236847359634,
+            939.216867546045
+          ],
+          "signed_loaded_edge_credit_used": true
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "conservative_reference_index_CD1": 0.011654176177546025,
+          "demand_N": 7.251462672930213,
+          "duty": "leg_upper",
+          "member": "lumber_leg_right",
+          "reference_index_CD1": 0.011654176177546025,
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "conservative_reference_index_CD1": 0.18692885270837928,
+          "demand_N": 211.40421134714367,
+          "duty": "post_front",
+          "member": "base_post_outer_right",
+          "reference_index_CD1": 0.18692885270837928,
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "conservative_reference_index_CD1": 0.08279754860382167,
+          "demand_N": 206.41835615598617,
+          "duty": "post_cleat",
+          "member": "base_post_outer_right",
+          "reference_index_CD1": 0.08279754860382167,
+          "reference_positive_negative_CD1_N": [
+            3366.1176344448754,
+            2493.0491256894356
+          ],
+          "signed_loaded_edge_credit_used": false
+        }
+      ],
+      "maximum_post_reference": 0.6446162975006569,
+      "maximum_signed_foot_reference": 0.8960003405500896,
+      "maximum_surrogate_gap_change_mm": 0.09202761109751378,
+      "maximum_timber_rotation_rad": 0.11409229539435328,
+      "maximum_timber_translation_mm": 84.84413910244365,
+      "no_bolt_axial_torque_invented": true,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/independent-replay-plywood.json",
+        "sha256": "a78c4d638a9a89254d27ed2f747358aeb52a46c67c64f9809f120c94dca82834"
+      },
+      "replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/independent-replay.json",
+        "sha256": "08f48fdd379daf1b9165439c9c3d0a3a0adaf2a8f64d1b5b29b93e01076b2890"
+      },
+      "runner_seat_compression_N": {
+        "eoere_cleat_left": 652.2415988099964,
+        "eoere_cleat_left_outer": 158.926416536126,
+        "eoere_cleat_right": 92.19169129881533,
+        "eoere_cleat_right_outer": 18.31154490753184
+      },
+      "structural_acceptance": false
+    },
+    {
+      "case": "a12-left",
+      "complete_joint_qualified": false,
+      "contact_classification_changes": 68,
+      "counts": {
+        "bearings": 472,
+        "contacts": 2150,
+        "dofs": 10274,
+        "end_captures": 212,
+        "fitting": 26,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 166,
+        "shaft": 106,
+        "timber": 28
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/field.json",
+        "sha256": "396045b7a1a209ce17c5477dbbe1cc1568a85b0fc9a93228bdf84af4286e3760"
+      },
+      "finite_arm_contacts": 968,
+      "finite_arm_diagnostic": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-finite-arm-review-v1.json",
+        "sha256": "86d01bde084d267aa3631fcd89942e4861a9e30cd739a38fa3e8395154aa3241"
+      },
+      "finite_response_or_physical_error_bound": false,
+      "gradient_inf_N": 1.7881393432617188e-07,
+      "leaf_maxima": [
+        {
+          "leaf": "eoere_cleat_left",
+          "reference_upper": 0.7926342369168757
+        },
+        {
+          "leaf": "eoere_cleat_left_outer",
+          "reference_upper": 0.9394692410222882
+        },
+        {
+          "leaf": "eoere_cleat_right",
+          "reference_upper": 0.29965664545929865
+        },
+        {
+          "leaf": "eoere_cleat_right_outer",
+          "reference_upper": 0.556514405655333
+        }
+      ],
+      "leaf_moment_balance": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-balance-v1.json",
+        "sha256": "a5ce1bd15376dabee166c46f49156fd65e6567127bf26681970cd4801f749c56"
+      },
+      "leaf_section_evidence": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-sections-v1.json",
+        "sha256": "4c7735a5550e8b5de885b4c4c9d56b21ac159b67a3638fe83d300de55f1e0062"
+      },
+      "leaf_section_reference_upper": 0.9394692410222882,
+      "leg_post_evidence": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-leg-post-v1.json",
+        "sha256": "b9e0a27349b81bd1feeb7e69e72e9bc45a647fddef4a5778b0148a45b0f7dae5"
+      },
+      "leg_post_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "conservative_reference_index_CD1": 1.193434817668856,
+          "demand_N": 669.4258554190072,
+          "duty": "leg_foot",
+          "member": "lumber_leg_left",
+          "reference_index_CD1": 0.7127489704992854,
+          "reference_positive_negative_CD1_N": [
+            560.9236847359633,
+            939.2168675460449
+          ],
+          "signed_loaded_edge_credit_used": true
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "conservative_reference_index_CD1": 0.04878100133558138,
+          "demand_N": 30.352519555578876,
+          "duty": "leg_upper",
+          "member": "lumber_leg_left",
+          "reference_index_CD1": 0.04878100133558138,
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "conservative_reference_index_CD1": 0.4577242703068106,
+          "demand_N": 517.6559796770235,
+          "duty": "post_front",
+          "member": "base_post_outer_left",
+          "reference_index_CD1": 0.4577242703068106,
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "conservative_reference_index_CD1": 0.19903609121926608,
+          "demand_N": 496.20675319483405,
+          "duty": "post_cleat",
+          "member": "base_post_outer_left",
+          "reference_index_CD1": 0.19903609121926608,
+          "reference_positive_negative_CD1_N": [
+            3366.1176344448754,
+            2493.0491256894356
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "conservative_reference_index_CD1": 0.33143211382588245,
+          "demand_N": 185.90812252704325,
+          "duty": "leg_foot",
+          "member": "lumber_leg_right",
+          "reference_index_CD1": 0.1979395057211631,
+          "reference_positive_negative_CD1_N": [
+            560.9236847359634,
+            939.216867546045
+          ],
+          "signed_loaded_edge_credit_used": true
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "conservative_reference_index_CD1": 0.022789793926585915,
+          "demand_N": 14.180267868338287,
+          "duty": "leg_upper",
+          "member": "lumber_leg_right",
+          "reference_index_CD1": 0.022789793926585915,
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "conservative_reference_index_CD1": 0.18563672321783936,
+          "demand_N": 209.94289806164394,
+          "duty": "post_front",
+          "member": "base_post_outer_right",
+          "reference_index_CD1": 0.18563672321783936,
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "signed_loaded_edge_credit_used": false
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "conservative_reference_index_CD1": 0.01868199159187522,
+          "demand_N": 46.57512280426191,
+          "duty": "post_cleat",
+          "member": "base_post_outer_right",
+          "reference_index_CD1": 0.01868199159187522,
+          "reference_positive_negative_CD1_N": [
+            3366.1176344448754,
+            2493.0491256894356
+          ],
+          "signed_loaded_edge_credit_used": false
+        }
+      ],
+      "maximum_post_reference": 0.4577242703068106,
+      "maximum_signed_foot_reference": 0.7127489704992854,
+      "maximum_surrogate_gap_change_mm": 0.088755894448596,
+      "maximum_timber_rotation_rad": 0.10171038241862959,
+      "maximum_timber_translation_mm": 94.30733451578826,
+      "no_bolt_axial_torque_invented": true,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/independent-replay-plywood.json",
+        "sha256": "0155656d4d1297d28556edde116f9befb8a8b6364dbc95f1da4f578144314836"
+      },
+      "replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/independent-replay.json",
+        "sha256": "186f8bcf77c87b578d3738ea2e15a3093bdc202b6b06baacb90f789ae88bca78"
+      },
+      "runner_seat_compression_N": {
+        "eoere_cleat_left": 526.9462584215635,
+        "eoere_cleat_left_outer": 142.81407148186554,
+        "eoere_cleat_right": 40.6037627058504,
+        "eoere_cleat_right_outer": 11.615715970232273
+      },
+      "structural_acceptance": false
+    }
+  ],
+  "census": {
+    "Hillman_screws": 66,
+    "actual_bolt_ports": 102,
+    "bolts": 106,
+    "factory_angles": 26,
+    "panels": 6,
+    "physical_bodies": 166,
+    "physical_flange_contact_strips": 104,
+    "timber": 28
+  },
+  "clearance": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/clearance.json",
+    "sha256": "3006d2d01636db51ef28950dfe1aa981b912d73eb7eecc215b4a0d2eada06beb"
+  },
+  "complete_joint_qualified": false,
+  "current_published_geometry_unchanged": true,
+  "current_published_revision": "eoere-single-leg-bolts-header-angles-v3",
+  "disposition": "TWO_PILOTS_REPLAYED_COMPLETE_LOWER_JOINT_AND_DEMAND_APPLICABILITY_OPEN",
+  "fabrication_or_climbing_release": false,
+  "geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/geometry.json",
+    "sha256": "6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb"
+  },
+  "geometry_adopted": false,
+  "input": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-preparation-v1/inputs.json",
+    "sha256": "3e90bb835032d76128b636c583a3b6f3e8b185dc36f74a238c16470f4e0bfbad"
+  },
+  "limits": [
+    "Named leaf/foot/post references and independent force recovery do not close the complete lower joint.",
+    "The provisional lower vector reference remains above one; it is not a physical-failure theorem or an adopted Grade8 capacity.",
+    "Large timber motions and finite-arm classification changes persist; no serviceability threshold, finite equilibrium or physical response bound is supplied.",
+    "Near-row pads, solid4x6 top rail and smaller service bores are separate unbuilt proposals and do not appear in these fields.",
+    "The selected screw/ML24Z baseline, published96-bolt model and all preceding failed alternatives keep their separate authority."
+  ],
+  "maximum_leaf_section_reference": 0.9394692410222882,
+  "maximum_signed_foot_reference": 0.8960003405500896,
+  "named_leg_post_comparison_count": 16,
+  "named_leg_post_reference_exceedances": [],
+  "next": "Review the existing corner-local no-slip support interpretation on unchanged geometry before more member changes; the near-row/pad geometry gate is separate.",
+  "other_four_cases_held": true,
+  "provisional_Grade8_lower_joint_construction": {
+    "Grade8_product_selected_or_adopted": false,
+    "axis": "cleat_post_bolt_left_2",
+    "calibration": {
+      "axial_envelope_N": 291.6624100036387,
+      "bearing_divisor": 5.0,
+      "combined_adjustment_sensitivity": 0.4579030746156731,
+      "named_geometry_factor": 0.5116235470566179,
+      "named_group_sensitivity": 0.895,
+      "plastic_moment_divisor": 4.0
+    },
+    "evidence": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-vector-grade8-v1.json",
+      "sha256": "b951f6b9ec3a8a5d33ad2256623240e836d073ec70594db154113e9acdbb7321"
+    },
+    "reference_index": 1.2606837454234976,
+    "whole_joint_capacity_or_physical_failure_proven": false
+  },
+  "readiness": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-readiness-v1.json",
+    "sha256": "ae2b39724bff1ffd6c6ba5609812614c9807cce0f894905622e7f56313bdada1"
+  },
+  "revision": "unadopted-coherent-three-pin-shift-v1",
+  "schema": "eoere_coherent_three_pin_two_pilot_results/v1",
+  "second_case_readiness": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-second-case-readiness-v1.json",
+    "sha256": "e77db5585e4bd0c4088bd1d91d1c5e5efd2959bbbf2444ba5a7dcc08b17307df"
+  },
+  "shaft_component_maxima": {
+    "bore_Fe_div5_max": 0.3539927200711748,
+    "mean_seat_210psi_max": 0.5091231148521669,
+    "metal_divisor_two_max": 0.7517976914878376,
+    "reduced_plastic_moment_Ktheta125_unadjusted_max": 0.8177641471922281
+  },
+  "six_physical_cleat_shaft_reference": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-shafts-v1.json",
+    "sha256": "bb62dfdd56a5d4a77fd27830d8d3944ceca2adf7c7719b212d317c0771c7f64a"
+  },
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-balance-v1.json": "ea514351ee71eab896d45749389bde20eefc5f29be7960fb9085489e10b52f08",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-finite-arm-review-v1.json": "040a8847f2dc3fe4ed22f437d314945c0ed39603a489ad9aa9535775daec3c3e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-leg-post-v1.json": "d3f0f3e23ccbe7ba46ba366addede3f9b574ba5acadc3147cdd08031a4b58b58",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-sections-v1.json": "0746acf7a6b03251dd5f44b4a3ae08ab230d12f47d2c883435acb733a6ac917d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-shafts-v1.json": "bb62dfdd56a5d4a77fd27830d8d3944ceca2adf7c7719b212d317c0771c7f64a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/field.json": "0d4bc608f65f2976c1585162b062c63263fd5233dd40cacf59be5083b9fe1a10",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/independent-replay-plywood.json": "a78c4d638a9a89254d27ed2f747358aeb52a46c67c64f9809f120c94dca82834",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-v1/independent-replay.json": "08f48fdd379daf1b9165439c9c3d0a3a0adaf2a8f64d1b5b29b93e01076b2890",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-forward-vector-grade8-v1.json": "b951f6b9ec3a8a5d33ad2256623240e836d073ec70594db154113e9acdbb7321",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-balance-v1.json": "a5ce1bd15376dabee166c46f49156fd65e6567127bf26681970cd4801f749c56",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-finite-arm-review-v1.json": "86d01bde084d267aa3631fcd89942e4861a9e30cd739a38fa3e8395154aa3241",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-leg-post-v1.json": "b9e0a27349b81bd1feeb7e69e72e9bc45a647fddef4a5778b0148a45b0f7dae5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-sections-v1.json": "4c7735a5550e8b5de885b4c4c9d56b21ac159b67a3638fe83d300de55f1e0062",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/field.json": "396045b7a1a209ce17c5477dbbe1cc1568a85b0fc9a93228bdf84af4286e3760",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/independent-replay-plywood.json": "0155656d4d1297d28556edde116f9befb8a8b6364dbc95f1da4f578144314836",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-a12-left-v1/independent-replay.json": "186f8bcf77c87b578d3738ea2e15a3093bdc202b6b06baacb90f789ae88bca78",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/clearance.json": "3006d2d01636db51ef28950dfe1aa981b912d73eb7eecc215b4a0d2eada06beb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/geometry.json": "6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-preparation-v1/inputs.json": "3e90bb835032d76128b636c583a3b6f3e8b185dc36f74a238c16470f4e0bfbad",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-readiness-v1.json": "ae2b39724bff1ffd6c6ba5609812614c9807cce0f894905622e7f56313bdada1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-second-case-readiness-v1.json": "e77db5585e4bd0c4088bd1d91d1c5e5efd2959bbbf2444ba5a7dcc08b17307df",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_balance.py": "917cb4127d2b1f626245d19e9658b8cb0a8e6e818eee7debf35852b037293c05",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_feasibility.py": "aea3dcd8a7cee377fc076e4dbe5efecb69170f1848a95bfa4050795092851848",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_geometry.py": "906e04d748ab26e5e1612da100c3d9758f6c933af1de829e8e5771c313d1c9a4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_kinematic.py": "ec9d95fde8315e817266eb393c2b413ae2cf58b7e40fde4742aa27b2429ddb08",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_leg_post.py": "41913c3668044b60cff0084d47a28f3d49074d5d3d84639e7f7f258f0386cc12",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_readiness.py": "ac8132a77cff6094651e50e40308c3d0b8d4107388582c7113948285e2876b23",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_sections.py": "5de92128f3cdb1d2a2995490a045c9df2e29e5919806ee3044bfd5814f6dad68",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three_pin_summary.py": "42aea3ac5f3f29b3a4b9c91fb0b9eb548ced54adc60afc0901f688f4c6b60613"
+  },
+  "structural_acceptance": false,
+  "support_scenario": "Two long-leg centroid XY penalty groups; all32 floor normals retained, six other feet normal-only. Unverified no-slip assumption; no floor anchor/capacity."
+}

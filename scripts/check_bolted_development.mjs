@@ -856,6 +856,26 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(singleCleat.more_cases_admitted, false);
     assert.equal(singleCleat.geometry_adopted, false); assert.equal(singleCleat.structural_acceptance, false);
     assert.equal(singleCleat.complete_joint_qualified, false); assert.equal(singleCleat.fabrication_or_climbing_release, false);
+    const threePin = JSON.parse(bound(index.unadopted_studies.coherent_three_pin_two_pilots));
+    assert.equal(threePin.current_published_revision, report.revision);
+    assert.equal(threePin.current_published_geometry_unchanged, true);
+    assert.deepEqual(threePin.cases.map(r => r.case), ['a12-forward', 'a12-left']);
+    assert.equal(threePin.census.bolts, 106); assert.equal(threePin.census.factory_angles, 26);
+    assert.equal(threePin.census.Hillman_screws, 66); assert.equal(threePin.census.actual_bolt_ports, 102);
+    assert.equal(threePin.named_leg_post_comparison_count, 16);
+    assert.equal(threePin.named_leg_post_reference_exceedances.length, 0);
+    assert.ok(threePin.maximum_leaf_section_reference < 1 && threePin.maximum_signed_foot_reference < 1);
+    assert.equal(threePin.provisional_Grade8_lower_joint_construction.axis, 'cleat_post_bolt_left_2');
+    assert.ok(threePin.provisional_Grade8_lower_joint_construction.reference_index > 1);
+    for (const row of threePin.cases) {
+      assert.equal(row.counts.physical_bodies, 166);
+      assert.ok(row.gradient_inf_N < 1e-5 && row.contact_classification_changes > 0);
+      assert.ok(row.maximum_timber_translation_mm > 80);
+      assert.equal(row.finite_response_or_physical_error_bound, false);
+    }
+    assert.equal(threePin.all_six_cases_admitted, false); assert.equal(threePin.other_four_cases_held, true);
+    assert.equal(threePin.geometry_adopted, false); assert.equal(threePin.complete_joint_qualified, false);
+    assert.equal(threePin.structural_acceptance, false); assert.equal(threePin.fabrication_or_climbing_release, false);
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, scene.key), scene.key);
     for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])

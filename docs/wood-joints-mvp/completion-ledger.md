@@ -4721,6 +4721,189 @@ The owner/service lane's Ø31.75-mm passage option remains a separate
 preflight result and is not silently applied here. This integration session
 has issued no goal-status update; a held trial does not stop the owner's
 continuing completion work.
+The integration lane now owns the fresh-stock 106-bolt geometry, actual
+occupied clearance, bore/pose/port census and socket-access preparation;
+the full-goal owner retains the detailed strength/placement disposition.
+The geometry trial preserves Ø38.1 passages until the smaller-hole source
+proof is bound, and does not select a new current model or shop packet.
+The fresh proposal is now
+`coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/geometry.json`,
+SHA-256 `6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb`.
+It suppresses **28 old receiver bores** on fresh stock, recuts all ten
+moved axes, translates their **66 complete metal parts** and reconstructs
+all four affected factory fittings. The full **1,097-part / 590-changed-part**
+occupied check passes with no collision or missing candidate. The two
+omitted shafts are absent; all66 panel axes remain byte-for-byte equal to
+the 108-bolt parent. Preparation is under `three-pin-shift-preparation-v1/`;
+socket approaches and the real port/contact census still gate a fresh pilot.
+The `three-pin-shift-readiness-v1.json` now authenticates **1,480 source
+pins** and all **48** new/moved Ø25.4 × 50.8-mm socket approaches, with no
+conflict. `three-pin-shift-kinematic-v1/preflight.json` captures 166 owners,
+**10,274 DOFs / 472 bearings / 212 end captures / 2,150 contacts** and all
+32 floor normals. It preserves 102 bolted ports separately from 104 physical
+contact strips; both omitted upper shafts have no bore/capture reactions.
+All208 factory-hole positions match the independently translated frozen
+parent metadata within **8.76e-10 mm**. Its all-closed initialization
+surrogate is finite, residual **1.51e-8 N**, without a physical-stability
+claim. These gates admit only one cold **A12-forward** pilot under
+`three-pin-shift-a12-forward-v1/`, followed by independent replay and own
+component recovery. More cases remain unadmitted pending that result.
+The cold A12-forward pilot converges in **73.84 s**, residual **1.213e-6 N**.
+Its `three-pin-shift-a12-forward-v1/field.json` SHA is
+`0d4bc608f65f2976c1585162b062c63263fd5233dd40cacf59be5083b9fe1a10`.
+Independent operator/force replay and its plywood companion pass; the full-goal owner may
+prepare its own six retained cleat-shaft/end/group/fitting intake from this
+exact geometry and field, without transferring the old four-port forces.
+Own three-pin leaf and signed-foot/post recovery now give **0.756335** and
+**0.896000**, respectively. All eight named leg/post comparisons are below
+one. The left lower-post construction falls from the held 104-bolt trial's
+**2.239070** to **0.262332**: **654.006 / 2493.049 N**. Keeping both lower
+pins retains effective loaded depth **90.4875 mm** after the assembly shift;
+the previous single lower pin had only44.45mm. The right lower-post index is
+**0.082798**. These are own fresh-field component results, not a joint rating.
+The source-matched outputs are `three-pin-shift-a12-forward-sections-v1.json`
+and `three-pin-shift-a12-forward-leg-post-v1.json`. This resolves the reason
+to stop the 104-bolt family; the 106-bolt upper/lower joint, end/group,
+metal/seat and fitting duties remain with the full-goal owner.
+The four leaf moment sums also close independently with force/moment
+residuals **1.40e-9 N / 1.10e-7 Nmm**, all four runner seats in compression,
+and zero bolt axial torque. On that bounded basis,
+`three-pin-shift-second-case-readiness-v1.json` admits only **A12-left** to
+check the previously governing leaf construction on its own redistributed
+actions; no six-case batch is admitted. That cold case now converges in
+**86.23 s**, residual **1.79e-7 N**. Its field SHA is
+`396045b7a1a209ce17c5477dbbe1cc1568a85b0fc9a93228bdf84af4286e3760`
+under `three-pin-shift-a12-left-v1/`; independent replay and the plywood
+companion now pass. Its own leaf section maximum is **0.939469**, signed
+foot maximum **0.712749** and all eight named leg/post comparisons are below
+one. The lower-post indices are **0.199036 / 0.018682**. The four actual
+runner seats remain in compression and their 60-digit moment recovery
+closes within **9.30e-10 N / 1.07e-7 Nmm**, with no invented bolt axial
+torque. This is the one additional case specifically admitted to answer
+the changed cleat question. **Hold the other four cases** while the
+full-goal owner completes six-shaft/end/group/fitting work and the coherent
+panel/hole choice. All 32 holes are still Ø38.1 in these two fields.
+The [compact two-pilot record](../bolted-frame-development/coherent-three-pin-two-pilot-results-v1.json)
+is bound in the revision index. Its28.3kB permanent footprint preserves the
+two independent replays,16 named comparisons, the provisional lower-joint
+exceedance and the movement/applicability limits together. Detailed source
+fields, operators and proposed geometry stay active in the ignored packet;
+no archive or prune is performed. The maintained adapter and focused nine
+Python tests,246 Node checks and full maintained Ruff scan pass; the compact
+record reproduces byte-for-byte without a new solve.
+The integration session has made no goal-status update: its read returns
+its own older blocked goal, rather than identifying who changed the
+full-goal owner's record. No tracker-status change is treated as an
+engineering instruction to stop authorized work.
+
+**Next bounded panel geometry.** The full-goal owner's reviewer proposes
+one solid4×6 top rail, nominal S centre **2594.9 mm**, S width **88.9 mm**,
+N depth139.7mm and S faces **2550.45..2639.35 mm**. Four upper `rim_4` /
+`center_4` screw heads move +10mm to nominal S2564 and redirect to that
+rail; the old top-edge screws stay, with66 screws total. This covers both
+needed receiver lines with one stock member. It is a proposal, not a
+current model or pass. The integration preflight must move all six complete
+upper fitting assemblies, recut the four rim/principal ends, rebuild both
+diagonal knees from their retained lower connections and recheck their
+actual bores, external clearance and access. Merely trimming leaves
+006/010/009/013 at about14.64mm end distance, below the2D marker. The
+twelve S-directed top-rail grips grow50.8mm; existing nominal lengths do
+not transfer. The prior captured geometry helper constructs the knee
+grain from the upper/lower connection references, so it can be reused
+without preserving an incompatible old knee orientation.
+
+**Alternative header-lift geometry.** A **254-mm (10-in) kicker
+post height would lift the complete header level **15.1 mm**. This retains the
+solid stock sections, runners, plywood bottom at139.7mm and106/26/66
+counts. Both outer and both center kicker posts need the new height. All
+**eight header-connected fittings / 22 axes** move together, and the lower
+ends of both rims and both center principals need the matching horizontal
+end cut. This is a conventional cut-list and complete-joint change, without
+a runner house or an underside header notch. It remains an alternative;
+the later pad/near-row route below takes priority for geometry preflight.
+The lower plywood row becomes **Z188.9125**, with **49.2125-mm** plywood
+end and the retained **65.0875-mm** post end. The end-only7D sensitivity
+becomes **0.738095**, versus0.511624; at unchanged old forces alone the
+reported1.26068 marker would scale to approximately0.874. That is a
+scoping indicator, never a new demand or joint-capacity result. The nominal
+header spansZ254..292.1, leaving22.225mm at the kicker's upper edge before
+actual backing/collision checks. Recheck the actual rim/header seat overlap,
+all four post tops, the66 receiver/panel supports, moved common shafts and
+access before a new pilot.
+
+**Chosen next geometry gate: plywood pads and factory near holes.** Two
+**203.2 × 139.7 × 28.575-mm** offcuts of the existing cleat plywood sit
+inboard below the unchanged header, strength axisX, Y−175.7..−36. The
+under-header angle corner moves toZ210.325; its verified factory near-post
+offset is **23.8125 mm**, putting the four retained lower axes at
+**Z186.5125**. Plywood/post end distances become **46.8125 / 52.3875 mm**.
+The pads retain the header/post geometry, two lower bolts per corner,
+26 angles,106 bolts and66 Hillman screws; their shared header bolts need
+longer stocks through both wood layers. No factory steel is drilled.
+
+The first source-bound gate,
+`coherent-return-paired-foot-v1/near-row-pad-fit-preflight-v1.json`, clears
+all **28** actual retained-metal / factory-angle intersection queries and
+all four **Ø25.4 × 50.8-mm** head-socket envelopes. SHA-256 is
+`5da3772949feeb208940d7f64811d02f978b660125ec3eca0b13d06077965d3b`.
+This is not a full pad/receiver check or a candidate model. Next verify pad
+footprints/material/bearing, shared stacks, all nearby parts and the exact
+near-point kinematic/force routing. The existing steel model retains its
+far control nodes and65.0875mm gross elastic analogy; physical near-hole
+points and installed-hole metadata must remain distinct and source checked.
+No near-row stiffness, force or complete-joint acceptance is inferred from
+this clearance gate. The 254-mm header-lift option stays recoverable if the
+pad detail is unsuitable.
+
+<a id="coherent-service-diameter-preflight"></a>
+The service lane's compact proof is now bound at
+`enclosed-passages-v1/diameter-preflight-v1/receipt.json`, SHA-256
+`34b96e47b425f0e57e8ffa6ac4a800331091450e331113a03b46fe30c2af042c`.
+All ten source bindings and an independent byte replay pass: all32 unchanged
+routes fit **Ø31.75 mm** at fixed centres/endpoints, nominal front/rear web
+**53.975 mm**. It qualifies neither actual feeding, new bolt ligaments nor
+whole-assembly strength. The widened top rail has no service hole; changed
+principal end cuts and bolt locations still need their own checks.
+The same packet's `fastener-clearances.json`, SHA-256
+`1af394618df1a0ed72244a347a4b84eaefba5efded7640a2abdf0dad1f339399`,
+reuses authenticated exact distances for the eight unchanged receivers and
+44 original bolt occurrences. At31.75mm it gives nominal bolt-bore minimum
+**28.481507 mm** and retained screw-envelope minimum **8.731250 mm**, both
+at F1–G1. These are geometry results, not bit instructions, pilot occupancy,
+ligament strength or clearance for changed receiver hardware.
+
+**Support and movement disposition before more member changes.** This is
+an existing duty, not a new motion limit. The original two-leg-centroid law
+explicitly says that the other six feet are normal-only and that it does not
+bound other support scenarios. The older all-foot centroid search cycled a
+right-runner activation on a different frame; that is neither a current
+instability proof nor a rejection of the owner's no-slip assumption.
+The retained [corner-local method](hypotheses/hl35-candidate/thin-frame-comparison/floor-corner-stick-method-coupons-v4.json)
+has eight known-answer coupons/eleven fixtures, **32 normals / 64 co-located
+XY rows**, each corner's XY released when its own normal opens. The
+[finite-centroid method](../../fea/generated/thin-bolted-current-contact-v1/finite-centroid-floor-v1/method-result.json)
+has27 fixtures but retains a lumped whole-foot approximation. Neither
+receipt supplies current166-owner acceptance. Prioritize one matched,
+source-bound support trial on unchanged106 geometry before more timber
+changes, with fresh activation, force replay and movement/finite-arm
+disposition. The full-goal owner owns readiness and serialized execution;
+this integration lane has launched no support trial. No floor capacity,
+friction coefficient, anchor or physical floor test is added.
+The source-bound `three-pin-shift-floor-port-motion-v1.json`, SHA-256
+`36b29456f0a60a269fc16621ef76b9da4d1eefa1b9297a03cec8d42a6c63b679`,
+also recovers modeled bearing-port tangential motions **19.8006 / 58.4120 mm**
+at positive normal reactions **214.821 / 271.321 N** in forward/left cases.
+Thus the current scenario permits substantial modeled motion at bearing
+front feet; it is materially different from local no-slip. These saved
+diagnostics supply neither a new equilibrium nor actual floor observations.
+
+The six preserved hold-label bindings were also checked directly before
+changing receivers: each case's front point exactly matches its named
+T-nut, with9.128125mm to the sheet midplane and100mm normal hold arm.
+LED holes are separate,100mm along the sheet from A12/K12 and80mm fromA1.
+An initial common-offset assertion was corrected; no source load/location
+error or load change was found. The raw `hold-label-binding-v1.json`
+retains the six field hashes and measured distances.
 
 **Current-frame applicability and next action.** The current revision still
 has null response/assessment entries. The already completed current-foot
@@ -5895,6 +6078,133 @@ The next joint decision is a supported placement/reinforcement detail or a
 preflighted simpler pin arrangement, followed by its own redistributed
 actions. Do that before more material-only trials. No product, reviewed
 geometry, structural acceptance or physical operation changes here.
+
+The subsequent source review clarifies the single-upper-pin interpretation.
+NDS12.1.2.2, printed p.81, defines end distance from a square-cut end along
+grain. Chapter12 provides no separate miter procedure. Applying its end
+markers to this sloped end therefore requires an engineering interpretation;
+the retained-prism construction above is one optional sufficiency route.
+For the shifted single `071/074` detail, the actual grain end is
+**84.965697 mm** and nearest finished supporting edge **64.374799 mm**,
+above the conservative full-value 7D/4D markers of **66.675 / 38.1 mm**.
+Use these actual dimensions for the nominal detailed-method placement
+disposition, with its declared interpretation; preserve 0.74 as the earlier
+optional comparison. End splitting, member/couple transfer, seats and
+complete-joint behavior retain their separate duties. The omitted upper
+pair's row-spacing issue does not transfer to a single upper pin.
+
+**Three-pin shifted pilot: shaft and seat follow-up.** The later 106-bolt
+pilot retains one upper and two lower cleat shafts per corner and shifts
+their complete base/under-header fitting assemblies by Y−4.7625 mm. Its
+geometry hash is `6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb`;
+the independently replayed A12-forward field is
+`0d4bc608f65f2976c1585162b062c63263fd5233dd40cacf59be5083b9fe1a10`.
+The same source-view recipe recovers all six physical cleat shafts, 36
+half-bores and six outer seats. Maximum Fe/5, elastic metal/divisor-two and
+outer-seat references are **0.353993 / 0.751798 / 0.509123**. Runner and
+leaf-face cell-mean references reach **0.129489 / 0.187583**. These retain
+the preceding material/area-mean limits; no complete-joint pass follows.
+
+The Grade8 vector construction remains above one at
+`cleat_post_bolt_left_2`: **1.260684**, with the declared lower Cg=0.895,
+end factor 34.1125/66.675 and upper retained-prism comparison factor 0.74.
+The latter is provisional: actual miter, panel-pilot deductions and complete
+core load transfer remain unresolved. Fixed interface moments alone reach
+0.689711; the constructed internal bearing/bending field governs. Three
+small same-wrench diagnostics give **1.202565** with a rounded-down
+3675-psi sawn minimum and 3150-psi plywood minimum; **1.153323** with the
+sawn value relaxed to 5600 psi; and **1.068114** with every wood cap relaxed
+to 5600 psi. The relaxed cases are method bounds, not allowable properties
+in every direction. They do not justify an anisotropic optimizer or a
+material-only acceptance. The finite-cell result does not prove physical
+failure or exclude every continuous field. Resolve a practical lower end/
+fitting layout before more cases; do not silently move holes in factory steel.
+
+The active ignored coherent-return packet retains the new results and
+source-view receipts; the worksheets remain in the existing plywood-gusset
+packet. Commands take `CASE_FOLDER FRESH_OUTPUT.json` through
+`paired-source-view-v1.py`, with `three-pin-cleat-shafts-v1.py`, unchanged
+`paired-leaf-seats-v1.py`, or `three-pin-cleat-vector-grade8-v1.py`.
+The bearing diagnosis takes `SAVED_VECTOR_JSON FRESH_OUTPUT.json` as a
+Python module and changes only its explicitly named bearing caps. A fresh
+output reproduces its bytes exactly; all three shaft/seat/vector source-view
+receipts bind their recorded result hashes. The documentation-link checks
+and whitespace check pass for this entry.
+
+| `three-pin-shift-a12-forward-` result suffix | SHA-256 |
+| --- | --- |
+| `shafts-v1.json` | `bb62dfdd56a5d4a77fd27830d8d3944ceca2adf7c7719b212d317c0771c7f64a` |
+| `seats-v1.json` | `3b3ee902deda39df5dce20db19d1cad67b3894d7bc25ee52d793c0fea0eda9e0` |
+| `vector-grade8-v1.json` | `b951f6b9ec3a8a5d33ad2256623240e836d073ec70594db154113e9acdbb7321` |
+| `bearing-diagnosis-v1.json` | `addfa8210cbcc8dca895f737c624874e57fcdf3dc77f903d186ad52d2941d4b0` |
+
+The current physical-demand question remains separate from those strength
+references. Reusing the unchanged senior-review `load_check` and
+`contact_probe` on both 106-bolt fields verifies the recorded 250-lb ×2,
+300-N, eccentric-point and own-gravity arithmetic, and every probed linear
+contact force. Maximum timber-node translations are **84.844139 / 94.307335 mm**
+in A12-forward/left, with rotations **0.114092 / 0.101710 rad**. The
+fixed-director finite-arm surrogate checks **968 contacts per case** and
+changes **63 / 68** open/compressed classifications, with maximum gap
+changes **0.092028 / 0.088756 mm**. This reopens no old force packet and
+introduces no motion limit. It confirms that the previously recorded
+[demand-applicability duty](#engineering-assessment-and-acceptance-decisions) persists:
+the surrogate is neither a finite-motion equilibrium nor a physical error
+bound. Both fields retain only rear-leg centroid XY restraints; all other
+floor hosts are normal-only. That particular support scenario does not
+bound every use of the unverified no-slip assumption. Disposition the
+support/contact and motion treatment before complete design acceptance.
+The [September12 floor direction](../history/decision-log.md#floor-scope-clarification-2026-09-12)
+allows a declared no-slip support idealization without a rear-only restriction.
+The focused next comparison should reuse the existing corner-stick method:
+co-located XY forces at compressed normal ports, released when that same
+port lifts, without rotational clamps or independent floor couples. Its
+earlier 32-normal/64-XY coupons remain method evidence; fresh candidate
+forces, active bearing and relative-motion checks remain necessary. No
+verified floor, anchor, friction test or physical release follows.
+
+The source-bound helper is `engineering-closure-v1/coherent-finite-arm-review-v1.py`,
+run as a Python module with `CASE_FOLDER FRESH_OUTPUT.json`, without another
+solve or CAD operation. Raw results remain active in the same ignored packet:
+`three-pin-shift-a12-forward-finite-arm-review-v1.json`, SHA-256
+`040a8847f2dc3fe4ed22f437d314945c0ed39603a489ad9aa9535775daec3c3e`,
+and `three-pin-shift-a12-left-finite-arm-review-v1.json`,
+`86d01bde084d267aa3631fcd89942e4861a9e30cd739a38fa3e8395154aa3241`.
+
+The companion `three-pin-shift-floor-port-motion-v1.json` recovers all
+**64** floor-normal reactions across those two fields from the saved point
+charts. The largest tangential movement of a bearing point is **19.800606 mm**
+at `base_post_center_right/floor-0` in A12-forward, with **214.821396 N**
+compression, and **58.411968 mm** at `base_post_outer_left/floor-2` in
+A12-left, with **271.321077 N**. Even rear bearing corners move about
+**0.64–2.46 mm** around their restrained centroids. These calculated point
+motions make the support-scenario distinction concrete; they are not build
+observations. Reuse `engineering-closure-v1/coherent-floor-port-motion-v1.py`
+as a Python module with `CASE_FOLDER [CASE_FOLDER ...] FRESH_OUTPUT.json`;
+it invokes the existing pose functions and checks every normal reaction
+within **5.92e-12 N**. The 47,611-byte result SHA-256 is
+`36b29456f0a60a269fc16621ef76b9da4d1eefa1b9297a03cec8d42a6c63b679`.
+
+The service owner also bound the owner-authorized **Ø31.75-mm** option to
+the eight unchanged service receivers and all 32 saved routes. Independent
+replay reproduces the receipt exactly and all ten source pins match.
+Nominal front/rear webs are **53.975 mm**; the conservative radial gap for
+the recorded Ø12.7-mm harness envelope is at least **9.524999 mm**. Reusing
+the existing 140 hole/bolt and 76 same-receiver screw-body pairs gives
+nearest CAD bore/body gaps **28.481507 / 8.731250 mm**, both at F1–G1,
+against `eoere_bolt_073` and `round_panel_lower_right_center_1` respectively.
+Bounds on the remaining retained screws exclude a closer omitted envelope.
+These are geometric clearances, not shop pilots, fastener end/edge criteria,
+splitting capacity, rigid-component feeding or physical installation proof.
+Future geometry must preserve the bound receivers, centres and routes.
+The compact source-bound receipts stay active under
+`enclosed-passages-v1/diameter-preflight-v1/`; each records its fresh-output
+reproduction command and producer hash, without CAD or a new force solve:
+
+| Service result | SHA-256 |
+| --- | --- |
+| `receipt.json` | `34b96e47b425f0e57e8ffa6ac4a800331091450e331113a03b46fe30c2af042c` |
+| `fastener-clearances.json` | `1af394618df1a0ed72244a347a4b84eaefba5efded7640a2abdf0dad1f339399` |
 
 <a id="coherent-current-fitting-references"></a>
 **Coherent return: all six saved-field fitting references.** Reusing the

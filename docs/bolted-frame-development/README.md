@@ -40,7 +40,7 @@ belong to the preserved notched model; they do not qualify or disqualify these h
 | Long-leg joints and floor feet | One retained `*_1` bolt at each of the four joints removes the two-hole pattern. The 1:12 recess and sole section stay fixed. | **Left foot still exceeds the CD1 near-end shear reference: 826.180 / 733.460 N = 1.126415**, in A12-forward. Right-foot maximum is 0.881455; upper-leg member-shear maximum is 0.084921. The corrected [own-size Grade5/F606 yield references](leg-single-pin-product-references-v2.json) are below one in all 24 rows, maxima **0.847716 left / 0.836991 right** at the upper bolts. This reuses the existing qualified 92-ksi specification. The earlier generic45-ksi report is superseded: its upper rows retain four exceeded sensitivity references, while its foot rows used the wrong diameter. Complete bolt/wood, recess and restraint checks remain. The leg is not a two-force member while its foot bears on the floor. |
 | Primary plywood cleats | Two single 8×24-in leaves and their four-hole connections are modeled; new under-header angles share their lower shafts. Published directional APA properties are recorded. | The fuller current [net/load-station construction](../wood-joints-mvp/completion-ledger.md#current-shared-header-plywood-results) reaches **1.843983**. The separate [combined successor](coherent-return-paired-foot-results-v1.json) now integrates paired leaves and both upper returns: all six own-field section comparisons are below one, maximum **0.982705**. The earlier [8-/10-in paired pilots](plywood-cleat-paired-pilot-results-v1.json) remain failed alternatives. Detailed connection, placement and complete-joint duties remain; none of these studies changes the published model. |
 | Outer front posts | Solid 4×6 posts and their 9.525-mm longitudinal T-nut-clearance bevel are retained. The old fixed-force shear comparison was 0.722654. | The fresh 24 post connection-shear comparisons are below one, maximum **0.730989** using the retained full-depth core. Other normal, bearing, end/group and complete-joint checks remain. |
-| Enclosed service holes | All 32 holes and their routes are geometrically integrated with the leg/header/plywood revision. The combined successor's [192 hole/case traction constructions](coherent-return-component-followup-v1.json) reach **0.783098**. | Local hole splitting, connection ligaments, installation/access and physical restraint remain separate duties. The nominal section result does not qualify them, and no old notch pass transfers. |
+| Enclosed service holes | All 32 holes and their routes are geometrically integrated with the leg/header/plywood revision. The combined successor's [192 hole/case traction constructions](coherent-return-component-followup-v1.json) reach **0.783098**. | Local hole splitting, connection ligaments, installation/access and physical restraint remain separate duties. The nominal section result does not qualify them. The [Ø31.75-mm route/clearance preflight](../wood-joints-mvp/completion-ledger.md#coherent-service-diameter-preflight) is a separate unbuilt option; no old notch pass transfers. |
 | Panel and screw-head references | The separate [98-screw trial](panel98-trial-results-v1.json) retains all 66 original axes and adds 32 on its enclosed-passage parent. It improves panel references but worsens the governing screw-head concentration. | Keep 66 screws in this combined model. The trial alone is not a remedy; its forces do not transfer to the changed header/cleats/legs. Hillman qualification and panel/attachment resolution remain separate duties. |
 | Angles, other bolts and member restraint | The two requested under-header angles bring the published count to 24; six existing four-packs supply that count. The combined successor's [six-case fitting reduction](../wood-joints-mvp/completion-ledger.md#coherent-current-fitting-references) covers its own 26 angles, with 4,680 named comparisons below one and heel maximum **0.961167**. | Conditional 6.35-mm section/radius and 235-/370-MPa material references do not qualify complete fittings, mixed joints or actual restraint. Changed common-shaft, seat and finished-member duties retain their own scope. |
 
@@ -78,6 +78,16 @@ review before more cases; stronger bolt metal alone does not change the timber
 reference. The four unused fitting ports have contact but no shaft, bearing or
 capture. The published 96-bolt geometry and the 108-bolt study remain distinct.
 
+The [106-bolt follow-up](coherent-three-pin-two-pilot-results-v1.json) keeps both lower pins,
+omits only the upper pair and shifts both outer base/under-header assemblies Y−4.7625 mm.
+Its own A12-forward and A12-left fields independently replay: leaf maximum **0.939469**,
+signed-foot maximum **0.896000**, all **16** named leg/post comparisons below one.
+The complete lower joint remains open: a provisional Grade8/end/group construction reaches
+**1.260684**. Calculated timber motions and finite-arm contact changes retain the existing
+demand-applicability concern. Hold the other four cases for the corner-local floor-support
+review on unchanged geometry. Near-row plywood pads, a solid 4×6 top rail and smaller
+service bores remain separate proposals, without adoption.
+
 The single-leaf material review corrected the perpendicular-axis rolling-shear
 reference from 500 to **385 lbf/ft**; the original saved gross-cut maximum
 stays 0.945264 under its assigned scope. The [material record](plywood-cleat-material-basis-v1.json)
@@ -99,6 +109,7 @@ No rejected force result is a current result or an accepted design basis.
 | **Current geometry and shop layout** | `eoere-single-leg-bolts-header-angles-v3` · [receipt][combined] | [Current combined model](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear); 96 bolts / 24 angles / 66 screws. |
 | Unadopted combined successor | `unadopted-bilateral-return-paired-cleats-signed-foot-v1` · [six-case study](coherent-return-paired-foot-results-v1.json) | 108 bolts / 26 angles / 66 screws; independent fields and bounded component references, without complete-joint or structural acceptance. |
 | Held cleat-pin simplification | `unadopted-coherent-single-cleat-pins-v1` · [A12-forward pilot](coherent-single-cleat-pin-pilot-v1.json) | 104 bolts / 26 angles / 66 screws; exceeded left-post component construction, without adoption or admission of further cases. |
+| Two-pilot follow-up | `unadopted-coherent-three-pin-shift-v1` · [A12-forward/left results](coherent-three-pin-two-pilot-results-v1.json) | 106 bolts / 26 angles / 66 screws; complete lower joint and response applicability open, other four cases held. |
 | Preserved enclosed-passage parent | `eoere-centred-enclosed-passages-v1` | [100-bolt solid-cleat parent](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-enclosed-passages-frame-development&view=rear). |
 | Preserved notched geometry and optional grid | `eoere-narrow-channel-openings-v1` | [Original grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear) · [unofficial extra grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-grid-development&view=rear). Neither is a current combined-grid variant. |
 | Preserved matched six-case evidence | `eoere-raised-kicker-screws-v1` / `eoere-selected-purchase-hardware-v1` | [2×6-post response](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json); its own geometry, assumptions and acceptance limits. |
@@ -107,17 +118,15 @@ No rejected force result is a current result or an accepted design basis.
 ## Remaining work and retention
 
 The [full engineering completion goal](../wood-joints-mvp/completion-ledger.md#practical-engineering-completion-goal)
-remains active and unachieved. The six current force/recovery replays are complete; **47 of 48** named leg/post
-connection-shear comparisons are below one. The separate 108-bolt successor
-resolves those named foot/post and leaf-section references on its own six
-fields; it still needs detailed placement, complete joints, finished members
-and restraint before a design disposition and shop-packet revision. Its
-104-bolt simplification is held at the first case. Keep panel/attachment
-resolution and its saved-field diagnosis visible in the same completion
-record. The [completion ledger](../wood-joints-mvp/completion-ledger.md#current-concern-update)
-retains the detailed predecessor checks and current followups. A failed adopted
-criterion or missing load path stops the affected operation; no new blanket
-external sign-off or native-solve requirement is introduced.
+remains unachieved. The six published-geometry replays are complete; **47 of 48** named
+leg/post comparisons are below one. The 108-bolt study resolves those named foot/post
+and leaf-section references on its own six fields; placement, complete joints, members
+and restraint remain before a disposition and shop-packet revision. The 104-bolt trial
+is held; the 106-bolt follow-up resolves its named post comparison in two cases, while
+the lower joint and support/motion treatment remain open. Keep panel/attachment work
+in the same [completion ledger](../wood-joints-mvp/completion-ledger.md#current-concern-update).
+A failed adopted criterion or missing load path stops the affected operation; no new
+blanket external sign-off or native-solve requirement is introduced.
 
 The [duration worksheet](load-duration-assessment-v1.json) and
 [short-term reference disposition](short-term-strength-disposition-v1.json)
