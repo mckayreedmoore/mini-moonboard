@@ -5642,6 +5642,49 @@ byte-identical `replay01.json`. Result SHA-256 is
 The worksheet and result total **20,430 bytes**; retain them as review evidence.
 No archive, pruning, CAD rebuild or mechanics solve occurs.
 
+<a id="single-bolt-leg-joint-review"></a>
+**One bolt at each long-leg joint: unadopted review.** Replacing each upper
+side/leg pair and each leg/runner pair with one bolt would remove four of
+the current 100 stacks. It removes the relative two-hole pattern requirement,
+but needs a supported nominal-pin load path, joint forces, three-dimensional
+stability, bolt/wood resistance and actual rotation/contact treatment. The
+remaining bolt's axis and member end/edge distances matter. Removing a bolt
+does not itself establish a hinge or a reduction in member demand. Current
+geometry, axes, hardware selections and machining instructions stay unchanged.
+
+The original left-foot `a12-forward` comparison is not cured by deleting the
+other hole. The authenticated current shop coordinates put
+`rail_rear_bolt_left_1` at local V **−69.86397394146408 mm**, almost mid-depth.
+Keeping that axis alone leaves the governing guarded effective depth
+**69.83502607918967 mm** and CD1 shear reference **733.459708 N** unchanged.
+At the same guarded saved transverse demand **823.830518 N**, the ratio
+remains **1.123212**. Even an ideal centred single axis gives only
+**733.900090 N**, ratio **1.122538**, under the same reversible near-end shear
+comparison. Keeping the other existing foot axis gives a smaller governing
+depth. These are conditional geometry/reference comparisons at unchanged
+saved forces, not a one-bolt frame response or complete joint assessment.
+They show that any foot improvement must involve a justified action or
+detail change beyond simply removing the second bore.
+
+The existing [single-pivot study](../history/thick-leg-pivot-study.md) already
+examined a centred ⅝-in upper bolt in a different solid-4×6 frame. Its two
+conditional cases retain their own geometry and limits; the runner connection
+and current actions cannot inherit those passes. Reuse its actual-joint
+rotation/contact lesson. The next bounded engineering decision is whether
+the complete side frame remains stable with the proposed pin locations and
+what forces/moments they must transfer, followed by the few affected bolt,
+wood, recess and restraint checks. Do not commission another native campaign
+or select the one-bolt option from this review alone.
+
+The hand comparison uses the existing NDS Eq.3.4-6 form
+`R=(2/3)*Fv*b*de^3/d^2` with the original guarded Fv/b/d inputs. A 50-digit
+Decimal calculation authenticates source result
+`current-mitered-prismatic-connection-shear-attempt02.json`, SHA-256
+`7de3111e718a831b229ec42621548a50886b5af1f9ddbc0f43556ef0a6a90418`,
+and the composed shop sources through `eoere_builder_layout.load_sources()`
+and `validate()`. No new raw packet, CAD or mechanics solve is added. Existing
+evidence and the earlier pivot study remain active; nothing is archived or pruned.
+
 <a id="remaining-review-after-4x6-posts"></a>
 **Full remaining-step evaluation.** The target is now
 **`eoere-narrow-channel-openings-v1`**, original grid off, including the
