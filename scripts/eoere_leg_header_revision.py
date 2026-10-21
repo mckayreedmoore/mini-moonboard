@@ -23,7 +23,7 @@ BASE = Path('fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/sin
 REVISION = 'eoere-single-leg-bolts-header-angles-v3'
 
 
-def verify_attachment_axes(axes):
+def verify_attachment_axes(axes, expected_ports=96):
     """Every steel port must lie on its installed physical shaft axis."""
     seen = set()
     for axis in axes:
@@ -39,7 +39,7 @@ def verify_attachment_axes(axes):
             key = (port['angle_id'], port['flange'], port['transverse'])
             require(key not in seen, 'fitting port bound twice')
             seen.add(key)
-    require(len(seen) == 96, 'all96 unique fitting ports required')
+    require(len(seen) == expected_ports, f'all{expected_ports} unique fitting ports required')
 
 
 def build(out):

@@ -5228,6 +5228,85 @@ snapshot remains in `preparation-attempt01`. The corrected inventory-only
 adapter and successful input remain in `preparation-attempt02`. All raw
 pilot runs stay active and ignored; no viewer mesh, archive or pruning was added.
 
+**Coherent bilateral-return, paired-cleat and signed-foot integration.**
+The [six-case combined study](../bolted-frame-development/coherent-return-paired-foot-results-v1.json)
+composes the reviewed both-corner delta, four separate 8-in plywood leaves
+and the +6-mm local-v foot proposal. Published v3 remains unchanged. The
+active ignored packet is
+`single-leg-header-integration-v1/coherent-return-paired-foot-v1/` under the
+existing thin-bolted successor output root. Its
+`geometry-attempt04/geometry.json`, SHA
+`57e216b73bca7a333bfc0fa425105fc616258590cf18347f697b079d5d23ba63`,
+has **24 sawn members, four plywood leaves, 26 angles, 108 bolts and
+66 unchanged screw axes**. The existing under-header angles and single
+upper/foot bolts remain; twelve new bolts serve the separate brace joints.
+The rail is **2765.425 mm** long; both rim ends trim **38.1 mm**. Two knees,
+two 200-mm packing blocks and four Ø31.75 × 12.7-mm leg-head recesses are
+new. These are analysis geometry and proposed cuts, not shop authority.
+
+Nominal occupancy clears **1,111 parts**, with no missing candidates or
+intersections. The complete current metal recipes replace old mesh-only
+bounds in that query. Old rail bores are explicitly recut in fresh stock,
+rather than waived as old collisions; the moved foot holes also assume
+fresh stock. Eight new upper stacks select the existing 3-in Grade5 bolt
+with one factory 12.7-mm spacer; four lower stacks use the existing 8-in
+bolt with two. Their boxed catalog tip margins are **0.508 / 3.810 mm**;
+all twelve nut-seating margins are **9.6012 mm**. The total is **40 separate
+factory spacers**. The longer lower tips receive their own occupied check,
+beyond the input proposal's shorter proxy. Geometry attempts01–03 preserve
+the missing-kind metadata stop and incomplete old-metal queries.
+
+`preparation-attempt01/inputs.json` has **168 owners, 104 fitting ports,
+140 wood walls and 568 aggregate metal roles**. `readiness-v1.json` verifies
+**1,479 source pins**, exact ownership and all **28** nominal Ø25.4 × 50.8-mm
+socket approaches at the twelve new and two moved stacks. Actual tools,
+delivered parts and torque engagement remain unobserved. The four leaves
+retain separate material operators, gravity, normal contact and recovered
+actions; no composite shear or assumed equal wrench sharing is used.
+
+The pilot and the separately admitted five original full-load cases all
+converge. Every case passes independent raw-operator, force, ownership and
+four-leaf stiffness reconstruction, including the false screw-force control.
+The maximum gradient is **4.806682e-6 N**. The same net/station and named
+leg/post equations recover the following CD1 component references:
+
+| Original case | Maximum own-leaf section | Maximum signed foot | Maximum other named leg/post |
+| --- | ---: | ---: | ---: |
+| A12 forward | **0.702611** | **0.894231** | **0.672762** |
+| A12 rear | **0.543250** | **0.482525** | **0.289943** |
+| A12 left | **0.982705** | **0.709072** | **0.472241** |
+| K12 right | **0.976215** | **0.700703** | **0.469299** |
+| K12 rear | **0.537189** | **0.478130** | **0.284943** |
+| A1 rear | **0.227147** | **0.133058** | **0.094754** |
+
+All **48** named leg/post comparisons are below one. Each foot uses its own
+signed loaded edge; the opposite edge still has a lower reference after the
+shift. Every event-sided foot cut is verified to have the sign of its own
+bolt action. The sign-insensitive A12-forward comparison remains **1.497310**;
+it is not silently replaced by an arbitrary reversible 839.877-N rating.
+The sign convention reuses NDS3.4.4.1(a), equation3.4-6 and Figure3E.
+The outer left leaf's **0.982705** is a narrow nominal section margin,
+not whole-joint acceptance or a material/physical response bound.
+
+The panel/attachment hold persists: the generic head maximum rises to
+**3.005974**; panel bending/rolling maxima are **3.503559 / 2.087697** at CD1.
+The returns cannot be described as an accepted panel or screw remedy.
+Complete simultaneous brace/cleat/leg bolt, end/group, washer/seat and
+fitting checks remain, including the **65.0875-mm** trimmed old rim ends.
+New leg recesses, rail overhangs, packing/brace compression, finished-member
+net sections/restraint and a consistent stock/purchase/assembly packet need
+their own disposition. The frame owner recovers sections and named leg/post
+components; separate cleat-shaft/seat and hole worksheets consume these same
+replayed fields without another solve. No reference or old product pass is
+transferred to a changed joint.
+
+The compact tracked receipt binds all six fields, replays, section/component
+results, inputs, captured producer and commands. All raw attempts and fields
+stay active and ignored; no viewer mesh, archive or pruning is added. The
+published current geometry stays **24 angles / 96 bolts / 66 screws**. This
+study supplies no native FEA, production admission, physical qualification,
+structural acceptance, fabrication or climbing release.
+
 **Paired pilot: physical shafts, seats and method limits.** The separate
 `paired-leaf-pilot-v1/a12-left-shafts-v1.json` worksheet processes **eight
 physical shafts once each**, with three wood receivers and one steel port,

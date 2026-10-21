@@ -51,8 +51,9 @@ def changed_function(owner, name, replacements, namespace=None):
 def prepare(geometry_path, out, material_path=None):
     require(not out.exists(), 'fresh preparation required')
     geometry = json.loads(geometry_path.read_bytes())
+    returned = geometry['revision'] == 'unadopted-bilateral-return-paired-cleats-signed-foot-v1'
     paired = geometry['revision'] in ('unadopted-paired-plywood-cleats-v1',
-                                      'unadopted-paired-plywood-cleats-wide-v2')
+                                      'unadopted-paired-plywood-cleats-wide-v2') or returned
     require(paired or geometry['revision'] == 'eoere-single-leg-bolts-header-angles-v3', 'own geometry required')
     if paired:
         clearance = json.loads((geometry_path.parent/'clearance.json').read_bytes())
@@ -71,8 +72,9 @@ def prepare(geometry_path, out, material_path=None):
     exporter = response.load('cached_exporter')
     ex, m = exporter.a.generic()
     axes = geometry['axes']
+    shaft_count, fitting_count, port_count, role_count = ((108, 26, 104, 568) if returned else (96, 24, 96, 496))
     from scripts.eoere_leg_header_revision import verify_attachment_axes
-    verify_attachment_axes(axes)
+    verify_attachment_axes(axes, port_count)
     profiles = copy.deepcopy(geometry['profiles'])
     sources = {name: copy.deepcopy(r['finished']) for name, r in profiles.items()}
     for row in sources.values():
@@ -82,7 +84,7 @@ def prepare(geometry_path, out, material_path=None):
         pins[row['path']] = row['sha256']
     for row in p['raw_gross_timber_rows']:
         name = row['name']
-        if name.startswith(('base_post_outer_', 'eoere_cleat_')):
+        if name.startswith(('base_post_outer_', 'eoere_cleat_')) or returned:
             g = profiles[name]
             raw = {'member': name, 'datum_xyz_mm': g['datum_xyz_mm'],
                    'basis_grain_u_v_xyz': g['basis_grain_u_v_xyz'],
@@ -93,15 +95,18 @@ def prepare(geometry_path, out, material_path=None):
                 row['stiffness_scenario'] = 'explicit_APA_plywood_per_mode_operator_required'
     existing = {r['name'] for r in p['raw_gross_timber_rows']}
     added = {name for name, g in profiles.items() if g['kind'] == 'timber' and name not in existing}
-    require(added == ({'eoere_cleat_left_outer', 'eoere_cleat_right_outer'} if paired else set()),
-            'only the two separately modeled outer leaves may be added')
+    expected_added = {'eoere_cleat_left_outer', 'eoere_cleat_right_outer'} if paired else set()
+    if returned:
+        expected_added |= {f'outboard_{kind}_{side}' for kind in ('knee', 'leg_packer') for side in ('left', 'right')}
+    require(added == expected_added, 'explicit separate-leaf/return timber inventory required')
     for name in sorted(added):
         g = profiles[name]
         raw = {'member': name, 'datum_xyz_mm': g['datum_xyz_mm'],
                'basis_grain_u_v_xyz': g['basis_grain_u_v_xyz'],
                'raw_profile_vertices_luv_mm': g['vertices_luv_mm'], 'actual_material_observed': False}
         row = ex.gross_row(raw, m)
-        row['stiffness_scenario'] = 'explicit_APA_plywood_per_mode_operator_required'
+        if name.startswith('eoere_cleat_'):
+            row['stiffness_scenario'] = 'explicit_APA_plywood_per_mode_operator_required'
         p['raw_gross_timber_rows'].append(row)
     gross = {r['name']: r for r in p['raw_gross_timber_rows']}
     poses = geometry['fitting_poses']
@@ -113,22 +118,22 @@ def prepare(geometry_path, out, material_path=None):
     (out/'producer-snapshot.py').write_bytes(OWN.read_bytes())
     q = ex.load_query_methods(pins)
     if paired:
-        importer, edits = changed_function(ex, 'import_cached', {28: 30})
+        importer, edits = changed_function(ex, 'import_cached', {28: 34 if returned else 30})
         require(edits == {28: 1}, 'one explicit four-leaf import census hook required')
         with patch.object(ex, 'import_cached', importer):
             bodies, observations, import_proof = exporter.import_current(ex, report, panels, pins, q)
     else:
         bodies, observations, import_proof = exporter.import_current(ex, report, panels, pins, q)
     role_original, ends_original = ex.role_rows, ex.end_seats
-    wall_count = 120 if paired else 112
-    shaft_function, edits = changed_function(ex, 'shafts', {100: 96, 120: wall_count, 88: 96}, {
+    wall_count = 140 if returned else (120 if paired else 112)
+    shaft_function, edits = changed_function(ex, 'shafts', {100: shaft_count, 120: wall_count, 88: port_count}, {
         'role_rows': lambda a, method, volumes: response.spacer_roles(a, method, volumes, role_original),
         'end_seats': lambda a, surfaces, method: response.spacer_ends(a, surfaces, method, ends_original)})
     require(edits == {100: 1, 120: 1, 88: 1}, 'one shaft census edit required')
     with patch.object(ex, 'role_rows', lambda a, method, volumes: response.spacer_roles(a, method, volumes, role_original)), \
             patch.object(ex, 'end_seats', lambda a, surfaces, method: response.spacer_ends(a, surfaces, method, ends_original)):
         shafts, walls = shaft_function(report, gross, bodies, q, m)
-    print(f'Fresh96 shafts/{wall_count} receiver walls extracted', flush=True)
+    print(f'Fresh{shaft_count} shafts/{wall_count} receiver walls extracted', flush=True)
     panel_ids = [r['id'] for r in panels]
     patches, direct, pair_census, faces = ex.contact_bank(bodies, sorted(gross), panel_ids, q, p['parameters'])
     domains, flange_patches, flange_contacts = ex.flange_bank(poses, report, bodies, faces, q, m, p['parameters'])
@@ -138,7 +143,8 @@ def prepare(geometry_path, out, material_path=None):
              for axis in axes for a in axis['attachments']]
     holes = copy.deepcopy(old['all_factory_holes'])
     from scripts.eoere_bolted_candidate import Scenario
-    for pose in geometry['new_header_angles']:
+    old_fitting_ids = {r['angle_id'] for r in holes}
+    for pose in (r for r in poses if r['id'] not in old_fitting_ids):
         rows = []
         for hole in Scenario().holes(active_only=False):
             beam = hole['flange'] == 'beam'
@@ -172,7 +178,8 @@ def prepare(geometry_path, out, material_path=None):
     roles = [{'id': r['id'], 'owner': shaft['body'], 'mass_kg': r['mass_kg'],
               'center_xyz_mm': r['center_of_mass_xyz_mm'], 'basis': r['basis']}
              for shaft in shafts for r in shaft['metal_roles']]
-    require(len(owners) == (150 if paired else 148) and len(ports) == len(domains) == 96 and len(roles) == 496,
+    require(len(owners) == len(gross)+fitting_count+shaft_count+6
+            and len(ports) == len(domains) == port_count and len(roles) == role_count,
             'exact combined owner/port/role census required')
     b = response.load('bridge').frozen()
     cases_module = b.load(b.PACKET/'raised-rail-cases-v1/cases.py', b.REUSED['raised-rail-cases-v1/cases.py'], 'leg_header_cases')
@@ -240,21 +247,22 @@ def replace_plywood(assembly, frame, properties, names=('eoere_cleat_left', 'eoe
 
 
 def validator(factory, count, timber_count=22):
-    require(timber_count in (22, 24), 'two or four plywood leaves required')
-    body_count = timber_count+24+96+6
-    replacements = {150: body_count, 100: 96, 176: 192, 88: 96, 500: 496}
+    require(timber_count in (22, 24, 28), 'bounded current/paired/return wood inventory required')
+    returned = timber_count == 28
+    fitting_count, shaft_count, port_count, role_count = ((26, 108, 104, 568) if returned else (24, 96, 96, 496))
+    body_count = timber_count+fitting_count+shaft_count+6
+    replacements = {150: body_count, 100: shaft_count, 176: 8*fitting_count, 88: port_count, 500: role_count}
     _validate, edits = changed_function(factory, 'validate_rows', replacements, {'SCHEMA': SCHEMA})
     require(edits == {150: 1, 100: 1, 176: 1, 88: 3, 500: 1}, 'known combined census hooks required')
     tree = ast.parse(Path(factory.__file__).read_bytes())
     node = copy.deepcopy(next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'validate_rows'))
     changes = {'bodies': 0, 'roles': 0, 'screws': 0}
     for part in ast.walk(node):
+        if isinstance(part, ast.Tuple) and ast.unparse(part) == '(22, 22, 100, 6, 150)':
+            part.elts = [ast.Constant(v) for v in (timber_count, fitting_count, shaft_count, 6, body_count)]
+            changes['bodies'] += 1
         if isinstance(part, ast.Constant) and type(part.value) is int and part.value in {150, 100, 176, 88, 500}:
             part.value = replacements[part.value]
-        if isinstance(part, ast.Tuple) and ast.unparse(part) == f'(22, 22, 96, 6, {body_count})':
-            part.elts[0].value = timber_count
-            part.elts[1].value = 24
-            changes['bodies'] += 1
         if isinstance(part, ast.Compare) and ast.unparse(part.left) == "len(row['metal_roles'])":
             part.ops = [ast.In()]
             part.comparators = [ast.Tuple(elts=[ast.Constant(5), ast.Constant(6)], ctx=ast.Load())]
@@ -262,14 +270,6 @@ def validator(factory, count, timber_count=22):
         if isinstance(part, ast.Compare) and ast.unparse(part.left) == "len(data['hillman_rows'])":
             part.comparators[0].value = count
             changes['screws'] += 1
-    # ast.walk visits the tuple before its children, so match its original
-    # body census if the numerical replacement above has not reached it yet.
-    if not changes['bodies']:
-        for part in ast.walk(node):
-            if isinstance(part, ast.Tuple) and ast.unparse(part) == f'(22, 22, 96, 6, {body_count})':
-                part.elts[0].value = timber_count
-                part.elts[1].value = 24
-                changes['bodies'] += 1
     require(changes == {'bodies': 1, 'roles': 1, 'screws': 1}, 'three explicit combined inventory hooks required')
     ns = {**vars(factory), 'SCHEMA': SCHEMA}
     exec(compile(ast.fix_missing_locations(ast.Module(body=[node], type_ignores=[])), str(OWN), 'exec'), ns)  # noqa: S102 -- authenticated fixed-function AST; inventory-only edits

@@ -799,6 +799,26 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       assert.ok(variant.gradient_inf_N <= 1e-5 && variant.maximum_section_reference_upper > 1);
       assert.equal(variant.geometry_adopted, false); assert.equal(variant.complete_joint_qualified, false);
     }
+    const combined = JSON.parse(bound(index.unadopted_studies.coherent_bilateral_return_paired_cleats_signed_foot));
+    assert.equal(combined.current_published_revision, report.revision);
+    assert.equal(combined.current_published_geometry_unchanged, true);
+    assert.equal(combined.geometry_adopted, false); assert.equal(combined.structural_acceptance, false);
+    assert.equal(combined.complete_joint_qualified, false); assert.equal(combined.fabrication_or_climbing_release, false);
+    assert.equal(combined.cases.length, 6); assert.equal(new Set(combined.cases.map(r => r.case)).size, 6);
+    assert.equal(combined.named_leg_post_component_count, 48);
+    assert.equal(combined.named_leg_post_exceedances.length, 0);
+    assert.equal(combined.census.bolts, 108); assert.equal(combined.census.factory_angles, 26);
+    assert.equal(combined.census.factory_12p7mm_spacer_pieces, 40); assert.equal(combined.census.Hillman_screws, 66);
+    assert.equal(combined.maximum_plywood_leaf_section_reference,
+      Math.max(...combined.cases.map(r => r.leaf_section_reference_upper)));
+    assert.ok(combined.maximum_gradient_inf_N <= 1e-5 && combined.maximum_plywood_leaf_section_reference < 1);
+    for (const row of combined.cases) {
+      assert.equal(row.counts.physical_bodies, 168); assert.equal(row.counts.shaft, 108);
+      assert.equal(row.counts.fitting, 26); assert.equal(row.leaf_maxima.length, 4);
+      assert.equal(row.leg_post_references.length, 8);
+      assert.ok(row.leg_post_references.every(r => r.reference_index_CD1 < 1));
+      assert.equal(row.structural_acceptance, false);
+    }
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, scene.key), scene.key);
     for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])

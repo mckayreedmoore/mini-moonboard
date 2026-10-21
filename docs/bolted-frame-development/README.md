@@ -44,6 +44,20 @@ belong to the preserved notched model; they do not qualify or disqualify these h
 | Panel and screw-head references | The separate [98-screw trial](panel98-trial-results-v1.json) retains all 66 original axes and adds 32 on its enclosed-passage parent. It improves panel references but worsens the governing screw-head concentration. | Keep 66 screws in this combined model. The trial alone is not a remedy; its forces do not transfer to the changed header/cleats/legs. Hillman qualification and panel/attachment resolution remain separate duties. |
 | Angles, other bolts and member restraint | The two requested under-header angles bring the installed count to 24; six existing four-packs supply that count. Conventional predecessor fitting, washer, bolt and member worksheets remain available in the ledger. | Check the fresh simultaneous fitting/common-shaft/seat actions and actual restraint on the changed basis. Conditional component references do not qualify whole joints or physical response. |
 
+The [combined successor study](coherent-return-paired-foot-results-v1.json)
+integrates the other reviewed proposals: four separate plywood leaves,
+both upper outboard returns and a 6-mm transverse move of each single foot
+bolt. All six original load cases independently replay. Its maximum leaf
+section reference is **0.982705**, signed-foot reference **0.894231** and
+other named leg/post reference **0.672762**; all 48 named comparisons are
+below one. The proposal has **26 angles, 108 bolts and 40 factory spacers**,
+retaining 66 screw axes. It remains unadopted: complete joints, changed
+members/restraint and the revised shop packet still need their own checks.
+The generic screw-head maximum increases to **3.005974**, while panel
+bending/rolling remain **3.503559 / 2.087697** at CD1. It does not resolve the
+deferred panel/attachment issue. Published v3 remains the 24-angle/96-bolt
+geometry described above.
+
 The single-leaf material review corrected the perpendicular-axis rolling-shear
 reference from 500 to **385 lbf/ft**; the original saved gross-cut maximum
 stays 0.945264 under its assigned scope. The [material record](plywood-cleat-material-basis-v1.json)
@@ -63,6 +77,7 @@ No rejected force result is a current result or an accepted design basis.
 | Role | Exact revision / record | Viewer or scope |
 | --- | --- | --- |
 | **Current geometry and shop layout** | `eoere-single-leg-bolts-header-angles-v3` · [receipt][combined] | [Current combined model](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear); 96 bolts / 24 angles / 66 screws. |
+| Unadopted combined successor | `unadopted-bilateral-return-paired-cleats-signed-foot-v1` · [six-case study](coherent-return-paired-foot-results-v1.json) | 108 bolts / 26 angles / 66 screws; independent fields and bounded component references, without complete-joint or structural acceptance. |
 | Preserved enclosed-passage parent | `eoere-centred-enclosed-passages-v1` | [100-bolt solid-cleat parent](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-enclosed-passages-frame-development&view=rear). |
 | Preserved notched geometry and optional grid | `eoere-narrow-channel-openings-v1` | [Original grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear) · [unofficial extra grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-grid-development&view=rear). Neither is a current combined-grid variant. |
 | Preserved matched six-case evidence | `eoere-raised-kicker-screws-v1` / `eoere-selected-purchase-hardware-v1` | [2×6-post response](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json); its own geometry, assumptions and acceptance limits. |
