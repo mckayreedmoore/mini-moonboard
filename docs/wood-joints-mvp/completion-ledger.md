@@ -6161,6 +6161,33 @@ Current matching force response and structural/engineering assessments remain
 null. No old normal-stress/slit/connection pass transfers; no native or frame
 solve, physical inspection, machining release or climber rating is supplied.
 
+**V3 hole-to-fastener geometry followup.** The later combined
+`eoere-single-leg-bolts-header-angles-v3` keeps these same 32 holes in eight
+profiles. The separate `engineering-closure-v1/enclosed-passage-ligaments-v1.json`
+checks **140 hole/bolt-void pairs and 76 hole/screw-envelope pairs** using the
+current physical receiver intervals and existing occupied-screw helper.
+Every separation is positive. The closest bolt void is **25.306507 mm** away
+at F1–G1 / bolt073; the closest 5-mm occupied screw body is **5.556250 mm**
+away at F1–G1 / `round_panel_lower_right_center_1`. Minimum service-hole
+separation is **161.9 mm**, and minimum separation to a raw supporting end
+plane is **82.768723 mm**. The centred front/rear ligaments remain 50.8 mm.
+A finite parallel-cylinder known answer checks the exact distance query.
+
+These are geometric bridges, not accepted bolt end/edge distances or local
+hole shear/splitting resistance. The screw envelope does not prescribe a
+Hillman diameter, pilot or purchased length. The bilateral knee proposal
+changes none of the eight members and adds no axis into them; the paired
+plywood proposal retains all eight profile records exactly. Reuse this
+geometry result while those datums, profiles and receiving axes stay fixed;
+recheck successor actions and new receiver duties separately. Result SHA-256:
+`53e0fe47d28f7e59778fb27f1f70480c001070e5db58ad8eb7740a058e27598d`.
+No native/frame solve, finished-timber rebuild, mesh or adoption occurs.
+Reproduce to a fresh path:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/enclosed-passage-ligaments-v1.py /tmp/eoere-enclosed-ligaments-replay.json
+```
+
 **Evidence and reproduction.** The active raw folder is
 `fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/`.
 `attempt02/result.json` SHA-256 is
