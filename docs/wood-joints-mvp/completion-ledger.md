@@ -5610,6 +5610,38 @@ PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engine
 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-corner-handcheck-v1/decimal_audit.py /tmp/panel-corner-decimal-audit.json
 ```
 
+<a id="millimetre-timber-length-review"></a>
+**Existing timber lengths: review only.** The owner confirms current US
+lumber with millimetre cutting/layout instructions, and requests a review
+of the existing lengths. No model, structure or builder instructions change.
+The [current source blank table](../bolted-frame-development/builder-plan.md#parts-and-stock)
+contains awkward millimetre decimals from imperial inputs and angled geometry.
+Those source envelopes are distinct from finished angled-cut extents and do
+not establish machining accuracy or a fabrication tolerance.
+
+The existing lengths fit ordinary eight-/ten-foot purchases. Sloping sides
+(2570.726012 mm) and centre principals (2532.626012 mm) need ten-foot stock;
+long front support legs (2028.462988 mm) and runners (1815.646483 mm) fit
+eight-foot stock. Two details deserve attention in any later drawing cleanup:
+the 2435.225-mm header leaves only **3.175 mm** from nominal eight-foot stock
+before kerf/end trim, explaining its existing ten-foot allocation; left/right
+rails are **1041.25 / 1077.275 mm**, differing by **36.025 mm**, so they do not
+share one cut length. Neither observation establishes a design error.
+There is no procurement reason here to resize the frame merely to round
+the lengths. A future millimetre drawing convention needs clear finished
+datums and tolerances before any final dimensions are rounded.
+
+An optional rounded-rough-blank worksheet also fits the same 13-stick / 150
+nominal-board-foot basket. Its rough lengths and alternate offcut allocation
+are **not adopted**; the draft builder edits were removed after clarification.
+Active ignored evidence remains under
+`fea/generated/selected-hardware-followup-v1/engineering-closure-v1/metric-rough-blanks-v1/`:
+`worksheet.py` and `attempt01.json`, with 14 authenticated source pins and a
+byte-identical `replay01.json`. Result SHA-256 is
+`f552c8fd0901af4b628ad4675d167175d19d36c79a8f67bb8cab0985f59c15d9`.
+The worksheet and result total **20,430 bytes**; retain them as review evidence.
+No archive, pruning, CAD rebuild or mechanics solve occurs.
+
 <a id="remaining-review-after-4x6-posts"></a>
 **Full remaining-step evaluation.** The target is now
 **`eoere-narrow-channel-openings-v1`**, original grid off, including the
