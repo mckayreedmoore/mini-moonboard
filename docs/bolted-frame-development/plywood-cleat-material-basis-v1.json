@@ -1,0 +1,94 @@
+{
+  "schema": "eoere_plywood_cleat_material_basis/v1",
+  "scope": "Source-backed material inputs for the proposed cleats, not a complete connection capacity or adoption.",
+  "source": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+    "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a",
+    "title": "APA Panel Design Specification, D510F, September 2020",
+    "catalog_url": "https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/",
+    "full_text_url": "https://wood.tcaup.umich.edu/lectures/2021/D510.pdf"
+  },
+  "required_panel": "APA Rated Sturd-I-Floor 48 oc PS 1 plywood, at least five plies; Group 1 for the fastener-bearing basis.",
+  "orientation": {
+    "panel_normal": "world X",
+    "panel_strength_axis": "world Z",
+    "panel_across_strength_axis": "world Y"
+  },
+  "thickness_mm": {
+    "nominal": 28.575,
+    "proposed_minimum_actual": 27,
+    "observed": null
+  },
+  "table9_strong_axis": {
+    "FtA_lbf_per_ft": 7300,
+    "FcA_lbf_per_ft": 12150,
+    "FbS_lbf_in_per_ft": 1900,
+    "Fs_Ib_over_Q_lbf_per_ft": 500,
+    "EA_lbf_per_ft": 8200000,
+    "EI_lbf_in2_per_ft": 1265000
+  },
+  "table9_across_axis": {
+    "FtA_lbf_per_ft": 4750,
+    "FcA_lbf_per_ft": 10800,
+    "FbS_lbf_in_per_ft": 1200,
+    "Fs_Ib_over_Q_lbf_per_ft": 385,
+    "EA_lbf_per_ft": 7300000,
+    "EI_lbf_in2_per_ft": 495000
+  },
+  "table9_both_axes": {
+    "Fvtv_lbf_per_in": 160,
+    "Gvtv_lbf_per_in": 76000
+  },
+  "table9_printed_pages": {
+    "bending_and_tension": 25,
+    "compression_axial_and_rolling_shear": 26,
+    "in_plane_shear_and_rigidity": 27
+  },
+  "table5_Group1_bolt_bearing": {
+    "printed_page": 22,
+    "nominal_diameter_interval_in": {
+      "greater_than": 0.25,
+      "at_most": 0.5
+    },
+    "Fe_parallel_psi": 5600,
+    "Fe_across_psi": 3150
+  },
+  "face_compression": {
+    "section": "4.4.7",
+    "printed_page": 19,
+    "dry_equilibrium_moisture_content_less_than_percent": 16,
+    "at_0_04_in_deformation_psi": 360,
+    "at_0_02_in_deformation_psi": 210,
+    "load_duration_factor": 1
+  },
+  "narrow_strip_factor": {
+    "source": "D510F section4.5.5, factor applies to panel bending strength and axial tension.",
+    "width_definition": "Width perpendicular to the checked normal stress/span within the panel plane, not always the leaf's long dimension.",
+    "less_than_8_in": 0.5,
+    "from_8_to_less_than_24_in": "0.25 + 0.0313 * width_in",
+    "at_least_24_in": 1,
+    "original_single_leaf_Y_normal_gross_cut_width_in": 24,
+    "original_single_leaf_Z_normal_gross_cut_width_in": 8,
+    "gross_Y_cut_Cs": 1,
+    "gross_Z_cut_Cs": 0.5004,
+    "local_bores_and_net_width": "Use the applicable reduced width and deductions; the gross factor does not qualify hole or connection stress transfer."
+  },
+  "units_and_derivation": [
+    "FtA and FcA are force per panel width; FbS is moment per width. They are not stresses until divided by the applicable section property.",
+    "Fvtv controls shear in the YZ panel plane. Fs(Ib/Q) is the rolling/flat-beam shear reference and is directional.",
+    "EA and EI describe distinct laminate extension/bending behavior. A single homogeneous E cannot in general match both.",
+    "Table9 Gvtv is in-plane panel rigidity; it does not supply an out-of-plane rolling-shear modulus or a bore/contact spring law.",
+    "The panel orientation, strip width and property direction must be joined explicitly for every cut. Do not use the500 strong-axis rolling value for a Y-normal cut with strengthaxisZ."
+  ],
+  "corrections": {
+    "superseded_report": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-attempt02.json",
+    "error": "Its Y-normal cut used Fs(Ib/Q)=500lbf/ft; the applicable perpendicular-axis value is385.",
+    "corrected_report": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-directional-shear-v3.json",
+    "governing_gross_cut_upper_after_correction": 0.9452643383481413,
+    "other_inputs_or_governing_index_changed": false
+  },
+  "actual_material_verified": false,
+  "geometry_adopted": false,
+  "complete_joint_qualified": false,
+  "release": false
+}

@@ -4051,7 +4051,16 @@ or pruned. This continuation runs no native/frame solve, optimization,
 full-frame CAD rebuild, redesign or physical operation.
 
 <a id="practical-engineering-completion-goal"></a>
-**Practical engineering completion goal — blocked; full objective unachieved.** The owner has directed completing
+**Practical engineering completion goal — active; full objective unachieved.**
+On October 20 the owner cleared the preceding goal and explicitly directed a
+new goal to continue through completion. The replacement goal is active and
+covers the full engineering duties below, including the primary plywood
+cleats, two interior under-header brackets, revised long-leg connections,
+enclosed passages and panel-attachment work. Coordinate their frozen inputs
+before accepting revised actions. The preceding blocked audits remain
+historical dispositions; they do not describe this replacement goal's status.
+
+The owner has directed completing
 the remaining work as a human design engineer would, with limited time and
 little new code. After clearing the previous goal, the owner explicitly
 authorized a replacement **active goal for full engineering completion**.
@@ -4064,7 +4073,8 @@ are preserved. Nominal post installation and fixed-axis rear-leg feasibility
 have progressed, but they do not resolve the complete structural gate.
 The deliverable is supported conclusions for every remaining in-scope duty;
 finishing an audit or recording unresolved checks does not complete it.
-Start from **`eoere-narrow-channel-openings-v1`** and reuse the authenticated actions
+Start from **`eoere-centred-enclosed-passages-v1`** and its coordinated
+leg/header/plywood proposal; reuse the authenticated actions
 only within their recorded predecessor scope. Use
 published design rules and completed comparisons; prepare short, inspectable
 worksheets only for an inference that can change a detail's disposition.
@@ -4076,8 +4086,8 @@ must retain the governing force, moment and return path.
 explicitly requested a goal to complete every reviewed step, coordination
 with the other running agent, and the working style of a human design
 engineer with limited time and little code. A new full-completion goal was
-set in the narrower-channel session. Its current blocked disposition is
-recorded below. Its full scope includes current actions and load coverage,
+set in the narrower-channel session. Its earlier blocked disposition is
+recorded below. The replacement active goal retains current actions and load coverage,
 the retained cleat and complete joints, rear feet,
 notches, member/restraint exceptions, panel/Hillman load path, and one
 consistent calculation/shop disposition. The earlier panel/screw deferral
@@ -4364,6 +4374,23 @@ CD1 and dry use remain the comparison basis.
 | Mean plywood washer seating against 210 psi | **0.733761805** | 48 axial-resultant comparisons; no full seat/prying qualification |
 | Common-shaft elastic metal comparison with divisor two | **1.024083037** | 48 constructions, including preserved metal gravity and an added 6-N × 177.8-mm gravity sensitivity |
 
+**Directional material correction.** The original single-leaf worksheet
+used the strong-axis rolling-shear value, Fs(Ib/Q) = 500 lbf/ft, for the
+Y-normal cut with strength axis Z. D510F Table 9, printed p.26, instead gives
+**385 lbf/ft across the strength axis**. This was a material-direction mapping
+error, not a new material choice. The corrected reference is
+**0.312147368 MPa** at 27 mm; the governing gross-cut index remains
+**0.945264338**, and the other component arrays are unchanged. The original
+report stays recoverable as superseded arithmetic. Use the corrected v3
+report and the [explicit material table](../bolted-frame-development/plywood-cleat-material-basis-v1.json)
+for subsequent work. It records both directions of FtA, FcA, FbS, Fs(Ib/Q),
+EA and EI, plus the shared in-plane shear references. A Z-normal gross cut
+has only 8-in panel width and **Cs = 0.5004**; do not transfer the Y-normal
+cut's 24-in width/Cs1 to it. At nominal 28.575-mm thickness, the corrected
+same-action gross-cut, bore and lower-bolt references are
+**0.893810229 / 0.621631146 / 0.818272307**. These two thickness cases do not
+establish a continuous thickness or revised-response envelope.
+
 The last comparison controls at **eoere_bolt_067, a12-forward**, in the
 minimum full-body section, not the conditional thread-root section.
 Its constructed peak bending is **24,676.197 Nmm**. Without the supplementary
@@ -4430,10 +4457,57 @@ identically. Their report hashes bind their respective producer/source files.
 | `single-leaf-layout-full-bank-v3.json` | `7063ea3139038fba1a29c8e7d0445ac8a6189801d1a58305e0ed7c9a33915d4d` |
 | `verify-single-leaf-v2.json` | `5e10f7f0df89e03a34d6578652018ff52e5ed74027dcbb5907e7698257f2c8a1` |
 
+**Known-answer check of the plywood stiffness calculation.** The coordinated
+frame calculation now uses separate plywood extension, flatwise/in-plane
+bending, shear and torsion inputs. An independent check of its frozen
+`mechanics-attempt02/producer-snapshot.py` and material scenario recovers
+all six unit-load cantilever answers at lengths **30.7875 / 142.0875 /
+609.6 mm**, plus all eighteen rigid motions. Maximum scaled displacement
+error is **1.58e-14**. This verifies the per-mode matrix arithmetic, not the
+physical rolling-shear/torsion surrogates, source routing, frame demand or
+complete joint. The raw source/result are `operator-known-answers-v1.py`
+and `.json` in the same active plywood packet.
+
+**Shared-header layout and early routing stop.** The latest coordinated
+`eoere-single-leg-bolts-header-angles-v2` uses the two under-header angles and
+shares their post bolts with the lower cleat attachments at **Z173.8125 mm**.
+It removes the close six-hole pattern: each plywood leaf again has four holes,
+and four removed long-leg bolts bring the total to **96 stacks / 24 angles**.
+This remains a separate proposal; neither the original Z200 worksheet nor the
+six-hole proposal's dimensions are a current connection pass.
+
+The first new local worksheet stopped before writing strength results when
+it found nonzero shaft-axis free couples at the right bracket. Direct review
+of all **96 installed attachments** identifies exactly two routing errors:
+`cleat_post_bolt_right_1/2` were assigned to opposite global-Y holes,
+each **50.8 mm off its own shaft line**. The mirrored transverse labels
+reverse on the right; they cannot be used as global bolt identities. The
+geometry's occupied-part clearance and the converged candidate's 1,472 input
+hashes/body equilibrium all pass despite this wrong connection graph.
+Convergence and byte authentication therefore cannot replace a hole-to-axis
+alignment check. The corrected v3 layout passes the new alignment gate,
+which now runs during geometry generation and before force preparation.
+Three focused regression checks use the published 96-axis layout, reject the
+mirrored right-hole swap, and reject a collinear port with a wrong axis ID.
+Replacement force cases and their independent admission remain pending.
+Preserve the rejected
+`attempt05` geometry and `a12-forward/attempt02` field, and the independent
+`shared-layout-axis-mapping-stop-v1.json` reproduction; no strength conclusion
+uses those actions. Fixed current actions, gross/net cuts, complete mixed
+stacks and updated access remain the next work. No native solve occurred.
+
+| Additional retained result | SHA-256 |
+| --- | --- |
+| `single-leaf-directional-shear-v3.json` | `891647e9236f02bbbb45490a1ddf6eb513b8b7be256d764cae74453419f032eb` |
+| `single-leaf-nominal-thickness-v4.json` | `892ee4ebe3e5190c6ead6c476e408fb45f45194d2bed1021eb5a5a2f757d2d05` |
+| `operator-known-answers-v1.json` | `c6eecbfaf0eeb66c2ed5e97a854cf103ee6978e31777c2e6a29f96273d8cc364` |
+
 Reproduce with fresh output paths and the active pinned inputs:
 
 ```sh
-PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-worksheet.py /tmp/plywood-single-leaf-worksheet.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-directional-shear-v3.py /tmp/plywood-single-leaf-corrected.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-nominal-thickness-v4.py /tmp/plywood-single-leaf-nominal.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/operator-known-answers-v1.py /tmp/plywood-operator-known-answers.json
 PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-layout-full-bank-v3.py /tmp/plywood-single-leaf-layout.json
 PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/verify-single-leaf-v2.py /tmp/plywood-single-leaf-verification.json
 ```

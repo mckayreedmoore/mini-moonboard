@@ -92,7 +92,7 @@ changed-section strength remain unresolved. See the
 ## Remaining work and next actions
 
 The [full engineering completion goal](../wood-joints-mvp/completion-ledger.md#practical-engineering-completion-goal)
-is **unachieved**; its retained-timber route was blocked after three turns with essential inputs missing. The owner now selects plywood as the primary cleat route; complete its joint checks first.
+is **active and unachieved** after the owner cleared the preceding goal and directed continuing through completion. Coordinate the plywood, under-header brackets, leg connections, enclosed passages and panel attachments on one force/design basis; the earlier blocked timber-route audits stay historical.
 Use conventional worksheets and retained evidence; completion requires the
 remaining in-scope engineering duties to be resolved. The four gates are a
 fixed basis, complete joints, critical members/restraint and one consistent
