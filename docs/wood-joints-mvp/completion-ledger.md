@@ -4900,22 +4900,22 @@ diagnostics supply neither a new equilibrium nor actual floor observations.
 
 <a id="coherent-corner-floor-pilot"></a>
 The [matched corner-local pilot](../bolted-frame-development/coherent-three-pin-corner-floor-pilot-v1.json)
-keeps the exact106-bolt geometry and A12-forward loads. Its pre-solve capture
+keeps the exact 106-bolt geometry and A12-forward loads. Its pre-solve capture
 confirms **zero difference** in material K, applied RHS, all internal-contact
-operators and the32 normal laws; only16 centroid XY rows become64 co-located
-corner rows. The reused eight known-answer coupons and all11 method fixtures
+operators and the 32 normal laws; only 16 centroid XY rows become 64 co-located
+corner rows. The reused eight known-answer coupons and all 11 method fixtures
 pass. The cold solve converges in three floor patterns, with **seven bearing
-corners /25 released XY pairs**, gradient **6.738337e-8 N**. Separate saved-q
+corners / 25 released XY pairs**, gradient **6.738337e-8 N**. Separate saved-q
 replay verifies all physical actions, owner maps, body/global balance, fitting
 and shaft recovery, and all four plywood K blocks. False screw and floor
-forces of0.01N are rejected. This is not the old fixed-centroid admission.
+forces of 0.01 N are rejected. This is not the old fixed-centroid admission.
 The field is `three-pin-shift-corner-floor-a12-forward-v1/field.json`, SHA-256
 `aa50cd641cedeb6c079fd00de17dd9041ae58e717e2691d62a7a470b183cee09`,
 under the existing coherent-return packet. Bearing-corner tangential motion
-falls from19.800606 to **0.010149 mm**, with all32 normal forces independently
+falls from 19.800606 to **0.010149 mm**, with all 32 normal forces independently
 recovered. Maximum leaf-node translation remains **79.663380 mm**, rotation
-**0.110561 rad**; the same finite-arm surrogate changes74 of968 contact
-classifications, maximum gap change0.092146mm. Thus local floor sticking
+**0.110561 rad**; the same finite-arm surrogate changes 74 of 968 contact
+classifications, maximum gap change 0.092146 mm. Thus local floor sticking
 does not resolve the persistent joint/relative-movement applicability duty.
 The compact record binds the input, exact launcher/floor-driver snapshots,
 readiness, raw operators, separate readers and saved-motion helpers. Reuse
@@ -4924,6 +4924,51 @@ change. All other five corner-local cases and four remaining centroid-only
 cases stay held. No motion limit, finite-motion equilibrium, physical demand
 bound, candidate adoption or structural/build release follows. Active raw
 inputs/runs stay in the existing ignored packet; nothing is archived/pruned.
+
+The same-field component follow-up now reuses the existing section, physical
+shaft, seat and vector worksheets. All eight named leg/post comparisons are
+below one: conservative/signed left-foot **0.911649 / 0.544459**, front-post
+**0.414445**, lower post **0.177024**. Four separately loaded plywood leaves
+reach **0.599460**. The six cleat shafts' own bore, Grade5 elastic-metal and
+outer-seat material references reach **0.340488 / 0.594886 / 0.392519**; runner
+and leaf-face cell means reach **0.113364 / 0.125629**. Their scope remains
+conditional supplied-action component checks. The provisional Grade8/end/
+group vector construction still reaches **1.068342** at lower-left pin 2,
+down from 1.260684 in the centroid-only field. It remains an unresolved
+construction comparison, without an adopted complete-joint capacity or a
+physical-failure conclusion. Stronger material, a different pressure witness
+or another floor case is not silently selected as its remedy.
+
+These results are under the same raw packet, with prefix
+`three-pin-shift-corner-floor-a12-forward-`:
+
+| Result suffix | SHA-256 |
+| --- | --- |
+| `sections-v1.json` | `382989562dbc53dd9123fb78ed80f4a33d218a2f1d334c3d27cf1f9fd20f4ded` |
+| `leg-post-v1.json` | `8daf156dd3af1daafc91bf2d7b1f6be940d2899a8184b6bfdbd4e8c45789e9ee` |
+| `shafts-v1.json` | `702437d058075a063f608927014358bf737d46185434d096a29786f4922e491d` |
+| `seats-v1.json` | `ba3525a0f5f417ee23b4392c9a25d1e57b8aae70eb0b16662b2c1890fc53fd41` |
+| `vector-grade8-v1.json` | `511354f6622a76a40b18f7d550111d7810085560e97b6d7ddbed1e46ead122c3` |
+
+`corner_floor_components.py KIND FRESH_OUTPUT.json` retains the original
+worksheet math and binds the new raw receipt through separate source-view
+receipts. Its in-memory aliases map only the truthful force-control name and
+the same field's geometry reference; field, receipt, forces, q and operators
+stay byte unchanged. It does not transfer fixed-centroid floor admission.
+Independent complete-joint disposition remains open.
+
+`three-pin-shift-corner-floor-motion-localization-v1.json`, SHA-256
+`8dfead7734b5d39d46ff38ff93254910934726a2b392e0725b0638cc6ec6e810`,
+also separates tip motion from connection motion using the established saved
+point maps. The 79.66-mm maximum is at free top Z749.3; the highest installed
+pin is Z342.0875, where the left outer leaf point moves 35.968 mm. At a common
+shaft datum, maximum leaf/receiver differential is 3.23454 mm and maximum
+relative rotation is 0.127232 rad at the upper-left joint. The datum comparison
+is a point-map continuation, not actual bore slip. The 74 finite-arm class
+switches include up to 193.304 N original compression in one cell; the sum is
+neither a resultant nor a physical error bound. Thus neither the free-tip
+maximum nor class count alone is a joint-failure criterion. Their spatial
+and force content retain the need for a joint/contact applicability decision.
 
 The six preserved hold-label bindings were also checked directly before
 changing receivers: each case's front point exactly matches its named

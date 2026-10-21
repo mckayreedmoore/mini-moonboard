@@ -85,7 +85,7 @@ signed-foot maximum **0.896000**, all **16** named leg/post comparisons below on
 The complete lower joint remains open: its provisional Grade8/end/group construction reaches
 **1.260684**. A [matched corner-local floor pilot](coherent-three-pin-corner-floor-pilot-v1.json)
 independently replays on unchanged geometry: bearing-point motion falls to **0.01015 mm**,
-but leaf-node motion remains **79.66 mm** and the demand-applicability concern persists.
+but free leaf-tip motion remains **79.66 mm** and the demand-applicability concern persists.
 Hold further cases for complete-joint and movement disposition. Near-row plywood pads,
 a solid 4×6 top rail and smaller service bores remain separate proposals, without adoption.
 
