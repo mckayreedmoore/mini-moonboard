@@ -1,0 +1,72 @@
+{
+  "schema": "eoere_rectangular_plywood_cleat_inputs/v1",
+  "base_sizing_inputs": {
+    "path": "docs/bolted-frame-development/plywood-cleat-study-inputs-v1.json",
+    "sha256": "3bc951c66612c8b90785062a9c8fca5056a1dfdd47e1e3a7dd0bdf02cd67e2a0"
+  },
+  "decision": "Proceed with a conventional rectangular, bolt-only plywood gusset development approach. The earlier same-outline sizing remains a separate unadopted study.",
+  "revision": "eoere-rectangular-plywood-cleat-proposal-v1",
+  "outline_world_Y_Z_mm": [
+    [
+      -213.8,
+      139.7
+    ],
+    [
+      -10.6,
+      139.7
+    ],
+    [
+      -10.6,
+      500.8860828293809
+    ],
+    [
+      -213.8,
+      500.8860828293809
+    ]
+  ],
+  "blank_Y_Z_mm": [
+    203.2,
+    361.1860828293809
+  ],
+  "leaves_per_corner": 2,
+  "nominal_leaf_thickness_mm": 28.575,
+  "minimum_proposed_actual_leaf_thickness_mm": 27.0,
+  "source_panel_capacity_key": "plywood_48oc_5ply",
+  "strength_axis": "Y, both factory plywood leaves; Group 1, at least five plies, APA Rated Sturd-I-Floor 48 oc, PS 1 plywood. Material specification unobserved.",
+  "inboard_X_face_mm": {
+    "left": -1219.2,
+    "right": 1216.025
+  },
+  "hole_centers_world_Y_Z_mm": [
+    [
+      -131.25,
+      200.0
+    ],
+    [
+      -80.45,
+      200.0
+    ],
+    [
+      -131.25,
+      342.0875
+    ],
+    [
+      -80.45,
+      342.0875
+    ]
+  ],
+  "bolt_count_and_axes": "Retain all 100 bolt and 66 Hillman axis lines. Eight cleat stacks change; no new cross-ties, panel screws or field-glue contribution.",
+  "ordinary_dimension_targets": {
+    "minimum_end_distance_Y_mm": 69.85,
+    "minimum_edge_distance_Z_mm": 60.3,
+    "minimum_fastener_spacing_Y_mm": 50.8,
+    "seven_D_mm": 66.675,
+    "four_D_mm": 38.1
+  },
+  "action_scope": "Transport the complete saved cut wrench to the new rectangle center and each independent leaf. Equal complete-wrench sharing is a sizing hypothesis, not a current response or a bound on physical sharing. New self-weight and contact are not covered.",
+  "method": "Reuse the published APA allowable capacities and existing rectangular traction/enclosure helpers. Normalize normal stress by the lesser of the applicable membrane and flat-bending references. The positive linear combination is an engineering sizing hypothesis, not a published complete joint equation.",
+  "geometry_adopted": false,
+  "complete_joint_qualified": false,
+  "release": false,
+  "actual_observations": null
+}

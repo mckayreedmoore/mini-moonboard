@@ -4179,6 +4179,149 @@ structural acceptance. The later input and scope disposition below retains
 the full objective and all unfinished engineering duties.
 All current/frozen evidence remains active; nothing is archived or pruned.
 
+<a id="plywood-cleat-development-choice"></a>
+**Owner-directed plywood cleat development.** On October 20 the owner asked
+for an online check of ordinary practice and directed proceeding with one
+approach, then specifically asked about plywood. Develop a **rectangular,
+bolted plywood gusset** at each existing cleat corner. The
+[proposal sketch](../bolted-frame-development/plywood-cleat-study.svg),
+[initial sizing inputs](../bolted-frame-development/plywood-cleat-study-inputs-v1.json)
+and [rectangular proposal inputs](../bolted-frame-development/plywood-cleat-rectangular-inputs-v1.json)
+make this choice reviewable. It is a separate development detail; the current
+model, shop instructions and selected-baseline authority are unchanged.
+The rejected Y-axis cross-ties remain inactive. The full engineering goal is
+unachieved; the prior retained-solid-cleat input boundary below is preserved.
+
+**Published resistance route.** APA's current
+[D510F catalog entry](https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/)
+identifies the September 2020 Panel Design Specification. Its
+[APA-authored full text](https://wood.tcaup.umich.edu/lectures/2021/D510.pdf)
+provides ASD panel tension, compression, flat bending, both shear modes and
+face-bearing references. These are published panel capacities; no arbitrary
+sawn-lumber `Ft90`, clear-wood mean or Eurocode-to-ASD strength conversion is
+assigned. APA's
+[E825E, p.3](https://www.bayarearetrofit.com/PDFs/APA%20Bolts%20in%20Plywood.pdf#page=3)
+also reports bolted plywood/lumber gusset tests. Its central lumber member,
+flanking gussets, placements and older design calculations differ from this
+corner, so its table is evidence of a conventional tested connection family,
+not a candidate load rating. Current bolts are still not a symmetric
+two-side-member joint merely because two adjacent plywood leaves are used.
+
+Use **D510F Table 5**, printed p.22, for the proposal's Group 1 plywood and
+3/8-in bolts: `Fe = 5600 psi` parallel to the panel strength axis and
+**3150 psi perpendicular**. The older
+[AWC TR12 Appendix A.3](https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf#page=29)
+supplies a larger-dowel plywood route using 5600 psi in either direction;
+the proposal deliberately uses the newer directional APA values. Neither
+value is an allowable bolt force. D510F's dry-use face-bearing references
+are **360 psi** at 0.04-in deformation or **210 psi** at 0.02 in; retain
+these separately from in-plane compression and dowel bearing. Plywood is
+not automatically stronger in every direction or failure mode.
+
+**Concrete starting detail.** Each corner uses two adjacent, independently
+checked **1⅛-in Performance Category plywood leaves**, specified as APA
+Rated Sturd-I-Floor **48 oc**, at least five plies, Group 1 for the bearing
+basis. Both strength axes run along world Y, across the original solid
+cleat grain. Each rectangular blank is **203.2 × 361.186083 mm** in Y/Z;
+the nominal total thickness is **57.15 mm**. Keep the current inboard X
+faces and all four bolt lines per corner; nominal growth is 19.05 mm
+outward. No field glue or composite-section credit is used. The proposed
+27-mm minimum actual leaf thickness is a sizing requirement, not an
+observed dimension or a claimed PS 1 manufacturing tolerance. The panel
+stamp, condition and thickness remain unobserved. This specification cannot
+be assigned to the existing purchased face plywood without its own match.
+
+The rectangle supplies nominal minimum Y end distance **69.85 mm**, Z edge
+distance **60.3 mm** and Y bolt spacing **50.8 mm**, versus the simple
+7D/4D/4D dimensions **66.675 / 38.1 / 38.1 mm**. This removes the narrow
+miter from the initial placement problem. These dimensions alone do not
+complete the actual group, row, net-section or loading applicability checks.
+A local CAD preflight checks both original-outline and rectangular plywood
+options against all 27 other composed timber/panel members per corner:
+**108 member-pair checks**, with no intersection above 0.001 mm³. The
+rectangular option accounts for 54 of those checks. This covers nominal
+members, not hardware, LEDs, wiring, tools or installation tolerances.
+No current viewer meshes or model solids are replaced.
+
+**Sizing result and limit.** Reuse the original six-case complete cut
+wrenches, transport all six components to each proposed independent leaf,
+and explicitly assign equal complete-wrench sharing for this first sizing
+screen. This is a statics hypothesis, not a compatible response or a bound
+on actual leaf sharing. At the preserved sloping cut, a single 23/32-in
+reference sheet reaches **3.931673**, two such independent sheets
+**1.965866**, one 27-mm 48-oc reference sheet **1.899270**, and two
+**0.949677** in the declared linear component screen. These are results
+for that construction, not demonstrated physical failures or a universal
+plywood thickness requirement.
+
+The rectangular detail's **48 leaf/case/trace records** use its full
+361.186083-mm cut height, narrow-piece factor **Cs = 0.695083638**, CD1 and
+dry service. Normal stress is checked against the lesser of the applicable
+membrane and flat-bending references; both shear components and torque stay
+in the existing complete-wrench traction construction. Its maximum linear
+gross-cut index is **0.742295**, left `a12-left`, with a point witness
+**0.742208805**. The positive linear combination remains an engineering
+sizing hypothesis, not an APA whole-joint fracture equation. This is a
+useful preliminary size with published material inputs. It establishes no
+revised-frame load upper, local bolt-group resistance, actual load sharing
+or complete joint acceptance. Added plywood self-weight and changed contact
+are not covered by the predecessor actions.
+
+**Hardware dimensional preview.** Retain the eight cleat bolt lines, all
+100 frame axes and 66 Hillman axes. Over the declared **27–28.575 mm per
+leaf** interval, four **7-in upper** bolts and four **8-in lower** bolts
+have positive length/nut windows under the existing catalog/ASME dimensional
+box. Keep the lower stacks' two 12.7-mm factory spacers and add one existing-
+type cut washer after the spacers. Minimum two-tip-pitch/nut-seating margins
+are **3.810 / 6.4512 mm upper** and **7.5184 / 1.7268 mm lower**. The
+7-in product is already in the current post packet; the 8-in comparison is
+an ASME dimensional scenario, with no new product, price or procurement
+qualification. Delivered shank/thread placement, metal/washer strength,
+complete multi-member transfer, removal and access remain open. These are not
+replacement shop instructions.
+
+**Next engineering action.** Finish the actual bolted plywood interfaces
+using the directional bearing values and the independent leaf geometry;
+resolve local failure modes, common-shaft and axial-seat transfer, runner
+contact and a justified sharing/action basis. Complete hardware and
+service/tool clearance before adopting the detail. This changes the
+engineering route from supplying an unlisted generic sawn-lumber transverse
+allowable to using published plywood properties and a conventional gusset
+calculation. It does not waive the complete-joint duty or any other project
+hold. No native/frame solve, floor test, physical work or blanket external
+sign-off is added.
+
+The active ignored packet is
+`fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/`.
+It retains the producers, original attempts, source PDFs and preview exports;
+the raw packet is about **8.93 MB** and is not staged. The existing APA 2012
+source is reused for comparison; the 2020 source is retained once here for
+its changed directional fastener table. All report source pins authenticate,
+**192 independently evaluated direct-formula witnesses** match the recorded
+lower bounds within 1e-10, and all 108 member-pair results are checked.
+Scoped syntax/name lint passes. All five producers replay byte-identically;
+the revision check and 228 development tests pass. The frozen scratch
+producers retain their original formatting; tracked application code is unchanged.
+Current/frozen sources remain active; nothing is archived or pruned.
+
+| Retained result | SHA-256 |
+| --- | --- |
+| `attempt01.json` — initial sizing trials | `061c39b54fff15d59f107a10197212519bf82a3540c4bc4f608679f091104bac` |
+| `rectangular-attempt01.json` — selected development size | `b77ae4baf08879d586afc263651056e91f79005f12383e22a9857849893ccb8c` |
+| `layout-attempt01.json` — local member intersections | `a851f4a0c0787dd3afbb95be8b82363e3a418bd4df928b347f821176c6028fbf` |
+| `hardware-attempt01.json` — dimensional windows | `0dd7a16bb1d437640c54e5efab6e864b7ea40cdb717b30ddbc2c12ae09ddb233` |
+| `verification-attempt01.json` — independent arithmetic and source checks | `99039bf3f2f60c9a33d30c6c2f96a82bbeb31bf124f22b09c97a0965306ee789` |
+
+Reproduce from the repository root with fresh output paths:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/screen.py /tmp/plywood-cleat-sizing.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/rectangular.py /tmp/plywood-cleat-rectangle.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/hardware.py /tmp/plywood-cleat-hardware.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/layout.py /tmp/plywood-cleat-layout.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/verify.py /tmp/plywood-cleat-verification.json
+```
+
 <a id="current-engineering-input-boundary"></a>
 **Current goal disposition: blocked; the full objective is unachieved.**
 The same essential retained cleat resistance and current joint force and

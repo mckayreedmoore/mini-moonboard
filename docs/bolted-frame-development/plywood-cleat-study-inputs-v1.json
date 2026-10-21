@@ -1,0 +1,152 @@
+{
+  "schema": "eoere_plywood_cleat_sizing_inputs/v1",
+  "owner_direction": "Check online practice and proceed with one approach; evaluate plywood cleats. This selects a development approach, not current geometry or physical work.",
+  "parent_geometry_revision": "eoere-narrow-channel-openings-v1",
+  "action_geometry_revision": "eoere-raised-kicker-screws-v1",
+  "approach": "Two adjacent, independently checked plywood leaves per cleat, retaining the four existing hole lines and Y/Z outline. No field glue or composite-section credit.",
+  "development_selection": "paired_1_1_8_v1",
+  "proposed_material": "APA Rated Sturd-I-Floor 48 oc plywood, at least five plies; Group 1 for the directional bearing references. Proposed procurement specification; actual stamp, thickness and condition unobserved.",
+  "nominal_leaf_thickness_mm": 28.575,
+  "sizing_leaf_thickness_mm": 27.0,
+  "thickness_scope": "27 mm is a declared sizing assumption and minimum proposed actual thickness, not a cited PS 1 manufacturing tolerance or an observed measurement.",
+  "proposed_nominal_total_thickness_mm": 57.15,
+  "existing_total_thickness_mm": 38.1,
+  "proposed_outer_growth_mm": 19.05,
+  "existing_axes": "100 frame bolts and 66 Hillman axes retained. Eight cleat stack grips change; their hardware and access require rechecking before a model revision.",
+  "outline_local_Y_Z_mm": [
+    [
+      0,
+      0
+    ],
+    [
+      139.7,
+      0
+    ],
+    [
+      139.7,
+      361.1860828293809
+    ],
+    [
+      0,
+      194.698105943881
+    ]
+  ],
+  "hole_centers_local_Y_Z_mm": [
+    [
+      44.45,
+      60.3
+    ],
+    [
+      95.25,
+      60.3
+    ],
+    [
+      44.45,
+      202.3875
+    ],
+    [
+      95.25,
+      202.3875
+    ]
+  ],
+  "strength_axis": "Y, across the original solid cleat grain; both factory plywood leaves have the same orientation.",
+  "cut_actions": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-transverse-wrench-v1.json",
+    "sha256": "7d6df246082753bf17ff1289ff7c0166f1c3e91236e9edfec07ad0180449fe8b"
+  },
+  "sources": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+      "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a",
+      "url": "https://wood.tcaup.umich.edu/lectures/2021/D510.pdf",
+      "publisher_catalog": "https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/",
+      "role": "Primary APA specification, Tables 5/9/13 and section 4.5.5; printed pages 22,24-27,32."
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-E825E-1997.pdf",
+      "sha256": "70c852946e7665066aeb8626b15a49490a761571e4411e444072a23bef718aeb",
+      "url": "https://www.bayarearetrofit.com/PDFs/APA%20Bolts%20in%20Plywood.pdf",
+      "role": "APA-authored original test report, p.3 Table 3. Different stacks and placements; not a candidate joint rating."
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/awc-TR12-2015.pdf",
+      "sha256": "95abb7d382aadf6984121f8731a5b91c2b633516e7f134991ad0a34a1b916be2",
+      "url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf",
+      "role": "AWC Appendix A.3 supports larger-dowel plywood route. Use newer APA directional values in this proposal."
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+      "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932",
+      "role": "Current geometry identity; no response transfer."
+    }
+  ],
+  "design_factors": {
+    "CD": 1.0,
+    "CM": 1.0,
+    "service": "Dry use, panel moisture below 16%; proposed condition, not observation.",
+    "Cs": "PDS 4.5.5 using cut height perpendicular to Y stress; no impact increase or Structural I multiplier."
+  },
+  "panel_capacities": {
+    "plywood_48_24_5ply": {
+      "FtA_lbf_ft": 5200,
+      "FcA_lbf_ft": 7500,
+      "FbS_lbf_in_ft": 1000,
+      "FsIbQ_lbf_ft": 325,
+      "Fvtv_lbf_in": 115
+    },
+    "plywood_48oc_5ply": {
+      "FtA_lbf_ft": 7300,
+      "FcA_lbf_ft": 12150,
+      "FbS_lbf_in_ft": 1900,
+      "FsIbQ_lbf_ft": 500,
+      "Fvtv_lbf_in": 160
+    }
+  },
+  "bolt_bearing_reference_psi": {
+    "parallel_strength_axis": 5600,
+    "perpendicular_strength_axis": 3150,
+    "source": "APA D510F Table 5, Group 1, 1/4 < D <= 1/2 in.; these are Fe inputs, not bolt capacities."
+  },
+  "face_bearing_reference_psi": {
+    "at_0_04_in_deformation": 360,
+    "at_0_02_in_deformation": 210
+  },
+  "sizing_trials": [
+    {
+      "id": "single_23_32_reference",
+      "leaves": 1,
+      "leaf_thickness_mm": 18.25625,
+      "capacity_key": "plywood_48_24_5ply"
+    },
+    {
+      "id": "paired_23_32_reference",
+      "leaves": 2,
+      "leaf_thickness_mm": 18.25625,
+      "capacity_key": "plywood_48_24_5ply"
+    },
+    {
+      "id": "single_1_1_8_reference",
+      "leaves": 1,
+      "leaf_thickness_mm": 27.0,
+      "capacity_key": "plywood_48oc_5ply"
+    },
+    {
+      "id": "paired_1_1_8_v1",
+      "leaves": 2,
+      "leaf_thickness_mm": 27.0,
+      "capacity_key": "plywood_48oc_5ply"
+    }
+  ],
+  "sharing_hypothesis": "For preliminary sizing only, assign each leaf an equal complete saved-cut wrench at the original cut origin, then transport it to that leaf center. This recovers all six resultants but is not a compatible sharing proof or current-frame demand bound.",
+  "gross_interaction_hypothesis": "max(membrane stress/Ft,-membrane stress/Fc) + abs(flat-bending component)/(FbS*Cs*cut height) + abs(in-plane shear)/Fv + abs(rolling shear)/Fs <=1. Conservative component combination for sizing; not an APA published whole-joint fracture equation.",
+  "remaining_gates": [
+    "Individual leaf and joint load sharing, including axial captures/contact return",
+    "Actual near-end/mitered bolt-group geometry and local failure modes",
+    "Each changed stack, metal, washer and access",
+    "Revised-frame actions or justified conservative load coverage"
+  ],
+  "geometry_adopted": false,
+  "structural_acceptance": false,
+  "physical_work_authorized": false,
+  "actual_observations": null
+}
