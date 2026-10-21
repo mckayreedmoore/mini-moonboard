@@ -5,6 +5,12 @@ now use `compact-bolted-frame-development`. The source-bound evidence candidate
 remains `compact-floor-flush-eoere-bolted-development`; frozen geometry IDs,
 receipts and paths are unchanged. The selected baseline keeps its own authority.
 
+**Primary cleat development approach: bolted plywood gussets.** The owner's
+[plywood selection](#plywood-cleat-development-choice) supersedes further
+retained-solid-cleat resistance research as the main route. Current geometry
+and frozen timber results retain their recorded scope while the plywood
+connection checks proceed.
+
 ## Engineering closure beyond the assessment
 
 **The preserved 2×6-post conditional numerical evaluation is complete** for
@@ -4180,17 +4186,23 @@ the full objective and all unfinished engineering duties.
 All current/frozen evidence remains active; nothing is archived or pruned.
 
 <a id="plywood-cleat-development-choice"></a>
-**Owner-directed plywood cleat development.** On October 20 the owner asked
+**Owner-selected primary plywood cleat approach.** On October 20 the owner asked
 for an online check of ordinary practice and directed proceeding with one
-approach, then specifically asked about plywood. Develop a **rectangular,
-bolted plywood gusset** at each existing cleat corner. The
+approach, then specifically asked about plywood. After reviewing the proposal
+and its limits, the owner directed: **“make plywood the main approach.”**
+Develop a **rectangular, bolted plywood gusset** at each existing cleat
+corner. This supersedes the earlier retained-corner-only direction for these
+two cleats. Further solid-timber cleat resistance searches and the rejected
+Y-axis cross-ties are inactive; their inputs and failed results remain
+available as reference. The
 [proposal sketch](../bolted-frame-development/plywood-cleat-study.svg),
 [initial sizing inputs](../bolted-frame-development/plywood-cleat-study-inputs-v1.json)
 and [rectangular proposal inputs](../bolted-frame-development/plywood-cleat-rectangular-inputs-v1.json)
 make this choice reviewable. It is a separate development detail; the current
 model, shop instructions and selected-baseline authority are unchanged.
-The rejected Y-axis cross-ties remain inactive. The full engineering goal is
-unachieved; the prior retained-solid-cleat input boundary below is preserved.
+The full engineering goal is unachieved; the prior retained-solid-cleat input
+boundary below is preserved
+as the stopping record for that route, not a prerequisite for plywood work.
 
 **Published resistance route.** APA's current
 [D510F catalog entry](https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/)
@@ -4280,11 +4292,15 @@ qualification. Delivered shank/thread placement, metal/washer strength,
 complete multi-member transfer, removal and access remain open. These are not
 replacement shop instructions.
 
-**Next engineering action.** Finish the actual bolted plywood interfaces
-using the directional bearing values and the independent leaf geometry;
-resolve local failure modes, common-shaft and axial-seat transfer, runner
-contact and a justified sharing/action basis. Complete hardware and
-service/tool clearance before adopting the detail. This changes the
+**Next engineering action.** Use a short conventional connection worksheet
+for the upper mixed stack and lower post interface at each corner. Retain
+their separate signed forces and moments. Use the directional bearing values
+and independent leaf geometry to resolve bolt yield and local group/net/edge
+failure modes, common-shaft and axial-seat transfer, runner contact and a
+justified sharing/action basis. Complete hardware and service/tool clearance,
+then decide whether to retain or revise the proposed detail before issuing a
+replacement model and shop packet. Existing whole-wrench equal sharing
+remains a sizing hypothesis. This changes the
 engineering route from supplying an unlisted generic sawn-lumber transverse
 allowable to using published plywood properties and a conventional gusset
 calculation. It does not waive the complete-joint duty or any other project
@@ -4323,7 +4339,10 @@ PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engine
 ```
 
 <a id="current-engineering-input-boundary"></a>
-**Current goal disposition: blocked; the full objective is unachieved.**
+**Preserved retained-timber goal disposition: blocked; the full objective is unachieved.**
+The later [primary plywood decision](#plywood-cleat-development-choice)
+supersedes this retained-detail-only work direction. The following audit and
+its evidence keep their original scope; plywood connection work is active.
 The same essential retained cleat resistance and current joint force and
 transfer inputs remain unavailable through three consecutive goal turns:
 (1) the coordinated post/cleat/restraint review and all-face foot/cable

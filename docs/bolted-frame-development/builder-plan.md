@@ -19,6 +19,15 @@ stiffness/restraint are unqualified. Actual stock, tooling, support arrangements
 and hardware have not been inspected. This guide supplies no fabrication or
 climbing release and leaves every issued observation cell blank.
 
+**Primary cleat development approach:** the owner selected
+[rectangular bolted plywood gussets](../wood-joints-mvp/completion-ledger.md#plywood-cleat-development-choice)
+for both corners. The starting detail uses two independent 1⅛-in plywood
+leaves per corner with the existing bolt locations; see the
+[proposal sketch](plywood-cleat-study.svg). Complete connection resistance,
+leaf sharing, revised actions and hardware/service clearance before issuing
+replacement geometry and shop instructions. The timber-cleat dimensions and
+stack selections below describe the existing model while that work proceeds.
+
 **Machining hold:** the six central bottom/lower-service/upper-service rail
 channels fail the [NDS notch-location check](../wood-joints-mvp/completion-ledger.md#current-channel-notch-location-gate)
 under the current frame-support basis. Keep those cuts on hold; the retained
