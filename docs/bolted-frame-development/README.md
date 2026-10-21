@@ -82,11 +82,12 @@ The [106-bolt follow-up](coherent-three-pin-two-pilot-results-v1.json) keeps bot
 omits only the upper pair and shifts both outer base/under-header assemblies Y−4.7625 mm.
 Its own A12-forward and A12-left fields independently replay: leaf maximum **0.939469**,
 signed-foot maximum **0.896000**, all **16** named leg/post comparisons below one.
-The complete lower joint remains open: a provisional Grade8/end/group construction reaches
-**1.260684**. Calculated timber motions and finite-arm contact changes retain the existing
-demand-applicability concern. Hold the other four cases for the corner-local floor-support
-review on unchanged geometry. Near-row plywood pads, a solid 4×6 top rail and smaller
-service bores remain separate proposals, without adoption.
+The complete lower joint remains open: its provisional Grade8/end/group construction reaches
+**1.260684**. A [matched corner-local floor pilot](coherent-three-pin-corner-floor-pilot-v1.json)
+independently replays on unchanged geometry: bearing-point motion falls to **0.01015 mm**,
+but leaf-node motion remains **79.66 mm** and the demand-applicability concern persists.
+Hold further cases for complete-joint and movement disposition. Near-row plywood pads,
+a solid 4×6 top rail and smaller service bores remain separate proposals, without adoption.
 
 The single-leaf material review corrected the perpendicular-axis rolling-shear
 reference from 500 to **385 lbf/ft**; the original saved gross-cut maximum

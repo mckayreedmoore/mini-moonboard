@@ -4886,9 +4886,10 @@ has27 fixtures but retains a lumped whole-foot approximation. Neither
 receipt supplies current166-owner acceptance. Prioritize one matched,
 source-bound support trial on unchanged106 geometry before more timber
 changes, with fresh activation, force replay and movement/finite-arm
-disposition. The full-goal owner owns readiness and serialized execution;
-this integration lane has launched no support trial. No floor capacity,
-friction coefficient, anchor or physical floor test is added.
+disposition. The integration lane has now completed that one serialized
+trial and independent replay; the full-goal owner retains complete-joint
+review. No floor capacity, friction coefficient, anchor or physical floor
+test is added.
 The source-bound `three-pin-shift-floor-port-motion-v1.json`, SHA-256
 `36b29456f0a60a269fc16621ef76b9da4d1eefa1b9297a03cec8d42a6c63b679`,
 also recovers modeled bearing-port tangential motions **19.8006 / 58.4120 mm**
@@ -4896,6 +4897,33 @@ at positive normal reactions **214.821 / 271.321 N** in forward/left cases.
 Thus the current scenario permits substantial modeled motion at bearing
 front feet; it is materially different from local no-slip. These saved
 diagnostics supply neither a new equilibrium nor actual floor observations.
+
+<a id="coherent-corner-floor-pilot"></a>
+The [matched corner-local pilot](../bolted-frame-development/coherent-three-pin-corner-floor-pilot-v1.json)
+keeps the exact106-bolt geometry and A12-forward loads. Its pre-solve capture
+confirms **zero difference** in material K, applied RHS, all internal-contact
+operators and the32 normal laws; only16 centroid XY rows become64 co-located
+corner rows. The reused eight known-answer coupons and all11 method fixtures
+pass. The cold solve converges in three floor patterns, with **seven bearing
+corners /25 released XY pairs**, gradient **6.738337e-8 N**. Separate saved-q
+replay verifies all physical actions, owner maps, body/global balance, fitting
+and shaft recovery, and all four plywood K blocks. False screw and floor
+forces of0.01N are rejected. This is not the old fixed-centroid admission.
+The field is `three-pin-shift-corner-floor-a12-forward-v1/field.json`, SHA-256
+`aa50cd641cedeb6c079fd00de17dd9041ae58e717e2691d62a7a470b183cee09`,
+under the existing coherent-return packet. Bearing-corner tangential motion
+falls from19.800606 to **0.010149 mm**, with all32 normal forces independently
+recovered. Maximum leaf-node translation remains **79.663380 mm**, rotation
+**0.110561 rad**; the same finite-arm surrogate changes74 of968 contact
+classifications, maximum gap change0.092146mm. Thus local floor sticking
+does not resolve the persistent joint/relative-movement applicability duty.
+The compact record binds the input, exact launcher/floor-driver snapshots,
+readiness, raw operators, separate readers and saved-motion helpers. Reuse
+this field for the complete-joint review before another case or timber
+change. All other five corner-local cases and four remaining centroid-only
+cases stay held. No motion limit, finite-motion equilibrium, physical demand
+bound, candidate adoption or structural/build release follows. Active raw
+inputs/runs stay in the existing ignored packet; nothing is archived/pruned.
 
 The six preserved hold-label bindings were also checked directly before
 changing receivers: each case's front point exactly matches its named

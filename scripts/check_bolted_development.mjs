@@ -876,6 +876,25 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(threePin.all_six_cases_admitted, false); assert.equal(threePin.other_four_cases_held, true);
     assert.equal(threePin.geometry_adopted, false); assert.equal(threePin.complete_joint_qualified, false);
     assert.equal(threePin.structural_acceptance, false); assert.equal(threePin.fabrication_or_climbing_release, false);
+    const cornerFloor = JSON.parse(bound(index.unadopted_studies.coherent_three_pin_corner_floor_pilot));
+    assert.equal(cornerFloor.current_published_revision, report.revision);
+    assert.equal(cornerFloor.current_published_geometry_unchanged, true);
+    assert.deepEqual(cornerFloor.geometry, threePin.geometry);
+    assert.equal(cornerFloor.case, 'a12-forward');
+    assert.deepEqual(cornerFloor.census, {bolts: 106, factory_angles: 26, Hillman_screws: 66, physical_owners: 166});
+    assert.equal(cornerFloor.counts.floor_normals, 32); assert.equal(cornerFloor.counts.floor_xy_components, 64);
+    assert.equal(cornerFloor.unchanged_K_RHS_internal_contacts_and_normal_laws, true);
+    assert.equal(cornerFloor.bearing_corners + cornerFloor.released_corner_XY_pairs, 32);
+    assert.equal(cornerFloor.force_tamper_controls_rejected, true);
+    assert.ok(cornerFloor.gradient_inf_N < 1e-5);
+    assert.ok(cornerFloor.maximum_bearing_point_tangential_motion_mm < .02);
+    assert.ok(cornerFloor.maximum_timber_node_translation_mm > 75);
+    assert.ok(cornerFloor.finite_arm_contact_classification_changes > 0);
+    for (const key of ['other_five_cases_held', 'other_four_centroid_only_cases_held']) assert.equal(cornerFloor[key], true);
+    for (const key of ['finite_motion_response_or_physical_error_bound', 'new_motion_limit_adopted',
+      'floor_friction_capacity_or_anchor_established', 'physical_floor_test_required', 'complete_joint_qualified',
+      'geometry_adopted', 'structural_acceptance', 'native_FEA_performed', 'fabrication_or_climbing_release'])
+      assert.equal(cornerFloor[key], false);
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, scene.key), scene.key);
     for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])
