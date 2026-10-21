@@ -5484,6 +5484,113 @@ repeating the completed 396 action comparisons will not resolve this path.
 No hardware, geometry, physical observation, frame/native solve or new
 software framework is introduced by this assessment.
 
+<a id="panel-corner-handcheck"></a>
+**Panel corner: conventional free body and fastening-density comparison.**
+The owner authorized a short hand check to distinguish a plausible local
+load concentration from an arithmetic or reference mismatch. This worksheet
+uses only `main_upper_left` / `a12-rear` from the authenticated six-case
+**2×6-post predecessor**, `eoere-raised-kicker-screws-v1`. It gives no current
+response for `eoere-narrow-channel-openings-v1` and changes no geometry,
+hardware, physical observations or acceptance flags.
+
+Resolve the saved hold force `(0,300,−2224.110808) N` into the panel plane.
+It has **1659.444 N outward** and **1510.931 N downslope**. The assumed
+100-mm projection from the climbing face is **109.128125 mm from the panel
+midplane**, including half the assumed plywood thickness. Its moment is
+therefore **164.885 N·m**. A pure normal-force couple across the adjacent
+rim-screw spacing of **358.383 mm** would require **460.080 N**. That is a
+component illustration; it is not an additional load to add to the saved
+screw forces, which already include the applied hold moment.
+
+The complete panel free body retains all **51 applied load rows**, including
+its assigned accessory weight, all twelve screw vectors and 196 contact
+stations. Maximum recovered force/moment residuals are **7.94e−7 N /
+0.000596 N·mm**. It gives:
+
+| Same saved state | Result |
+| --- | ---: |
+| Complete outward panel load | **1825.905681 N** |
+| Sum of twelve screw tensions | **3025.289893 N** |
+| Outward force from compression against the backing | **1199.384213 N** |
+| Largest two screw tensions | **1492.868838 / 1042.405853 N** |
+| Fraction carried by those two screws | **83.8027%** of total screw tension |
+| Reused generic plywood pull-through reference, CD1 | **580.292408 N** |
+
+Thus `sum(T) − sum(C) = 1825.905681 N`: compression against the framing and
+tension at the heads form local prying couples. This explains why dividing
+the external normal load equally among twelve screws misses the saved
+action. The **2.572615** governing head ratio is a **plywood pull-through**
+reference, not demonstrated steel-head rupture or a Hillman product rating.
+
+Two small normal-statics calculations expose the load-sharing question.
+With no backing pressure and only the nearby `rim_3`, `rim_4` and `edge_2`
+ties, force and both normal-force moments balance at **61.803 / 540.458 /
+1223.645 N**, respectively. That simple concentration already gives a
+**2.108669** generic head ratio. Conversely, all twelve ties can balance
+those same three normal resultants at **297.974545 N each**, with
+1364.845757 / 384.943096 N of compression at two existing lower contact
+stations. An affine nonnegative weighting of all 196 contact stations
+proves that value is the minimum possible largest tie force **for this
+restricted normal-statics problem**. These are separate algebraic examples:
+neither establishes compatible panel deformation, allowable contact pressure,
+combined lateral resistance or return of the changed forces into the frame.
+They do not replace the saved elastic solution or demonstrate it is overly
+conservative. Equilibrium alone does not require its 1492.869-N peak.
+
+A one-dimensional plywood scale check projects the nearby rim/rail tie
+locations onto X, separated by **365.075 mm**, and applies only the hold's
+outward force between them. The resulting peak strip moment is
+**151443.943 N·mm**. At the retained strong-axis bending reference of
+**287.280979 N·mm/mm**, an effective strip width of **527.163 mm** would be
+needed. No such width is assigned: the projection omits the ties' actual
+65.95-mm upslope difference, hold moment, finite load footprint, holes,
+two-dimensional plate sharing and frame motion. It is an illustration of
+the spreading duty, not a panel pass, a physical stress bound or a new APA
+effective-width rule. The existing bending/rolling-shear findings remain.
+
+The [Metolius home-wall guide, PDF p.6](https://www.metoliusclimbing.com/pdf/How-to-Build-a-Home-Bouldering-Wall.pdf#page=6)
+specifies #8 × 2-in deck screws approximately **6 in apart around the panel
+perimeter and along every joist/stud**, with blocking at panel joints.
+The present four main panels have **twelve screws each**. A nominal 4×4
+six-inch perimeter benchmark has roughly **32 per panel**, before interior
+attachments: about **146 total** including the unchanged eighteen kicker
+screws. That is a comparison of fastening density, not a proposed installed
+axis schedule, a Hillman substitution, a proof of adequate capacity or an
+exception to the retained 66-screw policy. The earlier backing-only test
+kept twelve screws; the historical 98-screw trials kept their own candidate,
+placement and failed-reference scope. Neither resolves this different
+benchmark or supplies a passing remedy.
+
+**Engineering conclusion:** the saved high head loads are mechanically
+plausible and their arithmetic reproduces. Their concentration depends on
+how the panel, screws and backing deform together. The next useful decision
+is a supported panel/attachment load-sharing treatment at the loaded corner,
+including a justified finite hold-load footprint and the existing moment, with plywood
+bending and rolling shear checked alongside each screw. If the conventional
+denser attachment route is pursued, present a complete receiver-supported
+schedule for review before changing the screw-count policy. A stronger screw
+or insert alone does not resolve the demonstrated panel/head duties.
+
+The existing ignored engineering-closure packet now retains
+`panel-corner-handcheck-v1/handcheck.py`, `attempt02.json` and
+`decimal_audit.py` / `decimal-audit01.json`. Result SHA-256 is
+`dcb35736def8dfbec4da50af3c015173730fa059a749f5a4dea157f7a995d958`.
+All **ten consumed source pins** authenticate; a fresh replay is byte-identical.
+An independent 50-digit Decimal recovery reproduces the head reference and
+both normal allocations within **7.56e−10 N·mm**. Exact rational checks cover
+the three balance equations and nonnegative-weight certificate on the
+recorded decimal projections. The initial admission-key STOP and source
+snapshot remain recoverable; it executed no mechanics calculation. One
+**1,630,438-byte** primary guide is kept once in the shared ignored
+`engineering-closure-v1/source-cache/`, SHA-256
+`1d099f436911fe9559fe17367fa04bc8675bdebab7d9c0378a3501c60cc91309`.
+All evidence stays active; no archive, pruning, CAD or response solve occurs.
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-corner-handcheck-v1/handcheck.py /tmp/panel-corner-handcheck.json
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-corner-handcheck-v1/decimal_audit.py /tmp/panel-corner-decimal-audit.json
+```
+
 <a id="remaining-review-after-4x6-posts"></a>
 **Full remaining-step evaluation.** The target is now
 **`eoere-narrow-channel-openings-v1`**, original grid off, including the

@@ -55,7 +55,7 @@ The restored-channel followup preserves nominal access/fixture applicability; ch
 The [narrower channel revision](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-revision) restores material at 32 openings; the [same-action beam normal upper](../wood-joints-mvp/completion-ledger.md#current-narrow-channel-strength-interpretation) remains **0.480823**. Six central cut holds and the [left/right foot coverage issue](../wood-joints-mvp/completion-ledger.md#current-left-right-rear-foot-comparison) remain.
 The [fixed-axis 6×6 rear-leg option](../wood-joints-mvp/completion-ledger.md#rear-leg-6x6-fixed-axis-feasibility) has positive bolt-window/stock screens and a [below-pair shear bound](../wood-joints-mvp/completion-ledger.md#rear-foot-global-statics-component-bound) of **0.988366** over the six-face load box and any horizontal direction within 300 N, under its declared support/mass envelopes; it remains unadopted. Panel/screw
 engineering assessment is reopened under the full goal; the [calculation audit](../wood-joints-mvp/completion-ledger.md#current-exceedance-calculation-audit)
-corrected the predecessor's panel comparisons from 26 to 27 exceeded references.
+corrected the predecessor's panel comparisons from 26 to 27 exceeded references. The [panel-corner hand check](../wood-joints-mvp/completion-ledger.md#panel-corner-handcheck) finds two screws carry **83.8%** of that panel's saved tension; compatible load sharing remains unqualified.
 The predecessor's working 6.35-mm heel scenario has maximum 0.992604; seven
 exceedances belong to its separate 6-mm sensitivity. Complete joint/member,
 physical stiffness/contact and no-slip/restraint qualification remain unresolved.
