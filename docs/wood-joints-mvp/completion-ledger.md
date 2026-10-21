@@ -5671,6 +5671,86 @@ The raw methods and failed pre-issue source checks remain in the existing
 ignored packet. No additional frame solve, mesh, adoption or release is
 issued by these worksheets.
 
+<a id="coherent-cleat-connection-and-placement"></a>
+**Coherent cleat: detailed-analysis route and placement follow-up.**
+The pinned [NDS 2024](https://awc.org/resources/2024-nds/),
+§11.1.1.3 (printed p.70) and §12.3.8 (p.95), permit a demonstrated
+engineering analysis that retains wood bearing and dowel bending. The
+Fe/(4 Ktheta), My/(3.2 Ktheta) calibration has a monotone-work argument
+against all six standard yield mechanisms, beyond its 18 arithmetic
+benchmarks. Extending it to the actual non-opposing four-member stacks is
+an explicit detailed-analysis hypothesis. **§12.3.6.2 permits an ASTM F606
+tensile-yield basis as well as ASTM F1575 bending tests**; a separate bending
+test is not automatically required. TR12 §§1.2–1.3 and 2.1–2.1.2 retain
+the separate brittle/member duties. An independent source/method review
+confirmed these distinctions without another frame solve.
+
+The saved-field follow-up covers all **48 cleat-shaft/case combinations**
+on the same six coherent-return fields as the component receipt above.
+It reuses the existing verified vector-pressure optimizer, authenticates
+each complete force/couple and metal gravity, and checks each continuous
+moment maximum. With the **named, unadopted** Cg=0.94, lower end factor
+34.1125/66.675 and upper factor 1, the Grade5 construction exceeds its
+reduced reference in **three** comparisons, maximum **1.164632** at
+`cleat_post_bolt_left_2 / a12-forward`. This is a failed construction under
+those assumptions; a finite-cell optimum does not prove that every
+continuous pressure field or the physical connection fails.
+
+A same-dimension **Grade8 material option** retains every case action,
+bearing reference and named adjustment. Using **120 ksi** as its moment
+marker, below the published 130-ksi minimum yield, its maximum is
+**0.954292**. The separate combined N/V/M steel comparison uses that
+**same pressure witness**, the actual body/root transitions, continuous
+moment extrema and endpoint shear extrema. It reaches **0.439965** against
+130-ksi yield divided by two, using `|N|/A + 32|M|/(pi D^3)`, a conservative
+`2|V|/A` shear envelope and von Mises combination. The checked source is
+the [Fastenal mechanical-properties table](https://crafter.fastenal.com/static-assets/pdfs/Mechanical_Properties_of_Inch_Fasteners.pdf),
+Rev.2009, p.1: J429 Grade8, with a compatible J995 Grade8 nut. It is a
+material option, not a selected product or observed shank/root. The current
+wood end/group factors, brittle transfer, seats and fitting duties are not
+qualified by these material comparisons.
+
+The smaller placement worksheet reuses the existing outer-profile kernel
+on **eight cached finished solids / 24 wood occurrences / 144 signed
+case components**. It reads BReps without rebuilding CAD. Upper cleat/rim
+grain rays are **69.151924 / 84.965697 mm**; the factory **65.0875-mm**
+flange offset is not their grain-end distance. Finished bevels also matter:
+in A1-rear, `eoere_bolt_067 / base_side_left` acts toward a **29.108028-mm**
+edge at **7.939769 N**, and `cleat_post_bolt_left_2 / base_post_outer_left`
+acts toward a **34.925-mm** edge at **6.688814 N**. Both miss the conservative
+4D = **38.1-mm** perpendicular-component screen. No arbitrary small-force
+waiver or physical failure is inferred.
+An independent 60-digit coordinate/force check reproduces all 24 occurrence
+distances and 144 components within **2.1e-13 mm / 1.9e-13 N**. The signed
+census is **127 marker passes, two misses and 15 unresolved zero-sized
+components**; unresolved directions are not counted as passes.
+
+The upper pair has **50.8-mm direct pitch**, **32.653611-mm grain** and
+**38.915058-mm cross-grain projections**. NDS Figure12G measures
+perpendicular-load between-row spacing **along grain**; its nominal
+two-leaf cardinal marker is 5D = **47.625 mm**. The actual staggered/oblique
+pair needs its applicable placement treatment, as in the preserved
+[method-scope record](#current-staggered-pair-placement-method-scope).
+Neither a larger bolt yield nor a spacing/required-distance ratio waives
+row/loaded-edge minima. Cg=0.94 remains a sensitivity: a separately reviewed
+orthotropic two-fastener bar comparison gives a rounded-down **0.895**
+bound under its stated strip/row/slip assumptions, not automatic adoption.
+
+Raw records stay active in the existing coherent-return packet:
+`cleat-vector-material-sensitivity-summary-v1.json` (44,012 bytes,
+SHA-256 `9a2aea0ba44d3619a75e6ff860123d113b83252691de45d0da385dd7058d2f4b`)
+and `cleat-finished-placement-v1.json` (159,343 bytes,
+`73ce7c2c81e8590d5d88c8b53e75f04d7abb062484cc59ca1329d9370efe177a`).
+Their source-bound methods remain beside the existing plywood-gusset
+worksheets. `replay-coherent-cleat-report-v1.py material|placement FRESH.json`
+redirects only the final output assignment and requires byte identity;
+the material report reproduces exactly. All **10,224** independent
+moment-derivative/shear checks agree within **6.79e-11 N**.
+The next joint decision is a supported placement/reinforcement detail or a
+preflighted simpler pin arrangement, followed by its own redistributed
+actions. Do that before more material-only trials. No product, reviewed
+geometry, structural acceptance or physical operation changes here.
+
 | Additional retained result | SHA-256 |
 | --- | --- |
 | `single-leaf-directional-shear-v3.json` | `891647e9236f02bbbb45490a1ddf6eb513b8b7be256d764cae74453419f032eb` |
