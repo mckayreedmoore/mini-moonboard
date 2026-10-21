@@ -1,0 +1,219 @@
+{
+  "actual_observations": null,
+  "climbing_released": false,
+  "comparison_scope": "Existing conservative strip traction construction with separate Y/Z direction factors, actual bore net islands, all nonzero action stations and both point-action traces. Not a published whole-joint ASD equation or physical failure determination.",
+  "current_published_geometry_unchanged": true,
+  "current_published_revision": "eoere-single-leg-bolts-header-angles-v3",
+  "fabrication_released": false,
+  "geometry_adopted": false,
+  "material_basis": "Four independent nominal1-1/8inch APA48oc PS1 leaves, strengthaxisZ. Width-specific published EA/EI and explicit shear/torsion surrogates; approximate581kg/m3 design mass. Actual stock and physical stiffness remain unobserved.",
+  "next_action": "Integrate the bilateral upper-corner return and proposed signed foot detail before another force campaign. Check all resulting own leaf, mixed shaft/seat/end/group and panel/member duties.",
+  "physical_demand_bounds_established": false,
+  "production_admission_issued": false,
+  "result": "Neither paired width closes its section reference under its own A12-left actions. Do not inherit equal-wrench sharing or interpolate an accepted width.",
+  "retention": "All original/rejected source snapshots, field/operator captures, postprocessors and clearance inputs stay active in the existing ignored plywood packet. No mesh or archive/prune.",
+  "schema": "eoere_paired_leaf_two_width_pilot_comparison/v1",
+  "structural_acceptance": false,
+  "variants": [
+    {
+      "case": "a12-left",
+      "complete_joint_qualified": false,
+      "counts": {
+        "bearings": 432,
+        "contacts": 2116,
+        "dofs": 9534,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 96,
+        "timber": 24
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/a12-left-attempt01/field.json",
+        "sha256": "613db9c0e98e1bb11e9ef340410ebb8dfef75c07ef4cf2dd2c0d6c570422ac4d"
+      },
+      "four_plywood_operator_audit": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/a12-left-attempt01/independent-replay-plywood.json",
+        "sha256": "aa708abb7257bc207e6219f592a6abb222fc04bf898e088c4b442acd748358ca"
+      },
+      "geometry": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-geometry-v1/geometry.json",
+        "sha256": "e0cb380379db78e0d8e72ac19b85ce8c98a7f0b43841ed6b6049ec78608994db"
+      },
+      "geometry_adopted": false,
+      "gradient_inf_N": 1.781552270152531e-07,
+      "input": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/preparation-attempt02/inputs.json",
+        "sha256": "de02dee21f6b84c50290c87821117a86f05667cc5b8020781f557b9332dbec0c"
+      },
+      "label": "8in",
+      "leaves": [
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -131.25,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 0.9429243517101616,
+          "member": "eoere_cleat_left",
+          "normal_maxima": {
+            "Y": 0.9429243517101616,
+            "Z": 0.7308096517428742
+          }
+        },
+        {
+          "governing_normal": "Z",
+          "governing_station_mm": 342.0875,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 1.0324858732367364,
+          "member": "eoere_cleat_left_outer",
+          "normal_maxima": {
+            "Y": 1.015770107922328,
+            "Z": 1.0324858732367364
+          }
+        },
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -152.41666666666666,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 0.3271543624950182,
+          "member": "eoere_cleat_right",
+          "normal_maxima": {
+            "Y": 0.3271543624950182,
+            "Z": 0.3007993885172142
+          }
+        },
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -131.25,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 0.5407743419089168,
+          "member": "eoere_cleat_right_outer",
+          "normal_maxima": {
+            "Y": 0.5407743419089168,
+            "Z": 0.2434744136421992
+          }
+        }
+      ],
+      "material": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/material.json",
+        "sha256": "074ebbb1b7ba32bdb2e06d3fd828d93dad26cbad39831b6eddd21395c020ae65"
+      },
+      "maximum_section_reference_upper": 1.0324858732367364,
+      "producer_snapshot": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/preparation-attempt02/producer-snapshot.py",
+        "sha256": "fe4bad85707c5f552f42a39290d91254a49f816522795614e7e949823e22f139"
+      },
+      "raw_operator_force_replay": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/a12-left-attempt01/independent-replay.json",
+        "sha256": "fcddb66967b2521361bed3e13ff75f79320efb192d4bcba152d7021a2af9c475"
+      },
+      "section_trace_count": 456,
+      "sections": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-pilot-v1/sections-attempt01.json",
+        "sha256": "4be86c1d32392e3f16bd3b0c6472f6e851da2eeae10c9107903b0ebd8c762377"
+      }
+    },
+    {
+      "case": "a12-left",
+      "complete_joint_qualified": false,
+      "counts": {
+        "bearings": 432,
+        "contacts": 2142,
+        "dofs": 9534,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 96,
+        "timber": 24
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/a12-left-attempt01/field.json",
+        "sha256": "af228b7787302962f20e6dc2dacae029fc57366e6951282a7ea317f93d73d01e"
+      },
+      "four_plywood_operator_audit": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/a12-left-attempt01/independent-replay-plywood.json",
+        "sha256": "acf7bd3415e7843d58b65fcc298a5e7395c8bcc019f53fd6b0be2068eef60324"
+      },
+      "geometry": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/bound-inputs-v1/geometry.json",
+        "sha256": "519d7ef6e37c5395895aaad86c661de6f249a79d9f087d7b754b36bab590629f"
+      },
+      "geometry_adopted": false,
+      "gradient_inf_N": 1.2019359729720236e-07,
+      "input": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/preparation-attempt01/inputs.json",
+        "sha256": "013862aeeac34a134d02749bed9f539629377ac9a41b30d5f6c4c9f53a4e38ee"
+      },
+      "label": "10in",
+      "leaves": [
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -131.25,
+          "includes_boundary_point_actions": false,
+          "maximum_reference_upper": 1.113540506178345,
+          "member": "eoere_cleat_left",
+          "normal_maxima": {
+            "Y": 1.113540506178345,
+            "Z": 0.5402243871930141
+          }
+        },
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -131.25,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 0.972302079122491,
+          "member": "eoere_cleat_left_outer",
+          "normal_maxima": {
+            "Y": 0.972302079122491,
+            "Z": 0.9633562255881136
+          }
+        },
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -155.0625,
+          "includes_boundary_point_actions": true,
+          "maximum_reference_upper": 0.29753897807270785,
+          "member": "eoere_cleat_right",
+          "normal_maxima": {
+            "Y": 0.29753897807270785,
+            "Z": 0.26306355817477234
+          }
+        },
+        {
+          "governing_normal": "Y",
+          "governing_station_mm": -80.45,
+          "includes_boundary_point_actions": false,
+          "maximum_reference_upper": 0.6196387186679526,
+          "member": "eoere_cleat_right_outer",
+          "normal_maxima": {
+            "Y": 0.6196387186679526,
+            "Z": 0.27588163323916026
+          }
+        }
+      ],
+      "material": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/material.json",
+        "sha256": "2ea291bf7762c6acdd80ca3565473e2db2c4759000f25d6e87b9dca1d2c02b2d"
+      },
+      "maximum_section_reference_upper": 1.113540506178345,
+      "producer_snapshot": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/preparation-attempt01/producer-snapshot.py",
+        "sha256": "64bd8e68398f32cd679c3aa966720e20cf164fdb8ad94605e66906ab2c27aa29"
+      },
+      "raw_operator_force_replay": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/a12-left-attempt01/independent-replay.json",
+        "sha256": "be0237e1d7a17a021cee76fac0c2068750d692d14a172b376b02f4ad7983e5f6"
+      },
+      "section_trace_count": 406,
+      "sections": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-wide-v2/sections-attempt01.json",
+        "sha256": "c2999364c0dc6d74adb26b773873ace0318b693abf9458d108ab7d77bd3ca6f9"
+      }
+    }
+  ]
+}

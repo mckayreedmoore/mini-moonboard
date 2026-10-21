@@ -18,20 +18,26 @@ from scipy.linalg import block_diag
 
 from scripts import eoere_current_response as response
 from scripts.eoere_current_shop_followup import ROOT, module, require, sha
-from scripts.eoere_leg_header_mechanics import MATERIAL, TRIAL
+from scripts.eoere_leg_header_mechanics import TRIAL
 
 
 def replay_captured_sources(field_path, out):
     field = json.loads(field_path.read_bytes())
-    material = json.loads((ROOT/MATERIAL).read_bytes())
-    require(field['source_inputs']['plywood_material'] == {'path': str(MATERIAL), 'sha256': sha(ROOT/MATERIAL)},
+    material_path = (ROOT/field['source_inputs']['plywood_material']['path']).resolve()
+    require(material_path.is_relative_to(ROOT), 'local frozen plywood input required')
+    material = json.loads(material_path.read_bytes())
+    require(field['source_inputs']['plywood_material'] == {'path': str(material_path.relative_to(ROOT)), 'sha256': sha(material_path)},
             'exact constitutive input binding required')
     b = response.load('bridge').frozen()
     snapshot = b.bundle.read_snapshot(field['operator_bundle'])
     properties = material['properties']
     maps_class = b.base.OwnedMaps
     diagnostics = []
-    for name in ('eoere_cleat_left', 'eoere_cleat_right'):
+    names = {r['name'] for r in field['source_inputs']['timber_rows'] if r['name'].startswith('eoere_cleat_')}
+    require(names in ({'eoere_cleat_left', 'eoere_cleat_right'},
+            {'eoere_cleat_left', 'eoere_cleat_right', 'eoere_cleat_left_outer', 'eoere_cleat_right_outer'}),
+            'two or four independently captured plywood members required')
+    for name in sorted(names):
         row = snapshot.coordinate_map['timber'][name]
         source = next(r for r in field['source_inputs']['timber_rows'] if r['name'] == name)
         annotated = copy.deepcopy(source)
@@ -64,7 +70,7 @@ def replay_captured_sources(field_path, out):
     def joined_maps(saved, data):
         amended = copy.deepcopy(data)
         for row in amended['timber_rows']:
-            if row['name'] in ('eoere_cleat_left', 'eoere_cleat_right'):
+            if row['name'] in names:
                 row['explicit_plywood_operator'] = copy.deepcopy(properties)
         return maps_class(saved, amended)
 
@@ -88,7 +94,7 @@ def replay_captured_sources(field_path, out):
     with companion.open('x') as stream:
         json.dump({'schema': 'eoere_leg_header_plywood_raw_operator_audit/v1',
             'field': {'path': str(field_path.relative_to(ROOT)), 'sha256': sha(field_path)},
-            'material': {'path': str(MATERIAL), 'sha256': sha(ROOT/MATERIAL)},
+            'material': {'path': str(material_path.relative_to(ROOT)), 'sha256': sha(material_path)},
             'source': {'path': str(Path(__file__).resolve().relative_to(ROOT)), 'sha256': sha(__file__)},
             'raw_operator_checks': diagnostics, 'all_unchanged_owner_map_checks_retained': True,
             'captured_launcher': {'path': str(snapshot_path.relative_to(ROOT)), 'sha256': original_sha(snapshot_path)},

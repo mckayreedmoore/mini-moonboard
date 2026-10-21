@@ -766,8 +766,20 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(singlePins.revision, report.revision);
     assert.deepEqual(singlePins.geometry, report.checked_geometry);
     assert.equal(singlePins.comparison_count, 24); assert.equal(singlePins.rows.length, 24);
-    assert.equal(singlePins.reference_exceedances.length, 4);
+    assert.equal(singlePins.reference_exceedances.length, 0);
+    assert.equal(singlePins.generic_45000_reference_exceedances.length, 4);
     assert.ok(singlePins.maximum_catalog_thread_fraction <= .25);
+    for (const row of singlePins.rows) {
+      const axis = report.axes.find(a => a.id === row.axis_id);
+      assert.equal(row.nominal_diameter_mm, axis.diameter_mm);
+      assert.equal(row.catalog_minimum_body_in, axis.diameter_mm === 9.525 ? .369 : .493);
+      assert.equal(row.material_scenario_Fyb_psi, 92000);
+      assert.equal(row.complete_joint_qualified, false);
+    }
+    const superseded = index.conditional_response_study.superseded_single_pin_bolt_references;
+    bound(superseded);
+    assert.equal(singlePins.superseded_report.path, superseded.path);
+    assert.equal(singlePins.superseded_report.sha256, superseded.sha256);
     assert.equal(singlePins.structural_acceptance, false);
     const plywood = JSON.parse(bound(index.conditional_response_study.plywood_component_references));
     assert.equal(plywood.geometry_revision, report.revision);
@@ -776,6 +788,17 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.ok(plywood.governing_checked_section.reference_upper > 1);
     assert.equal(plywood.complete_joint_qualified, false); assert.equal(plywood.release, false);
     assert.equal(plywood.paired_leaf_sizing_proposal.sharing_qualified, false);
+    const pilots = JSON.parse(bound(index.unadopted_studies.paired_leaf_two_width_pilots));
+    assert.equal(pilots.current_published_geometry_unchanged, true);
+    assert.equal(pilots.current_published_revision, report.revision);
+    assert.equal(pilots.variants.length, 2);
+    assert.equal(pilots.geometry_adopted, false); assert.equal(pilots.structural_acceptance, false);
+    for (const variant of pilots.variants) {
+      assert.equal(variant.case, 'a12-left'); assert.equal(variant.leaves.length, 4);
+      assert.equal(variant.counts.physical_bodies, 150);
+      assert.ok(variant.gradient_inf_N <= 1e-5 && variant.maximum_section_reference_upper > 1);
+      assert.equal(variant.geometry_adopted, false); assert.equal(variant.complete_joint_qualified, false);
+    }
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, scene.key), scene.key);
     for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])

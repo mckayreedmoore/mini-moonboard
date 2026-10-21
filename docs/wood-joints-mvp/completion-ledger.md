@@ -5150,7 +5150,7 @@ published model, force case or frozen input is changed by this preflight.
 | `paired-leaf-geometry-v1/geometry.json` | `e0cb380379db78e0d8e72ac19b85ce8c98a7f0b43841ed6b6049ec78608994db` |
 | `paired-leaf-geometry-v1/clearance.json` | `0911df9037a7e1ea74879c196fa601333254482647cc4a7e5435e696dcfffa44` |
 
-The approximately **26.5 MB** active plywood packet retains the methods,
+The preceding preflight's approximately **26.5 MB** plywood packet retains the methods,
 source manuals, issued fields' input references, failed constructions and
 both geometry proposals; none is pruned or copied into permanent viewer
 assets. The two compact tracked result/input JSON files carry the necessary
@@ -5160,6 +5160,73 @@ dead weight provides a conventional nominal alternative to the old declared
 500-kg/m³ scenario: **580.936 kg/m³**, or **20.111 N** per finished leaf.
 This published approximate weight is not an observed mass or upper bound;
 record any changed mass scenario with the new force inputs and preserve v3.
+
+**Paired 8-in-leaf pilot — one conditional A12-left case.** Parent preparation
+and execution are retained under the same plywood packet's
+`paired-leaf-pilot-v1/`. Geometry and its 96 fitting/shaft alignments are
+unchanged from the clear four-leaf proposal. The input has **150 owners,
+24 wood bodies, 96 shafts and 120 wood receiver walls**. Each leaf has its
+own beam operator, contacts, gravity and recovered actions. The nominal APA
+weight is rounded to **581 kg/m³**, giving **2.050957 kg** per finished leaf.
+Each outer runner seat has **1,572.5775 mm²** actual nominal contact area.
+Interleaf contact is normal only, without glued/composite shear credit.
+
+The case converges in **78.55 s**, gradient **1.781552e-7 N**. Its field SHA
+is `613db9c0e98e1bb11e9ef340410ebb8dfef75c07ef4cf2dd2c0d6c570422ac4d`.
+The matched records are
+`a12-left-attempt01/independent-replay.json` and
+`a12-left-attempt01/independent-replay-plywood.json`: force/load/owner/global
+replay passes, including the deliberately false screw-force rejection and
+separate reconstruction of **all four** plywood stiffness blocks. No older
+production-admission or physical qualification is issued.
+
+`sections.py` reuses the frozen station/net-strip equations with guarded
+intake, member-iteration and own-gravity substitutions. Its
+`sections-attempt01.json` covers **456** two-sided Y/Z station traces:
+
+| Own leaf | Maximum section reference | Governing cut |
+| --- | ---: | --- |
+| Left inner | **0.942924** | Y=-131.25, rear bolt column |
+| Left outer | **1.032486** | Z=342.0875, upper bolt row |
+| Right inner | **0.327154** | Y=-152.416667 |
+| Right outer | **0.540774** | Y=-131.25 |
+
+The equal-half-wrench sizing is replaced by these own actions for this pilot.
+The outer left Z-normal construction still exceeds its reference. Pairing
+addresses the former Y-cut but does not establish a complete cleat pass.
+The following 10-in pilot tests whether width addresses that perpendicular
+section. No six-case batch, current-model change or acceptance follows from
+either pilot.
+
+**Paired 10-in-leaf pilot and sizing decision.** The [two-pilot receipt](../bolted-frame-development/plywood-cleat-paired-pilot-results-v1.json)
+binds both geometries, materials, prepared operators, source snapshots,
+fields, independent replays and station results. The wider proposal remains
+in `paired-leaf-wide-v2/`; each of its four leaves grows 50.8 mm toward
+negative Y, retaining all bolt lines and sawn members. The bound geometry
+reuses the original clear solid results only after exact profile, axis,
+pose, BRep and removal equality checks; it corrects the explicit width-input
+reference without changing frozen bytes. Width-specific EA, EI, shear,
+torsion and mass are recomputed with the same published property definitions.
+
+The second A12-left case converges in **83.93 s**, gradient **1.201936e-7 N**,
+field SHA `af228b7787302962f20e6dc2dacae029fc57366e6951282a7ea317f93d73d01e`.
+Its independent replay also reconstructs all four leaf operators. Across
+**406** station traces, the left inner/outer maxima are **1.113541 / 0.972302**;
+the right inner/outer maxima are **0.297539 / 0.619639**. The left inner
+Y-normal construction now governs: additional interleaf normal transfer
+increases its bending action. Independent component review reproduces all
+**470** wide-pilot strip witnesses and all **520** narrow-pilot witnesses.
+Thus wider leaves do not give a monotonic remedy. Hold further width-only
+and bolt-grade trials; combine the reviewed bilateral upper return and foot
+proposal with the 8-in pair before another governing-case calculation.
+No equal sharing, composite shear transfer, full six-case envelope or
+complete-joint acceptance is claimed. Captured producer snapshots preserve
+each pilot's exact method as the maintained helper advances.
+
+The first preparation stopped at the old 28-body import guard; its source
+snapshot remains in `preparation-attempt01`. The corrected inventory-only
+adapter and successful input remain in `preparation-attempt02`. All raw
+pilot runs stay active and ignored; no viewer mesh, archive or pruning was added.
 
 **Paired pilot: physical shafts, seats and method limits.** The separate
 `paired-leaf-pilot-v1/a12-left-shafts-v1.json` worksheet processes **eight
@@ -6709,24 +6776,32 @@ is **0.881455** in `k12-right` (rounded; the result retains full precision).
 These are named NDS3.4.4.1 components, not whole member/joint acceptance.
 
 The low upper-leg member-shear index does **not** qualify the single upper
-bolt. A separate [24-comparison ordinary-bolt yield screen](../bolted-frame-development/leg-single-pin-yield-references-v1.json)
-uses each actual two-wood stack, own load/grain angles and the same six NDS
-yield modes with the recorded generic Fyb45ksi reference. Four unadjusted
-references are exceeded: left upper **1.206803** in `a12-rear` and **1.113890**
-in `a12-left`; right upper **1.191687** in `k12-rear` and **1.100422** in
-`k12-right`. The largest own lateral force is **2919.316 N**, against an
-unadjusted **2419.050-N** reference. The catalog quarter-thread check stays
-within0.221 of either member using the0.493-in minimum body scenario and
-catalog maximum washer thickness. Geometry/group/axial-seat/couple and
-product-qualified Grade5 Fyb remain separate; these are not measured bolt
-failure loads. Deleting the second upper bolt concentrates its load and is
-not accepted on this unchanged reference basis. Resolve a supported material,
-diameter or load-path detail before accepting that joint.
+bolt. The corrected [own-size product reference](../bolted-frame-development/leg-single-pin-product-references-v2.json)
+reuses the already qualified **92,000-psi Grade5/F606 specified input** and
+all six current force sets. Its 24 unadjusted yield comparisons are below one:
+upper maxima **0.847716 left / 0.836991 right**; foot maxima
+**0.644162 left / 0.478069 right**. Own catalog minimum bodies are **0.493 in
+for the half-inch upper bolts and 0.369 in for the three-eighths-inch feet**.
+Maximum catalog member-thread fraction is **0.207**. The existing source
+receipt and its independent review authenticate all **411** joined sources.
+This is a specified material input, not an observed bending coupon or lot.
 
-The corresponding reproducible worksheet is
-`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/single-pin-yield-screen-v1.py`.
-Run it with a fresh output argument; it reuses the existing NDS functions and
-saved corrected fields without solving or changing the model.
+The [earlier generic45-ksi report](../bolted-frame-development/leg-single-pin-yield-references-v1.json)
+is preserved and superseded. Its twelve foot rows incorrectly used the
+half-inch diameter; its twelve upper rows remain valid for that generic
+sensitivity, including four references above one. The new report recomputes
+all six modes with each shaft's own diameter, load angle, bearing lengths,
+washer window and the existing Grade5 specification. A larger upper bolt is
+not required solely by the generic45-ksi comparison. End/edge/group and
+axial-seat, splitting, simultaneous interaction and complete-joint checks
+remain open. The new component references do not accept the leg connection.
+
+Reproduction uses the existing NDS functions, without a force solve:
+`uv run python -m fea.generated.thin-bolted-current-contact-v1.eoere-successor-v1.single-leg-header-integration-v1.product-reference-correction-v2.worksheet FRESH_OUTPUT.json`.
+The original worksheet/report bytes remain unchanged. Its bound pre-census
+hardware table is preserved under
+`attempt06/shop-draft-before-spacer-count-columns`; the new worksheet
+authenticates that exact alias and the current physical-diameter table.
 
 The foot's governing reaction enters below its retained bolt from the floor;
 deleting the second bore does not remove that load path. A change to the foot
@@ -6736,15 +6811,40 @@ other bolt/group/edge checks, enclosed holes, restraint, panel/Hillman duties
 and physical response retain their separate unresolved conclusions.
 
 Further frame runs are held until the small remedies form one coherent
-package. Current inputs to that review are the four upper single-bolt yield
-reference exceedances, the left-foot CD1 component and the plywood leaf's
+package. Current inputs to that review are the left-foot CD1 component,
+upper-joint geometry/end/edge applicability and the plywood leaf's
 net/load-station construction, maximum **1.843983**. The
 [current plywood result and bounded proposal](#current-shared-header-plywood-results)
 record why widening alone does not resolve that plane. Two independent
 8×24-in leaves per corner remain unadopted; equal sharing, partial runner
 seating and their complete joints need their own evidence.
-Reuse the existing signed-edge foot-placement studies before changing a foot
-axis or runner length, and check a supported bolt material/diameter basis
+The single-pin placement ceiling shows why the old two-pin transverse shift
+cannot inherit a pass. At the retained grain station, the one pin is almost
+centred, and the largest possible minimum of both cubic edge references is
+only **733.900090 N**, below **826.179658 N**. A transverse move improves one
+direction while reducing the other. Reproduce the bound as
+`Vr_best = Vr_negative * ((d/2 - 0.001)/(de_negative - 0.001))^3` from the
+current result's own depths/reference. Its frozen receipt remains in
+`product-reference-correction-v2/single-pin-foot-placement-scope.json`. Review the actual signed
+loaded/unloaded-edge treatment and transported interface actions before
+using a small shift; otherwise change the foot return/section. The
+[AWC correction, pp.1–2](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
+confirms the unloaded-edge definition; it does not supply a whole-foot pass.
+A separate signed-force feasibility calculation in
+`engineering-closure-v1/current-foot-signed-placement-v1.json` bounds the
+left foot's actual saved load directions at **826.180 N one way / 65.277 N
+in reverse**. The sign-insensitive max-min ceiling is therefore insufficient
+to rule out a small directional adjustment. Moving the retained axis **6 mm
+along local section-v**, at the same grain station, gives proposed world
+changes **Y +5.825893 / Z +1.434911 mm**. The two cubic edge references become
+**939.217 / 560.924 N**, and the largest saved signed-force comparison is
+**0.879647**. The loaded/unloaded-edge convention is checked against
+NDS3.4.4.1(a), equation3.4-6 and Figure3E. This is fixed-action feasibility:
+no axis, bore, stock, model or current pass changes. New receiver walls,
+edge/end/net sections, recess/contact/tool clearance and changed response
+must be checked before adoption.
+
+The Grade5 source correction above removes the generic upper-yield issue
 before adding upper holes or enlarging timber. The panel owner's fresh
 upper-corner motion diagnosis remains a separate load-return issue. No
 additional native campaign, model change or source-force transfer is

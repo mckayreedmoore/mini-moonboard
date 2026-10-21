@@ -13,11 +13,15 @@
     },
     "revision": "eoere-single-leg-bolts-header-angles-v3",
     "single_pin_bolt_references": {
-      "path": "docs/bolted-frame-development/leg-single-pin-yield-references-v1.json",
-      "sha256": "665b3fce674d3ce78aa32c6ca8af3f1c0b4c50ecaafa5401ba4ef95ea056dc83"
+      "path": "docs/bolted-frame-development/leg-single-pin-product-references-v2.json",
+      "sha256": "727a8d0ad41088d8e118570049e792aeb73af957f88d67773b77b17221930063"
     },
     "six_case_raw_operator_replay_passes": true,
-    "structural_acceptance": false
+    "structural_acceptance": false,
+    "superseded_single_pin_bolt_references": {
+      "path": "docs/bolted-frame-development/leg-single-pin-yield-references-v1.json",
+      "sha256": "665b3fce674d3ce78aa32c6ca8af3f1c0b4c50ecaafa5401ba4ef95ea056dc83"
+    }
   },
   "current_response": null,
   "engineering_assessment": null,
@@ -524,5 +528,11 @@
     "revision": "eoere-single-leg-bolts-header-angles-v3",
     "shop_planning_only": true
   },
-  "structural_assessment": null
+  "structural_assessment": null,
+  "unadopted_studies": {
+    "paired_leaf_two_width_pilots": {
+      "path": "docs/bolted-frame-development/plywood-cleat-paired-pilot-results-v1.json",
+      "sha256": "8a74a41e4dcc5566930b4a0e594439f5cd811c79ea74803fda169bb8d2d4cab6"
+    }
+  }
 }
