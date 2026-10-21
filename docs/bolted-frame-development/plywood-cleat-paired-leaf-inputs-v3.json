@@ -1,0 +1,139 @@
+{
+  "Y_bounds_mm": [
+    -213.8,
+    -10.6
+  ],
+  "Z_bounds_mm": [
+    139.7,
+    749.3
+  ],
+  "actual_observations": null,
+  "axes": "Retain all 96 current shaft lines, including four cleat lines per corner. Bore each distinct leaf on those lines. Keep the two lower holes at Z = 173.8125 mm and two upper holes at Z = 342.0875 mm, Y = -131.25/-80.45 mm. No new bolt axes or panel screws.",
+  "complete_joint_qualified": false,
+  "counts_if_implemented": {
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolt_stacks": 96,
+    "climbing_panels": 6,
+    "factory_spacers": 24,
+    "plywood_leaves": 4,
+    "sawn_members": 20,
+    "wood_receiver_occurrences": 120
+  },
+  "current_component_results": {
+    "bytes": 22412,
+    "path": "docs/bolted-frame-development/plywood-cleat-current-results-v1.json",
+    "sha256": "9b9b8b81b0c0ce895923a8f1e1eef8d00d83661fe76165cdf966e990a37f85f7"
+  },
+  "engineering_question": "Can two separate factory plywood leaves resolve the single-leaf section references while retaining the current bolt axes, panel policy, angles and sawn members?",
+  "geometry_adopted": false,
+  "leaf_blank_Y_Z_mm": [
+    203.2,
+    609.6
+  ],
+  "leaves_per_corner": 2,
+  "load_sharing": "The preliminary half-whole-wrench sizing is a hypothesis only. Model four distinct plywood bodies, recover each own action and include normal interleaf contact with no glue, frictional interleaf shear or composite-section credit.",
+  "lower_plywood_end_distance": {
+    "centre_to_bottom_mm": 34.1125,
+    "full_geometry_factor_assumed": false,
+    "geometric_ratio_to_seven_D": 0.5116235470566179,
+    "requirement": "Apply the actual load-direction and geometry/group provisions or justify the supported-end transfer explicitly. The net-section sizing result does not qualify dowel yield, local loaded-end transfer, or splitting.",
+    "seven_nominal_diameters_mm": 66.675,
+    "three_and_one_half_nominal_diameters_mm": 33.3375
+  },
+  "material": "APA Rated Sturd-I-Floor 48 oc, 1-1/8 Performance Category, PS 1 plywood, at least five plies; Group 1 for bearing. The prior material table remains frozen; this input supersedes its one-leaf sizing requirement for this proposal only.",
+  "material_basis": {
+    "bytes": 4374,
+    "path": "docs/bolted-frame-development/plywood-cleat-material-basis-v1.json",
+    "sha256": "1ae41e464501aa2b7d84dd7933bd724e81b8fbb1bad508787ff72602564034c4"
+  },
+  "new_response_run": false,
+  "nominal_X_bounds_mm": {
+    "eoere_cleat_left": [
+      -1247.775,
+      -1219.2
+    ],
+    "eoere_cleat_left_outer": [
+      -1276.35,
+      -1247.775
+    ],
+    "eoere_cleat_right": [
+      1216.025,
+      1244.6
+    ],
+    "eoere_cleat_right_outer": [
+      1244.6,
+      1273.175
+    ]
+  },
+  "nominal_leaf_thickness_mm": 28.575,
+  "panel_strength_axis": "world Z",
+  "parent_force_geometry": {
+    "bytes": 412115,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/geometry.json",
+    "sha256": "1a4de5aae5ee5a222dc12b6751c4c16eb9241d790e80d7a08c9ff7f355234374"
+  },
+  "parent_revision": "eoere-single-leg-bolts-header-angles-v3",
+  "per_leaf_operator_reference": {
+    "bytes": 2379,
+    "path": "docs/bolted-frame-development/plywood-cleat-operator-scenario-v1.json",
+    "sha256": "70bb33639b50ad05e4b0eac92000f90243a9910801a3b279ae6f7a99c6fbc9b5"
+  },
+  "physical_sharing_qualified": false,
+  "proposed_analysis_thickness_box_each_leaf_mm": [
+    27.15,
+    30.0
+  ],
+  "proposed_eight_cleat_stacks": {
+    "ASME_B18_2_1_2012_Lb_min_in": 6.44,
+    "ASME_B18_2_1_2012_Lg_max_in": 6.75,
+    "catalog_8_inch_product_matched_for_proposal": true,
+    "catalog_8_inch_product_selected": false,
+    "delivered_hardware_verified": false,
+    "diameter_in": 0.375,
+    "existing_12_7_mm_spacers_each": 2,
+    "head_direction": "Retain the v3 inner-angle head and outward nut directions.",
+    "minimum_material_standard": "SAE J429 Grade 5",
+    "nominal_underhead_length_in": 8,
+    "partially_threaded_full_body": true,
+    "proposed_catalog_product": {
+      "bytes": 1488,
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-catalog-match-v1.json",
+      "sha256": "216ed756ce4f3886ce2df4d6b3cf134defd68c8989befd064db3ea63ff4ed35c"
+    },
+    "proposed_product_url": "https://boltdepot.com/Product-Details?product=373",
+    "proposed_sku": 373,
+    "standard_dimension_window": {
+      "bytes": 5893,
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/paired-leaf-hardware-window-v1.json",
+      "sha256": "f333fe7ea28acc025b66f1b1841128de53b29c973b9ed383786b93541bfcec58"
+    }
+  },
+  "release": false,
+  "required_before_acceptance": [
+    "Use each leaf own justified current actions for the critical Y/Z gross/net sections, group/end transfer and local bore modes.",
+    "Check the four-member steel/wood/plywood/plywood common shafts, axial capture, washers, fittings, partial runner seats and restrained members.",
+    "Reconcile one calculation/model/builder authority after the engineering gates are resolved."
+  ],
+  "required_before_force_trial": [
+    "Compose the four leaves and all changed bolt hardware with the current occupied registry; check panel, wiring and tool access.",
+    "Bind the matched partially threaded product and the declared ASME shank, nut and tip window. Listed dimensions are analytical inputs, not observed delivered parts.",
+    "Provide separate per-leaf operators, density/gravity and contact sets; authenticate physical axes and receiver intervals.",
+    "Coordinate this proposal with the current left-foot and panel/support remedies before serializing another frame campaign."
+  ],
+  "runner_seating": {
+    "current_runner_X_width_mm": 38.1,
+    "nominal_inner_leaf_seat_X_mm": 28.575,
+    "nominal_outer_leaf_seat_X_mm": 9.525,
+    "nominal_outer_overhang_X_mm": 19.05,
+    "outer_leaf_seat_X_mm_over_thickness_box": [
+      8.1,
+      10.95
+    ],
+    "requirement": "Check actual contact footprint, edge compression, eccentricity and the complete return path. Do not assign half of the old runner reaction to the new leaf."
+  },
+  "schema": "eoere_paired_plywood_cleat_development_inputs/v3",
+  "status": "UNADOPTED_GEOMETRY_AND_RESISTANCE_PROPOSAL",
+  "stock_change": "Two additional plywood leaves and eight longer cleat bolts are proposed. Sawn stock, all 96 shaft lines, the 24 angles, the climbing panels, enclosed services and 66 Hillman axes stay fixed in this proposal.",
+  "thickness_is_observed": false
+}

@@ -1,0 +1,2708 @@
+{
+  "NDS_component_basis": "NDS2024 3.4.4.1/Eqs3.4-6/7; dry DF-LNo2 Fv180psi, CD1; geometry guard.001mm, force guard1e-5N. Event-sided cuts of the current point-action/affine-weight model.",
+  "actual_observations": null,
+  "all96_attachment_axes_checked": true,
+  "all_six_raw_operator_and_force_replays_pass": true,
+  "cases": [
+    {
+      "case_id": "a12-forward",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 1.1264145102137948,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 826.1796576449042,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -771.0620373968884
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              38.59445934509341,
+              -269.14790888311023,
+              -2361.8544700149205
+            ],
+            "moment_xyz_nmm": [
+              115983.3550226049,
+              1177.1601389063412,
+              1543.827994264208
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -826.1796476449042
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.053178740264209365,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 33.08888111390851,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -30.34610133787737
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -5.605342802531883,
+              525.3505364090408,
+              -2271.3389974301144
+            ],
+            "moment_xyz_nmm": [
+              35242.68590796739,
+              96556.12773799211,
+              33238.47342811046
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -33.08887111390851
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.7309887273391392,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 826.7000688645206,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            259.7127672642829,
+            534.7856780368586
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              234.66213073335064,
+              -826.7000588645207,
+              15.610257787141563
+            ],
+            "moment_xyz_nmm": [
+              45247.82605059954,
+              23268.717767041297,
+              21417.941803920938
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -826.7000588645207
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.2552840264407847,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 742.3084110736911,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -181.76033820195462,
+            -318.54719183781276
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              12.348154273598993,
+              -742.3084010736911,
+              19.84338957866919
+            ],
+            "moment_xyz_nmm": [
+              -12528.725025215368,
+              11622.93072413357,
+              11308.181677664892
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -742.3084010736911
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.29626925779227586,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 217.3015632824851,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -188.84585130284734
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -8.700133374948777,
+              -30.852091557112548,
+              -783.3714695701772
+            ],
+            "moment_xyz_nmm": [
+              42317.82747456925,
+              29078.105004742454,
+              1252.444512001357
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -217.3015532824851
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.010329098722347798,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 6.426972845530454,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -3.6841930699373506
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -147.1663672641863,
+              161.32124846706313,
+              -681.8556213650639
+            ],
+            "moment_xyz_nmm": [
+              10612.380744220107,
+              -33017.66162475743,
+              -11284.668583189534
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -6.426962845530454
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.19440380357990386,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 219.8578880854189,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            64.86935310349051,
+            127.30398693177801
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -36.19136310622034,
+              -219.8578780854189,
+              -121.76970101311994
+            ],
+            "moment_xyz_nmm": [
+              14867.754918233828,
+              -5033.382397789915,
+              -4810.467268118174
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -219.8578780854189
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.06612344197331879,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 192.27206586434477,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -0.5668855133862457,
+            -51.850710775420225
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              68.92719172478736,
+              -192.27205586434476,
+              -117.53656922159229
+            ],
+            "moment_xyz_nmm": [
+              -605.2292827555455,
+              -4375.996375032996,
+              55.98472647011488
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -192.27205586434476
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.956187329516924e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007538548894007389,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/field.json",
+        "sha256": "0514dcea92065b0a45fa2acd40e0061deccf561fec9ed5dd9ccfbf9bd94a6389"
+      },
+      "gradient_inf_N": 3.4043159402585843e-07,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/replay-plywood.json",
+        "sha256": "51e912c4938c0a8ec95b747fcfb0d89b927c54840b7cca459dc45b2cacaf3f64"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/replay.json",
+        "sha256": "f833bbdcb7cf5141fb39cbd59fb9f1daf77b3ccc460cb39f7eafd12bb0a5493b"
+      }
+    },
+    {
+      "case_id": "a12-rear",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.5930361530651147,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 434.968123606108,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -390.7369180751776
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -20.052451878231906,
+              269.14790844289325,
+              -2911.5643055194696
+            ],
+            "moment_xyz_nmm": [
+              104075.10672209339,
+              20666.489585089497,
+              -3231.9538242133704
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -434.96811360610803
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.03568265695285777,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 22.202466396823095,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -19.459686620539287
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -30.937646334135213,
+              679.2491736666216,
+              -2850.6630989480045
+            ],
+            "moment_xyz_nmm": [
+              44148.631772631896,
+              121383.89763063815,
+              29137.434814977096
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -22.202456396823095
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.3624285287468171,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 409.88277721340734,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            57.663001495257646,
+            352.4382637309774
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              155.75429878385,
+              -409.88276721340736,
+              323.44761347599183
+            ],
+            "moment_xyz_nmm": [
+              14638.167939861622,
+              14028.724774762915,
+              10683.798567196363
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -409.88276721340736
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.11657869970295238,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 338.98458336016824,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -141.4951207223111,
+            -124.92271876298597
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              -32.49311404263054,
+              -338.98457336016827,
+              327.68074526751946
+            ],
+            "moment_xyz_nmm": [
+              -12980.698304179357,
+              6165.634206256285,
+              2353.421482875776
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -338.98457336016827
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.23959872956889655,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 175.7360142047651,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -142.98285963183514
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -3.4201027207246213,
+              30.85209138266043,
+              -860.0930780706728
+            ],
+            "moment_xyz_nmm": [
+              50559.87244965626,
+              37582.181230790324,
+              2969.1805732248026
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -175.7360042047651
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.017235726440653312,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 10.724415438822657,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -7.981635662750307
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -248.2567859512137,
+              174.434885819712,
+              -753.0679164521389
+            ],
+            "moment_xyz_nmm": [
+              11726.585375919844,
+              -38681.9351193678,
+              -14558.462894072887
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -10.724405438822657
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.14005176150423415,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 158.3893110111283,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            49.71825838712773,
+            93.86453605692998
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              4.565634906465934,
+              -158.3893010111283,
+              -118.97260187218014
+            ],
+            "moment_xyz_nmm": [
+              13527.731433380039,
+              -4438.267157912647,
+              -7814.015654640086
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -158.3893010111283
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.053598944036104185,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 155.85364872759524,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -0.7905747111369877,
+            -50.00447880206352
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              111.42889676739966,
+              -155.85363872759524,
+              -114.73947008065247
+            ],
+            "moment_xyz_nmm": [
+              2355.685772770859,
+              -5232.643565115899,
+              -2815.8404016526815
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -155.85363872759524
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.947437798293581e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007525582619405014,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/field.json",
+        "sha256": "cdb30d8a3530c29fd0ad7e1ab27c2ab1f11619255713731412a868e65b8c59ff"
+      },
+      "gradient_inf_N": 5.871167554241473e-07,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/replay-plywood.json",
+        "sha256": "a5a6174bd943b867675bb84d6d192b86b50065285291d9bac2ef4040a18e557c"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/replay.json",
+        "sha256": "5f8643dc7b7b4a32e9b58f4cf4fc07ad18e6e527043afe72ef06885753066225"
+      }
+    },
+    {
+      "case_id": "a12-left",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.8917725335437441,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 654.0792219734994,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -579.2108759851486
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              101.28204577999287,
+              2.1608460695654585,
+              -2743.7688837708224
+            ],
+            "moment_xyz_nmm": [
+              154731.31072087536,
+              -124677.6237977822,
+              1693.066752265433
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -654.0792119734995
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.08492108629758527,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 52.839606854243726,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -50.09682707820821
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              959.2529199873605,
+              597.7973232108375,
+              -2648.067305398169
+            ],
+            "moment_xyz_nmm": [
+              41126.76541404407,
+              139862.89886093256,
+              59835.81180931259
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -52.83959685424372
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.5237121705468216,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 592.2839453793358,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            183.98525046942854,
+            411.65122668924215
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              341.0071133511981,
+              -592.2839353793358,
+              164.06828978214503
+            ],
+            "moment_xyz_nmm": [
+              33886.831105209654,
+              29678.39745779249,
+              54853.981942216014
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -592.2839353793358
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.20318420580182597,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 590.8138753013931,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -130.33106300560542,
+            -266.6215454555005
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              48.43836345468259,
+              -590.8138653013931,
+              168.3014215736727
+            ],
+            "moment_xyz_nmm": [
+              -7897.677967970708,
+              6912.45632464623,
+              41029.178880014464
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -590.8138653013931
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.23652474615523392,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 173.48137122806563,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -145.74665027395358
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -90.55334400112989,
+              -2.160846356835666,
+              -716.6293333994801
+            ],
+            "moment_xyz_nmm": [
+              40387.151609799155,
+              1181.2272356829299,
+              1377.482583282163
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -173.48136122806562
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.00917035919449052,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 5.7059818200047765,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -2.9632020438099858
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -44.849409323987004,
+              154.88907358339623,
+              -652.7255152570718
+            ],
+            "moment_xyz_nmm": [
+              10160.18435726545,
+              64900.012980102285,
+              20808.888062354952
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -5.705971820004777
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.19400631678111402,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 219.4083567155872,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            30.97594843173183,
+            126.0739715133227
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              70.17214107200002
+            ],
+            "force_xyz_n": [
+              -74.57447468014918,
+              -219.4083467155872,
+              -82.65770087564675
+            ],
+            "moment_xyz_nmm": [
+              12211.416322036835,
+              -5762.857674447056,
+              -9444.323802233934
+            ],
+            "station_world_grain_mm": 70.17214107200002,
+            "strong_transverse_shear_n": -219.4083467155872
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.02326427393789713,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 67.64726513599258,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -14.2023083114088,
+            -31.92114482926014
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              129.31340495840055,
+              -67.64725513599258,
+              -43.4570605740023
+            ],
+            "moment_xyz_nmm": [
+              -2120.0961796325996,
+              -2838.9868364285844,
+              35516.161072713294
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -67.64725513599258
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.907645431365844e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.000825232120388745,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/field.json",
+        "sha256": "6b3963e4b38dd3fb199ced0e6504bb1c5e550b2ea7b77b4b1378b5c9b969198b"
+      },
+      "gradient_inf_N": 1.4901161193847656e-07,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/replay-plywood.json",
+        "sha256": "afcf97189ae206d2f9ee63bcdce24949cd4016b445c9b320e78ff5a4ef95c58c"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/replay.json",
+        "sha256": "839c73beb85910513233a5b8cabec6af7d32980076a0e5955acb01a87a4dc9a4"
+      }
+    },
+    {
+      "case_id": "k12-right",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.24654345446061685,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 180.82969009534867,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -152.39964478655088
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              91.02456225606936,
+              -2.160846242982295,
+              -747.3559179204032
+            ],
+            "moment_xyz_nmm": [
+              42116.16874103957,
+              -1016.0863689852504,
+              -1384.8648884762088
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -180.82968009534866
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.010287848574984236,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 6.401306174690514,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -3.6585263984603387
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              44.73485676487934,
+              162.07356663936432,
+              -684.8027903884603
+            ],
+            "moment_xyz_nmm": [
+              10657.790154995975,
+              -64526.71237975365,
+              -20691.195277729756
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -6.401296174690515
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.19706813084539102,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 222.8710666085317,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            31.073170043851796,
+            133.16124284123785
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              490.1377899866098,
+              -222.8710566085317,
+              -35.56704349542386
+            ],
+            "moment_xyz_nmm": [
+              10338.87712091304,
+              8392.040479261757,
+              -8537.49569363052
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -222.8710566085317
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.0239464165739555,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 69.63078217526007,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -20.470140009748913,
+            -33.235628382882204
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              -124.17076289563047,
+              -69.63077217526006,
+              -31.33391170389619
+            ],
+            "moment_xyz_nmm": [
+              -2441.211895315471,
+              2473.637561618016,
+              -35943.937931057764
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -69.63077217526006
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.8814553803323335,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 646.5120057926148,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -572.3695224844034
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -102.58568695224105,
+              2.160845976328929,
+              -2712.126992468447
+            ],
+            "moment_xyz_nmm": [
+              152950.78831876855,
+              123370.31150567232,
+              -1903.8438539510207
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -646.5119957926148
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.08375451729811532,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 52.11374417410403,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -49.37096439736615
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -969.748979050694,
+              590.6781439170285,
+              -2616.127516873894
+            ],
+            "moment_xyz_nmm": [
+              40631.17667580915,
+              -138644.6635766792,
+              -59710.65212209168
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -52.113734174104025
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.5193905353476568,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 587.3964608215892,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            181.73833467997324,
+            406.7789632759433
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -338.28122479089615,
+              -587.3964508215893,
+              155.24340945638
+            ],
+            "moment_xyz_nmm": [
+              33791.01718251937,
+              -29680.375884927154,
+              -55156.21814633162
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -587.3964508215893
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.20165910131029485,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 586.379215179435,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -125.64481431875453,
+            -262.6385875097261
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              -45.359081566563816,
+              -586.3792051794351,
+              159.47654124790773
+            ],
+            "moment_xyz_nmm": [
+              -7649.327415124485,
+              -7108.303843081616,
+              -41325.902130968476
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -586.3792051794351
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 3.380077356521417e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007941940075874713,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/field.json",
+        "sha256": "b7b5470363e62683998560422053eb5967eb0d37cc90f48ce0b7b24c5fd63eef"
+      },
+      "gradient_inf_N": 2.588526393232371e-06,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/replay-plywood.json",
+        "sha256": "1941d2eb702c2afd3000d4968ce97dc7d551d7a87ff68735baf2ac7f59d1eb58"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/replay.json",
+        "sha256": "3b1ce9d9c91f4d60445575005cee2183658923bbd7c3b14bf4c01cf9287d7311"
+      }
+    },
+    {
+      "case_id": "k12-rear",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.2462607438754393,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 180.6223332721218,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -146.85103667589772
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              1.6663967661499726,
+              34.97643645490878,
+              -897.2702327668641
+            ],
+            "moment_xyz_nmm": [
+              52914.20858531381,
+              -39132.25620710009,
+              -2998.9734110870313
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -180.6223232721218
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.01887203170049113,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 11.742557462116817,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -8.999777686089203
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              248.42866894189876,
+              182.64455784101364,
+              -790.6573725624397
+            ],
+            "moment_xyz_nmm": [
+              12310.402153071533,
+              40360.15835153135,
+              15013.19134953574
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -11.742547462116818
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.14474491527530328,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 163.69695858574624,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            50.06404631541722,
+            97.60407508135933
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -1.0692652997129795,
+              -163.69694858574624,
+              -103.22849711963119
+            ],
+            "moment_xyz_nmm": [
+              12682.89372854725,
+              4735.475760075084,
+              7033.426357142843
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -163.69694858574624
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.05250313257880782,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 152.66727599192902,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -0.7496917545336348,
+            -51.56669613599944
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              -110.1528278817931,
+              -152.667265991929,
+              -98.99536532810352
+            ],
+            "moment_xyz_nmm": [
+              1148.4769856137038,
+              5292.984856562365,
+              2058.7097997305973
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -152.667265991929
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.5875697031407088,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 430.9587028412588,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -384.9311143610982
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              22.88347511620897,
+              265.02356338295453,
+              -2878.053852045257
+            ],
+            "moment_xyz_nmm": [
+              106601.88853362373,
+              -20563.85815168596,
+              3202.1093754615977
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -430.9586928412588
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.03856971082280599,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 23.998849346053273,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -21.256069569725355
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              13.578807249959361,
+              668.8930470459536,
+              -2816.127584729856
+            ],
+            "moment_xyz_nmm": [
+              43621.67923454655,
+              -121970.6902956974,
+              -29954.529863557833
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -23.998839346053273
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.3569887154665544,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 403.73070694855784,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            55.569290310319786,
+            348.300193351656
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -151.77744006583916,
+              -403.73069694855786,
+              319.1900703481084
+            ],
+            "moment_xyz_nmm": [
+              14509.251748376748,
+              -13753.743715437655,
+              -10431.204768957277
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -403.73069694855786
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.11597382963243313,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 337.2257575252219,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -138.39650312478096,
+            -121.930748229623
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              30.641220890423668,
+              -337.22574752522195,
+              323.4232021396361
+            ],
+            "moment_xyz_nmm": [
+              -12790.512056534077,
+              -6016.32734331098,
+              -2339.6503904853616
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -337.22574752522195
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 8.472804332517085e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0008485468435212201,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/field.json",
+        "sha256": "7a026fa06e3ced446679494b60de0c20e8584c91774c1bb6cef26bd5f5eee805"
+      },
+      "gradient_inf_N": 4.727300222384656e-07,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/replay-plywood.json",
+        "sha256": "8e836c4b3cac1d10640a73d62d381b39d3cd53b14fe2ff8b380b27829111cf45"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/replay.json",
+        "sha256": "a62fbb1c36b5087d752bea1d8abd9ef46cd5aa84fcab08a1a153c31b59feb6ba"
+      }
+    },
+    {
+      "case_id": "a1-rear",
+      "connection_shear_references": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.08899892716440765,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 65.27712712214455,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            37.52659184127843
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618071,
+            733.4597079081433
+          ],
+          "section_width_depth_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1551.0135684381723,
+              69.00334189123103
+            ],
+            "force_xyz_n": [
+              -4.774075004481887,
+              269.1479085625906,
+              -819.8168724048097
+            ],
+            "moment_xyz_nmm": [
+              -54601.892763029085,
+              -8697.72776346208,
+              -3998.8435366101385
+            ],
+            "station_world_grain_mm": -303.92672067607083,
+            "strong_transverse_shear_n": 65.27711712214455
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.08006728789589194,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 49.81947592473011,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_left",
+          "own_bolt_strong_transverse_forces_N": [
+            52.45941838934948
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1263.65,
+              1139.8006209118535,
+              1738.5721783038346
+            ],
+            "force_xyz_n": [
+              4.642540596119176,
+              228.9768188292065,
+              -721.3532267551336
+            ],
+            "moment_xyz_nmm": [
+              11390.849249396997,
+              29986.21013847427,
+              7879.118170808167
+            ],
+            "station_world_grain_mm": 1415.5372038461676,
+            "strong_transverse_shear_n": 49.81946592473011
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.041343863580680415,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 46.75718460623627,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            -20.163418196071262,
+            -20.007671539540475
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -58.203735845643834,
+              46.75717460623627,
+              -1801.1241761779222
+            ],
+            "moment_xyz_nmm": [
+              -24518.569843239165,
+              -15302.71379705974,
+              630.8832847661139
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": 46.75717460623627
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.01608005806380404,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 46.75718460623627,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_left",
+          "own_bolt_strong_transverse_forces_N": [
+            7.3981498953734715,
+            5.889277813492004
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              -1174.75,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              -75.55234268618744,
+              46.75717460623627,
+              -1796.8910443863945
+            ],
+            "moment_xyz_nmm": [
+              -21221.28824051081,
+              -10288.679515175547,
+              -378.9502050771853
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": 46.75717460623627
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.1510650568073594,
+          "de_positive_negative_mm": [
+            69.86397394146411,
+            69.83602607918965
+          ],
+          "demand_N": 110.80013244105292,
+          "duty": "leg_foot",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -84.39333986872848
+          ],
+          "reference_positive_negative_CD1_N": [
+            734.3406484618072,
+            733.4597079081434
+          ],
+          "section_width_depth_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1552.3425949562923,
+              63.60735115026113
+            ],
+            "force_xyz_n": [
+              -12.656830645234031,
+              30.852091431589347,
+              -588.5673231309937
+            ],
+            "moment_xyz_nmm": [
+              35280.833561295134,
+              25937.238558524383,
+              2259.9853110754293
+            ],
+            "station_world_grain_mm": -309.4839706760707,
+            "strong_transverse_shear_n": -110.80012244105292
+          }
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.0070361813036923125,
+          "de_positive_negative_mm": [
+            84.83990311314551,
+            54.86009690750825
+          ],
+          "demand_N": 4.37805343821719,
+          "duty": "leg_upper",
+          "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+          "member": "lumber_leg_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -1.6352736619676875
+          ],
+          "reference_positive_negative_CD1_N": [
+            2301.3528413463087,
+            622.2201005422869
+          ],
+          "section_width_depth_mm": [
+            88.89999999999986,
+            139.70000002065376
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1260.475,
+              1141.5093009631987,
+              1731.6347533460687
+            ],
+            "force_xyz_n": [
+              -58.475960440494845,
+              116.68644284461493,
+              -492.06606351874336
+            ],
+            "moment_xyz_nmm": [
+              7675.358562484522,
+              -22349.89087350178,
+              -6805.240904154062
+            ],
+            "station_world_grain_mm": 1408.3924538461679,
+            "strong_transverse_shear_n": -4.37804343821719
+          }
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.08751282624201198,
+          "de_positive_negative_mm": [
+            69.527858928,
+            98.10285892799999
+          ],
+          "demand_N": 98.97123823529921,
+          "duty": "post_front",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            42.612420669588616,
+            43.22193074630391
+          ],
+          "reference_positive_negative_CD1_N": [
+            1130.9340868685879,
+            3176.955829565145
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              98.10285892800002
+            ],
+            "force_xyz_n": [
+              -5.521349200434024,
+              -98.97122823529921,
+              -149.7148546476701
+            ],
+            "moment_xyz_nmm": [
+              10011.081719663045,
+              334.6500199417454,
+              -2505.218396221976
+            ],
+            "station_world_grain_mm": 98.10285892800002,
+            "strong_transverse_shear_n": -98.97122823529921
+          }
+        },
+        {
+          "axis_ids": [
+            "cleat_post_bolt_right_1",
+            "cleat_post_bolt_right_2"
+          ],
+          "complete_joint_or_member_qualified": false,
+          "conservative_reference_index_CD1": 0.03403676399408213,
+          "de_positive_negative_mm": [
+            95.25,
+            95.24999999999999
+          ],
+          "demand_N": 98.97123823529921,
+          "duty": "post_cleat",
+          "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+          "member": "base_post_outer_right",
+          "own_bolt_strong_transverse_forces_N": [
+            -0.6219015894232551,
+            -24.698720209713187
+          ],
+          "reference_positive_negative_CD1_N": [
+            2907.77461254857,
+            2907.7746125485683
+          ],
+          "section_width_depth_mm": [
+            79.375,
+            139.7
+          ],
+          "worst_cut": {
+            "cut_xyz_mm": [
+              1171.575,
+              -105.85,
+              168.65212499999998
+            ],
+            "force_xyz_n": [
+              80.9248999491131,
+              -98.97122823529921,
+              -145.48172285614245
+            ],
+            "moment_xyz_nmm": [
+              3027.3314560763183,
+              -792.6351880435865,
+              1831.5524902356192
+            ],
+            "station_world_grain_mm": 168.65212499999998,
+            "strong_transverse_shear_n": -98.97122823529921
+          }
+        }
+      ],
+      "counts": {
+        "bearings": 416,
+        "contacts": 1970,
+        "dofs": 9366,
+        "end_captures": 192,
+        "fitting": 24,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 148,
+        "shaft": 96,
+        "timber": 22
+      },
+      "equilibrium": {
+        "all_bodies": 148,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 5.250403066529998e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.005900570448724269,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/field.json",
+        "sha256": "8f15e5419a147e1ee4a8d6c6582dfd704f5ee625217e7e3f24dd33092b67ef40"
+      },
+      "gradient_inf_N": 3.7240252181378165e-06,
+      "plywood_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/replay-plywood.json",
+        "sha256": "54f85ea500deb8395c72ca8c96626a0825a0ebe29d7ddcf0b5c1071f907824c7"
+      },
+      "raw_operator_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/replay.json",
+        "sha256": "843c3114472aabcd92f422c1a72c4ab5457da6a1e44b4c1a33a20fb21088ce32"
+      }
+    }
+  ],
+  "climbing_released": false,
+  "component_comparisons": 48,
+  "component_reference_exceedances": [
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "band_mm": [
+        -309.4839706760707,
+        -298.3694706760708
+      ],
+      "case_id": "a12-forward",
+      "complete_joint_or_member_qualified": false,
+      "conservative_reference_index_CD1": 1.1264145102137948,
+      "de_positive_negative_mm": [
+        69.86397394146411,
+        69.83602607918965
+      ],
+      "demand_N": 826.1796576449042,
+      "duty": "leg_foot",
+      "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+      "member": "lumber_leg_left",
+      "own_bolt_strong_transverse_forces_N": [
+        -771.0620373968884
+      ],
+      "reference_positive_negative_CD1_N": [
+        734.3406484618071,
+        733.4597079081433
+      ],
+      "section_width_depth_mm": [
+        50.8,
+        139.70000002065376
+      ],
+      "worst_cut": {
+        "cut_xyz_mm": [
+          -1263.65,
+          1552.3425949562923,
+          63.60735115026113
+        ],
+        "force_xyz_n": [
+          38.59445934509341,
+          -269.14790888311023,
+          -2361.8544700149205
+        ],
+        "moment_xyz_nmm": [
+          115983.3550226049,
+          1177.1601389063412,
+          1543.827994264208
+        ],
+        "station_world_grain_mm": -309.4839706760707,
+        "strong_transverse_shear_n": -826.1796476449042
+      }
+    }
+  ],
+  "detailed_component_evidence": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/current-leg-post-shear-details-v2.json",
+    "sha256": "7493c8ab7c5efbe613ec8c06c447d301824e1cb58e2cb21aa00e9678064730d1"
+  },
+  "fabrication_released": false,
+  "geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/geometry.json",
+    "sha256": "1a4de5aae5ee5a222dc12b6751c4c16eb9241d790e80d7a08c9ff7f355234374"
+  },
+  "maximum_full_gradient_residual_N": 3.7240252181378165e-06,
+  "physical_demand_bound_established": false,
+  "production_admission_issued": false,
+  "remaining": [
+    "Complete cleat, fitting/common-shaft/axial-seat and timber-interior transfer",
+    "Bolted wood bearing/group/net/end/splitting and finished-member/shear/torsion/stability coverage",
+    "Enclosed-hole and panel/Hillman attachment duties",
+    "Physical shear/torsion/capture/contact/restraint and no-slip floor assumptions"
+  ],
+  "revision": "eoere-single-leg-bolts-header-angles-v3",
+  "schema": "eoere_leg_header_conditional_results/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf": "1f65975633f111c308944c470b6cc10e9207b6c45e8a0804b8bdec3378bbc71b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py": "5cddc0db7a3976d232e84b9789eccff0e7b0b99ca11bcf24bb0ef3dc28bfa5a7",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mitered-prismatic-connection-shear-attempt02.json": "7de3111e718a831b229ec42621548a50886b5af1f9ddbc0f43556ef0a6a90418",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rail-end-connection-shear-v1.py": "f83fe3a96227f5f3d7ca88f98da43ea57ca2735cce3bb76400f5b25c4bc3cba3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/geometry.json": "1a4de5aae5ee5a222dc12b6751c4c16eb9241d790e80d7a08c9ff7f355234374",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/field.json": "8f15e5419a147e1ee4a8d6c6582dfd704f5ee625217e7e3f24dd33092b67ef40",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/replay-plywood.json": "54f85ea500deb8395c72ca8c96626a0825a0ebe29d7ddcf0b5c1071f907824c7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/replay.json": "843c3114472aabcd92f422c1a72c4ab5457da6a1e44b4c1a33a20fb21088ce32",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/field.json": "0514dcea92065b0a45fa2acd40e0061deccf561fec9ed5dd9ccfbf9bd94a6389",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/replay-plywood.json": "51e912c4938c0a8ec95b747fcfb0d89b927c54840b7cca459dc45b2cacaf3f64",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/replay.json": "f833bbdcb7cf5141fb39cbd59fb9f1daf77b3ccc460cb39f7eafd12bb0a5493b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/field.json": "6b3963e4b38dd3fb199ced0e6504bb1c5e550b2ea7b77b4b1378b5c9b969198b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/replay-plywood.json": "afcf97189ae206d2f9ee63bcdce24949cd4016b445c9b320e78ff5a4ef95c58c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/replay.json": "839c73beb85910513233a5b8cabec6af7d32980076a0e5955acb01a87a4dc9a4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/field.json": "cdb30d8a3530c29fd0ad7e1ab27c2ab1f11619255713731412a868e65b8c59ff",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/replay-plywood.json": "a5a6174bd943b867675bb84d6d192b86b50065285291d9bac2ef4040a18e557c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/replay.json": "5f8643dc7b7b4a32e9b58f4cf4fc07ad18e6e527043afe72ef06885753066225",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/field.json": "7a026fa06e3ced446679494b60de0c20e8584c91774c1bb6cef26bd5f5eee805",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/replay-plywood.json": "8e836c4b3cac1d10640a73d62d381b39d3cd53b14fe2ff8b380b27829111cf45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/replay.json": "a62fbb1c36b5087d752bea1d8abd9ef46cd5aa84fcab08a1a153c31b59feb6ba",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/field.json": "b7b5470363e62683998560422053eb5967eb0d37cc90f48ce0b7b24c5fd63eef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/replay-plywood.json": "1941d2eb702c2afd3000d4968ce97dc7d551d7a87ff68735baf2ac7f59d1eb58",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/replay.json": "3b1ce9d9c91f4d60445575005cee2183658923bbd7c3b14bf4c01cf9287d7311",
+    "scripts/eoere_leg_header_results.py": "11499de1a134cf8cadae566987103591cb6f7b8e28434415b6e1411e7af1a43e",
+    "scripts/thin_bolted_timber_common_shaft_checks.py": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7",
+    "scripts/thin_bolted_timber_demand_checks.py": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+  },
+  "status": "SIX_CONDITIONAL_CASES_REPLAYED_STRENGTH_HOLDS_REMAIN",
+  "structural_acceptance": false,
+  "worst_front_post": {
+    "axis_ids": [
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2"
+    ],
+    "band_mm": [
+      64.61489107199999,
+      103.66010892800001
+    ],
+    "case_id": "a12-forward",
+    "complete_joint_or_member_qualified": false,
+    "conservative_reference_index_CD1": 0.7309887273391392,
+    "de_positive_negative_mm": [
+      69.527858928,
+      98.10285892799999
+    ],
+    "demand_N": 826.7000688645206,
+    "duty": "post_front",
+    "geometry_basis": "retained4x6 post79.375mm full-depth core; all cut actions assigned to that core",
+    "member": "base_post_outer_left",
+    "own_bolt_strong_transverse_forces_N": [
+      259.7127672642829,
+      534.7856780368586
+    ],
+    "reference_positive_negative_CD1_N": [
+      1130.9340868685879,
+      3176.955829565145
+    ],
+    "section_width_depth_mm": [
+      79.375,
+      139.7
+    ],
+    "worst_cut": {
+      "cut_xyz_mm": [
+        -1174.75,
+        -105.85,
+        98.10285892800002
+      ],
+      "force_xyz_n": [
+        234.66213073335064,
+        -826.7000588645207,
+        15.610257787141563
+      ],
+      "moment_xyz_nmm": [
+        45247.82605059954,
+        23268.717767041297,
+        21417.941803920938
+      ],
+      "station_world_grain_mm": 98.10285892800002,
+      "strong_transverse_shear_n": -826.7000588645207
+    }
+  },
+  "worst_leg_foot": {
+    "axis_ids": [
+      "rail_rear_bolt_left_1"
+    ],
+    "band_mm": [
+      -309.4839706760707,
+      -298.3694706760708
+    ],
+    "case_id": "a12-forward",
+    "complete_joint_or_member_qualified": false,
+    "conservative_reference_index_CD1": 1.1264145102137948,
+    "de_positive_negative_mm": [
+      69.86397394146411,
+      69.83602607918965
+    ],
+    "demand_N": 826.1796576449042,
+    "duty": "leg_foot",
+    "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+    "member": "lumber_leg_left",
+    "own_bolt_strong_transverse_forces_N": [
+      -771.0620373968884
+    ],
+    "reference_positive_negative_CD1_N": [
+      734.3406484618071,
+      733.4597079081433
+    ],
+    "section_width_depth_mm": [
+      50.8,
+      139.70000002065376
+    ],
+    "worst_cut": {
+      "cut_xyz_mm": [
+        -1263.65,
+        1552.3425949562923,
+        63.60735115026113
+      ],
+      "force_xyz_n": [
+        38.59445934509341,
+        -269.14790888311023,
+        -2361.8544700149205
+      ],
+      "moment_xyz_nmm": [
+        115983.3550226049,
+        1177.1601389063412,
+        1543.827994264208
+      ],
+      "station_world_grain_mm": -309.4839706760707,
+      "strong_transverse_shear_n": -826.1796476449042
+    }
+  },
+  "worst_leg_upper": {
+    "axis_ids": [
+      "lumber_leg_bolt_left_1"
+    ],
+    "band_mm": [
+      1408.3924538461679,
+      1422.6819538461677
+    ],
+    "case_id": "a12-left",
+    "complete_joint_or_member_qualified": false,
+    "conservative_reference_index_CD1": 0.08492108629758527,
+    "de_positive_negative_mm": [
+      84.83990311314551,
+      54.86009690750825
+    ],
+    "demand_N": 52.839606854243726,
+    "duty": "leg_upper",
+    "geometry_basis": "unchanged full-width prismatic band; removed second bore; retained1:12 recess and sole",
+    "member": "lumber_leg_left",
+    "own_bolt_strong_transverse_forces_N": [
+      -50.09682707820821
+    ],
+    "reference_positive_negative_CD1_N": [
+      2301.3528413463087,
+      622.2201005422869
+    ],
+    "section_width_depth_mm": [
+      88.89999999999986,
+      139.70000002065376
+    ],
+    "worst_cut": {
+      "cut_xyz_mm": [
+        -1263.65,
+        1141.5093009631987,
+        1731.6347533460687
+      ],
+      "force_xyz_n": [
+        959.2529199873605,
+        597.7973232108375,
+        -2648.067305398169
+      ],
+      "moment_xyz_nmm": [
+        41126.76541404407,
+        139862.89886093256,
+        59835.81180931259
+      ],
+      "station_world_grain_mm": 1408.3924538461679,
+      "strong_transverse_shear_n": -52.83959685424372
+    }
+  }
+}

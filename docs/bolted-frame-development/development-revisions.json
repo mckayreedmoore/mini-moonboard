@@ -1,347 +1,528 @@
 {
-  "schema": "bolted_frame_development_revisions/v3",
   "candidate": "compact-bolted-frame-development",
-  "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
-  "geometry": {
-    "revision": "eoere-narrow-channel-openings-v1",
-    "viewer": "eoere-narrow-channels-frame-development",
-    "receipt": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
-      "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
+  "climbing_released": false,
+  "conditional_response_study": {
+    "plywood_component_references": {
+      "path": "docs/bolted-frame-development/plywood-cleat-current-results-v1.json",
+      "sha256": "9b9b8b81b0c0ce895923a8f1e1eef8d00d83661fe76165cdf966e990a37f85f7"
     },
+    "production_admission_issued": false,
+    "result": {
+      "path": "docs/bolted-frame-development/leg-header-current-results-v1.json",
+      "sha256": "0a4cf124369fd7df4e0dd355749d54dcca886917e8132367597fbc1ad0bd778f"
+    },
+    "revision": "eoere-single-leg-bolts-header-angles-v3",
+    "single_pin_bolt_references": {
+      "path": "docs/bolted-frame-development/leg-single-pin-yield-references-v1.json",
+      "sha256": "665b3fce674d3ce78aa32c6ca8af3f1c0b4c50ecaafa5401ba4ef95ea056dc83"
+    },
+    "six_case_raw_operator_replay_passes": true,
+    "structural_acceptance": false
+  },
+  "current_response": null,
+  "engineering_assessment": null,
+  "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+  "fabrication_released": false,
+  "geometry": {
+    "receipt": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/geometry.json",
+      "sha256": "91f07bdd4a5de13dc0be05bfd140c2416433d97b87e81a67ae2be189497fe078"
+    },
+    "revision": "eoere-single-leg-bolts-header-angles-v3",
     "scene": {
-      "path": "site/eoere-narrow-channels-scene.json.gz",
-      "sha256": "fc395796714b602882c332777d7d82de563050f417f35caa9d2405f4472589e2",
-      "decoded_sha256": "bc1830ee2082c86f7783a8e07d77a903d80872a05cd337df2eebd65c1e247594"
+      "decoded_sha256": "f41fcde19eb43783a6d5a031c8f82f3623e603296ad11a076a51c53b028b066f",
+      "path": "site/eoere-leg-header-v3-scene.json.gz",
+      "sha256": "ccf77c5d70fa6e38585d523c45c95a5e2e23e2ed3a16ab2daeed2b949a7c6d8d"
+    },
+    "viewer": "eoere-leg-header-frame-development"
+  },
+  "geometry_registry_check": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/clearance-reuse-v1.json",
+    "sha256": "008b232ebffe6900b7fa25c04b2684efd34f537e108a240d628e0d8f547b4c6b"
+  },
+  "hardware_model": {
+    "actual_parts_verified": false,
+    "analysis_pass_transferred": false,
+    "receipt": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/geometry.json",
+      "sha256": "91f07bdd4a5de13dc0be05bfd140c2416433d97b87e81a67ae2be189497fe078"
+    },
+    "revision": "eoere-single-leg-bolts-header-angles-v3",
+    "scene": {
+      "decoded_sha256": "f41fcde19eb43783a6d5a031c8f82f3623e603296ad11a076a51c53b028b066f",
+      "path": "site/eoere-leg-header-v3-scene.json.gz",
+      "sha256": "ccf77c5d70fa6e38585d523c45c95a5e2e23e2ed3a16ab2daeed2b949a7c6d8d"
+    },
+    "viewers": {
+      "base": "eoere-leg-header-frame-development"
     }
   },
   "optional_grid": {
-    "revision": "eoere-narrow-channel-openings-v1",
-    "viewer": "eoere-narrow-channels-grid-development",
+    "applies_to_current_geometry": false,
     "default_enabled": false,
     "official": false,
     "receipt": {
       "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
       "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
-    }
-  },
-  "hardware_model": {
-    "revision": "eoere-4x6-front-posts-v1",
-    "receipt": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
-      "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
     },
-    "scene": {
-      "path": "site/eoere-front-posts-4x6-scene.json.gz",
-      "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17",
-      "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d"
-    },
-    "viewers": {
-      "base": "eoere-4x6-front-posts-frame-development",
-      "extra": "eoere-4x6-front-posts-grid-development"
-    },
-    "shop_override": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv",
-      "sha256": "33892f1702e219204c8660821e65207dbfbf3e39747d39930fb03f014d00844e"
-    },
-    "analysis_pass_transferred": false,
-    "actual_parts_verified": false
-  },
-  "shop": {
     "revision": "eoere-narrow-channel-openings-v1",
-    "geometry": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
-      "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
-    },
-    "result": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
-      "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
-    },
-    "packet": "docs/bolted-frame-development/builder-plan.md",
-    "overrides": [
-      {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/service-channel-datums.csv",
-        "sha256": "4fc11bd283dfe062236521de45aab7628ac2f4f4e7f180fad700ec106b3bf10b"
-      }
-    ],
-    "shop_planning_only": true,
-    "affected_installation_qualified": false,
-    "channel_profile": {
-      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/channel-profile.svg",
-      "sha256": "199405d4ec67722a4ce31352ff7cd3343acd5720f71f11f5e79b121323d10d96"
-    }
-  },
-  "selected_baseline": {
-    "authority": "current-candidate.json",
-    "candidate": "compact-floor-flush-development"
+    "scope": "Preserved notched predecessor only; no expanded-grid variant of the combined leg/header/plywood geometry.",
+    "viewer": "eoere-narrow-channels-grid-development"
   },
   "preceding_revision": {
-    "schema": "bolted_frame_development_revisions/v2",
     "candidate": "compact-bolted-frame-development",
+    "climbing_released": false,
+    "current_response": null,
+    "engineering_assessment": null,
     "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+    "fabrication_released": false,
     "geometry": {
-      "revision": "eoere-4x6-front-posts-v1",
-      "viewer": "eoere-4x6-front-posts-frame-development",
       "receipt": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
-        "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json",
+        "sha256": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d"
       },
+      "revision": "eoere-centred-enclosed-passages-v1",
       "scene": {
-        "path": "site/eoere-front-posts-4x6-scene.json.gz",
-        "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17",
-        "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d"
-      }
-    },
-    "optional_grid": {
-      "revision": "eoere-4x6-front-posts-v1",
-      "viewer": "eoere-4x6-front-posts-grid-development",
-      "default_enabled": false,
-      "official": false,
-      "receipt": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
-        "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+        "decoded_sha256": "10064520ab41f03d880eeab2883b5d37af8ce97ad284ff2a1c2b2371c07d3eaa",
+        "path": "site/eoere-enclosed-passages-scene.json.gz",
+        "sha256": "cc08754c811405ba66ccb375c24bf26c9ea1d2b5d7edabd2a8c1497a63821ce8"
       },
-      "inherited_grid_revision": "eoere-expanded-right-column-v1",
-      "inherited_grid_receipt": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
-        "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
-      }
+      "viewer": "eoere-enclosed-passages-frame-development"
+    },
+    "geometry_registry_check": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/registry-followup.json",
+      "sha256": "717eb03f63c871b2a6c9384de3784d0418d01f10d99a333049155c4997f00ff8"
     },
     "hardware_model": {
-      "revision": "eoere-4x6-front-posts-v1",
+      "actual_parts_verified": false,
+      "analysis_pass_transferred": false,
       "receipt": {
         "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
         "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
       },
+      "revision": "eoere-4x6-front-posts-v1",
       "scene": {
+        "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d",
         "path": "site/eoere-front-posts-4x6-scene.json.gz",
-        "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17",
-        "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d"
-      },
-      "viewers": {
-        "base": "eoere-4x6-front-posts-frame-development",
-        "extra": "eoere-4x6-front-posts-grid-development"
+        "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17"
       },
       "shop_override": {
         "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv",
         "sha256": "33892f1702e219204c8660821e65207dbfbf3e39747d39930fb03f014d00844e"
       },
-      "analysis_pass_transferred": false,
-      "actual_parts_verified": false
+      "viewers": {
+        "base": "eoere-4x6-front-posts-frame-development",
+        "extra": "eoere-4x6-front-posts-grid-development"
+      }
     },
-    "shop": {
-      "revision": "eoere-4x6-front-posts-v1",
+    "optional_grid": {
+      "applies_to_current_geometry": false,
+      "default_enabled": false,
+      "official": false,
+      "receipt": {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+        "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
+      },
+      "revision": "eoere-narrow-channel-openings-v1",
+      "scope": "Preserved notched predecessor; no enclosed-passage expanded-grid variant",
+      "viewer": "eoere-narrow-channels-grid-development"
+    },
+    "preceding_revision": {
+      "candidate": "compact-bolted-frame-development",
+      "climbing_released": false,
+      "current_response": null,
+      "engineering_assessment": null,
+      "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+      "fabrication_released": false,
       "geometry": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
-        "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+        "receipt": {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+          "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
+        },
+        "revision": "eoere-narrow-channel-openings-v1",
+        "scene": {
+          "decoded_sha256": "bc1830ee2082c86f7783a8e07d77a903d80872a05cd337df2eebd65c1e247594",
+          "path": "site/eoere-narrow-channels-scene.json.gz",
+          "sha256": "fc395796714b602882c332777d7d82de563050f417f35caa9d2405f4472589e2"
+        },
+        "viewer": "eoere-narrow-channels-frame-development"
       },
-      "packet": "docs/bolted-frame-development/builder-plan.md",
-      "result": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
-        "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
-      },
-      "overrides": [
-        {
+      "hardware_model": {
+        "actual_parts_verified": false,
+        "analysis_pass_transferred": false,
+        "receipt": {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+          "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+        },
+        "revision": "eoere-4x6-front-posts-v1",
+        "scene": {
+          "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d",
+          "path": "site/eoere-front-posts-4x6-scene.json.gz",
+          "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17"
+        },
+        "shop_override": {
           "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv",
           "sha256": "33892f1702e219204c8660821e65207dbfbf3e39747d39930fb03f014d00844e"
         },
-        {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/receiver-holes.csv",
-          "sha256": "aa8f4f496ebf1436223cdf4f92c5957462663db9a5d07c29c282876c9ba01bee"
-        },
-        {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/panel-screw-datums.csv",
-          "sha256": "625b3536d74277d4468584b1b87a21978b894fd90a2de668539f66b71b58e688"
-        }
-      ],
-      "shop_planning_only": true,
-      "affected_installation_qualified": false
-    },
-    "selected_baseline": {
-      "authority": "current-candidate.json",
-      "candidate": "compact-floor-flush-development"
-    },
-    "preceding_revision": {
-      "schema": "bolted_frame_development_revisions/v1",
-      "candidate": "compact-bolted-frame-development",
-      "geometry": {
-        "revision": "eoere-raised-kicker-screws-v1",
-        "viewer": "eoere-selected-hardware-frame-development",
-        "receipt": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
-          "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
-        },
-        "scene": {
-          "path": "site/eoere-kicker-clearance-scene.json.gz",
-          "sha256": "0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52",
-          "decoded_sha256": "2827864558af2b5fe9decf559c1de618391a97fe493566996263ad8453ac4003"
+        "viewers": {
+          "base": "eoere-4x6-front-posts-frame-development",
+          "extra": "eoere-4x6-front-posts-grid-development"
         }
       },
       "optional_grid": {
-        "revision": "eoere-expanded-right-column-v1",
-        "viewer": "eoere-selected-hardware-grid-development",
         "default_enabled": false,
         "official": false,
         "receipt": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
-          "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+          "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
         },
-        "scene": {
-          "path": "site/eoere-right-column-scene.json.gz",
-          "sha256": "220e8dda8aa8a7aed1b6a85aeb8237755664931b0f3a080474d9478da3970492",
-          "decoded_sha256": "f584be56983e8bafe3cd68a3a20b0b88d745964b08a6b2bf3b4eeb631f1474ec"
-        }
+        "revision": "eoere-narrow-channel-openings-v1",
+        "viewer": "eoere-narrow-channels-grid-development"
       },
-      "preserved_optional_grids": [
-        {
-          "revision": "eoere-2026-horizontal-midpoint-grid-v3",
-          "viewer": "eoere-kicker-clearance-2026-development",
+      "preceding_revision": {
+        "candidate": "compact-bolted-frame-development",
+        "climbing_released": false,
+        "current_response": null,
+        "engineering_assessment": null,
+        "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+        "fabrication_released": false,
+        "geometry": {
+          "receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+            "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+          },
+          "revision": "eoere-4x6-front-posts-v1",
+          "scene": {
+            "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d",
+            "path": "site/eoere-front-posts-4x6-scene.json.gz",
+            "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17"
+          },
+          "viewer": "eoere-4x6-front-posts-frame-development"
+        },
+        "hardware_model": {
+          "actual_parts_verified": false,
+          "analysis_pass_transferred": false,
+          "receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+            "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+          },
+          "revision": "eoere-4x6-front-posts-v1",
+          "scene": {
+            "decoded_sha256": "bcf0ddf57763373de8ca621bc321e35238644f226ac0cff58c99383c512b441d",
+            "path": "site/eoere-front-posts-4x6-scene.json.gz",
+            "sha256": "54e081aa13170f32badd4b0142a34f8851dc584268b09c9ea25e01bc89c68b17"
+          },
+          "shop_override": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv",
+            "sha256": "33892f1702e219204c8660821e65207dbfbf3e39747d39930fb03f014d00844e"
+          },
+          "viewers": {
+            "base": "eoere-4x6-front-posts-frame-development",
+            "extra": "eoere-4x6-front-posts-grid-development"
+          }
+        },
+        "optional_grid": {
           "default_enabled": false,
+          "inherited_grid_receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
+            "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+          },
+          "inherited_grid_revision": "eoere-expanded-right-column-v1",
           "official": false,
           "receipt": {
-            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json",
-            "sha256": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134"
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+            "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+          },
+          "revision": "eoere-4x6-front-posts-v1",
+          "viewer": "eoere-4x6-front-posts-grid-development"
+        },
+        "preceding_revision": {
+          "candidate": "compact-bolted-frame-development",
+          "climbing_released": false,
+          "current_response": {
+            "applies_to_current_geometry": true,
+            "applies_to_current_hardware": true,
+            "cases": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+              "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+            },
+            "components": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json",
+              "sha256": "20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf"
+            },
+            "geometry": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+              "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+            },
+            "hardware_model": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+              "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+            },
+            "hardware_revision": "eoere-selected-purchase-hardware-v1",
+            "revision": "eoere-raised-kicker-screws-v1"
+          },
+          "engineering_assessment": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/engineering-assessment.json",
+            "sha256": "b665c4b9a713a33127ed968cea9ca8cc30acedefdcf28e82ebc3c104a58440b2"
+          },
+          "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+          "fabrication_released": false,
+          "geometry": {
+            "receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+              "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+            },
+            "revision": "eoere-raised-kicker-screws-v1",
+            "scene": {
+              "decoded_sha256": "2827864558af2b5fe9decf559c1de618391a97fe493566996263ad8453ac4003",
+              "path": "site/eoere-kicker-clearance-scene.json.gz",
+              "sha256": "0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52"
+            },
+            "viewer": "eoere-selected-hardware-frame-development"
+          },
+          "hardware_model": {
+            "actual_parts_verified": false,
+            "analysis_pass_transferred": false,
+            "optional_grid_geometry": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
+              "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+            },
+            "receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+              "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+            },
+            "revision": "eoere-selected-purchase-hardware-v1",
+            "scene": {
+              "decoded_sha256": "960caea3fc342224eefa9d5acdaf68a4ee56f6a3f85ab756d29712f8cb7e6baa",
+              "path": "site/eoere-selected-hardware-scene.json.gz",
+              "sha256": "41830cf651f8b0a321a89336f654af5d90a4f42a1d705a7411b5e088de3b2811"
+            },
+            "shop_override": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
+              "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
+            },
+            "viewers": {
+              "base": "eoere-selected-hardware-frame-development",
+              "extra": "eoere-selected-hardware-grid-development"
+            },
+            "wood_screw_geometry": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+              "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+            }
+          },
+          "optional_grid": {
+            "default_enabled": false,
+            "official": false,
+            "receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
+              "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+            },
+            "revision": "eoere-expanded-right-column-v1",
+            "scene": {
+              "decoded_sha256": "f584be56983e8bafe3cd68a3a20b0b88d745964b08a6b2bf3b4eeb631f1474ec",
+              "path": "site/eoere-right-column-scene.json.gz",
+              "sha256": "220e8dda8aa8a7aed1b6a85aeb8237755664931b0f3a080474d9478da3970492"
+            },
+            "viewer": "eoere-selected-hardware-grid-development"
+          },
+          "preserved_optional_grids": [
+            {
+              "default_enabled": false,
+              "official": false,
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json",
+                "sha256": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134"
+              },
+              "revision": "eoere-2026-horizontal-midpoint-grid-v3",
+              "viewer": "eoere-kicker-clearance-2026-development"
+            }
+          ],
+          "reference_corrections": {
+            "panel_size": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/panel-size-correction.json",
+              "sha256": "f17ef1a7f26a779be4e4afce87bfff1025ce86c5af0def97edfd4e87bf597a64"
+            }
+          },
+          "response": {
+            "applies_to_current_geometry": false,
+            "cases": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json",
+              "sha256": "99fa0df8393bf5de70a7296fe2beccf0ca2df8270eb3d4b9f8b7c5f424ab7b91"
+            },
+            "components": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json",
+              "sha256": "0bd6001b81b2823bbc4e36145614f5b9cc857d47d59eec2b93a2d5e29bbdfd9f"
+            },
+            "geometry": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+              "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+            },
+            "revision": "eoere-base-side-edge-cleats-v1"
+          },
+          "schema": "bolted_frame_development_revisions/v1",
+          "selected_baseline": {
+            "authority": "current-candidate.json",
+            "candidate": "compact-floor-flush-development"
+          },
+          "shop": {
+            "current_channel_drawings_complete": true,
+            "geometry": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+              "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+            },
+            "hardware_model_updated": true,
+            "overrides": [
+              {
+                "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
+                "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
+              }
+            ],
+            "packet": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md",
+            "result": {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/result.json",
+              "sha256": "c316386f4e994ad97d0718404252d9f8195f10d6d547ffe3aae22f078ff44f07"
+            },
+            "revision": "eoere-raised-kicker-screws-v1",
+            "screw_datums": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/panel-screw-datums.csv",
+              "sha256": "58a27f062d09b598795d8f2dcd9ab6f37b5fea5b760881c782a4d009b2318c04"
+            },
+            "shop_planning_only": true
+          },
+          "structural_assessment": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/structural-assessment.json",
+            "sha256": "399940c85b7cfda17cc971e9e5eeeedb7699c1099091652c99fede5194fc1261"
+          },
+          "unadopted_proposal": {
+            "adopted": false,
+            "cases": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/result-v1.json",
+              "sha256": "b37923501498fe35f500105df8b1ee601d7f4d4a553d80a109692565bac3400a"
+            },
+            "receipt": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json",
+              "sha256": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319"
+            },
+            "revision": "eoere-lower-cleat-z180-proposal-v1",
+            "shop_packet": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/z180-proposal-v1/README.md",
+            "viewer": "eoere-lower-cleat-z180-development"
           }
-        }
-      ],
-      "shop": {
-        "revision": "eoere-raised-kicker-screws-v1",
-        "geometry": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
-          "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
         },
-        "packet": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md",
-        "result": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/result.json",
-          "sha256": "c316386f4e994ad97d0718404252d9f8195f10d6d547ffe3aae22f078ff44f07"
+        "schema": "bolted_frame_development_revisions/v2",
+        "selected_baseline": {
+          "authority": "current-candidate.json",
+          "candidate": "compact-floor-flush-development"
         },
-        "screw_datums": {
-          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/panel-screw-datums.csv",
-          "sha256": "58a27f062d09b598795d8f2dcd9ab6f37b5fea5b760881c782a4d009b2318c04"
+        "shop": {
+          "affected_installation_qualified": false,
+          "geometry": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+            "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+          },
+          "overrides": [
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/hardware-selection.csv",
+              "sha256": "33892f1702e219204c8660821e65207dbfbf3e39747d39930fb03f014d00844e"
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/receiver-holes.csv",
+              "sha256": "aa8f4f496ebf1436223cdf4f92c5957462663db9a5d07c29c282876c9ba01bee"
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/front-posts-4x6-v1/panel-screw-datums.csv",
+              "sha256": "625b3536d74277d4468584b1b87a21978b894fd90a2de668539f66b71b58e688"
+            }
+          ],
+          "packet": "docs/bolted-frame-development/builder-plan.md",
+          "result": {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-front-posts-4x6-v1.json",
+            "sha256": "96bb5105b4a193bab5f802d659b1fd057179cdfa90c320489e283414a2331c61"
+          },
+          "revision": "eoere-4x6-front-posts-v1",
+          "shop_planning_only": true
         },
-        "overrides": [
-          {
-            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
-            "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
-          }
-        ],
-        "current_channel_drawings_complete": true,
-        "shop_planning_only": true,
-        "hardware_model_updated": true
+        "structural_assessment": null
       },
-      "response": {
-        "revision": "eoere-base-side-edge-cleats-v1",
-        "geometry": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
-          "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
-        },
-        "cases": {
-          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json",
-          "sha256": "99fa0df8393bf5de70a7296fe2beccf0ca2df8270eb3d4b9f8b7c5f424ab7b91"
-        },
-        "components": {
-          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json",
-          "sha256": "0bd6001b81b2823bbc4e36145614f5b9cc857d47d59eec2b93a2d5e29bbdfd9f"
-        },
-        "applies_to_current_geometry": false
-      },
-      "unadopted_proposal": {
-        "revision": "eoere-lower-cleat-z180-proposal-v1",
-        "viewer": "eoere-lower-cleat-z180-development",
-        "adopted": false,
-        "shop_packet": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/z180-proposal-v1/README.md",
-        "cases": {
-          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/result-v1.json",
-          "sha256": "b37923501498fe35f500105df8b1ee601d7f4d4a553d80a109692565bac3400a"
-        },
-        "receipt": {
-          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json",
-          "sha256": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319"
-        }
-      },
+      "schema": "bolted_frame_development_revisions/v3",
       "selected_baseline": {
         "authority": "current-candidate.json",
         "candidate": "compact-floor-flush-development"
       },
-      "fabrication_released": false,
-      "climbing_released": false,
-      "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
-      "hardware_model": {
-        "revision": "eoere-selected-purchase-hardware-v1",
-        "viewers": {
-          "base": "eoere-selected-hardware-frame-development",
-          "extra": "eoere-selected-hardware-grid-development"
+      "shop": {
+        "affected_installation_qualified": false,
+        "channel_profile": {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/channel-profile.svg",
+          "sha256": "199405d4ec67722a4ce31352ff7cd3343acd5720f71f11f5e79b121323d10d96"
         },
-        "receipt": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
-          "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
-        },
-        "scene": {
-          "path": "site/eoere-selected-hardware-scene.json.gz",
-          "sha256": "41830cf651f8b0a321a89336f654af5d90a4f42a1d705a7411b5e088de3b2811",
-          "decoded_sha256": "960caea3fc342224eefa9d5acdaf68a4ee56f6a3f85ab756d29712f8cb7e6baa"
-        },
-        "wood_screw_geometry": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
-          "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
-        },
-        "optional_grid_geometry": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
-          "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
-        },
-        "shop_override": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
-          "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
-        },
-        "analysis_pass_transferred": false,
-        "actual_parts_verified": false
-      },
-      "structural_assessment": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/structural-assessment.json",
-        "sha256": "399940c85b7cfda17cc971e9e5eeeedb7699c1099091652c99fede5194fc1261"
-      },
-      "current_response": {
-        "revision": "eoere-raised-kicker-screws-v1",
-        "hardware_revision": "eoere-selected-purchase-hardware-v1",
         "geometry": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
-          "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+          "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
         },
-        "hardware_model": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
-          "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+        "overrides": [
+          {
+            "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/narrow-channels-v1/service-channel-datums.csv",
+            "sha256": "4fc11bd283dfe062236521de45aab7628ac2f4f4e7f180fad700ec106b3bf10b"
+          }
+        ],
+        "packet": "docs/bolted-frame-development/builder-plan.md",
+        "result": {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-narrow-channels-v1.json",
+          "sha256": "871836782314f30ef4ed7c48dcf6d154927db19a371eea4a0e2bb01264a73932"
         },
-        "cases": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
-          "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
-        },
-        "components": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json",
-          "sha256": "20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf"
-        },
-        "applies_to_current_geometry": true,
-        "applies_to_current_hardware": true
+        "revision": "eoere-narrow-channel-openings-v1",
+        "shop_planning_only": true
       },
-      "engineering_assessment": {
-        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/engineering-assessment.json",
-        "sha256": "b665c4b9a713a33127ed968cea9ca8cc30acedefdcf28e82ebc3c104a58440b2"
-      },
-      "reference_corrections": {
-        "panel_size": {
-          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/panel-size-correction.json",
-          "sha256": "f17ef1a7f26a779be4e4afce87bfff1025ce86c5af0def97edfd4e87bf597a64"
-        }
-      }
+      "structural_assessment": null
     },
-    "current_response": null,
-    "structural_assessment": null,
-    "engineering_assessment": null,
-    "fabrication_released": false,
-    "climbing_released": false
+    "schema": "bolted_frame_development_revisions/v4",
+    "selected_baseline": {
+      "authority": "current-candidate.json",
+      "candidate": "compact-floor-flush-development"
+    },
+    "shop": {
+      "affected_installation_qualified": false,
+      "geometry": {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json",
+        "sha256": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d"
+      },
+      "overrides": [
+        {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/passage-datums.csv",
+          "sha256": "4ce93171eae595e3285bce3eb5a2714f22ae1a5d8c013de0ac56011b334113c5"
+        }
+      ],
+      "packet": "docs/bolted-frame-development/builder-plan.md",
+      "passage_profile": {
+        "path": "docs/bolted-frame-development/enclosed-passage-study.svg",
+        "sha256": "d148c8f3e6fde255d89c45312bfb7907aec58f25f69a6d8901980a47b2562bd8"
+      },
+      "result": {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json",
+        "sha256": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d"
+      },
+      "revision": "eoere-centred-enclosed-passages-v1",
+      "shop_planning_only": true
+    },
+    "structural_assessment": null
   },
-  "current_response": null,
-  "structural_assessment": null,
-  "engineering_assessment": null,
-  "fabrication_released": false,
-  "climbing_released": false
+  "schema": "bolted_frame_development_revisions/v5",
+  "selected_baseline": {
+    "authority": "current-candidate.json",
+    "candidate": "compact-floor-flush-development"
+  },
+  "shop": {
+    "affected_installation_qualified": false,
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/geometry.json",
+      "sha256": "91f07bdd4a5de13dc0be05bfd140c2416433d97b87e81a67ae2be189497fe078"
+    },
+    "packet": "docs/bolted-frame-development/builder-plan.md",
+    "result": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/geometry.json",
+      "sha256": "91f07bdd4a5de13dc0be05bfd140c2416433d97b87e81a67ae2be189497fe078"
+    },
+    "revision": "eoere-single-leg-bolts-header-angles-v3",
+    "shop_planning_only": true
+  },
+  "structural_assessment": null
 }

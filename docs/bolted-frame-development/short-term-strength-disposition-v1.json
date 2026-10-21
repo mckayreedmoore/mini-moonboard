@@ -1,0 +1,1114 @@
+{
+  "actual_observations": null,
+  "all_sources_unchanged": true,
+  "any_hold_cleared": false,
+  "authenticated_source_count": 105,
+  "conditional_CD": 1.6,
+  "current_geometry": "eoere-narrow-channel-openings-v1",
+  "current_geometry_foot_bounds_reused": [
+    {
+      "Ry_N": -0.0,
+      "Rz_upper_N": 1990.6017615870408,
+      "below_pair_shear_upper_N": 538.0916318938973,
+      "combination": "permanent",
+      "conditional_sufficient_ratios": {
+        "0.9": 0.81515
+      },
+      "side": "left"
+    },
+    {
+      "Ry_N": 0.0,
+      "Rz_upper_N": 1993.0194589086059,
+      "below_pair_shear_upper_N": 538.0916318938973,
+      "combination": "permanent",
+      "conditional_sufficient_ratios": {
+        "0.9": 0.81515
+      },
+      "side": "right"
+    },
+    {
+      "Ry_N": -0.0,
+      "Rz_upper_N": 3001.4920789550392,
+      "below_pair_shear_upper_N": 717.8123392740457,
+      "combination": "vertical_hang_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 0.978667
+      },
+      "side": "left"
+    },
+    {
+      "Ry_N": 0.0,
+      "Rz_upper_N": 2137.996698557603,
+      "below_pair_shear_upper_N": 538.0916318938973,
+      "combination": "vertical_hang_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 0.733635
+      },
+      "side": "right"
+    },
+    {
+      "Ry_N": 269.14790855604014,
+      "Rz_upper_N": 3001.4920789550392,
+      "below_pair_shear_upper_N": 979.1501632912905,
+      "combination": "normal_combined_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 1.334975
+      },
+      "side": "left"
+    },
+    {
+      "Ry_N": 30.852091443959864,
+      "Rz_upper_N": 2137.996698557603,
+      "below_pair_shear_upper_N": 568.0484630192142,
+      "combination": "normal_combined_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 0.774479
+      },
+      "side": "right"
+    },
+    {
+      "Ry_N": 269.14790855604014,
+      "Rz_upper_N": 4012.382396323038,
+      "below_pair_shear_upper_N": 1220.9064345932386,
+      "combination": "peak_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 1.664586,
+        "1.15": 1.447466,
+        "1.25": 1.331669,
+        "1.6": 1.040366
+      },
+      "side": "left"
+    },
+    {
+      "Ry_N": 30.852091443959864,
+      "Rz_upper_N": 2282.9739382065995,
+      "below_pair_shear_upper_N": 575.9342407480224,
+      "combination": "peak_at_A12",
+      "conditional_sufficient_ratios": {
+        "1.0": 0.78523,
+        "1.15": 0.682809,
+        "1.25": 0.628184,
+        "1.6": 0.490769
+      },
+      "side": "right"
+    }
+  ],
+  "frame_or_native_solve": false,
+  "geometry_hardware_or_criteria_changed": false,
+  "limits": [
+    "Single-event strength sensitivity only; no wear/fatigue/lifetime prediction or adopted duration classification.",
+    "All source actions are predecessor-model results, not revised-frame force uppers or measured catch histories.",
+    "Apply conditional 1.6 once to eligible strength references only; no force reduction, metal, E/Emin, deformation bearing or notch-permission credit.",
+    "The withdrawal proxy favorably treats all gross penetration as effective thread; it supplies no Hillman product, steel, splitting or combined lateral capacity.",
+    "Panel rows retain sampled plate-method, hold-footprint, Cs interval and local/net-section limits; head references remain generic plywood pull-through.",
+    "Failed reference comparisons are not measured breaking loads; below-reference component ratios are not complete-joint passes.",
+    "Current foot sufficient uppers above one are inconclusive, not achieved failures.",
+    "Normal-only alternative allocations establish equilibrium examples; compatible deformations, pressures, simultaneous shear and frame return remain unqualified.",
+    "Plywood cleat joint/leaf-sharing work retains separate ownership; no proposal is adopted here."
+  ],
+  "load_basis": "Retained 250 lb x2 downward + signed 300 N horizontal + 100 mm hold standoff; six saved cases.",
+  "panel_normal_transfer_target": {
+    "all_twelve_ties_minimax_normal_N": 297.97454452614613,
+    "compatible_redistribution_or_full_panel_capacity_established": false,
+    "head_tension_target_N": 928.4678522089755,
+    "panel": "main_upper_left",
+    "required_reduction_at_that_axis_fraction": 0.37806468405840776,
+    "same_saved_panel_case": "a12-rear",
+    "saved_governing_tension_N": 1492.86883765927,
+    "three_nearby_ties_peak_normal_N": 1223.6446917172987
+  },
+  "producer_sha256": "ec67375a0a69063761870fb3ede8adc2206da5eac8b612b9cab618bf830c6ff7",
+  "remaining_short_reference_witnesses": [
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-forward",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 1255.838848262409,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        4.3714653550673015,
+        4.3714653550673015
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        2.7321658469170633,
+        2.7321658469170633
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3",
+      "xy_mm": [
+        152.2015625,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-forward",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 372.001541932966,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.20560721248561,
+        2.20560721248561
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.3785045078035063,
+        1.3785045078035063
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3",
+      "xy_mm": [
+        182.64187499999997,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        0.5912275878440858,
+        0.5913425196850394
+      ],
+      "case_id": "a12-forward",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        271.7575046979268,
+        271.8103330688453
+      ],
+      "demand_per_mm": 637.9434713897841,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        3.755227193533974,
+        3.7559571919024966
+      ],
+      "panel": "kicker_left",
+      "short_ratio_bounds": [
+        2.3470169959587337,
+        2.34747324493906
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3",
+      "xy_mm": [
+        152.2015625,
+        270.075
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-rear",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 1325.34202590148,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        4.613399846532245,
+        4.613399846532245
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        2.883374904082653,
+        2.883374904082653
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec",
+      "xy_mm": [
+        152.2015625,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-rear",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 308.34293171959104,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        1.8281735892434494,
+        1.8281735892434494
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.1426084932771559,
+        1.1426084932771559
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec",
+      "xy_mm": [
+        182.64187499999997,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        0.5912275878440858,
+        0.5913425196850394
+      ],
+      "case_id": "a12-rear",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        271.7575046979268,
+        271.8103330688453
+      ],
+      "demand_per_mm": 303.4641905213489,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        1.7863290896714286,
+        1.7866763435801534
+      ],
+      "panel": "kicker_left",
+      "short_ratio_bounds": [
+        1.1164556810446429,
+        1.1166727147375959
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec",
+      "xy_mm": [
+        152.2015625,
+        270.075
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-left",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 1286.775673887053,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        4.479153743271734,
+        4.479153743271734
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        2.7994710895448334,
+        2.7994710895448334
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49",
+      "xy_mm": [
+        152.2015625,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-left",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 338.17792239340275,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.0050660566043987,
+        2.0050660566043987
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.2531662853777492,
+        1.2531662853777492
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49",
+      "xy_mm": [
+        182.64187499999997,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        0.5912275878440858,
+        0.5913425196850394
+      ],
+      "case_id": "a12-left",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        271.7575046979268,
+        271.8103330688453
+      ],
+      "demand_per_mm": 496.92952110105676,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.925154554592697,
+        2.925723190774339
+      ],
+      "panel": "kicker_left",
+      "short_ratio_bounds": [
+        1.8282215966204356,
+        1.8285769942339618
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49",
+      "xy_mm": [
+        152.2015625,
+        270.075
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-right",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 1231.8781005561784,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        4.288060084857498,
+        4.288060084857498
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        2.6800375530359357,
+        2.6800375530359357
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530",
+      "xy_mm": [
+        1065.4109375000003,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-right",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 315.59725577473904,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        1.871184672946499,
+        1.871184672946499
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        1.169490420591562,
+        1.169490420591562
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530",
+      "xy_mm": [
+        1217.6125000000002,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        0.5912275878440858,
+        0.5913425196850394
+      ],
+      "case_id": "k12-right",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        271.7575046979268,
+        271.8103330688453
+      ],
+      "demand_per_mm": 497.03974379864167,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.925803375828243,
+        2.926372138137658
+      ],
+      "panel": "kicker_right",
+      "short_ratio_bounds": [
+        1.8286271098926516,
+        1.828982586336036
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530",
+      "xy_mm": [
+        1065.4109375000003,
+        270.075
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-rear",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 1274.5910447273995,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        4.436740113282929,
+        4.436740113282929
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        2.7729625708018304,
+        2.7729625708018304
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933",
+      "xy_mm": [
+        1065.4109375000003,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-rear",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 298.30406491707663,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        1.7686528762115716,
+        1.7686528762115716
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        1.1054080476322323,
+        1.1054080476322323
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933",
+      "xy_mm": [
+        1217.6125000000002,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        0.5912275878440858,
+        0.5913425196850394
+      ],
+      "case_id": "k12-rear",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        271.7575046979268,
+        271.8103330688453
+      ],
+      "demand_per_mm": 304.9119630924937,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        1.7948513415213794,
+        1.7952002521154726
+      ],
+      "panel": "kicker_right",
+      "short_ratio_bounds": [
+        1.121782088450862,
+        1.1220001575721703
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933",
+      "xy_mm": [
+        1065.4109375000003,
+        270.075
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a1-rear",
+      "component": "bending_x",
+      "conditional_reference_bounds_per_mm": [
+        459.6495669102517,
+        459.6495669102517
+      ],
+      "demand_per_mm": 688.1769925581168,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.3954840107746205,
+        2.3954840107746205
+      ],
+      "panel": "main_lower_left",
+      "short_ratio_bounds": [
+        1.4971775067341377,
+        1.4971775067341377
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-f8064e98e1983d8b4d429cfa",
+      "xy_mm": [
+        152.2015625,
+        152.4000000000004
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a1-rear",
+      "component": "bending_y",
+      "conditional_reference_bounds_per_mm": [
+        269.8587779924703,
+        269.8587779924703
+      ],
+      "demand_per_mm": 452.79449336260575,
+      "mode": "panel_bending",
+      "normal_ratio_bounds": [
+        2.684630808638671,
+        2.684630808638671
+      ],
+      "panel": "main_lower_left",
+      "short_ratio_bounds": [
+        1.6778942553991694,
+        1.6778942553991694
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-f8064e98e1983d8b4d429cfa",
+      "xy_mm": [
+        152.2015625,
+        152.4000000000004
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-forward",
+      "component": "rolling_x",
+      "conditional_reference_bounds_per_mm": [
+        8.172585644835562,
+        8.172585644835562
+      ],
+      "demand_per_mm": 12.523774307561784,
+      "mode": "panel_rolling_shear",
+      "normal_ratio_bounds": [
+        2.451860373560151,
+        2.451860373560151
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.5324127334750948,
+        1.5324127334750948
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3",
+      "xy_mm": [
+        60.880624999999995,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-rear",
+      "component": "rolling_x",
+      "conditional_reference_bounds_per_mm": [
+        8.172585644835562,
+        8.172585644835562
+      ],
+      "demand_per_mm": 12.487512724329417,
+      "mode": "panel_rolling_shear",
+      "normal_ratio_bounds": [
+        2.4447612086577375,
+        2.4447612086577375
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.527975755411086,
+        1.527975755411086
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec",
+      "xy_mm": [
+        60.880624999999995,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "a12-left",
+      "component": "rolling_x",
+      "conditional_reference_bounds_per_mm": [
+        8.172585644835562,
+        8.172585644835562
+      ],
+      "demand_per_mm": 12.50271226322371,
+      "mode": "panel_rolling_shear",
+      "normal_ratio_bounds": [
+        2.447736920787012,
+        2.447736920787012
+      ],
+      "panel": "main_upper_left",
+      "short_ratio_bounds": [
+        1.5298355754918824,
+        1.5298355754918824
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49",
+      "xy_mm": [
+        60.880624999999995,
+        1188.7199999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-right",
+      "component": "rolling_x",
+      "conditional_reference_bounds_per_mm": [
+        8.172585644835562,
+        8.172585644835562
+      ],
+      "demand_per_mm": 11.495821238551645,
+      "mode": "panel_rolling_shear",
+      "normal_ratio_bounds": [
+        2.2506113463987707,
+        2.2506113463987707
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        1.4066320914992319,
+        1.4066320914992319
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530",
+      "xy_mm": [
+        1156.7318750000002,
+        1219.1999999999966
+      ]
+    },
+    {
+      "Cs_bounds": [
+        1.0,
+        1.0
+      ],
+      "case_id": "k12-rear",
+      "component": "rolling_x",
+      "conditional_reference_bounds_per_mm": [
+        8.172585644835562,
+        8.172585644835562
+      ],
+      "demand_per_mm": 11.405566912380136,
+      "mode": "panel_rolling_shear",
+      "normal_ratio_bounds": [
+        2.232941672668809,
+        2.232941672668809
+      ],
+      "panel": "main_upper_right",
+      "short_ratio_bounds": [
+        1.3955885454180057,
+        1.3955885454180057
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933",
+      "xy_mm": [
+        1156.7318750000002,
+        1219.1999999999966
+      ]
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_4",
+      "case_id": "a12-forward",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1389.273409123552,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.3940919971641375,
+        2.3940919971641375
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_side_left",
+      "short_ratio_bounds": [
+        1.496307498227586,
+        1.496307498227586
+      ],
+      "simultaneous_lateral_N": 654.5618241339292,
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3"
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_2",
+      "case_id": "a12-forward",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 935.2567728778064,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        1.6116991375030232,
+        1.6116991375030232
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_rail_top",
+      "short_ratio_bounds": [
+        1.0073119609393895,
+        1.0073119609393895
+      ],
+      "simultaneous_lateral_N": 321.7453188924175,
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3"
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_4",
+      "case_id": "a12-rear",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1492.86883765927,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.572614802517921,
+        2.572614802517921
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_side_left",
+      "short_ratio_bounds": [
+        1.6078842515737006,
+        1.6078842515737006
+      ],
+      "simultaneous_lateral_N": 704.3950621576495,
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec"
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_2",
+      "case_id": "a12-rear",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1042.4058531525109,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        1.7963458412436506,
+        1.7963458412436506
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_rail_top",
+      "short_ratio_bounds": [
+        1.1227161507772816,
+        1.1227161507772816
+      ],
+      "simultaneous_lateral_N": 398.8515440968673,
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec"
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_4",
+      "case_id": "a12-left",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1420.6230478022292,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.448115862144003,
+        2.448115862144003
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_side_left",
+      "short_ratio_bounds": [
+        1.5300724138400017,
+        1.5300724138400017
+      ],
+      "simultaneous_lateral_N": 627.5966691462168,
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49"
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_2",
+      "case_id": "a12-left",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1050.2073148250179,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        1.8097898594143538,
+        1.8097898594143538
+      ],
+      "panel": "main_upper_left",
+      "receiver": "base_rail_top",
+      "short_ratio_bounds": [
+        1.131118662133971,
+        1.131118662133971
+      ],
+      "simultaneous_lateral_N": 209.76041257083827,
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49"
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_4",
+      "case_id": "k12-right",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1384.347379113053,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.385603121649442,
+        2.385603121649442
+      ],
+      "panel": "main_upper_right",
+      "receiver": "base_side_right",
+      "short_ratio_bounds": [
+        1.4910019510309012,
+        1.4910019510309012
+      ],
+      "simultaneous_lateral_N": 612.3366219041734,
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530"
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_2",
+      "case_id": "k12-right",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1252.2266304427033,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.157923512312812,
+        2.157923512312812
+      ],
+      "panel": "main_upper_right",
+      "receiver": "base_rail_top",
+      "short_ratio_bounds": [
+        1.3487021951955074,
+        1.3487021951955074
+      ],
+      "simultaneous_lateral_N": 207.99156828505627,
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530"
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_4",
+      "case_id": "k12-rear",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1454.2722986874492,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.506102577880321,
+        2.506102577880321
+      ],
+      "panel": "main_upper_right",
+      "receiver": "base_side_right",
+      "short_ratio_bounds": [
+        1.5663141111752008,
+        1.5663141111752008
+      ],
+      "simultaneous_lateral_N": 685.837852956326,
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933"
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_2",
+      "case_id": "k12-rear",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1258.6272326644828,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        2.1689534726183655,
+        2.1689534726183655
+      ],
+      "panel": "main_upper_right",
+      "receiver": "base_rail_top",
+      "short_ratio_bounds": [
+        1.3555959203864782,
+        1.3555959203864782
+      ],
+      "simultaneous_lateral_N": 380.3701030533802,
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933"
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_1",
+      "case_id": "a1-rear",
+      "conditional_reference_N": 928.4678522089755,
+      "demand_N": 1066.394501801919,
+      "mode": "generic_head",
+      "normal_ratio_bounds": [
+        1.8376847392439812,
+        1.8376847392439812
+      ],
+      "panel": "main_lower_left",
+      "receiver": "base_side_left",
+      "short_ratio_bounds": [
+        1.1485529620274881,
+        1.1485529620274881
+      ],
+      "simultaneous_lateral_N": 315.13567065238465,
+      "state_id": "eoere-selected-hardware-fixed-floor-f8064e98e1983d8b4d429cfa"
+    }
+  ],
+  "reproduction_python_source": "\"\"\"Join existing short-duration references; do not rerun mechanics or adopt CD.\"\"\"\n\nimport hashlib\nimport json\nimport math\nimport sys\nfrom pathlib import Path\n\nROOT = Path(__file__).resolve().parents[4]\nBASE = ('docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/'\n        'eoere-successor-v1/selected-hardware-v1/current-response-v1/')\nDURATION = 'docs/bolted-frame-development/load-duration-assessment-v1.json'\nHAND = ('fea/generated/selected-hardware-followup-v1/engineering-closure-v1/'\n        'panel-corner-handcheck-v1/attempt02.json')\nINDEX = 'docs/bolted-frame-development/development-revisions.json'\nPINS = {\n    INDEX: '6375178044ef78fe9027dcceb4a439489af93582bdf1c9b9ec8d4e019e0df251',\n    BASE+'result.json': 'a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e',\n    BASE+'components.json': '20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf',\n    BASE+'panel-size-correction.json': 'f17ef1a7f26a779be4e4afce87bfff1025ce86c5af0def97edfd4e87bf597a64',\n    DURATION: '96b695b464753489d41662ae96b0aea09330b5bb797df56345d7552fefd0774b',\n    HAND: 'dcb35736def8dfbec4da50af3c015173730fa059a749f5a4dea157f7a995d958',\n}\nCD = 1.6\n\n\ndef require(condition, message):\n    if not condition:\n        raise ValueError(message)\n\n\ndef run():\n    authenticated = {}\n\n    def read(name, expected):\n        path = ROOT/name\n        name = str(path.resolve().relative_to(ROOT))\n        raw = path.read_bytes()\n        require(hashlib.sha256(raw).hexdigest() == expected, f'Source changed: {name}')\n        require(authenticated.get(name, expected) == expected, 'Conflicting source pin')\n        authenticated[name] = expected\n        return raw\n\n    roots = {name: json.loads(read(name, sha)) for name, sha in PINS.items()}\n    index, source, correction = roots[INDEX], roots[BASE+'components.json'], roots[BASE+'panel-size-correction.json']\n    duration, hand = roots[DURATION], roots[HAND]\n    for report in (correction, duration, hand):\n        for name, sha in report['source_sha256'].items():\n            read(name, sha)\n    require(index['geometry']['revision'] == 'eoere-narrow-channel-openings-v1', 'Wrong target')\n    require(all(index[key] is None for key in ('current_response', 'structural_assessment', 'engineering_assessment')), 'Current authority changed')\n    predecessor = index['preceding_revision']['preceding_revision']\n    require(predecessor['current_response']['components']['sha256'] == PINS[BASE+'components.json'], 'Wrong saved response')\n    require(source['geometry_revision'] == 'eoere-raised-kicker-screws-v1', 'Wrong saved geometry')\n    require(source['hardware_revision'] == 'eoere-selected-purchase-hardware-v1', 'Wrong saved hardware')\n    corrections = {(r['case_id'], r['state_id'], r['panel'], r['component']): r\n                   for r in correction['affected_bending_rows']}\n    require(len(corrections) == 12, 'Missing or duplicate panel corrections')\n    rows = {'panel_bending': [], 'panel_rolling_shear': [], 'generic_head': [],\n            'generic_withdrawal_gross_thread_proxy': [], 'saved_rear_foot': []}\n    used = set()\n    for case in source['cases']:\n        case_id, state = case['case_id'], case['state_id']\n        raw = json.loads(read(case['raw_components']['path'], case['raw_components']['sha256']))\n        require((raw['case_id'], raw['state_id']) == (case_id, state), 'Foreign raw state')\n        screws = raw['component_reductions']['simultaneous_Hillman_actions_and_generic_references']\n        scalars = {r['axis_id']: r for r in case['coarse']['generic_screw_references']['all_screw_reference_scalars']}\n        require(len(screws) == len(scalars) == len({r['axis_id'] for r in screws}) == 66, 'Screw census changed')\n        for r in screws:\n            require((r['case_id'], r['state_id']) == (case_id, state), 'Foreign screw state')\n            saved = scalars[r['axis_id']]\n            for key in ('generic_head_ratio_CD1', 'generic_withdrawal_required_effective_thread_mm_CD1', 'gross_nominal_length_after_panel_mm'):\n                require(r[key] == saved[key], 'Raw/summary screw mismatch')\n            head = r['generic_head_ratio_conditional_CD1p6']\n            thread = r['generic_withdrawal_required_effective_thread_mm_conditional_CD1p6']\n            require(math.isclose(head*CD, r['generic_head_ratio_CD1'], rel_tol=1e-13), 'Head duration applied twice')\n            require(math.isclose(thread*CD, r['generic_withdrawal_required_effective_thread_mm_CD1'], rel_tol=1e-13), 'Thread duration applied twice')\n            common = {'case_id': case_id, 'state_id': state, 'axis_id': r['axis_id'],\n                      'panel': r['panel'], 'receiver': r['receiver']}\n            rows['generic_head'].append({**common, 'normal_ratio_bounds': [r['generic_head_ratio_CD1']]*2,\n                'short_ratio_bounds': [head]*2, 'demand_N': r['withdrawal_n'],\n                'conditional_reference_N': r['generic_head_reference_n_CD1']*CD,\n                'simultaneous_lateral_N': r['lateral_n']})\n            gross = r['gross_nominal_length_after_panel_mm']\n            require(gross > 0, 'Invalid gross penetration')\n            rows['generic_withdrawal_gross_thread_proxy'].append({**common,\n                'normal_ratio_bounds': [r['generic_withdrawal_required_effective_thread_mm_CD1']/gross]*2,\n                'short_ratio_bounds': [thread/gross]*2,\n                'required_effective_thread_mm': thread, 'assumed_effective_thread_upper_mm': gross,\n                'simultaneous_lateral_N': r['lateral_n']})\n        for panel in case['coarse']['panels']['per_panel']:\n            for name, r in panel['section_components'].items():\n                require(name in ('bending_x', 'bending_y', 'rolling_x', 'rolling_y'), 'Unknown panel mode')\n                require(math.isclose(r['sampled_ratio_conditional_CD1p6']*CD, r['sampled_ratio_CD1'], rel_tol=1e-13), 'Panel duration applied twice')\n                key = (case_id, state, panel['panel'], name)\n                fix = corrections.get(key)\n                if fix:\n                    require(fix['peak_abs_resultant'] == r['peak_abs_resultant'], 'Foreign panel witness')\n                    require(fix['base_reference_per_mm_width_CD1'] == r['reference_per_mm_width_CD1'], 'Foreign panel reference')\n                    normal = fix['adjusted_ratio_bounds_CD1']\n                    refs = fix['adjusted_reference_bounds_per_mm_width_CD1']\n                    short = [v/CD for v in normal]\n                    used.add(key)\n                else:\n                    normal = [r['sampled_ratio_CD1']]*2\n                    short = [r['sampled_ratio_conditional_CD1p6']]*2\n                    refs = [r['reference_per_mm_width_CD1']]*2\n                mode = 'panel_bending' if name.startswith('bending') else 'panel_rolling_shear'\n                rows[mode].append({'case_id': case_id, 'state_id': state,\n                    'panel': panel['panel'], 'component': name, 'xy_mm': r['xy_mm'],\n                    'normal_ratio_bounds': normal, 'short_ratio_bounds': short,\n                    'demand_per_mm': r['peak_abs_resultant'],\n                    'conditional_reference_bounds_per_mm': [v*CD for v in refs],\n                    'Cs_bounds': fix['Cs_bounds'] if fix else [1., 1.]})\n    require(used == set(corrections), 'Unused correction')\n    for row in duration['saved_rear_foot_comparisons']:\n        require(any((c['case_id'], c['state_id']) == (row['case'], row['state_id']) for c in source['cases']), 'Foreign foot state')\n        rows['saved_rear_foot'].append({'case_id': row['case'], 'state_id': row['state_id'],\n            'receiver': row['receiver'], 'demand_N': row['demand_upper_N'],\n            'conditional_reference_N': row['normal_duration_reference_lower_N']*CD,\n            'normal_ratio_bounds': [row['demand_upper_N']/row['normal_duration_reference_lower_N']]*2,\n            'short_ratio_bounds': [row['demand_upper_N']/(row['normal_duration_reference_lower_N']*CD)]*2})\n    require([len(v) for v in rows.values()] == [72, 72, 396, 396, 12], 'Changed reference census')\n    summary = {}\n    remaining = []\n    for mode, values in rows.items():\n        peak = max(values, key=lambda r: r['short_ratio_bounds'][1])\n        summary[mode] = {'rows': len(values),\n            'normal_exceedances': sum(r['normal_ratio_bounds'][0] > 1 for r in values),\n            'short_definite_exceedances': sum(r['short_ratio_bounds'][0] > 1 for r in values),\n            'short_possible_exceedances': sum(r['short_ratio_bounds'][1] > 1 for r in values),\n            'normal_maximum_upper': max(r['normal_ratio_bounds'][1] for r in values),\n            'short_maximum_upper': peak['short_ratio_bounds'][1], 'governing': peak}\n        remaining.extend({'mode': mode, **r} for r in values if r['short_ratio_bounds'][1] > 1)\n    # The completed normal-only statics examples bound concentration, not capacity.\n    head_peak = summary['generic_head']['governing']\n    transfer = {'same_saved_panel_case': hand['case'], 'panel': hand['panel'],\n        'head_tension_target_N': head_peak['conditional_reference_N'],\n        'saved_governing_tension_N': head_peak['demand_N'],\n        'required_reduction_at_that_axis_fraction': 1-1/head_peak['short_ratio_bounds'][1],\n        'three_nearby_ties_peak_normal_N': max(hand['three_nearby_ties_normal_only']['tensions_N'].values()),\n        'all_twelve_ties_minimax_normal_N': hand['all_ties_normal_statics_only']['equal_tie_N'],\n        'compatible_redistribution_or_full_panel_capacity_established': False}\n    for name, sha in list(authenticated.items()):\n        read(name, sha)\n    own = Path(__file__).read_text()\n    return {'schema': 'eoere_saved_action_short_term_disposition/v1',\n        'current_geometry': index['geometry']['revision'],\n        'saved_action_geometry': source['geometry_revision'],\n        'saved_hardware': source['hardware_revision'], 'conditional_CD': CD, 'selected_CD': None,\n        'load_basis': 'Retained 250 lb x2 downward + signed 300 N horizontal + 100 mm hold standoff; six saved cases.',\n        'summary': summary, 'remaining_short_reference_witnesses': remaining,\n        'panel_normal_transfer_target': transfer,\n        'current_geometry_foot_bounds_reused': duration['current_geometry_combination_bounds'],\n        'source_sha256': PINS, 'authenticated_source_count': len(authenticated),\n        'source_closures_reused': [BASE+'panel-size-correction.json', DURATION, HAND],\n        'producer_sha256': hashlib.sha256(own.encode()).hexdigest(), 'reproduction_python_source': own,\n        'all_sources_unchanged': True, 'frame_or_native_solve': False,\n        'geometry_hardware_or_criteria_changed': False, 'structural_acceptance': False,\n        'any_hold_cleared': False, 'actual_observations': None,\n        'limits': [\n            'Single-event strength sensitivity only; no wear/fatigue/lifetime prediction or adopted duration classification.',\n            'All source actions are predecessor-model results, not revised-frame force uppers or measured catch histories.',\n            'Apply conditional 1.6 once to eligible strength references only; no force reduction, metal, E/Emin, deformation bearing or notch-permission credit.',\n            'The withdrawal proxy favorably treats all gross penetration as effective thread; it supplies no Hillman product, steel, splitting or combined lateral capacity.',\n            'Panel rows retain sampled plate-method, hold-footprint, Cs interval and local/net-section limits; head references remain generic plywood pull-through.',\n            'Failed reference comparisons are not measured breaking loads; below-reference component ratios are not complete-joint passes.',\n            'Current foot sufficient uppers above one are inconclusive, not achieved failures.',\n            'Normal-only alternative allocations establish equilibrium examples; compatible deformations, pressures, simultaneous shear and frame return remain unqualified.',\n            'Plywood cleat joint/leaf-sharing work retains separate ownership; no proposal is adopted here.']}\n\n\nif __name__ == '__main__':\n    result = run()\n    with Path(sys.argv[1]).open('x') as stream:\n        stream.write(json.dumps(result, indent=2, sort_keys=True, allow_nan=False)+'\\n')\n    print(json.dumps({k: {a: b for a, b in v.items() if a != 'governing'}\n                      for k, v in result['summary'].items()}, indent=2))\n",
+  "saved_action_geometry": "eoere-raised-kicker-screws-v1",
+  "saved_hardware": "eoere-selected-purchase-hardware-v1",
+  "schema": "eoere_saved_action_short_term_disposition/v1",
+  "selected_CD": null,
+  "source_closures_reused": [
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/panel-size-correction.json",
+    "docs/bolted-frame-development/load-duration-assessment-v1.json",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-corner-handcheck-v1/attempt02.json"
+  ],
+  "source_sha256": {
+    "docs/bolted-frame-development/development-revisions.json": "6375178044ef78fe9027dcceb4a439489af93582bdf1c9b9ec8d4e019e0df251",
+    "docs/bolted-frame-development/load-duration-assessment-v1.json": "96b695b464753489d41662ae96b0aea09330b5bb797df56345d7552fefd0774b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json": "20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/panel-size-correction.json": "f17ef1a7f26a779be4e4afce87bfff1025ce86c5af0def97edfd4e87bf597a64",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-corner-handcheck-v1/attempt02.json": "dcb35736def8dfbec4da50af3c015173730fa059a749f5a4dea157f7a995d958"
+  },
+  "structural_acceptance": false,
+  "summary": {
+    "generic_head": {
+      "governing": {
+        "axis_id": "round_panel_upper_left_rim_4",
+        "case_id": "a12-rear",
+        "conditional_reference_N": 928.4678522089755,
+        "demand_N": 1492.86883765927,
+        "normal_ratio_bounds": [
+          2.572614802517921,
+          2.572614802517921
+        ],
+        "panel": "main_upper_left",
+        "receiver": "base_side_left",
+        "short_ratio_bounds": [
+          1.6078842515737006,
+          1.6078842515737006
+        ],
+        "simultaneous_lateral_N": 704.3950621576495,
+        "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec"
+      },
+      "normal_exceedances": 16,
+      "normal_maximum_upper": 2.572614802517921,
+      "rows": 396,
+      "short_definite_exceedances": 11,
+      "short_maximum_upper": 1.6078842515737006,
+      "short_possible_exceedances": 11
+    },
+    "generic_withdrawal_gross_thread_proxy": {
+      "governing": {
+        "assumed_effective_thread_upper_mm": 45.243750000000006,
+        "axis_id": "round_panel_upper_left_rim_4",
+        "case_id": "a12-rear",
+        "normal_ratio_bounds": [
+          1.3917841601246128,
+          1.3917841601246128
+        ],
+        "panel": "main_upper_left",
+        "receiver": "base_side_left",
+        "required_effective_thread_mm": 39.35595912164872,
+        "short_ratio_bounds": [
+          0.869865100077883,
+          0.869865100077883
+        ],
+        "simultaneous_lateral_N": 704.3950621576495,
+        "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec"
+      },
+      "normal_exceedances": 7,
+      "normal_maximum_upper": 1.3917841601246128,
+      "rows": 396,
+      "short_definite_exceedances": 0,
+      "short_maximum_upper": 0.869865100077883,
+      "short_possible_exceedances": 0
+    },
+    "panel_bending": {
+      "governing": {
+        "Cs_bounds": [
+          1.0,
+          1.0
+        ],
+        "case_id": "a12-rear",
+        "component": "bending_x",
+        "conditional_reference_bounds_per_mm": [
+          459.6495669102517,
+          459.6495669102517
+        ],
+        "demand_per_mm": 1325.34202590148,
+        "normal_ratio_bounds": [
+          4.613399846532245,
+          4.613399846532245
+        ],
+        "panel": "main_upper_left",
+        "short_ratio_bounds": [
+          2.883374904082653,
+          2.883374904082653
+        ],
+        "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec",
+        "xy_mm": [
+          152.2015625,
+          1188.7199999999966
+        ]
+      },
+      "normal_exceedances": 18,
+      "normal_maximum_upper": 4.613399846532245,
+      "rows": 72,
+      "short_definite_exceedances": 17,
+      "short_maximum_upper": 2.883374904082653,
+      "short_possible_exceedances": 17
+    },
+    "panel_rolling_shear": {
+      "governing": {
+        "Cs_bounds": [
+          1.0,
+          1.0
+        ],
+        "case_id": "a12-forward",
+        "component": "rolling_x",
+        "conditional_reference_bounds_per_mm": [
+          8.172585644835562,
+          8.172585644835562
+        ],
+        "demand_per_mm": 12.523774307561784,
+        "normal_ratio_bounds": [
+          2.451860373560151,
+          2.451860373560151
+        ],
+        "panel": "main_upper_left",
+        "short_ratio_bounds": [
+          1.5324127334750948,
+          1.5324127334750948
+        ],
+        "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3",
+        "xy_mm": [
+          60.880624999999995,
+          1188.7199999999966
+        ]
+      },
+      "normal_exceedances": 9,
+      "normal_maximum_upper": 2.451860373560151,
+      "rows": 72,
+      "short_definite_exceedances": 5,
+      "short_maximum_upper": 1.5324127334750948,
+      "short_possible_exceedances": 5
+    },
+    "saved_rear_foot": {
+      "governing": {
+        "case_id": "a12-forward",
+        "conditional_reference_N": 1173.5355326530307,
+        "demand_N": 823.8305182135829,
+        "normal_ratio_bounds": [
+          1.1232116902006517,
+          1.1232116902006517
+        ],
+        "receiver": "lumber_leg_left/0",
+        "short_ratio_bounds": [
+          0.7020073063754072,
+          0.7020073063754072
+        ],
+        "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3"
+      },
+      "normal_exceedances": 1,
+      "normal_maximum_upper": 1.1232116902006517,
+      "rows": 12,
+      "short_definite_exceedances": 0,
+      "short_maximum_upper": 0.7020073063754072,
+      "short_possible_exceedances": 0
+    }
+  }
+}

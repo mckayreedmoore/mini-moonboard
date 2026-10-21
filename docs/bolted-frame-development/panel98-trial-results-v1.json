@@ -1,0 +1,1493 @@
+{
+  "case_coverage": {
+    "aggregate_reference_counts_and_maxima_scope": "five completed paired cases only",
+    "attempted_per_variant": 6,
+    "complete_paired_case_ids": [
+      "a12-forward",
+      "a12-rear",
+      "a12-left",
+      "k12-right",
+      "a1-rear"
+    ],
+    "failed_case_has_no_accepted_q_or_actions": true,
+    "failed_result": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-rear/attempt01/failure.json",
+      "sha256": "ce9a2133fefca22f16f7b4600e2af6518c93a8d9efd34e4dd1ca797b542cf278"
+    },
+    "rejected_98_case_id": "k12-rear",
+    "six_case_strength_or_force_envelope_established": false,
+    "unpaired_66_k12_rear_field": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-rear/attempt01/field.json",
+      "sha256": "cb77a3b31b59850942852a07c02b2ff6d4ab6444bfd67e73a9e49cc3139c2b18"
+    }
+  },
+  "climbing_released": false,
+  "duration": "CD1 and conditionalCD1.6 are reference scenarios; neither measured pulse duration nor an adopted climbing duration qualification. The APA1.6 wind/earthquake comparison is not an impact allowance. CD does not change stiffness, forces or steel resistance.",
+  "expanded_source_pin_count": 1549,
+  "fabrication_released": false,
+  "layout": {
+    "added32_fully_backed": true,
+    "all32_nominal_screw_envelopes_clear_against_1033_parts": true,
+    "axis_table": {
+      "path": "docs/bolted-frame-development/panel98-trial-axes.csv",
+      "sha256": "bcd6dae82a20362728c6d491e19ee60cea673e1b62229a11913e6e849a7f98fb"
+    },
+    "clearance": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/clearance-attempt02.json",
+      "sha256": "b6b407dd61565fe44713379ca85727e0ad0b2ab32600396b63eea1033434960e"
+    },
+    "drawing": {
+      "path": "docs/bolted-frame-development/panel98-trial-layout.svg",
+      "sha256": "df0e481b68f6555d9496e39892dd3066ea1b57131f0a19278e52c965360a36de"
+    },
+    "main_panel_count": 4,
+    "original66_axes_preserved": true,
+    "preflight": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/layout-attempt03/layout.json",
+      "sha256": "0fe794107e11b83aed63b592412d0ade74c6e905edd9849d2f83ca81deabe727"
+    },
+    "screws_per_main_panel": 20,
+    "total98": 98,
+    "unchanged_kicker_screws": 18
+  },
+  "limits": [
+    "Unmeasured1000N/mm screw stiffness and area-weighted contact priors do not bound physical response.",
+    "The98K12rear calculation failed the unchanged body/global closure gate and supplies no accepted forces. Five completed pairs are not a six-case envelope.",
+    "Generic head/withdrawal and sampled APA strip references are not Hillman42605 product or complete panel/joint capacities.",
+    "Panel samples41peraxis do not resolve individual hold footprints, aperture free boundaries, countersink, punching, edge splitting or local anchorage.",
+    "Gross-stock timber stiffness ignores local hole/bevel removal; finished volumes and current contact/bore geometry were re-extracted.",
+    "The four original support reference points per foot are retained on the enlarged post faces. Full physical footprint pressure and no-slip remain unverified.",
+    "No trial adoption, purchased policy change, installation, drilling or climbing release. Future integrated geometry requires matching actions."
+  ],
+  "load_basis": {
+    "accessory_mass_kg": 25,
+    "downward_force_n": 2224.11080763025,
+    "downward_multiplier": 2,
+    "hold_outward_standoff_mm": 100,
+    "one_climber_lb": 250,
+    "same_source_six_cases": [
+      "a12-forward",
+      "a12-rear",
+      "a12-left",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "simultaneous_global_horizontal_n": 300
+  },
+  "method": "Existing gross-stock Timoshenko timbers, refreshed six-panel spline operators, corrected four-port angles, common shafts and fixed rear-leg XY/compression-only floor law. Raw pre-solve operators independently replayed with source-owned point/load maps, full gradient and150body/global wrench closure; false0.01N screw force rejected.",
+  "normal_free_body_diagnosis": {
+    "next_question": "Can the coordinated hidden-frame/header/backing revision shorten the loaded panel span and return its offset moment while limiting relative panel/backing opening at rim4? Preserve a justified screw/contact stiffness basis and actual combined head/anchorage resistance; adding ties alone is insufficient.",
+    "result": "Added ties increase the sum of screw tensions and opposing backing compression in the compatible model. The same original upper-left rim4 remains highest; a new upper edge tie becomes second. Equal division by screw count misses this panel/backing prying.",
+    "same_loaded_panel_and_original_force": true,
+    "states": [
+      {
+        "case_id": "a12-rear",
+        "external_outward_n": 1825.905681529121,
+        "largest_two_fraction_of_all_tensions": 0.840938976960919,
+        "largest_two_simultaneous_tension_and_lateral": [
+          {
+            "axis_id": "round_panel_upper_left_rim_4",
+            "lateral_n": 686.3967959799978,
+            "point_xyz_mm": [
+              -1200.15,
+              1487.9401100945122,
+              2085.511723762884
+            ],
+            "tension_n": 1491.4025900598729
+          },
+          {
+            "axis_id": "round_panel_upper_left_edge_2",
+            "lateral_n": 389.1275388240734,
+            "point_xyz_mm": [
+              -835.075,
+              1530.3319529535122,
+              2136.032354786884
+            ],
+            "tension_n": 1042.0019353622454
+          }
+        ],
+        "normal_free_body_residual_n": -5.411968686530599e-07,
+        "outward_backing_compression_n": 1186.6845245197617,
+        "panel": "main_upper_left",
+        "screws": 66,
+        "sum_head_tensions_n": 3012.590205507686
+      },
+      {
+        "case_id": "a12-rear",
+        "external_outward_n": 1826.0621747425005,
+        "largest_two_fraction_of_all_tensions": 0.7014243447533927,
+        "largest_two_simultaneous_tension_and_lateral": [
+          {
+            "axis_id": "round_panel_upper_left_rim_4",
+            "lateral_n": 633.29514443654,
+            "point_xyz_mm": [
+              -1200.15,
+              1487.9401100945122,
+              2085.511723762884
+            ],
+            "tension_n": 1580.1242771023688
+          },
+          {
+            "axis_id": "hyp20_main_upper_left_edge_gap_1",
+            "lateral_n": 177.89681607940537,
+            "point_xyz_mm": [
+              -1017.6125000000001,
+              1530.3319529535122,
+              2136.032354786884
+            ],
+            "tension_n": 1221.0379518511374
+          }
+        ],
+        "normal_free_body_residual_n": -5.411591246229364e-07,
+        "outward_backing_compression_n": 2167.4721961210075,
+        "panel": "main_upper_left",
+        "screws": 98,
+        "sum_head_tensions_n": 3993.534370322349
+      }
+    ]
+  },
+  "paired_changes": [
+    {
+      "case_id": "a12-forward",
+      "peak_bending_index_change_percent": -24.447415403136397,
+      "peak_head_change_percent": 5.496051481239106,
+      "peak_rolling_index_change_percent": -28.12234098901608
+    },
+    {
+      "case_id": "a12-rear",
+      "peak_bending_index_change_percent": -24.181106329484482,
+      "peak_head_change_percent": 5.948875751847393,
+      "peak_rolling_index_change_percent": -26.525241149672908
+    },
+    {
+      "case_id": "a12-left",
+      "peak_bending_index_change_percent": -24.71493155789364,
+      "peak_head_change_percent": 6.395695271880819,
+      "peak_rolling_index_change_percent": -29.36950663713206
+    },
+    {
+      "case_id": "k12-right",
+      "peak_bending_index_change_percent": -34.04031769478535,
+      "peak_head_change_percent": 6.846737126200564,
+      "peak_rolling_index_change_percent": -39.801490093355376
+    },
+    {
+      "case_id": "a1-rear",
+      "peak_bending_index_change_percent": -14.70626037055549,
+      "peak_head_change_percent": -16.469465607414968,
+      "peak_rolling_index_change_percent": -9.092383483706733
+    }
+  ],
+  "paired_scope": {
+    "current_100_bolts_22_angles_solid_timber_cleats": true,
+    "current_panel_holes_K_mass_ports_contacts_and_screw_gravity_refreshed": true,
+    "future_single_pin_legs_24_angles_plywood_cleats_included": false,
+    "historical_displacements_or_forces_used": false,
+    "native_FEA_performed": false,
+    "numerical_tolerances_weakened": false,
+    "panel_screw_axial_and_lateral_prior_n_mm": 1000.0,
+    "production_field_admission_issued": false,
+    "same_original66_mechanical_rows": true,
+    "unchanged_frame_fields_verified": [
+      "geometry",
+      "parameters",
+      "scenario",
+      "timber_rows",
+      "fitting_poses",
+      "factory_holes",
+      "all_factory_holes",
+      "fitting_port_bindings",
+      "shafts",
+      "panel_ids",
+      "floor_footprints",
+      "finished_receiver_wall_queries"
+    ]
+  },
+  "parent_geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json",
+    "sha256": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d"
+  },
+  "parent_revision": "eoere-centred-enclosed-passages-v1",
+  "producer": {
+    "sha256": "f498d0effb6eaef9e12e0b531dbb9c1bd30100d595c159dd9c71ac2c8ead2980",
+    "source": "\"\"\"Compact paired-case result; retains own witnesses and reproducible sources.\"\"\"\n\nimport hashlib\nimport json\nimport sys\nfrom pathlib import Path\n\nROOT=Path(__file__).resolve().parents[4]\nBASE=Path(__file__).resolve().parent\nCASES=('a12-forward','a12-rear','a12-left','k12-right','k12-rear','a1-rear')\n\n\ndef sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()\n\n\ndef summarize():\n    pins={};direct_pins={};closures=[]\n    def read(path):\n        path=Path(path);pins[str(path.relative_to(ROOT))]=sha(path)\n        direct_pins[str(path.relative_to(ROOT))]=sha(path)\n        return json.loads(path.read_bytes())\n    def ref(path):\n        path=Path(path);pins[str(path.relative_to(ROOT))]=sha(path)\n        direct_pins[str(path.relative_to(ROOT))]=sha(path)\n        return {'path':str(path.relative_to(ROOT)),'sha256':sha(path)}\n    def require(condition,message):\n        if not condition:raise ValueError(message)\n    layout=read(BASE/'layout-attempt03/layout.json')\n    clearance=read(BASE/'clearance-attempt02.json')\n    closures.append(ref(BASE/'clearance-attempt02.json'))\n    for path,digest in clearance['source_sha256'].items():\n        require(pins.get(path,digest)==digest and sha(ROOT/path)==digest,'clearance source changed: '+path)\n        pins[path]=digest\n    require(layout['all_added_axes_fully_backed'] and clearance['all_nominal_envelopes_clear'],'complete geometry preflight required')\n    require(clearance['parent_geometry']==layout['parent_geometry'],'matching geometric parents required')\n    matched=tuple(case for case in CASES if all((BASE/'cases'/str(n)/case/'attempt01/replay.json').exists() for n in (66,98)))\n    require(set(matched)==set(CASES)-{'k12-rear'},'five complete paired replays and one recorded failed case required')\n    failure=read(BASE/'cases/98/k12-rear/attempt01/failure.json')\n    require('fresh body/global closure failed' in failure['error'] and failure['accepted_q'] is None\n            and failure['accepted_actions'] is None,'failed body/global closure cannot supply accepted actions')\n    variants={}\n    inputs={n:read(BASE/parent/'inputs.json') for n,parent in ((66,'mechanics66-attempt04'),(98,'mechanics98-attempt01'))}\n    unchanged=('geometry','parameters','scenario','timber_rows','fitting_poses','factory_holes','all_factory_holes',\n               'fitting_port_bindings','shafts','panel_ids','floor_footprints','finished_receiver_wall_queries')\n    require(all(inputs[66][k]==inputs[98][k] for k in unchanged),'paired frame/material/support input changed')\n    require(inputs[98]['hillman_rows'][:66]==inputs[66]['hillman_rows'],'original66 descriptors changed')\n    for n,data in inputs.items():\n        case_rows=[];all_heads=[];all_panels=[]\n        for case in matched:\n            folder=BASE/'cases'/str(n)/case/'attempt01'\n            field=read(folder/'field.json');r=read(folder/'components.json');check=read(folder/'replay.json')\n            closures.append(ref(folder/'field.json'))\n            require(field['response']['converged'] and check['false_screw_force_rejected'] and not check['production_admission_issued'],\n                    'own converged force replay and negative control required')\n            require(check['field']['sha256']==sha(folder/'field.json'),'own replay field changed')\n            require(field['case_id']==r['case_id']==check['case_id']==case and field['trial_screws']==n,'mixed own case or variant')\n            require(len(r['screws'])==n and len(r['panels'])==6,'complete screw/panel count required')\n            for pointer in field['operator_bundle'].values():\n                require(sha(ROOT/pointer['path'])==pointer['sha256'],'saved operator artifact changed')\n                ref(ROOT/pointer['path'])\n            for path,digest in field['source_sha256'].items():\n                require(pins.get(path,digest)==digest and sha(ROOT/path)==digest,'field source changed: '+path)\n                pins[path]=digest\n            heads=[dict(s,case_id=case) for s in r['screws']]\n            panels=[{'case_id':case,'panel':p['panel'],'component':component,**value}\n                    for p in r['panels'] for component,value in p['components'].items()]\n            all_heads.extend(heads);all_panels.extend(panels)\n            peak=max(heads,key=lambda v:v['withdrawal_n'])\n            family={}\n            for prefix in ('bending','rolling'):\n                rows=[p for p in panels if p['component'].startswith(prefix)]\n                worst=max(rows,key=lambda v:v['size_adjusted_ratio_bounds_CD1'][1])\n                family[prefix]={'maximum_reference_index_CD1':worst['size_adjusted_ratio_bounds_CD1'][1],\n                    'maximum_reference_index_conditional_CD1p6':worst['conditional_CD1p6_ratio_bounds'][1],\n                    'witness':worst,'conditional_CD1p6_exceedances':sum(p['conditional_CD1p6_ratio_bounds'][1]>1 for p in rows)}\n            case_rows.append({'case_id':case,'screws':n,'state_id':field['state_id'],\n                'peak_screw_head_tension_n':peak['withdrawal_n'],'peak_screw_axis_id':peak['axis_id'],\n                'head_reference_index_CD1':peak['generic_head_ratio_CD1'],\n                'head_reference_index_conditional_CD1p6':peak['generic_head_ratio_conditional_CD1p6'],\n                'head_exceedances_conditional_CD1p6':sum(h['generic_head_ratio_conditional_CD1p6']>1 for h in heads),\n                'bending':family['bending'],'rolling':family['rolling'],\n                'full_gradient_inf_n':check['equilibrium']['gradient_inf_n'],\n                'maximum_body_force_norm_n':check['equilibrium']['maximum_body_force_norm_n'],\n                'maximum_body_moment_norm_nmm':check['equilibrium']['maximum_body_moment_about_reference_norm_nmm'],\n                'raw_field':ref(folder/'field.json'),'component_references':ref(folder/'components.json'),\n                'raw_operator_replay':ref(folder/'replay.json'),'operator_bundle':field['operator_bundle']})\n        peak=max(all_heads,key=lambda h:h['withdrawal_n'])\n        families={}\n        for prefix in ('bending','rolling'):\n            rows=[p for p in all_panels if p['component'].startswith(prefix)]\n            worst=max(rows,key=lambda p:p['size_adjusted_ratio_bounds_CD1'][1])\n            families[prefix]={'comparison_count':len(rows),\n                'maximum_reference_index_CD1':worst['size_adjusted_ratio_bounds_CD1'][1],\n                'maximum_reference_index_conditional_CD1p6':worst['conditional_CD1p6_ratio_bounds'][1],\n                'exceedances_CD1':sum(p['size_adjusted_ratio_bounds_CD1'][1]>1 for p in rows),\n                'exceedances_conditional_CD1p6':sum(p['conditional_CD1p6_ratio_bounds'][1]>1 for p in rows),\n                'governing_witness':worst}\n        variants[str(n)]={'cases':case_rows,'head':{'comparison_count':len(all_heads),\n            'peak_tension_n':peak['withdrawal_n'],'generic_reference_n_CD1':peak['generic_head_reference_n_CD1'],\n            'maximum_reference_index_CD1':peak['generic_head_ratio_CD1'],\n            'maximum_reference_index_conditional_CD1p6':peak['generic_head_ratio_conditional_CD1p6'],\n            'exceedances_CD1':sum(h['generic_head_ratio_CD1']>1 for h in all_heads),\n            'exceedances_conditional_CD1p6':sum(h['generic_head_ratio_conditional_CD1p6']>1 for h in all_heads),\n            'governing_witness':peak},**families,\n            'favorable_all_gross_penetration_withdrawal':{\n                'maximum_reference_index_CD1':max(h['generic_withdrawal_required_effective_thread_mm_CD1']/h['gross_nominal_length_after_panel_mm'] for h in all_heads),\n                'maximum_reference_index_conditional_CD1p6':max(h['generic_withdrawal_required_effective_thread_mm_conditional_CD1p6']/h['gross_nominal_length_after_panel_mm'] for h in all_heads),\n                'actual_thread_engagement_or_Hillman_capacity_qualified':False}}\n    differences=[]\n    for before,after in zip(variants['66']['cases'],variants['98']['cases'],strict=True):\n        require(before['case_id']==after['case_id'],'paired case order differs')\n        live=lambda data:[r for r in data['cases'] if r['case_id']==before['case_id']][0]['loads']\n        climber=lambda data:[r for r in live(data) if r['id'].startswith('climber/')]\n        require(climber(inputs[66])==climber(inputs[98]),'climber force or application changed')\n        differences.append({'case_id':before['case_id'],\n            'peak_head_change_percent':100*(after['peak_screw_head_tension_n']/before['peak_screw_head_tension_n']-1),\n            'peak_bending_index_change_percent':100*(after['bending']['maximum_reference_index_CD1']/before['bending']['maximum_reference_index_CD1']-1),\n            'peak_rolling_index_change_percent':100*(after['rolling']['maximum_reference_index_CD1']/before['rolling']['maximum_reference_index_CD1']-1)})\n    prying=[]\n    for n in (66,98):\n        field=read(BASE/'cases'/str(n)/'a12-rear/attempt01/field.json')\n        name='main_upper_left'\n        normal=[row[2] for row in field['panel_generalized_coefficients'][name]['geometry']['axes']]\n        dot=lambda vector:sum(a*b for a,b in zip(vector,normal,strict=True))\n        loads=[r for r in field['body_applied_loads'] if r['body']==name]\n        screws=sorted((r for r in field['panel_screw_actions'] if r['panel']==name),key=lambda r:r['withdrawal_n'],reverse=True)\n        compression=0.\n        for row in field['contact_actions']:\n            if row['first']==name:compression+=dot(row['force_on_first_xyz_n'])\n            elif row['second']==name:compression-=dot(row['force_on_first_xyz_n'])\n        tension=sum(r['withdrawal_n'] for r in screws)\n        applied=sum(dot(r['force_xyz_n']) for r in loads)\n        require(abs(tension-compression-applied)<1e-5,'own panel normal free body failed')\n        prying.append({'screws':n,'case_id':'a12-rear','panel':name,\n            'external_outward_n':applied,'sum_head_tensions_n':tension,'outward_backing_compression_n':compression,\n            'normal_free_body_residual_n':tension-compression-applied,\n            'largest_two_fraction_of_all_tensions':sum(r['withdrawal_n'] for r in screws[:2])/tension,\n            'largest_two_simultaneous_tension_and_lateral':[{'axis_id':r['axis_id'],'tension_n':r['withdrawal_n'],\n                'lateral_n':r['lateral_n'],'point_xyz_mm':r['point_xyz_mm']} for r in screws[:2]]})\n    snapshots={}\n    for filename in ('prepare_mechanics.py','run_mechanics.py','replay_mechanics.py','audit_geometry.py','render_layout.py','verify_summary.py'):\n        file=BASE/filename\n        snapshots[filename]={'sha256':sha(file),'source':file.read_text()}\n        ref(file)\n    for path in ('scripts/eoere_98_screw_trial.py','docs/bolted-frame-development/panel98-trial-layout.svg',\n                 'docs/bolted-frame-development/panel98-trial-axes.csv','uv.lock'):\n        ref(ROOT/path)\n    alias=ref(BASE/'mechanics66-attempt04/parent-index.json')\n    require(alias['sha256']==layout['source_sha256']['docs/bolted-frame-development/development-revisions.json'],\n            'exact layout-time index bytes must remain recoverable')\n    require(all(sha(ROOT/path)==digest for path,digest in pins.items()),'source closure changed during summary')\n    producer=Path(__file__).read_text()\n    return {'schema':'eoere_current_panel98_paired_development_trial/v1','revision':layout['revision'],\n        'parent_revision':layout['parent_revision'],'parent_geometry':layout['parent_geometry'],\n        'question':'Does preserving66 axes and adding32 reduce short-term panel/screw reference exceedances on the same current enclosed-passage frame?',\n        'layout':{'original66_axes_preserved':True,'main_panel_count':4,'screws_per_main_panel':20,\n                  'unchanged_kicker_screws':18,'total98':98,'added32_fully_backed':True,\n                  'all32_nominal_screw_envelopes_clear_against_1033_parts':True,\n                  'drawing':ref(ROOT/'docs/bolted-frame-development/panel98-trial-layout.svg'),\n                  'axis_table':ref(ROOT/'docs/bolted-frame-development/panel98-trial-axes.csv'),\n                  'preflight':ref(BASE/'layout-attempt03/layout.json'),'clearance':ref(BASE/'clearance-attempt02.json')},\n        'paired_scope':{'unchanged_frame_fields_verified':list(unchanged),'same_original66_mechanical_rows':True,\n            'current_100_bolts_22_angles_solid_timber_cleats':True,\n            'future_single_pin_legs_24_angles_plywood_cleats_included':False,\n            'current_panel_holes_K_mass_ports_contacts_and_screw_gravity_refreshed':True,\n            'panel_screw_axial_and_lateral_prior_n_mm':1000.,\n            'native_FEA_performed':False,'historical_displacements_or_forces_used':False,\n            'numerical_tolerances_weakened':False,'production_field_admission_issued':False},\n        'case_coverage':{'attempted_per_variant':6,'complete_paired_case_ids':list(matched),\n            'rejected_98_case_id':'k12-rear','failed_case_has_no_accepted_q_or_actions':True,\n            'failed_result':ref(BASE/'cases/98/k12-rear/attempt01/failure.json'),\n            'unpaired_66_k12_rear_field':ref(BASE/'cases/66/k12-rear/attempt01/field.json'),\n            'six_case_strength_or_force_envelope_established':False,\n            'aggregate_reference_counts_and_maxima_scope':'five completed paired cases only'},\n        'variants':variants,'paired_changes':differences,\n        'normal_free_body_diagnosis':{'same_loaded_panel_and_original_force':True,'states':prying,\n            'result':'Added ties increase the sum of screw tensions and opposing backing compression in the compatible model. The same original upper-left rim4 remains highest; a new upper edge tie becomes second. Equal division by screw count misses this panel/backing prying.',\n            'next_question':'Can the coordinated hidden-frame/header/backing revision shorten the loaded panel span and return its offset moment while limiting relative panel/backing opening at rim4? Preserve a justified screw/contact stiffness basis and actual combined head/anchorage resistance; adding ties alone is insufficient.'},\n        'method':'Existing gross-stock Timoshenko timbers, refreshed six-panel spline operators, corrected four-port angles, common shafts and fixed rear-leg XY/compression-only floor law. Raw pre-solve operators independently replayed with source-owned point/load maps, full gradient and150body/global wrench closure; false0.01N screw force rejected.',\n        'load_basis':{'one_climber_lb':250,'downward_multiplier':2,'downward_force_n':2224.11080763025,\n                      'simultaneous_global_horizontal_n':300,'hold_outward_standoff_mm':100,\n                      'accessory_mass_kg':25,'same_source_six_cases':list(CASES)},\n        'duration':'CD1 and conditionalCD1.6 are reference scenarios; neither measured pulse duration nor an adopted climbing duration qualification. The APA1.6 wind/earthquake comparison is not an impact allowance. CD does not change stiffness, forces or steel resistance.',\n        'limits':['Unmeasured1000N/mm screw stiffness and area-weighted contact priors do not bound physical response.',\n                  'The98K12rear calculation failed the unchanged body/global closure gate and supplies no accepted forces. Five completed pairs are not a six-case envelope.',\n                  'Generic head/withdrawal and sampled APA strip references are not Hillman42605 product or complete panel/joint capacities.',\n                  'Panel samples41peraxis do not resolve individual hold footprints, aperture free boundaries, countersink, punching, edge splitting or local anchorage.',\n                  'Gross-stock timber stiffness ignores local hole/bevel removal; finished volumes and current contact/bore geometry were re-extracted.',\n                  'The four original support reference points per foot are retained on the enlarged post faces. Full physical footprint pressure and no-slip remain unverified.',\n                  'No trial adoption, purchased policy change, installation, drilling or climbing release. Future integrated geometry requires matching actions.'],\n        'retention':{'active_raw_packet':str(BASE.relative_to(ROOT)),'closed_attempts_preserved':True,\n                     'archive_or_prune_performed':False,'frozen_layout_index_byte_alias':alias,\n                     'older_duration_source_index':ref(BASE/'source-cache/narrow-index-frozen-v3.json')},\n        'producer':{'sha256':hashlib.sha256(producer.encode()).hexdigest(),'source':producer},\n        'supporting_producers':snapshots,'source_sha256':direct_pins,\n        'reused_source_closures':closures,'expanded_source_pin_count':len(pins),\n        'structural_acceptance':False,'fabrication_released':False,'climbing_released':False}\n\n\nif __name__=='__main__':\n    result=summarize()\n    with Path(sys.argv[1]).open('x') as f:json.dump(result,f,indent=2,sort_keys=True,allow_nan=False);f.write('\\n')\n    print(json.dumps({n:{k:{field:r[k][field] for field in ('maximum_reference_index_conditional_CD1p6','exceedances_conditional_CD1p6')}\n                         for k in ('head','bending','rolling')} for n,r in result['variants'].items()}))\n"
+  },
+  "question": "Does preserving66 axes and adding32 reduce short-term panel/screw reference exceedances on the same current enclosed-passage frame?",
+  "retention": {
+    "active_raw_packet": "fea/generated/selected-hardware-followup-v1/panel98-current-v1",
+    "archive_or_prune_performed": false,
+    "closed_attempts_preserved": true,
+    "frozen_layout_index_byte_alias": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/mechanics66-attempt04/parent-index.json",
+      "sha256": "d94324db41342a40212aad787278063bcae15a12d5ee862060b12c5c4bde3af2"
+    },
+    "older_duration_source_index": {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/source-cache/narrow-index-frozen-v3.json",
+      "sha256": "6375178044ef78fe9027dcceb4a439489af93582bdf1c9b9ec8d4e019e0df251"
+    }
+  },
+  "reused_source_closures": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/clearance-attempt02.json",
+      "sha256": "b6b407dd61565fe44713379ca85727e0ad0b2ab32600396b63eea1033434960e"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/field.json",
+      "sha256": "732256af43265c26b9d60326814835dc9e5ea7144f8065aceaa82ef051cfaeb6"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/field.json",
+      "sha256": "3a9129a19e2a61e090c44680bfbb41bad976d91f767b1620132731e65a1af3a2"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/field.json",
+      "sha256": "fa81457ce50c4e79a4c41119c2ca2e997438b4872a0d9f4c0e40ea442f0ebe78"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/field.json",
+      "sha256": "171bb6c49186fef1e5d15c0be3dfb0566bf079c176fe0b0b467391983beaeb04"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/field.json",
+      "sha256": "c323d7920962872bd0450f951723814e17c14d208f50c5e67700e5af4058ce17"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/field.json",
+      "sha256": "c292e9dc529c2448e189491ab0807074a06f336f22a1afd9c0fc6b5ac9c0ad07"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/field.json",
+      "sha256": "6dd1cd89b9f33635c39324a38dfb78f066ac721942266f5a70d1d09cda362928"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/field.json",
+      "sha256": "902f8ae77870315896275072b4ee044ca5476456f2393e485af970c7f4bc3969"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/field.json",
+      "sha256": "5f3a57e8d5cd08eab57ae87e2260db359e91da1f2f24bc0d8f86c4c7a3903d94"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/field.json",
+      "sha256": "f0c7b6b59fa8fdd37a2c9bc506fe82f449025fe7f714e2136d2eaeb6a1925a98"
+    }
+  ],
+  "revision": "eoere-current-panel98-proposal-v1",
+  "schema": "eoere_current_panel98_paired_development_trial/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/panel98-trial-axes.csv": "bcd6dae82a20362728c6d491e19ee60cea673e1b62229a11913e6e849a7f98fb",
+    "docs/bolted-frame-development/panel98-trial-layout.svg": "df0e481b68f6555d9496e39892dd3066ea1b57131f0a19278e52c965360a36de",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/audit_geometry.py": "a10c8311c623c9b622f1741313775db4d4bbdaca62b3fbd8a16eb7cf4327b250",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/components.json": "4e830d65a2dc46ad1b19daff48da595dd16fb1a9469c05adff1369c7b5b59749",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/field.json": "c323d7920962872bd0450f951723814e17c14d208f50c5e67700e5af4058ce17",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/operators.json": "e8a46ef2d394269987ee1ffed94baaa5a40d472dbad1f5ebf2e90dffaf4732da",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/operators.npz": "c81978df34c3b2e5d70a47cd7d93e30b220867693538de6fc695702454a96f2c",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/replay.json": "d025fa98becf0e84792413779584aeacef79aae4096d980b7b18182d02bf1114",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/components.json": "16ab3f4afc983d99cca44527d0c7faa597b348fc0cc6cd7ee5034044ba15996a",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/field.json": "732256af43265c26b9d60326814835dc9e5ea7144f8065aceaa82ef051cfaeb6",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/operators.json": "be37d775a1af6c6d1966839c3d76547e93e6aef7cd8af1a482d75fd5de19fa05",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/operators.npz": "bc0dfd2f0751b4ecb99b955ad1a557eb7b79a9aec87b81401de07b1c9bf66ab0",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/replay.json": "450d6e706653d98ac4b5ffc42b6ab008a5984d268679761d873287a7fe78ef01",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/components.json": "661a832615f28c1280131a17b34e3881c7dadf30bb6c336d928231368dec485d",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/field.json": "fa81457ce50c4e79a4c41119c2ca2e997438b4872a0d9f4c0e40ea442f0ebe78",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/operators.json": "3cde133eee973fbe6ed4d5a0886b415023813a9e65ea5f97ec5e588e202348fd",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/operators.npz": "744322ff47636aee2ec64786168be8befc138d5600169832f6234924687485ec",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/replay.json": "32fa32f0d3a10a7062e97ef61dc33eb988c589985c16bd3a4f71d86813dd2571",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/components.json": "74960a22652651b79a37379988cef150121414feba52f4f9fc15e69f5142965d",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/field.json": "3a9129a19e2a61e090c44680bfbb41bad976d91f767b1620132731e65a1af3a2",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/operators.json": "587c5f5151f70cb1287fa37c865c305a52f67b63ab51e0b649a1e7da595f2f0d",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/operators.npz": "ce6b929dcd6f6f65a777fd2e458c885274e6499ef9edcb19bdf1bdbfcd48d0ed",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/replay.json": "cc2a5cf006085a727e56bccceb47eac5dedbf8800774bc41c0c58970ad628fbc",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-rear/attempt01/field.json": "cb77a3b31b59850942852a07c02b2ff6d4ab6444bfd67e73a9e49cc3139c2b18",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/components.json": "72c4e3c63fc8c5ce6b07b54cdcb93a1971ba8d47ec249b3470f4b860354300fd",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/field.json": "171bb6c49186fef1e5d15c0be3dfb0566bf079c176fe0b0b467391983beaeb04",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/operators.json": "174903ce24d74cb5c5de93e7dbc2589b253fd29d3296897a0a966c5033a3fb00",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/operators.npz": "a74fe49ff203eddabd53090a72265382ee3d8ec7e5f7b0f978443e421dd5e36b",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/replay.json": "f7ecf337bed23b7cefddeacd47d78b8258474910673aa9013c75c3849faaaea8",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/components.json": "8529d1739690902a0b9735b07801ce546c1fa25fb17ae674ca6ff70542602f4b",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/field.json": "f0c7b6b59fa8fdd37a2c9bc506fe82f449025fe7f714e2136d2eaeb6a1925a98",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/operators.json": "2df4d785d4de79b29eb92e58d8643b39c0c5dfd33bcdccbf365dcf5a7fc52336",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/operators.npz": "735d7ed6d9b0523ad7a4f97a4b4ff7d3fcbe17f78ef67b4b0f665e781bc225e2",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/replay.json": "e33499fcc04dcfbc43c89195f3fb3ecc84be2f809ad2eadb85cde90c88d8ea72",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/components.json": "6dc8148692072f19c1236c4d0afdf8e1a6ea66cd1580a3f4143011b07c6f66e7",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/field.json": "c292e9dc529c2448e189491ab0807074a06f336f22a1afd9c0fc6b5ac9c0ad07",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/operators.json": "5dcb864c3d3b23f15ce5a1862ffad4a6f5cbf18c0f43bba0fdb1e7b5053b5400",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/operators.npz": "c6e3c983bd870fbc566d6230f80ece01552fa20a94a1f5afb48d8e8d238e874d",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/replay.json": "3c37202d54e3b9d618d112ea96f666187d0b608b54317e7704d682362184f6dd",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/components.json": "c9997dcbf678444f6fe8d9d87be5e412827bd996480afdfc4758d30f8da2d90d",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/field.json": "902f8ae77870315896275072b4ee044ca5476456f2393e485af970c7f4bc3969",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/operators.json": "15c7e171046ddea1de89d41b1d3c01eae30bf99e600a9a1072abee524dc59876",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/operators.npz": "3bc4f7b51e29df1b15af61d578fd8d1aa6859ceaf63e68ba2f4feb789303ff35",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/replay.json": "38b48cfdfbe34e4aa981f912628bc6bbabb047781b4548bd17b3d5ed37fc3ee0",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/components.json": "cf90e5957c816c72dc26954a55a514bd5c25be553a6d04c2af2a57796f67a051",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/field.json": "6dd1cd89b9f33635c39324a38dfb78f066ac721942266f5a70d1d09cda362928",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/operators.json": "617b67c533959c09b536dd2474fd4d2041eb660a71d87c45dd72247e97e74cf7",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/operators.npz": "4e97c262b70bfaea42f52e22f856017a4e733af46084a3802016c3e3d6b11bec",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/replay.json": "aa1c63c80e94aabdd69ba969496b8910999c13612f733bf39e05b21d36bbd690",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-rear/attempt01/failure.json": "ce9a2133fefca22f16f7b4600e2af6518c93a8d9efd34e4dd1ca797b542cf278",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/components.json": "46235744f3c7a06ce918eac7020143d0fc22c84dfa2e2408f5bbcae2997ee059",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/field.json": "5f3a57e8d5cd08eab57ae87e2260db359e91da1f2f24bc0d8f86c4c7a3903d94",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/operators.json": "30a49eb9c236a96d7ffcdf948aeb5973ba9b3e1e012db76028c397ce35dda88b",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/operators.npz": "7a738fe032191c6cccbf7e88f00f010ec5d66427cb5e94d1663b58ca6a65b9d6",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/replay.json": "cec08897aa4314253f3ebc17653d9b6d9ea1eb50a094dd98387369b4047464e7",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/clearance-attempt02.json": "b6b407dd61565fe44713379ca85727e0ad0b2ab32600396b63eea1033434960e",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/layout-attempt03/layout.json": "0fe794107e11b83aed63b592412d0ade74c6e905edd9849d2f83ca81deabe727",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/mechanics66-attempt04/inputs.json": "2a160ed0d97fe0097d35c6d7b4be46879fda247ba02e3c7d59de0e232a3015c8",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/mechanics66-attempt04/parent-index.json": "d94324db41342a40212aad787278063bcae15a12d5ee862060b12c5c4bde3af2",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/mechanics98-attempt01/inputs.json": "52963ad17270a3c7b716bd15677a9c608419d00a0c8d30c2ca5de459459fa0b4",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/prepare_mechanics.py": "b58b45dc55aefafb5b217e0bd40588b6c63fb0db7b66af8192d21d614f2371e4",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/render_layout.py": "5f84a9e3b3bdefc667c6cbc2a69e29e7a37df820f635dec75f810162a86eba4f",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/replay_mechanics.py": "fdec83a2b6e0a4026474525e400751e8cf622270a1daa0ba78bf5b30a854306e",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/run_mechanics.py": "aa896bdfde8bdfcd1fb21d322ab1acf2c9a9909829ea6ae5b7039bdc3aad6c99",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/source-cache/narrow-index-frozen-v3.json": "6375178044ef78fe9027dcceb4a439489af93582bdf1c9b9ec8d4e019e0df251",
+    "fea/generated/selected-hardware-followup-v1/panel98-current-v1/verify_summary.py": "69834b4f36ad14235a44423bf457ab4b7721041857d05bd6569481da4fdad136",
+    "scripts/eoere_98_screw_trial.py": "478e746e3f86d66f1ae9766bc789088ee5b532a4215f1c0959d2fa392ac8cb27",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "structural_acceptance": false,
+  "supporting_producers": {
+    "audit_geometry.py": {
+      "sha256": "a10c8311c623c9b622f1741313775db4d4bbdaca62b3fbd8a16eb7cf4327b250",
+      "source": "\"\"\"Check proposed screw envelopes against the complete current occupied bank.\"\"\"\n\nimport json\nimport sys\nfrom pathlib import Path\n\nfrom scripts.eoere_98_screw_trial import DOC, ROOT, module, parent_sources\nfrom scripts.eoere_current_shop_followup import require, sha\n\n\ndef run(layout_path, output):\n    import cadquery as cq\n\n    layout = json.loads(layout_path.read_bytes())\n    index, current, _, _, sources, pins = parent_sources()\n    require(layout['parent_geometry'] == index['geometry']['receipt'], 'proposal parent changed')\n    shop = json.loads((ROOT/DOC/'shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/inputs.json').read_bytes())\n    helper = module(Path(shop['sources']['bounds_helper']['path']), 'panel98_bounds')\n    native_ref = shop['sources']['native']\n    require(sha(ROOT/native_ref['path']) == native_ref['sha256'], 'native source changed')\n    native = json.loads((ROOT/native_ref['path']).read_bytes())\n    scenes = []\n    registry = {r['id']: r for r in native['parts']}\n    for filename in ('eoere-bottom-rail-scene.json.gz', 'eoere-cleat-trim-scene.json',\n                     'eoere-aligned-wire-scene.json.gz', 'eoere-adjusted-base-v3-scene.json.gz',\n                     'eoere-cleat-extension-scene.json.gz', 'eoere-uniform-channels-scene.json.gz',\n                     'eoere-kicker-clearance-scene.json.gz', 'eoere-selected-hardware-scene.json.gz',\n                     'eoere-front-posts-4x6-scene.json.gz', 'eoere-narrow-channels-scene.json.gz',\n                     'eoere-enclosed-passages-scene.json.gz'):\n        path = Path('site')/filename\n        layer = helper.asset(str(ROOT/path))\n        ref = layer['layout_report']\n        require(sha(ROOT/ref['path'])==ref['sha256'],'scene source changed')\n        pins[ref['path']]=ref['sha256']\n        record=json.loads((ROOT/ref['path']).read_bytes())\n        for key in ('finished_solids','finished_panel_solids','changed_finished_solids'):\n            registry.update({r['id']:r for r in record.get(key,[])\n                             if r.get('variant') in (None,'base','common')})\n        if filename == 'eoere-uniform-channels-scene.json.gz':\n            layer = {'replacements': layer['common_replacements']+layer['base_replacements']}\n        if filename == 'eoere-narrow-channels-scene.json.gz':\n            layer = {'replacements': layer['replacements']['base']}\n        pins[str(path)] = sha(ROOT/path)\n        scenes.append(layer)\n        if filename=='eoere-selected-hardware-scene.json.gz':\n            intermediate=helper.compose_bounds(native,scenes)\n            translated=[]\n            for row in layer['translations']:\n                box=intermediate[row['name']]['bounds']\n                delta=row['translation_xyz_mm']\n                translated.append({'name':row['name'],'fabrication':row['fabrication'],\n                    'mesh':{'bounds_xyz_mm':[v+delta[i//2] for i,v in enumerate(box)]}})\n            scenes.append({'replacements':translated})\n    bank = helper.compose_bounds(native, scenes)\n    for filename in ('occupied-aligned-wire-v1.json', 'occupied-adjusted-base-v3.json',\n                     'occupied-extended-cleats-v1.json', 'occupied-uniform-channels-v1.json',\n                     'occupied-kicker-clearance-v1.json', 'occupied-selected-hardware-v1.json',\n                     'occupied-front-posts-4x6-v1.json', 'occupied-narrow-channels-v1.json'):\n        record = json.loads((ROOT/DOC/filename).read_bytes())\n        registry.update({r['id']: r for r in record['changed_finished_solids']\n                         if r.get('variant') in (None, 'base', 'common')})\n    study = json.loads((ROOT/current['checked_study']['path']).read_bytes())\n    registry.update({r['id']: r for r in study['changed_finished_solids']})\n    registry.update(sources)\n    bottom_path=DOC/'occupied-bottom-rail-v1.json'\n    pins[str(bottom_path)]=sha(ROOT/bottom_path)\n    bottom=json.loads((ROOT/bottom_path).read_bytes())\n    translations={'fastener_'+r['axis_id']:[b-a for a,b in zip(r['before_xyz_mm'],r['after_xyz_mm'])]\n                  for r in bottom['changes']['Hillman_axes_moved']}\n    require(len(translations)==4,'four retained lower-rail screw translations required')\n    # Freeze the index as metadata: its subsequent changes cannot invalidate\n    # this receipt's immutable geometric source closure.\n    frozen_index=output.with_suffix('.parent-index.json')\n    with frozen_index.open('x') as f:json.dump(index,f,sort_keys=True,indent=2)\n    pins.pop('docs/bolted-frame-development/development-revisions.json',None)\n    pins[str(frozen_index.relative_to(ROOT))]=sha(frozen_index)\n    pins[str(Path(__file__).resolve().relative_to(ROOT))]=sha(__file__)\n    check=index['geometry_registry_check']\n    require(sha(ROOT/check['path'])==check['sha256'],'registry QA changed')\n    pins[check['path']]=check['sha256']\n    require(len(bank) == 1033, 'complete current occupied bank required')\n    cache, exact, conflicts = {}, [], []\n\n    def load(name):\n        row = registry[name]\n        require(sha(ROOT/row['path']) == row['sha256'], 'obstacle source changed')\n        pins[row['path']] = row['sha256']\n        if name not in cache:\n            body=cq.Shape.importBrep(str(ROOT/row['path']))\n            if name in translations:body=body.translate(cq.Vector(*translations[name]))\n            cache[name]=body\n        return cache[name]\n\n    for added in layout['added_axes']:\n        axis = added['axis']\n        p, d = cq.Vector(*axis['origin_xyz_mm']), cq.Vector(*axis['direction_xyz']).normalized()\n        shank = cq.Solid.makeCylinder(2.5,63.5,p,d)\n        head = cq.Solid.makeCylinder(4.5,3.,p,-d)\n        envelope = shank.fuse(head)\n        b = envelope.BoundingBox()\n        box = [getattr(b,a+e) for a in 'xyz' for e in ('min','max')]\n        for name, candidate in bank.items():\n            if name in (axis['panel'], axis['receiver']):\n                continue\n            other = candidate['bounds']\n            if not all(min(box[2*i+1],other[2*i+1])-max(box[2*i],other[2*i]) > 1e-7 for i in range(3)):\n                continue\n            require(name in registry, 'missing exact obstacle: '+name)\n            volume = envelope.intersect(load(name)).Volume()\n            row = {'axis_id':axis['axis_id'],'other':name,'kind':candidate['kind'],\n                   'intersection_volume_mm3':volume}\n            exact.append(row)\n            if volume > 1e-5:\n                conflicts.append(row)\n    for path,digest in pins.items():\n        require(sha(ROOT/path)==digest,'source changed: '+path)\n    result={'schema':'eoere_panel98_occupied_clearance/v1','parent_geometry':layout['parent_geometry'],\n        'layout':{'path':str(layout_path.relative_to(ROOT)),'sha256':sha(layout_path)},\n        'occupied_parts':len(bank),'new_screws':32,'exact_queries':exact,'conflicts':conflicts,\n        'four_existing_screw_pose_translations_applied':True,'eight_catalog_nut_bound_translations_applied':True,\n        'all_nominal_envelopes_clear':not conflicts,'source_sha256':pins,\n        'nominal_shank_diameter_mm':5.,'nominal_head_diameter_mm':9.,'nominal_head_height_mm':3.,\n        'native_solve':False,'physical_hardware_or_drill_dimensions_verified':False,\n        'structural_acceptance':False}\n    with output.open('x') as f:json.dump(result,f,sort_keys=True,indent=2)\n    return result\n\n\nif __name__=='__main__':\n    r=run(Path(sys.argv[1]).resolve(),Path(sys.argv[2]).resolve())\n    print(json.dumps({k:r[k] for k in ('occupied_parts','new_screws','all_nominal_envelopes_clear','conflicts')}))\n"
+    },
+    "prepare_mechanics.py": {
+      "sha256": "b58b45dc55aefafb5b217e0bd40588b6c63fb0db7b66af8192d21d614f2371e4",
+      "source": "\"\"\"Current-geometry inputs using existing cached-solid and panel kernels only.\"\"\"\n\nimport copy\nimport json\nimport sys\nfrom pathlib import Path\nfrom unittest.mock import patch\n\nimport numpy as np\n\nfrom scripts import eoere_current_response as response\nfrom scripts.eoere_98_screw_trial import INDEX, ROOT, parent_sources\nfrom scripts.eoere_current_shop_followup import require, sha\n\n\ndef write(path, value):\n    with path.open('x') as stream:\n        json.dump(value, stream, sort_keys=True, indent=2, allow_nan=False)\n        stream.write('\\n')\n\n\ndef prepare(layout_path, out, count):\n    require(count in (66,98) and not out.exists(), 'fresh 66/98 variant required')\n    layout = json.loads(layout_path.read_bytes())\n    index, _current, posts, prior, sources, pins = parent_sources()\n    require(layout['parent_geometry'] == index['geometry']['receipt'], 'layout parent changed')\n    pins[str(layout_path.relative_to(ROOT))] = sha(layout_path)\n    old, _, axes, _, legacy_pins = response.current_metadata()\n    pins.update(legacy_pins)\n    p = copy.deepcopy(old)\n    p['geometry'] = copy.deepcopy(index['geometry']['receipt'])\n    overrides = {r['axis_id']: r for r in posts['selected_stack_overrides']}\n    for axis in axes:\n        identity = axis['id']\n        if identity in posts['axis_overrides']:\n            axis.update(copy.deepcopy(posts['axis_overrides'][identity]))\n            axis['nut_side_spacer_mm'] = overrides[identity]['nut_side_spacer_mm']\n    for row in p['raw_gross_timber_rows']:\n        profile = posts['profile_overrides'].get(row['name'])\n        if profile:\n            v = np.asarray(profile['vertices_luv_mm'])\n            low, high = v.min(axis=0), v.max(axis=0)\n            basis = np.asarray(profile['basis_grain_u_v_xyz'])\n            start = np.asarray(profile['datum_xyz_mm'])+basis.T@np.array([low[0],(low[1]+high[1])/2,(low[2]+high[2])/2])\n            row.update(start=start.tolist(),end=(start+basis[0]*(high[0]-low[0])).tolist(),\n                       axis=basis[0].tolist(),section_u=basis[1].tolist(),section_v=basis[2].tolist(),\n                       width_mm=float(high[1]-low[1]),depth_mm=float(high[2]-low[2]),\n                       current_gross_post_profile=copy.deepcopy(profile))\n    if count==98:\n        sources.update({r['id']:r for r in layout['changed_panel_solids']})\n        originals = {r['id']:r for r in p['hillman_rows']}\n        for row in layout['added_axes']:\n            p['hillman_rows'].append(copy.deepcopy(row['mechanical']))\n            axis = row['axis']\n            p['current_panel_machining_descriptors']['features'].append({\n                'diameter_mm':5.,'direction_xyz':axis['direction_xyz'],\n                'drill_size_or_physical_hole_qualified':False,'identity':axis['axis_id'],\n                'kind':'conditional_screw_clearance','panel':axis['panel'],\n                'removed_volume_mm3':np.pi*2.5**2*18.25625,'start_xyz_mm':axis['origin_xyz_mm']})\n            template = originals[row['template_axis_id']]\n            delta = np.asarray(row['mechanical']['point_xyz_mm'])-template['point_xyz_mm']\n            shares = [r for r in old['auxiliary_metal_gravity_descriptors']\n                      if r['id'].startswith('fastener_'+template['id']+'/')]\n            require(len(shares)==2,'two original nominal metal shares required')\n            for share in shares:\n                extra = copy.deepcopy(share)\n                extra['id'] = extra['id'].replace('fastener_'+template['id']+'/', 'fastener_'+axis['axis_id']+'/',1)\n                extra['center_xyz_mm']=(np.asarray(extra['center_xyz_mm'])+delta).tolist()\n                extra['basis']='same nominal Hillman envelope shares as template; added screw is unobserved'\n                p['auxiliary_metal_gravity_descriptors'].append(extra)\n    for source in sources.values():\n        box=source['bounds_xyz_mm']\n        if len(box)==6:\n            source['bounds_xyz_mm']=[box[i:i+2] for i in (0,2,4)]\n    require(len(p['hillman_rows'])==count,'exact variant screw census required')\n    out.mkdir(parents=True)\n    (out/'producer-snapshot.py').write_bytes(Path(__file__).read_bytes())\n    write(out/'parent-index.json',index)\n    pins.pop(str(INDEX),None)\n    pins[str((out/'parent-index.json').relative_to(ROOT))]=sha(out/'parent-index.json')\n    pins[str(Path(__file__).relative_to(ROOT))]=sha(Path(__file__))\n    ex,m = response.load('cached_exporter').a.generic()\n    q = ex.load_query_methods(pins)\n    report = {'axes':axes,'scenario':response.read({'path':ex.REPORT,'sha256':ex.REPORT_SHA})['scenario'],\n              'finished_solids':[sources[r['name']] for r in p['raw_gross_timber_rows']]}\n    panel_rows=[sources[name] for name in prior['panel_ids']]\n    exporter=response.load('cached_exporter')\n    bodies,observations,import_proof=exporter.import_current(ex,report,panel_rows,pins,q)\n    profiles={r['name']:r for r in p['raw_gross_timber_rows']}\n    query,names,wall_proof=exporter.wall_cache(ex,old,report,observations,profiles,q,m)\n    names.update({id(body):name for name,body in bodies.items()})\n    role_original,ends_original=ex.role_rows,ex.end_seats\n    with patch.object(q.bore,'finished_bore_wall_intervals',query), \\\n         patch.object(ex,'role_rows',lambda a,method,volumes:response.spacer_roles(a,method,volumes,role_original)), \\\n         patch.object(ex,'end_seats',lambda a,surfaces,method:response.spacer_ends(a,surfaces,method,ends_original)):\n        shafts,walls=ex.shafts(report,profiles,bodies,q,m)\n    print('Current own shaft/wall descriptors extracted',flush=True)\n    patches,direct,pair_census,faces=ex.contact_bank(bodies,sorted(profiles),prior['panel_ids'],q,p['parameters'])\n    domains,flange_patches,flange_contacts=ex.flange_bank(p['fitting_poses'],report,bodies,faces,q,m,p['parameters'])\n    print('Current contact domains extracted',flush=True)\n    # Keep the original four-point support discretization on each foot. The\n    # wider post's old four points are still on its current bottom face.\n    footprints=copy.deepcopy(prior['floor_footprints'])\n    for name,points in footprints.items():\n        require(all(bodies[name].isInside(q.cq.Vector(*point),1e-5) for point in points),\n                'retained floor support point outside current solid')\n    owners=[{'id':r['id'],'kind':'panel' if r['id'] in prior['panel_ids'] else 'timber',\n             'mass_kg':r['volume_mm3']*p['parameters']['wood_density_kg_m3']*1e-9,\n             'center_xyz_mm':r['center_xyz_mm'],'mass_basis':'own current finished cached volume'} for r in observations]\n    old_owners={r['id']:r for r in p['physical_owner_gravity_rows']}\n    owners += [{'id':pose['id'],'kind':'fitting','mass_kg':old_owners[pose['id']]['mass_kg'],\n                'center_xyz_mm':ex.fitting_centroid(report['scenario'],pose,m)} for pose in p['fitting_poses']]\n    for shaft in shafts:\n        roles=shaft['metal_roles'];mass=sum(r['mass_kg'] for r in roles)\n        owners.append({'id':shaft['body'],'kind':'shaft','mass_kg':mass,\n                       'center_xyz_mm':[sum(r['mass_kg']*r['center_of_mass_xyz_mm'][j] for r in roles)/mass for j in range(3)]})\n    bridge=response.load('bridge').frozen()\n    centroidal=bridge.driver.load(bridge.driver.CENTROIDAL,bridge.driver.CENTROIDAL_SHA,'panel98_centroidal')\n    case_provider=bridge.load(bridge.PACKET/'raised-rail-cases-v1/cases.py',bridge.REUSED['raised-rail-cases-v1/cases.py'],'panel98_cases')\n    roles=[{'id':r['id'],'owner':shaft['body'],'mass_kg':r['mass_kg'],\n            'center_xyz_mm':r['center_of_mass_xyz_mm'],'basis':r['basis']} for shaft in shafts for r in shaft['metal_roles']]\n    require(len(roles)==508 and len({r['id'] for r in roles})==508, '508 unique selected shaft metal roles required')\n    cases,gravity=case_provider.frame.load_cases({'panel_machining':p['current_panel_machining_descriptors']},\n        {'bodies':[r for r in owners if r['kind']!='shaft'],\n         'bolt_gravity_components':roles+p['auxiliary_metal_gravity_descriptors']})\n    cases=[r for r in cases if r['primary_load_basis'] and r['case_id']!='gravity-only']\n    require(len(cases)==6, 'six primary load cases required')\n    scenario=copy.deepcopy(p['material_scenario'])\n    scenario.update(fitting_stiffness_basis=centroidal.SCENARIO,fitting_operator_correction=centroidal.correction_contract())\n    for case in cases:\n        for row in case['loads']:\n            if row['id'].startswith('bolt-weight/') and row['body'].startswith('shaft/'):\n                row['id']='physical-bolt-metal/'+row['id'].removeprefix('bolt-weight/')\n    data={'schema':'eoere_panel98_current_first_order_inputs/v1','trial_screws':count,\n        'source_sha256':pins,'geometry':index['geometry']['receipt'],'parent_layout':layout['revision'],\n        'optional_2026_extra':False,'parameters':p['parameters'],'scenario':scenario,\n        'timber_rows':p['raw_gross_timber_rows'],'base_bodies':[r for r in owners if r['kind']!='shaft'],\n        'physical_owner_gravity_rows':owners,'fitting_poses':p['fitting_poses'],\n        'all_factory_holes':p['all_factory_holes'],'factory_holes':copy.deepcopy(prior['factory_holes']),\n        'fitting_port_bindings':p['fitting_ports'],'shafts':shafts,'panel_ids':prior['panel_ids'],\n        'floor_footprints':footprints,'cases':cases,'case':cases[0],'gravity':gravity,\n        'finished_receiver_wall_queries':walls,'finished_body_observations':observations,\n        'direct_contacts':direct+flange_contacts,'hillman_rows':p['hillman_rows'],\n        'current_panel_machining_descriptors':p['current_panel_machining_descriptors'],\n        'flange_domains':domains,'flange_shared_face_patches':flange_patches,\n        'timber_and_panel_shared_face_patches':patches,'shared_pair_query_census':pair_census,\n        'historical_q':None,'old_field':None,'release':copy.deepcopy(p['release'])}\n    for row in observations:\n        pins[row['source']['path']]=row['source']['sha256']\n    for path,digest in pins.items():\n        require(sha(ROOT/path)==digest,'source changed: '+path)\n    require(json.loads((ROOT/INDEX).read_bytes())['geometry']['receipt']==index['geometry']['receipt'],\n            'current geometry changed during preparation')\n    data['source_sha256']=pins\n    write(out/'inputs.json',data)\n    write(out/'preparation.json',{'schema':'eoere_panel98_current_preparation/v1',\n        'screw_count':count,'parent_geometry':layout['parent_geometry'],'import_proof':import_proof,\n        'wall_proof':wall_proof,'new_contact_patch_count':len(patches),'direct_contact_count':len(direct+flange_contacts),\n        'floor_reference':'retained four source points per foot; all confirmed on current solids; complete footprint pressure is unqualified',\n        'input':{'path':str((out/'inputs.json').relative_to(ROOT)),'sha256':sha(out/'inputs.json')},\n        'native_solve':False,'current_actions_or_acceptance_transferred':False,\n        'structural_acceptance':False,'source_sha256':pins})\n    return data\n\n\nif __name__=='__main__':\n    result=prepare(Path(sys.argv[1]).resolve(),Path(sys.argv[2]).resolve(),int(sys.argv[3]))\n    print(json.dumps({'screws':result['trial_screws'],'owners':len(result['physical_owner_gravity_rows']),\n                      'cases':len(result['cases']),'contacts':len(result['direct_contacts'])}))\n"
+    },
+    "render_layout.py": {
+      "sha256": "5f84a9e3b3bdefc667c6cbc2a69e29e7a37df820f635dec75f810162a86eba4f",
+      "source": "\"\"\"Front-view placement sheet for the current 98-screw development trial.\"\"\"\n\nimport csv\nimport html\nimport json\nimport sys\nfrom pathlib import Path\n\nimport numpy as np\n\nfrom scripts.eoere_98_screw_trial import ROOT, parent_sources\n\n\ndef render(layout_path, svg_path, csv_path):\n    layout=json.loads(layout_path.read_bytes())\n    _,_,_,data,_,_=parent_sources()\n    field_path=ROOT/'fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json'\n    charts=json.loads(field_path.read_bytes())['panel_generalized_coefficients']\n    axes=[{**r['source_screw_descriptor'],'classification':'existing'} for r in data['hillman_rows']]\n    axes += [{**r['axis'],'classification':'added'} for r in layout['added_axes']]\n    assert len(axes)==98\n    with csv_path.open('x',newline='') as f:\n        w=csv.writer(f)\n        w.writerow(['axis_id','panel','receiver','classification','analysis_front_x_mm','analysis_front_y_mm','analysis_front_z_mm','status'])\n        for a in axes:\n            w.writerow([a['axis_id'],a['panel'],a['receiver'],a['classification'],\n                        *[f'{x:.6f}' for x in a['origin_xyz_mm']],'development proposal; not drilling instructions'])\n    svg=['<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 760 815\" role=\"img\" aria-labelledby=\"title desc\">',\n         '<title id=\"title\">98-screw development proposal</title>',\n         '<desc id=\"desc\">Four main panels with the twelve existing screw axes and eight additions on each panel. Eighteen kicker screws are retained.</desc>',\n         '<rect width=\"760\" height=\"815\" fill=\"#f8fafc\"/>',\n         '<g font-family=\"sans-serif\" fill=\"#172a3a\">',\n         '<text x=\"30\" y=\"30\" font-size=\"22\">98-screw layout trial \u2014 front view</text>',\n         '<text x=\"30\" y=\"54\" font-size=\"13\">20 per main panel; 18 kicker screws retained. Existing axes stay fixed.</text>',\n         '<circle cx=\"39\" cy=\"77\" r=\"4\" fill=\"#236b9b\"/><text x=\"52\" y=\"82\" font-size=\"13\">Existing</text>',\n         '<circle cx=\"155\" cy=\"77\" r=\"5\" fill=\"#bf5a16\"/><text x=\"168\" y=\"82\" font-size=\"13\">Added (eight per panel)</text>']\n    positions={'main_upper_left':(45,130),'main_upper_right':(405,130),\n               'main_lower_left':(45,475),'main_lower_right':(405,475)}\n    for name,(ox,oy) in positions.items():\n        chart=charts[name];g=chart['geometry'];origin=np.asarray(g['origin']);basis=np.asarray(g['axes'])\n        scale=.245;width=chart['width_mm']*scale;height=chart['height_mm']*scale\n        svg.append(f'<text x=\"{ox}\" y=\"{oy-12}\" font-size=\"14\">{name.replace(\"main_\",\"\").replace(\"_\",\" \")} \u2014 20 screws</text>')\n        svg.append(f'<rect x=\"{ox}\" y=\"{oy}\" width=\"{width:.3f}\" height=\"{height:.3f}\" fill=\"white\" stroke=\"#657985\"/>')\n        added_n=0\n        for a in (r for r in axes if r['panel']==name):\n            xy=(np.asarray(a['origin_xyz_mm'])-origin)@basis[:,:2]\n            x,y=ox+xy[0]*scale,oy+height-xy[1]*scale\n            color='#bf5a16' if a['classification']=='added' else '#236b9b'\n            radius=5 if a['classification']=='added' else 3.8\n            title=html.escape(a['axis_id']+' \u2192 '+a['receiver'])\n            svg.append(f'<circle cx=\"{x:.3f}\" cy=\"{y:.3f}\" r=\"{radius}\" fill=\"{color}\"><title>{title}</title></circle>')\n            if a['classification']=='added':\n                added_n+=1\n                svg.append(f'<text x=\"{x+7:.3f}\" y=\"{y-5:.3f}\" font-size=\"10\" fill=\"{color}\">+{added_n}</text>')\n    svg.extend(['<text x=\"30\" y=\"801\" font-size=\"12\">Placement proposal only. Strength, force sharing and installation remain separate checks.</text>', '</g></svg>'])\n    with svg_path.open('x') as f:f.write('\\n'.join(svg)+'\\n')\n\n\nif __name__=='__main__':\n    render(*(Path(p).resolve() for p in sys.argv[1:4]))\n"
+    },
+    "replay_mechanics.py": {
+      "sha256": "fdec83a2b6e0a4026474525e400751e8cf622270a1daa0ba78bf5b30a854306e",
+      "source": "\"\"\"Read-only raw-operator replay for current paired development candidates.\n\nReuses the independent geometric/force readers without asserting the older\nproduction provenance contract. No stiffness assembly or equilibrium solve.\n\"\"\"\n\nimport copy\nimport json\nimport sys\nfrom contextlib import ExitStack\nfrom pathlib import Path\n\nfrom scripts import eoere_current_response as response\nfrom scripts.eoere_current_shop_followup import ROOT, require, sha\n\n\ndef replay(path,out):\n    require(not out.exists(),'fresh replay output required')\n    before=sha(path)\n    field=json.loads(path.read_bytes())\n    require(field['schema']=='eoere_panel98_current_fixed_floor_trial_candidate/v1'\n            and field['response']['converged'] is True and not any(field['release'].values()),'own converged candidate required')\n    fixed=response.load('bridge')\n    b=fixed.frozen()\n    centroidal=b.driver.load(b.driver.CENTROIDAL,b.driver.CENTROIDAL_SHA,'panel98_replay_centroidal')\n    data=field['source_inputs']\n    for name,digest in field['source_sha256'].items():require(sha(ROOT/name)==digest,'field source drift: '+name)\n    snapshot=b.bundle.read_snapshot(field['operator_bundle'])\n    require(snapshot.case==data['case'] and snapshot.case['loads']==field['body_applied_loads'], 'exact saved loads required')\n    require(field['original_operator_fingerprint_sha256']==snapshot.manifest['original_operator_fingerprint_sha256'],\n            'captured source operators differ')\n    require(field['reference_interaction_descriptors']==[b.core.descriptor(r) for r in [*snapshot.groups,*snapshot.contacts,*snapshot.tangents]],\n            'captured interaction descriptors differ')\n    q=b.base.array(field['response']['q'],(snapshot.assembly.ndof,))\n    with fixed.corrected_context(b),ExitStack() as stack:\n        # Independent readers can have separate loaded factory modules.\n        factories={id(f):f for f in (b.factory,b.base.factory,b.old_gate.base.factory)}\n        for factory in factories.values():stack.enter_context(centroidal.correction_context(factory))\n        maps=b.base.OwnedMaps(snapshot,data)\n        b.base.verify_physical_bodies(snapshot,data)\n        ports=b.base.verify_ports(snapshot,maps,data)\n        work=b.base.verify_load_work(snapshot,maps,data)\n        fresh=b.law.replay(snapshot.assembly.K,snapshot.applied,snapshot.groups,snapshot.contacts,snapshot.tangents,q)\n        auditor=b.old_gate.declared_force_auditor()\n        normals,closure=auditor(field,snapshot,q,fresh)\n        require(all(normals[name]>1e-7 for name in b.law.RESTRAINED_HOSTS),'credited legs must bear')\n        recovery=b.driver.ordered.verify_fitting_and_alias_recovery(field,snapshot,maps,q)\n        # A small false force must be rejected by the same unchanged gate.\n        false=copy.deepcopy(field)\n        false['panel_screw_actions'][0]['force_on_first_xyz_n'][0]+=.01\n        try:auditor(false,snapshot,q,fresh)\n        except ValueError:negative=True\n        else:raise ValueError('force-tamper control was not rejected')\n    require(sha(path)==before,'field changed during read-only replay')\n    result={'schema':'eoere_panel98_current_raw_operator_replay/v1','case_id':field['case_id'],\n        'screws':field['trial_screws'],'field':{'path':str(path.relative_to(ROOT)),'sha256':before},\n        'geometry':field['trial_parent_geometry'],'owned_ports':ports,'load_work':work,'equilibrium':closure,\n        'fitting_recovery':recovery,'credited_rear_legs_in_compression':True,\n        'false_screw_force_rejected':negative,'K_reassembled_or_equilibrium_resolved':False,\n        'production_admission_issued':False,'complete_joint_or_Hillman_resistance_accepted':False,\n        'source_sha256':{**field['source_sha256'],str(Path(__file__).resolve().relative_to(ROOT)):sha(__file__)}}\n    with out.open('x') as f:json.dump(b.core.serial(result),f,indent=2,sort_keys=True,allow_nan=False);f.write('\\n')\n    print(json.dumps({'case':field['case_id'],'screws':field['trial_screws'],'replay':'pass','gradient':closure['gradient_inf_n']}))\n\n\nif __name__=='__main__':replay(*(Path(s).resolve() for s in sys.argv[1:3]))\n"
+    },
+    "run_mechanics.py": {
+      "sha256": "aa896bdfde8bdfcd1fb21d322ab1acf2c9a9909829ea6ae5b7039bdc3aad6c99",
+      "source": "\"\"\"Paired development trials through unchanged first-order numerical kernels.\n\nThis does not issue the project's production field-admission receipt. Each\ncandidate keeps that requirement; raw-operator replay is recorded separately.\n\"\"\"\n\nimport ast\nimport copy\nimport fcntl\nimport json\nimport signal\nimport sys\nimport time\nfrom pathlib import Path\nfrom unittest.mock import patch\n\nimport numpy as np\n\nfrom scripts import eoere_current_response as response\nfrom scripts import eoere_panel_size_reference as sizes\nfrom scripts import thin_bolted_panel_coupled as sections\nfrom scripts.eoere_current_shop_followup import ROOT, require, sha\n\nOWN=Path(__file__).resolve()\nLOADED_SHA=sha(OWN)\nSCHEMA='eoere_panel98_current_first_order_inputs/v1'\n\n\ndef write(path,value):\n    with Path(path).open('x') as stream:\n        json.dump(response.load('bridge').frozen().core.serial(value),stream,sort_keys=True,indent=2,allow_nan=False)\n        stream.write('\\n')\n\n\ndef validator(factory,count):\n    \"\"\"Change only schema and explicit screw/spacer inventory constants.\"\"\"\n    require(sha(factory.__file__)==factory.LOADED_SHA,'loaded frozen factory differs')\n    tree=ast.parse(Path(factory.__file__).read_bytes())\n    node=copy.deepcopy(next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='validate_rows'))\n    edits={'screws':0,'roles':0,'shaft_roles':0}\n    for part in ast.walk(node):\n        if isinstance(part,ast.Compare) and ast.unparse(part.left)==\"len(data['hillman_rows'])\":\n            require(ast.unparse(part)=='len(data[\\'hillman_rows\\']) == 66','original screw hook differs')\n            part.comparators[0].value=count\n            edits['screws']+=1\n        if isinstance(part,ast.Constant) and part.value==500:\n            part.value=508\n            edits['roles']+=1\n        if isinstance(part,ast.Compare) and ast.unparse(part.left)==\"len(row['metal_roles'])\":\n            require(ast.unparse(part)==\"len(row['metal_roles']) == 5\",'original role hook differs')\n            part.ops=[ast.In()]\n            part.comparators=[ast.Tuple(elts=[ast.Constant(5),ast.Constant(6)],ctx=ast.Load())]\n            edits['shaft_roles']+=1\n    require(edits=={'screws':1,'roles':1,'shaft_roles':1},'exact three census hooks required')\n    namespace={**vars(factory),'SCHEMA':SCHEMA}\n    exec(compile(ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[])),str(OWN),'exec'),namespace)\n    return namespace['validate_rows']\n\n\ndef panel_bank(data):\n    prior_path=ROOT/'fea/generated/selected-hardware-followup-v1/current-response-v1/inputs-attempt05.json'\n    require(sha(prior_path)=='316edd1dbb9b2200f752f938891ac4857928a90d062fbfcf96ef709ce93363dc','reference panel input changed')\n    panels,_,pins,proof=response.load_panel_dependencies(json.loads(prior_path.read_bytes()))\n    axes=[r['source_screw_descriptor'] for r in data['hillman_rows']]\n    rows=[]\n    with response.panel_context() as pb:\n        for name,panel in panels.items():\n            before={r['identity']:r for r in panel['holes']}\n            holes=[{**r,'xy_mm':pb.plate.local_xy(r['start_xyz_mm'],panel['geometry']).tolist()}\n                   for r in data['current_panel_machining_descriptors']['features'] if r['panel']==name]\n            new={r['identity']:r for r in holes}\n            require(all(new.get(k)==v for k,v in before.items()),'old aperture moved or removed')\n            added=[r for r in holes if r['identity'] not in before]\n            require(len(added)==(8 if data['trial_screws']==98 and name.startswith('main_') else 0),\n                    'exact eight added apertures on each main panel required')\n            if added:panel['K']=pb.raised.aperture_delta(panel,[],added)\n            panel['holes']=holes\n            pb.raised.refresh_screw_ports(panel,[r for r in axes if r['panel']==name])\n            pb.mass.mass_only_quadrature(panel)\n            panel['hole_area_mm2']=float(sum(np.pi*(r['diameter_mm']/2)**2 for r in holes))\n            rows.append({'panel':name,'new_apertures':len(added),'screws':len(panel['screws']),\n                         'K_sha256':pb.array_sha(panel['K']),'K_symmetry_error':float(abs(panel['K']-panel['K'].T).max())})\n    observed={r['id']:r for r in data['finished_body_observations']}\n    integrated={'panel_machining':data['current_panel_machining_descriptors'],'screw_axes':axes,\n                'finished_stock':[{'name':name,'volume_mm3':observed[name]['volume_mm3'],\n                                   'center_of_mass_xyz_mm':observed[name]['center_xyz_mm']} for name in data['panel_ids']],\n                'panel_operator_source_inputs':{'current_trial':data['geometry'],'screws':data['trial_screws']}}\n    pins[str(prior_path.relative_to(ROOT))]=sha(prior_path)\n    return panels,integrated,pins,{'source_bank':proof,'variant_panels':rows}\n\n\ndef diagnostics(field,panels,assembly,samples=41):\n    q=np.asarray(field['response']['q'])\n    screw_rows=[]\n    for row in field['panel_screw_actions']:\n        screw_rows.append(sections.screw_references(row,panels[row['panel']]['thickness']))\n    rows=[]\n    for name,panel in panels.items():\n        coefficients=q[assembly.panel_offsets[name]]\n        resolved=sections.panel_method.resolved_section_references(panel,coefficients,samples)\n        adjusted={}\n        for component,row in resolved['components'].items():\n            if component=='bending_x':\n                widths=sorted([panel['basis'].height,panel['geometry']['front_height']])\n            elif component=='bending_y':widths=[panel['basis'].width]*2\n            else:widths=None\n            bounds=(sizes.adjusted_reference(row['peak_abs_resultant'],row['reference_per_mm_width_CD1'],widths)\n                    ['adjusted_ratio_bounds_CD1'] if widths else [row['sampled_ratio_CD1']]*2)\n            adjusted[component]={**row,'size_adjusted_ratio_bounds_CD1':bounds,\n                                 'conditional_CD1p6_ratio_bounds':[v/1.6 for v in bounds]}\n        rows.append({'panel':name,'components':adjusted})\n    return {'schema':'eoere_panel98_trial_component_references/v1','case_id':field['case_id'],\n            'screws':screw_rows,'panels':rows,'samples_per_axis':samples,\n            'generic_head_capacity_not_Hillman_capacity':True,'complete_strength_acceptance':False,\n            'raw_field_independent_admission_pending':True}\n\n\ndef run(input_path,case_id,out):\n    require(not out.exists(),'fresh output required')\n    data=json.loads(input_path.read_bytes())\n    require(data['schema']==SCHEMA and data['trial_screws'] in (66,98),'own paired input required')\n    require(not any(data['release'].values()),'all releases must remain false')\n    for path,digest in data['source_sha256'].items():require(sha(ROOT/path)==digest,'input source changed: '+path)\n    selected=[r for r in data['cases'] if r['case_id']==case_id]\n    require(len(selected)==1,'one current source case required')\n    data['case']=selected[0]\n    out.mkdir(parents=True)\n    (out/'producer-snapshot.py').write_bytes(OWN.read_bytes())\n    fixed=response.load('bridge')\n    b=fixed.frozen()\n    centroidal=b.driver.load(b.driver.CENTROIDAL,b.driver.CENTROIDAL_SHA,'panel98_trial_centroidal')\n    start=time.monotonic()\n    pins={**data['source_sha256'],str(input_path.relative_to(ROOT)):sha(input_path),str(OWN.relative_to(ROOT)):LOADED_SHA,\n          'scripts/eoere_panel_size_reference.py':sha(ROOT/'scripts/eoere_panel_size_reference.py'),\n          'scripts/thin_bolted_panel_coupled.py':sha(ROOT/'scripts/thin_bolted_panel_coupled.py')}\n    panels,integrated,bank_pins,proof=panel_bank(data)\n    pins=response.join(pins,bank_pins)\n    write(out/'panel-bank.json',proof)\n    print('Panel bank ready',flush=True)\n    with fixed.corrected_context(b),patch.object(b.factory,'validate_rows',validator(b.factory,data['trial_screws'])), \\\n            centroidal.correction_context(b.factory):\n        prepared=b.factory._prepare(data,panels,integrated,pins,synthetic=False)\n        prepared.source_review={'schema':'eoere_panel98_trial_local_source_validation/v1',\n            'input':{'path':str(input_path.relative_to(ROOT)),'sha256':sha(input_path)},\n            'frozen_validator_numerical_checks_retained':True,'source_closure_verified':True,\n            'external_independent_review_claimed':False,'production_field_admission_pending':True}\n        write(out/'input-checks.json',prepared.source_review)\n        command=list(sys.orig_argv)\n        pointers=b.bundle.snapshot(prepared,arrays_path=out/'operators.npz',manifest_path=out/'operators.json',pins=pins,command=command)\n        print('Current operators captured: '+str(prepared.counts),flush=True)\n        def observe(event):\n            with (out/'events.jsonl').open('a') as stream:stream.write(json.dumps(b.core.serial(event),allow_nan=False)+'\\n')\n        with patch.object(b,'FIELD_SCHEMA','eoere_panel98_current_fixed_floor_trial_candidate/v1'), \\\n                patch.object(b,'STATE_PREFIX','eoere-panel'+str(data['trial_screws'])+'-current-trial-'):\n            execute=b.compile_execute(lambda extra=None:b.source_pins(extra))\n            field=execute(prepared,pins=pins,command=command,mask_budget=1,max_iterations=300,branch_observer=observe)\n        field.update(trial_screws=data['trial_screws'],trial_parent_geometry=data['geometry'],\n                     operator_bundle=pointers,native_FEA_performed=False)\n        b.old_runner.export_panel_coefficients(field,b.bundle.coordinate_map(prepared))\n        write(out/'field.json',field)\n        if field['response'].get('converged'):\n            write(out/'components.json',diagnostics(field,panels,prepared.assembly))\n        require(sha(OWN)==LOADED_SHA,'loaded trial adapter changed')\n        summary={'screws':data['trial_screws'],'case':case_id,'seconds':time.monotonic()-start,\n                 'converged':field['response'].get('converged'),\n                 'gradient_inf_n':field['response'].get('gradient_inf_n'),\n                 'field':{'path':str((out/'field.json').relative_to(ROOT)),'sha256':sha(out/'field.json')},\n                 'structural_acceptance':False}\n        write(out/'result.json',summary)\n        print(json.dumps(summary),flush=True)\n        return summary\n\n\nif __name__=='__main__':\n    source,case,destination=Path(sys.argv[1]).resolve(),sys.argv[2],Path(sys.argv[3]).resolve()\n    def expired(*_):raise TimeoutError('900-second trial wall limit reached; no automatic retry')\n    with (ROOT/'docs/wood-joints-mvp/luna-max-native-run-ledger.lock').open('a') as lock:\n        fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)\n        require(json.loads((ROOT/'docs/wood-joints-mvp/luna-max-native-run-ledger.json').read_bytes())['slot']['state']=='idle',\n                'parent native slot must be idle before reduced trial')\n        signal.signal(signal.SIGALRM,expired)\n        signal.alarm(900)\n        try:run(source,case,destination)\n        except BaseException as error:\n            destination.mkdir(exist_ok=True)\n            write(destination/'failure.json',{'error':repr(error),'accepted_actions':None,'accepted_q':None})\n            (destination/'failed-producer-snapshot.py').write_bytes(OWN.read_bytes())\n            raise\n        finally:signal.alarm(0)\n"
+    },
+    "verify_summary.py": {
+      "sha256": "69834b4f36ad14235a44423bf457ab4b7721041857d05bd6569481da4fdad136",
+      "source": "\"\"\"Independent decimal arithmetic and witness/count verification, no solve.\"\"\"\n\nimport hashlib\nimport json\nimport sys\nfrom decimal import Decimal as D, getcontext\nfrom pathlib import Path\n\nROOT=Path(__file__).resolve().parents[4]\ngetcontext().prec=60\n\n\ndef sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()\n\n\ndef verify(path,out):\n    before=sha(path)\n    r=json.loads(path.read_bytes())\n    def require(value,message):\n        if not value:raise ValueError(message)\n    for key,producer in r['supporting_producers'].items():\n        require(hashlib.sha256(producer['source'].encode()).hexdigest()==producer['sha256'],'embedded source differs: '+key)\n    require(hashlib.sha256(r['producer']['source'].encode()).hexdigest()==r['producer']['sha256'],'embedded summary differs')\n    pins=dict(r['source_sha256'])\n    for pointer in r['reused_source_closures']:\n        require(sha(ROOT/pointer['path'])==pointer['sha256'],'source closure changed')\n        for name,digest in json.loads((ROOT/pointer['path']).read_bytes())['source_sha256'].items():\n            require(pins.get(name,digest)==digest,'conflicting source closure')\n            pins[name]=digest\n    require(len(pins)==r['expanded_source_pin_count'],'expanded source count differs')\n    for name,digest in pins.items():require(sha(ROOT/name)==digest,'source changed: '+name)\n    checks=0\n    for n,variant in r['variants'].items():\n        totals={'head':0,'bending':0,'rolling':0};counts={key:0 for key in totals};maxima={key:D(0) for key in totals}\n        for case in variant['cases']:\n            source=case['component_references']\n            require(sha(ROOT/source['path'])==source['sha256'],'component bytes changed')\n            components=json.loads((ROOT/source['path']).read_bytes())\n            for row in components['screws']:\n                ratio=D(str(row['withdrawal_n']))/(D(str(row['generic_head_reference_n_CD1']))*D('1.6'))\n                require(abs(ratio-D(str(row['generic_head_ratio_conditional_CD1p6'])))<D('1e-13'),'head ratio differs')\n                totals['head']+=ratio>1;counts['head']+=1;maxima['head']=max(maxima['head'],ratio);checks+=1\n            for panel in components['panels']:\n                for key,row in panel['components'].items():\n                    reference=D(str(row['reference_per_mm_width_CD1']))\n                    factor=D(1)\n                    if key=='bending_x' and panel['panel'].startswith('kicker'):\n                        # Frozen chart height bounds supply the size reference.\n                        field=json.loads((ROOT/case['raw_field']['path']).read_bytes())\n                        chart=field['panel_generalized_coefficients'][panel['panel']]\n                        widths=[D(str(chart['height_mm'])),D(str(chart['geometry']['front_height']))]\n                        factor=min(D('.5') if w<D('203.2') else D('.25')+D('.0313')*w/D('25.4') if w<D('609.6') else D(1) for w in widths)\n                    ratio=D(str(row['peak_abs_resultant']))/(reference*factor*D('1.6'))\n                    require(abs(ratio-D(str(row['conditional_CD1p6_ratio_bounds'][1])))<D('1e-12'),'panel ratio or Cs differs')\n                    group='bending' if key.startswith('bending') else 'rolling'\n                    totals[group]+=ratio>1;counts[group]+=1;maxima[group]=max(maxima[group],ratio);checks+=1\n        for family in totals:\n            require(variant[family]['comparison_count']==counts[family]\n                    and variant[family]['exceedances_conditional_CD1p6']==totals[family]\n                    and abs(D(str(variant[family]['maximum_reference_index_conditional_CD1p6']))-maxima[family])<D('1e-12'),\n                    'aggregate differs: '+n+'/'+family)\n    require(r['case_coverage']['six_case_strength_or_force_envelope_established'] is False\n            and not r['structural_acceptance'] and not r['climbing_released'],'scope/release changed')\n    require(checks==1060,'five paired cases:820 head plus240 panel references required')\n    for name,digest in pins.items():require(sha(ROOT/name)==digest,'source changed after verification')\n    require(sha(path)==before,'receipt changed during verification')\n    result={'schema':'eoere_panel98_trial_decimal_verification/v1','receipt':{'path':str(path.relative_to(ROOT)),'sha256':sha(path)},\n            'decimal_precision':60,'arithmetic_references_verified':checks,'all_source_pins_verified':len(pins),\n            'independent_raw_operator_replays_required_and_present':True,'six_case_envelope_or_strength_accepted':False,\n            'producer':{'path':str(Path(__file__).relative_to(ROOT)),'sha256':sha(__file__)}}\n    with out.open('x') as f:json.dump(result,f,indent=2,sort_keys=True);f.write('\\n')\n    print(json.dumps(result))\n\n\nif __name__=='__main__':verify(*(Path(s).resolve() for s in sys.argv[1:3]))\n"
+    }
+  },
+  "variants": {
+    "66": {
+      "bending": {
+        "comparison_count": 60,
+        "exceedances_CD1": 14,
+        "exceedances_conditional_CD1p6": 13,
+        "governing_witness": {
+          "case_id": "a12-rear",
+          "component": "bending_x",
+          "conditional_CD1p6_ratio_bounds": [
+            2.880110924027406,
+            2.880110924027406
+          ],
+          "panel": "main_upper_left",
+          "peak_abs_resultant": 1323.8417388826817,
+          "reference_per_mm_width_CD1": 287.28097931890727,
+          "sampled_ratio_CD1": 4.608177478443849,
+          "sampled_ratio_conditional_CD1p6": 2.8801109240274054,
+          "size_adjusted_ratio_bounds_CD1": [
+            4.608177478443849,
+            4.608177478443849
+          ],
+          "xy_mm": [
+            152.2015625,
+            1188.7199999999966
+          ]
+        },
+        "maximum_reference_index_CD1": 4.608177478443849,
+        "maximum_reference_index_conditional_CD1p6": 2.880110924027406
+      },
+      "cases": [
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 4.363520101506635,
+            "maximum_reference_index_conditional_CD1p6": 2.727200063441647,
+            "witness": {
+              "case_id": "a12-forward",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.727200063441647,
+                2.727200063441647
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 1253.5563280385638,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 4.363520101506635,
+              "sampled_ratio_conditional_CD1p6": 2.727200063441647,
+              "size_adjusted_ratio_bounds_CD1": [
+                4.363520101506635,
+                4.363520101506635
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-forward",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/components.json",
+            "sha256": "16ab3f4afc983d99cca44527d0c7faa597b348fc0cc6cd7ee5034044ba15996a"
+          },
+          "full_gradient_inf_n": 3.2285002582455036e-07,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.3916185584161527,
+          "head_reference_index_conditional_CD1p6": 1.4947615990100953,
+          "maximum_body_force_norm_n": 7.952714219020031e-07,
+          "maximum_body_moment_norm_nmm": 0.0007534220607051185,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/operators.npz",
+              "sha256": "bc0dfd2f0751b4ecb99b955ad1a557eb7b79a9aec87b81401de07b1c9bf66ab0"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/operators.json",
+              "sha256": "be37d775a1af6c6d1966839c3d76547e93e6aef7cd8af1a482d75fd5de19fa05"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1387.8380913973572,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/field.json",
+            "sha256": "732256af43265c26b9d60326814835dc9e5ea7144f8065aceaa82ef051cfaeb6"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-forward/attempt01/replay.json",
+            "sha256": "450d6e706653d98ac4b5ffc42b6ab008a5984d268679761d873287a7fe78ef01"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 2.449870318450382,
+            "maximum_reference_index_conditional_CD1p6": 1.5311689490314886,
+            "witness": {
+              "case_id": "a12-forward",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.5311689490314886,
+                1.5311689490314886
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 12.5136093726727,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 2.449870318450382,
+              "sampled_ratio_conditional_CD1p6": 1.5311689490314888,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.449870318450382,
+                2.449870318450382
+              ],
+              "xy_mm": [
+                60.880624999999995,
+                1188.7199999999966
+              ]
+            }
+          },
+          "screws": 66,
+          "state_id": "eoere-panel66-current-trial-e1e0971e6887e6d6cf000db8"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 2,
+            "maximum_reference_index_CD1": 4.608177478443849,
+            "maximum_reference_index_conditional_CD1p6": 2.880110924027406,
+            "witness": {
+              "case_id": "a12-rear",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.880110924027406,
+                2.880110924027406
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 1323.8417388826817,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 4.608177478443849,
+              "sampled_ratio_conditional_CD1p6": 2.8801109240274054,
+              "size_adjusted_ratio_bounds_CD1": [
+                4.608177478443849,
+                4.608177478443849
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-rear",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/components.json",
+            "sha256": "74960a22652651b79a37379988cef150121414feba52f4f9fc15e69f5142965d"
+          },
+          "full_gradient_inf_n": 3.956362364860221e-06,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.5700880632738494,
+          "head_reference_index_conditional_CD1p6": 1.606305039546156,
+          "maximum_body_force_norm_n": 4.117133763424329e-06,
+          "maximum_body_moment_norm_nmm": 0.0033872040376979246,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/operators.npz",
+              "sha256": "ce6b929dcd6f6f65a777fd2e458c885274e6499ef9edcb19bdf1bdbfcd48d0ed"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/operators.json",
+              "sha256": "587c5f5151f70cb1287fa37c865c305a52f67b63ab51e0b649a1e7da595f2f0d"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1491.4025900598729,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/field.json",
+            "sha256": "3a9129a19e2a61e090c44680bfbb41bad976d91f767b1620132731e65a1af3a2"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-rear/attempt01/replay.json",
+            "sha256": "cc2a5cf006085a727e56bccceb47eac5dedbf8800774bc41c0c58970ad628fbc"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 2.4430741923442976,
+            "maximum_reference_index_conditional_CD1p6": 1.5269213702151858,
+            "witness": {
+              "case_id": "a12-rear",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.5269213702151858,
+                1.5269213702151858
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 12.478895671013277,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 2.4430741923442976,
+              "sampled_ratio_conditional_CD1p6": 1.526921370215186,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.4430741923442976,
+                2.4430741923442976
+              ],
+              "xy_mm": [
+                60.880624999999995,
+                1188.7199999999966
+              ]
+            }
+          },
+          "screws": 66,
+          "state_id": "eoere-panel66-current-trial-22bb43f88a8c9e96da6f01ea"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 4.474670545043529,
+            "maximum_reference_index_conditional_CD1p6": 2.7966690906522054,
+            "witness": {
+              "case_id": "a12-left",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.7966690906522054,
+                2.7966690906522054
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 1285.4877363095736,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 4.474670545043529,
+              "sampled_ratio_conditional_CD1p6": 2.7966690906522054,
+              "size_adjusted_ratio_bounds_CD1": [
+                4.474670545043529,
+                4.474670545043529
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-left",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/components.json",
+            "sha256": "661a832615f28c1280131a17b34e3881c7dadf30bb6c336d928231368dec485d"
+          },
+          "full_gradient_inf_n": 1.1533285260156845e-07,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.4456947087731136,
+          "head_reference_index_conditional_CD1p6": 1.5285591929831959,
+          "maximum_body_force_norm_n": 7.903197867945161e-07,
+          "maximum_body_moment_norm_nmm": 0.000825008406737667,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/operators.npz",
+              "sha256": "744322ff47636aee2ec64786168be8befc138d5600169832f6234924687485ec"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/operators.json",
+              "sha256": "3cde133eee973fbe6ed4d5a0886b415023813a9e65ea5f97ec5e588e202348fd"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1419.2180708833928,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/field.json",
+            "sha256": "fa81457ce50c4e79a4c41119c2ca2e997438b4872a0d9f4c0e40ea442f0ebe78"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a12-left/attempt01/replay.json",
+            "sha256": "32fa32f0d3a10a7062e97ef61dc33eb988c589985c16bd3a4f71d86813dd2571"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 2.4461902304280856,
+            "maximum_reference_index_conditional_CD1p6": 1.5288688940175534,
+            "witness": {
+              "case_id": "a12-left",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.5288688940175534,
+                1.5288688940175534
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 12.494811976083481,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 2.4461902304280856,
+              "sampled_ratio_conditional_CD1p6": 1.5288688940175534,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.4461902304280856,
+                2.4461902304280856
+              ],
+              "xy_mm": [
+                60.880624999999995,
+                1188.7199999999966
+              ]
+            }
+          },
+          "screws": 66,
+          "state_id": "eoere-panel66-current-trial-99f233b6b0b60959e0a1a428"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 4.2840901644029215,
+            "maximum_reference_index_conditional_CD1p6": 2.6775563527518256,
+            "witness": {
+              "case_id": "k12-right",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.6775563527518256,
+                2.6775563527518256
+              ],
+              "panel": "main_upper_right",
+              "peak_abs_resultant": 1230.7376179201697,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 4.2840901644029215,
+              "sampled_ratio_conditional_CD1p6": 2.6775563527518256,
+              "size_adjusted_ratio_bounds_CD1": [
+                4.2840901644029215,
+                4.2840901644029215
+              ],
+              "xy_mm": [
+                1065.4109375000003,
+                1219.1999999999966
+              ]
+            }
+          },
+          "case_id": "k12-right",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/components.json",
+            "sha256": "72c4e3c63fc8c5ce6b07b54cdcb93a1971ba8d47ec249b3470f4b860354300fd"
+          },
+          "full_gradient_inf_n": 8.609492153752076e-06,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.3836192545026087,
+          "head_reference_index_conditional_CD1p6": 1.4897620340641302,
+          "maximum_body_force_norm_n": 1.0307902985489875e-05,
+          "maximum_body_moment_norm_nmm": 0.012443693419597106,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/operators.npz",
+              "sha256": "a74fe49ff203eddabd53090a72265382ee3d8ec7e5f7b0f978443e421dd5e36b"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/operators.json",
+              "sha256": "174903ce24d74cb5c5de93e7dbc2589b253fd29d3296897a0a966c5033a3fb00"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_right_rim_4",
+          "peak_screw_head_tension_n": 1383.1961560699976,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/field.json",
+            "sha256": "171bb6c49186fef1e5d15c0be3dfb0566bf079c176fe0b0b467391983beaeb04"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/k12-right/attempt01/replay.json",
+            "sha256": "f7ecf337bed23b7cefddeacd47d78b8258474910673aa9013c75c3849faaaea8"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 2.249163278073088,
+            "maximum_reference_index_conditional_CD1p6": 1.40572704879568,
+            "witness": {
+              "case_id": "k12-right",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.40572704879568,
+                1.40572704879568
+              ],
+              "panel": "main_upper_right",
+              "peak_abs_resultant": 11.488424699544634,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 2.249163278073088,
+              "sampled_ratio_conditional_CD1p6": 1.40572704879568,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.249163278073088,
+                2.249163278073088
+              ],
+              "xy_mm": [
+                1156.7318750000002,
+                1219.1999999999966
+              ]
+            }
+          },
+          "screws": 66,
+          "state_id": "eoere-panel66-current-trial-9bfd95a12614599ea97e01ea"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 2,
+            "maximum_reference_index_CD1": 2.68148687834852,
+            "maximum_reference_index_conditional_CD1p6": 1.675929298967825,
+            "witness": {
+              "case_id": "a1-rear",
+              "component": "bending_y",
+              "conditional_CD1p6_ratio_bounds": [
+                1.675929298967825,
+                1.675929298967825
+              ],
+              "panel": "main_lower_left",
+              "peak_abs_resultant": 452.2642326212347,
+              "reference_per_mm_width_CD1": 168.66173624529395,
+              "sampled_ratio_CD1": 2.68148687834852,
+              "sampled_ratio_conditional_CD1p6": 1.6759292989678252,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.68148687834852,
+                2.68148687834852
+              ],
+              "xy_mm": [
+                152.2015625,
+                152.4000000000004
+              ]
+            }
+          },
+          "case_id": "a1-rear",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/components.json",
+            "sha256": "4e830d65a2dc46ad1b19daff48da595dd16fb1a9469c05adff1369c7b5b59749"
+          },
+          "full_gradient_inf_n": 3.6629449359924073e-06,
+          "head_exceedances_conditional_CD1p6": 1,
+          "head_reference_index_CD1": 1.817631404015689,
+          "head_reference_index_conditional_CD1p6": 1.1360196275098056,
+          "maximum_body_force_norm_n": 4.987326177461151e-06,
+          "maximum_body_moment_norm_nmm": 0.005753864571710462,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/operators.npz",
+              "sha256": "c81978df34c3b2e5d70a47cd7d93e30b220867693538de6fc695702454a96f2c"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/operators.json",
+              "sha256": "e8a46ef2d394269987ee1ffed94baaa5a40d472dbad1f5ebf2e90dffaf4732da"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_lower_left_rim_1",
+          "peak_screw_head_tension_n": 1054.7577036212695,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/field.json",
+            "sha256": "c323d7920962872bd0450f951723814e17c14d208f50c5e67700e5af4058ce17"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/66/a1-rear/attempt01/replay.json",
+            "sha256": "d025fa98becf0e84792413779584aeacef79aae4096d980b7b18182d02bf1114"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 0,
+            "maximum_reference_index_CD1": 1.3860890265675847,
+            "maximum_reference_index_conditional_CD1p6": 0.8663056416047404,
+            "witness": {
+              "case_id": "a1-rear",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                0.8663056416047404,
+                0.8663056416047404
+              ],
+              "panel": "main_lower_left",
+              "peak_abs_resultant": 7.0799570506189635,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.3860890265675847,
+              "sampled_ratio_conditional_CD1p6": 0.8663056416047404,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.3860890265675847,
+                1.3860890265675847
+              ],
+              "xy_mm": [
+                60.880624999999995,
+                152.4000000000004
+              ]
+            }
+          },
+          "screws": 66,
+          "state_id": "eoere-panel66-current-trial-6ba82d62e9cc07cd598d331e"
+        }
+      ],
+      "favorable_all_gross_penetration_withdrawal": {
+        "actual_thread_engagement_or_Hillman_capacity_qualified": false,
+        "maximum_reference_index_CD1": 1.3904171946336181,
+        "maximum_reference_index_conditional_CD1p6": 0.8690107466460113
+      },
+      "head": {
+        "comparison_count": 330,
+        "exceedances_CD1": 14,
+        "exceedances_conditional_CD1p6": 9,
+        "generic_reference_n_CD1": 580.2924076306097,
+        "governing_witness": {
+          "Hillman_product_capacity_or_stiffness_established": false,
+          "accessory_placement": "retained-original-top-hold",
+          "axis_id": "round_panel_upper_left_rim_4",
+          "case_id": "a12-rear",
+          "first": "main_upper_left",
+          "force_on_first_xyz_n": [
+            -634.9780416352866,
+            -974.9318789591258,
+            1158.3319753849275
+          ],
+          "force_on_receiver_xyz_n": [
+            634.9780416352866,
+            974.9318789591258,
+            -1158.3319753849275
+          ],
+          "generic_head_ratio_CD1": 2.5700880632738494,
+          "generic_head_ratio_conditional_CD1p6": 1.606305039546156,
+          "generic_head_reference_n_CD1": 580.2924076306097,
+          "generic_withdrawal_required_effective_thread_mm_CD1": 62.90768794970477,
+          "generic_withdrawal_required_effective_thread_mm_conditional_CD1p6": 39.31730496856548,
+          "gross_nominal_length_after_panel_mm": 45.243750000000006,
+          "lateral_n": 686.3967959799978,
+          "local_conical_indentation_punching_edge_capacity_established": false,
+          "local_force_n": [
+            1491.4025900598729,
+            260.659640475128,
+            -634.9780416352866
+          ],
+          "moment_at_point_model_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "panel": "main_upper_left",
+          "physical_bolt_end_prying_moment_resolved": false,
+          "physical_stiffness_bounded": false,
+          "point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ],
+          "projected_annulus_mean_pressure_mpa": 33.90915633544063,
+          "receiver": "base_side_left",
+          "same_axis_simultaneous_lateral_n": 686.3967959799978,
+          "second": "base_side_left",
+          "state_id": "eoere-panel66-current-trial-22bb43f88a8c9e96da6f01ea",
+          "withdrawal_n": 1491.4025900598729
+        },
+        "maximum_reference_index_CD1": 2.5700880632738494,
+        "maximum_reference_index_conditional_CD1p6": 1.606305039546156,
+        "peak_tension_n": 1491.4025900598729
+      },
+      "rolling": {
+        "comparison_count": 60,
+        "exceedances_CD1": 7,
+        "exceedances_conditional_CD1p6": 4,
+        "governing_witness": {
+          "case_id": "a12-forward",
+          "component": "rolling_x",
+          "conditional_CD1p6_ratio_bounds": [
+            1.5311689490314886,
+            1.5311689490314886
+          ],
+          "panel": "main_upper_left",
+          "peak_abs_resultant": 12.5136093726727,
+          "reference_per_mm_width_CD1": 5.107866028022227,
+          "sampled_ratio_CD1": 2.449870318450382,
+          "sampled_ratio_conditional_CD1p6": 1.5311689490314888,
+          "size_adjusted_ratio_bounds_CD1": [
+            2.449870318450382,
+            2.449870318450382
+          ],
+          "xy_mm": [
+            60.880624999999995,
+            1188.7199999999966
+          ]
+        },
+        "maximum_reference_index_CD1": 2.449870318450382,
+        "maximum_reference_index_conditional_CD1p6": 1.5311689490314886
+      }
+    },
+    "98": {
+      "bending": {
+        "comparison_count": 60,
+        "exceedances_CD1": 14,
+        "exceedances_conditional_CD1p6": 13,
+        "governing_witness": {
+          "case_id": "a12-rear",
+          "component": "bending_x",
+          "conditional_CD1p6_ratio_bounds": [
+            2.183668239081241,
+            2.183668239081241
+          ],
+          "panel": "main_upper_left",
+          "peak_abs_resultant": 1003.7221603693642,
+          "reference_per_mm_width_CD1": 287.28097931890727,
+          "sampled_ratio_CD1": 3.4938691825299855,
+          "sampled_ratio_conditional_CD1p6": 2.183668239081241,
+          "size_adjusted_ratio_bounds_CD1": [
+            3.4938691825299855,
+            3.4938691825299855
+          ],
+          "xy_mm": [
+            152.2015625,
+            1188.7199999999966
+          ]
+        },
+        "maximum_reference_index_CD1": 3.4938691825299855,
+        "maximum_reference_index_conditional_CD1p6": 2.183668239081241
+      },
+      "cases": [
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 3.2967522160919494,
+            "maximum_reference_index_conditional_CD1p6": 2.0604701350574683,
+            "witness": {
+              "case_id": "a12-forward",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.0604701350574683,
+                2.0604701350574683
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 947.094205210673,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 3.2967522160919494,
+              "sampled_ratio_conditional_CD1p6": 2.060470135057468,
+              "size_adjusted_ratio_bounds_CD1": [
+                3.2967522160919494,
+                3.2967522160919494
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-forward",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/components.json",
+            "sha256": "6dc8148692072f19c1236c4d0afdf8e1a6ea66cd1580a3f4143011b07c6f66e7"
+          },
+          "full_gradient_inf_n": 3.369267752295624e-08,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.523063145621573,
+          "head_reference_index_conditional_CD1p6": 1.576914466013483,
+          "maximum_body_force_norm_n": 7.950219804114566e-07,
+          "maximum_body_moment_norm_nmm": 0.0007534203924695462,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/operators.npz",
+              "sha256": "c6e3c983bd870fbc566d6230f80ece01552fa20a94a1f5afb48d8e8d238e874d"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/operators.json",
+              "sha256": "5dcb864c3d3b23f15ce5a1862ffad4a6f5cbf18c0f43bba0fdb1e7b5053b5400"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1464.1143873768021,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/field.json",
+            "sha256": "c292e9dc529c2448e189491ab0807074a06f336f22a1afd9c0fc6b5ac9c0ad07"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-forward/attempt01/replay.json",
+            "sha256": "3c37202d54e3b9d618d112ea96f666187d0b608b54317e7704d682362184f6dd"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 1.7609094337070714,
+            "maximum_reference_index_conditional_CD1p6": 1.1005683960669195,
+            "witness": {
+              "case_id": "a12-forward",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.1005683960669195,
+                1.1005683960669195
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 8.994489474856207,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.7609094337070714,
+              "sampled_ratio_conditional_CD1p6": 1.1005683960669197,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.7609094337070714,
+                1.7609094337070714
+              ],
+              "xy_mm": [
+                91.32093749999999,
+                1188.7199999999966
+              ]
+            }
+          },
+          "screws": 98,
+          "state_id": "eoere-panel98-current-trial-c63f592f816a83c7f50e5055"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 2,
+            "maximum_reference_index_CD1": 3.4938691825299855,
+            "maximum_reference_index_conditional_CD1p6": 2.183668239081241,
+            "witness": {
+              "case_id": "a12-rear",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.183668239081241,
+                2.183668239081241
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 1003.7221603693642,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 3.4938691825299855,
+              "sampled_ratio_conditional_CD1p6": 2.183668239081241,
+              "size_adjusted_ratio_bounds_CD1": [
+                3.4938691825299855,
+                3.4938691825299855
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-rear",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/components.json",
+            "sha256": "cf90e5957c816c72dc26954a55a514bd5c25be553a6d04c2af2a57796f67a051"
+          },
+          "full_gradient_inf_n": 8.135168256373504e-06,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.722979408871072,
+          "head_reference_index_conditional_CD1p6": 1.70186213054442,
+          "maximum_body_force_norm_n": 1.184444379760821e-05,
+          "maximum_body_moment_norm_nmm": 0.010206319236153278,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/operators.npz",
+              "sha256": "4e97c262b70bfaea42f52e22f856017a4e733af46084a3802016c3e3d6b11bec"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/operators.json",
+              "sha256": "617b67c533959c09b536dd2474fd4d2041eb660a71d87c45dd72247e97e74cf7"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1580.1242771023688,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/field.json",
+            "sha256": "6dd1cd89b9f33635c39324a38dfb78f066ac721942266f5a70d1d09cda362928"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-rear/attempt01/replay.json",
+            "sha256": "aa1c63c80e94aabdd69ba969496b8910999c13612f733bf39e05b21d36bbd690"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 1.795042871359549,
+            "maximum_reference_index_conditional_CD1p6": 1.121901794599718,
+            "witness": {
+              "case_id": "a12-rear",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.121901794599718,
+                1.121901794599718
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 9.168838501460913,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.795042871359549,
+              "sampled_ratio_conditional_CD1p6": 1.1219017945997183,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.795042871359549,
+                1.795042871359549
+              ],
+              "xy_mm": [
+                91.32093749999999,
+                1158.2399999999968
+              ]
+            }
+          },
+          "screws": 98,
+          "state_id": "eoere-panel98-current-trial-2a67ff3ca3af9792d5a8a38e"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 3.368758782394795,
+            "maximum_reference_index_conditional_CD1p6": 2.1054742389967465,
+            "witness": {
+              "case_id": "a12-left",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                2.1054742389967465,
+                2.1054742389967465
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 967.7803220955464,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 3.368758782394795,
+              "sampled_ratio_conditional_CD1p6": 2.105474238996747,
+              "size_adjusted_ratio_bounds_CD1": [
+                3.368758782394795,
+                3.368758782394795
+              ],
+              "xy_mm": [
+                152.2015625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "a12-left",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/components.json",
+            "sha256": "c9997dcbf678444f6fe8d9d87be5e412827bd996480afdfc4758d30f8da2d90d"
+          },
+          "full_gradient_inf_n": 8.224784324778449e-06,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.6021138896267546,
+          "head_reference_index_conditional_CD1p6": 1.6263211810167217,
+          "maximum_body_force_norm_n": 1.112390517091285e-05,
+          "maximum_body_moment_norm_nmm": 0.01200691900492464,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/operators.npz",
+              "sha256": "3bc4f7b51e29df1b15af61d578fd8d1aa6859ceaf63e68ba2f4feb789303ff35"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/operators.json",
+              "sha256": "15c7e171046ddea1de89d41b1d3c01eae30bf99e600a9a1072abee524dc59876"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_left_rim_4",
+          "peak_screw_head_tension_n": 1509.98693394056,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/field.json",
+            "sha256": "902f8ae77870315896275072b4ee044ca5476456f2393e485af970c7f4bc3969"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a12-left/attempt01/replay.json",
+            "sha256": "38b48cfdfbe34e4aa981f912628bc6bbabb047781b4548bd17b3d5ed37fc3ee0"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 1,
+            "maximum_reference_index_CD1": 1.727756228345633,
+            "maximum_reference_index_conditional_CD1p6": 1.0798476427160204,
+            "witness": {
+              "case_id": "a12-left",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.0798476427160204,
+                1.0798476427160204
+              ],
+              "panel": "main_upper_left",
+              "peak_abs_resultant": 8.825147343470471,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.727756228345633,
+              "sampled_ratio_conditional_CD1p6": 1.0798476427160206,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.727756228345633,
+                1.727756228345633
+              ],
+              "xy_mm": [
+                91.32093749999999,
+                1158.2399999999968
+              ]
+            }
+          },
+          "screws": 98,
+          "state_id": "eoere-panel98-current-trial-bb5b4db3b60c12c967e0435d"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 3,
+            "maximum_reference_index_CD1": 2.825772262109115,
+            "maximum_reference_index_conditional_CD1p6": 1.7661076638181967,
+            "witness": {
+              "case_id": "k12-right",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.7661076638181967,
+                1.7661076638181967
+              ],
+              "panel": "main_upper_right",
+              "peak_abs_resultant": 811.7906227909104,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 2.825772262109115,
+              "sampled_ratio_conditional_CD1p6": 1.7661076638181967,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.825772262109115,
+                2.825772262109115
+              ],
+              "xy_mm": [
+                1065.4109375000003,
+                1188.7199999999966
+              ]
+            }
+          },
+          "case_id": "k12-right",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/components.json",
+            "sha256": "46235744f3c7a06ce918eac7020143d0fc22c84dfa2e2408f5bbcae2997ee059"
+          },
+          "full_gradient_inf_n": 1.5681849885315213e-06,
+          "head_exceedances_conditional_CD1p6": 2,
+          "head_reference_index_CD1": 2.5468193989479038,
+          "head_reference_index_conditional_CD1p6": 1.5917621243424398,
+          "maximum_body_force_norm_n": 1.5696453139379858e-06,
+          "maximum_body_moment_norm_nmm": 0.0019448465956086055,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/operators.npz",
+              "sha256": "7a738fe032191c6cccbf7e88f00f010ec5d66427cb5e94d1663b58ca6a65b9d6"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/operators.json",
+              "sha256": "30a49eb9c236a96d7ffcdf948aeb5973ba9b3e1e012db76028c397ce35dda88b"
+            }
+          },
+          "peak_screw_axis_id": "round_panel_upper_right_rim_4",
+          "peak_screw_head_tension_n": 1477.8999608158213,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/field.json",
+            "sha256": "5f3a57e8d5cd08eab57ae87e2260db359e91da1f2f24bc0d8f86c4c7a3903d94"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/k12-right/attempt01/replay.json",
+            "sha256": "cec08897aa4314253f3ebc17653d9b6d9ea1eb50a094dd98387369b4047464e7"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 0,
+            "maximum_reference_index_CD1": 1.3539627787674409,
+            "maximum_reference_index_conditional_CD1p6": 0.8462267367296505,
+            "witness": {
+              "case_id": "k12-right",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                0.8462267367296505,
+                0.8462267367296505
+              ],
+              "panel": "main_upper_right",
+              "peak_abs_resultant": 6.9158604808727855,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.3539627787674409,
+              "sampled_ratio_conditional_CD1p6": 0.8462267367296507,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.3539627787674409,
+                1.3539627787674409
+              ],
+              "xy_mm": [
+                1126.2915625,
+                1188.7199999999966
+              ]
+            }
+          },
+          "screws": 98,
+          "state_id": "eoere-panel98-current-trial-e1f372eb2743c19cd24271eb"
+        },
+        {
+          "bending": {
+            "conditional_CD1p6_exceedances": 2,
+            "maximum_reference_index_CD1": 2.287140436216306,
+            "maximum_reference_index_conditional_CD1p6": 1.4294627726351912,
+            "witness": {
+              "case_id": "a1-rear",
+              "component": "bending_x",
+              "conditional_CD1p6_ratio_bounds": [
+                1.4294627726351912,
+                1.4294627726351912
+              ],
+              "panel": "main_lower_left",
+              "peak_abs_resultant": 657.0519443560931,
+              "reference_per_mm_width_CD1": 287.28097931890727,
+              "sampled_ratio_CD1": 2.287140436216306,
+              "sampled_ratio_conditional_CD1p6": 1.4294627726351912,
+              "size_adjusted_ratio_bounds_CD1": [
+                2.287140436216306,
+                2.287140436216306
+              ],
+              "xy_mm": [
+                152.2015625,
+                182.8800000000005
+              ]
+            }
+          },
+          "case_id": "a1-rear",
+          "component_references": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/components.json",
+            "sha256": "8529d1739690902a0b9735b07801ce546c1fa25fb17ae674ca6ff70542602f4b"
+          },
+          "full_gradient_inf_n": 3.255647571741607e-07,
+          "head_exceedances_conditional_CD1p6": 0,
+          "head_reference_index_CD1": 1.5182772250617511,
+          "head_reference_index_conditional_CD1p6": 0.9489232656635944,
+          "maximum_body_force_norm_n": 7.524843865154493e-07,
+          "maximum_body_moment_norm_nmm": 0.0009670432792048227,
+          "operator_bundle": {
+            "arrays": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/operators.npz",
+              "sha256": "735d7ed6d9b0523ad7a4f97a4b4ff7d3fcbe17f78ef67b4b0f665e781bc225e2"
+            },
+            "manifest": {
+              "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/operators.json",
+              "sha256": "2df4d785d4de79b29eb92e58d8643b39c0c5dfd33bcdccbf365dcf5a7fc52336"
+            }
+          },
+          "peak_screw_axis_id": "hyp20_main_lower_left_edge_gap_1",
+          "peak_screw_head_tension_n": 881.0447463818045,
+          "raw_field": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/field.json",
+            "sha256": "f0c7b6b59fa8fdd37a2c9bc506fe82f449025fe7f714e2136d2eaeb6a1925a98"
+          },
+          "raw_operator_replay": {
+            "path": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/cases/98/a1-rear/attempt01/replay.json",
+            "sha256": "e33499fcc04dcfbc43c89195f3fb3ecc84be2f809ad2eadb85cde90c88d8ea72"
+          },
+          "rolling": {
+            "conditional_CD1p6_exceedances": 0,
+            "maximum_reference_index_CD1": 1.2600604968464821,
+            "maximum_reference_index_conditional_CD1p6": 0.7875378105290513,
+            "witness": {
+              "case_id": "a1-rear",
+              "component": "rolling_x",
+              "conditional_CD1p6_ratio_bounds": [
+                0.7875378105290513,
+                0.7875378105290513
+              ],
+              "panel": "main_lower_left",
+              "peak_abs_resultant": 6.436220205094955,
+              "reference_per_mm_width_CD1": 5.107866028022227,
+              "sampled_ratio_CD1": 1.2600604968464821,
+              "sampled_ratio_conditional_CD1p6": 0.7875378105290515,
+              "size_adjusted_ratio_bounds_CD1": [
+                1.2600604968464821,
+                1.2600604968464821
+              ],
+              "xy_mm": [
+                60.880624999999995,
+                152.4000000000004
+              ]
+            }
+          },
+          "screws": 98,
+          "state_id": "eoere-panel98-current-trial-118427b8d75521267c18ac92"
+        }
+      ],
+      "favorable_all_gross_penetration_withdrawal": {
+        "actual_thread_engagement_or_Hillman_capacity_qualified": false,
+        "maximum_reference_index_CD1": 1.4731313859746944,
+        "maximum_reference_index_conditional_CD1p6": 0.9207071162341839
+      },
+      "head": {
+        "comparison_count": 490,
+        "exceedances_CD1": 14,
+        "exceedances_conditional_CD1p6": 8,
+        "generic_reference_n_CD1": 580.2924076306097,
+        "governing_witness": {
+          "Hillman_product_capacity_or_stiffness_established": false,
+          "accessory_placement": "retained-original-top-hold",
+          "axis_id": "round_panel_upper_left_rim_4",
+          "case_id": "a12-rear",
+          "first": "main_upper_left",
+          "force_on_first_xyz_n": [
+            -617.2847763013749,
+            -1119.4909863383646,
+            1124.079582373463
+          ],
+          "force_on_receiver_xyz_n": [
+            617.2847763013749,
+            1119.4909863383646,
+            -1124.079582373463
+          ],
+          "generic_head_ratio_CD1": 2.722979408871072,
+          "generic_head_ratio_conditional_CD1p6": 1.70186213054442,
+          "generic_head_reference_n_CD1": 580.2924076306097,
+          "generic_withdrawal_required_effective_thread_mm_CD1": 66.64998814419259,
+          "generic_withdrawal_required_effective_thread_mm_conditional_CD1p6": 41.656242590120364,
+          "gross_nominal_length_after_panel_mm": 45.243750000000006,
+          "lateral_n": 633.29514443654,
+          "local_conical_indentation_punching_edge_capacity_established": false,
+          "local_force_n": [
+            1580.1242771023688,
+            141.49998202635805,
+            -617.2847763013749
+          ],
+          "moment_at_point_model_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "panel": "main_upper_left",
+          "physical_bolt_end_prying_moment_resolved": false,
+          "physical_stiffness_bounded": false,
+          "point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ],
+          "projected_annulus_mean_pressure_mpa": 35.92636991433568,
+          "receiver": "base_side_left",
+          "same_axis_simultaneous_lateral_n": 633.29514443654,
+          "second": "base_side_left",
+          "state_id": "eoere-panel98-current-trial-2a67ff3ca3af9792d5a8a38e",
+          "withdrawal_n": 1580.1242771023688
+        },
+        "maximum_reference_index_CD1": 2.722979408871072,
+        "maximum_reference_index_conditional_CD1p6": 1.70186213054442,
+        "peak_tension_n": 1580.1242771023688
+      },
+      "rolling": {
+        "comparison_count": 60,
+        "exceedances_CD1": 6,
+        "exceedances_conditional_CD1p6": 3,
+        "governing_witness": {
+          "case_id": "a12-rear",
+          "component": "rolling_x",
+          "conditional_CD1p6_ratio_bounds": [
+            1.121901794599718,
+            1.121901794599718
+          ],
+          "panel": "main_upper_left",
+          "peak_abs_resultant": 9.168838501460913,
+          "reference_per_mm_width_CD1": 5.107866028022227,
+          "sampled_ratio_CD1": 1.795042871359549,
+          "sampled_ratio_conditional_CD1p6": 1.1219017945997183,
+          "size_adjusted_ratio_bounds_CD1": [
+            1.795042871359549,
+            1.795042871359549
+          ],
+          "xy_mm": [
+            91.32093749999999,
+            1158.2399999999968
+          ]
+        },
+        "maximum_reference_index_CD1": 1.795042871359549,
+        "maximum_reference_index_conditional_CD1p6": 1.121901794599718
+      }
+    }
+  }
+}

@@ -1,0 +1,1872 @@
+{
+  "actual_observations": null,
+  "basis": "Same six NDS2024 single-shear yield modes, actual two finished-wood lengths and own load/grain angles. Generic Fyb45000psi scenario, DF-LG.50, catalog minimum full-body.493in, conditional <=1/4 member-thread exception. Original.5in shafts retained.",
+  "climbing_released": false,
+  "comparison_count": 24,
+  "fabrication_released": false,
+  "geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/geometry.json",
+    "sha256": "1a4de5aae5ee5a222dc12b6751c4c16eb9241d790e80d7a08c9ff7f355234374"
+  },
+  "limits": [
+    "These unadjusted ordinary-bolt references are not manufacturer-qualified Grade5Fyb or complete connection capacities.",
+    "CD/CM/Ct/Cg/Cdelta and local net/end/edge/splitting, delivered thread/body geometry, axial seats and simultaneous bearing/free-couple behavior are not accepted by this screen.",
+    "The two own forces/angles and their largest lateral norm are retained. Shaft selfweight and bearing/capture couples are not replaced with an assumed pure equal-force connection.",
+    "Four exceeded unadjusted references stop an upper single-bolt acceptance on this recorded basis; they do not prove physical Grade5 bolt failure."
+  ],
+  "maximum_catalog_thread_fraction": 0.22099999999999762,
+  "reference_exceedances": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2919.3156830708795,
+      "mode_references_N": {
+        "II": 3582.8546354164105,
+        "IIIm": 3115.4048243178004,
+        "IIIs": 3894.9082248542795,
+        "IV": 2419.0495971260502,
+        "Im": 6303.528067835681,
+        "Is": 9355.671631706284
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3772.960642743697,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -9.057087477399861,
+            -679.2491736669947,
+            2836.13533241687
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.46854249903885,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            126033.61910629849,
+            30449.219334118927
+          ]
+        },
+        {
+          "Fe_psi": 5599.813385931569,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            9.057087473671732,
+            679.2491736666452,
+            -2839.194360641197
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.381927236417212,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            126203.8327837919,
+            29936.032204751238
+          ]
+        }
+      ],
+      "reference_index": 1.2068027404395387,
+      "unadjusted_reference_N": 2419.0495971260502
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-left",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2703.5187522225956,
+      "mode_references_N": {
+        "II": 3597.2551152579927,
+        "IIIm": 3134.1192577726333,
+        "IIIs": 3905.4784362647842,
+        "IV": 2427.0962744076337,
+        "Im": 6350.435978731318,
+        "Is": 9368.971032094603
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3794.7908499986233,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -959.2529199424789,
+            -597.7973232124018,
+            2633.5395388569914
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 52.7890723891473,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            97547.79212158654,
+            8909.28455238529
+          ]
+        },
+        {
+          "Fe_psi": 5598.558219556705,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            959.2529199871933,
+            597.7973232103061,
+            -2636.5985670901464
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 1.0617648003870246,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            136678.8937221898,
+            44234.897481314256
+          ]
+        }
+      ],
+      "reference_index": 1.1138901990537753,
+      "unadjusted_reference_N": 2427.0962744076337
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-right",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2670.795391351427,
+      "mode_references_N": {
+        "II": 3597.197267172796,
+        "IIIm": 3134.0432699113853,
+        "IIIs": 3905.436542983219,
+        "IV": 2427.0638066401166,
+        "Im": 6350.244966418805,
+        "Is": 9368.920414886443
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3794.701921382821,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            969.748978975403,
+            -590.6781439189017,
+            2601.599750340819
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 52.791815133937995,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -95961.76889636774,
+            -8572.252999653487
+          ]
+        },
+        {
+          "Fe_psi": 5598.565171526282,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -969.7489790498928,
+            590.6781439173224,
+            -2604.6587785662846
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 1.0592009511096123,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -135425.46974760765,
+            -43939.033994565994
+          ]
+        }
+      ],
+      "reference_index": 1.100422405065946,
+      "unadjusted_reference_N": 2427.0638066401166
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2883.319120944628,
+      "mode_references_N": {
+        "II": 3583.7157420928115,
+        "IIIm": 3116.5100015526846,
+        "IIIs": 3895.5497001579633,
+        "IV": 2419.527983037466,
+        "Im": 6306.289375143377,
+        "Is": 9356.51477547325
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3774.2452113153354,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            3.292752407487498,
+            -668.8930470464248,
+            2801.5998181973328
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.4282095920207,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -124387.0220572399,
+            -29735.78915704557
+          ]
+        },
+        {
+          "Fe_psi": 5599.771749314677,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -3.292752394449039,
+            668.8930470459949,
+            -2804.658846422935
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.4223931018636432,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -124780.22261924899,
+            -29728.80272527314
+          ]
+        }
+      ],
+      "reference_index": 1.191686618695321,
+      "unadjusted_reference_N": 2419.527983037466
+    }
+  ],
+  "revision": "eoere-single-leg-bolts-header-angles-v3",
+  "rows": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-forward",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2320.1307666110697,
+      "mode_references_N": {
+        "II": 3590.602817988834,
+        "IIIm": 3125.4142766391365,
+        "IIIs": 3900.636339761126,
+        "IV": 2423.3673502131855,
+        "Im": 6328.57834260314,
+        "Is": 9363.03387223384
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3784.616467945801,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -126.77673846429948,
+            -525.3505364050392,
+            2256.811230896116
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.10419321019895,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            99438.76705385126,
+            20520.814114407724
+          ]
+        },
+        {
+          "Fe_psi": 5599.281586552171,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            126.77673846150583,
+            525.3505364088152,
+            -2259.8702591233505
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.7494203060936296,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            101296.77221139497,
+            26182.848572230734
+          ]
+        }
+      ],
+      "reference_index": 0.9573995318567636,
+      "unadjusted_reference_N": 2423.3673502131855
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-forward",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 689.523834384122,
+      "mode_references_N": {
+        "II": 3580.2428921585383,
+        "IIIm": 3112.0764472347932,
+        "IIIs": 3892.9478486142566,
+        "IV": 2417.604641849324,
+        "Im": 6295.225202876324,
+        "Is": 9353.033899154849
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3769.0985306506113,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            147.16636725674624,
+            -161.32124846642165,
+            667.3278548292114
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.59007560718688,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -26874.239991832295,
+            -5450.246646063098
+          ]
+        },
+        {
+          "Fe_psi": 5599.8800980659,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -147.1663672641972,
+            161.3212484664566,
+            -670.3868830585857
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.3061383924525359,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -32556.22714134811,
+            -8891.212342595523
+          ]
+        }
+      ],
+      "reference_index": 0.2852095096312676,
+      "unadjusted_reference_N": 2417.604641849324
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-forward",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 794.5023874861828,
+      "mode_references_N": {
+        "II": 1527.8936564596167,
+        "IIIm": 1962.8132317039515,
+        "IIIs": 1867.822682953583,
+        "IV": 2197.637059425696,
+        "Im": 3802.044692248451,
+        "Is": 2970.829867908422
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5599.958320966238,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -95.78540461733459,
+            794.4984452932727,
+            -2.502827963965062
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 0.18049249268471576,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -23.18629189182429,
+            -9575.066337589053
+          ]
+        },
+        {
+          "Fe_psi": 3281.7585244763927,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            95.78540461736375,
+            -794.4984452921511,
+            1.596467157520397
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 76.04838365648195,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -76.97631936029342,
+            -25740.389555721795
+          ]
+        }
+      ],
+      "reference_index": 0.5199984855799301,
+      "unadjusted_reference_N": 1527.8936564596167
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-forward",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 192.4032902796205,
+      "mode_references_N": {
+        "II": 1509.1971131638415,
+        "IIIm": 1943.7724623972267,
+        "IIIs": 1844.688657121577,
+        "IV": 2175.9809557921735,
+        "Im": 3771.291140229584,
+        "Is": 2923.4733298150677
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5591.815978669238,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            48.69279845041047,
+            192.1733400261107,
+            8.49754765650515
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 2.531863523391979,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -93.46047018311005,
+            2113.622828787498
+          ]
+        },
+        {
+          "Fe_psi": 3251.046711394585,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -48.69279845042509,
+            -192.17334002417567,
+            -9.40390846278693
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 78.96502002553127,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -295.3436148944987,
+            6428.482135276277
+          ]
+        }
+      ],
+      "reference_index": 0.1274871841467224,
+      "unadjusted_reference_N": 1509.1971131638415
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2919.3156830708795,
+      "mode_references_N": {
+        "II": 3582.8546354164105,
+        "IIIm": 3115.4048243178004,
+        "IIIs": 3894.9082248542795,
+        "IV": 2419.0495971260502,
+        "Im": 6303.528067835681,
+        "Is": 9355.671631706284
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3772.960642743697,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -9.057087477399861,
+            -679.2491736669947,
+            2836.13533241687
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.46854249903885,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            126033.61910629849,
+            30449.219334118927
+          ]
+        },
+        {
+          "Fe_psi": 5599.813385931569,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            9.057087473671732,
+            679.2491736666452,
+            -2839.194360641197
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.381927236417212,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            126203.8327837919,
+            29936.032204751238
+          ]
+        }
+      ],
+      "reference_index": 1.2068027404395387,
+      "unadjusted_reference_N": 2419.0495971260502
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 761.8378242233878,
+      "mode_references_N": {
+        "II": 3586.6592292076984,
+        "IIIm": 3120.3234576742134,
+        "IIIs": 3897.720302854426,
+        "IV": 2421.172500034401,
+        "Im": 6315.836931241484,
+        "Is": 9359.275560307367
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3778.6872689347824,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            248.25678592890375,
+            -174.43488582200044,
+            738.54014991786
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.289080722640456,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -27879.65144387951,
+            -4986.349729395212
+          ]
+        },
+        {
+          "Fe_psi": 5599.539030409112,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -248.2567859512641,
+            174.43488581963197,
+            -741.5991781457942
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.6002883934599336,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -37881.588722498396,
+            -10520.911620291256
+          ]
+        }
+      ],
+      "reference_index": 0.3146565658632598,
+      "unadjusted_reference_N": 2421.172500034401
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 411.3569684162835,
+      "mode_references_N": {
+        "II": 1553.8706338507945,
+        "IIIm": 1986.1268485490295,
+        "IIIs": 1904.6108629124026,
+        "IV": 2229.486011974867,
+        "Im": 3821.905928146926,
+        "Is": 3052.7161645013675
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5574.513920392787,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -47.4632716233282,
+            410.1012652249357,
+            -32.11709397723006
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 4.4779809182238814,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -353.24058485616973,
+            -4510.508045373453
+          ]
+        },
+        {
+          "Fe_psi": 3339.4481197248983,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            47.463271622774904,
+            -410.10126522372826,
+            31.210733170861403
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 71.81141124983682,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -1063.2761506820339,
+            -13718.493193678667
+          ]
+        }
+      ],
+      "reference_index": 0.2647305119582965,
+      "unadjusted_reference_N": 1553.8706338507945
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 144.35519749936822,
+      "mode_references_N": {
+        "II": 1488.528633729189,
+        "IIIm": 1920.9277271594021,
+        "IIIs": 1821.8737553750018,
+        "IV": 2153.13011145713,
+        "Im": 3723.758657478194,
+        "Is": 2880.5693145171977
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5560.685476519331,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            56.691080854971595,
+            143.5827944391906,
+            14.006861070022188
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 5.571716969256665,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -154.0547784267646,
+            1579.1986136398623
+          ]
+        },
+        {
+          "Fe_psi": 3226.1636879665584,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -56.69108085535022,
+            -143.58279443705158,
+            -14.913221876207594
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 82.09327561183085,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -479.6382878850046,
+            4803.056599108545
+          ]
+        }
+      ],
+      "reference_index": 0.09697844853526079,
+      "unadjusted_reference_N": 1488.528633729189
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-left",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2703.5187522225956,
+      "mode_references_N": {
+        "II": 3597.2551152579927,
+        "IIIm": 3134.1192577726333,
+        "IIIs": 3905.4784362647842,
+        "IV": 2427.0962744076337,
+        "Im": 6350.435978731318,
+        "Is": 9368.971032094603
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3794.7908499986233,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -959.2529199424789,
+            -597.7973232124018,
+            2633.5395388569914
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 52.7890723891473,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            97547.79212158654,
+            8909.28455238529
+          ]
+        },
+        {
+          "Fe_psi": 5598.558219556705,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            959.2529199871933,
+            597.7973232103061,
+            -2636.5985670901464
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 1.0617648003870246,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            136678.8937221898,
+            44234.897481314256
+          ]
+        }
+      ],
+      "reference_index": 1.1138901990537753,
+      "unadjusted_reference_N": 2427.0962744076337
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-left",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 659.6975663893837,
+      "mode_references_N": {
+        "II": 3579.1360421699665,
+        "IIIm": 3110.663623730186,
+        "IIIs": 3892.1179656397608,
+        "IV": 2416.9911565863213,
+        "Im": 6291.700378148729,
+        "Is": 9351.92333728496
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3767.4591315780563,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            944.6283295629598,
+            -154.8890735832511,
+            638.1977487200271
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.64178780491224,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -37628.276905901424,
+            -11906.407765404856
+          ]
+        },
+        {
+          "Fe_psi": 5599.915262531813,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -944.628329540615,
+            154.88907358331608,
+            -641.2567769502148
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.2573596607250193,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -19212.523794160406,
+            -1863.2308761164354
+          ]
+        }
+      ],
+      "reference_index": 0.27294165499600703,
+      "unadjusted_reference_N": 2416.9911565863213
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-left",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 595.6472936283362,
+      "mode_references_N": {
+        "II": 1524.9666628439993,
+        "IIIm": 1959.938887006997,
+        "IIIs": 1864.0452430768091,
+        "IV": 2194.1902311988692,
+        "Im": 3798.004818814446,
+        "Is": 2962.873544036834
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5599.914768020074,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -286.98363041571406,
+            595.636477144444,
+            2.683277824383073
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 0.2581095357728621,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -22.13323355208947,
+            -6712.316259189888
+          ]
+        },
+        {
+          "Fe_psi": 3276.4254075262706,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            286.98363041757693,
+            -595.636477141272,
+            -3.5896386303268133
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 76.50880602408374,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            152.4930245803301,
+            -19763.725149707054
+          ]
+        }
+      ],
+      "reference_index": 0.39059692788134714,
+      "unadjusted_reference_N": 1524.9666628439993
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-left",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 159.72579766343503,
+      "mode_references_N": {
+        "II": 1586.7313799529957,
+        "IIIm": 2008.2882066725113,
+        "IIIs": 1961.07227862055,
+        "IV": 2273.108938150357,
+        "Im": 3797.303766187313,
+        "Is": 3191.924501627068
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5463.846818297392,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            219.5120259580432,
+            157.04991994079185,
+            -29.11448240672423
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 10.502469030844834,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            320.2162935546795,
+            1727.317098204179
+          ]
+        },
+        {
+          "Fe_psi": 3444.5861339343196,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -219.51202595385288,
+            -157.0499199402319,
+            28.208121599918154
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 65.98104938089318,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            962.8343576914872,
+            5253.5518431229375
+          ]
+        }
+      ],
+      "reference_index": 0.10066341390952176,
+      "unadjusted_reference_N": 1586.7313799529957
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "k12-right",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 692.5652219797245,
+      "mode_references_N": {
+        "II": 3580.174136106433,
+        "IIIm": 3111.9884802904917,
+        "IIIs": 3892.896424197979,
+        "IV": 2417.56648031633,
+        "Im": 6295.005623012084,
+        "Is": 9352.9656071954
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3768.9964005581387,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -950.0480452723963,
+            -162.0735666419913,
+            670.2750238516351
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.59329497774945,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            39303.86470303179,
+            12484.8311143223
+          ]
+        },
+        {
+          "Fe_psi": 5599.882799023825,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            950.0480452426103,
+            162.07356663932123,
+            -673.3340520816057
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.3026705502207681,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            20388.605756438898,
+            1923.5089603145268
+          ]
+        }
+      ],
+      "reference_index": 0.28647204849113594,
+      "unadjusted_reference_N": 2417.56648031633
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-right",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2670.795391351427,
+      "mode_references_N": {
+        "II": 3597.197267172796,
+        "IIIm": 3134.0432699113853,
+        "IIIs": 3905.436542983219,
+        "IV": 2427.0638066401166,
+        "Im": 6350.244966418805,
+        "Is": 9368.920414886443
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3794.701921382821,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            969.748978975403,
+            -590.6781439189017,
+            2601.599750340819
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 52.791815133937995,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -95961.76889636774,
+            -8572.252999653487
+          ]
+        },
+        {
+          "Fe_psi": 5598.565171526282,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -969.7489790498928,
+            590.6781439173224,
+            -2604.6587785662846
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 1.0592009511096123,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -135425.46974760765,
+            -43939.033994565994
+          ]
+        }
+      ],
+      "reference_index": 1.100422405065946,
+      "unadjusted_reference_N": 2427.0638066401166
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "k12-right",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 167.03613124730015,
+      "mode_references_N": {
+        "II": 1586.8908076667801,
+        "IIIm": 2008.4142970460234,
+        "IIIs": 1961.3008070277695,
+        "IV": 2273.2898944173216,
+        "Im": 3797.3750473106443,
+        "Is": 3192.466520514577
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5463.688147839162,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -220.06127439203337,
+            164.23441288341638,
+            -30.46517301616376
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 10.508810782406123,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -335.0718947861115,
+            -1806.3359064047893
+          ]
+        },
+        {
+          "Fe_psi": 3445.006341195202,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            220.0612743878427,
+            -164.23441288234662,
+            29.55881221038351
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 65.96068293923229,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -1008.016954023951,
+            -5493.8837461882395
+          ]
+        }
+      ],
+      "reference_index": 0.10526000304513382,
+      "unadjusted_reference_N": 1586.8908076667801
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "k12-right",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 588.5301376398871,
+      "mode_references_N": {
+        "II": 1524.755208128983,
+        "IIIm": 1959.7295851754243,
+        "IIIs": 1863.7748002048486,
+        "IV": 2193.942146760688,
+        "Im": 3797.7008825222524,
+        "Is": 2962.307232528582
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5599.892232879578,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            287.2762467618548,
+            588.5172979446871,
+            2.9811750449919425
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 0.2902332483737733,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            13.380971129475197,
+            6615.257125199707
+          ]
+        },
+        {
+          "Fe_psi": 3276.0481491282726,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -287.2762467595255,
+            -588.5172979406996,
+            -3.887535852227122
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 76.54198381039492,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -156.9822936820341,
+            19544.336768319972
+          ]
+        }
+      ],
+      "reference_index": 0.3859833594941896,
+      "unadjusted_reference_N": 1524.755208128983
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "k12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 800.3086668670446,
+      "mode_references_N": {
+        "II": 3587.653240977693,
+        "IIIm": 3121.608369755096,
+        "IIIs": 3898.4545975170454,
+        "IV": 2421.7265626396515,
+        "Im": 6319.053177959543,
+        "Is": 9360.21727652125
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3780.1838199025005,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -248.42866893277284,
+            -182.64455784296467,
+            776.1296060271534
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.24232651393998,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            29543.70710848161,
+            5264.256554194722
+          ]
+        },
+        {
+          "Fe_psi": 5599.468924061665,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            248.4286689420876,
+            182.6445578408478,
+            -779.1886342559338
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.6443265804649484,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            39559.23570624396,
+            10972.844638008188
+          ]
+        }
+      ],
+      "reference_index": 0.33047028480156665,
+      "unadjusted_reference_N": 2421.7265626396515
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 2883.319120944628,
+      "mode_references_N": {
+        "II": 3583.7157420928115,
+        "IIIm": 3116.5100015526846,
+        "IIIs": 3895.5497001579633,
+        "IV": 2419.527983037466,
+        "Im": 6306.289375143377,
+        "Is": 9356.51477547325
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3774.2452113153354,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            3.292752407487498,
+            -668.8930470464248,
+            2801.5998181973328
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.4282095920207,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -124387.0220572399,
+            -29735.78915704557
+          ]
+        },
+        {
+          "Fe_psi": 5599.771749314677,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -3.292752394449039,
+            668.8930470459949,
+            -2804.658846422935
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.4223931018636432,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -124780.22261924899,
+            -29728.80272527314
+          ]
+        }
+      ],
+      "reference_index": 1.191686618695321,
+      "unadjusted_reference_N": 2419.527983037466
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "k12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 148.3784039810022,
+      "mode_references_N": {
+        "II": 1490.677478164049,
+        "IIIm": 1923.3826547884767,
+        "IIIs": 1824.1223395823347,
+        "IV": 2155.4570237677594,
+        "Im": 3729.3075349354503,
+        "Is": 2884.607057986192
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5564.923843547248,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -56.72557506539799,
+            147.66812138642484,
+            13.594559655946671
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 5.259913231363397,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            149.52007199447294,
+            -1624.1311745120508
+          ]
+        },
+        {
+          "Fe_psi": 3228.3376563626307,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            56.72557506490339,
+            -147.66812138610487,
+            -14.500920462097973
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 81.771943313125,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            465.8461964628634,
+            -4939.716821065045
+          ]
+        }
+      ],
+      "reference_index": 0.09953756339281941,
+      "unadjusted_reference_N": 1490.677478164049
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "k12-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 405.0645311141904,
+      "mode_references_N": {
+        "II": 1553.4052659577287,
+        "IIIm": 1985.7452666147071,
+        "IIIs": 1903.9017274528119,
+        "IV": 2228.898293954564,
+        "Im": 3821.8005310596086,
+        "Is": 3051.0714880656733
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5575.363203210523,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            41.56664230356194,
+            403.86948366542987,
+            -31.092033233257776
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 4.40225228916372,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            341.96643106845215,
+            4441.967654878086
+          ]
+        },
+        {
+          "Fe_psi": 3338.2495174747755,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -41.56664230303805,
+            -403.869483662999,
+            30.18567242692549
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 71.88910840356321,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            1028.9863544047487,
+            13510.030893950929
+          ]
+        }
+      ],
+      "reference_index": 0.26075908199297493,
+      "unadjusted_reference_N": 1553.4052659577287
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a1-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 746.3088832918861,
+      "mode_references_N": {
+        "II": 3482.870885124917,
+        "IIIm": 2997.5700872592765,
+        "IIIs": 3813.5441687836783,
+        "IV": 2365.6657778879735,
+        "Im": 6015.485931734053,
+        "Is": 9221.722077431328
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3639.488235616975,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -44.49932637530074,
+            -228.9768188336785,
+            707.2553850544131
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 57.939572008936146,
+          "member": "base_side_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            31463.673699747676,
+            10898.363129011675
+          ]
+        },
+        {
+          "Fe_psi": 5579.324662017104,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            44.49932637576526,
+            228.97681882963911,
+            -710.3144132840334
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 4.030749229626962,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            31516.350870502487,
+            9457.676065378859
+          ]
+        }
+      ],
+      "reference_index": 0.31547519952635833,
+      "unadjusted_reference_N": 2365.6657778879735
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a1-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "IV",
+      "maximum_own_lateral_force_N": 494.55992047915925,
+      "mode_references_N": {
+        "II": 3577.217981646969,
+        "IIIm": 3108.2243314078105,
+        "IIIs": 3890.6740220024035,
+        "IV": 2415.930080283645,
+        "Im": 6285.620036480786,
+        "Is": 9349.96805017993
+      },
+      "own_members": [
+        {
+          "Fe_psi": 3764.631428515994,
+          "bearing_length_mm": 88.90000000000009,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            58.47596044049364,
+            -116.68644284412284,
+            477.5382969831951
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            0.6427876099290708,
+            0.7660444429154699
+          ],
+          "load_to_grain_degrees": 53.7311575217063,
+          "member": "base_side_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -20372.37894782558,
+            -4519.214015408066
+          ]
+        },
+        {
+          "Fe_psi": 5599.95408138531,
+          "bearing_length_mm": 88.89999999999986,
+          "catalog_thread_fraction_upper": 0.14628571428571407,
+          "force_on_wood_xyz_N": [
+            -58.47596044049532,
+            116.68644284454487,
+            -480.5973252116985
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 0.18945014755292064,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -22185.79649283803,
+            -5854.210753427502
+          ]
+        }
+      ],
+      "reference_index": 0.2047078781440127,
+      "unadjusted_reference_N": 2415.930080283645
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a1-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 40.64422994591055,
+      "mode_references_N": {
+        "II": 1583.0306300884574,
+        "IIIm": 2009.5876442019612,
+        "IIIs": 1948.175603269588,
+        "IV": 2264.8892243121177,
+        "Im": 3830.159193239911,
+        "Is": 3154.813673354931
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5529.641843501816,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            -49.543901200810886,
+            -40.17108973446102,
+            5.277244738115256
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 7.484045346096327,
+          "member": "base_floor_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            58.04189566598359,
+            441.82263943839257
+          ]
+        },
+        {
+          "Fe_psi": 3415.9787132526035,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            49.54390120082359,
+            40.171089733384086,
+            -6.183605544377469
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 67.41256151144154,
+          "member": "lumber_leg_left",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            187.61972468630145,
+            1343.7822991652315
+          ]
+        }
+      ],
+      "reference_index": 0.0256749485280897,
+      "unadjusted_reference_N": 1583.0306300884574
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a1-rear",
+      "geometry_group_couple_and_full_joint_qualified": false,
+      "governing_mode": "II",
+      "maximum_own_lateral_force_N": 85.94650668535212,
+      "mode_references_N": {
+        "II": 1508.6450489337485,
+        "IIIm": 1943.265541105136,
+        "IIIs": 1843.827771376263,
+        "IV": 2175.2033662377153,
+        "Im": 3771.0786199955187,
+        "Is": 2921.5907431846817
+      },
+      "own_members": [
+        {
+          "Fe_psi": 5593.104366539221,
+          "bearing_length_mm": 38.09999999999991,
+          "catalog_thread_fraction_upper": 0.0,
+          "force_on_wood_xyz_N": [
+            41.862883287153736,
+            85.83435141179586,
+            3.482959063728402
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_to_grain_degrees": 2.323655175356206,
+          "member": "base_floor_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -38.30740407503167,
+            944.051056267692
+          ]
+        },
+        {
+          "Fe_psi": 3249.8848982428935,
+          "bearing_length_mm": 50.799999999999955,
+          "catalog_thread_fraction_upper": 0.22099999999999762,
+          "force_on_wood_xyz_N": [
+            -41.862883287161054,
+            -85.83435141302559,
+            -4.389319869924009
+          ],
+          "grain_axis_xyz": [
+            0.0,
+            -0.23915183195284329,
+            0.9709821838085387
+          ],
+          "load_to_grain_degrees": 79.09090389481533,
+          "member": "lumber_leg_right",
+          "moment_on_wood_at_midpoint_Nmm": [
+            0.0,
+            -127.59821805627301,
+            2871.2858640318823
+          ]
+        }
+      ],
+      "reference_index": 0.0569693359919855,
+      "unadjusted_reference_N": 1508.6450489337485
+    }
+  ],
+  "schema": "eoere_current_single_leg_bolt_yield_references/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/hardware-selection.csv": "66ed9c8e953e264dc2916dc50518360d90aba0f3ead767793829f92335fdce9b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/field.json": "8f15e5419a147e1ee4a8d6c6582dfd704f5ee625217e7e3f24dd33092b67ef40",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a1-rear/attempt01/replay.json": "843c3114472aabcd92f422c1a72c4ab5457da6a1e44b4c1a33a20fb21088ce32",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/field.json": "0514dcea92065b0a45fa2acd40e0061deccf561fec9ed5dd9ccfbf9bd94a6389",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-forward/attempt01/replay.json": "f833bbdcb7cf5141fb39cbd59fb9f1daf77b3ccc460cb39f7eafd12bb0a5493b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/field.json": "6b3963e4b38dd3fb199ced0e6504bb1c5e550b2ea7b77b4b1378b5c9b969198b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-left/attempt01/replay.json": "839c73beb85910513233a5b8cabec6af7d32980076a0e5955acb01a87a4dc9a4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/field.json": "cdb30d8a3530c29fd0ad7e1ab27c2ab1f11619255713731412a868e65b8c59ff",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/a12-rear/attempt01/replay.json": "5f8643dc7b7b4a32e9b58f4cf4fc07ad18e6e527043afe72ef06885753066225",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/field.json": "7a026fa06e3ced446679494b60de0c20e8584c91774c1bb6cef26bd5f5eee805",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-rear/attempt01/replay.json": "a62fbb1c36b5087d752bea1d8abd9ef46cd5aa84fcab08a1a153c31b59feb6ba",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/field.json": "b7b5470363e62683998560422053eb5967eb0d37cc90f48ce0b7b24c5fd63eef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/cases-corrected-v3/k12-right/attempt01/replay.json": "3b1ce9d9c91f4d60445575005cee2183658923bbd7c3b14bf4c01cf9287d7311",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/single-pin-yield-screen-v1.py": "286d1e1ec3c0c544ee2d2bff54954d4e168f2355084507bcdce5bed7f4b5b448",
+    "mini_moonboard/bolted_timber_checks.py": "a1414547d9eaa3d60e81482b4a2cac2d49e88f31aafa341dca5be9ec8ef4aa13",
+    "mini_moonboard/nds_2024_multi_member_bolt_yield.py": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+  },
+  "structural_acceptance": false,
+  "worst": {
+    "axis_id": "lumber_leg_bolt_left_1",
+    "case_id": "a12-rear",
+    "geometry_group_couple_and_full_joint_qualified": false,
+    "governing_mode": "IV",
+    "maximum_own_lateral_force_N": 2919.3156830708795,
+    "mode_references_N": {
+      "II": 3582.8546354164105,
+      "IIIm": 3115.4048243178004,
+      "IIIs": 3894.9082248542795,
+      "IV": 2419.0495971260502,
+      "Im": 6303.528067835681,
+      "Is": 9355.671631706284
+    },
+    "own_members": [
+      {
+        "Fe_psi": 3772.960642743697,
+        "bearing_length_mm": 88.90000000000009,
+        "catalog_thread_fraction_upper": 0.0,
+        "force_on_wood_xyz_N": [
+          -9.057087477399861,
+          -679.2491736669947,
+          2836.13533241687
+        ],
+        "grain_axis_xyz": [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        "load_to_grain_degrees": 53.46854249903885,
+        "member": "base_side_left",
+        "moment_on_wood_at_midpoint_Nmm": [
+          0.0,
+          126033.61910629849,
+          30449.219334118927
+        ]
+      },
+      {
+        "Fe_psi": 5599.813385931569,
+        "bearing_length_mm": 88.89999999999986,
+        "catalog_thread_fraction_upper": 0.14628571428571407,
+        "force_on_wood_xyz_N": [
+          9.057087473671732,
+          679.2491736666452,
+          -2839.194360641197
+        ],
+        "grain_axis_xyz": [
+          0.0,
+          -0.23915183195284329,
+          0.9709821838085387
+        ],
+        "load_to_grain_degrees": 0.381927236417212,
+        "member": "lumber_leg_left",
+        "moment_on_wood_at_midpoint_Nmm": [
+          0.0,
+          126203.8327837919,
+          29936.032204751238
+        ]
+      }
+    ],
+    "reference_index": 1.2068027404395387,
+    "unadjusted_reference_N": 2419.0495971260502
+  }
+}

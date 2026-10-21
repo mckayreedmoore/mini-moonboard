@@ -38,12 +38,30 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-leg-header-frame-development')
+    return [
+      {label: 'Current builder plan · single leg bolts and plywood cleats', path: current + 'builder-plan.md'},
+      {label: '96-axis member and receiver layout', path: current + 'builder-layout.md'},
+      {label: 'Combined geometry and hardware receipt', path: evidence + 'leg-header-v3/geometry.json'},
+      {label: '96 selected bolt stacks and spacers', path: evidence + 'leg-header-v3/hardware-selection.csv'},
+      {label: '32 retained enclosed-passage datums', path: evidence + 'enclosed-passages-v1/passage-datums.csv'},
+      {label: 'Current calculations and remaining holds', path: ledger + '#single-bolt-leg-joint-review'},
+    ];
+  if (model === 'eoere-enclosed-passages-frame-development')
+    return [
+      {label: 'Current builder plan · 96-bolt successor', path: current + 'builder-plan.md'},
+      {label: 'Current member and receiver layout', path: current + 'builder-layout.md'},
+      {label: '32 enclosed-passage datums', path: evidence + 'enclosed-passages-v1/passage-datums.csv'},
+      {label: 'Enclosed-passage geometry receipt', path: evidence + 'enclosed-passages-v1/geometry.json'},
+      {label: 'Passage section diagram', path: current + 'enclosed-passage-study.svg'},
+      {label: 'Six preceding cases · extra grid off · earlier geometry', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
+    ];
   if (['eoere-narrow-channels-frame-development', 'eoere-narrow-channels-grid-development'].includes(model))
     return [
-      {label: 'Current builder plan · narrower channel openings', path: current + 'builder-plan.md'},
+      {label: 'Current builder plan · 96-bolt successor', path: current + 'builder-plan.md'},
       {label: 'Current member and receiver layout', path: current + 'builder-layout.md'},
       {label: '32 narrowed channel datums', path: evidence + 'narrow-channels-v1/service-channel-datums.csv'},
-      {label: 'Current narrower-channel geometry receipt', path: evidence + 'occupied-narrow-channels-v1.json'},
+      {label: 'Preserved narrower-channel geometry receipt', path: evidence + 'occupied-narrow-channels-v1.json'},
       {label: 'Six preceding cases · extra grid off', path: evidence + 'selected-hardware-v1/current-response-v1/result.json'},
       {label: 'Notch-size revision and retained holds', path: ledger + '#current-narrow-channel-revision'},
     ];

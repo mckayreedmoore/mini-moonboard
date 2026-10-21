@@ -4,11 +4,12 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 **[main development summary and revision map](bolted-frame-development/README.md)**.
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
-The current geometry is **`eoere-narrow-channel-openings-v1`**:
-[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear).
+The current geometry is **`eoere-single-leg-bolts-header-angles-v3`**:
+[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear).
 The [checked revision index](bolted-frame-development/development-revisions.json) binds
-14-mm channel openings, the wider posts and revised shop/hardware overrides. Six preceding first-order
-cases retain their 2×6-post geometry; revised response remains open.
+32 enclosed cable holes, one bolt at each long-leg joint, 24 angles, 96 bolt
+stacks and two single plywood cleats. The 66 Hillman axes remain. Fresh
+conditional cases and current holds are recorded in the development summary.
 The [builder plan](bolted-frame-development/builder-plan.md) brings the current
 dimensions, fixtures, temporary-support requirements and assembly order together.
 Complete joint resistance and physical stiffness/restraint remain unqualified;

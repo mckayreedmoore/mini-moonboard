@@ -10,8 +10,15 @@ import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
 import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
 
 // Keep exercising the preserved force/shop contracts against their own geometry.
-const readPostIndex = () => readCurrentIndex().preceding_revision;
-const readIndex = () => readPostIndex().preceding_revision;
+function ownRevision(revision) {
+  let index = readCurrentIndex();
+  while (index && index.geometry.revision !== revision) index = index.preceding_revision;
+  assert.ok(index, `preserved revision missing: ${revision}`);
+  return index;
+}
+const readNotchIndex = () => ownRevision('eoere-narrow-channel-openings-v1');
+const readPostIndex = () => ownRevision('eoere-4x6-front-posts-v1');
+const readIndex = () => ownRevision('eoere-raised-kicker-screws-v1');
 const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index, {entryChecks: false});
 
 test('current geometry/shop, preceding response and baseline keep their own identities', () => {
@@ -429,7 +436,7 @@ for (const [label, mutate] of [
   ['missing narrowed member', p => {p.replacements.base.pop();}],
   ['notch physical release', p => {p.release.fabrication = true;}],
 ]) test(`reject ${label}`, () => {
-  const index = readCurrentIndex();
+  const index = readNotchIndex();
   const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
   mutate(scene); assert.throws(() => validateNarrowChannels(scene, index.geometry.receipt.sha256));
 });
@@ -438,5 +445,5 @@ for (const [label, mutate] of [
   ['missing narrowed shop coordinates', i => {i.shop.overrides = [];}],
   ['notch response transfer', i => {i.current_response = i.preceding_revision.preceding_revision.current_response;}],
 ]) test(`reject ${label}`, () => {
-  const index = readCurrentIndex(); mutate(index); assert.throws(() => checkCurrentDevelopment(index));
+  const index = readNotchIndex(); mutate(index); assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
 });

@@ -11,6 +11,8 @@ import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mj
 import {validateSelectedHardware} from '../site/eoere-selected-hardware-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
 import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
+import {validateEnclosedPassages} from '../site/eoere-enclosed-passages-overlay.mjs';
+import {validateLegHeader} from '../site/eoere-leg-header-overlay.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const INDEX_PATH = 'docs/bolted-frame-development/development-revisions.json';
@@ -696,6 +698,148 @@ function checkFrontPostRevision(index, entryChecks) {
 }
 
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v5') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_leg_header_revision/v3');
+    assert.equal(report.revision, index.geometry.revision);
+    assert.equal(report.status, 'NOMINAL_GEOMETRY_CLEAR_STRENGTH_UNQUALIFIED');
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(report.counts, {sawn_members: 20, plywood_cleats: 2, panels: 6, angles: 24,
+      bolt_stacks: 96, Hillman_axes: 66, receiver_occurrences: 112, occupied_parts: 1027, spacer_pieces: 24});
+    assert.equal(report.axes.length, 96); assert.equal(new Set(report.axes.map(r => r.id)).size, 96);
+    assert.equal(report.screw_axes.length, 66); assert.equal(report.fitting_poses.length, 24);
+    assert.equal(report.post_row_Z_mm, 173.8125);
+    assert.equal(report.removed_axes.length, 4);
+    assert.ok(report.removed_axes.every(id => !report.axes.some(a => a.id === id)));
+    const ports = [];
+    for (const axis of report.axes) for (const a of axis.attachments) {
+      const d = axis.direction_xyz, delta = a.point.map((v, i) => v-axis.point_xyz_mm[i]);
+      const along = delta.reduce((s, v, i) => s+v*d[i], 0);
+      const radial = Math.hypot(...delta.map((v, i) => v-along*d[i]));
+      assert.ok(radial < 1e-6 && Math.min(Math.abs(along), Math.abs(along-axis.grip_mm)) < 1e-6,
+        'fitting attachment must lie on its physical shaft at a stack face');
+      assert.equal(a.installed_bolt_axis_id, axis.id);
+      ports.push(`${a.angle_id}/${a.flange}/${a.transverse}`);
+    }
+    assert.equal(ports.length, 96); assert.equal(new Set(ports).size, 96);
+    for (const ref of Object.values(report.files)) bound(ref);
+    bound(report.inputs);
+    bound({path: 'scripts/publish_eoere_leg_header.py', sha256: report.source_sha256['scripts/publish_eoere_leg_header.py']});
+    for (const key of ['physical_installation_qualified', 'complete_joint_qualified', 'native_FEA_performed'])
+      assert.equal(report[key], false);
+    assert.equal(report.actual_observations, null); assert.ok(Object.values(report.release).every(v => v === false));
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateLegHeader(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.equal(scene.key, index.geometry.viewer);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), report.changed_finished_solids.map(r => r.id).sort());
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.equal(index.hardware_model.revision, report.revision);
+    for (const key of ['current_response', 'structural_assessment', 'engineering_assessment']) assert.equal(index[key], null);
+    assert.equal(index.fabrication_released, false); assert.equal(index.climbing_released, false);
+    assert.equal(index.optional_grid.applies_to_current_geometry, false);
+    const responseStudy = JSON.parse(bound(index.conditional_response_study.result));
+    assert.equal(responseStudy.revision, report.revision);
+    assert.deepEqual(responseStudy.geometry, report.checked_geometry);
+    assert.equal(responseStudy.all_six_raw_operator_and_force_replays_pass, true);
+    assert.equal(responseStudy.all96_attachment_axes_checked, true);
+    assert.equal(responseStudy.production_admission_issued, false);
+    assert.equal(responseStudy.physical_demand_bound_established, false);
+    assert.equal(responseStudy.structural_acceptance, false);
+    assert.equal(responseStudy.cases.length, 6);
+    assert.equal(new Set(responseStudy.cases.map(r => r.case_id)).size, 6);
+    assert.equal(responseStudy.component_comparisons, 48);
+    assert.equal(responseStudy.cases.flatMap(r => r.connection_shear_references).length, 48);
+    assert.equal(responseStudy.component_reference_exceedances.length, 1);
+    assert.equal(responseStudy.maximum_full_gradient_residual_N,
+      Math.max(...responseStudy.cases.map(r => r.gradient_inf_N)));
+    assert.ok(responseStudy.maximum_full_gradient_residual_N <= 1e-5);
+    for (const row of responseStudy.cases) {
+      assert.equal(row.counts.physical_bodies, 148); assert.equal(row.counts.shaft, 96);
+      assert.equal(row.counts.fitting, 24); assert.equal(row.counts.end_captures, 192);
+      assert.equal(row.equilibrium.all_body_and_global_checks_pass, true);
+      assert.equal(row.connection_shear_references.length, 8);
+    }
+    const singlePins = JSON.parse(bound(index.conditional_response_study.single_pin_bolt_references));
+    assert.equal(singlePins.revision, report.revision);
+    assert.deepEqual(singlePins.geometry, report.checked_geometry);
+    assert.equal(singlePins.comparison_count, 24); assert.equal(singlePins.rows.length, 24);
+    assert.equal(singlePins.reference_exceedances.length, 4);
+    assert.ok(singlePins.maximum_catalog_thread_fraction <= .25);
+    assert.equal(singlePins.structural_acceptance, false);
+    const plywood = JSON.parse(bound(index.conditional_response_study.plywood_component_references));
+    assert.equal(plywood.geometry_revision, report.revision);
+    assert.equal(plywood.geometry.sha256, report.checked_geometry.sha256);
+    assert.equal(plywood.disposition, 'REVISE_SINGLE_LEAF_REFERENCE_CONSTRUCTION');
+    assert.ok(plywood.governing_checked_section.reference_upper > 1);
+    assert.equal(plywood.complete_joint_qualified, false); assert.equal(plywood.release, false);
+    assert.equal(plywood.paired_leaf_sizing_proposal.sharing_qualified, false);
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, scene.key), scene.key);
+    for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])
+      assert.ok(html.includes(value), 'combined leg/header viewer binding missing');
+    if (entryChecks) {
+      for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
+      assert.ok(html.includes(`href="?model=${scene.key}&view=rear">Current eoere geometry`));
+    }
+    return {...prior, revision: report.revision, bolt_axes: 96, bolts: 96, angles: 24,
+      new_response_computed: true, production_admission_issued: false,
+      current_leg_foot_shear_reference: responseStudy.worst_leg_foot.conservative_reference_index_CD1,
+      current_post_shear_reference: responseStudy.worst_front_post.conservative_reference_index_CD1};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v4') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_enclosed_passages_revision/v1');
+    assert.equal(report.status, 'NOMINAL_GEOMETRY_CLEAR');
+    assert.equal(report.revision, index.geometry.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.equal(report.bolt_axis_lines_preserved, 100); assert.equal(report.Hillman_axes_preserved, 66);
+    assert.equal(report.passages.length, 32); assert.equal(report.new_front_open_notches, 0);
+    assert.equal(new Set(report.passages.map(r => r.service)).size, 32);
+    for (const row of report.passages) {
+      assert.equal(row.diameter_mm, 38.1); assert.ok(Math.abs(row.board_normal_centre_mm-69.85) < 1e-6);
+      assert.ok(Math.abs(row.front_rear_ligament_mm-50.8) < 1e-6);
+      assert.ok(row.nominal_budget_remaining_mm > 0); assert.equal(row.Actual, ''); assert.equal(row.Disposition, '');
+      assert.equal(row.grain_offset_mm, row.service === 'wire_072_F1_G1' ? 40 : 0);
+    }
+    for (const key of ['physical_feed_verified', 'hole_strength_qualified', 'new_response_computed', 'historical_capacity_transferred'])
+      assert.equal(report[key], false);
+    assert.ok(Object.values(report.release).every(v => v === false));
+    for (const name of ['scripts/publish_eoere_enclosed_passages.py', report.shop_override.path,
+      index.preceding_revision.geometry.receipt.path]) bound({path: name, sha256: report.source_sha256[name]});
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateEnclosedPassages(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.equal(scene.key, index.geometry.viewer);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), report.changed_finished_solids.map(r => r.id).sort());
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.deepEqual(index.shop.overrides, [report.shop_override]); bound(index.shop.passage_profile);
+    for (const key of ['current_response', 'structural_assessment', 'engineering_assessment']) assert.equal(index[key], null);
+    assert.equal(index.fabrication_released, false); assert.equal(index.climbing_released, false);
+    assert.equal(index.optional_grid.applies_to_current_geometry, false);
+    const registry = JSON.parse(bound(index.geometry_registry_check));
+    assert.equal(registry.schema, 'eoere_enclosed_registry_check/v1');
+    assert.equal(registry.passed, true); assert.deepEqual(registry.geometry_receipt, index.geometry.receipt);
+    assert.equal(registry.geometry_changed, false); assert.equal(registry.registry_parts_checked, 1033);
+    assert.equal(registry.corrected_panel_screw_bodies, 4);
+    assert.equal(registry.positive_affected_screw_backing_count, 28);
+    assert.ok(registry.minimum_old_backed_volume_mm3 > 0);
+    assert.equal(registry.recorded_nut_translations_included, 8);
+    assert.equal(registry.corrected_frame_part_pairs, 240);
+    assert.deepEqual(registry.registry_bounds_mismatches, []);
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, scene.key), scene.key);
+    for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])
+      assert.ok(html.includes(value), 'enclosed-passage viewer binding missing');
+    if (entryChecks) {
+      for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
+      assert.ok(html.includes(`href="?model=${scene.key}&view=rear">Current eoere geometry`));
+    }
+    return {...prior, revision: report.revision, enclosed_passages: 32, new_response_computed: false};
+  }
   if (index.schema === 'bolted_frame_development_revisions/v3') {
     const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
     const report = JSON.parse(bound(index.geometry.receipt));

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = Path("docs/bolted-frame-development/development-revisions.json")
 OUTPUT = INDEX.parent / "builder-layout.md"
-REVISION = "eoere-narrow-channel-openings-v1"
+REVISION = "eoere-centred-enclosed-passages-v1"
 HARDWARE = "eoere-4x6-front-posts-v1"
 
 
@@ -30,10 +30,36 @@ def read_bound(root, binding):
 
 def load_sources(root=ROOT):
     index = json.loads((root / INDEX).read_bytes())
+    if index['schema'] == 'bolted_frame_development_revisions/v5':
+        require(index['geometry']['revision'] == index['shop']['revision'] ==
+                index['hardware_model']['revision'] == 'eoere-single-leg-bolts-header-angles-v3',
+                'Combined leg/header revision requires review')
+        result_ref = index['shop']['result']
+        result = json.loads(read_bound(root, result_ref))
+        require(result_ref == index['geometry']['receipt'] and result['counts']['bolt_stacks'] == 96,
+                'Combined shop and geometry binding differs')
+
+        def combined(name):
+            return read_bound(root, result['files'][name])
+
+        def combined_rows(name):
+            return list(csv.DictReader(io.StringIO(combined(name).decode())))
+
+        return {'profiles': json.loads(combined('current_profiles.json')),
+                'members': combined_rows('members.csv'), 'selected': combined_rows('hardware-selection.csv'),
+                'drilling': combined_rows('drilling-requirements.csv'), 'holes': combined_rows('receiver-holes.csv'),
+                'shop_result': result_ref, 'revision': result['revision'], 'hardware_revision': result['revision'],
+                'expected_bolt_count': 96, 'expected_receiver_count': 112,
+                'expected_spacer_count': result['counts']['spacer_pieces']}
+    passage_result = index['shop']['result'] if index['schema'] == 'bolted_frame_development_revisions/v4' else None
+    passages = json.loads(read_bound(root, passage_result)) if passage_result else None
+    if passages:
+        require(index['geometry']['revision'] == REVISION, 'Enclosed passage revision requires review')
+        index = index['preceding_revision']
     channel_result = index['shop']['result'] if index['schema'] == 'bolted_frame_development_revisions/v3' else None
     channels = json.loads(read_bound(root, channel_result)) if channel_result else None
     if channels:
-        require(index['geometry']['revision'] == REVISION, 'Channel revision requires review')
+        require(index['geometry']['revision'] == 'eoere-narrow-channel-openings-v1', 'Channel revision requires review')
         index = index['preceding_revision']
     require(index["schema"] == "bolted_frame_development_revisions/v2"
             and index["geometry"]["revision"] == index["shop"]["revision"] == HARDWARE
@@ -78,6 +104,10 @@ def load_sources(root=ROOT):
         require(channels['parent_geometry'] == current_result, 'Channel parent differs')
         data['profiles'].update(channels['profile_overrides'])
         data['shop_result'] = channel_result
+    if passages:
+        require(passages['parent_geometry']['receipt'] == channel_result, 'Passage parent differs')
+        data['profiles'].update(passages['profile_overrides'])
+        data['shop_result'] = passage_result
     return data
 
 
@@ -89,11 +119,22 @@ def validate(data):
     require({r["member"] for r in data["members"]} == set(profiles), "Member identities differ")
     selected = {r["axis_id"]: r for r in data["selected"]}
     drilling = {r["axis_id"]: r for r in data["drilling"]}
-    require(len(data["selected"]) == len(selected) == len(data["drilling"]) == len(drilling) == 100
+    require(len(data["selected"]) == len(selected) == len(data["drilling"]) == len(drilling) == data.get('expected_bolt_count', 100)
             and set(selected) == set(drilling) == {r["axis_id"] for r in holes},
             "Bolt identities differ")
-    require(len(holes) == len({(r["axis_id"], r["receiver"]) for r in holes}) == 120,
+    require(len(holes) == len({(r["axis_id"], r["receiver"]) for r in holes}) == data.get('expected_receiver_count', 120),
             "Receiver occurrences differ or repeat")
+    if 'expected_spacer_count' in data:
+        pieces = 0
+        for row in data['selected']:
+            count = int(row['spacer_piece_count'])
+            length = float(row['spacer_piece_length_mm'])
+            require(count >= 0 and abs(count*length-float(row['nut_side_spacer_mm'])) < 1e-8
+                    and length == (12.7 if count else 0.)
+                    and row['selected_spacer_SKU'] == ('13731' if count else ''),
+                    'Selected factory spacer inventory differs: '+row['axis_id'])
+            pieces += count
+        require(pieces == data['expected_spacer_count'], 'Selected factory spacer total differs')
     for table in (data["members"], data["selected"], data["drilling"], holes):
         require(all(not value for row in table for key, value in row.items()
                     if key.startswith("Actual") or key == "Disposition"),
@@ -141,10 +182,14 @@ def render(data):
     selected = {r["axis_id"]: r for r in data["selected"]}
     lines = [
         "# Current timber end and receiver coordinates", "",
-        f"Applies to **`{REVISION}`** with **`{HARDWARE}`**, extra grid off.",
+        f"Applies to **`{data.get('revision', REVISION)}`** with **`{data.get('hardware_revision', HARDWARE)}`**, extra grid off.",
         "Use with the [builder plan](builder-plan.md); conditional nominal planning only.", "",
-        "Generated from the checked post-revision binding and the preserved shop tables",
-        "with two stock, eight stack, sixteen receiver-row and eight channel-profile overrides.",
+        ("Generated from the combined checked profiles and fresh 96-axis / 112-receiver tables."
+         if data.get('expected_bolt_count') == 96 else
+         "Generated from the checked post-revision binding and the preserved shop tables"),
+        ("Twenty sawn members and two plywood cleats retain their individual nominal datums."
+         if data.get('expected_bolt_count') == 96 else
+         "with two stock, eight stack, sixteen receiver-row and eight enclosed-passage profile overrides."),
         f"Shop-result SHA-256: `{data['shop_result']['sha256']}`.",
         "The producer authenticates profiles, members, selected hardware, drilling paths",
         "and receiver rows, then checks both local endpoints against each world shaft axis.", "",
@@ -160,7 +205,7 @@ def render(data):
         "An L=0 profile corner is not a square-end fence across the whole member.", "",
         "Raw U=0 vertex marks below retain source indices; their listing is not a polygon",
         "or saw path. End-plane marks identify vertices on each raw cut face. Use the",
-        "issued projections and finished recess/channel details beside these numbers.",
+        "issued projections and finished recess/passage details beside these numbers.",
         "Raw blank lengths can exceed the final L extent after angled cuts.", "",
         "Receiver entry/exit means increasing saved shaft-axis parameter, not a prescribed",
         "drill approach. Recessed entries remain on their recorded finished face. Join paired",
@@ -224,12 +269,13 @@ def main():
     mode.add_argument("--check", action="store_true")
     mode.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    text = render(load_sources())
+    data = load_sources()
+    text = render(data)
     if args.check:
         require((ROOT / OUTPUT).read_text() == text, "Builder layout is stale; review before --write")
     else:
         (ROOT / OUTPUT).write_text(text)
-    print(f"{OUTPUT}: 22 timbers / 100 bolt axes / 120 receiver rows verified")
+    print(f"{OUTPUT}: 22 structural wood parts / {len(data['selected'])} bolt axes / {len(data['holes'])} receiver rows verified")
 
 
 if __name__ == "__main__":

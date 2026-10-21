@@ -1,0 +1,121 @@
+{
+  "schema": "eoere_single_bolt_legs_header_angles_inputs/v3",
+  "revision": "eoere-single-leg-bolts-header-angles-v3",
+  "owner_direction": "Implement one bolt at each upper long-leg/frame joint and each long-leg/runner joint; add one under-header angle beside each outer post; integrate the other project changes and calculate the revised design.",
+  "parent_geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json",
+    "sha256": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d"
+  },
+  "retain_leg_axis_ids": [
+    "lumber_leg_bolt_left_1",
+    "lumber_leg_bolt_right_1",
+    "rail_rear_bolt_left_1",
+    "rail_rear_bolt_right_1"
+  ],
+  "remove_leg_axis_ids": [
+    "lumber_leg_bolt_left_2",
+    "lumber_leg_bolt_right_2",
+    "rail_rear_bolt_left_2",
+    "rail_rear_bolt_right_2"
+  ],
+  "new_header_angles": [
+    {
+      "id": "eoere_clip_header_outer_under_left",
+      "duty_id": "clip_header_outer_under_left",
+      "beam": "base_header",
+      "post": "base_post_outer_left",
+      "origin_xyz_mm": [
+        -1130.3,
+        -105.85,
+        238.9
+      ],
+      "u_xyz": [
+        1,
+        0,
+        0
+      ],
+      "v_xyz": [
+        0,
+        0,
+        -1
+      ],
+      "w_xyz": [
+        0,
+        1,
+        0
+      ],
+      "shared_header_axis_ids": [
+        "eoere_bolt_081",
+        "eoere_bolt_082"
+      ]
+    },
+    {
+      "id": "eoere_clip_header_outer_under_right",
+      "duty_id": "clip_header_outer_under_right",
+      "beam": "base_header",
+      "post": "base_post_outer_right",
+      "origin_xyz_mm": [
+        1127.125,
+        -105.85,
+        238.9
+      ],
+      "u_xyz": [
+        -1,
+        0,
+        0
+      ],
+      "v_xyz": [
+        0,
+        0,
+        -1
+      ],
+      "w_xyz": [
+        0,
+        -1,
+        0
+      ],
+      "shared_header_axis_ids": [
+        "eoere_bolt_083",
+        "eoere_bolt_084"
+      ]
+    }
+  ],
+  "new_post_axis_Y_Z_mm": [
+    [
+      -131.25,
+      173.8125
+    ],
+    [
+      -80.45,
+      173.8125
+    ]
+  ],
+  "post_axis_ownership": "Reuse cleat_post_bolt_left/right_1/2 at the new angle far rowZ173.8125; no extra post shafts and no extra plywood holes. Each shaft joins angle, post and one plywood leaf.",
+  "nominal_counts_if_four_header_axes_shared": {
+    "angles": 24,
+    "bolt_stacks": 96,
+    "retained_Hillman_axes": 66
+  },
+  "integration": {
+    "enclosed_passages": "Retain all 32 current enclosed holes, routes and LED endpoints, including the F1-G1 shift.",
+    "plywood_proposal": "Retain single factory8x24inch leaf per corner with four holes: two atZ342.0875 and two atZ173.8125; the latter now share the lower angle. Nominalthickness28.575mm, proposedminimum27mm, strengthaxisZ.",
+    "panel98_trial": "fea/generated/selected-hardware-followup-v1/panel98-current-v1/layout-attempt03/layout.json; preserve original66 and compare the separate98 trial with its own panel operators and force recovery.",
+    "force_basis": "Use the existing conditional first-order reduced frame method with fresh current geometry/contact/bolt/panel inputs when ready; no native FEA or historical force pass transfer. Single-pin rotational idealization and no-slip floor remain explicit analytical assumptions."
+  },
+  "geometry_adopted": false,
+  "calculated": false,
+  "release": false,
+  "actual_observations": null,
+  "existing_lower_cleat_post_row_Z_mm": 173.8125,
+  "existing_lower_cleat_post_row_delta_Z_mm": -26.1875,
+  "required_layout_adjustment": "Move the four existing cleat_post_bolt_* axes fromZ200 toZ173.8125 and reverse their head direction to face outward from the inner angle face. Share these bolts with the new angle far factory holes. Plywood bottom end34.1125mm, post top end65.0875mm; apply relevant geometry/group factors, not full-capacity assumptions.",
+  "operator_readiness_request": {
+    "plywood": "Source-backed EA/EI/Gvtv are now in plywood-cleat-material-basis-v1.json. The distinct conditional per-mode beam scenario is in plywood-cleat-operator-scenario-v1.json. It does not qualify torsion, local shear or physical response.",
+    "density": "Proposed common wood-density scenario500kg/m3 is explicit nominal mass only; provide a plywood-specific bound if available."
+  },
+  "supersedes": {
+    "path": "docs/bolted-frame-development/single-bolt-legs-header-angles-inputs-v2.json",
+    "reason": "Right-hand physical geometry is retained; correct the two swapped post-flange attachment labels and require all96 factory ports to be collinear with their installed shaft before calculation."
+  },
+  "attachment_geometry_gate": "All96 attachments must lie on their own shaft line within1e-6mm and at an external timber stack face; all(angle,flange,transverse) identities unique. This gate rejects the right-hand v2 label swap."
+}

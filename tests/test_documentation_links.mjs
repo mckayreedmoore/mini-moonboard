@@ -9,6 +9,8 @@ import {documentsForModel, resolveDocumentPath} from '../site/documentation-link
 const root = fileURLToPath(new URL('../', import.meta.url));
 const html = readFileSync(path.join(root, 'site/index.html'), 'utf8');
 const index = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
+let responseIndex = index;
+while (responseIndex.preceding_revision) responseIndex = responseIndex.preceding_revision;
 
 function slice(first, last) {
   const start = html.indexOf(first), end = html.indexOf(last, start);
@@ -70,7 +72,7 @@ test('rendered historical model menus resolve their actual document paths', () =
 
 test('current and unadopted menus expose their own shop records and response bindings', () => {
   const documents = slice('const v4Documents =', 'const first =');
-  const models = [index.geometry.viewer, index.optional_grid.viewer, index.preceding_revision.preceding_revision.unadopted_proposal.viewer,
+  const models = [index.geometry.viewer, index.optional_grid.viewer, responseIndex.unadopted_proposal.viewer,
     'wood-joints-reviewed', 'wood-joints-working-proposal', 'bolted-v4-development',
     'owner-corner-layout', 'owner-barrel-layout',
     ...runInNewContext(slice('const woodJointModels =', 'const modelLabel =') + '\nwoodJointModels.map(r => r[0]);', {requestedModel: null})];
@@ -87,10 +89,13 @@ test('current and unadopted menus expose their own shop records and response bin
     for (const row of rows) checkTarget(resolveDocumentPath(row.path));
     assert.ok(rows.every(r => r.label !== 'Current development ledger'));
     if ([index.geometry.viewer, index.optional_grid.viewer].includes(model)) {
-      assert.ok(rows.some(r => r.path === index.preceding_revision.preceding_revision.current_response.cases.path));
-      assert.ok(rows.some(r => r.path === index.geometry.receipt.path));
+      if (model === index.optional_grid.viewer)
+        assert.ok(rows.some(r => r.path === responseIndex.current_response.cases.path));
+      else assert.ok(rows.some(r => r.path.endsWith('#single-bolt-leg-joint-review')));
+      const receipt = model === index.geometry.viewer ? index.geometry.receipt : index.optional_grid.receipt;
+      assert.ok(rows.some(r => r.path === receipt.path));
       assert.ok(rows.some(r => r.path === 'docs/bolted-frame-development/builder-plan.md'));
-      assert.ok(rows.some(r => /extra grid off/.test(r.label)));
+      if (model === index.optional_grid.viewer) assert.ok(rows.some(r => /extra grid off/.test(r.label)));
     }
   }
   const recorded = [{label: 'Earlier own record', path: 'docs/history/README.md'}];
@@ -111,11 +116,12 @@ test('loaded viewer status distinguishes completed current cases, optional grid 
     return node.textContent;
   }
   const current = render(index.geometry.viewer), optional = render(index.optional_grid.viewer);
-  assert.match(current, /Solid 4×6 outer kicker posts/);
-  assert.match(current, /Revised response, complete joints and installation remain unqualified/);
-  assert.match(current, /Extra grid off/);
+  assert.match(current, /Single-bolt leg joints.*24 angles.*96 bolt stacks/);
+  assert.match(current, /66 Hillman axes retained/);
+  assert.match(current, /strength, joint response and installation remain unqualified/);
+  assert.match(render('eoere-enclosed-passages-frame-development'), /Solid 4×6 outer kicker posts/);
   assert.match(optional, /Optional expanded grid on/);
-  const proposal = render(index.preceding_revision.preceding_revision.unadopted_proposal.viewer);
+  const proposal = render(responseIndex.unadopted_proposal.viewer);
   assert.match(proposal, /Six separate own-case first-order results and component references are complete/);
   assert.match(proposal, /do not select this proposal or transfer to current Z200/);
   assert.match(render('hl35-counterbore-development'), /Preserved HL35/);

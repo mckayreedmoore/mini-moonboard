@@ -1,0 +1,37 @@
+{
+  "schema": "eoere_plywood_cleat_operator_scenario/v1",
+  "physical_qualification": false,
+  "material": "APA Rated Sturd-I-Floor48oc PS1 plywood, at least5plies; nominal1-1/8inch, strengthaxisworldZ; stamp/thickness unobserved",
+  "source_sha256": {
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+  },
+  "reference": "APA D510F2020 Table9 printed25-27; axialEA and flatwiseEI are independent published panel stiffnesses. Section4.4.1 explains that publishedEI includes an apparent-shear adjustment. Retained cached primary PDF supplies the source; no new manual copy.",
+  "published_inputs": {
+    "EA_parallel_lbf_per_foot_width": 8200000,
+    "EI_parallel_lbf_in2_per_foot_width": 1265000,
+    "Gvtv_lbf_per_inch_depth": 76000
+  },
+  "properties": {
+    "EA_N": 24316944.83009073,
+    "EI_y_Nmm2": 83671040675.10045,
+    "EI_z_Nmm2": 2420210360.990901,
+    "GA_u_N": 1000000000000.0,
+    "GA_v_N": 2704518.742078384,
+    "GJ_Nmm2": 670895064.614616,
+    "shear_factor": 0.8333333333333334
+  },
+  "derivation": {
+    "coordinates": "Localg=worldZ,u=worldX,v=worldY. EI_y givesin-planeZ/Y bending; EI_z givesout-of-planeZ/X bending.",
+    "in_plane": "EA=publishedEA times8/12ft; EI_y=EA*b\u00b2/12 assumesuniformaxiallaminationproperties across8inchwidth. GA_v=publishedGvtv times8inchdepth.",
+    "out_of_plane": "EI_z=publishedparallelflatwiseEI times8/12ft. GA_u=1e12N is an explicit near-Euler-Bernoulli approximation using apparentEI, not a published rolling-shear modulus. Short-span/local cut behavior is not qualified.",
+    "torsion": "GJ uses a homogeneous rectangle withG=publishedGvtv/nominalthickness and the existing rectangular_torsion formula. This declared torsion surrogate is not a measured laminated torsional rigidity or physical demandbound.",
+    "density": "500kg/m3 nominal mass scenario only; no actual plywood density bound."
+  },
+  "limits": [
+    "Conditional response comparison only; no physical stiffness or load-distribution qualification.",
+    "Use a stiffness sensitivity if these unknown modes govern the engineering conclusion.",
+    "No transfer of stock DF-L E/G to plywood and no transfer of earlier force fields."
+  ],
+  "release": false,
+  "actual_observations": null
+}
