@@ -5130,6 +5130,37 @@ No native/frame solve, mesh replacement or physical operation occurred.
 The full engineering goal remains active and unachieved. All raw and failed
 work stays active; nothing is archived or pruned.
 
+**Paired-leaf geometry preflight — clear nominal proposal, not adopted.**
+The frozen paired-leaf input now has a concrete local composition in
+`plywood-gusset-v1/paired-leaf-geometry-v1/`. It retains the current two inner
+leaves, adds two separate translated outer leaves, and rebuilds the eight
+cleat stacks using the existing hardware helper and the matched 8-in bolt.
+All **96** installed fitting ports still align with their own shaft lines.
+The complete occupied-part comparison covers **1,029 parts / 94 changed
+parts**, with no intersections above 0.001 mm³ or missing candidates.
+The 96 axes, 24 angles, 66 screw axes and sawn profiles remain fixed in this
+proposal. Eight added plywood receiver occurrences bring its total to 120.
+The partial runner seats, actual four-member shaft actions, each leaf's own
+loads and installation/tool clearance remain separate checks. No mesh,
+published model, force case or frozen input is changed by this preflight.
+
+| Paired geometry record | SHA-256 |
+| --- | --- |
+| `paired-leaf-geometry-v1.py` | `2272d1c218230f6fbe3b40ab1baec677ba6d7937a88b37ee2205fa3086293f6f` |
+| `paired-leaf-geometry-v1/geometry.json` | `e0cb380379db78e0d8e72ac19b85ce8c98a7f0b43841ed6b6049ec78608994db` |
+| `paired-leaf-geometry-v1/clearance.json` | `0911df9037a7e1ea74879c196fa601333254482647cc4a7e5435e696dcfffa44` |
+
+The approximately **26.5 MB** active plywood packet retains the methods,
+source manuals, issued fields' input references, failed constructions and
+both geometry proposals; none is pruned or copied into permanent viewer
+assets. The two compact tracked result/input JSON files carry the necessary
+current failure and proposed revision without staging that raw volume.
+For subsequent force preparation, PDS Table 13's approximate **3.4 psf**
+dead weight provides a conventional nominal alternative to the old declared
+500-kg/m³ scenario: **580.936 kg/m³**, or **20.111 N** per finished leaf.
+This published approximate weight is not an observed mass or upper bound;
+record any changed mass scenario with the new force inputs and preserve v3.
+
 | Additional retained result | SHA-256 |
 | --- | --- |
 | `single-leaf-directional-shear-v3.json` | `891647e9236f02bbbb45490a1ddf6eb513b8b7be256d764cae74453419f032eb` |
