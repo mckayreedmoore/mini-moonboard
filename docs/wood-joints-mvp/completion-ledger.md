@@ -5161,6 +5161,49 @@ dead weight provides a conventional nominal alternative to the old declared
 This published approximate weight is not an observed mass or upper bound;
 record any changed mass scenario with the new force inputs and preserve v3.
 
+**Paired pilot: physical shafts, seats and method limits.** The separate
+`paired-leaf-pilot-v1/a12-left-shafts-v1.json` worksheet processes **eight
+physical shafts once each**, with three wood receivers and one steel port,
+**48** half-bore pressure references, each shaft's complete signed wrenches
+and its own metal gravity. It uses the 8-in bolt's **6.44-in minimum smooth
+body** from the actual under-head plane, including the head washer already
+recorded there. Maximum Fe/5, elastic metal/divisor-two and minimum-annulus
+210-psi outer nut-seat references are **0.275552 / 0.810338 / 0.816424**.
+The inner leaves receive no invented nut-seat force. These remain material
+comparisons, not an adjusted mixed-stack joint resistance.
+
+The separate `a12-left-seats-v1.json` uses each actual contact cell's area
+resultant, including the narrow outer runner seats. Maximum runner and leaf
+face cell-mean comparisons are **0.050149 / 0.141341**. The runner comparison
+uses unincreased DF-L 625 psi; plywood edge compression uses strong-axis
+FcA and the other plywood faces use 210 psi. These area means do not qualify
+point pressure, partial-seat overhang, contact refinement or end fracture.
+`component-verification-v1.json` checks **456 station traces / 520 direct
+strip witnesses**, all strip force/moment recoveries and nonzero station
+coverage. Its rows exactly match the separately prepared parent's section
+rows after normalizing member names. **1,492** joined sources authenticate;
+the advanced mechanics working path uses its exact saved source snapshot,
+without changing the checkout or the frozen field.
+
+`nds-yield-calibration-v1.json` answers a bounded method question before
+assigning independent wood and bolt safety factors: reducing bearing by
+**4 Ktheta** and plastic dowel moment by **3.2 Ktheta** gives no larger
+reference than the six published NDS single-shear mechanisms in **18**
+matched benchmarks; trial/reference ratios are **0.865668–1.000000**.
+This work argument is a proposed detailed-analysis extension, not a
+published arbitrary four-member ASD equation. The pilot's maximum reduced
+plastic-moment reference is **0.878447 before end/group adjustments**.
+The lower left second shaft reaches **0.600062**; dividing by its proposed
+34.1125/66.675 loaded-end ratio alone gives **1.17286**. That exceeds this
+particular construction, without proving physical failure or minimum joint
+capacity. PDS4.4.8.4 refers dowel design to NDS adjustments; NDS12.5.1 applies
+the lowest geometry factor within a connection. Neither source supplies an
+automatic supported-end waiver. Resolve the actual end/group/seat and
+simultaneous force treatment before calling the wider paired cleat complete.
+The raw methods and failed pre-issue source checks remain in the existing
+ignored packet. No additional frame solve, mesh, adoption or release is
+issued by these worksheets.
+
 | Additional retained result | SHA-256 |
 | --- | --- |
 | `single-leaf-directional-shear-v3.json` | `891647e9236f02bbbb45490a1ddf6eb513b8b7be256d764cae74453419f032eb` |
