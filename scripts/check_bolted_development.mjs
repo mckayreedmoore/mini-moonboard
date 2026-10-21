@@ -819,6 +819,20 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       assert.ok(row.leg_post_references.every(r => r.reference_index_CD1 < 1));
       assert.equal(row.structural_acceptance, false);
     }
+    const followup = JSON.parse(bound(index.unadopted_studies.coherent_return_component_followup));
+    assert.deepEqual(followup.geometry, combined.geometry);
+    assert.equal(followup.geometry_revision, combined.revision);
+    assert.equal(followup.counts.hole_case_references, 192);
+    assert.equal(followup.counts.cleat_physical_shaft_case_rows, 48);
+    assert.equal(followup.cases.length, 6);
+    for (const row of followup.cases) {
+      assert.deepEqual(row.field, combined.cases.find(r => r.case === row.case).field);
+    }
+    assert.ok(followup.summary.hole_traction_max < 1);
+    assert.ok(Object.values(followup.summary.cleat_component_maxima).every(value => value < 1));
+    assert.equal(followup.complete_hole_strength_qualified, false);
+    assert.equal(followup.complete_joint_qualified, false);
+    assert.equal(followup.geometry_adopted, false); assert.equal(followup.release, false);
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, scene.key), scene.key);
     for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])

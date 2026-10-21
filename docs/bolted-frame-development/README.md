@@ -57,6 +57,16 @@ The generic screw-head maximum increases to **3.005974**, while panel
 bending/rolling remain **3.503559 / 2.087697** at CD1. It does not resolve the
 deferred panel/attachment issue. Published v3 remains the 24-angle/96-bolt
 geometry described above.
+The [saved-field diagnosis](../wood-joints-mvp/completion-ledger.md#combined-return-panel-diagnosis)
+reproduces the A12-left head increase from additional panel/receiver opening
+under the same panel load and screw laws.
+
+The separate [six-case component follow-up](coherent-return-component-followup-v1.json)
+checks all **192** nominal service-hole/case sections and **48** physical
+cleat-shaft cases on those same fields. Hole traction constructions reach
+**0.783098**; cleat bore, bolt-metal and outer-seat material references reach
+**0.272651 / 0.828049 / 0.764815**. These do not qualify local hole splitting,
+end/group effects, complete mixed joints or physical restraint.
 
 The single-leaf material review corrected the perpendicular-axis rolling-shear
 reference from 500 to **385 lbf/ft**; the original saved gross-cut maximum

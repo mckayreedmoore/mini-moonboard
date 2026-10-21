@@ -4256,6 +4256,327 @@ upper-corner motion finding remains valid. The same raw packet retains
 `screen_knee.py` and `panel-intersection-rejection.json`; neither changes
 the current model nor performs a frame/native solve.
 
+**Outboard rail-extension proposal: usable nominal end geometry, unadopted.**
+The coordinated followup asks for a concrete outboard pickup before any force
+trial. The simpler left-only proposal extends the existing top rail
+**254 mm**, retaining its section, pose and original holes; finished rail
+length becomes **2511.425 mm**. The bare extension overlaps the outer rim by
+**473,176.473 mm³**. A **38.1-mm full-section rim-end trim** to the rail
+underside removes that clash and forms a plain end/bearing interface.
+This is an end cut, not a half-lap or interlocking joint. The earlier
+57.15-mm estimate is superseded by the measured source geometry.
+
+Add a 2×6 outboard knee and a **200-mm 2×6 side packing block** at the long
+support leg's midspan. The brace lies at **X−1384.3 to −1346.2 mm**, outside the climbing
+panels; its upper end has an ordinary miter, with the frozen solid defining
+the resulting outline. Its uncut envelope is **1468.033 mm** along grain.
+Translate one existing factory-angle template **215.9 mm outboard** to
+connect the extended rail underside to the brace's side face. Use its four
+existing far-hole positions, plus two new through-bolt axes across the leg,
+packing block and brace. Nominal **Ø31.75 × 12.7-mm** head recesses in the
+leg keep the new head envelopes within its inner face. These are unapproved
+analysis cuts and envelopes, not shop or purchasing instructions.
+
+The left-only increment is **two timber parts, one angle and six bolt axes**:
+**24 timbers / 25 angles / 102 bolts / 66 panel/kicker screws**. Existing bolt
+positions and lengths are retained. No stand-offs, longer shared stacks or
+upper crossarm are needed. The earlier raised-crossarm attempt, its producer
+and registry STOP remain recoverable in the same packet. The new rail needs
+a longer blank than eight feet; a ten-foot allocation is an option to review.
+An uncut original rail allocation could supply brace/packing stock; no used,
+drilled or delivered timber is assumed inspected or suitable for reuse.
+
+**Bounded geometry and access checks.** All 66 screw axes stay fixed. Twelve
+axis probes on the changed rail/rim retain identical backing volumes; the
+other 54 receiver sources stay unchanged. All **ten new receiver intervals**
+have complete nominal annular bore walls. New parts and added rail material
+have no occupied-part conflicts under the corrected combined-v3 registry.
+The original broad check's 24 conservative whole-member overlaps are confined
+to unchanged rail material around existing metal; the incremental review
+tests the added material explicitly and preserves the original result.
+It does not qualify every old interaction anew.
+
+Ten nominal **Ø25.4 × 100-mm** socket approaches clear. Two upper-brace head
+approaches meet the existing rim bolt tips at that length; the retained
+alternative **Ø25.4 × 50.8-mm** approach clears at both heads. Actual tools,
+torque engagement and installation tolerances remain unobserved. The solid
+files and `proposal-review-v2.svg` provide a reviewable left-only layout.
+
+**Remaining gates.** Trimming the rim leaves **65.0875 mm**, or **6.833D**,
+from its old upper bolt axes to the new end, below a full **7D = 66.675-mm**
+reference. Resolve the applicable end/group treatment before crediting those
+connections; no former rim or joint pass transfers. The new leg recesses,
+packing, brace compression/restraint, angle/bolt/seat transfer, actual shank
+selection and simultaneous revised actions need their own checks. The
+right corner and complete load coverage remain separate duties. This is
+credible nominal geometry for review, not an implemented or accepted remedy;
+no force/native solve is performed or queued by this proposal.
+
+**Targets before a trial, retaining CD1.** A saved-field reread reproduces
+all six corrected-v3 component reports exactly after restoring their original
+panel iteration order. No K or equilibrium is rebuilt. At unchanged reference
+capacities, the necessary governing targets are:
+
+| Reference and own governing case | Current CD1 index | Conditional CD1.6 index | Necessary action reduction, CD1 / conditional CD1.6 |
+| --- | ---: | ---: | ---: |
+| Generic head, upper-left rim 4 / A12 rear | **2.575226** | **1.609516** | **61.17% / 37.87%** |
+| Panel bending X, upper left / A12 rear | **4.613677** | **2.883548** | **78.33% / 65.32%** |
+| Panel rolling shear X, upper left / A12 left | **2.459666** | **1.537291** | **59.34% / 34.95%** |
+
+The head witness is **1494.383885 N**, with **683.580053 N** simultaneous
+lateral action. The generic head targets are **580.292408 N at CD1** and
+**928.467852 N** in the separate conditional CD1.6 comparison. These are
+necessary reference targets, not permission to reduce the applied climber
+load, an adopted climbing-duration allowance or Hillman/complete-joint ratings.
+Retain the full force, hold offset and each witness's actual panel/axis identity.
+
+The matching **K12-rear right corner also remains unresolved**: upper-right
+rim screw 4 carries **1455.910360 N**, head indices **2.508925 / 1.568078**;
+right-panel bending is **4.437683 / 2.773552** and rolling shear
+**2.233825 / 1.396140** at CD1 / conditional CD1.6. The upper rail moves
+**7.727379 mm** outward relative to the right rim at their common joint
+reference, compared with **7.674283 mm** for A12 rear on the left. The
+left-only geometry trial cannot justify leaving the right duty open: include
+a reviewed mirrored pickup or a justified common return path in the coordinated
+successor. The separately proposed paired cleats add two timber bodies, so
+their combination with this left-only layout would have 26 rather than
+24 timber bodies; final census and frozen inputs belong to frame integration.
+These v3 forces do not transfer to either unadopted change.
+
+The same packet retains `target_current.py`, `targets-current-v3.json`
+and the initial source-order comparison STOP. The target reader changes no
+field, action or numerical tolerance; it verifies matching raw-replay identities,
+reuses frozen scalar/plate readers and preserves the default-duration comparison.
+The **17,460-byte** target receipt is SHA-256
+`abe0a62ff10ed3ad760d2cde4824e0b204181ef6b2b0fef23b8f63ffe414a76f`.
+
+The active ignored packet is
+`panel98-current-v1/motion-return-diagnosis-v1/outboard-pickup/` under the
+existing selected-hardware output root. It reuses the original proposal's
+boring, backing and occupied-query implementation; no frozen code is edited.
+Retain these source-bound records and all rejected alternatives:
+
+| Record in `extension-attempt01/` | SHA-256 |
+| --- | --- |
+| `proposal.json` | `ce5b659cc86d807b0c351a5c5efd5a7296a1f827259aba3f2ec7ad0d6fc44210` |
+| `clearance-review01.json` | `79a09371a186c6d397b2ae7381b7f7466746c35432aa6af1a88fb6efa5a604db` |
+| `compact-head-access01.json` | `8aa21afa89b62f961e82fc3065a320ce7ac153201a0f51a6a17bbe02e6aaaace` |
+
+<a id="outboard-both-corner-proposal"></a>
+**Both-corner geometry and integration-input proposal.** The coordinated
+followup extends the saved layout to the right K12-rear corner using its own
+factory fitting pose and corrected physical port labels. The top rail extends
+**254 mm at each end**, to **2765.425 mm** overall. Both rims receive the
+same **38.1-mm full-section end trim**. Add two outboard 2×6 knees, two
+200-mm 2×6 packing blocks, two factory angles and twelve bolt axes: four
+rail/brace angle bolts and two leg/packing/brace bolts per side. The v3
+increment gives **26 timber bodies / 26 angles / 108 bolt axes / 66 screws**;
+integrating the separately proposed paired plywood leaves would add two
+more timber bodies, subject to the frame owner's final census. No original
+bolt line, panel outline, Hillman axis or kicker receiver moves. The rail
+needs a longer-than-eight-foot blank; this is not a stock purchase or cut list.
+
+The active packet is `both-corners-attempt03/` under the existing ignored
+`outboard-pickup/` folder. Its proposal, review and integration delta bind the
+corrected v3 parent; they do not change the checked index or current viewer.
+All **20 affected screw probes** retain identical backing volume, and all
+six panel bodies remain unchanged. At each corner, the extended rail replaces
+all **473,176.473 mm³** removed from the rim. Its nominal coverage of the
+**12,419.330-mm²** rim-end interface is complete. This establishes supported
+geometry, not contact pressure, preload or member/joint capacity. The kicker
+geometry and its existing kerf-right support receivers remain untouched.
+
+The bounded occupied check finds no new conflicts. All **20 new wood-bearing
+intervals** have full nominal bore walls; all **24 washer annuli**, using the
+recorded **Ø26.162-mm** washer envelope, have full nominal support. All eight
+factory ports agree with their own shaft lines and pass a nominal shank/steel
+interference check. An independent factory-coordinate reconstruction agrees
+within **5.03e−10 mm**; deliberately swapping the right post-port label is
+rejected by **50.8 mm**. The original 24 conservative whole-rail overlaps are
+confined to unchanged old material and remain explicitly dispositioned. Every
+new timber is clear of all six climbing panels.
+
+All **24** stack ends clear a nominal **Ø25.4 × 50.8-mm** socket approach.
+Twenty also clear **100 mm**. The four upper-brace heads still meet old rim
+bolt tips at 100 mm; those longer approaches remain rejected. Actual tool
+engagement and torque access are unobserved. The drawing is an orthographic
+review silhouette, with all 68 polygons inside its view box, not shop authority.
+
+The new bolt occurrences exceed the geometric reversible **7D end / 4D edge**
+markers: minima **74.600 / 44.450 mm**, respectively. Four existing upper-rim
+axes, **006/010 left and 009/013 right**, shorten from **103.1875 to
+65.0875 mm**, or **6.833D**. This is below the full 7D marker, not an adopted
+resistance failure. Their applicable signed end/group treatment and local
+fracture duty remain open. The review retains every other old rim occurrence;
+no former complete connection pass transfers to the changed ends.
+
+The delta supplies finished solids, revised outer profiles and centerline
+endpoints, two final world-coordinate fitting poses, twelve axes with their
+own receiver intervals and physical flange labels, and connected return paths
+from rail through each angle/knee into its long support leg. Copy translations are
+provenance and must not be applied twice. The upper brace ends retain a
+**3.175-mm cap gap**: do not bypass the angle with assumed timber end bearing.
+The required geometric smooth body through the farthest wood is **47.0916 mm**
+for each of eight angle stacks and **155.0416 mm** for each of four leg stacks.
+At this input-proposal stage, partially threaded lengths, runout and complete
+seating are unselected; its conservative tip envelopes are not purchased lengths. A changed
+stack or tool envelope requires its own fit check.
+
+**Integration holds.** Combine this delta with the frozen paired-cleat and
+foot remedy, then recheck affected occupied parts, backing, bores and access.
+Fresh member mass/stiffness, fitting/common-shaft/seat actions and complete
+body ownership are required before the parent freezes any force inputs. Check
+both rail overhangs and rim ends, brace compression/restraint, angle transfer,
+the three-member lower stacks, packing interfaces and new leg recess/net
+sections under simultaneous forces and couples. New leg side actions can
+change upper-joint, foot and floor reactions. Retain the full climber force,
+100-mm hold offset, CD1 references and recorded no-slip assumption. The saved
+v3 target fields do not qualify this proposal or the paired-cleat successor.
+No frame/native solve is performed or queued here; no geometry, strength,
+fabrication or climbing acceptance is issued.
+
+The later [combined six-case study](../bolted-frame-development/coherent-return-paired-foot-results-v1.json)
+integrates this exact delta with the paired leaves and signed foot move.
+It selects nominal purchased stacks, clears their complete geometry and
+access, and recovers fresh conditional fields; the [component followup](../bolted-frame-development/coherent-return-component-followup-v1.json)
+uses those fields. This input proposal retains its frozen sources and limits.
+Complete joints, changed members and panel/attachment resolution remain open;
+no input-only pass is promoted to structural acceptance.
+
+| Both-corner record | SHA-256 |
+| --- | --- |
+| `proposal.json`, 73,986 bytes | `edc4da2fb9a48883506f8638dbcf41ca67828e36f51381e4093610bf27c835f7` |
+| `geometry-review02.json`, 200,961 bytes | `3cb4899eada83703d67ea98cb47dfa3fc852b200185b5aea91c374bbee592a03` |
+| `integration-delta.json`, 98,379 bytes | `02b36391e344f332cfca4f727ce14e1e97d7be3cb15fbffb9d72cbe0f48274ac` |
+| `proposal-review.svg`, 14,271 bytes | `d14b5b522b53aff1fd72bfd88e63c5bd8786825cce8c6cd7577d7ce63c6eaedd` |
+| `verification01.json`, 24,848 bytes | `84ee5a381612495418f304e8ee6985139e5617155ed980f8f22105b623270b69` |
+| `commands.json`, 3,978 bytes | `89c223e85263ba2879a2b5817ecd3b98a74e707e62f3ff3119fbc5369a3e26de` |
+
+The independent `verification01.json` authenticates **124 distinct source
+and solid pins**, axis counts, backing, bore/washer/access receipts, old end
+distances and the false-label control. The 23 cached proposed solids total
+**242,502 bytes**, all ignored. The paired producer reuses the frozen intake
+and boring/export tail; `emit_both.py` corrects only its post-export console
+key. The initial AST-hook stop, the completed-but-superseded display-stop
+export, and the leg-hull method stop remain recoverable. The latter used
+finished vertices that spanned existing recesses; the accepted review instead
+uses the source-bound leg outer profile with removal-only and face checks.
+Both completed geometry exports have byte-identical solid hashes. Sources,
+commands and all rejected attempts stay active in this same packet; nothing
+is archived or pruned. Shared staging and the current model remain untouched
+by this followup; final integration belongs to the frame owner.
+`commands.json` records exact argument arrays, the fresh-output rule, uv
+0.11.23, Python and dependency versions. Source Ruff E9/F and whitespace
+checks pass. Default lint retains four S102 diagnostics for deliberately
+executing hash-bound repository AST fragments to reuse frozen helpers;
+no external text is compiled and no frozen source is edited to hide them.
+The final source check reproduces all 124 unchanged bindings.
+
+<a id="combined-return-panel-diagnosis"></a>
+**Saved-data diagnosis of the combined return pilot, A12 left.** Before another
+geometry trial, compare corrected v3, the already completed 8-in and 10-in
+paired-leaf pilots, and the new `coherent-return-paired-foot-v1` field. The
+combined field is SHA-256
+`8b12c7700345c4c716ca162f6affbb2f49812a1f0d6c39bd8f66b29755871f23`;
+its matching independent raw replay passes. These remain four distinct
+conditional frames. This diagnosis uses their saved q and source-owned
+coordinate charts through the existing timber/panel point-port kernels;
+it neither calls the stiffness constructor nor assembles K, queries CAD,
+edits geometry or performs a new equilibrium/native solve.
+
+| Saved A12-left field | Upper rail minus rim, outward at the same joint point, mm | Rim 4 head tension, N | Upper edge 2 head tension, N |
+| --- | ---: | ---: | ---: |
+| Corrected v3 | **7.884648** | **1436.513691** | **1051.806587** |
+| Paired plywood, 8 in | **7.885860** | **1436.196622** | **1051.688639** |
+| Paired plywood, 10 in | **7.885342** | **1436.292217** | **1051.688281** |
+| Paired plywood / bilateral return / revised foot | **3.959089** | **1697.565617** | **1121.544591** |
+
+The rail/rim reference is the unchanged original left-angle heel,
+**(−1130.3, 1457.586095203, 2172.205368329) mm**, retaining each body's
+eccentric arms. Its differential improves **49.79%**, while rim 4 tension
+increases **18.17%**. At the actual rim 4 point, panel outward motion drops
+**10.099636 → 8.003605 mm** and rim motion drops **8.663122 → 6.306039 mm**.
+The receiver retracts **0.261052 mm more** than the panel. The opening
+therefore grows **1.436514 → 1.697566 mm**, reproducing the **261.051926-N**
+increase exactly under the unchanged **1000-N/mm** tension spring. Edge 2
+similarly gains **0.069738 mm / 69.738004 N**. Lower absolute displacement
+or a smaller heel mismatch alone does not establish improved attachment demand.
+
+The left return's own rail-side shaft actions supply **233.658 N inward**;
+the force direction is the intended restraining direction. The original
+upper angle's own rim-side shaft resultant drops from **538.758 to
+160.910 N outward**. These are separate own-host actions, with their saved
+couples retained; no opposed-flange force is inferred. The observed actions
+are consistent with restraining the rail through the long support leg while reducing
+the original joint's outward support to the rim. The panel and receiver
+then retract by different amounts at the loaded screw. This explains the
+saved solution's increased local opening; it does not isolate a knee-only
+causal effect from the simultaneous rail, rim-end, foot and weight changes.
+
+The complete upper-left external load inventory is byte-identical between v3
+and the combined case, including the **(−300, 0, −2224.110808)-N** climber
+force, the **100-mm** front-face hold offset, accessories and panel gravity.
+Every recorded spring/contact/gravity parameter and all 66 Hillman axis/law
+rows are identical. The combined whole frame adds **163.456394 N** nominal
+self-weight; it does not add another climber load. All **66** spring vectors,
+force signs and scalar laws recover from saved q with maximum component error
+**4.45e−11 N** across the four fields. Every panel contact also recovers its
+own signed compression law, with maximum error **4.01e−11 N**. The 100-mm
+offset and hold-moment cross product are independently reproduced. No load
+or spring-direction error is detected in these checks.
+
+| Upper-left normal freebody | Corrected v3 | Combined |
+| --- | ---: | ---: |
+| Sum screw tension, N | **2883.690975** | **3188.807159** |
+| Actual contact force projected outward, N | **1287.598627** | **1592.714811** |
+| External outward load, N | **1596.092349** | **1596.092349** |
+
+Both **T − C − P** residuals are below **6.03e−7 N**. The opposing head and
+backing forces each increase **305.116 N**: increased compatible prying,
+not an increase in the panel's net outward load. Top-rail outward backing
+force rises **746.304 → 930.416 N** and rim backing force rises
+**418.627 → 542.574 N**. The trim/extension transfers **3387.090 mm²** of
+panel backing from rim ownership to rail ownership; combined area is preserved
+within **1.95e−6 mm²**. The physical union is retained, while its supporting
+member and deformation law change. Unchanged principal/service contact rows
+are byte-identical. Lateral leg-contact points, laws, areas and trimmed-region
+identity are unchanged; face numbering and the whole-leg face signature reflect
+the added bores. The **1144.955 / 1162.167-N** leg-side contacts act along X
+and contribute zero outward-normal force. Summing all compression magnitudes
+would incorrectly include those lateral contacts in C; the accepted freebody
+projects each actual force and also closes the full three-dimensional wrench.
+
+**Next decision.** The paired-leaf-only results barely change this screw, but
+the combined trial does not separate the return, rim/backing ownership, foot
+and added self-weight. Treat the result as a failed panel-remedy hypothesis
+within its unmeasured stiffness scenario, not proof that the physical knee is
+intrinsically harmful. Use actual rim 4 / edge 2 openings, complete panel
+bending/rolling comparisons and the normal force/moment return as measures
+for the next proposal. Heel differential is only an intermediate diagnostic.
+A short bolted cheek plus factory angle sharing the existing rim axes is a
+bounded local-return hypothesis, not an established remedy. Its end/group
+geometry, changed shared stacks, tool access, supported receivers and complete
+simultaneous transfer must be checked while preserving all 66 Hillman axes.
+No cheek geometry, new solve, revised spring law or layout adoption is made here.
+Frame integration, final census, further case execution and acceptance remain
+with the frame owner.
+
+The same active ignored motion packet retains `combined-pilot-v1/diagnose.py`,
+`verify.py`, `result01.json`, `verification01.json` and exact commands. The
+independent verification uses **60-digit Decimal** arithmetic for all four
+panel force/moment balances and the gap/tension increment. It authenticates
+**20 direct source bindings** and rejects a deliberately altered **0.01-N**
+rim 4 force with stiffness assembly/solve entry points blocked. Ruff and
+whitespace checks pass. Metadata, projection and provenance comparison stops
+remain recoverable; no field, force, physical law or tolerance is changed.
+The result is **139,607 bytes**, SHA-256
+`74867c9a1790e7ed8f37df2fb06c138ca578c8d61877743112626236736a3b58`;
+the **8,099-byte** verification is
+`0ef5e38ef30ae6dc64824a0325553c775c7509c6d8a63a4a2d73ac18391c1a2d`.
+All records and prior failed alternatives stay active for integration; nothing
+is archived or pruned. Shared staging, model authority, purchased screw policy
+and physical observation cells remain untouched by this diagnosis.
+
 **Current-frame applicability and next action.** The current revision still
 has null response/assessment entries. The already completed current-foot
 statics enclosure gives a left peak sufficient upper **1.040366** at
