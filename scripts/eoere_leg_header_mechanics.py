@@ -51,7 +51,8 @@ def changed_function(owner, name, replacements, namespace=None):
 def prepare(geometry_path, out, material_path=None):
     require(not out.exists(), 'fresh preparation required')
     geometry = json.loads(geometry_path.read_bytes())
-    returned = geometry['revision'] == 'unadopted-bilateral-return-paired-cleats-signed-foot-v1'
+    single_cleat = geometry['revision'] == 'unadopted-coherent-single-cleat-pins-v1'
+    returned = single_cleat or geometry['revision'] == 'unadopted-bilateral-return-paired-cleats-signed-foot-v1'
     paired = geometry['revision'] in ('unadopted-paired-plywood-cleats-v1',
                                       'unadopted-paired-plywood-cleats-wide-v2') or returned
     require(paired or geometry['revision'] == 'eoere-single-leg-bolts-header-angles-v3', 'own geometry required')
@@ -72,7 +73,8 @@ def prepare(geometry_path, out, material_path=None):
     exporter = response.load('cached_exporter')
     ex, m = exporter.a.generic()
     axes = geometry['axes']
-    shaft_count, fitting_count, port_count, role_count = ((108, 26, 104, 568) if returned else (96, 24, 96, 496))
+    shaft_count, fitting_count, port_count, role_count = ((104, 26, 100, 544) if single_cleat else
+        ((108, 26, 104, 568) if returned else (96, 24, 96, 496)))
     from scripts.eoere_leg_header_revision import verify_attachment_axes
     verify_attachment_axes(axes, port_count)
     profiles = copy.deepcopy(geometry['profiles'])
@@ -125,7 +127,7 @@ def prepare(geometry_path, out, material_path=None):
     else:
         bodies, observations, import_proof = exporter.import_current(ex, report, panels, pins, q)
     role_original, ends_original = ex.role_rows, ex.end_seats
-    wall_count = 140 if returned else (120 if paired else 112)
+    wall_count = 128 if single_cleat else (140 if returned else (120 if paired else 112))
     shaft_function, edits = changed_function(ex, 'shafts', {100: shaft_count, 120: wall_count, 88: port_count}, {
         'role_rows': lambda a, method, volumes: response.spacer_roles(a, method, volumes, role_original),
         'end_seats': lambda a, surfaces, method: response.spacer_ends(a, surfaces, method, ends_original)})
@@ -136,7 +138,23 @@ def prepare(geometry_path, out, material_path=None):
     print(f'Fresh{shaft_count} shafts/{wall_count} receiver walls extracted', flush=True)
     panel_ids = [r['id'] for r in panels]
     patches, direct, pair_census, faces = ex.contact_bank(bodies, sorted(gross), panel_ids, q, p['parameters'])
-    domains, flange_patches, flange_contacts = ex.flange_bank(poses, report, bodies, faces, q, m, p['parameters'])
+    flange_bank = ex.flange_bank
+    if single_cleat:
+        defaults = {(r['angle_id'], r['flange'], r['transverse']): {'receiver': r['receiver']}
+                    for r in geometry['unbolted_factory_contact_receivers']}
+        require(len(defaults) == 4 and all(r['contact_only'] and r['installed_axis_id'] is None
+                for r in geometry['unbolted_factory_contact_receivers']), 'four contact-only unused strips required')
+        tree = ast.parse(Path(ex.__file__).read_bytes())
+        node = copy.deepcopy(next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'flange_bank'))
+        hooks = [n for n in node.body if isinstance(n, ast.Assign) and ast.unparse(n.targets[0]) == 'bindings']
+        require(len(hooks) == 1, 'one source receiver-map hook required')
+        # Face contact exists behind an unbolted factory hole. These defaults
+        # supply receivers only; they create no shaft, bearing or capture row.
+        hooks[0].value = ast.Dict(keys=[None, None], values=[ast.Name(id='CONTACT_RECEIVERS', ctx=ast.Load()), hooks[0].value])
+        ns = {**vars(ex), 'CONTACT_RECEIVERS': defaults}
+        exec(compile(ast.fix_missing_locations(ast.Module(body=[node], type_ignores=[])), str(OWN), 'exec'), ns)  # noqa: S102 -- frozen contact kernel; explicit unbolted receiver map only
+        flange_bank = ns['flange_bank']
+    domains, flange_patches, flange_contacts = flange_bank(poses, report, bodies, faces, q, m, p['parameters'])
     ports = [{'angle_id': a['angle_id'], 'axis_id': axis['id'], 'entry_xyz_mm': a['point'],
               'model_port_id': ex.port_id(a['flange'], a['transverse']),
               'source_flange': a['flange'], 'source_transverse': a['transverse']}
@@ -156,7 +174,7 @@ def prepare(geometry_path, out, material_path=None):
             rows.append({'id': pose['id']+'.'+hole['flange']+'.'+hole['row']+'.'+str(hole['transverse']),
                          'flange': hole['flange'], 'row': hole['row'], 'transverse': hole['transverse'],
                          'point_xyz_mm': point, 'direction_xyz': [-v for v in normal],
-                         'installed_bolt_axis_id': binding[0]['axis_id'] if hole['row'] == 'far' else None})
+                         'installed_bolt_axis_id': binding[0]['axis_id'] if hole['row'] == 'far' and binding else None})
         holes.append({'angle_id': pose['id'], 'holes': rows})
     footprints = copy.deepcopy(old['floor_observations'])
     footprints = {r['host']: r['normal_reference_points_xyz_mm'] for r in footprints}
@@ -178,8 +196,16 @@ def prepare(geometry_path, out, material_path=None):
     roles = [{'id': r['id'], 'owner': shaft['body'], 'mass_kg': r['mass_kg'],
               'center_xyz_mm': r['center_of_mass_xyz_mm'], 'basis': r['basis']}
              for shaft in shafts for r in shaft['metal_roles']]
+    if single_cleat:
+        # Refresh every factory hole's installed-axis metadata from the real
+        # current bindings, including the four genuinely unused far holes.
+        for item in holes:
+            for hole in item['holes']:
+                matches = [r for r in ports if r['angle_id'] == item['angle_id']
+                           and r['source_flange'] == hole['flange'] and r['source_transverse'] == hole['transverse']]
+                hole['installed_bolt_axis_id'] = matches[0]['axis_id'] if hole['row'] == 'far' and matches else None
     require(len(owners) == len(gross)+fitting_count+shaft_count+6
-            and len(ports) == len(domains) == port_count and len(roles) == role_count,
+            and len(ports) == port_count and len(domains) == 4*fitting_count and len(roles) == role_count,
             'exact combined owner/port/role census required')
     b = response.load('bridge').frozen()
     cases_module = b.load(b.PACKET/'raised-rail-cases-v1/cases.py', b.REUSED['raised-rail-cases-v1/cases.py'], 'leg_header_cases')
@@ -246,10 +272,13 @@ def replace_plywood(assembly, frame, properties, names=('eoere_cleat_left', 'eoe
     assembly.K += coo_matrix((values, (rows, cols)), shape=assembly.K.shape).tocsr()
 
 
-def validator(factory, count, timber_count=22):
+def validator(factory, count, timber_count=22, shaft_count=None):
     require(timber_count in (22, 24, 28), 'bounded current/paired/return wood inventory required')
     returned = timber_count == 28
-    fitting_count, shaft_count, port_count, role_count = ((26, 108, 104, 568) if returned else (24, 96, 96, 496))
+    shaft_count = (108 if returned else 96) if shaft_count is None else shaft_count
+    require((returned and shaft_count in (104, 108)) or (not returned and shaft_count == 96), 'bounded shaft inventory required')
+    fitting_count, port_count, role_count = ((26, 100, 544) if returned and shaft_count == 104 else
+        ((26, 104, 568) if returned else (24, 96, 496)))
     body_count = timber_count+fitting_count+shaft_count+6
     replacements = {150: body_count, 100: shaft_count, 176: 8*fitting_count, 88: port_count, 500: role_count}
     _validate, edits = changed_function(factory, 'validate_rows', replacements, {'SCHEMA': SCHEMA})
@@ -298,7 +327,7 @@ def run(input_path, material_path, case, out):
         replace_plywood(assembly, b.factory.frame, material['properties'], names)
 
     with patch.object(trial, 'SCHEMA', SCHEMA), \
-            patch.object(trial, 'validator', lambda factory, count: validator(factory, count, len(data['timber_rows']))), \
+            patch.object(trial, 'validator', lambda factory, count: validator(factory, count, len(data['timber_rows']), len(data['shafts']))), \
             patch.object(b.factory.frame.ElasticAssembly, '__init__', initialize):
         result = trial.run(input_path, case, out)
     write(out/'plywood-operator.json', {'material': {'path': str(material_path.relative_to(ROOT)), 'sha256': sha(material_path)},

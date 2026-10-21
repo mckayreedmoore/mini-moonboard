@@ -4577,6 +4577,151 @@ All records and prior failed alternatives stay active for integration; nothing
 is archived or pruned. Shared staging, model authority, purchased screw policy
 and physical observation cells remain untouched by this diagnosis.
 
+**Saved-tangent support influence and next geometry question.** The active
+`motion-return-diagnosis-v1/unit-influence-v1/` packet asks which internal
+support path reduces the actual rim4/edge2 openings before another frame
+trial. It reuses the saved material matrix, source point ports and exact
+constitutive tangent at coherent A12-left. No material K, CAD, candidate
+geometry or nonlinear equilibrium is rebuilt. Two grounded bodies verify
+compliance **5/26**, reciprocal work, the rank-one **13/38** opening and the
+circular-gap derivative. Sparse scaled LU uses the pinned **SciPy1.18.1**
+API ([official documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.splu.html));
+source-unit solve residual is **4.37e-11 N**. Physical unit-radian point maps
+are checked explicitly against the stored rounded axes. The initial overly
+tight rounding guard and a keyword stop retain their source snapshots.
+
+Stiffening the heel normal tie reduces rim4 opening but increases edge2;
+stiffening the leg or existing knee is not a common remedy for both. The
+first unilateral-contact switch occurs at only **0.00881** of the heel's
+idealized finite change. Thus none of the frozen-tangent finite predictions
+is a fresh nonlinear force field, capacity result or physical demand bound.
+A same-receiver relocation of the existing edge2 screw gives linearized head
+maxima **2.875–2.977**, with full-law residuals **96–578 N**; reject those
+poses as equilibria and do not change the reviewed 66 stations from them.
+
+An ideal supported line with eleven attachment constraints distinguishes a
+midpoint backer from support close to the held row. Source panel samples
+are reproduced first, then evaluated on the diagnostic poses:
+
+| Ideal line | Rim4 / edge2 openings, mm | Upper-left bending X / Y reference |
+| --- | --- | --- |
+| Horizontal midpoint | 1.7002 / 1.1220 | 3.4100 / 1.9938 |
+| Vertical midpoint | 1.6767 / 1.1380 | 3.4223 / 1.9530 |
+| Vertical near outer hold | 1.4268 / -0.1460 | 1.7787 / 1.3119 |
+| Horizontal 50 mm above held row | -0.0310 / 0.0929 | 0.9683 / 1.2459 |
+
+These add ideal constraints while retaining all66 old springs: they are
+**not** a count-compliant fastener layout. The last line has signed,
+oscillating collocation reactions up to **8.20 kN**; they are neither rated
+screws nor a realizable backer/connector load distribution. No line proves a
+pass. The useful next question is a conventional near-top receiver with
+finite supported end paths and redistribution of existing66 screws, checked
+for local hold/LED clearance, frame-hardware conflicts and genuine panel
+force/couple transfer. A generic midpoint support or another isolated edge
+move is not supported as the immediate remedy by these diagnostics.
+
+The three result hashes are retained below; `source_view.py METHOD CASE
+FRESH_OUTPUT` authenticates the exact captured mechanics launcher as the
+maintained adapter advances. No old source bytes are relabeled or replaced.
+All raw trials stay active and ignored, without geometry adoption or release.
+
+- `a12-left-attempt05.json`: `2aa913bd348ad5fb4cc1267a09175b1f7b837b68e06a9f10a4f192345a4d7bd9`.
+
+- `line-layout-dense-a12-left-attempt01.json`: `a8510e7e75d400891f81e80b402df8f857c27ef0cf31a5c86cac3f2902133681`.
+
+- `relocation-a12-left-attempt01.json`: `12c44894c0aa03a692b35d345631de7600a68f323c27f3a1c48bdcb70d3c36d4`.
+
+**Next concrete readiness step — 104-bolt cleat preflight.** The frame
+owner is checking `coherent-return-paired-foot-v1/single-cleat-pins-geometry-v1/`:
+retain upper071/074 and lower `cleat_post_bolt_left/right_1`; omit067/070 and the
+two lower `_2` shafts on fresh stock. All66 screw axes and26 factory angles
+remain. Twelve receiver bores are suppressed exactly; the full **1,083-part**
+occupied check clears. Grade8 is a same-size material sensitivity, with no
+purchased part or geometry adoption claimed. The geometry SHA is
+`4d53c0725702c28975f29f6a842645f3809a9c8eff9b8e8648f988292b335793`.
+Preparation keeps **100 actual bolt ports** separate from **104 physical
+flange-contact strips**. The four unused holes have no shaft, bearing or
+capture. Current readiness asks whether the remaining floor/contact/shaft
+paths carry the lost corner moment, rather than assuming the old four-port
+loading. The `single-cleat-pins-kinematic-v1/preflight.json` now passes the actual
+164-owner/10096-DOF source census, with456 bearings and208 end captures.
+Its all-closed numerical surrogate has residual **1.51e-8 N**; this is
+explicitly not unilateral stability. Actual inner/outer runner seats remain
+**4717.7325 / 1572.5775 mm²** per side. The four omitted shafts contribute no
+bore or capture, while all104 physical flange-contact strips remain. With
+those gates passed, the cold **A12-forward** pilot under
+`single-cleat-pins-a12-forward-v1/` converged in **79.82 s**, residual
+**4.231e-8 N**. Its field SHA is
+`145c7487f67aba08a414204291bfaf0d033949dceaa0306c6b0dd1e9746ff5b5`.
+The separate `independent-replay.json` and plywood-operator companion pass,
+including the false-force control. No old forces or pose supply this new
+equilibrium. This field is ready for the parent-owned four retained cleat
+shafts, detailed end/edge/group checks and the fitting adapter with four
+genuinely unloaded ports. Reusing the frozen own-action worksheets gives a
+four-leaf section maximum **0.643930** and signed foot maximum **0.893530**.
+However, the left `post_cleat` comparison increases to **2.239070**:
+**661.657 / 295.505 N** at the retained lower `_1` shaft. Its loaded-edge
+depth is **44.45 mm**, versus the two-row group's 95.25-mm envelope;
+the own post cut has **negative** transverse shear, so this is not removed
+by the signed-edge convention. The own shaft's transverse wood force is
+**-290.557 N**, distinct from the **-661.657-N** governing member cut.
+This is an exceeded component construction requiring applicability/load-path
+review, not proof that stronger bolt metal cures the post. The right post
+comparison is **0.718535**. Results are
+`single-cleat-pins-a12-forward-sections-v1.json` and
+`single-cleat-pins-a12-forward-leg-post-v1.json`; the two bounded intake
+adapters retain the original section and NDS mathematics, with two real
+leaf bearings and one real lower post shaft. **Do not admit more cases or
+adopt this pin simplification from convergence alone.** Actual seat/moment
+return is independently recovered in
+`single-cleat-pins-a12-forward-balance-v1.json`: 60-digit sums of the real
+two bolt wrenches, face contacts and own weight give force/moment residuals
+**1.40e-9 N / 4.14e-8 Nmm**. All four runner seats have two active cells,
+with compression **632.013 / 131.252 / 83.081 / 16.224 N**. No bolt supplies
+world-X axial torque. This closes the saved-case moment bookkeeping,
+without qualifying physical stability or the exceeded post component.
+The compact [pilot disposition](../bolted-frame-development/coherent-single-cleat-pin-pilot-v1.json)
+is bound by the revision index; its **20.2-kB** permanent record retains
+the distinct failure, actual inventory, four seat returns and raw evidence
+hashes. Operators, CAD and detailed station traces remain active and ignored.
+The near-top panel-receiver
+question above remains the next geometry task; no further midpoint or
+isolated edge-location campaign is planned.
+
+**106-bolt feasibility review.** The full-goal owner proposes retaining both
+lower shafts, retaining only upper071/074, and translating both base-angle /
+under-header assemblies **Y-4.7625 mm**. This also moves their four shared
+header axes and all six retained cleat shafts. The bounded
+`coherent-return-paired-foot-v1/three-pin-shift-feasibility-v1.json` checks
+cached exterior planes and translates **70 existing occupied parts in memory**;
+no candidate CAD or equilibrium is built. Both shared header attachments
+remain on each actual axis: **106 shafts / 102 bolted ports / 104 physical
+contact strips**, with 166 owners, 134 wood walls and 556 metal roles.
+All **18** cleat wood occurrences clear the full directional 4D outer-edge
+marker: post minimum **39.6875 mm**, margin **1.5875 mm**; retained rim
+minimum **64.3748 mm**, grain end **84.9657 mm**. The external occupied
+screen has **46 exact queries**, no collision and no missing candidate.
+Its SHA-256 is
+`05a554737dbe41b4866c764540750f77c1809a6058b2ffe1dbd7508eb675fc93`;
+the retained `three_pin_feasibility.py FRESH_OUTPUT.json` reproduces it
+under the shared execution lock.
+Its **22 intended new-drilling pairs are explicitly excluded** from that
+external screen, so this is not full newly cut receiver clearance.
+
+The unchanged lower grain ends still miss the conservative 7D marker:
+**34.1125 mm** at the eight plywood occurrences and **65.0875 mm** at the
+four post occurrences. These need their own material/direction/applicable
+end factors; no blanket 7D pass or adopted failure is asserted. An initial
+overbroad 7D readiness stop is preserved before this scope correction.
+The layout has engineering merit for a fresh-stock trial because it removes
+the upper staggered pair while keeping the lower group that the 104-bolt
+trial lost. Exact bore suppression/relocation, socket access, supported
+receivers, unchanged66 policy and complete own actions still gate it.
+The owner/service lane's Ø31.75-mm passage option remains a separate
+preflight result and is not silently applied here. This integration session
+has issued no goal-status update; a held trial does not stop the owner's
+continuing completion work.
+
 **Current-frame applicability and next action.** The current revision still
 has null response/assessment entries. The already completed current-foot
 statics enclosure gives a left peak sufficient upper **1.040366** at
@@ -5750,6 +5895,59 @@ The next joint decision is a supported placement/reinforcement detail or a
 preflighted simpler pin arrangement, followed by its own redistributed
 actions. Do that before more material-only trials. No product, reviewed
 geometry, structural acceptance or physical operation changes here.
+
+<a id="coherent-current-fitting-references"></a>
+**Coherent return: all six saved-field fitting references.** Reusing the
+unchanged steel core, net-section functions and three frozen reduction
+functions covers **26 fittings per case / 156 fitting-case records**,
+**624 half-bands** and **4,368 port/contact actions**, plus each fitting's
+own gravity. All same-owner force/couple joins and the existing analytical
+known answers pass. The retained working scenario is **6.35-mm thickness,
+6.35-mm inside radius, 235-MPa yield / 370-MPa tensile references**, with
+yield/rupture factors **1.67 / 2**. These are conditional material and
+section hypotheses, without observed product properties or a complete
+three-dimensional heel/hole/contact stress bound.
+
+| Conditional comparison | Same-case rows | Maximum; no reference exceedances |
+| --- | ---: | ---: |
+| Nominal physical section | 624 | 0.731739 |
+| Near-hole nominal section | 624 | 0.616166 |
+| Far-hole nominal section | 624 | 0.172657 |
+| Radius-conditioned heel with gravity | 624 | 0.961167 |
+| Whole-flange torsion/warping | 312 | 0.637293 |
+| Used-hole bearing / tearout | 624 each | 0.025991 / 0.035240 |
+| Unused near-hole net shear | 624 | 0.020172 |
+
+The heel maximum is `eoere_clip_angle_base_left / arm-z/far-minus` in
+A12-left. This fresh comparison reduces the earlier concern that the
+returns merely transferred an exceeded nominal reference into an angle;
+it does not qualify the complete fitting or mixed joint. A future layout
+with unloaded ports needs its own verified point census and reduction;
+the old four-loaded-port pattern cannot be silently reused.
+The independent read-only audit verifies **54 source-pin occurrences / 19
+unique files**, all **156** own-action reductions and the exact six
+summaries: **4,680** named comparisons, zero exceedances. All 26 distinct
+owners match the geometry and all 728 per-case action IDs are disjoint.
+Maximum aggregate-recovery error is **2.251e-11 N/Nmm**; fitting force/moment
+residual maxima are **5.769e-6 N / 3.760e-4 Nmm**. Current inputs satisfy
+the uniqueness census; a future adapter should enforce those set checks
+explicitly rather than relying only on counts.
+
+The producer is the retained `engineering-closure-v1/coherent-fitting-references-v1.py`
+(SHA-256 `fe2dfa137fb56a29303ac91287ace2442c4056a026aee3359ae3eb7b04da631d`).
+Run it as a Python module with `CASE_FOLDER FRESH_OUTPUT.json`; it reads
+the frozen field/replay and existing geometry without a new frame, native
+or CAD run. The six approximately **5.95-MB total** raw outputs remain
+active and ignored in the coherent-return packet, not permanent site assets:
+
+| Case; `-fitting-references-v1.json` suffix | SHA-256 |
+| --- | --- |
+| `a12-forward` | `82de4c6ed7ec518638832387ab5d63389faa984c1367927b459c9517b9b2d0fa` |
+| `a12-left` | `4aba55b47c0eec0aad85a00b0093aaf958086ddda742cc998af7bdfa89046dcd` |
+| `a12-rear` | `7c551acdd13f0d3d2e9fe5d8bbe945a011b686bdcf536d8ae3196a13efff92f4` |
+| `k12-right` | `939351fbd38f9f20594d3eca765159ce876695cc326c86a73564ca52173a2b96` |
+| `k12-rear` | `196b3904354d2db8e0c586af4fcb592bdf87151bc21b527dfee6f79b70f7e7b9` |
+| `a1-rear` | `468374411998b1074248c13ba125910d6a12b3799487facc810f2de14cb79da0` |
 
 | Additional retained result | SHA-256 |
 | --- | --- |
