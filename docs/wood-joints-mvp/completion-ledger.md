@@ -6334,6 +6334,55 @@ Reproduce to a fresh path:
 PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/enclosed-passage-ligaments-v1.py /tmp/eoere-enclosed-ligaments-replay.json
 ```
 
+**Nominal section and physical cleat-component followup.** The
+[coherent component record](../bolted-frame-development/coherent-return-component-followup-v1.json)
+binds the six replayed cases of the separate bilateral-return, paired-leaf
+and signed-foot proposal. All eight service-hole profiles and 66 screw axes
+match v3 exactly; no new brace bolt enters a holed member. The current bolt
+bores do not overlap any hole's **L ±19.05-mm** grain window. Two contained
+**50.8 × 38.1-mm** outer strips therefore provide a simple nominal section
+core, with area **3,870.96 mm²** and strong-axis second moment
+**8,480,715.297 mm⁴**, before pilot cuts and local hole effects.
+
+The preserved v3 calculation covers **192 hole/case windows**, with maximum
+nominal axial/bending reference **0.312586**. Adding independent normal,
+shear and torsion peaks gives **1.094678** at bottom-left B2–B1 in A1-rear;
+that upper bound alone does not establish failure. Only that interval needs
+the existing simultaneous traction construction: two separate strip fields
+and four cubic Bernstein control wrenches bound the fixed-action branch.
+The checked maximum across v3's 192 comparisons becomes **0.783598**.
+The cubic basis reproduces four scalar known answers; the section solver
+retains its existing exact polynomial enclosures.
+
+Fresh forces from all six **coherent-return** cases give maximum normal and
+combined nominal references **0.313006 / 0.783098**. Independent checks cover
+**960 direct N/A + M/I stations, 48 whole-member balances, eight exact strip
+witnesses and eight interior cut-wrench reconstructions**. Maximum whole-member
+force/moment residuals are **1.865e-8 N / 2.945e-6 Nmm**. The same source methods
+are reused with guarded input-path changes; no predecessor force or pass is
+transferred. These calculations retain CD1 and their stated affine
+selfweight and point-action model.
+
+The six coherent cases also supply **48 physical cleat-shaft rows, 288
+half-bore comparisons and 48 outer nut seats**. Their maximum Fe/5, elastic
+metal/divisor-two and mean 210-psi annulus references are **0.272651 /
+0.828049 / 0.764815**. Runner/leaf-face contact cell means reach **0.050976 /
+0.148561**. The reduced-plastic-moment comparison reaches **0.902209 before
+end/group adjustments**. These material and cell-mean comparisons do not
+establish adjusted mixed-joint resistance. The inherited extra 6-N,
+177.8-mm-arm sensitivity is named separately from each shaft's own gravity;
+it is not an uncertainty bound for the 8-in hardware.
+
+Local hole splitting/shear, three-dimensional concentration, pilot
+material removal, connection ligaments and member restraint/stability remain
+open. The linear simultaneous section interaction is an engineering
+construction, not a published complete hole capacity. Complete cleat
+end/group/seat/angle transfer also remains separate. No new frame/native
+solve, geometry adoption, cutting or release results from this postprocessing.
+The **31.3-KB** tracked record binds cases, methods, runtime, source views and
+verification; bulky fields and raw methods stay active in their existing
+ignored packets, with no meshes, archive or pruning added.
+
 **Evidence and reproduction.** The active raw folder is
 `fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/`.
 `attempt02/result.json` SHA-256 is
