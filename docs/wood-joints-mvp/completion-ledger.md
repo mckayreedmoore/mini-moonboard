@@ -4338,6 +4338,106 @@ PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engine
 PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/verify.py /tmp/plywood-cleat-verification.json
 ```
 
+**Single factory-leaf simplification — unadopted comparison.** Following the
+owner's direction to finish in simple steps, the
+[single-leaf inputs](../bolted-frame-development/plywood-cleat-single-leaf-inputs-v2.json)
+evaluate one **203.2 × 609.6-mm (8×24-in)** factory leaf per corner,
+nominally 28.575 mm thick with the same proposed 27-mm actual minimum.
+The strength axis runs along world Z; Y-normal references consequently use
+the published weaker-axis values. This removes adjacent-leaf load sharing
+from this comparison without claiming a composite panel or changing the
+current model. Preserve the original two-leaf inputs and results above.
+
+The worksheet preserves every signed predecessor port force and couple at
+its original world point. It transports each complete wrench to the new
+section/bearing midpoint, uses the implemented 88.9-mm post bearing length,
+and constructs two constant half-length bore pressures that recover each
+force and first moment. This is one statically balanced local construction,
+not a compatible current-frame response or complete connection resistance.
+CD1 and dry use remain the comparison basis.
+
+| Supplied-action comparison | Maximum index | Scope |
+| --- | ---: | --- |
+| Gross-cut linear normal/two-shear/torque construction | **0.945264338** | 24 case/side/trace records; no local bore or fracture qualification |
+| Wood bore pressure against directional Fe·D/5 | **0.656266298** | 192 half-interval references; an engineering material screen, not a general mixed-joint ASD equation |
+| Ordinary lower wood/plywood lateral-yield reference | **0.827095540** | 24 references using the existing six-mode helper, Cg 0.5 and Cdelta 0.58; local group/net/edge transfer remains open |
+| Mean plywood washer seating against 210 psi | **0.733761805** | 48 axial-resultant comparisons; no full seat/prying qualification |
+| Common-shaft elastic metal comparison with divisor two | **1.024083037** | 48 constructions, including preserved metal gravity and an added 6-N × 177.8-mm gravity sensitivity |
+
+The last comparison controls at **eoere_bolt_067, a12-forward**, in the
+minimum full-body section, not the conditional thread-root section.
+Its constructed peak bending is **24,676.197 Nmm**. Without the supplementary
+6-N allowance, that interval's comparison is **0.982482594**; at 2 N it is
+**0.996349250**. The original 6-N result is retained. These sensitivities do
+not establish a smaller weight bound, revised reactions, an actual bolt
+failure or an adopted code-criterion failure. The separate proposed
+0.2881-in root floor remains an unobserved purchase hypothesis, not a generic
+UNC minimum. Do not remove it silently from the component comparison.
+Recovered shaft force/moment residuals are at most **1.66e-8 N / 1.63e-6 Nmm**;
+small equilibrium residuals do not establish joint acceptance.
+
+The dimensional proposal uses four **7-in upper bolts with two existing-type
+12.7-mm factory spacers each**, and four **5½-in lower bolts without spacers**.
+[Bolt Depot 370](https://boltdepot.com/Product-Details?product=370) supplies the
+catalog identity for the latter; retained ASME dimensions supply Lg/Lb.
+Twelve spacers overall remain, including the four unchanged front stacks.
+Across 27–28.575-mm plywood, minimum two-tip-pitch/nut-seating margins are
+**6.985 / 4.8512 mm upper** and **2.667 / 4.8512 mm lower**.
+The dimensional quarter-bearing thread exception is satisfied in this
+catalog box; neither delivered shank nor installation is observed.
+These are proposed stacks, not replacement shopping or drilling instructions.
+
+Nominal CAD checks place both proposed leaves against the composed
+**1,033-part enclosed-passage bank**: **2,064 bounding-box comparisons** and
+eight exact intersections after broad-phase selection, all zero. The local
+28-member/revised-wire comparison also finds no interference. This checks
+the proposed plywood against existing occupied parts; the eight changed
+cleat hardware stacks, tool/removal envelopes and newly directed header
+brackets are not qualified by that result. No mesh materialization or model
+replacement occurred.
+
+**Integration decision.** The owner now directs an interior bracket beneath
+the header at each outer post; the coordinated agent also owns the revised
+single-bolt long-leg connections. The existing header already meets the
+outer-post tops at **Z238.9 mm**. The new bracket input also sends two
+additional X-directed bolts through each cleat, at Z173.8125 mm versus the
+existing lower row at Z200 mm. Their **26.1875-mm (2.749D)** separation is
+below the **3D = 28.575-mm** minimum for an in-row, along-grain loading case
+in retained NDS Table 12.5.1B (printed p.98). Map the actual row/load case and
+revise/check placement before freezing the six-hole detail. This four-hole
+worksheet and its clearance result do not qualify those added bores/stacks.
+The input remains an unadopted integration proposal. Additional restraint or
+parallel transfer may change cleat demand; no uniform reduction is assigned.
+Freeze those
+details together and obtain justified complete cleat/shaft actions before
+settling plywood size. Local group/net/edge fracture, axial seats/prying,
+runner/contact transfer, new material weight, revised hardware/services and
+current actions remain open. The single-leaf simplification stays **HOLD**;
+the primary plywood route remains active and the full goal is unachieved.
+
+The following source/result files remain active in the same ignored packet;
+the entire packet is about **9.4 MB**, with no raw pruning or bulk staging.
+Independent checks recover **96 complete wood lateral wrenches**, verify
+24 direct section witnesses, 192 bore comparisons and 48 mean seats, and
+authenticate every report source pin. Scoped syntax/name lint passes.
+The worksheet, full-bank layout and independent verification replay byte
+identically. Their report hashes bind their respective producer/source files.
+
+| Retained single-leaf result | SHA-256 |
+| --- | --- |
+| `single-leaf-attempt02.json` | `13ceb8db1ccab97f51b47d5e05ceb74c11ccdd511b8c41bad39325b99f04f101` |
+| `single-leaf-bolt-diagnostic.json` | `2dff34cf4f876b9d245d618f591b7d2ce2707abc0b53c0c2269fad193489dab9` |
+| `single-leaf-layout-full-bank-v3.json` | `7063ea3139038fba1a29c8e7d0445ac8a6189801d1a58305e0ed7c9a33915d4d` |
+| `verify-single-leaf-v2.json` | `5e10f7f0df89e03a34d6578652018ff52e5ed74027dcbb5907e7698257f2c8a1` |
+
+Reproduce with fresh output paths and the active pinned inputs:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-worksheet.py /tmp/plywood-single-leaf-worksheet.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/single-leaf-layout-full-bank-v3.py /tmp/plywood-single-leaf-layout.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/verify-single-leaf-v2.py /tmp/plywood-single-leaf-verification.json
+```
+
 <a id="current-engineering-input-boundary"></a>
 **Preserved retained-timber goal disposition: blocked; the full objective is unachieved.**
 The later [primary plywood decision](#plywood-cleat-development-choice)

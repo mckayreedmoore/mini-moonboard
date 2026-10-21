@@ -1,0 +1,37 @@
+{
+  "schema": "eoere_single_leaf_plywood_cleat_inputs/v2",
+  "revision": "eoere-single-leaf-plywood-cleat-proposal-v2",
+  "owner_direction": "Plywood is the main cleat approach. Work toward completion with simple, decisive steps. Evaluate one factory plywood leaf to remove adjacent-leaf load sharing.",
+  "prior_inputs": {
+    "path": "docs/bolted-frame-development/plywood-cleat-rectangular-inputs-v1.json",
+    "sha256": "891f22d8387286a31d53deb77194e3489f0b6812dab19a64a8d30ae4aa3a4470"
+  },
+  "blank_Y_Z_mm": [203.2, 609.6],
+  "bottom_Z_mm": 139.7,
+  "Y_bounds_mm": [-213.8, -10.6],
+  "leaves_per_corner": 1,
+  "nominal_thickness_mm": 28.575,
+  "minimum_proposed_actual_thickness_mm": 27.0,
+  "material": "APA Rated Sturd-I-Floor 48 oc PS 1 plywood, at least five plies, Group 1 for bearing. Stamp, thickness and condition remain unobserved.",
+  "panel_strength_axis": "world Z",
+  "inboard_X_face_mm": {"left": -1219.2, "right": 1216.025},
+  "bolt_centers_Y_Z_mm": [[-131.25, 200.0], [-80.45, 200.0], [-131.25, 342.0875], [-80.45, 342.0875]],
+  "hardware_proposal": {
+    "upper": {"nominal_bolt_length_in": 7.0, "existing_type_12_7_mm_spacers_at_nut": 2, "extra_cut_washers": 0},
+    "lower": {"nominal_bolt_length_in": 5.5, "existing_type_12_7_mm_spacers_at_nut": 0, "extra_cut_washers": 0, "catalog_sku": 370, "catalog_url": "https://boltdepot.com/Product-Details?product=370", "catalog_observed_UTC_date": "2026-10-21", "length_tolerance_minus_in": 0.1, "minimum_full_thread_length_in": 1.0, "Lg_max_in": 4.5, "Lb_min_in": 4.19},
+    "policy": "Partially threaded SAE J429 Grade5 bolts, Grade5 UNC nuts and individual existing-type washers. Retain all 100 bolt and 66 Hillman axis lines. Bolt Depot 370 verifies the lower 5.5-in Grade5, partially threaded ASME B18.2.1 product; Lg/Lb follow the retained ASME table. Twelve existing-type spacers overall, including four unchanged front stacks. Catalog identity is not delivered-part inspection."
+  },
+  "design_basis": {
+    "CD": 1.0,
+    "CM": 1.0,
+    "ordinary_lower_group_factor_lower": 0.5,
+    "ordinary_lower_geometry_factor": 0.58,
+    "local_bore_reference": "Fe times minimum full-body diameter divided by five is a conservative material-reference screen, not a published whole mixed-joint ASD equation.",
+    "metal_reference": "Report elastic stresses against recorded Grade5 minimum yield and a separate divisor-two engineering reference. These are supplied-action stress comparisons, not a code qualification of a general mixed joint."
+  },
+  "action_scope": "Use each complete saved predecessor wrench at its original world location and transport it to the proposed section or bearing midpoint. The 4x6-post/current plywood force response, additional material weight and physical compatibility are not inherited.",
+  "geometry_adopted": false,
+  "complete_joint_qualified": false,
+  "release": false,
+  "actual_observations": null
+}
