@@ -4957,6 +4957,20 @@ the same field's geometry reference; field, receipt, forces, q and operators
 stay byte unchanged. It does not transfer fixed-centroid floor admission.
 Independent complete-joint disposition remains open.
 
+The changed forces justify one repeat of the existing relaxed-bearing bound
+before any timber change. `three-pin-shift-corner-floor-bearing-bound-v1.json`,
+SHA-256 `9e0726653075adc3d8d8847b58863b1108d4885148dbaa00536ca49f217249db`,
+retains the six-shaft worksheet's exact lower-left-2 force/couple, Grade8,
+end/group and moment references. One solve with the published 5600-psi
+parallel-grain upper bound reaches **0.831374**, but independently checking
+every resulting cell against its own grain-angle reference reaches
+**1.477998** at an outer-leaf cell loaded across the grain. Reject that
+particular witness; it neither closes the 1.068342 comparison nor proves
+physical failure or impossibility of every pressure field. No anisotropic
+optimizer, parameter search, altered force field or further case follows.
+The raw producer is `corner_floor_bearing_bound.py`; all inputs and the failed
+result remain in the same active packet.
+
 `three-pin-shift-corner-floor-motion-localization-v1.json`, SHA-256
 `8dfead7734b5d39d46ff38ff93254910934726a2b392e0725b0638cc6ec6e810`,
 also separates tip motion from connection motion using the established saved
