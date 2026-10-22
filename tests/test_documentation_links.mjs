@@ -91,7 +91,7 @@ test('current and unadopted menus expose their own shop records and response bin
     if ([index.geometry.viewer, index.optional_grid.viewer].includes(model)) {
       if (model === index.optional_grid.viewer)
         assert.ok(rows.some(r => r.path === responseIndex.current_response.cases.path));
-      else assert.ok(rows.some(r => r.path.endsWith('#single-bolt-leg-joint-review')));
+      else assert.ok(rows.some(r => r.path.endsWith('#paired-frame-completion-goal')));
       const receipt = model === index.geometry.viewer ? index.geometry.receipt : index.optional_grid.receipt;
       assert.ok(rows.some(r => r.path === receipt.path));
       assert.ok(rows.some(r => r.path === 'docs/bolted-frame-development/builder-plan.md'));
@@ -116,9 +116,12 @@ test('loaded viewer status distinguishes completed current cases, optional grid 
     return node.textContent;
   }
   const current = render(index.geometry.viewer), optional = render(index.optional_grid.viewer);
-  assert.match(current, /Single-bolt leg joints.*24 angles.*96 bolt stacks/);
-  assert.match(current, /66 Hillman axes retained/);
-  assert.match(current, /strength, joint response and installation remain unqualified/);
+  assert.match(current, /26 angles.*102 bolt stacks.*66 Hillman/);
+  assert.match(current, /Ten ASTM A574/);
+  assert.match(current, /Panel\/Hillman strength remains deferred/);
+  const previous = render('eoere-leg-header-frame-development');
+  assert.match(previous, /Single-bolt leg joints.*24 angles.*96 bolt stacks/);
+  assert.match(previous, /66 Hillman axes retained/);
   assert.match(render('eoere-enclosed-passages-frame-development'), /Solid 4×6 outer kicker posts/);
   assert.match(optional, /Optional expanded grid on/);
   const proposal = render(responseIndex.unadopted_proposal.viewer);

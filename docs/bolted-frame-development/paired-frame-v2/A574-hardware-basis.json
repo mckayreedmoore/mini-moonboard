@@ -1,0 +1,132 @@
+{
+  "Actual": "",
+  "Disposition": "",
+  "front_bolt": {
+    "catalog_head_OD_min_max_mm": [
+      13.716,
+      14.2748
+    ],
+    "catalog_head_height_min_max_mm": [
+      9.3472,
+      9.525
+    ],
+    "catalog_minimum_body_in": 4.19,
+    "catalog_unit_price_USD": 3.21,
+    "conservative_analysis_body_min_mm": 9.3218,
+    "conservative_minimum_body_mm": 106.17199999999998,
+    "dimensional_standard": "ASME B18.3",
+    "drive_depth_min_mm": 4.6228,
+    "drive_size_mm": 7.9375,
+    "length_tolerance_mm": [
+      -1.5239999999999998,
+      0.0
+    ],
+    "limits": [
+      "6in and8in socket screws have distinct body/gaged-grip requirements. Do not use the long-bolt shank floor for the front bolts.",
+      "The4.18in analysis floor is rounded below the supplier4.19in minimum and manufacturer4.187in table. Gaged grip4.75in conservatively encloses the1.25in minimum complete thread statement.",
+      "Actual thread roots remain in bearing/metal strength wherever the body floor ends; no one-quarter-thread rule is used. Washer/nut/spacer material is unchanged.",
+      "No actual hardware observation, purchase or fabrication release."
+    ],
+    "material_standard": "ASTM A574",
+    "maximum_grip_gaging_mm": 120.64999999999999,
+    "minimum_thread_length_mm": 31.75,
+    "minimum_yield_psi": 153000,
+    "nominal_diameter_mm": 9.525,
+    "partially_threaded": true,
+    "product": "8092",
+    "product_url": "https://boltdepot.com/Product-Details?product=8092",
+    "retrieved_UTC": "2026-10-22",
+    "schema": "eoere_A574_front_hardware_option_facts/v1",
+    "selected_quantity_if_adopted": 4,
+    "shared_standard_facts": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/hardware-source-v1/a574-option-facts-v1.json",
+      "sha256": "b29b31dc41026ba512248a15c39706de5b089497d74c8bcacc3d20315dadd5c6"
+    },
+    "threads_per_inch": 16,
+    "underhead_length_mm": 152.4
+  },
+  "geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-geometry-v2/geometry.json",
+    "sha256": "ff3b55af904d4375c7ec9aa1fe65712da3c913f78a27b552d2c4002a35d37c0d"
+  },
+  "installation_tool": "5/16-inch hex key or short straight bit. Nominal cap/washer/fillet and access clearances are checked; actual fit and ratchet swing remain unobserved.",
+  "long_bolt": {
+    "ASME_body_diameter_min_mm": 9.34212,
+    "ASME_max_underhead_fillet_diameter_mm": 10.540999999999999,
+    "catalog_head_OD_min_max_mm": [
+      13.716,
+      14.2748
+    ],
+    "catalog_head_height_min_max_mm": [
+      9.3472,
+      9.525
+    ],
+    "catalog_unit_price_USD": 10.14,
+    "conservative_analysis_body_min_mm": 9.3218,
+    "dimensional_standard": "ASME B18.3",
+    "directory_discovery": "Attempted installed Stripe CLI1.33.0 plugin install directory; unavailable because the saved API key expired. Used public supplier sources; no account change, login, purchase or message.",
+    "drive_depth_min_mm": 4.6228,
+    "drive_size_mm": 7.9375,
+    "guide_source": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/hardware-source-v1/unbrako-engguide.pdf",
+      "printed_pages": [
+        6,
+        8,
+        9
+      ],
+      "sha256": "a9e38895968c53db075a4135f56fd20c35e65598c7f3efac4166cdbe9db0213a",
+      "url": "https://www.unbrako.com/images/downloads/engguide.pdf"
+    },
+    "length_tolerance_mm": [
+      -3.0479999999999996,
+      0.0
+    ],
+    "limits": [
+      "These are source-transcribed requirements and conditional analysis inputs, not observations of a delivered part.",
+      "Do not transfer the proprietary Unbrako170ksi yield to the generic ASTM A574 BoltDepot item; use153ksi only.",
+      "The catalog gives a minimum thread length, not a delivered shank. Retain Lb/Lg, free seating and two protruding threads checks.",
+      "New head shape, underhead fillet/washer seating, matched nut, occupied/tool clearances and changed hardware selfweight still require checks. No fabrication release."
+    ],
+    "matching_nut": "Existing SAE J995 Grade8 SKU2584,3/8-16; no nut strength increase.",
+    "material_standard": "ASTM A574",
+    "maximum_grip_length_mm": 171.45,
+    "minimum_complete_thread_length_mm": 31.75,
+    "minimum_full_body_basis": "Manufacturer guide printed9: longer-than-tabulated lengths use basic thread length plus five pitches including imperfect threads; basic LT1.25in. Lb=8-1.25-5/16in.",
+    "minimum_full_body_mm": 163.5125,
+    "minimum_full_size_proof_psi": 140000,
+    "minimum_required_washer_hole_mm": 10.540999999999999,
+    "minimum_tensile_psi": 180000,
+    "minimum_yield_psi": 153000,
+    "nominal_diameter_mm": 9.525,
+    "partially_threaded": true,
+    "product": "8096",
+    "product_url": "https://boltdepot.com/Product-Details?product=8096",
+    "retained_washer_ID_min_mm": 10.998199999999999,
+    "retained_washer_product": "15023",
+    "retained_washer_url": "https://boltdepot.com/Product-Details?product=15023",
+    "retrieved_UTC": "2026-10-22",
+    "schema": "eoere_A574_cleat_hardware_option_facts/v1",
+    "selected_quantity_if_adopted": 6,
+    "strength_source_url": "https://www.badensteel.com/astm-a574",
+    "threads_per_inch": 16,
+    "underhead_length_mm": 203.2,
+    "washer_spacer_material_changed": false
+  },
+  "matching_nut_requirement": "Ten SAE J995 Grade8 nuts, product2584, with the specified USS washers. No extra clamping/preload credit.",
+  "quantity_long_front": [
+    6,
+    4
+  ],
+  "release": false,
+  "schema": "eoere_A574_frame_hardware_basis/v1",
+  "source_inputs": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/hardware-source-v1/a574-option-facts-v1.json",
+      "sha256": "b29b31dc41026ba512248a15c39706de5b089497d74c8bcacc3d20315dadd5c6"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/hardware-source-v1/a574-front-option-facts-v1.json",
+      "sha256": "ec510ba4946aa0b72271c027c793bca3f5d1f2dd1faa7582195e8fd8dd62fc4b"
+    }
+  ]
+}

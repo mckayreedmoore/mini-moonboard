@@ -13,12 +13,13 @@ from scripts.eoere_builder_layout import (
     render,
     validate,
 )
+from scripts.eoere_paired_shop import stock_rows
 
 
 def test_current_layout_and_rejection_controls(tmp_path):
     data = load_sources()
     validate(data)
-    assert len(data['selected']) == 96 and len(data['holes']) == 112
+    assert len(data['selected']) == 102 and len(data['holes']) == 130
     assert all(not r['axis_id'].endswith('_2') for r in data['selected']
                if r['axis_id'].startswith(('lumber_leg_bolt_', 'rail_rear_bolt_')))
     text = render(data)
@@ -30,7 +31,7 @@ def test_current_layout_and_rejection_controls(tmp_path):
         assert all(float(r["saved_full_wall_length_mm"]) == pytest.approx(88.9) for r in post_holes)
     for row in data["selected"]:
         if row["axis_id"].startswith("cleat_post_bolt_"):
-            assert float(row["selected_underhead_length_mm"]) == pytest.approx(177.8)
+            assert float(row["selected_underhead_length_mm"]) == pytest.approx(203.2)
             assert float(row["nut_side_spacer_mm"]) == 25.4
     # The header turns the section axes: U is depth and V is thickness.
     vertices = data["profiles"]["base_header"]["vertices_luv_mm"]
@@ -58,7 +59,7 @@ def test_current_layout_and_rejection_controls(tmp_path):
     shared = next(r for r in data["selected"] if r["axis_id"] == "eoere_bolt_065")
     assert float(shared["selected_underhead_length_mm"]) == pytest.approx(88.9, abs=1e-10)
     assert float(shared["nut_side_spacer_mm"]) == 12.7
-    assert sum(int(r['spacer_piece_count']) for r in data['selected']) == 24
+    assert sum(int(r['spacer_piece_count']) for r in data['selected']) == 34
     wrong = copy.deepcopy(data)
     next(r for r in wrong['selected'] if r['axis_id'] == 'eoere_bolt_065')['spacer_piece_count'] = '0'
     with pytest.raises(ValueError, match='factory spacer inventory differs'):
@@ -83,3 +84,28 @@ def test_current_layout_and_rejection_controls(tmp_path):
     (tmp_path / "issued.csv").write_text("changed bytes\n")
     with pytest.raises(ValueError, match="Source hash differs"):
         read_bound(tmp_path, {"path": "issued.csv", "sha256": "0" * 64})
+
+
+def test_end_plane_marks_follow_the_actual_vertex_census():
+    wrong = load_sources()
+    plane = wrong['profiles']['base_header']['end_planes'][0]
+    plane['plane_source_vertex_indices'] = ';'.join(
+        str(plane['plane_source_vertex_indices']).split(';')[1:])
+    with pytest.raises(ValueError, match='End-plane vertex marks differ'):
+        validate(wrong)
+
+
+def test_retained_2x6_stock_allocation_and_usable_length_limit():
+    data = load_sources()
+    rows = stock_rows(data)
+    assert sum(int(r['US_nominal_length_ft']) * {'2x6': 1, '4x6': 2}[r['US_nominal_section']]
+               for r in rows) == 162
+    for side in ('left', 'right'):
+        principal = next(r for r in rows if f'base_principal_center_{side}' in r['members_in_cut_order'])
+        assert principal['US_nominal_section'] == '2x6'
+        assert f'base_post_center_{side}' in principal['members_in_cut_order']
+    assert all(r['Actual'] == r['Disposition'] == '' for r in rows)
+    wrong = copy.deepcopy(data)
+    next(r for r in wrong['members'] if r['member'] == 'base_principal_center_left')['nominal_blank_length_mm'] = '3000'
+    with pytest.raises(AssertionError, match='Nominal stock cannot supply'):
+        stock_rows(wrong)

@@ -4,12 +4,13 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 **[main development summary and revision map](bolted-frame-development/README.md)**.
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
-The current geometry is **`eoere-single-leg-bolts-header-angles-v3`**:
-[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear).
+The current geometry is **`eoere-paired-frame-retained-2x6-A574-v2`**:
+[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear).
 The [checked revision index](bolted-frame-development/development-revisions.json) binds
-32 enclosed cable holes, one bolt at each long-leg joint, 24 angles, 96 bolt
-stacks and two single plywood cleats. The 66 Hillman axes remain. Fresh
-conditional cases and current holds are recorded in the development summary.
+32 enclosed cable holes, one bolt at each long-leg joint, 26 angles, 102 bolt
+stacks and four separate plywood leaves. The two upper long-leg axes rise
+15 mm for loaded-edge clearance. The 66 Hillman axes remain. The conditional frame evaluation
+is complete; panel/Hillman strength work is explicitly deferred and unresolved.
 The [builder plan](bolted-frame-development/builder-plan.md) brings the current
 dimensions, fixtures, temporary-support requirements and assembly order together.
 Complete joint resistance and physical stiffness/restraint remain unqualified;
@@ -29,7 +30,7 @@ the applicable records; frozen packets preserve what was known when issued.
 
 | Scope | Reading path | How to use it |
 | --- | --- | --- |
-| Active compact bolted development | [Summary and revision map](bolted-frame-development/README.md), [builder plan](bolted-frame-development/builder-plan.md), [task ledger](wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) | Current solid 4×6 outer posts and revised stacks; preserved six-case calculations apply to the preceding 2×6 posts. Conditional planning and affected-joint checks remain open. |
+| Active compact bolted development | [Summary and revision map](bolted-frame-development/README.md), [builder plan](bolted-frame-development/builder-plan.md), [task ledger](wood-joints-mvp/completion-ledger.md#paired-frame-completion-goal) | Retained 2×6 stock, paired plywood leaves, 102 bolts and ten A574 bolts; matching conditional frame evaluation and shop integration are complete. Panel/Hillman strength remains deferred. |
 | Selected screw-and-bracket baseline | This page, [working set](selected-working-set.md), [recorded applicability](current-candidate-status.md) | Separate twelve-bolt / 24-ML24Z design. The six recorded passes precede two later clip translations; current-layout mechanics applicability is unverified. |
 | Purchased components and shared references | [Purchased plywood](purchased-materials.md), [Hillman screws](current-panel-screw-purchase.md), [hold hardware](moonboard-hold-hardware.md), [LED reference](led-wiring-reference.md), [pads](current-crash-pad-construction.md), [orientation](orientation.md) | Component identity and recorded owner policy; use the active candidate's placement tables and retain each reference's observation limits. |
 | Earlier design and procurement assumptions | [V1 materials](materials.md), [round-frame cost ledger](material-costs.md), [baseline design basis](current-design-basis.md) | Historical or baseline-specific inventories, quantities and dated prices; no current bolted-frame shopping list is implied. |

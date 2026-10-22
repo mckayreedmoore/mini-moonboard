@@ -30,13 +30,18 @@ def read_bound(root, binding):
 
 def load_sources(root=ROOT):
     index = json.loads((root / INDEX).read_bytes())
-    if index['schema'] == 'bolted_frame_development_revisions/v5':
+    if index['schema'] in ('bolted_frame_development_revisions/v5', 'bolted_frame_development_revisions/v6', 'bolted_frame_development_revisions/v7'):
+        retained = index['schema'] == 'bolted_frame_development_revisions/v7'
+        paired = retained or index['schema'] == 'bolted_frame_development_revisions/v6'
+        revision = ('eoere-paired-frame-retained-2x6-A574-v2' if retained else
+                    'eoere-paired-cleats-upper-leg-up15-v1' if paired else 'eoere-single-leg-bolts-header-angles-v3')
+        bolt_count, receiver_count = (102, 130) if retained else (106, 134) if paired else (96, 112)
         require(index['geometry']['revision'] == index['shop']['revision'] ==
-                index['hardware_model']['revision'] == 'eoere-single-leg-bolts-header-angles-v3',
+                index['hardware_model']['revision'] == revision,
                 'Combined leg/header revision requires review')
         result_ref = index['shop']['result']
         result = json.loads(read_bound(root, result_ref))
-        require(result_ref == index['geometry']['receipt'] and result['counts']['bolt_stacks'] == 96,
+        require(result_ref == index['geometry']['receipt'] and result['counts']['bolt_stacks'] == bolt_count,
                 'Combined shop and geometry binding differs')
 
         def combined(name):
@@ -49,7 +54,9 @@ def load_sources(root=ROOT):
                 'members': combined_rows('members.csv'), 'selected': combined_rows('hardware-selection.csv'),
                 'drilling': combined_rows('drilling-requirements.csv'), 'holes': combined_rows('receiver-holes.csv'),
                 'shop_result': result_ref, 'revision': result['revision'], 'hardware_revision': result['revision'],
-                'expected_bolt_count': 96, 'expected_receiver_count': 112,
+                'expected_bolt_count': bolt_count, 'expected_receiver_count': receiver_count,
+                'expected_member_count': 34 if paired else 28,
+                'expected_timber_count': 28 if paired else 22,
                 'expected_spacer_count': result['counts']['spacer_pieces']}
     passage_result = index['shop']['result'] if index['schema'] == 'bolted_frame_development_revisions/v4' else None
     passages = json.loads(read_bound(root, passage_result)) if passage_result else None
@@ -113,10 +120,20 @@ def load_sources(root=ROOT):
 
 def validate(data):
     profiles, holes = data["profiles"], data["holes"]
-    require(len(profiles) == len(data["members"]) == 28
-            and Counter(p["kind"] for p in profiles.values()) == {"timber": 22, "panel": 6},
+    require(len(profiles) == len(data["members"]) == data.get('expected_member_count', 28)
+            and Counter(p["kind"] for p in profiles.values()) == {"timber": data.get('expected_timber_count', 22), "panel": 6},
             "Member inventory differs")
     require({r["member"] for r in data["members"]} == set(profiles), "Member identities differ")
+    for name, profile in profiles.items():
+        vertices = profile['vertices_luv_mm']
+        for plane in profile['end_planes']:
+            normal = [float(plane['outward_normal_'+c+'_unitless']) for c in 'luv']
+            offset = float(plane['plane_offset_from_datum_mm'])
+            indices = {int(i) for i in str(plane['plane_source_vertex_indices']).split(';')}
+            on_plane = {i for i, vertex in enumerate(vertices)
+                        if abs(sum(n*v for n, v in zip(normal, vertex))-offset) < 1e-5}
+            require(indices == on_plane and len(indices) >= 3,
+                    'End-plane vertex marks differ: '+name)
     selected = {r["axis_id"]: r for r in data["selected"]}
     drilling = {r["axis_id"]: r for r in data["drilling"]}
     require(len(data["selected"]) == len(selected) == len(data["drilling"]) == len(drilling) == data.get('expected_bolt_count', 100)
@@ -184,10 +201,12 @@ def render(data):
         "# Current timber end and receiver coordinates", "",
         f"Applies to **`{data.get('revision', REVISION)}`** with **`{data.get('hardware_revision', HARDWARE)}`**, extra grid off.",
         "Use with the [builder plan](builder-plan.md); conditional nominal planning only.", "",
-        ("Generated from the combined checked profiles and fresh 96-axis / 112-receiver tables."
-         if data.get('expected_bolt_count') == 96 else
+        (f"Generated from the combined checked profiles and fresh {len(data['selected'])}-axis / {len(data['holes'])}-receiver tables."
+         if data.get('expected_bolt_count') in (96, 106) else
          "Generated from the checked post-revision binding and the preserved shop tables"),
-        ("Twenty sawn members and two plywood cleats retain their individual nominal datums."
+        ("Twenty-four sawn members and four separate plywood leaves retain their individual nominal datums."
+         if data.get('expected_bolt_count') == 106 else
+         "Twenty sawn members and two plywood cleats retain their individual nominal datums."
          if data.get('expected_bolt_count') == 96 else
          "with two stock, eight stack, sixteen receiver-row and eight enclosed-passage profile overrides."),
         f"Shop-result SHA-256: `{data['shop_result']['sha256']}`.",
@@ -196,14 +215,14 @@ def render(data):
         "## Coordinate convention", "",
         "All dimensions are millimetres. Coordinates preserve the source L/U/V frame.",
         "L follows grain. U and V are member-specific section axes: most timbers use",
-        "U across thickness and V across depth; **base_header uses U across its 139.7-mm",
-        "depth and V across its 38.1-mm thickness**. Its U=0 reference is the narrow edge,",
+        f"U across thickness and V across depth; **base_header uses U across its {number(data['profiles']['base_header']['blank_mm'][1])}-mm",
+        "depth and V across its 38.1-mm thickness**. Its U=0 reference retains the original datum,",
         "and its bolt receivers run along V. Negative V values elsewhere are intentional.",
         "The per-member world datum and positive unit vectors identify",
         "each face and orientation; left/right members must retain their own labels.",
         "U=0 is the labeled reference face, not necessarily the installed bolt-entry face.",
         "An L=0 profile corner is not a square-end fence across the whole member.", "",
-        "Raw U=0 vertex marks below retain source indices; their listing is not a polygon",
+        "Raw minimum-U face marks below retain source indices; their listing is not a polygon",
         "or saw path. End-plane marks identify vertices on each raw cut face. Use the",
         "issued projections and finished recess/passage details beside these numbers.",
         "Raw blank lengths can exceed the final L extent after angled cuts.", "",
@@ -222,19 +241,23 @@ def render(data):
         if profile["kind"] != "timber":
             continue
         vertices = profile["vertices_luv_mm"]
+        face_u = min(v[1] for v in vertices)
         lines += [f"## {member}", "",
                   f"Raw blank L × depth × thickness: **{' × '.join(number(v) for v in profile['blank_mm'])}**.",
                   f"World datum XYZ: `{vector(profile['datum_xyz_mm'])}`.",
                   "Positive L/U/V unit vectors: " + "; ".join(
                       f"`{vector(v)}`" for v in profile["basis_grain_u_v_xyz"]) + ".", "",
-                  "Raw U=0 marks (vertex index: L, V): " + "; ".join(
+                  f"Raw U={number(face_u)} face marks (vertex index: L, V): " + "; ".join(
                       f"{i}: `{vector((v[0], v[2]))}`" for i, v in enumerate(vertices)
-                      if abs(v[1]) < 1e-7) + "."]
+                      if abs(v[1]-face_u) < 1e-7) + "."]
+        if data.get('expected_bolt_count') in (102, 106):
+            folder = Path(data['shop_result']['path']).parent.name
+            lines += ["", f"[Dimensioned raw-end and drill sheet]({folder}/drawings/{member}.svg)."]
         for i, plane in enumerate(profile["end_planes"]):
             indices = [int(v) for v in str(plane["plane_source_vertex_indices"]).split(";")]
             marks = [f"{j}: `{vector((vertices[j][0], vertices[j][2]))}`"
-                     for j in indices if abs(vertices[j][1]) < 1e-7]
-            lines.append(f"Raw end plane {i + 1}, U=0 marks: " + "; ".join(marks) + ".")
+                     for j in indices if abs(vertices[j][1]-face_u) < 1e-7]
+            lines.append(f"Raw end plane {i + 1}, U={number(face_u)} marks: " + "; ".join(marks) + ".")
         if profile.get("inner_kicker_facing_longitudinal_bevel_mm"):
             corner = "U=88.9, V=139.7" if member.endswith("left") else "U=0, V=139.7"
             lines += ["", "Finished profile: **9.525 × 9.525 mm, 45° longitudinal corner bevel**",
@@ -275,7 +298,7 @@ def main():
         require((ROOT / OUTPUT).read_text() == text, "Builder layout is stale; review before --write")
     else:
         (ROOT / OUTPUT).write_text(text)
-    print(f"{OUTPUT}: 22 structural wood parts / {len(data['selected'])} bolt axes / {len(data['holes'])} receiver rows verified")
+    print(f"{OUTPUT}: {data.get('expected_timber_count', 22)} structural wood parts / {len(data['selected'])} bolt axes / {len(data['holes'])} receiver rows verified")
 
 
 if __name__ == "__main__":

@@ -15,3 +15,7 @@ fea/mortar_kinematic_build/**/build.log -whitespace
 
 # Source-bound calculation evidence is generated; keep authored code visible in reviews.
 fea/results/reinforced-*.json linguist-generated=true
+
+# Preserve hash-bound shop CSV bytes, including their standard CRLF records.
+docs/bolted-frame-development/paired-frame-v*/hardware-totals.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/paired-frame-v*/stock-nesting.csv -text whitespace=cr-at-eol

@@ -38,18 +38,36 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-retained-2x6-frame-development')
+    return [
+      {label: 'Current 2×6 frame builder plan', path: current + 'builder-plan.md'},
+      {label: '102-axis member and receiver layout', path: current + 'builder-layout.md'},
+      {label: 'Current geometry and hardware receipt', path: current + 'paired-frame-v2/geometry.json'},
+      {label: '102 selected bolt stacks and spacers', path: current + 'paired-frame-v2/hardware-selection.csv'},
+      {label: 'Stock allocation and hardware totals', path: current + 'paired-frame-v2/stock-nesting.csv'},
+      {label: 'Frame evaluation and panel deferral', path: ledger + '#paired-frame-completion-goal'},
+    ];
+  if (model === 'eoere-paired-cleats-frame-development')
+    return [
+      {label: 'Preserved paired-frame member stock', path: current + 'paired-frame-v1/members.csv'},
+      {label: 'Preserved 134 receiver occurrences', path: current + 'paired-frame-v1/receiver-holes.csv'},
+      {label: 'Preserved 106-bolt geometry receipt', path: current + 'paired-frame-v1/geometry.json'},
+      {label: '106 selected bolt stacks and spacers', path: current + 'paired-frame-v1/hardware-selection.csv'},
+      {label: '32 retained enclosed-passage datums', path: evidence + 'enclosed-passages-v1/passage-datums.csv'},
+      {label: 'Frame evaluation and panel deferral', path: ledger + '#paired-frame-completion-goal'},
+    ];
   if (model === 'eoere-leg-header-frame-development')
     return [
-      {label: 'Current builder plan · single leg bolts and plywood cleats', path: current + 'builder-plan.md'},
-      {label: '96-axis member and receiver layout', path: current + 'builder-layout.md'},
+      {label: 'Preserved 96-axis member and receiver layout', path: evidence + 'leg-header-v3/receiver-holes.csv'},
       {label: 'Combined geometry and hardware receipt', path: evidence + 'leg-header-v3/geometry.json'},
       {label: '96 selected bolt stacks and spacers', path: evidence + 'leg-header-v3/hardware-selection.csv'},
       {label: '32 retained enclosed-passage datums', path: evidence + 'enclosed-passages-v1/passage-datums.csv'},
-      {label: 'Current calculations and remaining holds', path: ledger + '#single-bolt-leg-joint-review'},
+      {label: 'Own calculations and remaining holds', path: ledger + '#single-bolt-leg-joint-review'},
+      {label: 'Active successor · separate shop packet', path: current + 'builder-plan.md'},
     ];
   if (model === 'eoere-enclosed-passages-frame-development')
     return [
-      {label: 'Current builder plan · 96-bolt successor', path: current + 'builder-plan.md'},
+      {label: 'Active successor builder plan · separate geometry', path: current + 'builder-plan.md'},
       {label: 'Current member and receiver layout', path: current + 'builder-layout.md'},
       {label: '32 enclosed-passage datums', path: evidence + 'enclosed-passages-v1/passage-datums.csv'},
       {label: 'Enclosed-passage geometry receipt', path: evidence + 'enclosed-passages-v1/geometry.json'},
@@ -58,7 +76,7 @@ export function documentsForModel(model, recordedDocuments = []) {
     ];
   if (['eoere-narrow-channels-frame-development', 'eoere-narrow-channels-grid-development'].includes(model))
     return [
-      {label: 'Current builder plan · 96-bolt successor', path: current + 'builder-plan.md'},
+      {label: 'Active successor builder plan · separate geometry', path: current + 'builder-plan.md'},
       {label: 'Current member and receiver layout', path: current + 'builder-layout.md'},
       {label: '32 narrowed channel datums', path: evidence + 'narrow-channels-v1/service-channel-datums.csv'},
       {label: 'Preserved narrower-channel geometry receipt', path: evidence + 'occupied-narrow-channels-v1.json'},

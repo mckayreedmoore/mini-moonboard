@@ -4900,6 +4900,253 @@ diagnostics supply neither a new equilibrium nor actual floor observations.
 
 <a id="coherent-corner-floor-pilot"></a>
 <a id="complete-plywood-cleat-evaluation-goal"></a>
+<a id="paired-frame-completion-goal"></a>
+**Owner-directed conditional frame and packet evaluation — complete.**
+The coordinated current revision is`eoere-paired-frame-retained-2x6-A574-v2`.
+It keeps all24 sawn sections/lengths, four independent plywood leaves, six
+panels,26 angles,32 enclosed passages and66 Hillman axes. It has102 bolts,
+102 nuts,204 washers and34 spacers. The owner-directed single principal and
+upper-return pins are integrated; front pairs are vertical atY80/Z50,100mm.
+Ten standardASTMA574 socket-head bolts replace the former selectedGrade8
+bolts: six203.2mm and four152.4mm, with matchingGrade8 nuts. The remaining92
+bolts retainGrade5. No enlarged member or historical force pass is adopted.
+
+The [current receipt](../bolted-frame-development/paired-frame-v2/geometry.json),
+[index](../bolted-frame-development/development-revisions.json) and
+[complete conditional evaluation](../bolted-frame-development/paired-frame-v2/engineering-evaluation.json)
+bind twelve own independently replayed nominal/softened-plywood fields and
+resolve every declared frame duty. The largest adopted reference is the
+retained flat2×6 header's continuous net shear/torsion **0.989083**. Other
+maxima include bolt/wood0.963370, shaft axial/bending0.942391, declared member
+restraint0.943290, plywood groups0.888937, sawn grain groups0.857737, runner
+end shear0.876058 and signed notched-foot shear0.703209. The report discloses
+failed loose screens and their matching applicable refinements; no failed
+adopted criterion is silently waived.
+
+All26 factory angles are checked on312 own action sets and three cached
+solid meshes: combined yield0.628559, actualJ4 block-cut traction0.788734,
+and624 net-flange/bar-stability comparisons0.782852. The thickness-sensitive
+low-stress knee duties, two-spread sensitivity and doubled-pressure controls
+are recorded. This is conventional engineering assessment of sampled elastic
+fields, not a certified continuum error bound or a manufacturer rating.
+Current first-order/support/stiffness/movement limitations remain explicit;
+all32 floor normal laws remain and runners have no horizontal reactions.
+
+The [builder plan](../bolted-frame-development/builder-plan.md),102 selected
+stack rows,130 receiver rows,28 member sheets,14-stick/162-board-foot allocation
+and hardware totals now agree. Catalog body limits are163.5125mm for the six
+longA574 bolts and106.172mm for the four front bolts; actual threaded roots
+remain in their strength calculations. All306 nominal access/removal envelopes
+and204 supported washer rings clear. The lower-leaf row requires at least
+34.0mm measured at both faces with at most0.25mm measurement uncertainty;
+the fixed-action minimum-end sensitivity stays below reference. The existing
+six-panel machining table and both panel sheets retain all66 current axes.
+
+Panel/Hillman strength remains **deferred and unresolved**. It is not a panel,
+screw, whole-wall or climber strength pass. Actual material, hardware, cuts,
+tools, floor and fit remain unobserved; observation cells stay blank. No
+fabrication or climbing release, anchor, floor test or blanket outside
+sign-off is established. Selected-baseline authority stays separate.
+
+Current source geometry, own12 fields, method inputs and publication receipts
+remain active under the existing`frame-completion-v1` packet. Earlier failed
+stock/front/hardware trials are closed history for separate archive review;
+none is pruned or removed. Final validation passes:237 Node checks, three
+builder tests, generated layout/shop byte checks, the current development-index
+check and both shared-mesh checks. A real Chromium browser loads the current
+front/rear model, preserved106-bolt model and five-piece frontA574 stack, with
+four captures and no page/request failures. The existing packet retains
+`browser-final-v3/result.json` and the`final-node-tests.log`.
+The complete inherited worksheet source union contains1766 rechecked bindings.
+The coherent packet and validation are recorded on master. Actual build
+observations and deferred panel strength remain outside this completion.
+
+<details>
+<summary>Preceding frame iterations and their issue-time findings</summary>
+
+The paragraphs below preserve the sequence before the current102-bolt
+revision. Their “active/current” wording describes those earlier iterations.
+
+**Owner-directed frame and packet completion — active.** After the completed
+cleat evaluation, the owner directed integrating the evaluated 106-bolt /
+26-angle paired-leaf detail, completing the other frame checks, and then
+reconciling the shop packet and publication checks. Panel and Hillman
+attachment work is explicitly deferred again. This records the owner's
+scope choice, not an accepted panel/screw capacity or a whole-wall release.
+The selected screw/ML24Z baseline retains its separate authority.
+
+Reuse the exact frozen geometry and twelve authenticated nominal/soft
+fields bound by the final cleat evaluation. Carry the existing upper returns,
+foot-axis moves and six Grade 8 cleat-bolt requirements with that complete
+detail; do not integrate only the plywood leaves. First reconcile the model,
+hardware and receiver inventory, then use the existing conventional methods
+to close the remaining leg/runner, other shaft/fitting, finished-member,
+service-hole and restraint duties. Each new calculation must identify the
+remaining decision it resolves. Preserve failed studies and current source
+bytes. Final millimetre instructions use current US lumber and distinguish
+conditional engineering completion, deferred panel duties and later actual
+observations. No physical operation or climbing release is commissioned.
+
+The first remaining-frame review identified a specific upper-leg geometry
+shortfall: both 12.7-mm pins are 43.399173 mm from the nearer rim edge;
+NDS2024 Table12.5.1C requires 50.8 mm at a loaded edge. Edge shortfall is not
+an end-distance reduction through Cdelta. A separate 15-mm world-Z rise of
+these two axes gives a nominal minimum 53.040987 mm, with 2.240987 mm margin,
+and improves their leg edge distances. This is a bounded correction to
+investigate, preserving one bolt per joint, all timber sections, 106 bolt
+axes, 26 angles and 66 screws. The owner was informed before any model change.
+Recheck its finished geometry, access and matching actions, then rebind the
+cleat and other frame checks; do not transfer the frozen cleat's force pass.
+Working inputs, initial loose screens and the source-bound edge worksheet
+stay in the existing integration packet's `frame-completion-v1` directory.
+
+The raised-pin geometry is integrated into the current model and its
+106-axis / 134-receiver tables. All twelve own cases independently replay;
+updated cleat sections/groups/receivers, enclosed-passage references and the
+initial312 same-angle steel action checks are below reference. The complete
+24-sawn-member continuous net-section calculation covers252 contained
+analytical regions, with all current curved openings and the retained
+recess/bevel cores. Its largest normal and declared-restraint comparisons
+are0.909199 and0.955418; the conservative header shear/torsion construction
+reaches1.138588. The bolt audit also finds29.108028mm at the inner-principal
+loaded edge against38.1mm and inadequate front post/runner staggered spacing.
+These remain required frame duties, separate from the owner's panel deferral.
+
+**Retained-stock direction.** The owner's later instruction is to keep both
+inner principals and the flat header as2×6s. This supersedes the enlarged-stock
+proposal. The three2×8 study and its later two2×8-principal/2×10-header,
+102-bolt refinement are unadopted evidence. The latter's fixed-two-long-leg
+support campaign was stopped after two nominal solutions; only the K12-right
+field completed independent force/four-plywood replay before that stop.
+Neither solver convergence nor the enlarged geometry closes a duty on the
+retained2×6 frame. No enlargement or102-bolt change enters the current viewer,
+revision index or shop packet.
+
+The original source paths, clearance records, partial fields, failed geometry
+attempts and support-method trials remain recoverable under the same
+`frame-completion-v1` directory. Continue from the integrated106-bolt2×6
+geometry: review the existing header section conservatism, then establish
+whether existing factory-hole pin changes can meet the principal loaded-edge
+and front post/runner spacing requirements within that stock. Reuse matching
+fields for arithmetic-only reviews; changed geometry needs its own affected
+actions and joint evidence. The29.108028/38.1mm principal edge, front pair
+spacing and1.138588 header comparison remain explicit open findings.
+The unchanged2×6 header's follow-up now retains signed compatible-face
+vectors rather than unrelated component peaks. Twelve own fields give a
+maximum1.113519 at a bore-centre one-sided cut; the continuous1.138588 upper
+is preserved. Thus peak addition alone does not close the declared section
+comparison. No new load sharing, duration/material increase, force solve or
+geometry change was used. The existing rectangle coupon and exact pure
+torsion/face functions are reused; the raw result is
+`frame-completion-v1/header-2x6-section-review-v1.json`, SHA-256
+`2ca3752e1eb3c113c2f3e497c456b2747eed97246facda15e016ea1909d80c82`.
+This is an exceedance of the declared section model, not inspected timber
+or proof of physical failure. The retained panel-machining CSV was separately
+compared with the current66 world axes; identities and origins all match.
+Its unchanged six-panel layout can be reused rather than regenerated.
+The current fitting's four principal-hole positions were also screened on
+both retained2×6 profiles without a model change. Only installed072/073
+meets the retained both-direction end/edge screen; the unused near row has
+18.651mm grain end against33.3375mm. The installed pair's32.653611mm
+grain projection is below the35.71875mm perpendicular-load row minimum.
+The paper comparison/diagram is
+`frame-completion-v1/principal-2x6-paper-options-v1.json/.svg`; its result
+SHA-256 is`fafa29076a850b782f92c79412a02b733f5cea23c01e1ceca76a4815a4371856`.
+The owner has now directed proceeding with the recommended single principal
+pins, wider two-pin front connections and single upper-knee pins, then
+recalculating the retained2×6 header. The resulting separate102-bolt prototype
+keeps every stock section/length, panel, all66 screws, four leaves,26 angles
+and ten cleat/header axes. It retains principal072/073, omits068/069 and
+upper-knee006/009, and reuses the existing62.0/100.1mm front pair positions
+with four Grade8 bolts/nuts. All1075 occupied parts clear, with28 newly
+checked solids and22 omitted hardware pieces. The frozen geometry is
+`frame-completion-v1/retained-2x6-pins-geometry-v1/geometry.json`, SHA-256
+`01736321b76034068e8518847610ca0823a6628e2e987c1c4f04c426b9cf1123`.
+Fresh102-shaft/130-receiver extraction is complete; own mechanics and frame
+checks are active. The106-bolt viewer/shop revision remains integrated
+until this prototype's evidence supports a coordinated replacement.
+
+The nominalK12-right pilot independently replays. Its remaining92 bolt
+geometry is eligible, maximum adjusted bearing0.990380; all24 timber section
+comparisons are below reference, with header shear/torsion0.943603. The
+separate right-front runner NDS3.4-6 end-shear comparison is1.132050,
+using de77.699mm, demand857.683N and reference757.637N. The nominalA12-forward
+corner-support search exhausted its ten-pattern budget; converged:false
+remains a rejected result despite a small last-branch residual. Do not run
+the rest of this diagonal-front bank. Its source-bound disposition is
+`frame-completion-v1/retained-2x6-review-v1/pilot-nominal-k12-right-v1/pilot-disposition-v1.json`,
+SHA-256`22a1312c1e01120ea70a91c16252a7a18257993051d2662b7d96a04a6a92cda3`.
+The owner-approved two-pin front revision is now being checked with both
+pins at80mm from the common front end,55/100mm above the runner sole. This
+vertical pattern improves the effective runner depth while retaining all
+stock,102 bolts,26 angles and every other axis. All1075 parts clear in
+`frame-completion-v1/retained-2x6-vertical-front-geometry-v1/geometry.json`,
+SHA-256`1c46176e584c45f295c14ff3e37753b8c0eb7fa79a24b40cc46318fd8e1e0a5f`.
+It needs its own accepted fields and complete checks before integration.
+
+The subsequent50/100mm vertical front pattern resolves the pilot runner-end
+comparison: nominalK12-right0.832991, header0.968999. Its original cleat metal
+and affine plywood-group constructions still reach1.031206/1.190864. The
+source-bound disposition is
+`frame-completion-v1/retained-2x6-vertical-front-review-v2/pilot-nominal-k12-right-v1/pilot-disposition-v1.json`,
+SHA-256`d7c48b0dd8a43ea7e127e88a2ca5151e0dce0ac21e6e2da6778dfd3eecd6287b`.
+
+The active low-change trial uses ten standard ASTM A574 socket-head through
+bolts: six203.2mm cleat bolts and four152.4mm front bolts, all3/8-16. The ten
+Grade8 nuts remain. Every wood profile, length and102 axes stay fixed; counts
+remain26 angles,204 washers,34 spacers and66 Hillman axes. All1075 parts
+clear in`frame-completion-v1/retained-2x6-A574-geometry-v2/geometry.json`,
+SHA-256`ff3b55af904d4375c7ec9aa1fe65712da3c913f78a27b552d2c4002a35d37c0d`.
+The two socket-bolt length classes have distinct authenticated body windows;
+all102 tip/free-seating windows are positive. Front root regions are retained
+in strength, rather than borrowing the long-bolt body length or a quarter-rule
+exception. The source facts remain in the same packet's`hardware-source-v1`.
+
+The first matching nominalA12-forward field independently replays and clears
+all pilot comparisons: bolt/wood0.963237, bolt bending0.888090, header
+shear/torsion0.960634, runner end0.875948, plywood groups0.881004. The mixed
+method retains sawn/steel affine fields on the ten dedicated shafts and
+reuses the proven balanced pressure blocks on plywood, preserving each own
+force and moment. The other92 shafts retain their established balanced
+bearing method. No material reference, end/group factor or27mm credited ply
+window is increased; A574 uses its sourced153ksi yield and a conservative
+body floor. Nominal geometry stiffness and the actual-root strength distinction
+remain explicit. Existing24-member core queries are reused only after exact
+profile/bore-input comparison in`retained-2x6-A574-review-v2/geometry-reuse-v1.json`
+(SHA-256`ff73293d57e9119272c42eb02ef06161b2aad33f39794a771de1f154c14da3e8`).
+The remainder of the own12-case bank and complete joint, hardware, service,
+shop and publication checks are still required. Current106-bolt integrated
+geometry remains separate from this active trial; no historical force pass
+or physical release transfers.
+
+The same current106-shaft geometry now has fresh catalog-box dimensional
+windows in`up15-hardware-windows-v2.json`: minimum two-tip-pitch margin
+0.508mm, free nut-seating margin3.2512mm and required socket cavity maximum
+33.7312mm. All318 nominal socket/removal envelopes clear in
+`up15-frame-nominal-access-v2.json`. All212 supported washer rings are
+contained in`up15-washer-lands-v2.json`;32 profiles retain the existing
+inner washer bridge across the larger modeled bore, not fictitious full
+inner-annulus wood support. These are geometry/dimensional results, not
+new washer/nut/bolt strength or actual-part observations. The stock generator
+now agrees with the guide's14-stick162-board-foot allocation, with each
+center post cut from its corresponding2×6 principal blank. Three focused
+builder tests, generated-shop byte checks and the development-index check
+pass. Final purchased-hardware columns still need the new window rows in
+the coherent final packet rather than inherited shorter-bolt comparison columns.
+The later matching106-bolt normal end-hardware worksheet now checks all212
+ends across12 fields and5 nominal/catalog-corner washer profiles, including
+the32 inner annulus bridges. Maximum washer/support-bearing/nut-proof/
+spacer-compression comparisons are0.677668/0.463160/0.019719/0.097159.
+The result is`frame-completion-v1/up15-end-hardware-strength-v1.json`, SHA-256
+`6597e7c223377d3424231796c5efcf63456c8d4e66953cce968e5124961566a7`.
+This is the same normal-transfer method as the completed cleat; other shaft
+and fitting actions remain separate. No preload or actual hardware acceptance
+is implied, and revised102-bolt actions require their own worksheet application.
+This goal remains active through their disposition, coherent shop drawings,
+stock/hardware reconciliation and publication. No raw run is archived or pruned.
+
+</details>
+
 **Completed conditional plywood-cleat evaluation.** The owner
 cleared the earlier goal and explicitly commissioned complete cleat evaluation,
 using proven design methods, reasonable stated assumptions and online primary

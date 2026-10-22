@@ -10,17 +10,18 @@ Start at the **[development summary and revision map](docs/bolted-frame-developm
 It identifies the current geometry, matching nominal shop records, applicable
 numerical evidence and remaining work.
 
-The current geometry is **`eoere-single-leg-bolts-header-angles-v3`**:
-[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear).
+The current geometry is **`eoere-paired-frame-retained-2x6-A574-v2`**:
+[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear).
 The optional extra grid remains a preserved notched predecessor. The
 [checked revision index](docs/bolted-frame-development/development-revisions.json)
-binds one bolt at each long-leg joint, 24 angles, 96 bolt stacks, two single
-plywood cleats and 24 factory spacers. The 32 enclosed passages, solid 4×6
-outer posts and 66 Hillman axes are retained. Fresh conditional cases and
-changed-connection checks are tracked in the development summary; complete
-joint/member acceptance remains open.
-Actual hardware-fit, installation and joint-strength holds remain. No fabrication or climbing
-release is established.
+binds 24 unchanged sawn sections and lengths, four separate plywood leaves,
+26 angles, 102 bolt stacks, 204 washers and 34 factory spacers. The principal
+and upper-return fittings use single pins; the short-front-post/runner joints
+use vertical pairs. Ten bolts are ASTM A574 socket-head through bolts.
+The 32 enclosed LED passages and 66 Hillman axes remain. The matching twelve-case
+conditional frame evaluation and shop packet are complete; see the development summary.
+Panel/Hillman strength is explicitly deferred and unresolved. Actual materials,
+fit and floor are unobserved; no fabrication or climbing release is established.
 
 | Need | Start here |
 | --- | --- |

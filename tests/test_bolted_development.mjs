@@ -8,6 +8,7 @@ import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mj
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
 import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
+import {validateRetainedFrame} from '../site/eoere-retained-frame-overlay.mjs';
 
 // Keep exercising the preserved force/shop contracts against their own geometry.
 function ownRevision(revision) {
@@ -23,6 +24,17 @@ const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index,
 
 test('current geometry/shop, preceding response and baseline keep their own identities', () => {
   assert.equal(checkCurrentDevelopment().passed, true);
+});
+
+for (const [label, mutate] of [
+  ['missing omitted stack component', scene => {scene.removals.pop();}],
+  ['foreign parent receipt', scene => {scene.parent_layout.sha256 = '0'.repeat(64);}],
+  ['historical strength transferred', scene => {scene.historical_capacity_transferred = true;}],
+]) test(`reject retained-frame ${label}`, () => {
+  const index = readCurrentIndex();
+  const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validateRetainedFrame(scene, index.geometry.receipt.sha256));
 });
 
 for (const [label, mutate] of [

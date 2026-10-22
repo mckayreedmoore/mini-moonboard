@@ -29,11 +29,11 @@ The [decision log](decision-log.md) records the sequence and changing constraint
 
 ## Eoere development sequence
 
-The current geometry is **`eoere-raised-kicker-screws-v1`**:
-[current hardware viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear).
-Use the [maintained revision map](../bolted-frame-development/README.md#revision-map) and
-[checked index](../bolted-frame-development/development-revisions.json) for the separate
-shop, response and proposal scopes. These milestones preserve preceding questions, changes
+The current development geometry and engineering disposition are identified by the
+[maintained revision map](../bolted-frame-development/README.md#revision-map-and-retention)
+and [checked index](../bolted-frame-development/development-revisions.json).
+The 100-bolt selected-hardware packet below is a preserved predecessor.
+These milestones preserve preceding questions, changes
 and evidence boundaries; their design history can still supply active inputs.
 
 | Milestone | Change and useful result | Primary record / viewer |
@@ -48,6 +48,8 @@ and evidence boundaries; their design history can still supply active inputs.
 | Fresh extended-cleat numerical packet | Completed six own-case equilibrium/recovery audits and twelve component reports. Exceedances, first-order/floor assumptions, four held cleat/post stations and unknown complete-joint resistance remain explicit. | [Preserved result and review bindings](../wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion) |
 | Smaller channels and raised kicker screws | Reduced service-cut sections, restored eleven principal arcs and raised two outer upper kicker screws from Z192 to Z212 mm, retaining 100 bolt axes and 66 screws. Matching current shop companions preserve unchanged raw cuts, nesting and receiver rows. | [Current revision map](../bolted-frame-development/README.md#revision-map) · [builder plan](../bolted-frame-development/builder-plan.md) |
 | Selected hardware and matching current response | Applied 32 longer bolts and eight spacers; completed six matching first-order cases and bounded joint/member references. Complete resistance and physical stiffness/restraint remain unqualified; panel/screw remedies stay deferred. | [Hardware application](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md) · [current qualification status](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) |
+| Paired cleats and raised long-leg pins | Integrated four independent plywood leaves,26 angles and106 bolts; raising the upper long-leg pins corrected loaded edges. The principal-pin geometry and header references still exceeded their declared criteria. | [Preserved106-bolt receipt](../bolted-frame-development/paired-frame-v1/geometry.json) · [viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-paired-cleats-frame-development&view=rear) |
+| Retained2×6 frame completion | Owner-selected single principal/upper-return pins, vertical front pairs and ten standardA574 bolts give102 stacks without changing24 sawn sections/lengths. Twelve own cases complete the declared conditional frame evaluation; panel/Hillman strength stays deferred. | [Current receipt](../bolted-frame-development/paired-frame-v2/geometry.json) · [evaluation](../bolted-frame-development/paired-frame-v2/engineering-evaluation.json) |
 
 The [pre-compaction Eoere summary](eoere-development-summary-before-compaction.md)
 preserves the full 1,270-line text from `845e2e0c`, including its thin-frame

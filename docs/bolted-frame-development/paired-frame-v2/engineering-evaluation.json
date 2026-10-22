@@ -1,0 +1,1049 @@
+{
+  "actual_observations": null,
+  "basis_and_limits": {
+    "first_order": "Recorded linear beam/plywood/shaft stiffness and contact/capture laws. Panel/Hillman stiffness remains in global actions despite deferred strength. No friction between timbers, composite leaves, bolt preload, shaft axial torque or hidden panel-bracing credit.",
+    "loads": "The six named recorded load cases and gravity/accessories only; case rows bind their actual climber force/point. No all-hold, all-direction, fatigue, impact-spectrum or multiple-climber rating.",
+    "materials": "Dry DF-LNo2, CD1, recorded stock factors, APA48ocPS1 >=5plies/Group1 and actual leaf thickness>=27mm. Factory angles require recorded t6.35/Ri6.35/Fy235/Fu370; washers/spacers require conditional33ksi material. These are requirements/assumptions, not observed delivered properties.",
+    "movement": "Current localized cleat bore-axis tilt<=0.008706rad; original compression at a cleat contact class switch<=10.453N. Common rotations and free leaf-tip motion remain distinct. Whole-member motion maxima are disclosed per case; these probes support conditional nominal use, not finite-motion re-equilibrium or a force-error bound.",
+    "restraint": "Member/steel net-bar end translation and twist conditions remain analytical hypotheses; K1 member and K2 steel bar comparisons do not inspect actual restraint.",
+    "shop": "The nominal geometry and stated measured dimension/material/hardware minima are required. Actual/Disposition cells stay blank; a failed dimension or incompatible part stops that operation. The header nominal0.989083 margin is close.",
+    "support": "All32 floor normal laws remain. Loaded non-runner corners stick horizontally; both outboard runners have no horizontal reaction. No verified friction coefficient, anchor or bound on every floor state. No floor test or blanket external sign-off is added.",
+    "wood_joint_scope": "Conventional NDS end/edge/row/group/splitting prevention and recorded net-ligament hypotheses; no universal Ft90/fracture, defect or tested plywood joint capacity is invented."
+  },
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "candidate_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-geometry-v2/geometry.json",
+    "sha256": "ff3b55af904d4375c7ec9aa1fe65712da3c913f78a27b552d2c4002a35d37c0d"
+  },
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "a12-forward",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            0.0,
+            -300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/field.json",
+        "sha256": "6b73211525a77a32be6714aeec6c29496f97ce9e3ece1e67e2d4f1f0d48d70b1"
+      },
+      "gradient_inf_N": 3.697084594023181e-08,
+      "maximum_member_node_rotation_rad": 0.1419840260121439,
+      "maximum_member_node_translation_mm": 103.46124615339579,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json",
+        "sha256": "de31b101a42574c12be6c649cf2ff08b75958b9dd8cb3add6e830e56d909a8db"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json",
+        "sha256": "690dbb337a87e82f506d78a6bf3f859b84c766ca34d32431bc9e38d4e668b02a"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "a12-left",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            -300.0,
+            0.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/field.json",
+        "sha256": "6c02a0ec023278f94837f49bd5f09477be4dc1c2899a37742241abf2673e3e62"
+      },
+      "gradient_inf_N": 3.725290298461914e-08,
+      "maximum_member_node_rotation_rad": 0.13910696995740998,
+      "maximum_member_node_translation_mm": 100.42301238441664,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json",
+        "sha256": "02e3113efca0c57307a3d51f6486703279de459cda2134695c4ce13967d5abe5"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json",
+        "sha256": "ec4462ac82ce184d800dc7ced97e980e9c5a89400516b5e0bcb955a0010c0580"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "a12-rear",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/field.json",
+        "sha256": "16b583d8e8d33cf1dac9b301cf2bdc277fd9e232eab2ee4a259e59120b1f9d7a"
+      },
+      "gradient_inf_N": 3.4724966141378764e-07,
+      "maximum_member_node_rotation_rad": 0.09999693620296482,
+      "maximum_member_node_translation_mm": 73.22278176271777,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json",
+        "sha256": "e00c2fb7f449f81c0a79db472d887b20eb12d3564eccb3795e88a972f222007c"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json",
+        "sha256": "6210fd9c1b3bf0f48176144fbf6e955cb4b76a96aae0991ed8957b8c38812c23"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "k12-right",
+      "climber_loads": [
+        {
+          "body": "main_upper_right",
+          "force_xyz_n": [
+            300.0,
+            0.0,
+            -2224.11080763025
+          ],
+          "id": "climber/K12",
+          "point_xyz_mm": [
+            980.8,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/field.json",
+        "sha256": "d7fa62bd2d312cbad9fff3b29f97d6633a0a135b7c80bf3cbf38d4475cfad2d5"
+      },
+      "gradient_inf_N": 1.3041250657153114e-07,
+      "maximum_member_node_rotation_rad": 0.13867590836359786,
+      "maximum_member_node_translation_mm": 100.10441156286538,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json",
+        "sha256": "fd9b11f9167dc9baaed343fd63fd25174840ae0a3b3faca09b8590d974ddb230"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json",
+        "sha256": "e50a359896c2f2a78f971e7e3f81b8336284fa9c4d41ac2fae9a769fb506e023"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "k12-rear",
+      "climber_loads": [
+        {
+          "body": "main_upper_right",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/K12",
+          "point_xyz_mm": [
+            980.8,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/field.json",
+        "sha256": "5f3049b03b3a8d2efe92d16b24e5443cc895ba8929ec2f52f8b30332dd140fd4"
+      },
+      "gradient_inf_N": 1.8257129374281844e-07,
+      "maximum_member_node_rotation_rad": 0.09939387527282871,
+      "maximum_member_node_translation_mm": 72.83452072582787,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json",
+        "sha256": "ce571f2e54b618d64edfe8e964720d821dd10eef8ab855a7d4ee2fd939ba8616"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json",
+        "sha256": "ebd0f76ca7cced03cc2fe7416ec899e61583bb2770fd288fd0805083cde16576"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "a1-rear",
+      "climber_loads": [
+        {
+          "body": "main_lower_left",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A1",
+          "point_xyz_mm": [
+            -1019.2,
+            122.565274060547,
+            288.5481334390929
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/field.json",
+        "sha256": "fb8d20fc530c229afea7fb838a8bfe84e085ae071effd1cf503b0681496ffdfd"
+      },
+      "gradient_inf_N": 9.424940564106699e-08,
+      "maximum_member_node_rotation_rad": 0.014711628611115073,
+      "maximum_member_node_translation_mm": 13.891732455728182,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json",
+        "sha256": "38abaac01dee9e7a853b00861e9fe39066b33d67db75b570ee68c385b6df4cf1"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json",
+        "sha256": "77614dc6937cbcfe969f9a47a094c90c97be189c5b82c0c57740fd8ea045caca"
+      },
+      "scenario": "nominal"
+    },
+    {
+      "case_id": "a12-forward",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            0.0,
+            -300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/field.json",
+        "sha256": "19ca08630d7c8b19dc51c9447cc8ede90c0badb5025902ef6dbcb3e9aba3556a"
+      },
+      "gradient_inf_N": 5.206591748851963e-07,
+      "maximum_member_node_rotation_rad": 0.1420172268806367,
+      "maximum_member_node_translation_mm": 103.48567819945812,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json",
+        "sha256": "7fe29680db24dceefa5046a980f9a0b4d9732fce6b060e1f35a63a3f5ed2120f"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json",
+        "sha256": "1238d01fe8cb4b1f8c105f3da115965af76a60f58013b1a811bba4dd273eae72"
+      },
+      "scenario": "soft"
+    },
+    {
+      "case_id": "a12-left",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            -300.0,
+            0.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/field.json",
+        "sha256": "018d6ec227f4a417400e9db1e66807d7351460b67bf579d08264cabab557c870"
+      },
+      "gradient_inf_N": 4.859383606614642e-08,
+      "maximum_member_node_rotation_rad": 0.1391802990059215,
+      "maximum_member_node_translation_mm": 100.46719626831302,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json",
+        "sha256": "637f24461d897aa5d144db7b8db0e70d98669e9c7e5f9ea9ee854189b2c0f5b9"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json",
+        "sha256": "2f257ede7048dbcd7b88cf9f35fe84f20871939942b34c031a3ebcb179cafe50"
+      },
+      "scenario": "soft"
+    },
+    {
+      "case_id": "a12-rear",
+      "climber_loads": [
+        {
+          "body": "main_upper_left",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A12",
+          "point_xyz_mm": [
+            -1019.2,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/field.json",
+        "sha256": "37dfa93e2ecb5db27ca2aacd807283afa5e96a1182eab54291e7a9aecb138ea8"
+      },
+      "gradient_inf_N": 8.271152580045845e-07,
+      "maximum_member_node_rotation_rad": 0.10003508966539805,
+      "maximum_member_node_translation_mm": 73.24158592025448,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json",
+        "sha256": "b7e263d9ea3ea9408af159a8ac178056d12ba386a63995a86744a2240dd3d073"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json",
+        "sha256": "72cc098af208606f1b5b63242d1948f16a779637a9f49b14fdf76cd529eb8ae7"
+      },
+      "scenario": "soft"
+    },
+    {
+      "case_id": "k12-right",
+      "climber_loads": [
+        {
+          "body": "main_upper_right",
+          "force_xyz_n": [
+            300.0,
+            0.0,
+            -2224.11080763025
+          ],
+          "id": "climber/K12",
+          "point_xyz_mm": [
+            980.8,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/field.json",
+        "sha256": "c41f5b911f231279be3b0f0801c0e58625968bf10c831ec5edc14353e7fc49be"
+      },
+      "gradient_inf_N": 4.470348358154297e-08,
+      "maximum_member_node_rotation_rad": 0.13874717203603473,
+      "maximum_member_node_translation_mm": 100.14752695772377,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json",
+        "sha256": "af717d2ac50ad5dd08e8768bb91ac3841a81e299664cc656c3341e999e5e8c3a"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json",
+        "sha256": "b81e170cec8ba30fa07db0cbbd512300db8c4c4fe7e80533e2525b3a43fc759c"
+      },
+      "scenario": "soft"
+    },
+    {
+      "case_id": "k12-rear",
+      "climber_loads": [
+        {
+          "body": "main_upper_right",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/K12",
+          "point_xyz_mm": [
+            980.8,
+            1549.553767565547,
+            1989.166797164093
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/field.json",
+        "sha256": "c62249654eae097fe14a3ebba3d4b9d6a4789569e10c4dbe14a29d068d5a93de"
+      },
+      "gradient_inf_N": 2.8291376061997244e-07,
+      "maximum_member_node_rotation_rad": 0.09943000362856505,
+      "maximum_member_node_translation_mm": 72.85216810334222,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json",
+        "sha256": "96644075423b43bdb857e31307a98535a90521ff565eed03671761656d533b98"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json",
+        "sha256": "2b204495c592bf1bd3a59a1095ff21ba3cc090999efaf131cd22b4fc31a5cfb7"
+      },
+      "scenario": "soft"
+    },
+    {
+      "case_id": "a1-rear",
+      "climber_loads": [
+        {
+          "body": "main_lower_left",
+          "force_xyz_n": [
+            0.0,
+            300.0,
+            -2224.11080763025
+          ],
+          "id": "climber/A1",
+          "point_xyz_mm": [
+            -1019.2,
+            122.565274060547,
+            288.5481334390929
+          ]
+        }
+      ],
+      "field": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/field.json",
+        "sha256": "3f626c4db85d4b6eae177ac0e62534ffa56305619ebe97e241882ff21439fdda"
+      },
+      "gradient_inf_N": 1.8018610996491102e-08,
+      "maximum_member_node_rotation_rad": 0.014735718312311356,
+      "maximum_member_node_translation_mm": 13.891944499597807,
+      "plywood_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json",
+        "sha256": "ed047f8dc8c0ab3a63759d2509cf413f2b3c6b81144240759188a9c1fae3e722"
+      },
+      "raw_replay": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json",
+        "sha256": "e2c0a58dd443c15b98f69fdebe4dda3e9521ffcf1ebdb001cbf82aa22e0ed089"
+      },
+      "scenario": "soft"
+    }
+  ],
+  "complete_conditional_frame_evaluation": true,
+  "complete_fitting_validation": {
+    "controls": "Independent constant-stress coupon, whole-mesh manufactured traction/displacement, complete source force/moment projection, six rigid gauges and own field/source binding checks.",
+    "fitting_action_sets_per_mesh": 312,
+    "largest_mesh_sample_index_change": 0.07035754946416362,
+    "limits": "Conventional engineering mesh/load assessment of sampled elastic stresses, not a certified stress supremum, manufacturer rating or physical material observation.",
+    "maximum_doubled_pressure_relative_peak_change": 0.00012665171211589943,
+    "mesh_disposition": "Three-mesh per-duty envelopes plus twice the complete mesh spread, with twice the observed pressure-relative change as an extra sensitivity. The largest thickness change0.07036 occurs at a low-stress knee duty, not the governing0.63 peak. No certified discretization error bound is asserted.",
+    "meshes": [
+      "8mm one-layer",
+      "8mm two-layer",
+      "6mm one-layer"
+    ],
+    "net_flange_cases": 624
+  },
+  "completed_duties": [
+    "One coordinated geometry,102 partially threaded through-bolt selections,26 factory angles and unchanged66 panel axes.",
+    "All12 own raw force/operator/floor-mask and four-leaf operator replays, with explicit first-order support/stiffness/movement applicability.",
+    "Adjusted bolt/wood bearing, actual-root combined bolt mechanics, complete-shaft group/end geometry and all102 catalog windows.",
+    "All24 sawn-member continuous net sections, every curved passage/cut, staggered-hole deductions and declared end/restraint stability.",
+    "All remaining sawn grain-row/groups, NDS loaded-end shear, retained notched feet and timber contact compression.",
+    "Four independent plywood leaves,336 row/group subsets, dedicated receiving-member end/section/transfer and mean seat checks.",
+    "All26 full six-stress holed angles over312 own actions on three cached meshes, actual J4 block-traction bounds and624 net-flange/bar-stability cases.",
+    "All204 normal hardware ends over12 fields, catalog-corner washer profiles, support rings, nuts, spacers and full-size axial proof comparisons.",
+    "All32 retained LED passages on all12 matching fields; unchanged intact harness/endpoints and installation sequence.",
+    "All306 nominal tool/insertion/removal envelopes,204 washer rings,102 length/seating windows and current receiver/bit/body requirements.",
+    "Coherent millimetre member drawings, stock/hardware totals, panel geometry reuse, temporary support, assembly order and controlled critical-row measurement."
+  ],
+  "counts": {
+    "Hillman_axes": 66,
+    "angles": 26,
+    "bolt_stacks": 102,
+    "nuts": 102,
+    "occupied_parts": 1075,
+    "panels": 6,
+    "plywood_cleats": 4,
+    "receiver_occurrences": 130,
+    "sawn_members": 24,
+    "spacer_pieces": 34,
+    "washers": 204
+  },
+  "evidence": {
+    "all_angle_net_sections_and_stability": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/frame-flange-sections-common-washer-v1.json",
+      "sha256": "264ebc0dc240adc296ae2abd4ad3e75704b1becb936cc8d30879a953b7a861c2"
+    },
+    "all_sawn_net_sections": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/timber-sections-v1.json",
+      "sha256": "898e5610ea945147fd797b1be75a05ca1a0529a843dca36ffb5c2814bded1a6d"
+    },
+    "balanced_and_affine_bores": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/mixed-bores-v1.json",
+      "sha256": "33ad70e3b67b8d15297a8e1c3685173218c82098b0c469292b2864169ae4af73"
+    },
+    "bolt_end_edge_spacing": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/shaft-geometry-adjustments-v3.json",
+      "sha256": "f9c22c1247c2643e8af187ea8041060fff3ff1391a9665a9ebce774cc6390748"
+    },
+    "catalog_length_windows": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-hardware-windows-v2.json",
+      "sha256": "909b8c2f2f83b0249af6c74105bc93a7e206a94f0f00a6f3d18c2ede0a2af7b9"
+    },
+    "complete_block_cut_tractions": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/block-tractions-v1.json",
+      "sha256": "889e03cc92428b386564d75b79041480e000a9f8b9194a7b34d558c30e879950"
+    },
+    "coordinated_geometry": {
+      "path": "docs/bolted-frame-development/paired-frame-v2/geometry.json",
+      "sha256": "98fb3d6437d629201e9e60cf6a3068a070f2e1f0574a7364c256c0e8a904f379"
+    },
+    "critical_lower_leaf_dimensions": {
+      "path": "docs/bolted-frame-development/paired-frame-v2/critical-dimensions.json",
+      "sha256": "d8d2529202f1a579be2569cb0a34c0af68353cc0c46c9a32bdee274f0b4f4986"
+    },
+    "dedicated_sawn_grain_groups": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-groups-v1.json",
+      "sha256": "47c4cc8a85c3b508d6924817ad4f1d235167fa9b4ded3a331fbe97171fb32a7e"
+    },
+    "doubled_pressure_quadrature": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-refined-pressure-v1/result.json",
+      "sha256": "d02e0a924875d0b4b4a36c21b833d4fa8e00959ba44f2a38be7888a76152e167"
+    },
+    "nominal_a1-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json",
+      "sha256": "38abaac01dee9e7a853b00861e9fe39066b33d67db75b570ee68c385b6df4cf1"
+    },
+    "nominal_a1-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json",
+      "sha256": "77614dc6937cbcfe969f9a47a094c90c97be189c5b82c0c57740fd8ea045caca"
+    },
+    "nominal_a1-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a1-rear-v1.json",
+      "sha256": "9f10e2654800aa27daaae016cf1e44ef86beaf0eeb06ed4d940552432f6bf498"
+    },
+    "nominal_a1-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a1-rear-v1.json",
+      "sha256": "ef35db599fecad965ae4146b3942e57381cb3fbc3750a65dfd1878e0b3900130"
+    },
+    "nominal_a1-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a1-rear-shafts-preflight-v1.json",
+      "sha256": "098d8d582d75136cbedbf771b028a946ce37127f619668ed2a2a3ff9ae531438"
+    },
+    "nominal_a12-forward_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json",
+      "sha256": "de31b101a42574c12be6c649cf2ff08b75958b9dd8cb3add6e830e56d909a8db"
+    },
+    "nominal_a12-forward_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json",
+      "sha256": "690dbb337a87e82f506d78a6bf3f859b84c766ca34d32431bc9e38d4e668b02a"
+    },
+    "nominal_a12-forward_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-forward-v1.json",
+      "sha256": "a0f37795e524f2eefadeda61e6ccabbaba8e62babe72237adfaf009e802e5bab"
+    },
+    "nominal_a12-forward_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-forward-v1.json",
+      "sha256": "6f340e1a716d818a4ac85c0c72ef05d3fa318ad025fdc4c922bc2959a5d74732"
+    },
+    "nominal_a12-forward_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-forward-shafts-preflight-v1.json",
+      "sha256": "e20c98de64ab5f76bb75a4976f41f2cd36bd4449024c58bd559b8f4514f92526"
+    },
+    "nominal_a12-left_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json",
+      "sha256": "02e3113efca0c57307a3d51f6486703279de459cda2134695c4ce13967d5abe5"
+    },
+    "nominal_a12-left_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json",
+      "sha256": "ec4462ac82ce184d800dc7ced97e980e9c5a89400516b5e0bcb955a0010c0580"
+    },
+    "nominal_a12-left_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-left-v1.json",
+      "sha256": "e37307769e63fef12a207d4792c03e47630bdb82cfc7e356f3e044caddfb888e"
+    },
+    "nominal_a12-left_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-left-v1.json",
+      "sha256": "910d35a05453b1f9549adca282b9d0e5f1392f4109c3dad324fa052372057400"
+    },
+    "nominal_a12-left_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-left-shafts-preflight-v1.json",
+      "sha256": "3223379f59ebc1311bcdcf515e23a91b93005079ea3857e792b7e8280c197b87"
+    },
+    "nominal_a12-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json",
+      "sha256": "e00c2fb7f449f81c0a79db472d887b20eb12d3564eccb3795e88a972f222007c"
+    },
+    "nominal_a12-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json",
+      "sha256": "6210fd9c1b3bf0f48176144fbf6e955cb4b76a96aae0991ed8957b8c38812c23"
+    },
+    "nominal_a12-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-rear-v1.json",
+      "sha256": "b8a9eecda86a0ddbfded5da3ef4fb450091ea9645cb6238c21479da36967e774"
+    },
+    "nominal_a12-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-rear-v1.json",
+      "sha256": "2ff213a00a2f0762b8d312d8821714ba374cf2e6db8a8f1bb035e48f99f1681a"
+    },
+    "nominal_a12-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-rear-shafts-preflight-v1.json",
+      "sha256": "d854183844732537762f4302d043524969f6895abb5f8a502d79fa3f8ff3d9d9"
+    },
+    "nominal_cleat_bearing_transfer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-bearing-transfer-v1.json",
+      "sha256": "bcaa4851e6490fadfc35fdcbaa07fbe277c138bc9f198f1836e5603abe51b19d"
+    },
+    "nominal_cleat_continuous_sections": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-continuous-sections-v1.json",
+      "sha256": "c45727fad50d43298f61616f8ec5fc52fd080c9d7e32d6481342a2d778da45c1"
+    },
+    "nominal_cleat_movement_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-movement-review-v1.json",
+      "sha256": "c799110b6b05f6a421856f5b48cb6d6db8f145cd5f2d72a39a1a8567a1d2b780"
+    },
+    "nominal_cleat_receiver_geometry": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-receiver-geometry-v1.json",
+      "sha256": "a2ea29013150ab3c3382f63d88d0978f968989158a5c85ae604e34724daf620f"
+    },
+    "nominal_cleat_receiver_standard": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-receiver-standard-v1.json",
+      "sha256": "63aeda0a7ae69e48f75727a1d1ac32dacb972f5d87593457536fd5296d659c12"
+    },
+    "nominal_k12-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json",
+      "sha256": "ce571f2e54b618d64edfe8e964720d821dd10eef8ab855a7d4ee2fd939ba8616"
+    },
+    "nominal_k12-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json",
+      "sha256": "ebd0f76ca7cced03cc2fe7416ec899e61583bb2770fd288fd0805083cde16576"
+    },
+    "nominal_k12-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-k12-rear-v1.json",
+      "sha256": "7810f335688a21ac40fafa0eabc3f2c8b16adc2de1117787a9d9649c652d6f0b"
+    },
+    "nominal_k12-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-k12-rear-v1.json",
+      "sha256": "9aac366086b8c45d1acae67778cf51d093b68170eb17a34acf0f7203fedd9eb0"
+    },
+    "nominal_k12-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-k12-rear-shafts-preflight-v1.json",
+      "sha256": "bbc739e1545bc7d4a86126cf90cc21530a0af146bb2406408873a91b6c41f140"
+    },
+    "nominal_k12-right_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json",
+      "sha256": "fd9b11f9167dc9baaed343fd63fd25174840ae0a3b3faca09b8590d974ddb230"
+    },
+    "nominal_k12-right_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json",
+      "sha256": "e50a359896c2f2a78f971e7e3f81b8336284fa9c4d41ac2fae9a769fb506e023"
+    },
+    "nominal_k12-right_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-k12-right-v1.json",
+      "sha256": "bdefc3a2d26bbf0a6212ac35237bc4658d8ac5768498478865ff710a8dfac1d0"
+    },
+    "nominal_k12-right_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-k12-right-v1.json",
+      "sha256": "ca2dd2f082d04a2fbe93298b53eac7256ed73fed26827a46642f2ba29454528a"
+    },
+    "nominal_k12-right_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-k12-right-shafts-preflight-v1.json",
+      "sha256": "7fbf9d6415b295083fc0e73b503240a59a69e08d7d07de0d58521ef2d1191c89"
+    },
+    "nominal_tool_access": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-nominal-access-v2.json",
+      "sha256": "ddc910628cdd7a33cad69d77e4ebf2b919652fdc8c24cfc5335b75ce6b230c76"
+    },
+    "nominal_washer_support": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-washer-lands-v2.json",
+      "sha256": "a9aa1fbbeb648cab48174c81984ac34c24d526c5e4e302157fdac51b70298f46"
+    },
+    "normal_end_hardware": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/end-hardware-v1.json",
+      "sha256": "460f0d73e8f375a0bb75df688c8d9e0f269a993be516a4ea36bbfaba36c66c7d"
+    },
+    "notched_feet": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/notched-feet-v1.json",
+      "sha256": "dee7b22cc8afb0dc415883d22ebd2ca318b08f55aa55bc99d3be80449054af39"
+    },
+    "original_bolt_material": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json",
+      "sha256": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d"
+    },
+    "plywood_groups": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/mixed-plywood-groups-v1.json",
+      "sha256": "8e890b278d1877594d6ce9d32e75233a7657373a7ea53b394b89e27a2a9a883d"
+    },
+    "receiver_ends_and_contacts": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/end-and-contact-signed-v3.json",
+      "sha256": "839c5670049794ca46ac8d4395fecf27b182241451669ce5698b14b4ce06629b"
+    },
+    "remaining_sawn_grain_groups": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/grain-groups-refined-v2.json",
+      "sha256": "1bdeada237a6d0c070468a1dea82d8aacd7e587ad187d6c132ff28a7c89fa9c3"
+    },
+    "socket_bolt_material": {
+      "path": "docs/bolted-frame-development/paired-frame-v2/A574-hardware-basis.json",
+      "sha256": "40ad05ef11f50154953e3764c619e3f8e955d6ba85e51e30c29c146a12713bd2"
+    },
+    "soft_a1-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json",
+      "sha256": "ed047f8dc8c0ab3a63759d2509cf413f2b3c6b81144240759188a9c1fae3e722"
+    },
+    "soft_a1-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json",
+      "sha256": "e2c0a58dd443c15b98f69fdebe4dda3e9521ffcf1ebdb001cbf82aa22e0ed089"
+    },
+    "soft_a1-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a1-rear-v1.json",
+      "sha256": "40e72e1cb66d53e0c41dc27b32cb81a8239ecc9a2a7b6ba1187a7cd4d3fb1db0"
+    },
+    "soft_a1-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a1-rear-v1.json",
+      "sha256": "a2870dda5b682b619c9c3786af68ee742486c8f6dcba5acd94da876ba7e7925b"
+    },
+    "soft_a1-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a1-rear-shafts-preflight-v1.json",
+      "sha256": "4c7ecf51dda53161d4b452d4e9dd9d0cf6995126f798af8b5b1f52b2b6856073"
+    },
+    "soft_a12-forward_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json",
+      "sha256": "7fe29680db24dceefa5046a980f9a0b4d9732fce6b060e1f35a63a3f5ed2120f"
+    },
+    "soft_a12-forward_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json",
+      "sha256": "1238d01fe8cb4b1f8c105f3da115965af76a60f58013b1a811bba4dd273eae72"
+    },
+    "soft_a12-forward_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-forward-v1.json",
+      "sha256": "101c326fb7eec2066f90fcc00facb1529360f237aefe24d4a1784191ed57bd2d"
+    },
+    "soft_a12-forward_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-forward-v1.json",
+      "sha256": "2c5352ad43b5dc94404349f4256a1c6b2359cc3de21e2ea2b46aa88ef040972c"
+    },
+    "soft_a12-forward_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-forward-shafts-preflight-v1.json",
+      "sha256": "c88fb3e9f19fa007106b75dc34f6088feecef5e180293a2aa14036e02dc45bf2"
+    },
+    "soft_a12-left_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json",
+      "sha256": "637f24461d897aa5d144db7b8db0e70d98669e9c7e5f9ea9ee854189b2c0f5b9"
+    },
+    "soft_a12-left_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json",
+      "sha256": "2f257ede7048dbcd7b88cf9f35fe84f20871939942b34c031a3ebcb179cafe50"
+    },
+    "soft_a12-left_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-left-v1.json",
+      "sha256": "f92cc082396374983b855051601d439e952c3babf2e14684704524460a75dc19"
+    },
+    "soft_a12-left_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-left-v1.json",
+      "sha256": "4fac2c816003fff8010ad91ecff215afe2c27a7e05d527c65ae703374850be10"
+    },
+    "soft_a12-left_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-left-shafts-preflight-v1.json",
+      "sha256": "d63ac050c28d864d9c713cc580e6965db86f391bf7c84c217d431919106c2b94"
+    },
+    "soft_a12-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json",
+      "sha256": "b7e263d9ea3ea9408af159a8ac178056d12ba386a63995a86744a2240dd3d073"
+    },
+    "soft_a12-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json",
+      "sha256": "72cc098af208606f1b5b63242d1948f16a779637a9f49b14fdf76cd529eb8ae7"
+    },
+    "soft_a12-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-rear-v1.json",
+      "sha256": "e0ff4052c9aefa77a8b0c66eb2f13ab83a3ec2368f3e2a4c4781fb76a5f17276"
+    },
+    "soft_a12-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-rear-v1.json",
+      "sha256": "5d56904c444b7d4fc5f12339f9ffb7865935faba7c2a460ca9d2573167fcdd47"
+    },
+    "soft_a12-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-rear-shafts-preflight-v1.json",
+      "sha256": "c4a64276b72a439258b46a10cc0bec08ce407e373689cbace7bc58411d9b0813"
+    },
+    "soft_cleat_bearing_transfer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-bearing-transfer-v1.json",
+      "sha256": "7df532fe8a970c1b51dfc96c98a9b75613e8fd41f8dcae76c31928c96a04f6bf"
+    },
+    "soft_cleat_continuous_sections": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-continuous-sections-v1.json",
+      "sha256": "ea6a6bdc82b15409464dbd07dd21be51b9131ea1b52609a7cddf16e8c18e9cc3"
+    },
+    "soft_cleat_movement_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-movement-review-v1.json",
+      "sha256": "0215f82eadae62214c6c4efec1035a23cb1b3836f2a1145d3381fa2dc6821a3d"
+    },
+    "soft_cleat_receiver_geometry": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-geometry-v1.json",
+      "sha256": "25bb800a5aa5f959ad35af1c03a48122a8b02d24fef2976ffc1fc8cd2d601453"
+    },
+    "soft_cleat_receiver_standard": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-standard-v1.json",
+      "sha256": "81ef7f8c0a8ad6c57b3da1122a09a5c6d901b68eb5da8efa9219575bd7c67d86"
+    },
+    "soft_k12-rear_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json",
+      "sha256": "96644075423b43bdb857e31307a98535a90521ff565eed03671761656d533b98"
+    },
+    "soft_k12-rear_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json",
+      "sha256": "2b204495c592bf1bd3a59a1095ff21ba3cc090999efaf131cd22b4fc31a5cfb7"
+    },
+    "soft_k12-rear_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-k12-rear-v1.json",
+      "sha256": "96a95a8c9b0c27357563bc5dfea3122b200fdde5aab6316e3b58e8f24549b7ce"
+    },
+    "soft_k12-rear_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-k12-rear-v1.json",
+      "sha256": "b936bdcc6eb8cfca274dfac6773ea4894b7d642fddd85ec669028883df74918a"
+    },
+    "soft_k12-rear_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-k12-rear-shafts-preflight-v1.json",
+      "sha256": "5584bfd99a061764690e68bd9c77b02f1367d7e7ed0af7bbfa0024064de4073b"
+    },
+    "soft_k12-right_plywood_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json",
+      "sha256": "af717d2ac50ad5dd08e8768bb91ac3841a81e299664cc656c3341e999e5e8c3a"
+    },
+    "soft_k12-right_replay": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json",
+      "sha256": "b81e170cec8ba30fa07db0cbbd512300db8c4c4fe7e80533e2525b3a43fc759c"
+    },
+    "soft_k12-right_seats": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-k12-right-v1.json",
+      "sha256": "71b35557c6eefa5667cd88cb3f2d6e7ee101a8a8e95756d99d2ebaa26bded556"
+    },
+    "soft_k12-right_services": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-k12-right-v1.json",
+      "sha256": "49b5abf9ed7535981803cf1572d716afcc2e7537adada23d5e5fcbadb7de1fd9"
+    },
+    "soft_k12-right_shaft_preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-k12-right-shafts-preflight-v1.json",
+      "sha256": "a46819cd0aa0cc0657abebe1a79df90865272dd88a071717546bfde6ff2d2482"
+    },
+    "solid_6mm-1layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-6mm-1layer-v1/result.json",
+      "sha256": "d1b68f42b09c12bea45c00282ad722ba4b0638fabfeec69e25eadde1d90ad87f"
+    },
+    "solid_8mm-1layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-1layer-v1/result.json",
+      "sha256": "5761755a64cb191070169ce87669757386ebe23b58d111be09acef8ff3f7e814"
+    },
+    "solid_8mm-2layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-2layer-v1/result.json",
+      "sha256": "a94dbf9f41b9d266780d3f193ec0c1381845ebec11c02289f669476da536517b"
+    },
+    "solid_strength_6mm-1layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-6mm-1layer-v1/strength-v1.json",
+      "sha256": "6917bdd733065b0c3691de0890d4ae3bcc3112a9233cdaee07b4c0d01d19e331"
+    },
+    "solid_strength_8mm-1layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-1layer-v1/strength-v1.json",
+      "sha256": "e5e8d9bbf54e52d7d16250e09392fd24fe018a9465bb9f46313bf9245ef2c74d"
+    },
+    "solid_strength_8mm-2layer": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-2layer-v1/strength-v1.json",
+      "sha256": "974e97d7fd9ee2ec44f38a1135f820e6d1b8a2236f9520fa5b03247663cece61"
+    },
+    "thread_root_floors": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json",
+      "sha256": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d"
+    }
+  },
+  "fabrication_or_climbing_release": false,
+  "geometry": {
+    "path": "docs/bolted-frame-development/paired-frame-v2/geometry.json",
+    "sha256": "98fb3d6437d629201e9e60cf6a3068a070f2e1f0574a7364c256c0e8a904f379"
+  },
+  "governing_reference": [
+    "sawn_continuous_net_shear_torsion",
+    0.9890825622113164
+  ],
+  "historical_force_pass_transferred": false,
+  "inherited_source_bindings_verified": 1766,
+  "manufacturer_or_physical_joint_qualified": false,
+  "maximum_reference_indices": {
+    "all102_adjusted_bolt_wood_bearing": 0.9633701646190432,
+    "all102_combined_axial_bending": 0.942390614303334,
+    "all102_elastic_axial_bending_shear": 0.8948760136557504,
+    "all26_all_oriented_shear_yield_index": 0.5321114278844441,
+    "all26_compression_yield_index": 0.6376850637851917,
+    "all26_maximum_block_traction_reference_index": 0.788733933120603,
+    "all26_mesh_spread_block_traction_sensitivity": 0.8284199318365504,
+    "all26_mesh_spread_yield_sensitivity": 0.6590527645185572,
+    "all26_net_flange_and_bar_stability": 0.7828519249851661,
+    "all26_net_shear_rupture_stress_index": 0.40474570497764806,
+    "all26_net_tensile_rupture_stress_index": 0.4968514127047908,
+    "all26_normal_yield_index": 0.6532010381070005,
+    "all26_solid_combined_yield": 0.6285594307028126,
+    "controlled_lower_row_group_sensitivity": 0.8984849382574944,
+    "controlled_lower_row_shaft_sensitivity": 0.9044876449135344,
+    "dedicated_receiver_FPL_normal_plus_shear": 0.8894526218339238,
+    "dedicated_receiver_upper_pin_end_shear": 0.9083133019818809,
+    "dedicated_timber_grain_groups": 0.41597140501215746,
+    "enclosed_LED_passages_coupled": 0.7745078887152077,
+    "end_hardware_nut_proof_root_area_divisor2_index": 0.02686992908685479,
+    "end_hardware_spacer_compression_reference_index": 0.13376573204120215,
+    "end_hardware_spacer_nominal_K2_Euler_index": 0.0013436724397662152,
+    "end_hardware_support_bearing_reference_index": 0.5123059692718742,
+    "end_hardware_washer_reference_index": 0.9234300276390126,
+    "full_size_axial_proof_divisor2": 0.037934017534383226,
+    "leaf_face_cell_means": 0.2444762849467835,
+    "notched_feet_signed_shear": 0.7032085565371449,
+    "plywood_continuous_sections": 0.8728745417798079,
+    "plywood_groups": 0.888937095381178,
+    "positive_seat_bearing": 0.2394944324137085,
+    "receiver_end_shear": 0.8760579612135592,
+    "remaining_sawn_grain_groups": 0.8577373431600932,
+    "runner_seat_cell_means": 0.17701279427512132,
+    "sawn_continuous_net_shear_torsion": 0.9890825622113164,
+    "sawn_declared_restraint_normal": 0.9432898089972382,
+    "sawn_normal": 0.8971935896353681,
+    "wood_contact_compression": 0.17701279427512132
+  },
+  "method_dispositions": {
+    "Cdelta_metadata": "The mixed worksheet inherits an obsolete geometry_Cdelta_checked:false label. This integration independently checks every adjusted comparison against the separately eligible92-shaft geometry factors and unchanged ten dedicated factors. Its adjusted numerical columns, not the inherited label, are adopted.",
+    "balanced_bores": "A single statically balanced construction per shaft. Only dedicated plywood walls use balanced blocks; dedicated sawn and steel walls retain affine pressures. The ordinary92 shafts retain the established balanced-wood method. Original forces/moments,18 yield controls,27mm ply windows,Cg,Cdelta and length-specific actual roots remain.",
+    "initial_grain_core_screen": "The global narrow-foot width gave an upper-leg screen1.501066. Separate CAD-contained shear paths to both ends give the0.857737 all-row result; no force or section is restored outside the proved upper prism.",
+    "receiver_screen": "The initial1.124574 receiver norm uses the loose torsion construction and direct-tension reference for bending. The already reviewed FPL elastic rectangle method with its distinct900psi bending reference gives0.889453 on the same force envelopes and geometry.",
+    "steel_screen": "The Cartesian sufficient sum reaches1.315638; it is not an AISC3D interaction equation. Complete-field traction bounds on each actual J4-5 block path give0.788734 without changing Ubs0.5,Fy235,Fu370,Omega2 or12mm reference holes. Full six-stress yield,net-flange stability and tensile/shear rupture checks remain separate.",
+    "upper_rim_total_shear_screen": "The all-cut-force-to-one80mm-core screen reaches1.817667. Retain the actual load-path decomposition of the preceding completed cleat evaluation: bolt-induced transverse pressure against the NDS core end reference, direct rim/header bearing against an equilibrated positive seat field, and complete coupled receiver FPL sections. These matching results are0.908313,0.239494 and0.889453; the direct bearing path is not misclassified as bolt-end load."
+  },
+  "native_executable_solve_performed": false,
+  "nominal_board_feet": 162,
+  "panel_Hillman_resolution_deferred": true,
+  "panel_Hillman_strength_pass": false,
+  "producer": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/publish_frame_evaluation_v2.py",
+    "sha256": "55f3c97c52be8e9f7bf8730669c668ce30bf68bf586cf2b592a4bf2d14de4b54"
+  },
+  "remaining_required_frame_duties": [],
+  "revision": "eoere-paired-frame-retained-2x6-A574-v2",
+  "schema": "eoere_paired_frame_engineering_evaluation/v1",
+  "shop_packet_consistency_verified": true,
+  "source_sha256": {
+    "docs/bolted-frame-development/paired-frame-v2/A574-hardware-basis.json": "40ad05ef11f50154953e3764c619e3f8e955d6ba85e51e30c29c146a12713bd2",
+    "docs/bolted-frame-development/paired-frame-v2/critical-dimensions.json": "d8d2529202f1a579be2569cb0a34c0af68353cc0c46c9a32bdee274f0b4f4986",
+    "docs/bolted-frame-development/paired-frame-v2/geometry.json": "98fb3d6437d629201e9e60cf6a3068a070f2e1f0574a7364c256c0e8a904f379",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-hardware-windows-v2.json": "909b8c2f2f83b0249af6c74105bc93a7e206a94f0f00a6f3d18c2ede0a2af7b9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-nominal-access-v2.json": "ddc910628cdd7a33cad69d77e4ebf2b919652fdc8c24cfc5335b75ce6b230c76",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-refined-pressure-v1/result.json": "d02e0a924875d0b4b4a36c21b833d4fa8e00959ba44f2a38be7888a76152e167",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-6mm-1layer-v1/result.json": "d1b68f42b09c12bea45c00282ad722ba4b0638fabfeec69e25eadde1d90ad87f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-6mm-1layer-v1/strength-v1.json": "6917bdd733065b0c3691de0890d4ae3bcc3112a9233cdaee07b4c0d01d19e331",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-1layer-v1/result.json": "5761755a64cb191070169ce87669757386ebe23b58d111be09acef8ff3f7e814",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-1layer-v1/strength-v1.json": "e5e8d9bbf54e52d7d16250e09392fd24fe018a9465bb9f46313bf9245ef2c74d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-2layer-v1/result.json": "a94dbf9f41b9d266780d3f193ec0c1381845ebec11c02289f669476da536517b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-v2-frame-solid-8mm-2layer-v1/strength-v1.json": "974e97d7fd9ee2ec44f38a1135f820e6d1b8a2236f9520fa5b03247663cece61",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/A574-washer-lands-v2.json": "a9aa1fbbeb648cab48174c81984ac34c24d526c5e4e302157fdac51b70298f46",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/publish_frame_evaluation_v2.py": "55f3c97c52be8e9f7bf8730669c668ce30bf68bf586cf2b592a4bf2d14de4b54",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-bearing-transfer-v1.json": "bcaa4851e6490fadfc35fdcbaa07fbe277c138bc9f198f1836e5603abe51b19d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-continuous-sections-v1.json": "c45727fad50d43298f61616f8ec5fc52fd080c9d7e32d6481342a2d778da45c1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-movement-review-v1.json": "c799110b6b05f6a421856f5b48cb6d6db8f145cd5f2d72a39a1a8567a1d2b780",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-receiver-geometry-v1.json": "a2ea29013150ab3c3382f63d88d0978f968989158a5c85ae604e34724daf620f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/cleat-receiver-standard-v1.json": "63aeda0a7ae69e48f75727a1d1ac32dacb972f5d87593457536fd5296d659c12",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a1-rear-v1.json": "9f10e2654800aa27daaae016cf1e44ef86beaf0eeb06ed4d940552432f6bf498",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-forward-v1.json": "a0f37795e524f2eefadeda61e6ccabbaba8e62babe72237adfaf009e802e5bab",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-left-v1.json": "e37307769e63fef12a207d4792c03e47630bdb82cfc7e356f3e044caddfb888e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-a12-rear-v1.json": "b8a9eecda86a0ddbfded5da3ef4fb450091ea9645cb6238c21479da36967e774",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-k12-rear-v1.json": "7810f335688a21ac40fafa0eabc3f2c8b16adc2de1117787a9d9649c652d6f0b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/seats-k12-right-v1.json": "bdefc3a2d26bbf0a6212ac35237bc4658d8ac5768498478865ff710a8dfac1d0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a1-rear-v1.json": "ef35db599fecad965ae4146b3942e57381cb3fbc3750a65dfd1878e0b3900130",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-forward-v1.json": "6f340e1a716d818a4ac85c0c72ef05d3fa318ad025fdc4c922bc2959a5d74732",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-left-v1.json": "910d35a05453b1f9549adca282b9d0e5f1392f4109c3dad324fa052372057400",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-a12-rear-v1.json": "2ff213a00a2f0762b8d312d8821714ba374cf2e6db8a8f1bb035e48f99f1681a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-k12-rear-v1.json": "9aac366086b8c45d1acae67778cf51d093b68170eb17a34acf0f7203fedd9eb0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/service-hole-coupled-k12-right-v1.json": "ca2dd2f082d04a2fbe93298b53eac7256ed73fed26827a46642f2ba29454528a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json": "38abaac01dee9e7a853b00861e9fe39066b33d67db75b570ee68c385b6df4cf1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json": "77614dc6937cbcfe969f9a47a094c90c97be189c5b82c0c57740fd8ea045caca",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json": "de31b101a42574c12be6c649cf2ff08b75958b9dd8cb3add6e830e56d909a8db",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json": "690dbb337a87e82f506d78a6bf3f859b84c766ca34d32431bc9e38d4e668b02a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json": "02e3113efca0c57307a3d51f6486703279de459cda2134695c4ce13967d5abe5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json": "ec4462ac82ce184d800dc7ced97e980e9c5a89400516b5e0bcb955a0010c0580",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json": "e00c2fb7f449f81c0a79db472d887b20eb12d3564eccb3795e88a972f222007c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json": "6210fd9c1b3bf0f48176144fbf6e955cb4b76a96aae0991ed8957b8c38812c23",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json": "ce571f2e54b618d64edfe8e964720d821dd10eef8ab855a7d4ee2fd939ba8616",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json": "ebd0f76ca7cced03cc2fe7416ec899e61583bb2770fd288fd0805083cde16576",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json": "fd9b11f9167dc9baaed343fd63fd25174840ae0a3b3faca09b8590d974ddb230",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/nominal/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json": "e50a359896c2f2a78f971e7e3f81b8336284fa9c4d41ac2fae9a769fb506e023",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-bearing-transfer-v1.json": "7df532fe8a970c1b51dfc96c98a9b75613e8fd41f8dcae76c31928c96a04f6bf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-continuous-sections-v1.json": "ea6a6bdc82b15409464dbd07dd21be51b9131ea1b52609a7cddf16e8c18e9cc3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-movement-review-v1.json": "0215f82eadae62214c6c4efec1035a23cb1b3836f2a1145d3381fa2dc6821a3d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-geometry-v1.json": "25bb800a5aa5f959ad35af1c03a48122a8b02d24fef2976ffc1fc8cd2d601453",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-groups-v1.json": "47c4cc8a85c3b508d6924817ad4f1d235167fa9b4ded3a331fbe97171fb32a7e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/cleat-receiver-standard-v1.json": "81ef7f8c0a8ad6c57b3da1122a09a5c6d901b68eb5da8efa9219575bd7c67d86",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/frame-flange-sections-common-washer-v1.json": "264ebc0dc240adc296ae2abd4ad3e75704b1becb936cc8d30879a953b7a861c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a1-rear-v1.json": "40e72e1cb66d53e0c41dc27b32cb81a8239ecc9a2a7b6ba1187a7cd4d3fb1db0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-forward-v1.json": "101c326fb7eec2066f90fcc00facb1529360f237aefe24d4a1784191ed57bd2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-left-v1.json": "f92cc082396374983b855051601d439e952c3babf2e14684704524460a75dc19",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-a12-rear-v1.json": "e0ff4052c9aefa77a8b0c66eb2f13ab83a3ec2368f3e2a4c4781fb76a5f17276",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-k12-rear-v1.json": "96a95a8c9b0c27357563bc5dfea3122b200fdde5aab6316e3b58e8f24549b7ce",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/seats-k12-right-v1.json": "71b35557c6eefa5667cd88cb3f2d6e7ee101a8a8e95756d99d2ebaa26bded556",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a1-rear-v1.json": "a2870dda5b682b619c9c3786af68ee742486c8f6dcba5acd94da876ba7e7925b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-forward-v1.json": "2c5352ad43b5dc94404349f4256a1c6b2359cc3de21e2ea2b46aa88ef040972c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-left-v1.json": "4fac2c816003fff8010ad91ecff215afe2c27a7e05d527c65ae703374850be10",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-a12-rear-v1.json": "5d56904c444b7d4fc5f12339f9ffb7865935faba7c2a460ca9d2573167fcdd47",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-k12-rear-v1.json": "b936bdcc6eb8cfca274dfac6773ea4894b7d642fddd85ec669028883df74918a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/service-hole-coupled-k12-right-v1.json": "49b5abf9ed7535981803cf1572d716afcc2e7537adada23d5e5fcbadb7de1fd9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay-plywood.json": "ed047f8dc8c0ab3a63759d2509cf413f2b3c6b81144240759188a9c1fae3e722",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a1-rear-v1/independent-replay.json": "e2c0a58dd443c15b98f69fdebe4dda3e9521ffcf1ebdb001cbf82aa22e0ed089",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay-plywood.json": "7fe29680db24dceefa5046a980f9a0b4d9732fce6b060e1f35a63a3f5ed2120f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-forward-v1/independent-replay.json": "1238d01fe8cb4b1f8c105f3da115965af76a60f58013b1a811bba4dd273eae72",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay-plywood.json": "637f24461d897aa5d144db7b8db0e70d98669e9c7e5f9ea9ee854189b2c0f5b9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-left-v1/independent-replay.json": "2f257ede7048dbcd7b88cf9f35fe84f20871939942b34c031a3ebcb179cafe50",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay-plywood.json": "b7e263d9ea3ea9408af159a8ac178056d12ba386a63995a86744a2240dd3d073",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-a12-rear-v1/independent-replay.json": "72cc098af208606f1b5b63242d1948f16a779637a9f49b14fdf76cd529eb8ae7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay-plywood.json": "96644075423b43bdb857e31307a98535a90521ff565eed03671761656d533b98",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-rear-v1/independent-replay.json": "2b204495c592bf1bd3a59a1095ff21ba3cc090999efaf131cd22b4fc31a5cfb7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay-plywood.json": "af717d2ac50ad5dd08e8768bb91ac3841a81e299664cc656c3341e999e5e8c3a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-cases-v2/soft/three-pin-shift-corner-floor-k12-right-v1/independent-replay.json": "b81e170cec8ba30fa07db0cbbd512300db8c4c4fe7e80533e2525b3a43fc759c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/block-tractions-v1.json": "889e03cc92428b386564d75b79041480e000a9f8b9194a7b34d558c30e879950",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/end-and-contact-signed-v3.json": "839c5670049794ca46ac8d4395fecf27b182241451669ce5698b14b4ce06629b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/end-hardware-v1.json": "460f0d73e8f375a0bb75df688c8d9e0f269a993be516a4ea36bbfaba36c66c7d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/grain-groups-refined-v2.json": "1bdeada237a6d0c070468a1dea82d8aacd7e587ad187d6c132ff28a7c89fa9c3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/mixed-bores-v1.json": "33ad70e3b67b8d15297a8e1c3685173218c82098b0c469292b2864169ae4af73",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/mixed-plywood-groups-v1.json": "8e890b278d1877594d6ce9d32e75233a7657373a7ea53b394b89e27a2a9a883d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a1-rear-shafts-preflight-v1.json": "098d8d582d75136cbedbf771b028a946ce37127f619668ed2a2a3ff9ae531438",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-forward-shafts-preflight-v1.json": "e20c98de64ab5f76bb75a4976f41f2cd36bd4449024c58bd559b8f4514f92526",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-left-shafts-preflight-v1.json": "3223379f59ebc1311bcdcf515e23a91b93005079ea3857e792b7e8280c197b87",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-a12-rear-shafts-preflight-v1.json": "d854183844732537762f4302d043524969f6895abb5f8a502d79fa3f8ff3d9d9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-k12-rear-shafts-preflight-v1.json": "bbc739e1545bc7d4a86126cf90cc21530a0af146bb2406408873a91b6c41f140",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/nominal-k12-right-shafts-preflight-v1.json": "7fbf9d6415b295083fc0e73b503240a59a69e08d7d07de0d58521ef2d1191c89",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/notched-feet-v1.json": "dee7b22cc8afb0dc415883d22ebd2ca318b08f55aa55bc99d3be80449054af39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/shaft-geometry-adjustments-v3.json": "f9c22c1247c2643e8af187ea8041060fff3ff1391a9665a9ebce774cc6390748",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a1-rear-shafts-preflight-v1.json": "4c7ecf51dda53161d4b452d4e9dd9d0cf6995126f798af8b5b1f52b2b6856073",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-forward-shafts-preflight-v1.json": "c88fb3e9f19fa007106b75dc34f6088feecef5e180293a2aa14036e02dc45bf2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-left-shafts-preflight-v1.json": "d63ac050c28d864d9c713cc580e6965db86f391bf7c84c217d431919106c2b94",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-a12-rear-shafts-preflight-v1.json": "c4a64276b72a439258b46a10cc0bec08ce407e373689cbace7bc58411d9b0813",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-k12-rear-shafts-preflight-v1.json": "5584bfd99a061764690e68bd9c77b02f1367d7e7ed0af7bbfa0024064de4073b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/soft-k12-right-shafts-preflight-v1.json": "a46819cd0aa0cc0657abebe1a79df90865272dd88a071717546bfde6ff2d2482",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-review-v2/complete-v1/timber-sections-v1.json": "898e5610ea945147fd797b1be75a05ca1a0529a843dca36ffb5c2814bded1a6d",
+    "scripts/eoere_builder_layout.py": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d",
+    "scripts/eoere_paired_shop.py": "b463effa0245e5ff897b104f81d5a22b1f73aa575b588e851a9bf9faa6a6fdbe",
+    "scripts/publish_eoere_retained_frame.py": "7e475ca151a378b85e14a4220275efdee0bf9fa41e7f5492e0c9141284feab67"
+  },
+  "source_union_result_count": 287,
+  "stock_sticks": 14,
+  "versions": {
+    "NumPy": "2.5.2",
+    "Python": "3.12.3",
+    "SciPy": "1.18.1"
+  },
+  "whole_wall_or_climber_rating": false
+}
