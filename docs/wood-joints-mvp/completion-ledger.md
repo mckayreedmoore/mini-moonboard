@@ -4957,6 +4957,10 @@ check and both shared-mesh checks. A real Chromium browser loads the current
 front/rear model, preserved106-bolt model and five-piece frontA574 stack, with
 four captures and no page/request failures. The existing packet retains
 `browser-final-v3/result.json` and the`final-node-tests.log`.
+The maintained Ruff check and frozen-lint byte-lock test also pass. Three
+source-pinned producers retain only exact path/rule exceptions for harmless
+import order/unused import, an immediately evaluated drawing closure and the
+deliberate fixed-source publisher. Their evaluated bytes remain unchanged.
 The complete inherited worksheet source union contains1766 rechecked bindings.
 The coherent packet and validation are recorded on master. Actual build
 observations and deferred panel strength remain outside this completion.
