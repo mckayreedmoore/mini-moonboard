@@ -1,0 +1,285 @@
+{
+  "Hillman_axis_count": 66,
+  "action_and_model_basis": {
+    "all_six_raw_and_four_plywood_operator_replays_each_basis_pass": true,
+    "case_order": [
+      "a12-forward",
+      "a12-left",
+      "a12-rear",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "engineering_extensions": [
+      "Apply conservative AppendixE row/group mechanics to both APA plywood directions with Cs0.5; this is not a published plywood off-axis fracture rating.",
+      "Use nominal common-strain/twist receiver sections and conventional net-bar stability hypotheses. The extra normal/shear linear sums are conservative engineering comparisons, not newly asserted NDS/AISC interaction rules."
+    ],
+    "field_count": 12,
+    "floor_disposition": "No physical floor acceptance, friction test or anchor is claimed. The failed all-sticking rear support-mask attempts remain history and are not used as demands or passed cases.",
+    "joint": "First-order small-strain elastic global actions, ordinary dowel bearing/bending, positive normal seats and no inter-member friction, bolt preload, composite leaf action or shaft axial torque credit.",
+    "movement_disposition": "Accept this first-order model for the bounded nominal evaluation: bore-axis tilt below0.009081rad, small local gap corrections, pin rotation about the shaft allowed, and unloaded leaf-tip motion separated. These probes and sensitivities are engineering applicability evidence, not a finite-motion re-equilibrium or force-error bound.",
+    "steel_method": "Complete isotropic C3D20 angle with all eight bores; same finite wood/steel pressure footprints, matched washer support and affine semicosine bore traction. Only rigid-motion gauges; six stresses, source gravity and actual unequal port actions retained together.",
+    "stiffness": {
+      "nominal": {
+        "EA_N": 24316944.83009073,
+        "EI_y_Nmm2": 83671040675.10045,
+        "EI_z_Nmm2": 2420210360.990901,
+        "GA_u_N": 1000000000000.0,
+        "GA_v_N": 2704518.742078384,
+        "GJ_Nmm2": 670895064.614616,
+        "shear_factor": 0.8333333333333334
+      },
+      "soft_comparison": {
+        "EA_N": 24316944.83009073,
+        "EI_y_Nmm2": 83671040675.10045,
+        "EI_z_Nmm2": 2420210360.990901,
+        "GA_u_N": 290322.0,
+        "GA_v_N": 2704518.742078384,
+        "GJ_Nmm2": 537269522.0951208,
+        "shear_factor": 0.8333333333333334
+      },
+      "soft_rolling_shear_MPa": 50.0,
+      "status": "50MPa is a deliberately soft comparison, not a published grade-specific minimum. Both own force fields pass; no universal stiffness/force envelope is claimed."
+    },
+    "support": "Retain all32 floor normal laws; loaded non-runner corners stick horizontally. The two outboard runners have no horizontal reactions. This is an explicit conditional support model, not a demonstrated bound on all-corner sticking or the actual floor.",
+    "wood_method": "Directional APA leaf strips, adjusted NDS dowel references and endpoint force/couple fields, AppendixE row/group/end/net checks, retained-prism end shear and net-ligament FPL normal/shear/torsion."
+  },
+  "actual_observations": null,
+  "angle_count": 26,
+  "bolt_count": 106,
+  "candidate_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/geometry.json",
+    "sha256": "6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb"
+  },
+  "candidate_revision": "unadopted-coherent-three-pin-shift-v1",
+  "complete_conditional_engineering_evaluation": true,
+  "complete_fitting_validation": {
+    "basis_controls": "Separate physical constant-stress coupon, whole-mesh manufactured traction control, affine/volume/connectivity checks, source-force/couple and gauge-reaction checks pass.",
+    "fitting_action_sets_per_mesh": 48,
+    "maximum_mesh_peak_index_change": 0.009656624226129285,
+    "maximum_refined_pressure_relative_peak_change": 0.00010948555623424561,
+    "scope": "Conventional mesh/refinement assessment, not a certified continuous stress supremum or a manufacturer rating.",
+    "solid_mesh_count": 3
+  },
+  "critical_layout_limits": {
+    "NDS_minimum_3p5D_mm": 33.3375,
+    "header_end_edge_pitch_mm": [
+      153.9875,
+      39.6875,
+      50.8
+    ],
+    "lower_leaf_nominal_center_to_grain_end_mm": 34.1125,
+    "nominal_lower_end_margin_mm": 0.775,
+    "retained_header_Cdelta": 0.95,
+    "retained_upper_rim_Cdelta": 0.74,
+    "shop_disposition": "Control the actual lower-leaf end distance; a generic plus/minus1mm layout tolerance is not sufficient for the nominal0.775mm margin. Use a controlled template/measurement plan in a later selected packet. No drilling is authorized here.",
+    "upper_rim_analytical_core_end_mm": 51.401712
+  },
+  "detail": {
+    "cleat_angle_count": 4,
+    "header_and_outer_base_assembly_shift_Y_mm": -4.7625,
+    "installed_cleat_angle_ports": 14,
+    "leaf_bounds_Y_Z_mm": [
+      [
+        -213.8,
+        -10.6
+      ],
+      [
+        139.7,
+        749.3
+      ]
+    ],
+    "leaves_per_corner": 2,
+    "lower_axis_Y_mm": [
+      -136.0125,
+      -85.2125
+    ],
+    "lower_axis_Z_mm": 173.8125,
+    "minimum_credited_actual_thickness_mm": 27.0,
+    "nominal_leaf_Z_Y_X_mm": [
+      609.6,
+      203.2,
+      28.575
+    ],
+    "omitted_upper_axes": [
+      "eoere_bolt_067",
+      "eoere_bolt_070"
+    ],
+    "physical_cleat_header_shafts": 10,
+    "plywood_leaf_count": 4,
+    "retained_upper_axes": [
+      "eoere_bolt_071",
+      "eoere_bolt_074"
+    ],
+    "strength_axis_world": "Z",
+    "upper_axis_Y_Z_mm": [
+      -85.2125,
+      342.0875
+    ]
+  },
+  "fabrication_or_drilling_or_climbing_release": false,
+  "historical_source_aliases": {
+    "scripts/eoere_builder_layout.py": {
+      "frozen_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/attempt06/frozen-parent-builder-layout.py",
+      "sha256": "acc715613e29732381927e3f188053b2e4467ef7ad0931f83e98bfe4768b7262"
+    }
+  },
+  "inherited_source_bindings_verified_count": 1005,
+  "manufacturer_or_physical_joint_qualified": false,
+  "material_and_hardware_requirements": {
+    "all_ten_bolts": "Partially threaded basis, minimum smooth diameter9.3726mm, all bearing intervals in smooth body and full nut engagement. Nominal purchased length does not guarantee delivered shank. Full-thread-root sensitivity is unadopted and exceeds1.",
+    "angles": {
+      "conditional_Fy_Fu_MPa": [
+        235.0,
+        370.0
+      ],
+      "elastic_E_MPa_nu": [
+        200000.0,
+        0.3
+      ],
+      "factory_hole_mm": 10.0,
+      "factory_holes_per_angle": 8,
+      "status": "Analysis geometry/material requirements, not guaranteed Eoere product properties or an observed part.",
+      "width_arm_thickness_inside_radius_mm": [
+        88.9,
+        88.9,
+        6.35,
+        6.35
+      ]
+    },
+    "header_bolts": {
+      "axes": [
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "eoere_bolt_083",
+        "eoere_bolt_084"
+      ],
+      "count": 4,
+      "grade": "J429Grade5 with matching J995Grade5 nuts",
+      "minimum_smooth_body_length_mm": 55.626,
+      "nominal_diameter_mm": 9.525,
+      "nominal_length_mm": 88.9
+    },
+    "long_cleat_bolts": {
+      "count": 6,
+      "grade": "J429Grade8 with matching J995Grade8 nuts",
+      "minimum_smooth_body_length_mm": 163.576,
+      "nominal_diameter_mm": 9.525,
+      "nominal_length_mm": 203.2
+    },
+    "plywood": "APA Rated Sturd-I-Floor48oc, PS1 plywood, at least five plies, Group1 bearing basis, specified strength-axis orientation and minimum credited actual27mm thickness. Nominal28.575mm stiffness is not scaled by thickness cubed.",
+    "washer_and_spacer": {
+      "common_support_annulus_a_b_mm": [
+        5.7531,
+        12.6111
+      ],
+      "long_header_spacer_length_mm": [
+        25.4,
+        12.7
+      ],
+      "maximum_required_spacer_Fy_MPa_with_Omega1p67": 22.29154514005034,
+      "minimum_head_load_circle_radius_mm": 6.42366,
+      "spacer_ID_OD_mm": [
+        10.31875,
+        19.05
+      ],
+      "washer": "3/8USS catalog dimensional bounds; minimum thickness1.6256mm; conditional Fy33ksi."
+    },
+    "wood": "Dry-service DF-L No.2 at CD1/CF1 and the frozen finished-member geometry; use existing solid sections and bevel-free analytical cores."
+  },
+  "maximum_reference_indices": {
+    "adjusted_ten_shaft_bearing": 0.9867682091024564,
+    "angle_additional_Cartesian_rupture_load_entry_screen": 0.955008915433337,
+    "angle_principal_block_path_force": 0.036749948384993805,
+    "complete_angle_elastic_mises_all_meshes": 0.4691244540267442,
+    "continuous_plywood": 0.8075859169757346,
+    "finite_flange_wood_bearing": 0.9090909090909092,
+    "flange_minimum_net_section_and_stability": 0.7332571065470309,
+    "ideal_six_wrench_bend": 0.5695935406341553,
+    "matching_nut_proof_divisor2": 0.019738506864171765,
+    "outer_wood_annular_bearing": 0.4694359005195537,
+    "plywood_row_group": 0.9576649767502838,
+    "positive_timber_seats": 0.16294770396681565,
+    "receiver_normal_plus_shear": 0.9562329087336585,
+    "shaft_axial_bending": 0.8320137216610591,
+    "shaft_elastic_axial_bending_shear": 0.8270452448368741,
+    "timber_receiver_row_group": 0.31638299753023535,
+    "upper_pin_rim_end_shear": 0.8506656683454014,
+    "washer_steel": 0.6783467823907277
+  },
+  "nominal_geometry_and_installation": {
+    "actual_tools_or_hardware_inspected": false,
+    "all_nominal_envelopes_clear": true,
+    "changed_parts_checked": 590,
+    "cleat_tool_and_bolt_insertion_envelopes": 30,
+    "minimum_bearing_body_margin_mm": 2.1844000000000037,
+    "minimum_full_thread_seating_margin_mm": 6.426200000000006,
+    "minimum_two_pitch_tip_margin_mm": 3.809999999999982,
+    "nominal_occupied_geometry_clear": true,
+    "occupied_part_count": 1097,
+    "required_socket_cavity_depth_mm": 22.148799999999994,
+    "thread_length_requirement": "Both nominated length classes use a conservative0.18in maximum underlength allowance,1.25in minimum thread length, recorded body floors, catalog washer bounds, worst matching nut height and two full pitches. Deliveries must meet these dimensions.",
+    "tool_requirements": "Tools must fit the specified OD24mm/axial70mm envelope and at least the reported cavity depth, or use an independently suitable tool/assembly sequence. This is not an observed tool/placement inspection or swept ratchet-handle rating."
+  },
+  "outside_this_completion": [
+    "Published96-bolt single-leaf geometry and the selected screw/ML24Z baseline retain their own authorities and findings.",
+    "Deferred panel and Hillman attachment exceedances, other frame/member duties, actual floor/material/installation observations, candidate selection and fabrication/climbing release are not completed by this cleat evaluation."
+  ],
+  "required_analysis_duties_left_open_on_declared_basis": [],
+  "retention": "Final fields, source helpers, controls, meshes and action preparations remain active in the existing ignored packet. The superseded dense mesh and stopped first capture preparation are recoverable closed experiments eligible for later consumer-audited archive; nothing is archived or pruned.",
+  "schema": "eoere_conditional_paired_cleat_engineering_evaluation/v1",
+  "selected_candidate_or_geometry_adopted": false,
+  "shop_disposition": "Recommend the frozen106-bolt/26-angle paired-cleat detail only for candidate review under this complete conditional evaluation. Do not build it from the published96-bolt/single-leaf sheets. Candidate selection and a coherent revised shop packet remain separate. Preserve all Actual/Disposition observations blank; incompatible material, delivered shank or dimensions stop the affected operation.",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-evaluation-strength-draft-v1.json": "8afa961746fafdcf9865b280e4e4edfec6a69c118be2f3fddd1a6d221ffcbfcc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-nominal-access-v1.json": "9477b6e68d9ac2daf8aab2bedcf0f10959b6f770a6021b6d81d6def62a54c879",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/actions-v2.json": "0154f71b0363d63f825e653c608b7e7b4b50bc91560f9719e96789a0d62b0138",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-6mm-v1/response.npz": "e32abc51249d65606cab8662535dd5139aeb504b3f535f775672c31fb52a3c97",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-6mm-v1/result.json": "38033ce611a0686a1b6fdd45e3e3d01c47b86d4fb4f8b1a664283fded957c66a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-8mm-2layer-v1/response.npz": "32d18f0f7002db3023973cfabac8d373f7cfde8105ee23ebf09d94414e3315f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-8mm-2layer-v1/result.json": "10679f25f430ff2200deef7c08a931e6dc899fed8f35d856f7baa9ab49666cb5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-8mm-v1/response.npz": "d1f4936536042068bf38c75fae1aff6aeae44f727ab501dd9910d03e606ee96c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/all-8mm-v1/result.json": "104e32e43d34fac1ebb40319b23189295eef8d9cc4650f4675cee6ead86b1d2f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/refined-pressure-6mm-v1/response.npz": "68ccd7ae131e438188a83d0a89db65d6de0039696ba0d2b8bc4c6c6f35b6dd68",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/refined-pressure-6mm-v1/result.json": "d3aaa885cadb5d56c151252e6c9deed32fcd0955a44b1c9b062433ce6653e1ca",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/strength-6mm-v1.json": "08cb63b555fffdabaa6379526c183a70dd63d289a2f42035ceb803f10c2a99d9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat-solid-transfer-v1/strength-8mm-2layer-v1.json": "fd11d13ddc15fb22b09832755726adb62f6aabbfa7f472d334bdc4a2618496ae",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat_evaluation_summary.py": "19a0b765721b1a17e92bd1afe8bedbfa130a8e4fb510bcf99c1c010b94cd0cf6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/cleat_evaluation_summary_v2.py": "669191ff5ca6df84b633575683a79f7f2e52d728d755e7c4cda0817668482e8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-bearing-transfer-v1.json": "346b0ae4e8a2ae752414a780b1215afe6dd983e530c93f8c3711d04c47127ad6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-bend-review-v1.json": "bf9a48fd06935d4304228ccd28e5ed9b322bee855d0c0f1d30ad7fcb19767e47",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-continuous-sections-v1.json": "c5d545a7c7efff144a123ae4491f2374cb0b4eca441bd0b1fe60705ca7555131",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-group-and-washers-v1.json": "45fbf1bd648f67cba2e37010f9cda3c7b304d87ec79a360218bcc2c98c03dd5e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-a1-rear-v1.json": "8a9b3246d835d66028fd2901ac7864571438df1976c106a724028298156fb952",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-a12-forward-v1.json": "847b558bc9b289fb3018ba6dfc33fbcd73f3dad272d92f7b3ce040ae2d16f5d8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-a12-left-v1.json": "8b293b119af086b45d33b8f69cb81b2194b4ecaacfae0eaa50c48615b75fa4cf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-a12-rear-v1.json": "8732e84ba81456116bcaad6b5e1e222b6c704a45f3f41a341dd270b26d013097",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-k12-rear-v1.json": "ab8418e7039ca018ed8361702864b6695488081b26b2f99d5d77224f30678038",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-local-k12-right-v1.json": "6faed1b1206371537894630cd30a9289bcaed4dee5049be369d678355adf8742",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-movement-review-v1.json": "84f49d42b93f636d4e222b39434ab4834fe550d0cf26399a96d26bde6a54efae",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-receiver-standard-v1.json": "09a63fa55de6694b9265628a5e3c3a5efc5d725630ca155b182d84b01b7a118f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/runner-roller-comparison-v1/cleat-six-case-summary-v1.json": "0e15a218bb34558a2473906cae7883c26e174c1dffde1a55d383005bd5a5231a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-bearing-transfer-v1.json": "a4ebfe1a6cb61555c2472079e409b7ce5451b29ae48c9b0d4f8614f1de1ecf36",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-bend-review-v1.json": "081a682d97626402162ce49e2badb382e4e38d271f6ea3c1f0c6fc3ad09f01b9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-continuous-sections-v1.json": "5fd01e7f3b8b508e238bb26e41c8b99d659bf75580a1f51412719951926cd513",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-flange-pressure-v1.json": "578aed22a02225b24bc9b4c71d92bd82b97e0b268948099db8b9545fd6850aea",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-flange-sections-common-washer-v3.json": "87c57f2ce29aed3996574505118a59887b8dee094dbf3a7cf967a94957d86dd5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-flange-sections-verification-v1.json": "39597ea1c79b515e5118cfd373d57b794abafccb6efd5e8813563e54c467bb42",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-group-and-washers-v1.json": "3b9c8f25b189eb3acb3c0faf2b70c9dd57bb25eb1bd775ea62e3cd816e3dfb1a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-a1-rear-v1.json": "e68e151457fe720313ff61a4eca8b26d98f01c6a480948f9b0bd1f898fb5d26f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-a12-forward-v1.json": "fbbfc760735e4b6ba6782bfae0263120ada9bbef7129e75fa9ec6ff37f5445dc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-a12-left-v1.json": "f9495a39a43276ae788119a7c14449a97a09577dec296987bc9aaa8cc762bcb4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-a12-rear-v1.json": "cd4115ad24a12968f6899b84277f277d95d0cad953896b92d473b72ea3def782",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-k12-rear-v1.json": "688ed38a5eb97c6ca0833903f899e7043b1a76283d9051eaa697b5ada5bd2854",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-local-k12-right-v1.json": "12b5881b685d01989f52de4204dee8e331e0979d783d5ec73a6b32559c2aea1a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-movement-review-v1.json": "99c2b729d36e7aaff02a7f6c854dc784fde7cbbad4a34a3c5203d93ad9e71ba4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-receiver-groups-v1.json": "6419785f6f57cdd3315a09f9fd93c06e0cadf6374bdd929623f535558ce84dcc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-receiver-standard-v1.json": "2062bba69125472bb0f7a1b9d522e7724aab59c2042f2764764a9d8b42b7b0ea",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/cleat-six-case-summary-v1.json": "6ded3fd2a5b7932216d0d073f2f724cc3c8e1fdd9fb21ec4cc17b837fe64940b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/known-answers.json": "af284d1f306666e628a1d313d4fb71d35387b09709520ef10e245a04b1fd2977",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/short-span-stiffness-v1/material.json": "6b13783574b31d875d0bdbeca376444dd241cde7037130f88d548d708afb3cd4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/three-pin-shift-geometry-v1/geometry.json": "6bc7c9c5ee1a3f03234ffc0ec2976cbe55f9fc8f38facd35967ed4682e9deecb"
+  },
+  "status": "COMPLETE_CONVENTIONAL_EVALUATION_FOR_DECLARED_BASIS_UNADOPTED",
+  "whole_moonboard_complete": false
+}

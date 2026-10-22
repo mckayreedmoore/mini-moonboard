@@ -21,12 +21,10 @@ retain the four `*_1` axes. No timber length or section is enlarged by this revi
 | Current calculations | [Integrated leg/header work](../wood-joints-mvp/completion-ledger.md#single-bolt-leg-joint-review) | [Six corrected cases](leg-header-current-results-v1.json) converge and pass separate raw-operator/force replay; maximum residual 3.724025e-6 N. These are conditional fields, without production admission or physical acceptance. |
 | Material and retained service datums | [Plywood basis](plywood-cleat-material-basis-v1.json) · [32 passage rows][passages] | Plywood stamp/thickness and physical cable feeding remain unobserved. Enclosed holes need hole-specific strength checks. |
 
-The plywood proposal is now represented geometrically: one factory
-**609.6 × 203.2 × 28.575-mm** leaf per corner, strength axis along world Z,
+The plywood proposal has one factory **609.6 × 203.2 × 28.575-mm** leaf per corner, strength axis along world Z,
 with a proposed minimum actual thickness of 27 mm. It requires APA Rated
 Sturd-I-Floor 48 oc PS 1 plywood with at least five plies and the recorded
-Group 1 bearing basis. It is distinct from the 18.25625-mm climbing panels.
-Neither modeled occupancy nor a catalog description verifies delivered material.
+Group 1 bearing basis. It is distinct from the 18.25625-mm climbing panels. Neither modeled occupancy nor a catalog description verifies delivered material.
 
 The enclosed passages remain centred at N69.85 in eight 2×6 members. F1–G1
 stays shifted 40 mm along its receiver to avoid bolt 073. All LED endpoints
@@ -78,16 +76,18 @@ review before more cases; stronger bolt metal alone does not change the timber
 reference. The four unused fitting ports have contact but no shaft, bearing or
 capture. The published 96-bolt geometry and the 108-bolt study remain distinct.
 
-The [106-bolt follow-up](coherent-three-pin-two-pilot-results-v1.json) keeps both lower pins,
-omits only the upper pair and shifts both outer base/under-header assemblies Y−4.7625 mm.
-Its own A12-forward and A12-left fields independently replay: leaf maximum **0.939469**,
-signed-foot maximum **0.896000**, all **16** named leg/post comparisons below one.
-The complete lower joint remains open: its provisional Grade8/end/group construction reaches
-**1.260684**. A [matched corner-local floor pilot](coherent-three-pin-corner-floor-pilot-v1.json)
-independently replays on unchanged geometry: bearing-point motion falls to **0.01015 mm**,
-but free leaf-tip motion remains **79.66 mm** and the demand-applicability concern persists.
-Hold further cases for complete-joint and movement disposition. Near-row plywood pads,
-a solid 4×6 top rail and smaller service bores remain separate proposals, without adoption.
+The [106-bolt follow-up](coherent-three-pin-two-pilot-results-v1.json) keeps both lower pins, omits only the upper pair
+and shifts both outer base/under-header assemblies Y−4.7625 mm. Its two centroid-floor fields independently replay:
+leaf **0.939469**, signed foot **0.896000**, all **16** named leg/post comparisons below one; provisional Grade8 joint **1.260684**.
+The [corner-local floor pilot](coherent-three-pin-corner-floor-pilot-v1.json) reduces bearing-point motion to **0.01015 mm**;
+free leaf-tip motion remains **79.66 mm**. Four cases replay on that basis; two rear cases stop on support-mask cycling.
+
+The [conditional cleat evaluation](coherent-three-pin-cleat-evaluation-v1.json) is complete for the unadopted 106-bolt paired-leaf detail; [methods and disposition](../wood-joints-mvp/completion-ledger.md#complete-plywood-cleat-evaluation-goal) retain its explicit assumptions.
+The **six-case comparison**, plus six softened-plywood repeats, retains all 32 floor normals and omits runner horizontal reactions. All twelve independently replay.
+The continuous 27-mm-core leaf envelope reaches **0.807586**; 48 full fitting/action sets on three solid meshes stay below **0.470** and the additional rupture/load-entry screen reaches **0.955009**.
+Across both stiffness models, ten-shaft bearing reaches **0.986769**, bolt stress **0.832014** and plywood group transfer **0.957665**; washer steel reaches **0.678347**.
+The 48 seats reach **0.162948**, receiver normal/shear **0.956233** and finite flange bearing **0.909091**. All 1,097 occupied parts and 30 tool/insertion envelopes clear. The lower-leaf end-distance margin is only **0.775 mm**; actual parts/floor remain unverified and the shop model is unchanged.
+Near-row pads, a solid 4×6 top rail and smaller service bores remain separate, unadopted proposals.
 
 The single-leaf material review corrected the perpendicular-axis rolling-shear
 reference from 500 to **385 lbf/ft**; the original saved gross-cut maximum
@@ -110,7 +110,7 @@ No rejected force result is a current result or an accepted design basis.
 | **Current geometry and shop layout** | `eoere-single-leg-bolts-header-angles-v3` · [receipt][combined] | [Current combined model](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-leg-header-frame-development&view=rear); 96 bolts / 24 angles / 66 screws. |
 | Unadopted combined successor | `unadopted-bilateral-return-paired-cleats-signed-foot-v1` · [six-case study](coherent-return-paired-foot-results-v1.json) | 108 bolts / 26 angles / 66 screws; independent fields and bounded component references, without complete-joint or structural acceptance. |
 | Held cleat-pin simplification | `unadopted-coherent-single-cleat-pins-v1` · [A12-forward pilot](coherent-single-cleat-pin-pilot-v1.json) | 104 bolts / 26 angles / 66 screws; exceeded left-post component construction, without adoption or admission of further cases. |
-| Two-pilot follow-up | `unadopted-coherent-three-pin-shift-v1` · [A12-forward/left results](coherent-three-pin-two-pilot-results-v1.json) | 106 bolts / 26 angles / 66 screws; complete lower joint and response applicability open, other four cases held. |
+| Completed conditional cleat evaluation | `unadopted-coherent-three-pin-shift-v1` · [final evaluation](coherent-three-pin-cleat-evaluation-v1.json) | 106 bolts / 26 angles / 66 screws; complete nominal cleat checks under its declared support/material basis; no candidate, shop or physical acceptance. |
 | Preserved enclosed-passage parent | `eoere-centred-enclosed-passages-v1` | [100-bolt solid-cleat parent](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-enclosed-passages-frame-development&view=rear). |
 | Preserved notched geometry and optional grid | `eoere-narrow-channel-openings-v1` | [Original grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-frame-development&view=rear) · [unofficial extra grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-narrow-channels-grid-development&view=rear). Neither is a current combined-grid variant. |
 | Preserved matched six-case evidence | `eoere-raised-kicker-screws-v1` / `eoere-selected-purchase-hardware-v1` | [2×6-post response](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json); its own geometry, assumptions and acceptance limits. |
@@ -123,9 +123,9 @@ remains unachieved. The six published-geometry replays are complete; **47 of 48*
 leg/post comparisons are below one. The 108-bolt study resolves those named foot/post
 and leaf-section references on its own six fields; placement, complete joints, members
 and restraint remain before a disposition and shop-packet revision. The 104-bolt trial
-is held; the 106-bolt follow-up resolves its named post comparison in two cases, while
-the lower joint and support/motion treatment remain open. Keep panel/attachment work
-in the same [completion ledger](../wood-joints-mvp/completion-ledger.md#current-concern-update).
+is held. The 106-bolt proposal now has a complete conditional cleat evaluation over six cases and two plywood stiffness models;
+its floor/material assumptions are explicit. Candidate selection, remaining whole-frame duties and coherent shop integration remain.
+Keep deferred panel/attachment work in the same [completion ledger](../wood-joints-mvp/completion-ledger.md#current-concern-update); no published-model pass transfers.
 A failed adopted criterion or missing load path stops the affected operation; no new
 blanket external sign-off or native-solve requirement is introduced.
 
@@ -141,7 +141,7 @@ preserved. The current nominal shop packet and compact viewer patch total
 this combined geometry reviewable without reconstructing the old override chain.
 The separately retained enclosed-passage parent adds about 1.48 MB of compressed
 scene and three datum/receipt files, preserving its viewer and replay inputs.
-Bulky CAD, operators and case fields stay in the ignored integration packet.
+Bulky CAD, operators and current cleat evidence stay active in the ignored integration packet; superseded raw attempts can be considered for later consumer-audited archive.
 Nothing is archived or pruned. No actual material, tool, floor or build inspection,
 fabrication release or climbing release is established.
 

@@ -4899,6 +4899,44 @@ front feet; it is materially different from local no-slip. These saved
 diagnostics supply neither a new equilibrium nor actual floor observations.
 
 <a id="coherent-corner-floor-pilot"></a>
+<a id="complete-plywood-cleat-evaluation-goal"></a>
+**Completed conditional plywood-cleat evaluation.** The owner
+cleared the earlier goal and explicitly commissioned complete cleat evaluation,
+using proven design methods, reasonable stated assumptions and online primary
+references when a method is uncertain. The finish line covers the complete
+connection under all six recorded load cases. A passing component ratio or a
+report containing unresolved required checks does not finish this goal.
+The [final evaluation](../bolted-frame-development/coherent-three-pin-cleat-evaluation-v1.json)
+now resolves the required conventional engineering duties on its declared
+106-bolt detail, action/material basis and installation assumptions. It does
+not adopt the proposal or qualify a physical product, floor or climbing wall.
+Use the paired plywood approach and preserve the selected baseline, published
+96-bolt development geometry and frozen alternatives. The latest 106-bolt
+detail and its independently replayed corner-local pilot are the starting
+evidence. A justified small correction may be developed separately; describe
+it before changing that geometry. Physical fabrication and whole-frame
+candidate selection remain outside this evaluation.
+
+| Cleat completion duty | Required engineering result | Current bounded result |
+| --- | --- | --- |
+| Detail and material basis | One exact leaf, fastener, washer, fitting, receiver and support configuration; dry-service, load-duration and installation assumptions recorded. | Complete for the frozen 106-bolt proposal: four leaves, six Grade 8 cleat bolts, four Grade 5 header bolts, matched nuts/washers/spacers and conditional steel/wood properties. |
+| Credible actions and movement | Applicable simultaneous six-component actions and a defensible interpretation of movement, gaps and contact; resolve assumptions that govern the conclusion. | Adopt the recorded first-order runner-release basis for this conditional evaluation. Both stiffness models independently replay all six cases; localized tilt/contact review supports this nominal use. No physical floor or universal force bound is claimed. |
+| Plywood and receiving members | Applicable gross/net sections, local bolt-group transfer, end/edge effects, splitting, tear-out and seats, including actual partial runner support. | Complete conventional checks: continuous leaves 0.807586, plywood group 0.957665, timber row/group 0.316383, seats 0.162948 and receiver normal/shear 0.956233, with adjusted bearing and actual end/edge/core geometry. |
+| Complete fastener and fitting joints | Adjusted wood bearing and dowel bending with axial, shear and moment duties, group/end geometry, washers and angle load paths on the same actions. | Ten-shaft bearing 0.986769; washers 0.678347; full eight-hole angle stress below 0.470 across three meshes; additional rupture/load-entry screen 0.955009 and net-bar/stability 0.733258. Complete six-stress steel transfer is evaluated, with conditional product properties. |
+| Six-case coverage | Every required duty checked on the same final detail and supported action basis, with independent numerical checks appropriate to the method. | Twelve own global fields and 48 fitting/action sets per mesh, with source, equilibrium, known-answer, mesh and pressure-quadrature controls. No old candidate force/pass transfers. |
+| Integrated engineering disposition | Every duty has an evidence-supported conclusion and consistent detail/shop instructions; all remaining physical observations stay blank. | Recommend this conditional analysis detail for candidate review. All 1,097 occupied parts clear; 30 cleat tool/insertion envelopes clear. Critical end-distance and hardware requirements are recorded. Published 96-bolt sheets and selected baseline remain unchanged; no build release. |
+
+Use short conventional calculations and the existing reusable helpers first.
+Retain CD1 unless a separately justified duration decision is adopted; take no
+unqualified friction, glue/composite, washer-fixity or bolt-preload credit.
+No exact continuum certificate, new custom fracture/contact framework,
+physical floor test or blanket outside sign-off is required by this goal.
+Reasonable assumptions must identify their engineering purpose and consequence;
+they cannot turn a failed applicable criterion into an accepted result.
+
+The following pilot paragraphs preserve earlier holds; the conventional
+worksheet and final evaluation above supply the current cleat disposition.
+
 The [matched corner-local pilot](../bolted-frame-development/coherent-three-pin-corner-floor-pilot-v1.json)
 keeps the exact 106-bolt geometry and A12-forward loads. Its pre-solve capture
 confirms **zero difference** in material K, applied RHS, all internal-contact
@@ -4983,6 +5021,432 @@ switches include up to 193.304 N original compression in one cell; the sum is
 neither a resultant nor a physical error bound. Thus neither the free-tip
 maximum nor class count alone is a joint-failure criterion. Their spatial
 and force content retain the need for a joint/contact applicability decision.
+
+**Current conventional cleat worksheet.** Keep the exact unadopted
+106-bolt/26-angle detail, four independent plywood leaves and 66 Hillman axes.
+Use CD1, dry-service DF-L No.2, directional APA plywood properties and the
+recorded partially threaded bolt windows. No friction between connected
+members, composite plywood action, bolt preload or washer fixity is credited.
+This worksheet supersedes the earlier staged screens within their stated
+scope; their source files and failed results remain preserved.
+
+The action comparison retains all **32 floor normal laws**, with horizontal
+sticking at loaded non-runner corners and **no horizontal reaction under the
+two outboard runners**. All six fields independently replay, including their
+four plywood operators, physical body/global balance and false screw/floor
+force controls. The runner-release known answer and eight existing coupons
+pass. The last three cases use a 1e-6-N numerical stopping tolerance; no
+physical law or independent balance tolerance is relaxed. This changed
+support assumption is not a demonstrated bound on all-corner sticking or
+actual floor behavior. Two original sticking rear-case attempts cycle; their
+diagnostic forces are not used. Do not select a support assumption merely
+because its solve converges.
+
+| Duty on these six fields | Maximum reference | Engineering scope |
+| --- | ---: | --- |
+| Four plywood leaves, continuous minimum-net sections | 0.807586 | 48 section families and 1,812 point-event intervals; a 27-mm core, all bore rows and a full-weight gravity envelope. This extends the earlier 0.716145 load-station result. |
+| Ten physical shafts, adjusted affine bore bearing | 0.986769 | Maximum over the nominal and softened fields. Six provisional Grade8 cleat shafts and four Grade5 header shafts; all 22 wood and 14 steel surfaces retain their own signed force and couple. |
+| Shaft axial + bending / elastic axial-bending-shear | 0.832014 / 0.827046 | Maximum over both stiffness models. Own smooth/root windows, calibrated NDS reductions and separate simultaneous von Mises comparison; gravity and shear retained. |
+| Individual / multi-fastener plywood row-group transfer | 0.957665 / 0.729404 | Maximum over both stiffness models. All 168 nonempty hole subsets and both affine endpoints; absolute component demands and conservative linear addition of material-direction indices. |
+| Four fittings, 696 named comparisons | Below 1.0 in all cases | Fourteen installed shaft ports and two contact-only bands; conditional 6.35-mm thickness/radius and 235-/370-MPa material references. Complete local fitting behavior remains distinct. |
+| Twenty-four current six-wrench ideal bends | 0.569594 | Complete signed end resultants and a positive gravity partition; unholed t6.35/Ri6.35, Fy235/Omega1.67. Actual holed-flange/bend transfer and elastic warping remain distinct. |
+| Washer steel / outer wood annular bearing | 0.678347 / 0.469436 | 120 ends and 600 nominal/catalog-corner profiles; conditional 33-ksi washer steel and 210-psi wood-seat reference. |
+| Matching nut proof, divisor2 | 0.019739 | J995 Grade8 on long cleat bolts and Grade5 on header bolts, full engagement and delivered thread-window conformity required. |
+| Forty-eight positive seat-pressure constructions | 0.162948 | Leaf/runner, rim/header and post/header seats preserve normal force and both first moments; actual bevel material excluded. |
+| Upper-pin-induced rim end shear | 0.850666 | Actual affine transverse bore pressure applied to the existing 80-mm-deep retained core. |
+| Thirty-six receiver regions, nominal normal + shear sum | 0.956233 | All 888 point-event intervals; post, lower-rim and header net ligaments, direct shear and standard FPL torsion. |
+
+The nominal-field **0.986019** bore reference is header shaft082 in
+`base_header`, not the plywood. Plywood bearing peaks at **0.895006**.
+The softened-field maximum is 0.986768209 at the same header joint family.
+The ten-shaft worksheet retains only the central **27 mm** of each nominal
+28.575-mm leaf bearing interval, preserving its original wrench. Merged
+lower rows and both header pairs use the existing n=2 algebraic Cg>=0.5
+bound; only source-supported unmerged rows use Cg1. Hankinson demand/capacity
+maxima occur at the affine endpoints for these material pairs. NDS AppendixE
+row distances are centre-based. Applying its row/group mechanics to both APA
+plywood directions is an explicit engineering extension, not a published
+plywood off-axis fracture rating. The 27-mm resistance core does not prove
+that thinner delivered leaves retain nominal stiffness and force sharing.
+
+The continuous leaf envelope retains all three own shaft wrenches and every
+contact action for each leaf. Their complete body balances close within
+**4.243e-9 N / 5.448e-8 Nmm**; the normal capture/contact couple is not
+replaced by independent coaxial compression columns. Every cut uses the same
+minimum net section, excluding the full diameter of all intersecting bore
+rows, with the original nominal-thickness stress references and only 27 mm
+of resisting thickness. Source point-action wrenches are affine between
+events. Convexity of the existing strip interaction puts each interval's
+maximum at its own endpoint limits. Subadditivity permits adding a separate
+full-weight/bounding-box gravity upper, including all possible cut weights
+and centroids. Thus no between-station sweep, changed pressure law or CAD
+rebuild is needed. This closes nominal continuous section coverage under the
+existing strip-sharing hypothesis; local load introduction and complete
+joint applicability remain distinct.
+
+The shared-header grain-end distance is **153.9875 mm**, loaded edge
+**39.6875 mm** and pair pitch **50.8 mm**. The retained Cdelta0.95 screen is
+conservative relative to those full-value dimensions; factory along-flange
+spacing is not the timber end distance. The upper-rim analytical core has
+**51.401712 mm** grain end and 40-mm edges, supporting Cdelta0.74. No physical
+cut is introduced. Assigning the entire A1-rear rim section shear to this
+restricted core gives the preserved insufficient screen **1.815297**. Direct
+rim/header bearing carries **1,807.678687 N** in that case. Separating that
+seat from the actual bolt-induced component produces the comparisons above;
+the failed restricted-core construction is not relabelled as a physical
+failure or an accepted complete load path.
+
+The receiver worksheet uses original point actions and affine self-weight,
+net centroids and all six cut components. Full bore strips are excluded over
+each declared region; cubic Bernstein bounds cover every point-event
+interval. The initial header screen **1.208370** used a loose torsion norm
+bound and the 575-psi direct-tension reference for bending. Reusing the
+existing [FPL rectangle torsion method](https://research.fs.usda.gov/download/treesearch/37423.pdf)
+and the separate 900-psi bending reference gives **0.956233**, with no member
+change, duration credit or force change. It retains the existing common
+strain-plane, area-proportional transverse sharing, equal longitudinal shear
+moduli, common twist and end-bridge hypotheses. The extra linear addition of
+normal and shear reference indices is conservative bookkeeping, not a new
+NDS interaction equation. The later row/group, end-load and complete-joint
+disposition below supplies the conventional nominal conclusion; this section
+worksheet alone remains bounded to its recorded hypotheses.
+
+Washer/spacer normal-load fields reuse the existing statically admissible
+three-dimensional annular construction. Catalog OD/ID corners use minimum
+washer thickness **1.6256 mm**. All modeled outer-wood and steel lands retain
+their complete annuli, neighboring bores and factory holes. Required spacer
+Fy is at most **22.291545 MPa** with Omega1.67; the conditional washer Fy is
+33 ksi. These are analysis material requirements, not guaranteed catalog or
+observed delivered strengths. The continuous leaf/bolt and whole-angle checks
+below join these normal fields to the mixed lateral/gravity load path.
+
+The current bend follow-up reuses the existing six-resultant symmetric stress
+construction, positive source-gravity partition and outward-rounded interval
+checker. **All 24** current fitting/case duties have a covering construction
+below the declared reference, maximum **0.569594**. Opposite-end resultants
+reconcile within **2.784e-9 N / 1.087e-7 Nmm**. Both omitted shaft ports stay
+contact-only. This addresses the simultaneous ideal-bend force/couple duty;
+it does not transfer an old candidate's result or qualify a product. Use the
+whole-angle solid check below for the coupled nominal holed-flange/bend field.
+
+The reviewed [Dowswell rectangular-connection method](https://ej.aisc.org/index.php/engj/article/download/1147/1146)
+distinguishes ultimate connection strength from elastic first yield and
+provides a conventional combined-force approach for straight rectangular
+elements (printed pp.71-72, Eqs.42-48). Its straight-element scope does not
+automatically qualify the formed heel or the actual timber restraint. Use
+one consistent nominal connection model; do not add the separate half-band
+and whole-flange warping indices to assert a full fitting capacity. Exact
+continuum traction certification remains outside this practical goal.
+
+**Movement is now localized across all six cases.** Relative leaf/receiver
+rotation is separated into rotation about the shaft and bore-axis tilt. The
+maximum tilt is **0.009081 rad (0.5203 degrees)**. Common-datum differential
+translation reaches **3.426809 mm**; it is a point-map continuation, not actual
+bore slip. Each case has 220 contacts involving a cleat. The fixed-director
+finite-arm probe changes 5-10 of their open/compressed classifications;
+maximum original compression at a changed cleat contact is **5.955794 N**,
+and maximum local gap change is **0.024792 mm**. The larger free-tip motion
+(**81.857857 mm**) and whole-frame class-switch count are not themselves
+cleat failure criteria. Small original forces at local switches do not bound
+changes at still-compressed contacts or elsewhere in the frame. This saved-q
+probe is not a re-equilibrated finite-motion result or a force-error bound.
+
+**Short-span stiffness comparison completed.** The retained EA and flatwise EI are separate
+published panel stiffnesses for the specified rating, not values obtained by
+assigning one E to the nominal rectangular section. Do not automatically
+multiply both by a nominal-to-minimum thickness ratio cubed.
+[APA D510F, Section4.4.1](https://wood.tcaup.umich.edu/lectures/2021/D510.pdf)
+divides the tested EI by 1.1 to allow typical sheathing shear deflection and
+test-configuration differences. That adjustment does not calibrate the
+rolling-shear rigidity of this short cleat connection. The recorded
+`GA_u=1e12 N` near-Euler approximation and homogeneous-rectangle GJ were
+therefore replaced in one comparison by **50 MPa rolling-shear modulus**,
+giving GA_u=290,322 N and GJ=537,269,522 Nmm², 0.800825 of the original GJ.
+The orthotropic rectangle transformation reuses the existing rectangle series;
+homogeneous/axis-interchange and unit-force/unit-torque controls pass. Published
+EA/EI and in-plane shear rigidity, geometry, supports and loads stay unchanged.
+Retaining the apparent EI while adding full shear compliance deliberately
+softens this comparison. The [USDA Wood Handbook, Table10-6](https://research.fs.usda.gov/download/treesearch/7157.pdf)
+gives general plywood rolling-shear context of 140–210 MPa and warns against
+using those figures as allowable design values. **50 MPa is a deliberately
+soft engineering hypothesis, not a grade-specific minimum or measured property.**
+
+All six softened fields converge and independently replay their raw and four
+plywood operators, balances and false-force controls. Reusing the unchanged
+component worksheets gives bearing **0.986768209**, shaft N+M **0.832013722**,
+elastic N/M/V **0.827045245**, row/group **0.957664977**, washer **0.678050516**,
+continuous leaf **0.800689025**, ideal bend **0.569060852**, seat **0.162716243**,
+upper-pin rim end **0.850116474** and receiver normal/shear **0.955916621**.
+All named comparisons remain below one; this comparison changes no resistance.
+In K12-right, the largest ten-shaft wood-port resultant change is 3.029239 N.
+Maximum bore-axis tilt is 0.00897749 rad; the largest original compression at
+a changed local cleat-contact classification is 7.304814 N. This resolves the
+specific question of whether a substantial reduction of these two stiffness
+surrogates reverses the present component disposition. It does not establish
+a force envelope over every real panel stiffness, floor or finite-motion state.
+
+**Finite flange bearing transfer.** The same twelve fields retain 64 flange
+contact sites on the four cleat fittings. A circle limited by the nearest
+wood/steel boundary is insufficient, reaching 1.526343; preserve that failed
+construction without treating it as timber failure. A single elongated uniform
+pressure footprint at each unchanged centroid is sized by F/A using the largest
+force over the twelve fields and the conservative 625-psi timber bearing
+reference. Read-only intersections with the frozen finished-member BReps and
+analytic steel faces confirm that every loaded ellipse lies in both materials,
+clear of holes, free edges and the assumed bend. Maximum bearing index is
+**0.909090910**. Independent force-direction, centroid and free-couple checks
+give zero discrepancy. No pad, physical cut, force or centroid is changed.
+These positive nominal footprints feed the whole-angle model below. Actual
+physical contact pressures are not measured or claimed.
+
+**Continuous flange sections and stability.** Reuse the existing three-net-bar
+worksheet, deducting 12 mm for each nominal 10-mm hole at every cut. The same
+elastic rectangular torsion reference, E3 compression and B1 addition apply.
+All **96 flange/action comparisons** cover **1,992 point-event intervals**.
+The first finite-footprint allowance gives 1.121243 in four comparisons; that
+loose upper is insufficient, not a physical failure. Replacing only the
+coarse normal allowance by the exact partial ellipse/annulus force and first
+moment gives **0.732748517**. Reusing the common washer bottom support annulus
+instead of the head bearing circle gives **0.733257107**, also below one.
+That final support is a=5.7531 to b=12.6111 mm; the head load circle remains
+c=6.42366 mm in the separate washer field. All source wrenches and capacities
+stay unchanged. Numerical integration independently checks the partial
+footprints within 1.128e-10 N/Nmm; independent scalar reduction differs by at
+most 1.111e-16. These remain nominal net-bar/stability comparisons with the
+recorded common-strain/twist and L88.9/K2 restraint hypotheses.
+
+**One complete fitting solid model.** The remaining steel interaction question
+is now addressed with the repository's existing C3D20 solid formulation,
+using one common t6.35/Ri6.35 angle with all eight physical factory bores.
+Gmsh4.15.2 generates only its quadrilateral analysis grid; the stiffness solve
+uses Python/SciPy, without an external native solver or another frame solve.
+The [Gmsh options](https://gmsh.info/doc/texinfo/gmsh.html#Mesh-options)
+provide full-quad recombination and incomplete quadratic elements. This is
+the previously declared rounded-angle hypothesis, not a changed CAD model.
+All **48 own fitting/action sets** retain their six-component source actions:
+four cleat fittings, six cases and both plywood stiffness models.
+
+Uniform ellipse pressures use the established wood/steel footprints. Washer
+loads use the same common a..b bottom pressure as the checked washer field.
+The original head/capture station is moved only along its normal force line
+to the recorded host-support face, preserving its complete wrench. Affine
+through-thickness semicosine bore pressure reproduces each original steel
+force and couple within 5.685e-14 N / 1.092e-11 Nmm. A positive affine body-force
+density preserves source gravity and COM. Only six rank-verified rigid-motion
+gauges are imposed; no artificial flange fixity is credited in this local solve.
+
+A separate two-element constant-stress traction coupon passes before the
+fitting calculation. The complete fitting mesh also reproduces an independent
+six-component constant-stress boundary-traction solution. The first 54,483-DOF
+mesh checks all 48 action sets, maximum sampled elastic reference **0.469125**.
+The finer 93,561-DOF in-plane grid gives **0.469046**; its constant-stress error
+is below 9.799e-10 MPa, with reaction/residual checks retained. Stress is checked
+at 27 Gauss and 27 boundary/interior sample points per element. The finer-grid
+principal tension reaches **66.899526 MPa** and Tresca shear **33.633673 MPa**.
+The eight established J4 L/U paths give maximum in-plane component reference
+**0.036750**. An additional conservative Cartesian normal/shear stress sum,
+using 85.916370-MPa tension and 70.5-MPa shear references, reaches **0.940058**.
+It includes the complete six-stress field and 2-mm net-hole deductions. That
+extra linear sum is an engineering comparison, not an asserted general AISC
+three-dimensional interaction equation. Doubling thickness resolution gives
+**0.460667** for elastic stress and **0.955009** for that additional screen.
+The maximum change in any fitting's peak index is 0.005404 for in-plane
+refinement and 0.009657 for thickness refinement. Doubling normal and bore
+pressure quadrature on the governing rear-left and strong right-side duties
+changes their peak indices by **0.002676% / 0.010949%**. Both controls retain
+the same pressures, forces, geometry and material law. These ordinary
+refinement checks support the nominal engineering disposition; they do not
+claim a certified continuous stress maximum or physical capacity margin.
+
+**Timber receiver row/group transfer.** The same Appendix E row helper and
+published E.7 worked-example controls now cover all nonempty subsets on the
+five receiving timbers: **276 comparisons** over the twelve fields, maximum
+**0.316383**. Both affine bore-pressure endpoints retain the complete grain
+load/couple demand. Use the bevel-free rim prism, 79.374-mm post width and
+actual 38.1-mm header thickness, with CD1/CF1, Fv = 180 psi and Ft = 575 psi. Perpendicular-
+grain demands retain their adjusted bearing, loaded-edge and end/member-shear
+checks; no timber tensile strength perpendicular to grain is invented.
+
+**Nominal assembly and installation.** Reuse the established occupied-registry
+checker on the exact 106-bolt geometry. All **1,097 occupied parts**, including
+590 changed parts, have no unresolved candidate or volume collision. Thirty
+additional envelopes cover both tool ends of the ten cleat/header shafts and
+their head-side bolt insertion/removal. All clear. The assumed socket fits
+within **24-mm OD / 70-mm axial length**, with at least **22.149-mm cavity**;
+actual tools remain unobserved. Catalog washer bounds, matching nut height,
+minimum smooth body, seating beyond runout and two full pitches give positive
+minimum margins **2.1844 / 6.4262 / 3.81 mm**, respectively. A common conservative
+4.572-mm maximum underlength allowance is used for both nominated lengths;
+these are delivered-part requirements, not inspection claims. The old geometry
+creation record's pending list stays frozen; this later receipt resolves the
+nominal occupied/access duty without changing that source record.
+
+**Final engineering disposition.** Complete the conventional cleat evaluation
+on the explicitly declared first-order support/material basis. The six
+runner-release cases and their softened-plywood repeats supply the actions.
+The local bore-axis tilt is small, free overhang motion is separated, the
+global compatibility/force operators replay and the complete angle field
+passes its independent elasticity and refinement controls. Accept that model
+for this conditional calculation; do not call it a bound on every real floor,
+panel stiffness or finite-motion pressure redistribution. The two failed
+all-sticking rear attempts are neither demands nor accepted cases.
+
+Recommend the frozen four-leaf, 106-bolt detail, with these requirements:
+
+| Item | Recommended analysis requirement |
+| --- | --- |
+| Four plywood leaves | 609.6 × 203.2 × 28.575 mm nominal, at least 27 mm credited actual; APA 48 oc PS1, at least five plies, Group 1 bearing basis and strength axis Z. Two independent adjacent outboard leaves per corner. |
+| Six long cleat bolts | 3/8 × 203.2 mm, partially threaded J429 Grade 8 with matching J995 Grade 8 nuts; minimum smooth body 163.576 mm. |
+| Four shared header bolts | 3/8 × 88.9 mm, partially threaded J429 Grade 5 with matching J995 Grade 5 nuts; minimum smooth body 55.626 mm. |
+| All ten shafts | Minimum smooth diameter 9.3726 mm, all bearing surfaces in body and full nut engagement. Full-thread substitution is not qualified. |
+| Four cleat fittings | Evaluated 88.9-mm arms/width, t6.35/Ri6.35, eight 10-mm factory holes, conditional Fy235/Fu370 MPa. These are requirements, not guaranteed Eoere material or measured radius/thickness. |
+| Washers and spacers | Recorded 3/8 USS bounds, washer minimum 1.6256 mm and conditional Fy33ksi; common support a5.7531..b12.6111 mm; spacer ID10.31875/OD19.05 mm and long/header length 25.4/12.7 mm. |
+
+**Critical shop limit:** the lower leaf's nominal centre-to-grain-end distance
+is **34.1125 mm**, versus the stated 3.5D minimum **33.3375 mm**. The remaining
+**0.775 mm** needs a controlled template/measurement plan in any later selected
+packet; a generic ±1-mm drilling/layout tolerance is insufficient. Upper-rim
+and shared-header end/edge/pitch dimensions and the retained conservative
+Cdelta values stay recorded above. This finding requires control of the
+existing detail; it does not justify a geometry change without a failed criterion.
+
+No required conventional cleat duty remains open **on this declared basis**.
+The component receipts keep their original limited claims; the final conclusion
+comes from the combined detail, load-transfer, complete fitting, brittle/end/
+group, movement and installation review. Actual wood, hardware, cuts, tools
+and floor have not been observed. Incompatible delivered shank/material or
+dimensions stop the affected operation. No blanket external sign-off or new
+native-solve prerequisite is introduced.
+
+The published 96-bolt single-leaf shop model retains its own exceeded leaf
+reference and is not the paired-leaf build packet. Candidate selection and
+coherent shop-sheet integration remain separate from this completed cleat
+evaluation. The selected screw/ML24Z baseline is unchanged. Deferred panel/
+Hillman exceedances and other whole-frame duties remain; neither fabrication
+nor climbing is released. All Actual/Disposition cells remain blank.
+
+**Evidence and reproduction.** All records stay in the existing ignored
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/`
+packet. No new status document, geometry, candidate/material selection,
+fabrication or climbing release is created. The following result files are
+in `runner-roller-comparison-v1/`; each binds its sources and producer:
+
+| Active result | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `cleat-six-case-summary-v1.json` | 47,252 | `0e15a218bb34558a2473906cae7883c26e174c1dffde1a55d383005bd5a5231a` |
+| `cleat-group-and-washers-v1.json` | 824,329 | `45fbf1bd648f67cba2e37010f9cda3c7b304d87ec79a360218bcc2c98c03dd5e` |
+| `cleat-receiver-sections-v1.json` | 667,096 | `389addb4af29c13bbe3c39e772ccf7d5f2049aef76adf3fea5c63a63baaa0ee7` |
+| `cleat-receiver-standard-v1.json` | 122,208 | `09a63fa55de6694b9265628a5e3c3a5efc5d725630ca155b182d84b01b7a118f` |
+| `cleat-movement-review-v1.json` | 62,060 | `84f49d42b93f636d4e222b39434ab4834fe550d0cf26399a96d26bde6a54efae` |
+| `cleat-continuous-sections-v1.json` | 1,780,508 | `c5d545a7c7efff144a123ae4491f2374cb0b4eca441bd0b1fe60705ca7555131` |
+| `cleat-bend-review-v1.json` | 178,697 | `bf9a48fd06935d4304228ccd28e5ed9b322bee855d0c0f1d30ad7fcb19767e47` |
+
+The same folder retains six `cleat-local-CASE-v1.json` worksheets, the
+`cleat-receiver-geometry-v1.json` failed core screen and
+`cleat-bearing-transfer-v1.json` positive seat fields. In table case order
+A12-forward, A12-left, A12-rear, K12-right, K12-rear, A1-rear, the local hashes
+are `847b558bc9b289fb3018ba6dfc33fbcd73f3dad272d92f7b3ce040ae2d16f5d8`,
+`8b293b119af086b45d33b8f69cb81b2194b4ecaacfae0eaa50c48615b75fa4cf`,
+`8732e84ba81456116bcaad6b5e1e222b6c704a45f3f41a341dd270b26d013097`,
+`6faed1b1206371537894630cd30a9289bcaed4dee5049be369d678355adf8742`,
+`ab8418e7039ca018ed8361702864b6695488081b26b2f99d5d77224f30678038`,
+`8a9b3246d835d66028fd2901ac7864571438df1976c106a724028298156fb952`.
+Receiver-geometry and bearing-result hashes are
+`fdb9e3b4b64acba99139b8b449888f5e57d94fccc4b804076bb66e97e462fea1`
+and `346b0ae4e8a2ae752414a780b1215afe6dd983e530c93f8c3711d04c47127ad6`.
+
+The additional results below are in `short-span-stiffness-v1/` under the same
+packet. Their six-case summary binds every field and independent replay;
+401 recorded source bindings were rechecked after the bearing construction.
+
+| Additional result | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `material.json` | 5,527 | `6b13783574b31d875d0bdbeca376444dd241cde7037130f88d548d708afb3cd4` |
+| `known-answers.json` | 1,125 | `af284d1f306666e628a1d313d4fb71d35387b09709520ef10e245a04b1fd2977` |
+| `cleat-six-case-summary-v1.json` | 15,161 | `6ded3fd2a5b7932216d0d073f2f724cc3c8e1fdd9fb21ec4cc17b837fe64940b` |
+| `cleat-group-and-washers-v1.json` | 825,737 | `3b9c8f25b189eb3acb3c0faf2b70c9dd57bb25eb1bd775ea62e3cd816e3dfb1a` |
+| `cleat-bearing-transfer-v1.json` | 110,286 | `a4ebfe1a6cb61555c2472079e409b7ce5451b29ae48c9b0d4f8614f1de1ecf36` |
+| `cleat-receiver-standard-v1.json` | 123,466 | `2062bba69125472bb0f7a1b9d522e7724aab59c2042f2764764a9d8b42b7b0ea` |
+| `cleat-continuous-sections-v1.json` | 1,773,763 | `5fd01e7f3b8b508e238bb26e41c8b99d659bf75580a1f51412719951926cd513` |
+| `cleat-bend-review-v1.json` | 179,601 | `081a682d97626402162ce49e2badb382e4e38d271f6ea3c1f0c6fc3ad09f01b9` |
+| `cleat-movement-review-v1.json` | 63,334 | `99c2b729d36e7aaff02a7f6c854dc784fde7cbbad4a34a3c5203d93ad9e71ba4` |
+| `cleat-flange-pressure-v1.json` | 320,037 | `578aed22a02225b24bc9b4c71d92bd82b97e0b268948099db8b9545fd6850aea` |
+
+The packet's `cleat_stiffness_sensitivity.py` records preparation, known answers
+and the six serial case commands; its frozen preparation/producer and material
+retain exact inputs. `cleat_stiffness_components.py local` joins the fields and
+reuses the local/fitting worksheets; its `groups`, `seats`, `receiver`,
+`standard`, `continuous` and `movement` modes reuse the other worksheet math.
+`cleat_stiffness_bend.py FRESH_OUTPUT.json` adapts only the existing bend intake.
+`cleat_flange_pressure.py FRESH_OUTPUT.json` reads both action banks and the
+frozen BReps. Use `PYTHONPATH=. uv run python -B` for these commands. Producer
+hashes are respectively `e3536c3bc9dd5e5d73d28b31ba3baf056543a61f49c746725122c1bb79a2f5e2`,
+`414d510686d1824dba5d5ba8071a1d8804acb9941940260e7ea7e8fa32efee1a`,
+`499b1f93a28bde3d66aca8b7f7dcd0a02cd85fa5d4c1e9dc6ea78f10e72bc339`
+and `fb284631a24b6c86ffe7f468fdfc3810563196076d68a39e0a9899cc64f5616b`.
+No additional native solve, frame geometry rebuild or permanent CAD export is involved.
+
+The completed join is the **24,199-byte** tracked
+[conditional engineering evaluation](../bolted-frame-development/coherent-three-pin-cleat-evaluation-v1.json),
+SHA-256 `7ff7c9d5797d5fef348e3f7e359f879bec09940d34699a425acece0e439f246c`.
+It binds 48 direct inputs/results and rechecks **1,005** direct/inherited source
+files. One historical builder-script reference resolves to its existing
+byte-identical `attempt06/frozen-parent-builder-layout.py`, rather than the
+later live script; the explicit alias and original digest are recorded.
+No frozen geometry or source bytes are replaced. The paired-cleat proposal
+and its data remain distinct from selected-baseline and published-model authority.
+
+Additional frozen arithmetic records under the same packet are:
+
+| Relative result path | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `short-span-stiffness-v1/cleat-flange-sections-common-washer-v3.json` | 1,324,529 | `87c57f2ce29aed3996574505118a59887b8dee094dbf3a7cf967a94957d86dd5` |
+| `short-span-stiffness-v1/cleat-receiver-groups-v1.json` | 201,762 | `6419785f6f57cdd3315a09f9fd93c06e0cadf6374bdd929623f535558ce84dcc` |
+| `cleat-solid-transfer-v1/actions-v2.json` | 1,105,828 | `0154f71b0363d63f825e653c608b7e7b4b50bc91560f9719e96789a0d62b0138` |
+| `cleat-solid-transfer-v1/all-8mm-v1/result.json` | 72,718 | `104e32e43d34fac1ebb40319b23189295eef8d9cc4650f4675cee6ead86b1d2f` |
+| `cleat-solid-transfer-v1/all-6mm-v1/result.json` | 72,916 | `38033ce611a0686a1b6fdd45e3e3d01c47b86d4fb4f8b1a664283fded957c66a` |
+| `cleat-solid-transfer-v1/all-8mm-2layer-v1/result.json` | 72,643 | `10679f25f430ff2200deef7c08a931e6dc899fed8f35d856f7baa9ab49666cb5` |
+| `cleat-solid-transfer-v1/strength-6mm-v1.json` | 41,354 | `08cb63b555fffdabaa6379526c183a70dd63d289a2f42035ceb803f10c2a99d9` |
+| `cleat-solid-transfer-v1/strength-8mm-2layer-v1.json` | 41,358 | `fd11d13ddc15fb22b09832755726adb62f6aabbfa7f472d334bdc4a2618496ae` |
+| `cleat-solid-transfer-v1/refined-pressure-6mm-v1/result.json` | 17,312 | `d3aaa885cadb5d56c151252e6c9deed32fcd0955a44b1c9b062433ce6653e1ca` |
+| `cleat-nominal-access-v1.json` | 319,679 | `9477b6e68d9ac2daf8aab2bedcf0f10959b6f770a6021b6d81d6def62a54c879` |
+
+`cleat_evaluation_summary_v2.py FRESH_OUTPUT.json` reproduces the final join.
+`cleat_flange_sections_common_washer.py` and `cleat_receiver_groups.py` take
+one fresh result path. The complete-angle command is
+`cleat_local_solid_response.py MESH_FOLDER actions-v2.json all FRESH_FOLDER`;
+use its `coupon` mode for the separate known answer. The pressure-refinement
+adapter selects its two declared duties. `cleat_local_solid_strength.py
+RESPONSE_FOLDER FRESH_OUTPUT.json` performs stress/path recovery without a
+new solve. Run these with `PYTHONPATH=. uv run python -B` and
+`OPENBLAS_NUM_THREADS=1` for the solid calculations. All sources and numerical
+arrays are bound by the final result; no solver installation is copied.
+
+The mesher uses `uv run --with gmsh==4.15.2` and the recorded mesh helper,
+with size/layer arguments 8/1, 6/1 and 8/2. The Ubuntu GLU runtime package
+`libglu1-mesa=9.0.2-1.1build1` was extracted into a shared temporary tooling
+cache, without modifying the system or project dependencies. Existing frozen
+meshes suffice for response replay. The first dense grid, stopped capture-
+reference preparation and coarse pressure upper stay recoverable. Final
+inputs/fields remain active; those superseded raw attempts are eligible for
+later archive only after a consumer/ownership audit. Nothing is archived/pruned.
+
+Run the packet's `cleat_six_case_summary.py`, `cleat_group_and_washers.py`,
+`cleat_receiver_sections.py`, `cleat_receiver_standard.py`,
+`cleat_receiver_geometry.py`, `cleat_bearing_transfer.py` or
+`cleat_movement_review.py`, `cleat_continuous_sections.py` or
+`cleat_bend_review.py` with `PYTHONPATH=. uv run python -B` and one fresh
+output path. `cleat_local_design.py` additionally takes the source case
+folder before that path. The six-case join, K12-right local worksheet,
+positive-seat result, group/washer result, standard-receiver result,
+movement result, continuous-section result and six-wrench bend result have
+byte-identical replays. Existing row/group, shaft and floor suites retain
+**21 + 67 + 31** passing checks. The reused section and curved-bend
+field/consumer suites pass **68** checks on this continuation. No native
+solve or CAD rebuild is involved.
+The earlier stage files, including the 1.032745 nominal-thickness screen,
+failed anisotropic bearing witness and failed support-mask attempts, remain
+recoverable with their original source bindings. Nothing is archived/pruned.
 
 The six preserved hold-label bindings were also checked directly before
 changing receivers: each case's front point exactly matches its named
