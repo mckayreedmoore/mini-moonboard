@@ -5673,6 +5673,71 @@ documented load-coverage and governing-detail review, not another routine
 native or CAD campaign. This weight-input task is complete; current-frame
 engineering acceptance remains unestablished.
 
+<a id="climber-weight-175lb"></a>
+**175 lb owner-requested comparison.** All six current v4 cases are recomputed
+at 175 lb (79.37866475 kg), retaining the 2.0 downward multiplier, 300 N
+horizontal action and CD1. The 802 nonclimber load rows in every case are
+unchanged, including nominal self-weight and the 25 kg accessory allowance.
+Downward climber force is 1,556.877565 N and total downward action is
+3,732.228574 N. Body weight falls 30% from the 250 lb reference, while total
+downward action falls 15.166247%. The reference weight remains unchanged;
+this comparison does not select a new design load or establish a rating.
+
+| Governing conditional reference, limit 1.0 | 250 lb reference | 175 lb comparison |
+| --- | ---: | ---: |
+| Front post/runner wood, left / right | 0.937383 / 0.890992 | 0.746588 / 0.698596 |
+| Front post/runner bolt axial/bending, left / right | 0.893340 / 0.840875 | 0.658515 / 0.610892 |
+| Upper long support/side rim wood, left / right | 1.113637 / 1.098425 | 0.878547 / 0.866067 |
+| Upper long support/side rim bolt axial/bending, left / right | 1.089846 / 1.076285 | 0.860677 / 0.849761 |
+| Bonded cleat, 38.1 mm / 36.5 mm credit | 1.066325 / 1.129031 | 0.850972 / 0.901843 |
+| Header net shear/torsion | 1.128148 | 0.964567 |
+| Top rail net shear/torsion | 1.176955 | **1.040608** |
+| Left / right sloping side net shear/torsion | 1.343708 / 1.306019 | **1.118066 / 1.085426** |
+
+All 82 ordinary-bolt geometries remain eligible and none of their reported
+references exceed one. Three of the 20 timber members still exceed their
+net shear/torsion references: top rail at K12-rear, left side at A12-rear and
+right side at K12-rear. The header clears this reference by only about 3.5%.
+These are the existing sufficient engineering screens; the
+[assumption audit](#current-assumption-and-reference-audit) and its limits
+remain applicable. All six raw-force and two-plywood-operator replays pass;
+maximum full-gradient residual is 4.747431e-6 N, below the unchanged 1e-5 N
+gate, and all four credited floor hosts remain in compression.
+
+The cleat row result remains conditional on perfect bonding and the nominal
+full-width beam approximation. The 36.5 mm result changes reference credit
+at nominal stiffness. Actual bond, floor behavior, ten dedicated joints and
+complete steel/end/group/seat/washer/spacer duties remain unqualified;
+panel/Hillman strength remains deferred. Neither the individual passes nor
+the reduced exceedances complete the frame or release fabrication/climbing.
+The next engineering work remains the governing timber/joint/support review.
+
+The active raw bank is
+`frame-completion-v1/owner-bolt-moves-v4/weight-175lb-v1/`. Its exact command
+uses the existing shared raw prefix:
+
+```sh
+uv run python -B -m scripts.eoere_weight_study --weight-lb 175 --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/weight-175lb-v1
+```
+
+The tool-server interruption occurred after three cases had saved complete
+responses and independent replays. The retained `resume-after-interruption.py`
+and `resume-context.json` authenticate those results and continue the unchanged
+producer for the three pending cases and existing worksheets; completed
+cases are not repeated. No input, numerical gate or method changes.
+The final audit verifies 1,529 distinct source/result bindings. Python 3.12.3,
+NumPy 2.5.2 and SciPy 1.18.1 match the prior example. The result is 66,516 bytes,
+SHA-256 `9a88868afcfb2a9184940f15f62aae1626fb79485d85214b5efad2b0cd702b75`;
+the 1,071-byte comparison TSV is
+`113cfbc97381d982cb7b2f522923b8d63f7978f70499bff24fee68683cd88edc`.
+Prepared inputs have SHA-256
+`e6e72da4e32b4990a205acb65f77bfffb975153e7d2ef88805f343ba40e8ee18`;
+the unchanged 13,997-byte producer has SHA-256
+`7ed561826e2190b604644c7905a7c48a2c7fe54f1ea476234a8afdc1886b375c`.
+The 219,333,005-byte raw bank stays ignored and active; no frozen source,
+geometry, mesh, selected-baseline artifact or release flag changes. No
+native executable, CAD rebuild, archive or prune is used for this study.
+
 <a id="current-exceedance-proposals"></a>
 **Owner-requested remedies for the current exceedances — proposals only.**
 The later [local-move execution](#current-front-bolt-moves) supersedes the

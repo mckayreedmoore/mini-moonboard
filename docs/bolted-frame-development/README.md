@@ -51,6 +51,11 @@ does not change the current geometry or establish a climber rating. The 2.0
 multiplier and 300 N lateral action remain declared assumptions; they are not
 presented as a standard load combination.
 
+At [175 lb](../wood-joints-mvp/completion-ledger.md#climber-weight-175lb), the
+same six cases clear ordinary-bolt and bonded-cleat references. Top-rail and
+left/right side net shear/torsion remain at 1.040608, 1.118066 and 1.085426.
+This weight comparison retains the model qualifications and 250 lb reference.
+
 The [assumption and reference audit](../wood-joints-mvp/completion-ledger.md#current-assumption-and-reference-audit)
 reproduces the current timber arithmetic. Tighter same-state probes still
 exceed 1.0; reduced-core assumptions, large saved operator motions and the
