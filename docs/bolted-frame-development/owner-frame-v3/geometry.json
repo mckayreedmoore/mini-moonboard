@@ -1,0 +1,574 @@
+{
+  "actual_observations": null,
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "checked_clearance": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/clearance.json",
+    "sha256": "aa59bf33476f5ffbfa5d8ff53718303d7714ec4d02f1223190c0e869be44763f"
+  },
+  "checked_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/geometry.json",
+    "sha256": "5ca7811d47646cd8d5839a76bbcdd7da509bbe3470dc21d2a7354d4b86a81257"
+  },
+  "climbing_released": false,
+  "complete_conditional_frame_evaluation": false,
+  "counts": {
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolt_stacks": 92,
+    "nuts": 92,
+    "occupied_parts": 1011,
+    "panels": 6,
+    "plywood_cleats": 4,
+    "receiver_occurrences": 112,
+    "sawn_members": 20,
+    "spacer_pieces": 26,
+    "washers": 184
+  },
+  "development_model_integrated": true,
+  "fabrication_released": false,
+  "files": {
+    "axes.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/axes.json",
+      "sha256": "032e9452f24ccea46eb5501c2d1298324b1bb920f005df6ef7ef899e0bee973e"
+    },
+    "current_profiles.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/current_profiles.json",
+      "sha256": "6ab275374c9d3fd5d0d38a455f4dab5a78257d4e27dd6fb2e4ff9e3c60a96da2"
+    },
+    "hardware-review.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/hardware-review.csv",
+      "sha256": "9517da80792e1a4ae8549727ad2b0d5ae891a2680ec083370cf32ee0372cfe1b"
+    },
+    "members.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/members.csv",
+      "sha256": "13239fc3477e84beeea42d56adb741b6bae8157ec24ac2b9e82b4edca3a23816"
+    },
+    "receiver-holes.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/receiver-holes.csv",
+      "sha256": "d2e9ccf232446a70f2db0db46075c428f4e8e652bf765434e006cbd379810340"
+    }
+  },
+  "geometry_producer": {
+    "path": "scripts/eoere_requested_frame.py",
+    "sha256": "c17be8a9035507ec92f7c2ed85d491e56e6ef35c0456b7d88862814ab20143a8"
+  },
+  "nominal_geometry_clear": true,
+  "old_force_pass_transferred": false,
+  "owner_requested_revision": {
+    "cleats": [
+      {
+        "holes": [
+          {
+            "axis_id": "eoere_bolt_071",
+            "center_yz_mm": [
+              -85.2125,
+              342.0875
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_left_1",
+            "center_yz_mm": [
+              -136.0125,
+              173.8125
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_left_2",
+            "center_yz_mm": [
+              -85.2125,
+              173.8125
+            ]
+          }
+        ],
+        "member": "eoere_cleat_left",
+        "nominal_leaf_thickness_mm": 19.05,
+        "outline_vertices_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -175.7,
+            334.39810594
+          ],
+          [
+            -41.49733121,
+            277.0
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            277.0
+          ],
+          [
+            -10.6,
+            313.82200547
+          ],
+          [
+            -10.6,
+            531.15662408
+          ]
+        ]
+      },
+      {
+        "holes": [
+          {
+            "axis_id": "eoere_bolt_071",
+            "center_yz_mm": [
+              -85.2125,
+              342.0875
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_left_1",
+            "center_yz_mm": [
+              -136.0125,
+              173.8125
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_left_2",
+            "center_yz_mm": [
+              -85.2125,
+              173.8125
+            ]
+          }
+        ],
+        "member": "eoere_cleat_left_outer",
+        "nominal_leaf_thickness_mm": 19.05,
+        "outline_vertices_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -175.7,
+            334.39810594
+          ],
+          [
+            -41.49733121,
+            277.0
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            277.0
+          ],
+          [
+            -10.6,
+            313.82200547
+          ],
+          [
+            -10.6,
+            531.15662408
+          ]
+        ]
+      },
+      {
+        "holes": [
+          {
+            "axis_id": "eoere_bolt_074",
+            "center_yz_mm": [
+              -85.2125,
+              342.0875
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_right_1",
+            "center_yz_mm": [
+              -136.0125,
+              173.8125
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_right_2",
+            "center_yz_mm": [
+              -85.2125,
+              173.8125
+            ]
+          }
+        ],
+        "member": "eoere_cleat_right",
+        "nominal_leaf_thickness_mm": 19.05,
+        "outline_vertices_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -175.7,
+            334.39810594
+          ],
+          [
+            -41.49733121,
+            277.0
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            277.0
+          ],
+          [
+            -10.6,
+            313.82200547
+          ],
+          [
+            -10.6,
+            531.15662408
+          ]
+        ]
+      },
+      {
+        "holes": [
+          {
+            "axis_id": "eoere_bolt_074",
+            "center_yz_mm": [
+              -85.2125,
+              342.0875
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_right_1",
+            "center_yz_mm": [
+              -136.0125,
+              173.8125
+            ]
+          },
+          {
+            "axis_id": "cleat_post_bolt_right_2",
+            "center_yz_mm": [
+              -85.2125,
+              173.8125
+            ]
+          }
+        ],
+        "member": "eoere_cleat_right_outer",
+        "nominal_leaf_thickness_mm": 19.05,
+        "outline_vertices_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -175.7,
+            334.39810594
+          ],
+          [
+            -41.49733121,
+            277.0
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            277.0
+          ],
+          [
+            -10.6,
+            313.82200547
+          ],
+          [
+            -10.6,
+            531.15662408
+          ]
+        ]
+      }
+    ],
+    "no_glue_friction_or_composite_action_credit": true,
+    "nut_hardware_moves": [
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_071_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_071_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_071_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "eoere_bolt_071_nut"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_074_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_074_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "eoere_bolt_074_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "eoere_bolt_074_nut"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_1_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_1_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_1_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "cleat_post_bolt_left_1_nut"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_2_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_2_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_left_2_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "cleat_post_bolt_left_2_nut"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_1_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_1_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_1_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "cleat_post_bolt_right_1_nut"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_2_nut_washer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_2_spacer"
+      },
+      {
+        "along_axis_mm": -19.05000000000001,
+        "id": "cleat_post_bolt_right_2_spacer_2"
+      },
+      {
+        "along_axis_mm": -6.350000000000012,
+        "id": "cleat_post_bolt_right_2_nut"
+      }
+    ],
+    "parent": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/retained-2x6-A574-geometry-v2/geometry.json",
+      "sha256": "ff3b55af904d4375c7ec9aa1fe65712da3c913f78a27b552d2c4002a35d37c0d"
+    },
+    "removed_angle_ids": [
+      "outboard_knee_angle_left",
+      "outboard_knee_angle_right"
+    ],
+    "removed_axis_ids": [
+      "outboard_angle_left_eoere_bolt_001",
+      "outboard_angle_left_eoere_bolt_005",
+      "outboard_angle_left_eoere_bolt_010",
+      "outboard_angle_right_eoere_bolt_013",
+      "outboard_angle_right_eoere_bolt_017",
+      "outboard_angle_right_eoere_bolt_018",
+      "outboard_leg_lap_left_-1",
+      "outboard_leg_lap_left_1",
+      "outboard_leg_lap_right_-1",
+      "outboard_leg_lap_right_1"
+    ],
+    "removed_member_ids": [
+      "outboard_knee_left",
+      "outboard_knee_right",
+      "outboard_leg_packer_left",
+      "outboard_leg_packer_right"
+    ],
+    "removed_part_ids": [
+      "outboard_angle_left_eoere_bolt_001_head",
+      "outboard_angle_left_eoere_bolt_001_head_washer",
+      "outboard_angle_left_eoere_bolt_001_nut",
+      "outboard_angle_left_eoere_bolt_001_nut_washer",
+      "outboard_angle_left_eoere_bolt_001_shaft",
+      "outboard_angle_left_eoere_bolt_001_spacer",
+      "outboard_angle_left_eoere_bolt_005_head",
+      "outboard_angle_left_eoere_bolt_005_head_washer",
+      "outboard_angle_left_eoere_bolt_005_nut",
+      "outboard_angle_left_eoere_bolt_005_nut_washer",
+      "outboard_angle_left_eoere_bolt_005_shaft",
+      "outboard_angle_left_eoere_bolt_005_spacer",
+      "outboard_angle_left_eoere_bolt_010_head",
+      "outboard_angle_left_eoere_bolt_010_head_washer",
+      "outboard_angle_left_eoere_bolt_010_nut",
+      "outboard_angle_left_eoere_bolt_010_nut_washer",
+      "outboard_angle_left_eoere_bolt_010_shaft",
+      "outboard_angle_left_eoere_bolt_010_spacer",
+      "outboard_angle_right_eoere_bolt_013_head",
+      "outboard_angle_right_eoere_bolt_013_head_washer",
+      "outboard_angle_right_eoere_bolt_013_nut",
+      "outboard_angle_right_eoere_bolt_013_nut_washer",
+      "outboard_angle_right_eoere_bolt_013_shaft",
+      "outboard_angle_right_eoere_bolt_013_spacer",
+      "outboard_angle_right_eoere_bolt_017_head",
+      "outboard_angle_right_eoere_bolt_017_head_washer",
+      "outboard_angle_right_eoere_bolt_017_nut",
+      "outboard_angle_right_eoere_bolt_017_nut_washer",
+      "outboard_angle_right_eoere_bolt_017_shaft",
+      "outboard_angle_right_eoere_bolt_017_spacer",
+      "outboard_angle_right_eoere_bolt_018_head",
+      "outboard_angle_right_eoere_bolt_018_head_washer",
+      "outboard_angle_right_eoere_bolt_018_nut",
+      "outboard_angle_right_eoere_bolt_018_nut_washer",
+      "outboard_angle_right_eoere_bolt_018_shaft",
+      "outboard_angle_right_eoere_bolt_018_spacer",
+      "outboard_knee_angle_left",
+      "outboard_knee_angle_right",
+      "outboard_knee_left",
+      "outboard_knee_right",
+      "outboard_leg_lap_left_-1_head",
+      "outboard_leg_lap_left_-1_head_washer",
+      "outboard_leg_lap_left_-1_nut",
+      "outboard_leg_lap_left_-1_nut_washer",
+      "outboard_leg_lap_left_-1_shaft",
+      "outboard_leg_lap_left_-1_spacer",
+      "outboard_leg_lap_left_-1_spacer_2",
+      "outboard_leg_lap_left_1_head",
+      "outboard_leg_lap_left_1_head_washer",
+      "outboard_leg_lap_left_1_nut",
+      "outboard_leg_lap_left_1_nut_washer",
+      "outboard_leg_lap_left_1_shaft",
+      "outboard_leg_lap_left_1_spacer",
+      "outboard_leg_lap_left_1_spacer_2",
+      "outboard_leg_lap_right_-1_head",
+      "outboard_leg_lap_right_-1_head_washer",
+      "outboard_leg_lap_right_-1_nut",
+      "outboard_leg_lap_right_-1_nut_washer",
+      "outboard_leg_lap_right_-1_shaft",
+      "outboard_leg_lap_right_-1_spacer",
+      "outboard_leg_lap_right_-1_spacer_2",
+      "outboard_leg_lap_right_1_head",
+      "outboard_leg_lap_right_1_head_washer",
+      "outboard_leg_lap_right_1_nut",
+      "outboard_leg_lap_right_1_nut_washer",
+      "outboard_leg_lap_right_1_shaft",
+      "outboard_leg_lap_right_1_spacer",
+      "outboard_leg_lap_right_1_spacer_2",
+      "outboard_leg_packer_left",
+      "outboard_leg_packer_right"
+    ],
+    "replacement_part_ids": [
+      "base_rail_top",
+      "base_side_left",
+      "base_side_right",
+      "cleat_post_bolt_left_1_nut",
+      "cleat_post_bolt_left_1_nut_washer",
+      "cleat_post_bolt_left_1_spacer",
+      "cleat_post_bolt_left_1_spacer_2",
+      "cleat_post_bolt_left_1_spacer_3",
+      "cleat_post_bolt_left_2_nut",
+      "cleat_post_bolt_left_2_nut_washer",
+      "cleat_post_bolt_left_2_spacer",
+      "cleat_post_bolt_left_2_spacer_2",
+      "cleat_post_bolt_left_2_spacer_3",
+      "cleat_post_bolt_right_1_nut",
+      "cleat_post_bolt_right_1_nut_washer",
+      "cleat_post_bolt_right_1_spacer",
+      "cleat_post_bolt_right_1_spacer_2",
+      "cleat_post_bolt_right_1_spacer_3",
+      "cleat_post_bolt_right_2_nut",
+      "cleat_post_bolt_right_2_nut_washer",
+      "cleat_post_bolt_right_2_spacer",
+      "cleat_post_bolt_right_2_spacer_2",
+      "cleat_post_bolt_right_2_spacer_3",
+      "eoere_bolt_071_nut",
+      "eoere_bolt_071_nut_washer",
+      "eoere_bolt_071_spacer",
+      "eoere_bolt_071_spacer_2",
+      "eoere_bolt_071_spacer_3",
+      "eoere_bolt_074_nut",
+      "eoere_bolt_074_nut_washer",
+      "eoere_bolt_074_spacer",
+      "eoere_bolt_074_spacer_2",
+      "eoere_bolt_074_spacer_3",
+      "eoere_cleat_left",
+      "eoere_cleat_left_outer",
+      "eoere_cleat_right",
+      "eoere_cleat_right_outer",
+      "lumber_leg_left",
+      "lumber_leg_right"
+    ],
+    "restorations": [
+      {
+        "member": "base_side_left",
+        "restored_top_cap_mm3": 473176.47299737483
+      },
+      {
+        "fresh_stock_only_not_a_repair_instruction": true,
+        "member": "lumber_leg_left",
+        "suppressed_return_holes_mm3": 34890.7685880512
+      },
+      {
+        "member": "base_side_right",
+        "restored_top_cap_mm3": 473176.4729972631
+      },
+      {
+        "fresh_stock_only_not_a_repair_instruction": true,
+        "member": "lumber_leg_right",
+        "suppressed_return_holes_mm3": 34890.768588054925
+      }
+    ],
+    "top_rail_length_after_mm": 2257.425,
+    "top_rail_length_before_mm": 2765.425,
+    "two_leaves_are_adjacent_outside_each_corner": true
+  },
+  "panel_Hillman_resolution_deferred": true,
+  "parent_geometry": {
+    "receipt": {
+      "path": "docs/bolted-frame-development/paired-frame-v2/geometry.json",
+      "sha256": "98fb3d6437d629201e9e60cf6a3068a070f2e1f0574a7364c256c0e8a904f379"
+    },
+    "revision": "eoere-paired-frame-retained-2x6-A574-v2",
+    "scene": {
+      "decoded_sha256": "0a135d28534f39b92b96acd85be83517c2625d01a48d727faf8d0f074bc36b25",
+      "path": "site/eoere-retained-2x6-frame-v2-scene.json.gz",
+      "sha256": "3dc2f671953351b43ec5f33ccc02bb420ea4a8aa1bb0a43d5da69f3979c3145d"
+    },
+    "viewer": "eoere-retained-2x6-frame-development"
+  },
+  "producer": {
+    "path": "scripts/publish_eoere_requested_frame.py",
+    "sha256": "6b675cb93101bd211d129e306626fedf97560baffb0ba49bc1280cf51803684c"
+  },
+  "revision": "eoere-retained-frame-trimmed-three-quarter-v3",
+  "schema": "eoere_owner_requested_frame_revision/v1",
+  "sizing_inputs": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-cases-v3/geometry-preparation/inputs.json",
+    "sha256": "ac9b2c5c02407c9e57ca0de088dc13cc3838b1b367df59a3810de6dcc8432fb2"
+  }
+}

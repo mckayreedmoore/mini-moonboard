@@ -11,6 +11,8 @@ const html = readFileSync(path.join(root, 'site/index.html'), 'utf8');
 const index = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
 let responseIndex = index;
 while (responseIndex.preceding_revision) responseIndex = responseIndex.preceding_revision;
+let optionalIndex = index;
+while (!optionalIndex.optional_grid) optionalIndex = optionalIndex.preceding_revision;
 
 function slice(first, last) {
   const start = html.indexOf(first), end = html.indexOf(last, start);
@@ -72,7 +74,7 @@ test('rendered historical model menus resolve their actual document paths', () =
 
 test('current and unadopted menus expose their own shop records and response bindings', () => {
   const documents = slice('const v4Documents =', 'const first =');
-  const models = [index.geometry.viewer, index.optional_grid.viewer, responseIndex.unadopted_proposal.viewer,
+  const models = [index.geometry.viewer, optionalIndex.optional_grid.viewer, responseIndex.unadopted_proposal.viewer,
     'wood-joints-reviewed', 'wood-joints-working-proposal', 'bolted-v4-development',
     'owner-corner-layout', 'owner-barrel-layout',
     ...runInNewContext(slice('const woodJointModels =', 'const modelLabel =') + '\nwoodJointModels.map(r => r[0]);', {requestedModel: null})];
@@ -88,14 +90,14 @@ test('current and unadopted menus expose their own shop records and response bin
     assert.ok(rows.length >= (scenes[model] ? 2 : 3), `missing menu: ${model}`);
     for (const row of rows) checkTarget(resolveDocumentPath(row.path));
     assert.ok(rows.every(r => r.label !== 'Current development ledger'));
-    if ([index.geometry.viewer, index.optional_grid.viewer].includes(model)) {
-      if (model === index.optional_grid.viewer)
+    if ([index.geometry.viewer, optionalIndex.optional_grid.viewer].includes(model)) {
+      if (model === optionalIndex.optional_grid.viewer)
         assert.ok(rows.some(r => r.path === responseIndex.current_response.cases.path));
-      else assert.ok(rows.some(r => r.path.endsWith('#paired-frame-completion-goal')));
-      const receipt = model === index.geometry.viewer ? index.geometry.receipt : index.optional_grid.receipt;
+      else assert.ok(rows.some(r => r.path.endsWith('#current-front-bolt-moves')));
+      const receipt = model === index.geometry.viewer ? index.geometry.receipt : optionalIndex.optional_grid.receipt;
       assert.ok(rows.some(r => r.path === receipt.path));
       assert.ok(rows.some(r => r.path === 'docs/bolted-frame-development/builder-plan.md'));
-      if (model === index.optional_grid.viewer) assert.ok(rows.some(r => /extra grid off/.test(r.label)));
+      if (model === optionalIndex.optional_grid.viewer) assert.ok(rows.some(r => /extra grid off/.test(r.label)));
     }
   }
   const recorded = [{label: 'Earlier own record', path: 'docs/history/README.md'}];
@@ -115,10 +117,12 @@ test('loaded viewer status distinguishes completed current cases, optional grid 
     runInNewContext(flags + status, {model, document: {querySelector() { return node; }}});
     return node.textContent;
   }
-  const current = render(index.geometry.viewer), optional = render(index.optional_grid.viewer);
-  assert.match(current, /26 angles.*102 bolt stacks.*66 Hillman/);
-  assert.match(current, /Ten ASTM A574/);
-  assert.match(current, /Panel\/Hillman strength remains deferred/);
+  const current = render(index.geometry.viewer), optional = render(optionalIndex.optional_grid.viewer);
+  assert.match(current, /Current 92-bolt frame.*24 angles.*66 Hillman/);
+  assert.match(current, /Lower front bolts at 60 mm; upper at 100 mm/);
+  assert.match(current, /Cleat bolts retain their factory holes/);
+  assert.match(current, /no fabrication or climbing release/);
+  assert.match(render('eoere-owner-frame-v3-development'), /Preserved 92-bolt frame before the lower-front-hole move/);
   const previous = render('eoere-leg-header-frame-development');
   assert.match(previous, /Single-bolt leg joints.*24 angles.*96 bolt stacks/);
   assert.match(previous, /66 Hillman axes retained/);

@@ -1,10 +1,13 @@
 """Check source coordinates and reject misleading builder-table inputs."""
 
 import copy
+import json
 import re
+from unittest.mock import patch
 
 import pytest
 
+from scripts import eoere_builder_layout
 from scripts.eoere_builder_layout import (
     OUTPUT,
     ROOT,
@@ -14,6 +17,18 @@ from scripts.eoere_builder_layout import (
     validate,
 )
 from scripts.eoere_paired_shop import stock_rows
+
+
+@pytest.fixture(scope="module", autouse=True)
+def preserved_102_bolt_shop_index(tmp_path_factory):
+    """Keep testing the frozen shop producer against its actual v7 inputs."""
+    index = json.loads((ROOT / eoere_builder_layout.INDEX).read_bytes())
+    while index['schema'] != 'bolted_frame_development_revisions/v7':
+        index = index['preceding_revision']
+    path = tmp_path_factory.mktemp('preserved-shop') / 'index.json'
+    path.write_text(json.dumps(index))
+    with patch.object(eoere_builder_layout, 'INDEX', path):
+        yield
 
 
 def test_current_layout_and_rejection_controls(tmp_path):

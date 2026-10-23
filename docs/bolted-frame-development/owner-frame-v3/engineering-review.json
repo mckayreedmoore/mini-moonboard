@@ -1,0 +1,2801 @@
+{
+  "actual_observations": null,
+  "analysis_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/geometry/geometry.json",
+    "sha256": "1c09ad1a2569edf72112d8e324b11e48f60c74353c5b4abc6ae1773cc3b46fd2"
+  },
+  "authenticated_transitive_path_hash_pairs": 1582,
+  "climbing_released": false,
+  "conditional_frame_evaluation_complete": false,
+  "conditional_working_support_basis": "Four long-support/center-post centroid XY hosts; all32 compression-only normal laws; other feet normal-only and rotations free. This is an explicit internal-frame analytical assumption, not verified all-foot no-slip or a physical force bound.",
+  "counts": {
+    "Hillman_axes": 66,
+    "analytical_laminates": 2,
+    "angles": 24,
+    "bolt_stacks": 92,
+    "normal_floor_laws": 32,
+    "physical_plywood_leaves": 4,
+    "physical_sawn_members": 20
+  },
+  "fabrication_released": false,
+  "geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v3/geometry.json",
+    "sha256": "6c71c75af5abd86cf97173e68b93b7e5c86b2dea6fdd092557137dfee200a3fb"
+  },
+  "input_receipts": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-floor-senior-legs-review-v1.json": "df564686111c2d0629ec3dd7ee48519841f319f493ad1d7da3e591306805f1ec",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-floor-senior-shared-review-v1.json": "9bf992461ab305bcf3eb1b99412638ca7f42aec766d3f36db14e0e9ff5536e36",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/field.json": "f39314a74f22668ae547384cf92d0928c514add9f7fc9a042840c0b994ce9572",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/independent-replay-plywood.json": "1873117edf1040af886be55b76f8a23806a976702505cab6ceb57d06c03ad5f8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/independent-replay.json": "0c07dadb1841d6a10b5920df93f64fb2d6915ed99137fd529d7b586def95467d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/field.json": "3dd2c076157ccffe1c75eaec2fa3e36d3f8b63cec061ec0992d7aa7ee196d016",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/independent-replay-plywood.json": "38876c1831f7817e909a256b8753d9cb73adef54211dafdc36bba32b296771b7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/independent-replay.json": "421b713b2328349999baf80f5772910dd4dc9b9e753ab708d8821025ab654b49",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/independent-replay-plywood.json": "1cf80f79933047543a86ffb9583956053aee4dce39b2d7fc05ccb7bad144cb74",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/independent-replay.json": "589b83e369162840e66b7e65f8863decff1e541955417aa5331a70ef44efc44a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/independent-replay-plywood.json": "29e79aea884e7ca5a22b7d722ecdb3e19d50d74ede01b6fab19a8b8d7e99e81a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/independent-replay.json": "fe27e403dbddaf850c10900b6547d88e9c7ff5ee56cb4c50fc45550f67e4eaf8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/field.json": "0f05bf0b322b503e518c5fbfec166b59c56ba84ca9bc39e15b7c9aedfe5b27e3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/independent-replay-plywood.json": "07fa71e0f6ad1c0fcf89adb6892621d6a90bbe32e730b0f48e8bbfb30a6cd72a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/independent-replay.json": "c36ac740092f8b6a1b0f76e024402afcc2a5c00b28b8d427015aab04bb48b8c7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/field.json": "f64955ad585ac4ce85430f426d2b7b6277f18791d13942add300b7c684d03482",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/independent-replay-plywood.json": "59053f7cce5ab26aa80cdf0201bab80de931766464ac566168c1650136cc6cef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/independent-replay.json": "3f936fad43ba48e06a8dcb0248e9e0904315cc52c4d84d68c163ac5aeb26118e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/field.json": "c5aeb381bf52e7094e991a3d0a62184ce7c74ac6c41b54f2d5040d1534382385",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/independent-replay-plywood.json": "ec8337392184bec80ac4a35bd3908c218140c898af9046f8995b329078dbe110",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/independent-replay.json": "fb85d7106289128c823fe6e9f076286c8c4917fd836c8acc78bbb79720b3884c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/independent-replay-plywood.json": "929d3310c470baecb7d2c077d0a40454bee056bb507708f9eee2c8846c225ad7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/independent-replay.json": "f96bc2062d7d87cf807ca071b7969707fb2c455c5250be1d4dbfa6336ecb5388",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/field.json": "2f4ec543807d8c9003443900f857aa496e6f6e915265d57449dadfd332b1732b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/independent-replay-plywood.json": "1fd4be1f9f0da27deebaec4ada3b0895e84cd649c1ffd9725674067d8111eb52",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/independent-replay.json": "05ed93fbf7495f1f0c4fbc6a7b15e3745b7dcddefe604972a7157ce751dd1593",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/independent-replay-plywood.json": "a24bfa3f86255aec252f6afc9abc490d0e31ee303b878c9bec0f0eb15561f5e4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/independent-replay.json": "034e58e05c54f142a9af8ada4e049d15308370efad9090223e56fd7b487874d7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/field.json": "93c4dd07828823f0e8fd06338135453576e3ea13ce6c22ad4853d2f631496d7d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/independent-replay-plywood.json": "6ae97e69d87c7e8452cb2c28ac027f34f9ff720b933db408983e7abef3e816fd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/independent-replay.json": "cc95fe1b2cb0f222c6c720907582d1cf127679681fac1c1df28841fd5782963a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/field.json": "4f175add582b10ada9e2c7b214b917b15cae667c2944c8a3dfbe57fadc42515a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/independent-replay-plywood.json": "29daeeb05522ebf514466db127de92d7b5b21747bdaa99866823727a7c7f7d97",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/independent-replay.json": "0d67df49a9c421554c9682951aec196af6fc9ffb23c0c3789dde2f221b3e7501",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/geometry/geometry.json": "1c09ad1a2569edf72112d8e324b11e48f60c74353c5b4abc6ae1773cc3b46fd2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/bonded-rows-v1.json": "ada63c900f26be855d54264df246745ce811d3f4d14a15c3a0d11e18067b9956",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/allbearing.laminated-intake.json": "e926152cb1c95f7975de9b5a23adeface5eb5682d7ed3611e74c9fef60209365",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/bearing.intake.json": "d55e3cec85fd4adff7e751735e06b27ed3ca842fd7159c2264283ed44c5acaa2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/bearing.laminated-intake.json": "2f5e9aea4678e848bbf9b9ef54b46b227e3ebab54126eb7a12b3b460d4b440e0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/boltgeometry.intake.json": "0a1189c5ae03258c70c19e9910f4a7390bb47945b954966c91f2bf2da4148b44",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/boltgeometry.laminated-intake.json": "59d206985d4b8c20a501da7389a25b776d82b46baa9b1de6db0ec4abe0759bfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/group.intake.json": "9ec0a0ba4527451a1fbb3fca6e31350c5f3b04b686190a8168f57251e5a8da01",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/group.laminated-intake.json": "8b2f9ac251afc0fc3f7cbf8fe36cc18ffa4c3911277ccfb59af62f31c1a0a28e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/local.intake.json": "77a56ef56e203013c30fb017f714e2cf207d6aed3ae4aaecaf41981dd8b4225c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/local.laminated-intake.json": "48ab9ac5158ed7f7e6d22f6434114ef9bddb80e4c80d544d2b62b80e54c16b85",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/sections.intake.json": "8887025babdce38c09511bb8e3fab3fbb04d637ad80544e3ee97b16a2ae5948b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/sections.laminated-intake.json": "e3579835326accaf31ce988483f51ea312b3c3583cb2ac42a7a25ab44b529811",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/shaft-geometry-adjustments-v3.json": "a9e00d3f51a927f2185431e16687e68234bef271e24bbbb2e629a8d91f6ddf2c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/timber-sections-v1.json": "c21b0fb7c17e7cf9904e1ca5eb37f941d5706fe5a33c9006475ada473eb2c559",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/nominal38p1-rows-v1.json": "7c3f8ed16ab3fd0e875540a6c1f6f385e4381c2c46683757b2e6bce494d3a429",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/bonded-rows-v1.json": "17528de45b121f773570eea9c1e29f0c97c0d184f2d96622b9f765dbb95fdd79",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/allbearing.laminated-intake.json": "d7b24e48b84e872f3a8d879f113d85a574094b853b2fbb71897ef5f7e78a0b7d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/allbearing.shared-intake-v2.json": "8db53ee78695742e58ca1ae03358a6da14e6767b2a357ad4ea7992c91b931587",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/bearing.intake.json": "3a79272b0242569f33d923a3861022bdf9ba6b7bab5bbe4733a0d5c5ac91d733",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/bearing.laminated-intake.json": "c966bec5ec9b7cc4e112853a5f69b4efa10eee1eb2fc954fac322fed0f6eab81",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/bearing.shared-intake-v2.json": "d0a27c97bc813f0db90ac84f2c55afb40475668cbb34fa4eb243c8c1e0705a2b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/boltgeometry.intake.json": "654a3ee9b486b9e097b8edf7f59b893596a945f632e2360b3da1f2ba63de26ad",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/boltgeometry.laminated-intake.json": "c7486613e462181ecdd8e99cf142348ceb0999736833f33b34ee430dc94f0e17",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/boltgeometry.shared-intake-v2.json": "d7009224c59b18f31ed5ffb9880d017792bc99c453fcc5cdf05bdd3f3602bce5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/group.intake.json": "e54358cc1f5c7bc4221016c65f034428b175661ac5db430aa5265b85849d3bf9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/group.laminated-intake.json": "a33dad2b842bfc46260558853869a8f1a4d109f1d41825e5d2475acfabee2fab",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/group.shared-intake-v2.json": "d7009224c59b18f31ed5ffb9880d017792bc99c453fcc5cdf05bdd3f3602bce5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/local.intake.json": "cccec10229b33df93577c91956a03ad486fe282ad64506abc4215b301286edad",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/local.laminated-intake.json": "b294fc3087fdfe35174cf418c680f084af9ade08e3381677f88837240a6ae85f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/local.shared-intake-v2.json": "d7009224c59b18f31ed5ffb9880d017792bc99c453fcc5cdf05bdd3f3602bce5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/sections.intake.json": "b33f5c9cb5e8554b0bd7474cb0b5360dcc1ef34107274238bf4e5e88012e742d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/sections.laminated-intake.json": "eeb390c1fa1f5231215f445d5918c90340c1cc5fa382122a905aeff2cc747f95",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/sections.shared-intake.json": "9171bd5e2bbbae4813927ba0bef85e5ed713a440176810c5850def5b50b3794c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/shaft-geometry-adjustments-v3.json": "07d1e4c6b3410c5225e7677d835e8eaf7c69f8a050e9d6ed16779bbc82ea932c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/timber-sections-v1.json": "fef12bd68c0651e3745b4c49abfc56152c0901f996c2de3a01f1ddff7302627c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/nominal38p1-rows-v1.json": "6d9aef0b8a0f707e1c9b550ffa53bb625ff46e85ad476920ca7015c89eca0b61",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/shared-floor-known-answer-v1.json": "22aa86e380b7bebd7bd9df728cc3b274808e94c0a9bd02297cccba3587a8452e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_current_engineering_summary.py": "246a36b86bb6105f32cd0691b4e87e392c055bf9499a04cf98dae2777c9f9e37",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_frame_basis.py": "7d04a5c3ee4e05f1d1e68ede5f8563d7c1e2f8523b79509d452c8e9551a7a48a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_basis.py": "4b67e75fde308f5fc968358d9f5ef2a2d2bb37c14a80d680791b330bc0759eac",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_floor.py": "b380e8777ae58af18aeb9044346125be2929c660c087b1732f564a32047ddb31",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_nominal_rows.py": "431836b2ce9074b0b0bcf5245be31dc1f3bc1408b38a78a9d79b490b5a59fecc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_rows_v2.py": "86703502ada38aa7249a590f1d33becae4d73e8b5cc7fb8ef5e620f88542e89e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_shared_fixture.py": "5613a6cc2b2ef07ab58c9178eeda1b8b7636704cfa44009c89290f444741a855",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_roundoff_closure.py": "791ae31ca24e4d8fa56a24cdc632d8d924807cf7622b711da715d0a1383fa382",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_shared_complete_basis.py": "585b4d6191ac4048b13243d87320fe1c37959e700104f77784dfd40faee9ea5a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_shared_complete_reviews_v2.py": "2a6d0653ea9ebb82f70b66f3ae4d51b8f898e4f30605e0d62130cc6c40a53696",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_shared_complete_rows.py": "d9e63cafff7ad1f7b3c94a107ceab7a1c826f59886543bc695a694531a098407",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_shared_finish_reviews.py": "025e80d1756b9c759e47d10c9023a29d3d8591223df1a9e266e46ca2cc9623cb"
+  },
+  "lamination_question_evaluation_complete": true,
+  "material": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/material.json",
+    "sha256": "96716861076a7a27d404b959668c12c6a0eec8286bd99c041405fdd2995f943d"
+  },
+  "method_dispositions": {
+    "bond_and_shape": "Classical parallel-axis perfect-bond beam stiffness, two aligned APA24ocPS1 >=5ply/Group1 layers. Full203.2mm-width beam operator on the actual trimmed bodies is an approximation, not a plate solution or physical demand bound. Actual bond is unqualified.",
+    "dedicated10": "The all92 preliminary worksheet is retained separately. Its ten hard-coded dedicated Cdelta factors are not used as a completed trimmed-cleat geometry acceptance in this summary. Only the82 freshly geometry-checked shaft comparisons are summarized as adjusted references.",
+    "failed_gate": "Current references exceed1.0, so further adhesive qualification, native/plate refinement and downstream full-joint qualification are not pursued to obtain a current-frame pass. Retaining an exceedance does not clear the affected fabrication operation.",
+    "rows": "Actual concave perimeter, all14 one/two/three-bore subsets per laminate pair, preserved own force and first moment, summed APA shear/tension products and narrow-width factor0.5. The36.5mm allowance is a fixed-action thickness comparison on nominal38.1mm response, not an actual-thickness stiffness bound.",
+    "shaft82": "Own balanced pressures and actual thread roots, own Cg and whole-group Cdelta; all82 mandatory end/edge/row geometry checks pass. Generic before_Cdelta column names in the geometry result contain the explicitly divided adjusted values. No old force pass transfers.",
+    "stopping_tolerance": "The inherited unused scenario label says1e-6N. The unchanged tested fixed-floor kernel, its own output contract and independent full-gradient admission all use1e-5N. Every admitted field meets that actual1e-5N criterion. No1e-6N claim or regenerated field is adopted.",
+    "support": "Each scenario supplies its own simultaneous force/moment set. Both retain compression-only normal laws and require credited hosts to bear. Finite local friction, yaw, real floor capacity and finite-motion re-equilibrium are not established; two scenarios do not bound every physical support state.",
+    "timber20": "Existing FPL continuous net-core and declared restraint methods on actual-contained hole-deducted geometry, including NDS staggered deductions. An exceeded sufficient reference is not proof of physical fracture. No successful historical member result transfers.",
+    "worksheet_numerical_closure": "The original shared A12forward preflight rejected shaft083 at1.012383538405e-5N terminal force versus1e-5N. The explicit v2 worksheet allowance is1e-4N accumulated force and unchanged1e-3Nmm moment, with positive/negative boundary controls and all observed closures retained in each v2 intake. Full-frame admission remains1e-5N; signed bore force/moment preservation and every capacity/reference criterion are unchanged. This is a stated numerical disposition, not a pass of the failed original intake."
+  },
+  "native_executable_solve_performed": false,
+  "next_action": "Retain the requested geometry and explicit failed references. Further design closure requires resolving the affected strength/support assumptions; no physical change or new alternative is selected by this review.",
+  "not_requalified_after_failed_gate": [
+    "Actual structural face bond and plywood interface resistance/process",
+    "Variable-width cleat plate behavior and complete joint/contact/finite-motion response",
+    "Current24-angle complete steel and joint references, receiver end/group/seat duties and washer/spacer/end hardware strength"
+  ],
+  "panel_Hillman_resolution_deferred": true,
+  "panel_Hillman_strength_pass": false,
+  "preserved_fixed_action_lamination_screen": {
+    "path": "docs/bolted-frame-development/owner-frame-v3/lamination-screen.json",
+    "sha256": "98eb20b6366a1247c4a1ec297cb1d942a6377b22a459d67e2c9c413ef0ab143c"
+  },
+  "preserved_initial_independent_trial": {
+    "path": "docs/bolted-frame-development/owner-frame-v3/cleat-sizing.json",
+    "sha256": "996f3d32582e1dcb59ce95d7b0b5c2654670819590d1e290b126622d7ef6d02c"
+  },
+  "producer": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_current_engineering_summary.py",
+    "sha256": "246a36b86bb6105f32cd0691b4e87e392c055bf9499a04cf98dae2777c9f9e37"
+  },
+  "question_disposition": "The proposed perfect-bond interpretation does not bring the current ordinary two-layer cleat below its declared row reference at nominal38.1mm in either evaluated support scenario. The same-force0.926488 screen is not the updated-frame answer.",
+  "revision": "eoere-retained-frame-trimmed-three-quarter-v3",
+  "scenarios": {
+    "four_hosts": {
+      "all82_mandatory_geometry_eligible": true,
+      "basis": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_shared_complete_basis.py",
+        "sha256": "585b4d6191ac4048b13243d87320fe1c37959e700104f77784dfd40faee9ea5a"
+      },
+      "case_count": 6,
+      "cases": [
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+            "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+          },
+          "maximum_floor_centroid_XY_mm": 8.213511781788846,
+          "maximum_necessary_host_H_over_N": 0.34938507131752317,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/independent-replay-plywood.json",
+            "sha256": "929d3310c470baecb7d2c077d0a40454bee056bb507708f9eee2c8846c225ad7"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/independent-replay.json",
+            "sha256": "f96bc2062d7d87cf807ca071b7969707fb2c455c5250be1d4dbfa6336ecb5388"
+          },
+          "residual_N": 9.370604256098147e-06
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-left",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/field.json",
+            "sha256": "2f4ec543807d8c9003443900f857aa496e6f6e915265d57449dadfd332b1732b"
+          },
+          "maximum_floor_centroid_XY_mm": 8.157666415121351,
+          "maximum_necessary_host_H_over_N": 0.530871122233989,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/independent-replay-plywood.json",
+            "sha256": "1fd4be1f9f0da27deebaec4ada3b0895e84cd649c1ffd9725674067d8111eb52"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/independent-replay.json",
+            "sha256": "05ed93fbf7495f1f0c4fbc6a7b15e3745b7dcddefe604972a7157ce751dd1593"
+          },
+          "residual_N": 4.470348358154297e-08
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+            "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+          },
+          "maximum_floor_centroid_XY_mm": 5.355244182146223,
+          "maximum_necessary_host_H_over_N": 0.5899427860037286,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/independent-replay-plywood.json",
+            "sha256": "a24bfa3f86255aec252f6afc9abc490d0e31ee303b878c9bec0f0eb15561f5e4"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/independent-replay.json",
+            "sha256": "034e58e05c54f142a9af8ada4e049d15308370efad9090223e56fd7b487874d7"
+          },
+          "residual_N": 3.831078220439821e-06
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "k12-right",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/field.json",
+            "sha256": "4f175add582b10ada9e2c7b214b917b15cae667c2944c8a3dfbe57fadc42515a"
+          },
+          "maximum_floor_centroid_XY_mm": 8.131750784552208,
+          "maximum_necessary_host_H_over_N": 0.5311780352263281,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/independent-replay-plywood.json",
+            "sha256": "29daeeb05522ebf514466db127de92d7b5b21747bdaa99866823727a7c7f7d97"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/independent-replay.json",
+            "sha256": "0d67df49a9c421554c9682951aec196af6fc9ffb23c0c3789dde2f221b3e7501"
+          },
+          "residual_N": 3.725080175687026e-08
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "k12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/field.json",
+            "sha256": "93c4dd07828823f0e8fd06338135453576e3ea13ce6c22ad4853d2f631496d7d"
+          },
+          "maximum_floor_centroid_XY_mm": 5.327114465470612,
+          "maximum_necessary_host_H_over_N": 0.5873497333295337,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/independent-replay-plywood.json",
+            "sha256": "6ae97e69d87c7e8452cb2c28ac027f34f9ff720b933db408983e7abef3e816fd"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/independent-replay.json",
+            "sha256": "cc95fe1b2cb0f222c6c720907582d1cf127679681fac1c1df28841fd5782963a"
+          },
+          "residual_N": 1.8581499267034118e-07
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a1-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/field.json",
+            "sha256": "c5aeb381bf52e7094e991a3d0a62184ce7c74ac6c41b54f2d5040d1534382385"
+          },
+          "maximum_floor_centroid_XY_mm": 5.689513083098729,
+          "maximum_necessary_host_H_over_N": 0.3150753321454797,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/independent-replay-plywood.json",
+            "sha256": "ec8337392184bec80ac4a35bd3908c218140c898af9046f8995b329078dbe110"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/independent-replay.json",
+            "sha256": "fb85d7106289128c823fe6e9f076286c8c4917fd836c8acc78bbb79720b3884c"
+          },
+          "residual_N": 8.354327716286747e-06
+        }
+      ],
+      "minimum36p5_rows": {
+        "case_count": 6,
+        "cases": [
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/field.json",
+              "sha256": "c5aeb381bf52e7094e991a3d0a62184ce7c74ac6c41b54f2d5040d1534382385"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  50.12302846120913,
+                  61.89555000607755
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -311.4186250916763,
+                  384.5622994848222
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  28.314586933439816,
+                  -34.96490505948725
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      118.25945709785258
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      1.3732336564714827,
+                      -1.695768493317193
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      118.25945709785258,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -1.373233656471483,
+                      1.695768493317193
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.0767532019498057,
+            "scalar_pressure_lower_bound": 0.07675320194980567
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-forward",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+              "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  297.6080467097139,
+                  1178.1345993718392
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1268.0403880360896,
+                  5493.989044407501
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  215.7347244705984,
+                  -810.879881986553
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.67566712470051
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      8.153645115334628,
+                      -31.934499350683524
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.67566712470051,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.6668452655380825,
+                      32.277660256762715
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 1.0995454286679909,
+            "scalar_pressure_lower_bound": 1.088990467081911
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-left",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/field.json",
+              "sha256": "2f4ec543807d8c9003443900f857aa496e6f6e915265d57449dadfd332b1732b"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  293.77859899618676,
+                  1176.8684158777367
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1074.1419219796962,
+                  5256.530117030836
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  224.98641347763146,
+                  -817.4909594774721
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.92860289676271
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      8.048728739621556,
+                      -31.620257331735726
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.92860289676271,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -5.001357256803916,
+                      32.24297029802018
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 1.0964315675719165,
+            "scalar_pressure_lower_bound": 1.0772140525894331
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+              "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  193.50808093963093,
+                  808.8441225911662
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -959.8324870126255,
+                  4149.77585659332
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  130.17296008264543,
+                  -531.8787511460005
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.00964412872872
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      5.301591258620025,
+                      -22.074087494999368
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.00964412872872,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.929665582511825,
+                      22.160112947703183
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.7489357549091351,
+            "scalar_pressure_lower_bound": 0.7462434311493474
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/field.json",
+              "sha256": "93c4dd07828823f0e8fd06338135453576e3ea13ce6c22ad4853d2f631496d7d"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  191.29194407193447,
+                  800.0597903434717
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -952.4640279004527,
+                  4106.744860780225
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  128.43799567143319,
+                  -526.239799075239
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.00721385493289
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      5.240875180052999,
+                      -21.84239850171631
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.00721385493289,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.908667679677004,
+                      21.919446310780046
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.7407389738822333,
+            "scalar_pressure_lower_bound": 0.7383281072671837
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-right",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/field.json",
+              "sha256": "4f175add582b10ada9e2c7b214b917b15cae667c2944c8a3dfbe57fadc42515a"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  293.3862719477513,
+                  1176.1213426749566
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1065.9727803054293,
+                  5242.0648726048275
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  225.14489961731152,
+                  -817.5318127361122
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.94124688301268
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      8.03798005336305,
+                      -31.592272936362566
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.94124688301268,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.938741008137165,
+                      32.22250253903991
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 1.0956222358987726,
+            "scalar_pressure_lower_bound": 1.0761716413077078
+          }
+        ],
+        "credited_combined_wall_mm": 36.5,
+        "maximum_row_reference_index": 1.0995454286679909,
+        "maximum_scalar_pressure_lower_bound": 1.088990467081911,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/bonded-rows-v1.json",
+          "sha256": "17528de45b121f773570eea9c1e29f0c97c0d184f2d96622b9f765dbb95fdd79"
+        }
+      },
+      "nominal38p1_rows": {
+        "case_count": 6,
+        "cases": [
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a1-rear/field.json",
+              "sha256": "c5aeb381bf52e7094e991a3d0a62184ce7c74ac6c41b54f2d5040d1534382385"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  49.04230316404359,
+                  60.56099204485396
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -311.4186250916763,
+                  384.5622994848222
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  28.314586933439816,
+                  -34.96490505948725
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      118.94852262806242
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      1.2871995581113798,
+                      -1.589527350258634
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      118.94852262806242,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -1.2871995581113802,
+                      1.589527350258634
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.07194455740859208,
+            "scalar_pressure_lower_bound": 0.07194455740859206
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-forward",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+              "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  293.7002372455151,
+                  1161.2033859921203
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1268.0403880360896,
+                  5493.989044407501
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  215.7347244705984,
+                  -810.879881986553
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.42823826598496
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.708667644239241,
+                      -30.149029210504715
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.42823826598496,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.284305583410531,
+                      30.47777915989817
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 1.038426800395834,
+            "scalar_pressure_lower_bound": 1.0283589463431948
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-left",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-left/field.json",
+              "sha256": "2f4ec543807d8c9003443900f857aa496e6f6e915265d57449dadfd332b1732b"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  290.5108526903971,
+                  1160.8770403251078
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1074.1419219796962,
+                  5256.530117030836
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  224.98641347763146,
+                  -817.4909594774721
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.68599358910441
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.624956763527482,
+                      -29.872651366291997
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.68599358910441,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.705558886287486,
+                      30.469213656826973
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 1.03649637688918,
+            "scalar_pressure_lower_bound": 1.0181709612090517
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+              "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  190.4488626128105,
+                  795.617783074154
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -959.8324870126255,
+                  4149.77585659332
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  130.17296008264543,
+                  -531.8787511460005
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      120.74796732101285
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      4.998657811359855,
+                      -20.799943675865215
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.74796732101285,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.642351061282444,
+                      20.88235651113265
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.7058073801093946,
+            "scalar_pressure_lower_bound": 0.7032420688563121
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-rear/field.json",
+              "sha256": "93c4dd07828823f0e8fd06338135453576e3ea13ce6c22ad4853d2f631496d7d"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  188.25584137526994,
+                  786.9690081395362
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -952.4640279004527,
+                  4106.744860780225
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  128.43799567143319,
+                  -526.239799075239
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      120.74548078231318
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      4.941098198825983,
+                      -20.581542338811282
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.74548078231318,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.6228416695943855,
+                      20.65535454434478
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.6980701539334578,
+            "scalar_pressure_lower_bound": 0.6957729882734228
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-right",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/k12-right/field.json",
+              "sha256": "4f175add582b10ada9e2c7b214b917b15cae667c2944c8a3dfbe57fadc42515a"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  290.1454787296821,
+                  1160.184305067909
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1065.9727803054293,
+                  5242.0648726048275
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  225.14489961731152,
+                  -817.5318127361122
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.69887025199009
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.615366895792182,
+                      -29.84726836142221
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.69887025199009,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.64627962149442,
+                      30.451031629078976
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 1.0357765924238098,
+            "scalar_pressure_lower_bound": 1.01722903319316
+          }
+        ],
+        "credited_combined_wall_mm": 38.1,
+        "maximum_row_reference_index": 1.038426800395834,
+        "maximum_scalar_pressure_lower_bound": 1.0283589463431948,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/nominal38p1-rows-v1.json",
+          "sha256": "6d9aef0b8a0f707e1c9b550ffa53bb625ff46e85ad476920ca7015c89eca0b61"
+        }
+      },
+      "saved_bearing_point_review": {
+        "finite_arm_contact_switch_diagnostic_is_new_equilibrium": false,
+        "maximum_XY_mm": 5.700655282160629,
+        "maximum_credited_host_XY_mm": 1.6139176365120176,
+        "maximum_normal_recovery_error_N": 2.2225776774575934e-11,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-floor-senior-shared-review-v1.json",
+          "sha256": "9bf992461ab305bcf3eb1b99412638ca7f42aec766d3f36db14e0e9ff5536e36"
+        }
+      },
+      "shaft82_exceeded": [
+        {
+          "axis_id": "lumber_leg_bolt_left_1",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "a12-rear",
+              "value": 0.9422897543900848
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "a12-left",
+              "value": 1.0894630963879557
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "a12-rear",
+              "value": 1.1135277865334918
+            }
+          }
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_1",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "k12-rear",
+              "value": 0.9305790103009332
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 1.077736789151275
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "k12-rear",
+              "value": 1.0983297206911036
+            }
+          }
+        },
+        {
+          "axis_id": "rail_front_bolt_left_2",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 0.9491673851950899
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.112321357334055
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.1303319634804865
+            }
+          }
+        },
+        {
+          "axis_id": "rail_front_bolt_right_2",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 0.8928152043976855
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 1.047571989166482
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 1.0761437746522005
+            }
+          }
+        }
+      ],
+      "shaft82_geometry_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/shaft-geometry-adjustments-v3.json",
+        "sha256": "07d1e4c6b3410c5225e7677d835e8eaf7c69f8a050e9d6ed16779bbc82ea932c"
+      },
+      "shaft82_maxima": {
+        "maximum_N_M_V_index_adjusted": {
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+            "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+          },
+          "id": "rail_front_bolt_left_2",
+          "value": 0.9491673851950899
+        },
+        "maximum_N_M_index_adjusted": {
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+            "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+          },
+          "id": "rail_front_bolt_left_2",
+          "value": 1.112321357334055
+        },
+        "maximum_bearing_index_adjusted": {
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-forward/field.json",
+            "sha256": "4c4ac02117e1a9e6031205aefc1963a05a7f9e287c48ce2743baabded8ba8aa8"
+          },
+          "id": "rail_front_bolt_left_2",
+          "value": 1.1303319634804865
+        }
+      },
+      "support_hosts": [
+        "lumber_leg_left",
+        "lumber_leg_right",
+        "base_post_center_left",
+        "base_post_center_right"
+      ],
+      "timber20_exceeded": [
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.4134096949025182
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.3949143483808921
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "a12-forward",
+              "value": 1.0835807999660418
+            }
+          },
+          "member": "base_header"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.5769689810482946
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.5504973672663657
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "k12-right",
+              "value": 1.1774390179786733
+            }
+          },
+          "member": "base_rail_top"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.8958175516414606
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.8666465332360124
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 1.3410486289985255
+            }
+          },
+          "member": "base_side_left"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.8780949303375546
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.849897978617652
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 1.3031909060726818
+            }
+          },
+          "member": "base_side_right"
+        }
+      ],
+      "timber20_maxima": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+            "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+          },
+          "id": "base_side_left",
+          "value": 0.8958175516414606
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+            "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+          },
+          "id": "base_side_left",
+          "value": 0.8666465332360124
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-shared-v1/a12-rear/field.json",
+            "sha256": "157edb81aca7ab35b13dd9570ba7328c66ba0a1280faa2e8931f19786b0d0b79"
+          },
+          "id": "base_side_left",
+          "value": 1.3410486289985255
+        }
+      },
+      "timber_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-shared-complete-v1/complete-v1/timber-sections-v1.json",
+        "sha256": "fef12bd68c0651e3745b4c49abfc56152c0901f996c2de3a01f1ddff7302627c"
+      }
+    },
+    "two_long_supports": {
+      "all82_mandatory_geometry_eligible": true,
+      "basis": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_basis.py",
+        "sha256": "4b67e75fde308f5fc968358d9f5ef2a2d2bb37c14a80d680791b330bc0759eac"
+      },
+      "case_count": 6,
+      "cases": [
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/field.json",
+            "sha256": "3dd2c076157ccffe1c75eaec2fa3e36d3f8b63cec061ec0992d7aa7ee196d016"
+          },
+          "maximum_floor_centroid_XY_mm": 16.16871791005615,
+          "maximum_necessary_host_H_over_N": 0.11406470951780032,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/independent-replay-plywood.json",
+            "sha256": "38876c1831f7817e909a256b8753d9cb73adef54211dafdc36bba32b296771b7"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/independent-replay.json",
+            "sha256": "421b713b2328349999baf80f5772910dd4dc9b9e753ab708d8821025ab654b49"
+          },
+          "residual_N": 5.170765816076006e-07
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-left",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+            "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+          },
+          "maximum_floor_centroid_XY_mm": 52.491941278608245,
+          "maximum_necessary_host_H_over_N": 0.10909394313137057,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/independent-replay-plywood.json",
+            "sha256": "1cf80f79933047543a86ffb9583956053aee4dce39b2d7fc05ccb7bad144cb74"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/independent-replay.json",
+            "sha256": "589b83e369162840e66b7e65f8863decff1e541955417aa5331a70ef44efc44a"
+          },
+          "residual_N": 3.3061691708802243e-06
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json",
+            "sha256": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74"
+          },
+          "maximum_floor_centroid_XY_mm": 10.548871324248609,
+          "maximum_necessary_host_H_over_N": 0.09297984311770918,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/independent-replay-plywood.json",
+            "sha256": "29e79aea884e7ca5a22b7d722ecdb3e19d50d74ede01b6fab19a8b8d7e99e81a"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/independent-replay.json",
+            "sha256": "fe27e403dbddaf850c10900b6547d88e9c7ff5ee56cb4c50fc45550f67e4eaf8"
+          },
+          "residual_N": 9.202522380327152e-06
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "k12-right",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/field.json",
+            "sha256": "f64955ad585ac4ce85430f426d2b7b6277f18791d13942add300b7c684d03482"
+          },
+          "maximum_floor_centroid_XY_mm": 53.2574902157104,
+          "maximum_necessary_host_H_over_N": 0.10489310459327057,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/independent-replay-plywood.json",
+            "sha256": "59053f7cce5ab26aa80cdf0201bab80de931766464ac566168c1650136cc6cef"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/independent-replay.json",
+            "sha256": "3f936fad43ba48e06a8dcb0248e9e0904315cc52c4d84d68c163ac5aeb26118e"
+          },
+          "residual_N": 1.7881393432617188e-07
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "k12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/field.json",
+            "sha256": "0f05bf0b322b503e518c5fbfec166b59c56ba84ca9bc39e15b7c9aedfe5b27e3"
+          },
+          "maximum_floor_centroid_XY_mm": 9.777853683354856,
+          "maximum_necessary_host_H_over_N": 0.0927963518967841,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/independent-replay-plywood.json",
+            "sha256": "07fa71e0f6ad1c0fcf89adb6892621d6a90bbe32e730b0f48e8bbfb30a6cd72a"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/independent-replay.json",
+            "sha256": "c36ac740092f8b6a1b0f76e024402afcc2a5c00b28b8d427015aab04bb48b8c7"
+          },
+          "residual_N": 3.369267752295624e-08
+        },
+        {
+          "all_credited_hosts_in_compression": true,
+          "case_id": "a1-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/field.json",
+            "sha256": "f39314a74f22668ae547384cf92d0928c514add9f7fc9a042840c0b994ce9572"
+          },
+          "maximum_floor_centroid_XY_mm": 11.321808121741045,
+          "maximum_necessary_host_H_over_N": 0.3283584869263524,
+          "plywood_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/independent-replay-plywood.json",
+            "sha256": "1873117edf1040af886be55b76f8a23806a976702505cab6ceb57d06c03ad5f8"
+          },
+          "raw_replay": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/independent-replay.json",
+            "sha256": "0c07dadb1841d6a10b5920df93f64fb2d6915ed99137fd529d7b586def95467d"
+          },
+          "residual_N": 1.2799888633452383e-06
+        }
+      ],
+      "minimum36p5_rows": {
+        "case_count": 6,
+        "cases": [
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/field.json",
+              "sha256": "f39314a74f22668ae547384cf92d0928c514add9f7fc9a042840c0b994ce9572"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  62.487110416338695,
+                  82.23178421321035
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -388.2377144642815,
+                  510.91304665144395
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  35.299078575672205,
+                  -46.45287953018955
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      118.25945709785258
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      1.7119756278448957,
+                      -2.252925594882475
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      118.25945709785258,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -1.7119756278448948,
+                      2.252925594882475
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.09971153670731585,
+            "scalar_pressure_lower_bound": 0.09971153670731586
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-forward",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/field.json",
+              "sha256": "3dd2c076157ccffe1c75eaec2fa3e36d3f8b63cec061ec0992d7aa7ee196d016"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  315.01621049166624,
+                  1254.7093833636297
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1080.903423305511,
+                  5675.091158600993
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  245.57831652811353,
+                  -860.0824400935746
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      120.8329552671303
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      8.630581109360719,
+                      -33.552157564348285
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.8329552671303,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.307245463667399,
+                      34.37559954420903
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 1.1699467078290373,
+            "scalar_pressure_lower_bound": 1.14432177538132
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-left",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+              "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  289.3230260104427,
+                  1056.592261047952
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1156.7942099990373,
+                  4531.493520241908
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  215.8900723687317,
+                  -758.2312885983183
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      121.20613321760663
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.926658246861443,
+                      -28.654497380338118
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.20613321760663,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.777969818230174,
+                      28.947733179395943
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.9984523917701563,
+            "scalar_pressure_lower_bound": 0.9895977166033285
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json",
+              "sha256": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  188.2202350231581,
+                  801.1555711207789
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -909.1742252145259,
+                  4144.792142047949
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  128.07211549552062,
+                  -521.195426033807
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      119.9311770460844
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      5.156718767757756,
+                      -21.79183271579834
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      119.9311770460844,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.438083951956587,
+                      21.949467701939145
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.7399182004244266,
+            "scalar_pressure_lower_bound": 0.7349452034800127
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/field.json",
+              "sha256": "0f05bf0b322b503e518c5fbfec166b59c56ba84ca9bc39e15b7c9aedfe5b27e3"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  185.94481330970567,
+                  790.7573599947399
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -904.2100836732275,
+                  4093.856120785542
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  126.11849686208149,
+                  -514.6476170516348
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      119.92783742551936
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      5.094378446841251,
+                      -21.520938081365596
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      119.92783742551936,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.444008949403436,
+                      21.66458520533534
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.7304069994310571,
+            "scalar_pressure_lower_bound": 0.7258782432373567
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-right",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/field.json",
+              "sha256": "f64955ad585ac4ce85430f426d2b7b6277f18791d13942add300b7c684d03482"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  286.41349310563976,
+                  1048.109805747531
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1134.0813179533789,
+                  4479.360773301338
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  214.46479995024342,
+                  -752.5380569242038
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      89.70000000000005,
+                      121.22472319417858
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.84694501659287,
+                      -28.40325677950076
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.22472319417858,
+                      126.20000000000005
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.614299244472309,
+                      28.71533714376797
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 36.5
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1816.4301290793903,
+              "2": 1259.0901250336951
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1816.4301290793903
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1259.0901250336951
+                }
+              ]
+            },
+            "row_reference_index": 0.9901136331612622,
+            "scalar_pressure_lower_bound": 0.9806884892189757
+          }
+        ],
+        "credited_combined_wall_mm": 36.5,
+        "maximum_row_reference_index": 1.1699467078290373,
+        "maximum_scalar_pressure_lower_bound": 1.14432177538132,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/bonded-rows-v1.json",
+          "sha256": "ada63c900f26be855d54264df246745ce811d3f4d14a15c3a0d11e18067b9956"
+        }
+      },
+      "nominal38p1_rows": {
+        "case_count": 6,
+        "cases": [
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a1-rear/field.json",
+              "sha256": "f39314a74f22668ae547384cf92d0928c514add9f7fc9a042840c0b994ce9572"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  61.13979755343024,
+                  80.4587475041645
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -388.2377144642815,
+                  510.91304665144395
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  35.299078575672205,
+                  -46.45287953018955
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      118.94852262806242
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      1.604719095890557,
+                      -2.1117781497156036
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      118.94852262806242,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -1.6047190958905575,
+                      2.1117781497156036
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.09346453561155417,
+            "scalar_pressure_lower_bound": 0.09346453561155416
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-forward",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/field.json",
+              "sha256": "3dd2c076157ccffe1c75eaec2fa3e36d3f8b63cec061ec0992d7aa7ee196d016"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  311.7117531240654,
+                  1237.3599177346869
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1080.903423305511,
+                  5675.091158600993
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  245.57831652811353,
+                  -860.0824400935746
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.58856055097785
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      8.181410843151323,
+                      -31.687776521516255
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.58856055097785,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.039632599901815,
+                      32.476638260752935
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 1.1058715738954534,
+            "scalar_pressure_lower_bound": 1.0814504462618713
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-left",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+              "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  285.8536819911862,
+                  1043.001849022321
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1156.7942099990373,
+                  4531.493520241908
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  215.8900723687317,
+                  -758.2312885983183
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.96845419330026
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.502721312104624,
+                      -27.09445517996615
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.96845419330026,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.402271767615348,
+                      27.37537661475908
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.9443523109763035,
+            "scalar_pressure_lower_bound": 0.9358955259107269
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_left_2"
+            ],
+            "case_id": "a12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json",
+              "sha256": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_left_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  185.31108187403552,
+                  787.8931679662544
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -909.1742252145259,
+                  4144.792142047949
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  128.07211549552062,
+                  -521.195426033807
+                ],
+                "leaf": "eoere_cleat_left",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      120.66766747331735
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      4.863807923203032,
+                      -20.528595563572576
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.66766747331735,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.175351997304276,
+                      20.679610707775705
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_left",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.6972202218253416,
+            "scalar_pressure_lower_bound": 0.6924843182867852
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-rear",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-rear/field.json",
+              "sha256": "0f05bf0b322b503e518c5fbfec166b59c56ba84ca9bc39e15b7c9aedfe5b27e3"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  183.05106155652285,
+                  777.65575502405
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -904.2100836732275,
+                  4093.856120785542
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  126.11849686208149,
+                  -514.6476170516348
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      120.66424910861294
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      4.804489804633145,
+                      -20.273297506539485
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      120.66424910861294,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -4.181432412074607,
+                      20.410912205355643
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.6882389108979406,
+            "scalar_pressure_lower_bound": 0.6839258717062658
+          },
+          {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "k12-right",
+            "field": {
+              "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/k12-right/field.json",
+              "sha256": "f64955ad585ac4ce85430f426d2b7b6277f18791d13942add300b7c684d03482"
+            },
+            "force_and_first_moment_at_governing_bores": [
+              {
+                "axis_id": "cleat_post_bolt_right_2",
+                "balanced_component_envelope_N": [
+                  0.0,
+                  283.01552582853674,
+                  1034.6886153187131
+                ],
+                "first_moment_xyz_Nmm": [
+                  0.0,
+                  -1134.0813179533789,
+                  4479.360773301338
+                ],
+                "force_on_leaf_xyz_N": [
+                  0.0,
+                  214.46479995024342,
+                  -752.5380569242038
+                ],
+                "leaf": "eoere_cleat_right",
+                "parts": [
+                  {
+                    "interval_mm": [
+                      88.90000000000005,
+                      121.98736132034128
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      7.428229024371043,
+                      -26.85820687724304
+                    ]
+                  },
+                  {
+                    "interval_mm": [
+                      121.98736132034128,
+                      127.00000000000004
+                    ],
+                    "pressure_xyz_N_per_mm": [
+                      0.0,
+                      -6.247347904098061,
+                      27.157181504428163
+                    ]
+                  }
+                ],
+                "whole_wall_mm": 38.1
+              }
+            ],
+            "laminate": "eoere_cleat_right",
+            "reference_N": {
+              "1": 1896.0544635047884,
+              "2": 1314.283116815994
+            },
+            "row_geometry": {
+              "1": [
+                {
+                  "cross_mm": 173.8125,
+                  "end_mm": 49.212500000000006,
+                  "reference_N": 1896.0544635047884
+                }
+              ],
+              "2": [
+                {
+                  "cross_mm": -85.2125,
+                  "end_mm": 34.11250000000001,
+                  "reference_N": 1314.283116815994
+                }
+              ]
+            },
+            "row_reference_index": 0.9365301371529134,
+            "scalar_pressure_lower_bound": 0.9275286366303215
+          }
+        ],
+        "credited_combined_wall_mm": 38.1,
+        "maximum_row_reference_index": 1.1058715738954534,
+        "maximum_scalar_pressure_lower_bound": 1.0814504462618713,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/nominal38p1-rows-v1.json",
+          "sha256": "7c3f8ed16ab3fd0e875540a6c1f6f385e4381c2c46683757b2e6bce494d3a429"
+        }
+      },
+      "saved_bearing_point_review": {
+        "finite_arm_contact_switch_diagnostic_is_new_equilibrium": false,
+        "maximum_XY_mm": 54.27078815901451,
+        "maximum_credited_host_XY_mm": 2.5839747498222767,
+        "maximum_normal_recovery_error_N": 2.220446049250313e-11,
+        "source": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-floor-senior-legs-review-v1.json",
+          "sha256": "df564686111c2d0629ec3dd7ee48519841f319f493ad1d7da3e591306805f1ec"
+        }
+      },
+      "shaft82_exceeded": [
+        {
+          "axis_id": "lumber_leg_bolt_left_1",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "a12-left",
+              "value": 1.1578506373599016
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "a12-left",
+              "value": 1.3644192587016997
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "a12-rear",
+              "value": 1.1313825175913312
+            }
+          }
+        },
+        {
+          "axis_id": "lumber_leg_bolt_right_1",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 1.1508441414174284
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "k12-right",
+              "value": 1.3566853756641724
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "k12-rear",
+              "value": 1.1143016111074262
+            }
+          }
+        },
+        {
+          "axis_id": "rail_front_bolt_left_2",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.0037824403866733
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.1776066715320435
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.2162732278863673
+            }
+          }
+        },
+        {
+          "axis_id": "rail_rear_bolt_left_1",
+          "maxima": {
+            "maximum_N_M_V_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 0.5179255267955285
+            },
+            "maximum_N_M_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 0.5952390079858066
+            },
+            "maximum_bearing_index_adjusted": {
+              "case_id": "a12-forward",
+              "value": 1.0386014580792848
+            }
+          }
+        }
+      ],
+      "shaft82_geometry_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/shaft-geometry-adjustments-v3.json",
+        "sha256": "a9e00d3f51a927f2185431e16687e68234bef271e24bbbb2e629a8d91f6ddf2c"
+      },
+      "shaft82_maxima": {
+        "maximum_N_M_V_index_adjusted": {
+          "case_id": "a12-left",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+            "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+          },
+          "id": "lumber_leg_bolt_left_1",
+          "value": 1.1578506373599016
+        },
+        "maximum_N_M_index_adjusted": {
+          "case_id": "a12-left",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+            "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+          },
+          "id": "lumber_leg_bolt_left_1",
+          "value": 1.3644192587016997
+        },
+        "maximum_bearing_index_adjusted": {
+          "case_id": "a12-forward",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-forward/field.json",
+            "sha256": "3dd2c076157ccffe1c75eaec2fa3e36d3f8b63cec061ec0992d7aa7ee196d016"
+          },
+          "id": "rail_front_bolt_left_2",
+          "value": 1.2162732278863673
+        }
+      },
+      "support_hosts": [
+        "lumber_leg_left",
+        "lumber_leg_right"
+      ],
+      "timber20_exceeded": [
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.4034417639542584
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.3855461110188574
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "a12-forward",
+              "value": 1.3212523403467307
+            }
+          },
+          "member": "base_header"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.5754014162435795
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.549317913540075
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "k12-right",
+              "value": 1.2350502587534584
+            }
+          },
+          "member": "base_rail_top"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.8966420071802711
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 0.8673653233935756
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "a12-rear",
+              "value": 1.3866211294634863
+            }
+          },
+          "member": "base_side_left"
+        },
+        {
+          "maxima": {
+            "maximum_declared_restraint_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.8791031255294781
+            },
+            "maximum_normal_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 0.8507971509134558
+            },
+            "maximum_shear_torsion_reference_upper": {
+              "case_id": "k12-rear",
+              "value": 1.3394406789980853
+            }
+          },
+          "member": "base_side_right"
+        }
+      ],
+      "timber20_maxima": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-left",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-left/field.json",
+            "sha256": "469a96287eccdde0ffd42d3512f923e5dba25cad0c975ca906e5201613983d93"
+          },
+          "id": "lumber_leg_left",
+          "value": 0.9634294378302699
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json",
+            "sha256": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74"
+          },
+          "id": "base_side_left",
+          "value": 0.8673653233935756
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "field": {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/fixed-floor-legs-v1/a12-rear/field.json",
+            "sha256": "c28c5e6e435ee0f3b27431fe53b35ca9a92a26c01fc3a44289c4d69ada2d6f74"
+          },
+          "id": "base_side_left",
+          "value": 1.3866211294634863
+        }
+      },
+      "timber_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-lamination-v1/review-legs-v1/complete-v1/timber-sections-v1.json",
+        "sha256": "c21b0fb7c17e7cf9904e1ca5eb37f941d5706fe5a33c9006475ada473eb2c559"
+      }
+    }
+  },
+  "schema": "eoere_owner_current_engineering_review/v1",
+  "shop_review": {
+    "path": "docs/bolted-frame-development/owner-frame-v3/shop-review.json",
+    "sha256": "04191bb97e5888a4edabdfaf993ae6e4450950a39e081259ef00d4b36b02a2d1"
+  },
+  "structural_acceptance": false,
+  "versions": {
+    "NumPy": "2.5.2",
+    "Python": "3.12.3",
+    "SciPy": "1.18.1"
+  }
+}

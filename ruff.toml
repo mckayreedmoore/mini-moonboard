@@ -25,6 +25,12 @@ extend = "pyproject.toml"
 "scripts/publish_eoere_paired_frame.py" = ["I001"]
 "scripts/publish_eoere_retained_frame.py" = ["F401", "S102"]
 
+# Owner-revision CAD, force and publication inputs already bind these bytes.
+# Keep import order and the reviewed local inventory-only method adapters.
+"scripts/eoere_requested_frame.py" = ["I001"]
+"scripts/eoere_requested_mechanics.py" = ["I001", "S102"]
+"scripts/publish_eoere_requested_frame.py" = ["I001"]
+
 # Frozen native-method and issued evidence sources predate the expanded Ruff
 # defaults in 0.16. Exact path/rule waivers are byte-locked by
 # tests/test_frozen_lint_sources.py; new or edited sources receive no waiver.

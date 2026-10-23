@@ -9,6 +9,7 @@ import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mj
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
 import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
 import {validateRetainedFrame} from '../site/eoere-retained-frame-overlay.mjs';
+import {validateOwnerFrame} from '../site/eoere-owner-frame-overlay.mjs';
 
 // Keep exercising the preserved force/shop contracts against their own geometry.
 function ownRevision(revision) {
@@ -26,12 +27,29 @@ test('current geometry/shop, preceding response and baseline keep their own iden
   assert.equal(checkCurrentDevelopment().passed, true);
 });
 
+test('owner revision cannot inherit the removed-return frame acceptance', () => {
+  const index = readCurrentIndex();
+  index.conditional_frame_evaluation = ownRevision('eoere-paired-frame-retained-2x6-A574-v2').conditional_frame_evaluation;
+  assert.throws(() => checkCurrentDevelopment(index));
+});
+
+for (const [label, mutate] of [
+  ['unrelated cleat part moved', scene => {scene.replacements[0].name = 'eoere_cleat_left';}],
+  ['foreign parent', scene => {scene.parent_layout.sha256 = '0'.repeat(64);}],
+  ['front move claims acceptance', scene => {scene.complete_conditional_frame_evaluation = true;}],
+]) test(`reject local front revision ${label}`, () => {
+  const index = readCurrentIndex();
+  const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validateOwnerFrame(scene, index.geometry.receipt.sha256));
+});
+
 for (const [label, mutate] of [
   ['missing omitted stack component', scene => {scene.removals.pop();}],
   ['foreign parent receipt', scene => {scene.parent_layout.sha256 = '0'.repeat(64);}],
   ['historical strength transferred', scene => {scene.historical_capacity_transferred = true;}],
 ]) test(`reject retained-frame ${label}`, () => {
-  const index = readCurrentIndex();
+  const index = ownRevision('eoere-paired-frame-retained-2x6-A574-v2');
   const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
   mutate(scene);
   assert.throws(() => validateRetainedFrame(scene, index.geometry.receipt.sha256));

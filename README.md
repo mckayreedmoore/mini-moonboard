@@ -10,23 +10,24 @@ Start at the **[development summary and revision map](docs/bolted-frame-developm
 It identifies the current geometry, matching nominal shop records, applicable
 numerical evidence and remaining work.
 
-The current geometry is **`eoere-paired-frame-retained-2x6-A574-v2`**:
-[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear).
-The optional extra grid remains a preserved notched predecessor. The
-[checked revision index](docs/bolted-frame-development/development-revisions.json)
-binds 24 unchanged sawn sections and lengths, four separate plywood leaves,
-26 angles, 102 bolt stacks, 204 washers and 34 factory spacers. The principal
-and upper-return fittings use single pins; the short-front-post/runner joints
-use vertical pairs. Ten bolts are ASTM A574 socket-head through bolts.
-The 32 enclosed LED passages and 66 Hillman axes remain. The matching twelve-case
-conditional frame evaluation and shop packet are complete; see the development summary.
-Panel/Hillman strength is explicitly deferred and unresolved. Actual materials,
-fit and floor are unobserved; no fabrication or climbing release is established.
+The current geometry is **`eoere-local-front-bolt-moves-v4`**:
+[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear).
+The owner-directed model removes the two outboard knees, two leg packers and
+508-mm top-rail extension. It has 20 sawn members, four trimmed nominal ¾-inch
+plywood cleats at the lower header corners, 24 angles, 92 bolt stacks,
+184 washers and 26 factory spacers. The 32 enclosed LED passages and 66 Hillman
+axes remain. The lower front bolts now sit60mm above the floor, with upper bolts at100mm. Their own six-case references fall to0.937 wood bearing and0.893 bolt axial/bending. Cleat-row and upper-bolt-size trials were rejected for incompatible factory holes and edge distances. Its geometry clears nominal occupancy. The completed ideal-bond
+investigation reaches1.066 nominal or1.129 with the thickness allowance on
+the declared four-host floor basis; bolt and timber references also exceed1.0.
+The full frame does not pass, and no preceding strength pass transfers.
+The completed 102-bolt/extended-top evaluation remains preserved within its own
+geometry. Panel/Hillman strength remains deferred and unresolved. Actual stock,
+hardware, fit and floor are unobserved; no fabrication or climbing release.
 
 | Need | Start here |
 | --- | --- |
 | Model, shop records and next actions | [Main development entry](docs/bolted-frame-development/README.md) |
-| Current dimensions, tools and assembly sequence | [Builder plan](docs/bolted-frame-development/builder-plan.md) |
+| Current review and preserved shop instructions | [Builder plan](docs/bolted-frame-development/builder-plan.md) |
 | Detailed evidence and task dispositions | [Development ledger](docs/wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) |
 | Preserved selected baseline | [Baseline reference packet](docs/README.md) · [machine authority](current-candidate.json) |
 | Earlier options, failures and lessons | [Design-history catalog](docs/history/design-history.md) |
@@ -56,6 +57,6 @@ uv sync --locked
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local current-development viewer](http://localhost:8767/index.html?model=eoere-selected-hardware-frame-development&view=rear).
+Open [the local current-development viewer](http://localhost:8767/index.html?model=eoere-current-frame-development&view=rear).
 Required ignored inputs stay active; follow the documented recovery workflow
 before reproducing or archiving evidence.

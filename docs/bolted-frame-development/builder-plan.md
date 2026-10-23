@@ -1,3 +1,44 @@
+# Current design review and preserved assembly instructions
+
+The current geometry is `eoere-local-front-bolt-moves-v4`:
+[92-bolt viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear).
+The [current receipt](owner-frame-v4/geometry.json) retains20 sawn members,
+four trimmed nominal19.05mm plywood leaves,24 angles and92 bolt stacks.
+The two lower short-post/runner bolts move50 to60mm above the floor. Upper
+bolts stay100mm, and all four stay80mm from the common front end. Timber
+sections, lengths, hardware and66 Hillman axes are unchanged.
+
+Use the [four revised post/runner sheets](owner-frame-v4/layout.md),
+[complete112 receiver rows](owner-frame-v4/receiver-holes.csv) and
+[current member records](owner-frame-v4/members.csv). Other drawings, stock
+allocation and hardware remain in the [preceding metric packet](owner-frame-v3/layout.md).
+Its four old post/runner drawings are superseded by the current ones. These
+are coordinated review dimensions, not cutting/drilling directions or a
+current build shopping list. Actual/Disposition cells stay blank.
+
+The proposed10mm cleat-row move conflicts with the under-header angle factory
+holes and intersects steel. Keep those axes at173.8125mm. The proposed5/8in
+upper support bolt fails the adopted loaded-edge check at the existing hole;
+the current1/2in bolt and upper axis remain. No angle is redrilled or shifted.
+
+The [own six-case engineering review](owner-frame-v4/engineering-review.json)
+uses recalculated forces and the preceding four-host/perfect-bond assumptions.
+Front references now reach0.937383 wood bearing and0.893340 bolt axial/bending.
+The bonded cleat still exceeds:1.066325 nominal38.1mm, or1.129031 with36.5mm
+wall credit. Upper-support and timber references also exceed1.0. No adhesive
+is selected or qualified. A passed individual comparison does not qualify
+a complete joint or frame, or clear an affected fabrication operation.
+
+The [preceding92-bolt review](owner-frame-v3/engineering-review.json) and
+[same-load lamination screen](owner-frame-v3/lamination-screen.json) retain
+their original geometry/actions. The102-bolt instructions below belong to
+the earlier extended-top frame; its knees/packers, rail length, cleat thickness
+and coordinates do not describe this revision. No cutting or drilling follows
+from the current sizing model. Panel/Hillman strength remains deferred.
+
+<details>
+<summary>Preserved 102-bolt frame assembly instructions</summary>
+
 # Current compact bolted-frame builder plan
 
 Applies to **`eoere-paired-frame-retained-2x6-A574-v2`**, extra grid off.
@@ -209,3 +250,5 @@ hole marks on surrounding historical sheets do not supersede this packet.
 [panels]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/panel-machining.csv
 [recess]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/rear-recess.svg
 [projections]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md#current-coordinates-and-drawings
+
+</details>

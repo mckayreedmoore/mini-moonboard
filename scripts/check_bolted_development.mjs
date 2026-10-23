@@ -15,6 +15,7 @@ import {validateEnclosedPassages} from '../site/eoere-enclosed-passages-overlay.
 import {validateLegHeader} from '../site/eoere-leg-header-overlay.mjs';
 import {validatePairedFrame} from '../site/eoere-paired-frame-overlay.mjs';
 import {validateRetainedFrame} from '../site/eoere-retained-frame-overlay.mjs';
+import {validateOwnerFrame} from '../site/eoere-owner-frame-overlay.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const INDEX_PATH = 'docs/bolted-frame-development/development-revisions.json';
@@ -700,6 +701,211 @@ function checkFrontPostRevision(index, entryChecks) {
 }
 
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v9') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_owner_local_bolt_revision/v1');
+    assert.equal(report.revision, 'eoere-local-front-bolt-moves-v4');
+    for (const value of [index.geometry.revision, index.hardware_model.revision, index.shop.revision])
+      assert.equal(value, report.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    for (const record of [index, report]) {
+      assert.equal(record.panel_Hillman_resolution_deferred, true);
+      assert.equal(record.fabrication_released, false);
+      assert.equal(record.climbing_released, false);
+    }
+    assert.equal(report.old_force_pass_transferred, false);
+    assert.equal(report.complete_conditional_frame_evaluation, false);
+    assert.equal(report.nominal_geometry_clear, true);
+    assert.equal(report.cleat_move_adopted, false);
+    assert.equal(report.upper_support_diameter_increased, false);
+    assert.equal(report.actual_observations, null);
+    bound(report.producer);
+    for (const binding of Object.values(report.files)) bound(binding);
+    const parent = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    assert.deepEqual(report.counts, parent.counts);
+    const axes = JSON.parse(bound(report.files['axes.json']));
+    const old = JSON.parse(bound(parent.files['axes.json']));
+    assert.deepEqual(axes.screw_axes, old.screw_axes);
+    assert.deepEqual(axes.fitting_poses, old.fitting_poses);
+    assert.equal(axes.axes.length, 92);
+    const moved = new Set(['rail_front_bolt_left_1', 'rail_front_bolt_right_1']);
+    assert.deepEqual(report.local_bolt_moves.axes.map(a => a.axis_id).sort(), [...moved].sort());
+    for (const axis of axes.axes) {
+      const previous = old.axes.find(a => a.id === axis.id);
+      if (moved.has(axis.id)) {
+        assert.equal(previous.point_xyz_mm[2], 50);
+        assert.deepEqual(axis, {...previous, point_xyz_mm: previous.point_xyz_mm.map((n, i) => n+(i === 2 ? 10 : 0))});
+      } else assert.deepEqual(axis, previous);
+    }
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateOwnerFrame(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), report.local_bolt_moves.replacement_part_ids);
+    const review = JSON.parse(bound(index.engineering_review));
+    assert.equal(review.schema, 'eoere_owner_local_bolt_move_review/v1');
+    assert.equal(review.revision, report.revision);
+    assert.deepEqual(review.geometry, index.geometry.receipt);
+    for (const key of ['conditional_frame_evaluation_complete', 'structural_acceptance',
+      'fabrication_released', 'climbing_released', 'native_executable_solve_performed']) assert.equal(review[key], false);
+    assert.equal(review.panel_Hillman_resolution_deferred, true);
+    assert.equal(review.panel_Hillman_strength_pass, false);
+    assert.equal(review.actual_observations, null);
+    assert.deepEqual(Object.keys(review.scenarios), ['four_hosts']);
+    const scenario = review.scenarios.four_hosts;
+    assert.equal(scenario.case_count, 6);
+    assert.deepEqual(scenario.cases.map(c => c.case_id).sort(), ['a1-rear', 'a12-forward', 'a12-left', 'a12-rear', 'k12-rear', 'k12-right']);
+    assert.ok(scenario.cases.every(c => c.residual_N < 1e-5 && c.all_credited_hosts_in_compression));
+    for (const [name, wall] of [['nominal38p1_rows', 38.1], ['minimum36p5_rows', 36.5]]) {
+      const rows = scenario[name];
+      assert.equal(rows.credited_combined_wall_mm, wall);
+      assert.equal(rows.case_count, 6);
+      assert.equal(rows.maximum_row_reference_index, Math.max(...rows.cases.map(c => c.row_reference_index)));
+      assert.ok(rows.cases.every(c => c.scalar_pressure_lower_bound <= c.row_reference_index+1e-10));
+    }
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, scene.key), scene.key);
+    assert.equal(viewerModel(html, index.preserved_owner_v3_viewer), index.preserved_owner_v3_viewer);
+    for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])
+      assert.ok(html.includes(value), 'local-move viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {...prior, revision: report.revision, geometry_integrated: true};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v8') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_owner_requested_frame_revision/v1');
+    for (const value of [index.geometry.revision, index.hardware_model.revision, index.shop.revision])
+      assert.equal(value, report.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.equal(index.conditional_frame_evaluation, null);
+    assert.equal(report.complete_conditional_frame_evaluation, false);
+    assert.equal(report.old_force_pass_transferred, false);
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    for (const record of [index, report]) {
+      assert.equal(record.panel_Hillman_resolution_deferred, true);
+      assert.equal(record.fabrication_released, false);
+      assert.equal(record.climbing_released, false);
+    }
+    assert.deepEqual(report.counts, {sawn_members: 20, plywood_cleats: 4, panels: 6,
+      angles: 24, bolt_stacks: 92, nuts: 92, washers: 184, spacer_pieces: 26,
+      Hillman_axes: 66, receiver_occurrences: 112, occupied_parts: 1011});
+    for (const binding of Object.values(report.files)) bound(binding);
+    bound(report.producer); bound(report.geometry_producer);
+    const sizing = JSON.parse(bound(index.engineering_sizing));
+    assert.equal(sizing.schema, 'eoere_requested_three_quarter_cleat_sizing/v1');
+    assert.deepEqual(sizing.geometry, report.checked_geometry);
+    assert.equal(sizing.complete_conditional_frame_evaluation, false);
+    assert.equal(sizing.fabrication_released, false); assert.equal(sizing.climbing_released, false);
+    bound(sizing.producer);
+    assert.equal(sizing.cases.length, 3);
+    for (const row of sizing.cases) {
+      assert.ok(row.gradient_inf_N < 1e-5);
+      assert.equal(row.groups.length, 28);
+      for (const group of row.groups) {
+        const a = 2*Math.abs(group.signed_weighted_first_moment_mm)/group.whole_wall_mm;
+        const minimum = a+Math.hypot(a, group.integrated_force_only_reference_index);
+        assert.ok(Math.abs(minimum-group.minimum_scalar_pressure_reference_index) < 1e-12);
+        assert.ok(group.balanced_pressure_reference_index+1e-12 >= minimum);
+      }
+    }
+    const lamination = JSON.parse(bound(index.lamination_study));
+    assert.equal(lamination.schema, 'eoere_owner_laminated_cleat_fixed_action_summary/v1');
+    assert.deepEqual(lamination.geometry, report.checked_geometry);
+    assert.equal(lamination.case_count, 5); assert.equal(lamination.cases.length, 5);
+    assert.equal(lamination.global_perfect_bond_stiffness_recomputed, false);
+    assert.equal(lamination.K12_right_original_floor_case_admitted, false);
+    assert.equal(lamination.adhesive_or_complete_cleat_qualified, false);
+    assert.equal(lamination.release, false);
+    assert.ok(lamination.maximum_nominal_reference_index > 0.92 && lamination.maximum_nominal_reference_index < 0.94);
+    assert.ok(lamination.maximum_minimum36p5_wall_fixed_action_sensitivity_index > 0.97 &&
+      lamination.maximum_minimum36p5_wall_fixed_action_sensitivity_index < 0.99);
+    assert.ok(lamination.cases.every(c => c.governing_group.axis_ids.length > 0 &&
+      c.governing_bores.every(b => Math.abs(b.combined_wall_mm-38.1) < 1e-6 &&
+        b.maximum_force_reconstruction_error_N < 1e-6 && b.maximum_moment_reconstruction_error_Nmm < 1e-4)));
+    const review = JSON.parse(bound(index.engineering_review));
+    assert.equal(review.schema, 'eoere_owner_current_engineering_review/v1');
+    assert.equal(review.revision, report.revision);
+    assert.deepEqual(review.geometry, index.geometry.receipt);
+    assert.equal(review.lamination_question_evaluation_complete, true);
+    assert.equal(review.conditional_frame_evaluation_complete, false);
+    assert.equal(review.structural_acceptance, false);
+    assert.equal(review.fabrication_released, false);
+    assert.equal(review.climbing_released, false);
+    assert.equal(review.panel_Hillman_resolution_deferred, true);
+    assert.equal(review.panel_Hillman_strength_pass, false);
+    assert.equal(review.actual_observations, null);
+    assert.equal(review.native_executable_solve_performed, false);
+    assert.deepEqual(review.counts, {physical_sawn_members: 20, physical_plywood_leaves: 4,
+      analytical_laminates: 2, angles: 24, bolt_stacks: 92, Hillman_axes: 66, normal_floor_laws: 32});
+    assert.deepEqual(Object.keys(review.scenarios).sort(), ['four_hosts', 'two_long_supports']);
+    const caseIds = ['a1-rear', 'a12-forward', 'a12-left', 'a12-rear', 'k12-rear', 'k12-right'];
+    for (const scenario of Object.values(review.scenarios)) {
+      assert.equal(scenario.case_count, 6);
+      assert.deepEqual(scenario.cases.map(c => c.case_id).sort(), caseIds);
+      assert.ok(scenario.cases.every(c => c.residual_N < 1e-5 && c.all_credited_hosts_in_compression));
+      assert.equal(scenario.all82_mandatory_geometry_eligible, true);
+      for (const [name, wall] of [['nominal38p1_rows', 38.1], ['minimum36p5_rows', 36.5]]) {
+        const rows = scenario[name];
+        assert.equal(rows.credited_combined_wall_mm, wall);
+        assert.equal(rows.case_count, 6);
+        assert.deepEqual(rows.cases.map(c => c.case_id).sort(), caseIds);
+        assert.equal(rows.maximum_row_reference_index, Math.max(...rows.cases.map(c => c.row_reference_index)));
+        assert.ok(rows.maximum_row_reference_index > 1);
+        assert.ok(rows.maximum_scalar_pressure_lower_bound > 1);
+        assert.ok(rows.cases.every(c => c.scalar_pressure_lower_bound <= c.row_reference_index+1e-10));
+        for (const row of rows.cases) {
+          assert.deepEqual(row.field, scenario.cases.find(c => c.case_id === row.case_id).field);
+          assert.ok(row.axes.length > 0 && row.force_and_first_moment_at_governing_bores.length === row.axes.length);
+        }
+      }
+      for (const maximum of [...Object.values(scenario.shaft82_maxima), ...Object.values(scenario.timber20_maxima)]) {
+        assert.ok(Number.isFinite(maximum.value) && maximum.value >= 0);
+        assert.deepEqual(maximum.field, scenario.cases.find(c => c.case_id === maximum.case_id).field);
+      }
+    }
+    const shop = JSON.parse(bound(index.shop.current_review));
+    assert.equal(shop.schema, 'eoere_owner_frame_shop_review/v1');
+    assert.deepEqual(shop.geometry, report.checked_geometry);
+    assert.deepEqual(shop.counts, {members: 30, sawn: 20, leaves: 4, angles: 24, bolts: 92,
+      nuts: 92, washers: 184, spacers: 26, receivers: 112, drawings: 24, sticks: 13, nominal_board_feet: 150});
+    assert.equal(shop.coordinate_and_drilling_reconciliation_pass, true);
+    assert.equal(shop.observation_cells_blank, true);
+    assert.equal(shop.retained_exceedance_is_a_strength_pass, false);
+    assert.equal(shop.fabrication_release, false); assert.equal(shop.climbing_release, false);
+    for (const binding of Object.values(shop.files)) bound(binding);
+    const axes = JSON.parse(bound(report.files['axes.json']));
+    assert.equal(axes.axes.length, 92); assert.equal(axes.fitting_poses.length, 24);
+    assert.ok(!axes.axes.some(a => a.id.startsWith('outboard_')));
+    const parent = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    assert.deepEqual(axes.screw_axes, JSON.parse(bound(parent.files['axes.json'])).screw_axes);
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateOwnerFrame(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.equal(scene.key, index.geometry.viewer);
+    assert.deepEqual(scene.removals, report.owner_requested_revision.removed_part_ids);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), report.owner_requested_revision.replacement_part_ids);
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, scene.key), scene.key);
+    for (const value of [index.geometry.scene.sha256, index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256])
+      assert.ok(html.includes(value), 'owner-frame viewer binding missing');
+    if (entryChecks) {
+      for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
+      assert.ok(html.includes(`href="?model=${scene.key}&view=rear">Current eoere geometry`));
+    }
+    return {passed: prior.passed, revision: report.revision, bolt_axes: 92, angles: 24,
+      screw_axes: 66, conditional_frame_evaluation_complete: false, geometry_integrated: true};
+  }
   if (['bolted_frame_development_revisions/v6', 'bolted_frame_development_revisions/v7'].includes(index.schema)) {
     const retained = index.schema === 'bolted_frame_development_revisions/v7';
     const boltCount = retained ? 102 : 106;

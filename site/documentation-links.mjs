@@ -38,14 +38,31 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-current-frame-development')
+    return [
+      {label: 'Current design and outstanding checks', path: current + 'README.md'},
+      {label: 'Current front-bolt revision and retained geometry', path: current + 'owner-frame-v4/geometry.json'},
+      {label: '92 axes and retained 66 screw locations', path: current + 'owner-frame-v4/axes.json'},
+      {label: 'Current nominal hardware review · no build selection', path: current + 'owner-frame-v3/hardware-review.csv'},
+      {label: 'Own revised bolt, cleat and timber results', path: current + 'owner-frame-v4/engineering-review.json'},
+      {label: 'Revised front-post and runner drawings', path: current + 'owner-frame-v4/layout.md'},
+      {label: 'Current scope and preserved assembly instructions', path: current + 'builder-plan.md'},
+      {label: 'Current local changes and rejected geometry trials', path: ledger + '#current-front-bolt-moves'},
+    ];
+  if (model === 'eoere-owner-frame-v3-development')
+    return [
+      {label: 'Preserved geometry before the front-bolt move', path: current + 'owner-frame-v3/geometry.json'},
+      {label: 'Preserved 50/100 mm front layout', path: current + 'owner-frame-v3/layout.md'},
+      {label: 'Preserved bonded-frame engineering review', path: current + 'owner-frame-v3/engineering-review.json'},
+    ];
   if (model === 'eoere-retained-2x6-frame-development')
     return [
-      {label: 'Current 2×6 frame builder plan', path: current + 'builder-plan.md'},
-      {label: '102-axis member and receiver layout', path: current + 'builder-layout.md'},
-      {label: 'Current geometry and hardware receipt', path: current + 'paired-frame-v2/geometry.json'},
-      {label: '102 selected bolt stacks and spacers', path: current + 'paired-frame-v2/hardware-selection.csv'},
-      {label: 'Stock allocation and hardware totals', path: current + 'paired-frame-v2/stock-nesting.csv'},
-      {label: 'Frame evaluation and panel deferral', path: ledger + '#paired-frame-completion-goal'},
+      {label: 'Current scope and preserved 102-bolt instructions', path: current + 'builder-plan.md'},
+      {label: 'Preserved 102-axis member and receiver layout', path: current + 'builder-layout.md'},
+      {label: 'Preserved extended-top geometry receipt', path: current + 'paired-frame-v2/geometry.json'},
+      {label: 'Preserved 102 selected bolt stacks', path: current + 'paired-frame-v2/hardware-selection.csv'},
+      {label: 'Preserved stock allocation and hardware totals', path: current + 'paired-frame-v2/stock-nesting.csv'},
+      {label: 'Current scope and preceding frame evaluation', path: ledger + '#paired-frame-completion-goal'},
     ];
   if (model === 'eoere-paired-cleats-frame-development')
     return [
