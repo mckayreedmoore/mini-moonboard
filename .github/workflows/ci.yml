@@ -15,6 +15,40 @@ permissions:
   contents: read
 
 jobs:
+  viewer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 1
+      - name: Test all viewer and document contracts
+        run: node --test tests/*.mjs
+      - name: Install pinned browser runtime outside the checkout
+        run: |
+          npm install --prefix "$RUNNER_TEMP/moonboard-browser" --no-save --package-lock=false --ignore-scripts playwright@1.59.1
+          node "$RUNNER_TEMP/moonboard-browser/node_modules/playwright/cli.js" install --with-deps chromium
+      - name: Exercise the committed viewer in Chromium
+        run: |
+          python3 -m http.server 8767 --bind 127.0.0.1 --directory site >"$RUNNER_TEMP/moonboard-viewer-server.log" 2>&1 &
+          viewer_server_pid=$!
+          trap 'kill "$viewer_server_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:8767/ >/dev/null; then break; fi
+            kill -0 "$viewer_server_pid"
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8767/ >/dev/null
+          node scripts/check_viewer_browser.cjs "$RUNNER_TEMP/moonboard-browser/node_modules/playwright" http://127.0.0.1:8767/ "$RUNNER_TEMP/moonboard-browser.json"
+      - name: Show browser receipt
+        if: always()
+        run: |
+          if [[ -f "$RUNNER_TEMP/moonboard-browser.json" ]]; then
+            cat "$RUNNER_TEMP/moonboard-browser.json"
+          fi
+          if [[ -f "$RUNNER_TEMP/moonboard-viewer-server.log" ]]; then
+            tail -n 20 "$RUNNER_TEMP/moonboard-viewer-server.log"
+          fi
   checks:
     runs-on: ubuntu-latest
     steps:

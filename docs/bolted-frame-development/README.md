@@ -8,12 +8,16 @@ the floor; their upper companions stay100mm. All four stay80mm from the
 common front end. Timber sections, member lengths, six panels,32 LED passages,
 66 Hillman axes and hardware specifications remain unchanged.
 
-[Current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear) ·
+[Current local viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) ·
 [geometry and changes](owner-frame-v4/geometry.json) ·
 [own six-case engineering review](owner-frame-v4/engineering-review.json).
 All1011 occupied parts clear nominally. This is a design-review revision,
 not a fabrication or climbing release. The selected
 [screw-and-bracket baseline](../../current-candidate.json) retains separate authority.
+
+Use the [local serving instructions](../../CONTRIBUTING.md#software-walkthrough)
+for this unpublished revision. The [published demo](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear)
+retains the 102-bolt frame.
 
 The proposed10mm cleat-row move was rejected: those bolts also pass through
 existing under-header angle factory holes, and the proposed axes intersect
@@ -26,7 +30,7 @@ their axes stay unchanged. Neither rejected trial supplies a strength pass.
 
 | Need | Current record |
 | --- | --- |
-| Current model and two moved axes | [Viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear) · [receipt](owner-frame-v4/geometry.json) · [92 axes and66 screws](owner-frame-v4/axes.json) |
+| Current model and two moved axes | [Local viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) · [receipt](owner-frame-v4/geometry.json) · [92 axes and66 screws](owner-frame-v4/axes.json) |
 | Strength results | [Own revised six-case review](owner-frame-v4/engineering-review.json) · [execution and rejected trials](../wood-joints-mvp/completion-ledger.md#current-front-bolt-moves) |
 | Member and receiver dimensions | [30 member records](owner-frame-v4/members.csv) · [112 receiver occurrences](owner-frame-v4/receiver-holes.csv) · [four revised drawings](owner-frame-v4/layout.md) |
 | Other drawings and stock allocation | [Preserved unchanged member sheets and13-stick allocation](owner-frame-v3/layout.md); the four revised post/runner drawings supersede their old coordinates |
@@ -102,7 +106,7 @@ remaining timber references, within the owner's retained design scope.
 The [preceding92-bolt geometry](owner-frame-v3/geometry.json),
 [50/100mm front layout](owner-frame-v3/layout.md),
 [bonded-frame review](owner-frame-v3/engineering-review.json) and
-[preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-owner-frame-v3-development&view=rear)
+[preserved local viewer](http://127.0.0.1:8767/?model=eoere-owner-frame-v3-development&view=rear)
 retain their exact sources. Its same-force lamination0.926488 screen is not
 an updated-frame result. The [102-bolt geometry](paired-frame-v2/geometry.json),
 [complete conditional evaluation](paired-frame-v2/engineering-evaluation.json)
@@ -120,6 +124,11 @@ contains only14 replacements and inherits unchanged meshes; four new drawings
 replace only the changed post/runner sheets. The ledger records permanent
 artifact size, source-applicability limits and commands. No archive or prune
 operation is performed.
+
+Software setup, the preserved-baseline export walkthrough and viewer module
+ownership are in [CONTRIBUTING.md](../../CONTRIBUTING.md#software-walkthrough).
+Models, generated assets, frozen producers and required ignored inputs remain
+active at their existing paths; this software cleanup archives none of them.
 
 The basis remains dryDF-LNo2, recorded loads, declared joint/plywood properties,
 conditional factory steel and unverified floor assumptions. Actual material,

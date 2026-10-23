@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import {validateOwnerBarrelScene} from '../site/owner-barrel-overlay.mjs';
 
 const headerStations = ['clip_timber_header_outer_left', 'clip_timber_header_outer_right'];
@@ -130,13 +131,19 @@ const scene = {
     barrel_path_host_anomalies: [],
     unrelated_remaining_pair_cut_intersections: [],
     remaining_pair_cut_intersections: Array(36).fill({}),
-    remaining_to_protected_cut_intersections: [{member: 'base_rail_service_lower_left'}, {member: 'base_rail_service_upper_left'}],
+    remaining_to_protected_cut_intersections: [],
     release: false,
   },
   hidden_baseline_visual_names: hidden,
 };
 
 assert.equal(validateOwnerBarrelScene(scene, hidden), scene);
+const trackedScene = JSON.parse(readFileSync(new URL('../site/owner-barrel-layout-scene.json', import.meta.url)));
+assert.equal(validateOwnerBarrelScene(trackedScene, trackedScene.hidden_baseline_visual_names), trackedScene);
+assert.throws(() => validateOwnerBarrelScene({...scene, visual_wood_replacement: {
+  ...scene.visual_wood_replacement,
+  remaining_to_protected_cut_intersections: [{member: 'base_rail_service_lower_left'}, {member: 'base_rail_service_upper_left'}],
+}}, hidden), /24 duties/);
 assert.throws(() => validateOwnerBarrelScene({
   ...scene,
   diagnostic_bolt_axes: scene.diagnostic_bolt_axes.map((row, index) => index ? row : {

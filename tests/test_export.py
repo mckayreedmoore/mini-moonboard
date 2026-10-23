@@ -84,35 +84,42 @@ def test_exports_selectable_viewer_meshes_for_every_physical_part(tmp_path: Path
     assert len(failed_fasteners) == 0
     assert len(passed_panel_screws) == len(connections())
 
-    viewer_html = (Path(__file__).parents[1] / "site" / "index.html").read_text()
-    assert "fetch('parts.json')" in viewer_html
-    assert "loader.load(part.path" in viewer_html
-    assert "part.fabrication.dimensions_mm" in viewer_html
-    assert "[x, y, z].map(feetAndInches)" in viewer_html
-    assert "analysis_" in viewer_html
-    assert "clearance_status" in viewer_html
-    assert "0xef5350" in viewer_html
-    assert 'id="overlay"' in viewer_html
-    assert "ABCDEFGHIJK" in viewer_html
-    assert "labelDecal" in viewer_html
-    assert "new THREE.PlaneGeometry" in viewer_html
-    assert "mainFacePoint(1160, station)" in viewer_html
-    assert "rowStations = design.tnut_row_stations_mm" in viewer_html
-    assert "climberView.scale.x = -1" in viewer_html
-    assert "assemblyView.position.set(0, -950, 0)" in viewer_html
-    assert "mainFacePoint(1019.2 - index * 200, 2380)" in viewer_html
-    assert 'id="dimensions"' in viewer_html
-    assert "dimensionLine" in viewer_html
-    assert "bounds_mm" in viewer_html
-    assert 'id="person"' in viewer_html
-    assert "Grid-reference labels" in viewer_html
-    assert "an absolutely staggering 5\\'8" in viewer_html
-    assert "name: 'McKay'" in viewer_html
-    assert "part === personPart ? personMeshes" in viewer_html
-    assert "person.position.set(1710, 250, 0)" in viewer_html
-    assert "camera.position.set(4300, 4700, 1600)" in viewer_html
-    assert "controls.target.set(300, 700, 1050)" in viewer_html
-    assert "MCKAY — 5'8\\\" / 1727.2 mm" in viewer_html
+    viewer_dir = Path(__file__).parents[1] / "site"
+    viewer_html = (viewer_dir / "index.html").read_text()
+    presentation_modules = ("viewer-scene.mjs", "viewer-annotations.mjs", "viewer-holds.mjs")
+    for module in presentation_modules:
+        assert f"from './{module}'" in viewer_html
+    viewer_source = "\n".join(
+        [viewer_html, *((viewer_dir / module).read_text() for module in presentation_modules)]
+    )
+    assert "fetch('parts.json')" in viewer_source
+    assert "loader.load(part.path" in viewer_source
+    assert "part.fabrication.dimensions_mm" in viewer_source
+    assert "[x, y, z].map(feetAndInches)" in viewer_source
+    assert "analysis_" in viewer_source
+    assert "clearance_status" in viewer_source
+    assert "0xef5350" in viewer_source
+    assert 'id="overlay"' in viewer_source
+    assert "ABCDEFGHIJK" in viewer_source
+    assert "labelDecal" in viewer_source
+    assert "new THREE.PlaneGeometry" in viewer_source
+    assert "mainFacePoint(1160, station)" in viewer_source
+    assert "rowStations = design.tnut_row_stations_mm" in viewer_source
+    assert "climberView.scale.x = -1" in viewer_source
+    assert "assemblyView.position.set(0, -950, 0)" in viewer_source
+    assert "mainFacePoint(1019.2 - index * 200, 2380)" in viewer_source
+    assert 'id="dimensions"' in viewer_source
+    assert "dimensionLine" in viewer_source
+    assert "bounds_mm" in viewer_source
+    assert 'id="person"' in viewer_source
+    assert "Grid-reference labels" in viewer_source
+    assert "an absolutely staggering 5\\'8" in viewer_source
+    assert "name: 'McKay'" in viewer_source
+    assert "part === personPart ? personMeshes" in viewer_source
+    assert "person.position.set(1710, 250, 0)" in viewer_source
+    assert "camera.position.set(4300, 4700, 1600)" in viewer_source
+    assert "controls.target.set(300, 700, 1050)" in viewer_source
+    assert "MCKAY — 5'8\\\" / 1727.2 mm" in viewer_source
 
 
 def test_fastener_head_clearance_screen_exposes_structural_stack_collisions(tmp_path: Path) -> None:

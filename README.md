@@ -1,17 +1,76 @@
-# Mini MoonBoard DIY frame
+# Mini MoonBoard
 
-Engineering models, calculations, viewers and conditional shop documents for
-a Mini MoonBoard-sized climbing wall. This independent project is not affiliated
-with or endorsed by Moon Climbing.
+A Python/CadQuery project exploring a timber frame for a Mini MoonBoard-sized
+climbing wall. Python builds the parts, hardware and machining geometry;
+CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
+Three.js browser viewer displays those pre-generated assets, with part picking,
+connection inspection, hold previews and shareable problem highlights.
 
-## Main development: Compact bolted frame
+**[Current development demo · run locally](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)**
 
-Start at the **[development summary and revision map](docs/bolted-frame-development/README.md)**.
-It identifies the current geometry, matching nominal shop records, applicable
-numerical evidence and remaining work.
+The current geometry is **`eoere-local-front-bolt-moves-v4`**. Its
+[development entry and revision index](docs/bolted-frame-development/README.md)
+record the exact model, engineering findings and remaining work. The viewer
+runs entirely in the browser; it does not call a Python CAD backend.
 
-The current geometry is **`eoere-local-front-bolt-moves-v4`**:
-[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear).
+## Run locally
+
+Use Python 3.12 and [uv](https://docs.astral.sh/uv/), from the repository root:
+
+```sh
+uv sync --locked
+uv run python -m http.server 8767 --bind 127.0.0.1 --directory site
+```
+
+Open the current-development link above.
+This serves committed visualization assets. It does **not** regenerate CAD or
+replay an engineering study. Browser rendering also needs access to the pinned
+Three.js modules on unpkg.com.
+
+The [published demo](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear)
+shows the preserved 102-bolt revision. The published site checked at commit
+`6ded8620` does not yet recognize the local current-model key; use the local
+demo for the newer geometry. Publication is separate from this cleanup.
+
+For a reproducible CAD export, start with the
+[preserved-baseline software walkthrough](CONTRIBUTING.md#software-walkthrough).
+It builds into a separate directory from tracked inputs. Latest-development
+regeneration and structural replay have additional ignored input requirements.
+
+## Find your way around
+
+| Role | Entry point |
+| --- | --- |
+| Python models and shared geometry | [mini_moonboard/](mini_moonboard/) |
+| Normal commands and one end-to-end pipeline | [Contributor guide](CONTRIBUTING.md#software-walkthrough) |
+| Browser application and generated display assets | [site/](site/) |
+| Portable checks and explicit evidence/history selection | [Tests and checks](CONTRIBUTING.md#checks) |
+| Active bolted-frame development | [Development summary](docs/bolted-frame-development/README.md) |
+| Preserved selected baseline | [current-candidate.json](current-candidate.json) and [baseline documents](docs/README.md) |
+| Earlier designs, failed experiments and lessons | [Design history](docs/history/design-history.md) |
+| Mesh sharing and evidence recovery | [Repository agreements](AGENTS.md) and [recovery instructions](CONTRIBUTING.md#current-development-and-input-recovery) |
+
+The preserved selected baseline is `compact-floor-flush-development`.
+`current-candidate.json` identifies that screw-and-bracket baseline;
+`docs/bolted-frame-development/development-revisions.json` separately identifies
+active bolted development. The viewer's no-query default remains the baseline.
+Use the explicit demo links above for current development.
+
+Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md) before editing.
+Historical-looking Python modules can still be live dependencies; frozen
+producers and evidence retain their original identities.
+
+## Scope
+
+Independent DIY project; not affiliated with or endorsed by Moon Climbing.
+These are engineer-unreviewed conditional records with unresolved strength
+findings, not fabrication or climbing approval. Software checks establish
+consistency within their scope, not physical safety. The selected baseline,
+current development and historical studies keep separate evidence and limits.
+
+<details>
+<summary>Current development scope and engineering findings</summary>
+
 The owner-directed model removes the two outboard knees, two leg packers and
 508-mm top-rail extension. It has 20 sawn members, four trimmed nominal ¾-inch
 plywood cleats at the lower header corners, 24 angles, 92 bolt stacks,
@@ -24,39 +83,4 @@ The completed 102-bolt/extended-top evaluation remains preserved within its own
 geometry. Panel/Hillman strength remains deferred and unresolved. Actual stock,
 hardware, fit and floor are unobserved; no fabrication or climbing release.
 
-| Need | Start here |
-| --- | --- |
-| Model, shop records and next actions | [Main development entry](docs/bolted-frame-development/README.md) |
-| Current review and preserved shop instructions | [Builder plan](docs/bolted-frame-development/builder-plan.md) |
-| Detailed evidence and task dispositions | [Development ledger](docs/wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) |
-| Preserved selected baseline | [Baseline reference packet](docs/README.md) · [machine authority](current-candidate.json) |
-| Earlier options, failures and lessons | [Design-history catalog](docs/history/design-history.md) |
-| Repository organization and evidence recovery | [Cleanup record](docs/repository-cleanup-evaluation-2026-09-28.md) |
-
-## Selected baseline and history
-
-The selected screw-and-bracket baseline remains `compact-floor-flush-development`
-under [current-candidate.json](current-candidate.json). Its
-[working set](docs/selected-working-set.md) and conditional shop/evidence packet
-stay preserved. Its passes do not qualify the compact bolted development frame.
-
-Earlier Eoere, HL35, thin-frame and wood-joint studies remain accessible through
-the history catalog and [full viewer collection](https://mckayreedmoore.github.io/mini-moonboard/).
-The viewer's no-query default remains the selected baseline; use the explicit
-current-development link above. Original proposal contracts keep their own
-revision identities.
-
-## Contributor setup
-
-Work on `master` and coordinate file ownership and publication with other agents.
-Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md) before changing
-geometry, evidence or archived files.
-
-```sh
-uv sync --locked
-uv run python -m http.server 8767 --directory site
-```
-
-Open [the local current-development viewer](http://localhost:8767/index.html?model=eoere-current-frame-development&view=rear).
-Required ignored inputs stay active; follow the documented recovery workflow
-before reproducing or archiving evidence.
+</details>

@@ -5,7 +5,8 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
 The current geometry is **`eoere-local-front-bolt-moves-v4`**:
-[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear).
+[current local viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)
+([serving instructions](../CONTRIBUTING.md#software-walkthrough)).
 The [checked revision index](bolted-frame-development/development-revisions.json)
 binds the owner-requested removal of the outboard knees/packers and top-rail
 extension: 24 angles, 92 bolts, four trimmed nominal ¾-inch plywood leaves,

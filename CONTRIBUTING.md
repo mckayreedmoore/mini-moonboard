@@ -29,6 +29,106 @@ sudo apt-get update
 sudo apt-get install ffmpeg
 ```
 
+## Software walkthrough
+
+The supported entry points are existing commands, not a universal configuration
+or task-runner framework. Run them from the repository root after
+`uv sync --locked`.
+
+The routing checks use Node.js; this walkthrough was checked with Node 24.18.0.
+Node is not needed to serve the existing viewer assets.
+
+| Task | Command or reading path | What it establishes |
+| --- | --- | --- |
+| View the current development | `uv run python -m http.server 8767 --bind 127.0.0.1 --directory site`, then the [current local model](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) | Serves existing assets; no CAD rebuild or structural replay |
+| Fast portable checks | `node --test tests/*.mjs` and `uv run pytest -q tests/test_test_selection.py tests/test_viewer_mesh_assets.py` | Revision/document routing, preserved overlay contracts, test selection and mesh-sharing contracts |
+| Normal maintained regression | The commands under [Checks](#checks) | The default maintained test selection, lint and CAD smoke check |
+| Historical or recovered replay | The explicit pytest opt-ins under [Checks](#checks), after restoring their inputs | Those named evidence checks; missing inputs still fail |
+
+A reproducible export path is the **preserved selected baseline**, not the
+latest bolted development:
+
+1. [current-candidate.json](current-candidate.json) names the baseline and its
+   producers. [The width option](docs/floor-flush-width-option.md) distinguishes
+   bought 4×4 panels from the kerf-right 4×8 presentation of that same candidate.
+2. [floor_flush_width.py](mini_moonboard/floor_flush_width.py) adapts
+   [compact_floor_flush_frame.py](mini_moonboard/compact_floor_flush_frame.py).
+   The latter delegates some behavior through `previous` and `__getattr__` to
+   older frame modules. Those modules are live source dependencies.
+3. [floor_flush_exports.py](scripts/floor_flush_exports.py) supplies the selected
+   model, width-specific metadata and source inventory. It uses shared helpers
+   through [clear_space_exports.py](scripts/clear_space_exports.py), whose
+   `shared` module is [no_shoes_exports.py](mini_moonboard/no_shoes_exports.py).
+   Historical names here describe provenance, not unused code.
+4. The shared exporter validates CAD bodies and writes `parts.json`,
+   `models/*.stl`, `assembly.step` and `manifest.json`. The STEP file omits the
+   electrical display; the manifest records that scope and source/artifact
+   hashes. Existing STEP normalization preserves deterministic output.
+5. [site/index.html](site/index.html) selects a model and loads its generated
+   assets. [mesh-assets.mjs](site/mesh-assets.mjs) resolves shared STL aliases;
+   design-specific overlays validate their own scene identities. The browser
+   never imports Python or performs the CAD build.
+
+Build only the official-width baseline into a new output directory:
+
+```sh
+moonboard_export_root=$(mktemp -d)
+uv run python -m scripts.floor_flush_exports --width official --root "$moonboard_export_root"
+```
+
+The outputs are under
+`$moonboard_export_root/hybrid/compact-floor-flush-development/`. This command
+leaves the committed viewer and construction packets alone. To rebuild in a
+temporary directory and compare against the committed official-width assets:
+
+```sh
+uv run python -m scripts.floor_flush_exports --width official --check
+```
+
+Dimensions are mostly Python constants and derived geometry; selected material,
+hardware and wiring references are JSON. `design_inputs.toml` is an optional,
+ignored site-input file, not a replacement for all model parameters. The tracked
+baseline export above does not require private measurements or the latest
+ignored mechanics banks. Current development producers do require their
+recorded cached solids, fields and sources: use the
+[recovery instructions](#current-development-and-input-recovery), and keep
+serving, regeneration and structural replay as separate claims.
+
+### Viewer modules
+
+`site/index.html` owns model selection, guarded loaders, part picking and bolt
+inspection. Presentation lives in `viewer-scene.mjs` (camera, lighting and render
+loop), `viewer-holds.mjs` (approximate holds and problem links),
+`viewer-annotations.mjs` (display-only pads, dimensions and reference person)
+and `viewer.css`. Existing overlay modules retain their revision-specific
+identity checks; `documentation-links.mjs` and `mesh-assets.mjs` keep document
+routing and mesh aliases separate.
+
+A rendered regression runs in CI as a separate viewer job, before waiting for
+the full CAD suite. It first runs all Node contracts (`node --test tests/*.mjs`),
+then uses Playwright 1.59.1 and Chromium against committed assets. A browser
+failure fails CI; the normal maintained suite and existing validation gates
+still run. Available browser JSON receipts are printed even after a failure.
+
+For local checks, use an existing Playwright installation with Chromium. Serve
+`site/` as above, then run from the repository root:
+
+```sh
+node scripts/check_viewer_browser.cjs /path/to/playwright http://127.0.0.1:8767/ /tmp/moonboard-browser.json
+```
+
+It checks the current model, baseline, kerf-right option and two historical
+routes, plus picking, controls, problem links, navigation and error messages.
+The optional fourth argument compares complete model snapshots from a preceding
+checkout. Its full-run pass/fail flag remains in the new receipt, so a later
+baseline interaction failure is still visible. HTTPS verification is enabled
+by default. If a local proxy requires it, `VIEWER_BROWSER_IGNORE_HTTPS_ERRORS=1`
+explicitly enables the override and records it in the receipt; CI does not set
+it. No browser package is added to the Python lockfile. CI installs the pinned
+package in its temporary directory and uses Playwright's documented
+[`install --with-deps chromium`](https://playwright.dev/docs/browsers#install-system-dependencies)
+to provision its browser and system libraries.
+
 ## Checks
 
 Run checks affected by the change before committing. For code or model changes,

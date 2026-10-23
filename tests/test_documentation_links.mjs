@@ -150,6 +150,35 @@ test('unavailable exports replace geometry-preview claims with an explicit load 
   }
 });
 
+for (const failureFirst of [false, true]) for (const weightsAvailable of [false, true])
+test(`weight response ${failureFirst ? 'after' : 'before'} a failed model (${weightsAvailable ? 'available' : 'unavailable'} metadata) retains the load error`, async () => {
+  const weights = slice('const designLabels = ', 'const categoryLabels = ');
+  const failure = slice('rejectOwnerConceptBaseline?.(error);', "if (model === 'bolted-v4-development')").replace(/\}\);\s*$/, '');
+  let resolveResponse;
+  const response = new Promise(resolve => {resolveResponse = resolve;});
+  const weightLine = {}, status = {};
+  const model = 'compact-floor-flush-development';
+  const context = {model, isWoodJoint: false, woodJointModels: [],
+    modelSelect: {options: [{value: model, text: 'Selected baseline'}]},
+    weightLine, weightNote: {}, excludedMass: 'visual accessories',
+    fetch: () => response, error: new Error('HTTP 404'),
+    rejectOwnerConceptBaseline: null, partCard: {}, holdStatus: {},
+    document: {querySelector() {return status;}}};
+  runInNewContext(weights + `\nglobalThis.failModel = () => {${failure}};`, context);
+  if (failureFirst) context.failModel();
+  const catalog = JSON.parse(readFileSync(path.join(root, 'site/prototype-weights.json')));
+  resolveResponse({ok: weightsAvailable, status: 404, json: async () => catalog});
+  // Let the actual fetch/json/then/catch chain settle, with no timing delay.
+  await new Promise(setImmediate);
+  if (!failureFirst) {
+    assert.match(weightLine.textContent, /^Estimated frame weight:/, 'weight callback ran');
+    context.failModel();
+  }
+  assert.match(context.modelSelect.options[0].text, /kg|weight unavailable/, 'menu metadata still loads');
+  assert.match(status.textContent, /Model compact-floor-flush-development unavailable/);
+  assert.equal(weightLine.textContent, 'Planning mass: unavailable');
+});
+
 test('historical post comparison initializes beside browser globals and responds to its controls', () => {
   const page = readFileSync(path.join(root, 'site/post-connection-options.html'), 'utf8');
   const script = page.match(/<script>([\s\S]*?)<\/script>/)?.[1];
