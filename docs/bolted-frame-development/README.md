@@ -108,9 +108,9 @@ Both-edges 4D is optional conservatism, not an established NDS violation;
 local pressure reversal does not automatically change that classification.
 The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt)
 calls for a justified physical-group replacement for 1/n, preserving forces
-and couples. Cross-standard efficiencies are comparisons only. Translating
-an angle cannot fix its internal top-grid pitch; no relocation is adopted.
+and couples. Cross-standard efficiencies are comparisons only. The outer-angle return removes the packers; an angle translation cannot change its internal top-grid pitch, and no further relocation is adopted as a top-grid remedy.
 All 112 axes have fresh six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.638517; these omit local couples and do not establish complete capacity.
+The additive [primary-method clarification](owner-frame-v10/packer-free/primary-method-closure.json) separates NDS pure-lateral mode reductions, bolt bending yield and a separate tensile-yield shaft comparison; none supplies complete wrench/group capacity. The [geometry-method followup](owner-frame-v10/packer-free/geometry-method-followup.json) records the unresolved Table-D interpretation and a fresh, bounded reduced-depth connection-shear check using the historical method and current forces.
 The current washer mean-pressure index is 0.181365. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
 The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
 body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw

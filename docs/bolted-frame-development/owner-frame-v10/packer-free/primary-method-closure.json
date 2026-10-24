@@ -1,0 +1,116 @@
+{
+  "schema": "v10_packer_free_primary_method_closure_summary/v1",
+  "candidate": "v10-packer-free-flush-return-far-row-only-v1",
+  "scope": "Primary-method resolution for force-only TR12/NDS references, current local pressure/shaft thresholds, and the unresolved complete wrench/group criterion. No candidate acceptance is recorded.",
+  "source_bindings": {
+    "raw_method_closure": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/primary-method-closure-v1.json",
+      "sha256": "df67b9c2d4b39f03bbe5d89bc9afbe0d49a4a2f03a9ab7b886f90f59187c950a"
+    },
+    "raw_method_closure_producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/build_method_closure_v1.py",
+      "sha256": "8f316bfc021899d3dce5573889f0495ccb0172ac24a4cf7298b7dd76c6cefe33"
+    },
+    "current_response_bank": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    },
+    "current_same_field_result": {
+      "path": "fea/generated/v10-packer-free-v1/connections/same-field/same-field-material-reference-v1.json",
+      "sha256": "afbfa900f86b2621d1f06c6ca6113c2f5c9a25f48a85ac14cbc7d2926199136f"
+    },
+    "current_method_report": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/connection-method-evaluation.json",
+      "sha256": "589fb8e6f7c8bfdddc0c9e084d751e892fb50112c7e9ee56e80e6c667d226037"
+    },
+    "current_evaluation": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json",
+      "sha256": "41863a95230b64a67f3b8aeffd6874fcf75cb81891b4872459d0bd7bb87f4017"
+    },
+    "TR12_example_3_1_control": {
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/tr12-yield-subcheck-v1.json",
+      "sha256": "1be37f30e2c98428f966e75f50d0e69dfbfce9b1f793957a8057e280a3ed6f57",
+      "use": "Published equation known-answer only; no Candidate13 forces are transferred."
+    }
+  },
+  "primary_sources": {
+    "NDS_2024_chapter_11": {
+      "publisher": "American Wood Council",
+      "edition": "ANSI/AWC NDS-2024",
+      "title": "Chapter 11: Mechanical Connections",
+      "sections": ["11.1.2", "11.3.6"],
+      "official_url": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-11-Mechanical-Connections.pdf",
+      "cache_path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+      "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+    },
+    "NDS_2024_chapter_12": {
+      "publisher": "American Wood Council",
+      "edition": "ANSI/AWC NDS-2024",
+      "title": "Chapter 12: Dowel-Type Fasteners",
+      "sections": ["12.3.1", "12.3.3", "12.3.4", "12.3.6.2", "12.3.7"],
+      "official_url": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-12-Dowel-Type-Fasteners.pdf",
+      "cache_path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    },
+    "AWC_TR12_2015": {
+      "publisher": "American Wood Council",
+      "title": "General Dowel Equations for Calculating Lateral Connection Values",
+      "sections": ["§1", "Table 1-1", "Example 3.1", "Appendix A"],
+      "official_url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf",
+      "cache_path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/awc-TR12-2015.pdf",
+      "sha256": "95abb7d382aadf6984121f8731a5b91c2b633516e7f134991ad0a34a1b916be2"
+    },
+    "implemented_equation_helpers": [
+      {"path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py", "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"},
+      {"path": "fea/dowel_yield.py", "sha256": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45"},
+      {"path": "scripts/eoere_bearing_envelope.py", "sha256": "11d7c7b0990f507f5e3098d7a6c9221bf23ef3155ce530a93555777806a0baa2"},
+      {"path": "scripts/thin_bolted_steel_resistance.py", "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"},
+      {"path": "mini_moonboard/wood_joint_bolt_resistance.py", "sha256": "488e58bbd58fbc2f22af5d4122e734732bae09de79dad71bbf2623eeca60b166"}
+    ]
+  },
+  "method_dispositions": {
+    "TR12_NDS_six_mode": {
+      "supported_scope": "Two-member single-shear connection under a single lateral-translation resultant, with all six P_i/R_di modes, valid D/Dr, gap, grain and material inputs.",
+      "NDS_2024_Rd_maxima_for_D_at_least_1_4_in_and_theta_0_to_90_degrees": {"Im": 5.0, "Is": 5.0, "II": 4.5, "IIIm": 4.0, "IIIs": 4.0, "IV": 4.0},
+      "factor_five_result": "Because each lateral-mode R_d is at most 5 in this scope, min(P_i)/5 is a conservative lower envelope for min(P_i/R_di) for that same pure-translation problem.",
+      "current_force_only_result": {"eligible_two_media_axes": 92, "case_rows": 552, "conditional_scenario_ratios_above_1": 0, "maximum_ratio": 0.6385171310466009, "maximum_axis": "lumber_leg_bolt_left_2", "maximum_case": "a12-rear", "scenario": "G=0.50 and generic Fyb=45 ksi; unadopted"},
+      "three_media_boundary": "The force-only TR12 output excludes all 20 three-media axes, including eoere_bolt_067/070 and v10_header_bolt_001/004. Do not transfer the two-member translation check to those stacks. The 552 conditional rows do not include free-couple interaction, actual Cg/Cdelta, or complete acceptance."
+    },
+    "Hankinson_and_4Ktheta": "NDS §§12.3.3–12.3.4 and Table 12.3.1B support Fe(theta) and 4Ktheta for the Im/Is wood-bearing reference. This supports the stored local pressure threshold on the constructed fields; 4Ktheta is not a universal factor or the complete six-mode minimum.",
+    "pure_fastener_bending": "TR12 Mds=Fyb*D^3/6 is an ideal plastic hinge input to the lateral yield equations. The stored M_upper<=Fyb*D^3/30 comparison is a conditional pure-bending screen with an added divisor five; NDS/TR12 do not prescribe that divisor for an arbitrary full wrench moment.",
+    "same_section_VM_divisor_5": "No NDS/TR12 provision was identified for the stored Fyb/5 von Mises interaction. Its threshold is exactly five times the stored nominal section VM stress envelope. Fyb is a bending-yield property, distinct from tensile Fy; the divisor-five result is a declared comparison only.",
+    "possible_shaft_only_alternative": "The stored conservative circular-shaft stress envelope can be compared separately with product-supported tensile Fy under an expressly adopted isotropic von Mises model and verified loaded sections. This is a conditional shaft-material reference, not an NDS connection capacity and not a check of threads/notches, wood, washers, heads, nuts, fittings, or group behavior.",
+    "group_and_lower_bound": "NDS §11.1.2 local-stress mechanics checks do not themselves replace §11.3.6 group-action treatment. The current statically closed per-axis fields preserve forces and couples but do not supply a complete source-supported six-component yield surface/load-path criterion or a physical NDS row/slip mapping. No Cg=1, Cdelta=1, or 1/n acceptance is adopted."
+  },
+  "flagged_component_thresholds_not_capacities": [
+    {"axis_id":"eoere_bolt_067","product":"8095 / ASTM A574 socket-head bolt","nominal_D_mm":9.525,"modeled_body_root_mm":[9.3218,7.31774],"Fyb_pure_bending_MPa":{"value":639.4135886678793,"case":"a12-forward"},"Fy_if_VM_MPa":{"value":220.52867164118527,"case":"a12-forward"},"Fe_parallel_psi":{"value":1859.498385913839,"case":"a12-forward"},"Fe_perpendicular_psi":{"value":1045.9678420765345,"case":"a12-forward"},"steel_angle_Fu_MPa":{"value":36.545020663027415,"case":"a12-forward"}},
+    {"axis_id":"eoere_bolt_070","product":"8095 / ASTM A574 socket-head bolt","nominal_D_mm":9.525,"modeled_body_root_mm":[9.3218,7.31774],"Fyb_pure_bending_MPa":{"value":594.201097741103,"case":"k12-right"},"Fy_if_VM_MPa":{"value":205.66790233544432,"case":"k12-right"},"Fe_parallel_psi":{"value":1773.5179697157105,"case":"k12-right"},"Fe_perpendicular_psi":{"value":997.6038579650872,"case":"k12-right"},"steel_angle_Fu_MPa":{"value":35.14179972148415,"case":"k12-right"}},
+    {"axis_id":"lumber_leg_bolt_left_1","product":"G0340956 / SAE J429 Grade 5 bolt","nominal_D_mm":12.7,"modeled_body_root_mm":[12.5222,9.9949],"Fyb_pure_bending_MPa":{"value":345.0053650714229,"case":"a12-left"},"Fy_if_VM_MPa":{"value":121.37026832320983,"case":"a12-left"},"Fe_parallel_psi":{"value":3506.131228148587,"case":"a12-rear"},"Fe_perpendicular_psi":{"value":1990.9163885244382,"case":"a12-rear"},"steel_angle_Fu_MPa":null},
+    {"axis_id":"lumber_leg_bolt_left_2","product":"G0340956 / SAE J429 Grade 5 bolt","nominal_D_mm":12.7,"modeled_body_root_mm":[12.5222,9.9949],"Fyb_pure_bending_MPa":{"value":385.71492980165334,"case":"a12-left"},"Fy_if_VM_MPa":{"value":136.20840019717232,"case":"a12-left"},"Fe_parallel_psi":{"value":4150.873787429813,"case":"a12-rear"},"Fe_perpendicular_psi":{"value":2357.026053030636,"case":"a12-rear"},"steel_angle_Fu_MPa":null},
+    {"axis_id":"lumber_leg_bolt_right_1","product":"G0340956 / SAE J429 Grade 5 bolt","nominal_D_mm":12.7,"modeled_body_root_mm":[12.5222,9.9949],"Fyb_pure_bending_MPa":{"value":339.23951807119846,"case":"k12-right"},"Fy_if_VM_MPa":{"value":119.36788361116469,"case":"k12-right"},"Fe_parallel_psi":{"value":3460.0187263818775,"case":"k12-rear"},"Fe_perpendicular_psi":{"value":1964.7319334914523,"case":"k12-rear"},"steel_angle_Fu_MPa":null},
+    {"axis_id":"lumber_leg_bolt_right_2","product":"G0340956 / SAE J429 Grade 5 bolt","nominal_D_mm":12.7,"modeled_body_root_mm":[12.5222,9.9949],"Fyb_pure_bending_MPa":{"value":379.60398795627464,"case":"k12-right"},"Fy_if_VM_MPa":{"value":134.05210303370373,"case":"k12-right"},"Fe_parallel_psi":{"value":4093.7457100528245,"case":"k12-rear"},"Fe_perpendicular_psi":{"value":2324.586529780162,"case":"k12-rear"},"steel_angle_Fu_MPa":null},
+    {"axis_id":"v10_header_bolt_001","product":"366 / SAE J429 Grade 5 bolt","nominal_D_mm":9.525,"modeled_body_root_mm":[9.3726,7.31774],"Fyb_pure_bending_MPa":{"value":31.871203161709616,"case":"a12-left"},"Fy_if_VM_MPa":{"value":14.538191694063183,"case":"a12-left"},"Fe_parallel_psi":{"value":1059.9429008415073,"case":"a12-left"},"Fe_perpendicular_psi":{"value":695.6929489019738,"case":"a12-left"},"steel_angle_Fu_MPa":{"value":14.625707938550342,"case":"a12-left"}},
+    {"axis_id":"v10_header_bolt_004","product":"366 / SAE J429 Grade 5 bolt","nominal_D_mm":9.525,"modeled_body_root_mm":[9.3726,7.31774],"Fyb_pure_bending_MPa":{"value":32.120390942914085,"case":"k12-right"},"Fy_if_VM_MPa":{"value":14.563625675349792,"case":"k12-right"},"Fe_parallel_psi":{"value":1059.778354842022,"case":"k12-right"},"Fe_perpendicular_psi":{"value":695.5849492243298,"case":"k12-right"},"steel_angle_Fu_MPa":{"value":14.721726548380568,"case":"k12-right"}}
+  ],
+  "exact_missing_inputs": [
+    "Product/size/lot-specific Fyb evidence under NDS §12.3.6.2: ASTM F1575 bending test, or ASTM F606 with an explicit supported tensile-to-Fyb evaluation. Do not infer Fyb from a grade label or substitute Fy.",
+    "For the optional isotropic von Mises shaft reference, product-supported minimum tensile Fy and delivered loaded body/root/thread/runout geometry; current shaft profiles are unverified and omit notch/head/nut stress concentrations.",
+    "Actual wood species, grade, specific gravity, Fe(theta), and grain direction at each host; actual plywood product/layup/face-grain and bond continuity at 067/070. Current G=0.50 and panel values are conditional.",
+    "Actual steel angle/plate product and minimum Fu for the local pressure-only thresholds, together with fitting resistance and contact geometry.",
+    "A supported complete local wrench criterion for axial/lateral forces, torsion and signed free couples across all contact paths; wood splitting/tearout/edge/end, washer/head/nut, and steel fitting modes remain separate.",
+    "A qualifying physical NDS fastener-row/group assignment and required group-slip inputs, or a separately supported complete mechanics method. Unequal FE bolt forces alone do not waive Cg/Cdelta."
+  ],
+  "known_answer_and_closure": {
+    "TR12_Example_3_1": {"D_in":0.5,"Fe_parallel_psi":4800,"Fyb_psi":45000,"Lm_in":1.5,"Ls_in":1.5,"gap_in":0,"P_over_Rd_lbf":{"Im":900,"Is":900,"II":414.2135623730951,"IIIm":549.9155366842963,"IIIs":549.9155366842963,"IV":662.9126073623883},"Z_lbf":414.2135623730951,"governing":"II"},
+    "current_same_field_closure_maxima": {"axis_case_rows":672,"global_force_residual_N":1.148405275657362e-05,"global_moment_residual_Nmm":3.9754891799784165e-05,"continuous_force_residual_N":1.148405275692628e-05,"continuous_moment_residual_Nmm":0.0006413804394280907,"source_cut_force_residual_N":3.56043920425385e-08,"source_cut_moment_residual_Nmm":4.598792336349169e-11}
+  },
+  "qualification": {
+    "actual_Fe_Fyb_Fy_Fu": null,
+    "actual_Cg_Cdelta": null,
+    "complete_group_capacity": null,
+    "complete_connection_capacity": null,
+    "complete_simultaneous_six_wrench_interaction_pass": null,
+    "physical_failure_claim": false,
+    "structural_acceptance": false
+  }
+}
