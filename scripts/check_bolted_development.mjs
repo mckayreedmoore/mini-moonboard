@@ -7,6 +7,9 @@ import {fileURLToPath} from 'node:url';
 import {runInNewContext} from 'node:vm';
 import {isDeepStrictEqual} from 'node:util';
 import {gunzipSync} from 'node:zlib';
+import {validatePackerFreeProvenance, validatePackerFreeDelta, PACKER_FREE_MODEL,
+  PACKER_FREE_REVISION} from '../site/eoere-packer-free-overlay.mjs';
+import {validatePackerFreeResults, PACKER_FREE_RESULTS_ASSET} from '../site/eoere-packer-free-results.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateSelectedHardware} from '../site/eoere-selected-hardware-overlay.mjs';
@@ -51,7 +54,7 @@ export function validateEntry(text, index) {
   const selection = index.development_selection;
   assert.equal(text.match(/The current geometry is \*\*`([^`]+)`\*\*/)?.[1],
     selection?.revision ?? index.geometry.revision, 'incoming current geometry differs');
-  assert.ok(text.includes(`?model=${selection?.viewer.model ?? index.geometry.viewer}&view=rear`), 'incoming viewer differs');
+  assert.ok(text.includes(`?model=${selection?.viewer?.model ?? index.geometry.viewer}&view=rear`), 'incoming viewer differs');
 }
 
 export function validateCurrent96Review(report, index) {
@@ -1876,7 +1879,128 @@ export function validateV10Candidate13Authority(index, data) {
     full_ignored_input_closure_checked: false, mechanics_executed: false};
 }
 
+export function validatePackerFreeMethodEvaluation(methods, index) {
+  assert.equal(methods.schema, 'eoere_packer_free_connection_method_evaluation/v1');
+  assert.equal(methods.revision, index.geometry.revision);
+  assert.deepEqual(methods.response_bank, index.response_bank);
+  assert.deepEqual(methods.evaluation, index.engineering_review);
+  assert.deepEqual(methods.geometry_receipt, index.geometry.receipt);
+  for (const [key, count] of Object.entries({axes: 112, axis_case_wrenches: 672, wood_intervals: 136,
+    wood_action_rows: 816, signed_plane_wrenches: 792, receiver_actions: 1464, same_host_geometry_pairs: 536}))
+    assert.equal(methods.coverage[key], count, `current packer-free method coverage: ${key}`);
+  referenceKeys(methods.source_bindings, ['force_only', 'same_field', 'geometry', 'washer', 'hardware'],
+    'current packer-free method sources');
+  const sources = Object.values(methods.source_bindings);
+  assert.equal(new Set(sources.map(ref => ref.path)).size, 5);
+  for (const ref of sources) {
+    referenceBinding(ref);
+    assert.ok(ref.path.startsWith('fea/generated/v10-packer-free-v1/'), 'own packer-free method source required');
+  }
+  for (const key of ['force_only', 'same_field', 'geometry', 'washer', 'hardware'])
+    assert.ok(methods[key] && typeof methods[key] === 'object' && !Array.isArray(methods[key]),
+      `current conditional method summary required: ${key}`);
+  assert.ok(Array.isArray(methods.remaining) && methods.remaining.length > 0);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_connection_acceptance']) assert.equal(methods[key], null);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized'])
+    assert.equal(methods[key], false);
+  return methods;
+}
+
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v17') {
+    assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v16');
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const retained = index.preceding_revision.next_candidate_constraint;
+    assert.equal(retained.new_geometry_and_matched_bank_complete, true);
+    assert.equal(index.geometry.revision, PACKER_FREE_REVISION);
+    for (const [current, earlier] of [
+      [index.geometry.receipt, retained.trial_geometry_receipt],
+      [index.response_bank, retained.trial_response_bank],
+      [index.engineering_review, retained.trial_evaluation],
+      [index.stock_planning, retained.conditional_stock_planning],
+      [index.owner_no_packers, retained.owner_record],
+      [index.current_stock_documents, index.preceding_revision.current_stock_documents],
+      [index.selected_baseline, index.preceding_revision.selected_baseline],
+    ]) assert.deepEqual(current, earlier, 'current packer-free authority must retain its validated source');
+    const geometryViewer = retained.repository_geometry_viewer;
+    assert.equal(index.geometry.viewer, geometryViewer.model);
+    assert.equal(index.geometry.viewer_url, geometryViewer.url);
+    assert.deepEqual(index.geometry.scene, geometryViewer.scene);
+    for (const name of ['base_rail_top', 'base_side_left', 'base_side_right'])
+      assert.deepEqual(index.geometry.actual_sections_mm[name], retained.top_and_both_sides_actual_mm);
+    const viewer = index.repository_viewer;
+    assert.equal(viewer.model, PACKER_FREE_MODEL);
+    assert.equal(viewer.model, index.geometry.viewer);
+    assert.equal(viewer.url, index.geometry.viewer_url);
+    for (const [current, earlier] of [
+      [viewer.scene, geometryViewer.scene], [viewer.provenance, geometryViewer.provenance],
+      [viewer.frozen_export, geometryViewer.frozen_export],
+      [viewer.geometry_overlay, geometryViewer.overlay], [viewer.geometry_publisher, geometryViewer.publisher],
+    ]) assert.deepEqual(current, earlier, 'results must retain the validated geometry viewer');
+    assert.equal(viewer.geometry_only, false);
+    assert.equal(viewer.ignored_runtime_dependencies, false);
+    assert.equal(viewer.published_or_deployed, false);
+    assert.deepEqual(viewer.results_json, PACKER_FREE_RESULTS_ASSET);
+    referenceBinding(viewer.results_overlay, 'site/eoere-packer-free-results.mjs');
+    referenceBinding(viewer.results_publisher, 'scripts/publish_packer_free_results.py');
+    bound(viewer.results_overlay); bound(viewer.results_publisher);
+    const results = validatePackerFreeResults(JSON.parse(bound(viewer.results_json)));
+    assert.deepEqual(results.geometry_receipt, index.geometry.receipt);
+    assert.deepEqual(results.geometry_provenance, viewer.provenance);
+    assert.deepEqual(results.sources.evaluation, index.engineering_review);
+    assert.deepEqual(results.sources.response_bank, index.response_bank);
+    assert.equal(results.producer, viewer.results_publisher.path);
+    validatePackerFreeMethodEvaluation(JSON.parse(bound(index.connection_method_evaluation)), index);
+    referenceKeys(index.method_source_joins, ['current_wrench_atlas', 'v3_post_audit'], 'current method evidence joins');
+    const evaluation = JSON.parse(bound(index.engineering_review));
+    assert.deepEqual(index.method_source_joins.current_wrench_atlas, evaluation.current_wrench_atlas);
+    for (const ref of Object.values(index.method_source_joins)) {
+      referenceBinding(ref);
+      assert.ok(ref.path.startsWith('fea/generated/v10-packer-free-v1/'), 'own current method evidence required');
+    }
+    const stock = JSON.parse(bound(index.stock_planning));
+    assert.ok(stock.scope.startsWith('Wood allocation only.'), 'non-wood purchases remain outside stock planning');
+    const spacers = JSON.parse(bound(index.hardware_spacer_mapping));
+    assert.equal(spacers.schema, 'eoere_packer_free_spacer_catalog_mapping/v1');
+    assert.equal(spacers.revision, index.geometry.revision);
+    assert.deepEqual(spacers.geometry_receipt, index.geometry.receipt);
+    assert.equal(spacers.current_spacer_pieces, 40);
+    assert.deepEqual(spacers.nominal_catalog_SKU_quantities, {'13731': 20, '13733': 20});
+    assert.deepEqual(index.hardware_model.nominal_spacer_SKU_quantities, spacers.nominal_catalog_SKU_quantities);
+    assert.deepEqual(spacers.recovered_selected_field_blanks, [
+      'eoere_bolt_081_spacer', 'eoere_bolt_082_spacer', 'eoere_bolt_083_spacer', 'eoere_bolt_084_spacer',
+      'v10_header_bolt_001_spacer', 'v10_header_bolt_002_spacer', 'v10_header_bolt_003_spacer', 'v10_header_bolt_004_spacer']);
+    for (const key of ['actual_dimensions_or_material_verified', 'actual_strength_or_fit_qualified',
+      'geometry_or_matched_forces_changed', 'purchase_authorized', 'structural_acceptance',
+      'fabrication_released', 'climbing_released']) assert.equal(spacers[key], false);
+    assert.ok(index.conditional_frame_evaluation == null, 'no inherited complete frame acceptance');
+    for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted', 'complete_connection_acceptance'])
+      assert.equal(index[key], null);
+    for (const key of ['complete_joint_qualified', 'structural_acceptance', 'fabrication_released',
+      'climbing_released', 'purchase_authorized', 'physical_operations_authorized']) assert.equal(index[key], false);
+    assert.equal(index.panel_Hillman_resolution_deferred, true);
+    assert.equal(index.agent_review_loop_suspended, true);
+    assert.deepEqual(index.hardware_model, {actual_parts_verified: false, bolt_stacks: 112,
+      nominal_spacer_SKU_quantities: {'13731': 20, '13733': 20},
+      selected_for_build: false, spacer_pieces: 40, washers: 224, wood_packers: 0});
+    assert.deepEqual(index.shop, {...index.preceding_revision.shop, revision: index.geometry.revision});
+    if (index.development_selection) assert.equal(index.development_selection.revision, index.geometry.revision);
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+    assert.equal(viewerModel(html, viewer.model), viewer.model);
+    assert.ok(html.includes("import {loadPackerFreeResultsScene} from './eoere-packer-free-results.mjs'"));
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {passed: true, revision: index.geometry.revision, bolt_axes: 112, screw_axes: 66, angles: 24,
+      occupied_parts: 1125, spacer_pieces: 40, wood_packers: 0, current_response_revision: index.geometry.revision,
+      repository_viewer_integrated: true, repository_viewer_model: viewer.model, geometry_only: false,
+      reference_case_exceedances: 15, reference_component_exceedances: 8, bearing_diagnostic_case_rows: 15,
+      actual_Cg_adopted: null, actual_Cdelta_adopted: null, complete_connection_acceptance: null,
+      complete_joint_qualified: false, structural_acceptance: false, fabrication_released: false,
+      climbing_released: false, purchase_authorized: false, stock_planning_scope: 'wood allocation only',
+      preserved_previous_development_revision: prior.revision, selected_baseline_candidate: index.selected_baseline.candidate,
+      full_ignored_input_closure_checked: false, mechanics_executed: false};
+  }
   if (index.schema === 'bolted_frame_development_revisions/v16') {
     const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
     const report = JSON.parse(bound(index.standard_side_stock_evaluation));
@@ -2022,8 +2146,97 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       assert.equal(nextConstraint.wood_packers_permitted, false);
       assert.deepEqual(nextConstraint.top_and_both_sides_actual_mm, [88.9, 139.7]);
       assert.equal(nextConstraint.current_packer_bank_transferred_to_new_design, false);
-      assert.equal(nextConstraint.new_geometry_and_matched_bank_complete, false);
+      if (nextConstraint.trial_response_bank) {
+        const trialBank = JSON.parse(bound(nextConstraint.trial_response_bank));
+        const evaluation = JSON.parse(bound(nextConstraint.trial_evaluation));
+        assert.equal(nextConstraint.new_geometry_and_matched_bank_complete, true);
+        assert.equal(trialBank.geometry_revision, 'v10-packer-free-flush-return-far-row-only-v1');
+        assert.equal(evaluation.schema, 'eoere_packer_free_matched_reference_evaluation/v1');
+        assert.equal(evaluation.revision, trialBank.geometry_revision);
+        assert.deepEqual(evaluation.response_bank, nextConstraint.trial_response_bank);
+        assert.deepEqual(evaluation.geometry_receipt, nextConstraint.trial_geometry_receipt);
+        assert.deepEqual(trialBank.analysis_geometry, evaluation.analysis_geometry);
+        assert.equal(trialBank.physical_geometry.sha256, nextConstraint.trial_geometry_receipt.sha256);
+        assert.equal(trialBank.all_six_cases_admitted, true);
+        assert.equal(trialBank.admission_gate_N, 1e-5);
+        assert.ok(trialBank.maximum_gradient_inf_N < trialBank.admission_gate_N);
+        assert.deepEqual(trialBank.load_contract, {accessory_mass_kg: 25, downward_multiplier: 2,
+          duration_factor_CD: 1, horizontal_force_N: 300, weight_lb: 250});
+        assert.deepEqual(trialBank.case_ids, ['a12-forward', 'a12-left', 'a12-rear', 'k12-right', 'k12-rear', 'a1-rear']);
+        assert.deepEqual(trialBank.cases.map(row => row.case_id), trialBank.case_ids);
+        for (const row of trialBank.cases) {
+          assert.equal(row.both_independent_replays_admitted, true);
+          assert.ok(row.field.path.includes('/v10-packer-free-v1/mechanics/analysis-v2/'));
+          assert.ok(row.gradient_inf_N < trialBank.admission_gate_N);
+        }
+        assert.equal(evaluation.physical_inventory.wood_packers, 0);
+        assert.equal(evaluation.physical_inventory.bolt_stacks, 112);
+        assert.equal(evaluation.bearing_diagnostic_case_rows, 15);
+        assert.equal(evaluation.bearing_diagnostic_components, 8);
+        assert.equal(evaluation.bearing_diagnostic_rows.length, 15);
+        assert.equal(evaluation.actual_Cg_adopted, null);
+        assert.equal(evaluation.actual_Cdelta_adopted, null);
+        assert.equal(evaluation.complete_connection_acceptance, null);
+        for (const item of [trialBank, evaluation]) for (const key of
+          ['structural_acceptance', 'fabrication_released', 'climbing_released']) assert.equal(item[key], false);
+      } else assert.equal(nextConstraint.new_geometry_and_matched_bank_complete, false);
       assert.equal(nextConstraint.old_packer_machining_and_allocation_on_hold, true);
+      if (nextConstraint.trial_geometry_receipt) {
+        const trial = JSON.parse(bound(nextConstraint.trial_geometry_receipt));
+        assert.equal(trial.revision, 'v10-packer-free-flush-return-far-row-only-v1');
+        assert.equal(trial.checked_geometry.sha256, '9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde');
+        assert.equal(trial.counts.bolts, 112);
+        assert.equal(trial.counts.spacer_pieces, 40);
+        assert.equal(trial.counts.occupied_parts_checked, 1125);
+        assert.equal(trial.nominal_geometry_clear, true);
+        assert.equal(trial.fresh_matched_mechanics_required, true);
+        assert.equal(trial.structural_acceptance, false);
+        assert.equal(trial.fabrication_released, false);
+        assert.equal(trial.climbing_released, false);
+      }
+      if (nextConstraint.repository_geometry_viewer) {
+        const viewer = nextConstraint.repository_geometry_viewer;
+        assert.equal(viewer.model, 'eoere-packer-free-standard-stock-preview');
+        assert.equal(viewer.ignored_runtime_dependencies, false);
+        assert.equal(viewer.geometry_only, true);
+        assert.equal(viewer.published_or_deployed, false);
+        bound(viewer.overlay); bound(viewer.publisher);
+        const provenance = JSON.parse(bound(viewer.provenance));
+        validatePackerFreeProvenance(provenance, JSON.parse(bound(viewer.frozen_export)));
+        validatePackerFreeDelta(JSON.parse(gunzipSync(bound(viewer.scene))));
+        assert.deepEqual(provenance.geometry_receipt, nextConstraint.trial_geometry_receipt);
+        assert.deepEqual(provenance.parent_provenance, index.repository_viewer.provenance);
+        assert.equal(viewerModel(read('site/index.html').toString(), viewer.model), viewer.model);
+      }
+      if (nextConstraint.conditional_stock_planning) {
+        const plan = JSON.parse(bound(nextConstraint.conditional_stock_planning));
+        assert.equal(plan.schema, 'eoere_v10_packer_free_first_trial_stock_planning/v1');
+        assert.deepEqual(plan.source_bindings.checked_geometry_receipt, nextConstraint.trial_geometry_receipt);
+        assert.equal(plan.sawn_coverage_count, 20);
+        assert.equal(plan.wood_packer_count, 0);
+        assert.deepEqual(plan.unassigned_sawn_members, []);
+        assert.deepEqual(plan.duplicate_member_assignments, []);
+        assert.deepEqual(plan.counts.map(row => row.boards), [5, 3, 3, 2]);
+        assert.equal(plan.boards.length, 13);
+        const members = plan.boards.flatMap(row => row.members);
+        assert.equal(members.length, 20);
+        assert.equal(new Set(members).size, 20);
+        assert.ok(!members.some(name => name.includes('packer')));
+        for (const row of plan.boards) {
+          const used = row.member_lengths_mm.reduce((sum, value) => sum + value, 0)
+            + 2 * plan.allowances.trim_each_board_end_mm
+            + row.members.length * plan.allowances.kerf_each_member_mm;
+          assert.ok(Math.abs(used - row.including_trim_and_kerf_mm) < 1e-6);
+          assert.ok(Math.abs(row.length_ft * 304.8 - used - row.remaining_mm) < 1e-6);
+          assert.ok(row.remaining_mm >= 0);
+          assert.equal(row.Actual, ''); assert.equal(row.Disposition, '');
+        }
+        assert.deepEqual(plan.outputs.current_buying_CSV, index.current_stock_documents['buying-list-current.csv']);
+        assert.deepEqual(plan.outputs.standard_stock_document, index.current_stock_documents['standard-stock-planning.md']);
+        for (const key of ['actual_grade_moisture_dimensions_or_supply_verified',
+          'purchases_or_physical_changes_authorized', 'prior_forces_or_structural_acceptance_transferred',
+          'structural_acceptance', 'fabrication_released', 'climbing_released']) assert.equal(plan[key], false);
+      }
       for (const [key, ref] of Object.entries(index.current_stock_documents)) {
         assert.equal(ref.path, `docs/bolted-frame-development/owner-frame-v10/${key}`);
         bound(ref);
@@ -2066,6 +2279,9 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     return {passed: true, revision, bolt_axes: 116, screw_axes: 66, angles: 24,
       occupied_parts: 1151, spacer_pieces: 44, current_response_revision: revision,
       repository_viewer_integrated: true, repository_viewer_model: repositoryViewer.model,
+      next_candidate_revision: nextConstraint?.trial_revision ?? null,
+      next_candidate_own_matched_bank_complete: nextConstraint?.new_geometry_and_matched_bank_complete ?? false,
+      next_candidate_bolt_stacks: nextConstraint?.trial_response_bank ? 112 : null,
       reference_case_exceedances: report.reference_case_exceedances,
       reference_component_exceedances: report.reference_component_exceedances,
       bearing_diagnostic_case_rows: report.bearing_diagnostic_case_rows,

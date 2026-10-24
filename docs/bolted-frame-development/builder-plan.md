@@ -1,28 +1,13 @@
-# Owner-selected 4×6 development planning and preserved instructions
+# Packer-free standard-stock development planning and preserved instructions
 
-**Latest owner direction: [no wood packers in the next candidate](owner-frame-v10/owner-no-wood-packers-v1.json).** Top and both sides stay standard 4×6. The solved geometry/viewer below still contains packers; packer-free options and matching analyses are pending. Do not machine packers or use the old packer offcut allocation. Stock counts remain provisional until the replacement layout is confirmed.
+The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**. The [owner no-packers direction](owner-frame-v10/owner-no-wood-packers-v1.json) is implemented. Top and both sides remain standard nominal **4×6, actual 88.9 ×139.7 mm**; no wood packers remain.
+The [matched evaluation](owner-frame-v10/packer-free/evaluation.json) binds actual geometry, nominal clearance, six force cases and both replays. Current vector indices: left **0.914625**, right **0.872071**, top **0.613288**, header **0.577484**; additional scalar screen **0.921669**. These do not establish a physical margin or complete joint acceptance.
+The model contains 1,125 occupied parts, 112 bolt stacks, 224 washers, 40 spacers, 20 sawn members, four cleat leaves, 24 angles and 66 unchanged Hillman axes. Two returned outer angles use far factory rows; four near beam axes are omitted. Four side stacks use the existing conditional 4¾-inch recipe, with actual body/root/fit and tool access unverified.
+All 15 bearing diagnostic rows across eight bolts remain. Actual Cg/Cdelta, full force-and-moment interaction, end/edge/row applicability, splitting, fitting and physical checks remain unresolved. See the [current method review](owner-frame-v10/packer-free/connection-method-evaluation.json). Panel screw resistance is deferred; the review loop is suspended.
+No purchase, cutting, drilling, assembly, climbing or structural release. Previous cut/drill files below retain their own geometry and are not current instructions.
 
-The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The [owner constraint](owner-frame-v10/owner-standard-side-4x6-v1.json)
-is implemented: top and both sides are standard nominal **4×6, actual 88.9 × 139.7 mm**.
-The [matched evaluation](owner-frame-v10/standard-side-stock-evaluation.json) contains new
-geometry, all six forces and both replays, net sections, grips, rear-joint
-end/edge/spacing and clearance checks. Declared vector indices: left side
-**0.998500**, right side **0.951121**, top **0.575366**. The additional scalar
-peak-sum screen is **1.014932**; neither replaces complete joint qualification.
-All **15 bearing diagnostic rows across eight bolts** remain. Actual Cg, full
-force-and-moment capacity, splitting, fitting/hardware and physical checks remain open.
-All fourteen cleat grips remain 114.3 mm. Two custom solid packers remain
-**unapproved**; lengths around 2539.8 mm are provisional. The model corrects the
-conditional product-400 body floor to 72.644 mm, without qualifying delivered hardware.
-No purchase, cutting, drilling, assembly, climbing or structural release.
-
-For current wood planning use the [provisional owner stock plan](owner-frame-v10/standard-stock-planning.md)
-and [current planning CSV](owner-frame-v10/buying-list-current.csv): five 2×6×8′,
-three 2×6×10′, two 4×6×8′ and three 4×6×10′ before owned-stock credit.
-The old 22-member allocation remains historical; no 4×8 side stock is intended.
-The former packer milling/offcut allocation is superseded and on hold. Measure and
-reuse existing face/kicker plywood before replacement purchasing. Material,
-milling and complete-connection qualifications remain open; keep stock uncut.
+The [conditional wood plan](owner-frame-v10/standard-stock-planning.md), [current planning CSV](owner-frame-v10/buying-list-current.csv) and [20-member allocation](owner-frame-v10/packer-free/stock-planning.json) specify five 2×6×8′, three 2×6×10′, three 4×6×8′ and two 4×6×10′ before owned-stock credit. Removing packers allows the unchanged 2,257.425 mm top on an 8-foot board with 127.0 mm trim/kerf allowance left. The allocation was recorded before the fresh force bank; the current evaluation above controls numerical status.
+No old packer machining/offcut allocation applies. All sawn members are allocated once; no 4×8 side stock is intended. These are conditional blank envelopes, not cut instructions. Verify/reuse actual face/kicker plywood before buying replacements; grade, dimensions, moisture, cleat material/bond, hardware and support remain unverified. The non-wood buying rows remain historical catalog observations, not a reconciled 112-bolt order.
 
 The following top-stock and catalog records describe the preserved deeper-side stage;
 reuse supplier facts within scope, not its 4×8 side-stock buying line or bound forces.

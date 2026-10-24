@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -27,6 +27,8 @@ const readNotchIndex = () => ownRevision('eoere-narrow-channel-openings-v1');
 const readPostIndex = () => ownRevision('eoere-4x6-front-posts-v1');
 const readIndex = () => ownRevision('eoere-raised-kicker-screws-v1');
 const read96Index = () => ownRevision('eoere-flat-cleats-principal-upper-pairs-v6');
+const readStandardSideIndex = () => ownRevision('v10-standard-4x6-top-and-sides-development-v1');
+const readPackerFreeIndex = () => ownRevision('v10-packer-free-flush-return-far-row-only-v1');
 const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index, {entryChecks: false});
 
 const candidate13Index = ownRevision('eoere-candidate13-side-depth-v10');
@@ -69,10 +71,13 @@ test('owner-selected 4x6 development has its own matched bank and preserves Cand
   assert.equal(result.candidate_selection_only, true); assert.equal(result.purchase_authorized, false);
 });
 test('standard 4x6 top and sides use a fresh matched bank with unresolved complete joints', () => {
-  const result = checkCurrentDevelopment();
+  const result = checkCurrentDevelopment(readStandardSideIndex(), {entryChecks: false});
   assert.equal(result.revision, 'v10-standard-4x6-top-and-sides-development-v1');
   assert.equal(result.reference_case_exceedances, 15);
   assert.equal(result.repository_viewer_integrated, true);
+  assert.equal(result.next_candidate_revision, 'v10-packer-free-flush-return-far-row-only-v1');
+  assert.equal(result.next_candidate_own_matched_bank_complete, true);
+  assert.equal(result.next_candidate_bolt_stacks, 112);
   assert.equal(result.reference_component_exceedances, 8);
   assert.equal(result.actual_Cg_adopted, null);
   assert.equal(result.custom_packers_approved, false);
@@ -96,10 +101,100 @@ for (const [name, mutate] of [
   ['next candidate permits wood packers', r => {r.next_candidate_constraint.wood_packers_permitted = true;}],
   ['packer bank silently reused', r => {r.next_candidate_constraint.current_packer_bank_transferred_to_new_design = true;}],
   ['old packer machining allowed', r => {r.next_candidate_constraint.old_packer_machining_and_allocation_on_hold = false;}],
+  ['foreign packer-free bank', r => {r.next_candidate_constraint.trial_response_bank = r.response_bank;}],
+  ['foreign packer-free evaluation', r => {r.next_candidate_constraint.trial_evaluation = r.standard_side_stock_evaluation;}],
+  ['foreign packer-free geometry receipt', r => {r.next_candidate_constraint.trial_geometry_receipt = r.geometry.receipt;}],
+  ['foreign packer-free allocation', r => {r.next_candidate_constraint.conditional_stock_planning = r.stock_planning;}],
+  ['ignored packer-free runtime dependency', r => {r.next_candidate_constraint.repository_geometry_viewer.ignored_runtime_dependencies = true;}],
   ['fabrication release', r => {r.fabrication_released = true;}],
 ]) test(`reject standard-side candidate ${name}`, () => {
-  const index = readCurrentIndex(); mutate(index);
+  const index = readStandardSideIndex(); mutate(index);
   assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+test('packer-free development promotes its own matched evidence and results without selecting a build', () => {
+  const index = readPackerFreeIndex();
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.revision, index.geometry.revision);
+  assert.equal(result.current_response_revision, index.geometry.revision);
+  assert.equal(result.bolt_axes, 112); assert.equal(result.screw_axes, 66);
+  assert.equal(result.occupied_parts, 1125); assert.equal(result.spacer_pieces, 40);
+  assert.equal(result.wood_packers, 0); assert.equal(result.geometry_only, false);
+  assert.equal(result.reference_case_exceedances, 15); assert.equal(result.reference_component_exceedances, 8);
+  assert.equal(result.preserved_previous_development_revision, index.preceding_revision.geometry.revision);
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.stock_planning_scope, 'wood allocation only');
+  assert.equal(result.full_ignored_input_closure_checked, false); assert.equal(result.mechanics_executed, false);
+});
+
+for (const [name, mutate] of [
+  ['wrong geometry revision', r => {r.geometry.revision = r.preceding_revision.geometry.revision;}],
+  ['historical geometry receipt', r => {r.geometry.receipt = r.preceding_revision.geometry.receipt;}],
+  ['historical scene', r => {r.geometry.scene = r.preceding_revision.geometry.scene;}],
+  ['unselected side depth', r => {r.geometry.actual_sections_mm.base_side_left = [88.9, 152.4];}],
+  ['old packer response bank', r => {r.response_bank = r.preceding_revision.response_bank;}],
+  ['old packer evaluation', r => {r.engineering_review = r.preceding_revision.engineering_review;}],
+  ['old connection methods', r => {r.connection_method_evaluation = r.preceding_revision.connection_method_evaluation;}],
+  ['old packer wood allocation', r => {r.stock_planning = r.preceding_revision.stock_planning;}],
+  ['incomplete spacer ledger', r => {r.hardware_model.nominal_spacer_SKU_quantities['13731'] = 12;}],
+  ['foreign spacer mapping', r => {r.hardware_spacer_mapping = r.stock_planning;}],
+  ['historical buying CSV', r => {r.current_stock_documents['buying-list-current.csv'] =
+    r.preceding_revision.stock_planning_frozen_output_snapshots['docs/bolted-frame-development/owner-frame-v10/buying-list-current.csv'];}],
+  ['foreign owner constraint', r => {r.owner_no_packers = r.preceding_revision.owner_side_constraint;}],
+  ['geometry-only results asset', r => {r.repository_viewer.results_json = r.preceding_revision.repository_viewer.status;}],
+  ['old results overlay', r => {r.repository_viewer.results_overlay = r.preceding_revision.repository_viewer.overlay;}],
+  ['geometry publisher used for results', r => {r.repository_viewer.results_publisher = r.repository_viewer.geometry_publisher;}],
+  ['foreign geometry overlay', r => {r.repository_viewer.geometry_overlay = r.preceding_revision.repository_viewer.overlay;}],
+  ['foreign frozen export', r => {r.repository_viewer.frozen_export = r.preceding_revision.geometry.scene;}],
+  ['geometry-only viewer claim', r => {r.repository_viewer.geometry_only = true;}],
+  ['ignored runtime dependency', r => {r.repository_viewer.ignored_runtime_dependencies = true;}],
+  ['viewer deployment', r => {r.repository_viewer.published_or_deployed = true;}],
+  ['baseline promotion', r => {r.selected_baseline.candidate = r.geometry.revision;}],
+  ['adopted Cg', r => {r.actual_Cg_adopted = 1;}],
+  ['adopted Cdelta', r => {r.actual_Cdelta_adopted = 1;}],
+  ['complete connection acceptance', r => {r.complete_connection_acceptance = true;}],
+  ['build selection', r => {r.hardware_model.selected_for_build = true;}],
+  ['invented part observations', r => {r.hardware_model.actual_parts_verified = true;}],
+  ['historical drill release', r => {r.shop.historical_cut_drill_packet_current = true;}],
+  ['missing method evidence joins', r => {delete r.method_source_joins;}],
+  ['foreign fresh atlas', r => {r.method_source_joins.current_wrench_atlas = r.preceding_revision.response_bank;}],
+  ['historical V3 post-audit', r => {r.method_source_joins.v3_post_audit.path =
+    'fea/generated/v10-standard-side-stock-v1/previous-post-audit.json';}],
+  ...['complete_joint_qualified', 'structural_acceptance', 'fabrication_released', 'climbing_released',
+    'purchase_authorized', 'physical_operations_authorized'].map(key => [key, r => {r[key] = true;}]),
+  ['panel resolution no longer deferred', r => {r.panel_Hillman_resolution_deferred = false;}],
+  ['review loop resumed', r => {r.agent_review_loop_suspended = false;}],
+]) test(`reject packer-free authority ${name}`, () => {
+  const index = readPackerFreeIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+for (const [name, mutate] of [
+  ['old bank', (r, i) => {r.response_bank = i.preceding_revision.response_bank;}],
+  ['old evaluation', (r, i) => {r.evaluation = i.preceding_revision.engineering_review;}],
+  ['old geometry', (r, i) => {r.geometry_receipt = i.preceding_revision.geometry.receipt;}],
+  ['old axis-case census', r => {r.coverage.axis_case_wrenches = 696;}],
+  ['missing source report', r => {delete r.source_bindings[Object.keys(r.source_bindings)[0]];}],
+  ['old method source', r => {r.source_bindings[Object.keys(r.source_bindings)[0]].path =
+    'fea/generated/v10-standard-side-stock-v1/historical-method.json';}],
+  ['adopted actual Cg', r => {r.actual_Cg = 1;}],
+  ['adopted actual Cdelta', r => {r.actual_Cdelta = 1;}],
+  ['complete connection accepted', r => {r.complete_connection_acceptance = true;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+  ['no remaining qualifications', r => {r.remaining = [];}],
+]) test(`reject packer-free method summary ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const methods = JSON.parse(readFileSync(path.join(ROOT, index.connection_method_evaluation.path)));
+  mutate(methods, index);
+  assert.throws(() => validatePackerFreeMethodEvaluation(methods, index));
+});
+
+test('portable packer-free method checks retain raw references without opening ignored reports', () => {
+  const index = readPackerFreeIndex();
+  const methods = JSON.parse(readFileSync(path.join(ROOT, index.connection_method_evaluation.path)));
+  methods.source_bindings[Object.keys(methods.source_bindings)[0]] = {
+    path: 'fea/generated/v10-packer-free-v1/not-materialized-for-this-control.json', sha256: '0'.repeat(64)};
+  assert.equal(validatePackerFreeMethodEvaluation(methods, index), methods);
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],

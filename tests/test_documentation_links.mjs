@@ -9,8 +9,10 @@ import {documentsForModel, resolveDocumentPath} from '../site/documentation-link
 const root = fileURLToPath(new URL('../', import.meta.url));
 const html = readFileSync(path.join(root, 'site/index.html'), 'utf8');
 const currentIndex = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
-// Preserve Candidate13's own document contract beside the new stock choice.
-const index = currentIndex.schema === 'bolted_frame_development_revisions/v16' ? currentIndex.preceding_revision : currentIndex;
+// Preserve Candidate13's own document contract through later development revisions.
+let index = currentIndex;
+while (index && index.geometry.revision !== 'eoere-candidate13-side-depth-v10') index = index.preceding_revision;
+assert.ok(index, 'preserved Candidate13 document authority required');
 let responseIndex = index;
 while (responseIndex.preceding_revision) responseIndex = responseIndex.preceding_revision;
 let optionalIndex = index;
@@ -47,6 +49,16 @@ test('historical routing preserves fragments, queries and unrelated document ide
   for (const target of ['docs/material-costs.md', 'docs/history/compact-splice-study.md',
     'docs/bolted-frame-development/README.md', 'https://example.com/docs/compact-splice-study.md'])
     assert.equal(resolveDocumentPath(target), target);
+});
+
+test('active packer-free menu binds its own geometry, bank, evaluation and method summary', () => {
+  assert.equal(currentIndex.geometry.revision, 'v10-packer-free-flush-return-far-row-only-v1');
+  const rows = documentsForModel(currentIndex.geometry.viewer);
+  for (const ref of [currentIndex.geometry.receipt, currentIndex.response_bank,
+    currentIndex.engineering_review, currentIndex.connection_method_evaluation]) {
+    assert.ok(rows.some(row => row.path === ref.path), `missing current packer-free record: ${ref.path}`);
+    checkTarget(ref.path);
+  }
 });
 
 test('rendered historical model menus resolve their actual document paths', () => {

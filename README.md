@@ -6,18 +6,18 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[Owner-selected 4×6 development viewer · desktop local](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)**
+**[Current packer-free 4×6 development viewer · desktop local](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off)**
 
-The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The top and both side rails
+The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**. The top and both side rails
 are standard nominal **4×6, actual 88.9 × 139.7 mm**, following the
-[owner's side-stock decision](docs/bolted-frame-development/owner-frame-v10/owner-standard-side-4x6-v1.json).
+[owner's no-packers direction](docs/bolted-frame-development/owner-frame-v10/owner-no-wood-packers-v1.json).
 Fresh geometry, all six cases and both replays, net sections, grips,
 rear-joint geometry and clearance are complete. The declared vector section
-indices are **0.998500 left side, 0.951121 right side and 0.575366 top**.
-[The matched evaluation](docs/bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json)
+indices are **0.914625 left side, 0.872071 right side and 0.613288 top**.
+[The matched evaluation](docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json)
 preserves **15 bearing diagnostic rows across eight bolts**. Complete connection,
 splitting, fitting/hardware and physical checks remain unresolved. Lengths
-remain provisional; custom packers are unapproved. No purchase or physical release.
+remain provisional; no wood packers remain. No purchase or physical release.
 The deeper-side results and group benchmarks remain history and were not transferred.
 The [current provisional wood list](docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
 replaces the historical 4×8 side-stock allocation and credits usable owned material first.

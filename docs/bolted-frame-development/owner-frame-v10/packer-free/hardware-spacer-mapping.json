@@ -1,0 +1,102 @@
+{
+  "actual_dimensions_or_material_verified": false,
+  "actual_strength_or_fit_qualified": false,
+  "climbing_released": false,
+  "current_spacer_pieces": 40,
+  "fabrication_released": false,
+  "geometry_or_matched_forces_changed": false,
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-receipt.json",
+    "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+  },
+  "interpretation": "The previous hardware report counts declared selected-SKU fields, leaving eight header fields blank. Existing source audits/catalog and all current spacer BReps establish a nominal 20 short/20 long mapping. This controls the nominal spacer planning count; it does not rewrite the frozen geometry/overrides or change modeled dimensions, mass, stiffness, forces or capacity. The eight blank fields are recoverable nominal mappings, not unidentified products.",
+  "method": {
+    "BRep_validation": "Every referenced BREP path exists and its SHA-256 matches the current geometry descriptor. The BREP Curves section provides the two ring radii (ID/2 and OD/2); the bounding-box axis matching the selected piece length provides its length.",
+    "catalog_mapping": "The BREP radii and axial length match catalog SKU 13731 (10.31875 mm ID, 19.05 mm OD, 12.7 mm length) or 13733 (10.31875 mm ID, 19.05 mm OD, 25.4 mm length). Every nonblank selected SKU token agrees with the corresponding BREP piece.",
+    "limitations": "Nominal BREP/catalog agreement does not establish delivered dimensions, tolerance, grade, strength, physical fit, inventory, or procurement readiness. Catalog record says dimensional tolerance and compression resistance are unpublished.",
+    "piece_identity": "Each positive spacer piece in current selected_stack_overrides maps by axis and stack order to the matching current changed_finished_solids BREP descriptor; this is bijective over all 40 spacer BREP solids."
+  },
+  "nominal_catalog_SKU_quantities": {
+    "13731": 20,
+    "13733": 20
+  },
+  "nominal_dimensions_mm": {
+    "13731": {
+      "ID": 10.31875,
+      "OD": 19.05,
+      "length": 12.7
+    },
+    "13733": {
+      "ID": 10.31875,
+      "OD": 19.05,
+      "length": 25.4
+    }
+  },
+  "prior_selected_field_ledger": {
+    "blank_SKU_spacer_solid_ids": [
+      "eoere_bolt_081_spacer",
+      "eoere_bolt_082_spacer",
+      "eoere_bolt_083_spacer",
+      "eoere_bolt_084_spacer",
+      "v10_header_bolt_001_spacer",
+      "v10_header_bolt_002_spacer",
+      "v10_header_bolt_003_spacer",
+      "v10_header_bolt_004_spacer"
+    ],
+    "declared_SKU_piece_counts": {
+      "13731": 12,
+      "13733": 20
+    },
+    "pieces_without_selected_SKU": 8,
+    "selected_spacer_piece_count": 40
+  },
+  "producer": {
+    "path": "fea/generated/v10-packer-free-v1/delivery/assemble_spacer_mapping_v1.py",
+    "sha256": "96756d24a32ca71e5cbcd15d116f62a6d09116ac5831f2be1645bc87fa19f9c3"
+  },
+  "purchase_authorized": false,
+  "recovered_selected_field_blanks": [
+    "eoere_bolt_081_spacer",
+    "eoere_bolt_082_spacer",
+    "eoere_bolt_083_spacer",
+    "eoere_bolt_084_spacer",
+    "v10_header_bolt_001_spacer",
+    "v10_header_bolt_002_spacer",
+    "v10_header_bolt_003_spacer",
+    "v10_header_bolt_004_spacer"
+  ],
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "schema": "eoere_packer_free_spacer_catalog_mapping/v1",
+  "scope": "Nominal geometry/catalog consistency only. No delivered fit, dimensional tolerance, compression resistance or physical inventory is established; no purchase order or physical release.",
+  "source_audit": {
+    "path": "fea/generated/v10-packer-free-v1/connections/hardware-final/spacer-brep-catalog-mapping-v1.json",
+    "sha256": "d890cea6bddc06c98c31d332ecb72861413d3976d00cf228f1f735dfab6018f4"
+  },
+  "source_bindings": {
+    "catalog_observations": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/catalog-observations.json",
+      "sha256": "4ed1d6ba084de9e4586faf7260ec0e396fa5429e218d26edfc04b4f5b56192da"
+    },
+    "current_checked_geometry_receipt": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+    },
+    "current_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "current_hardware_binding_v2": {
+      "path": "fea/generated/v10-packer-free-v1/connections/hardware-final/hardware-binding-v2.json",
+      "sha256": "61dd844a17cbb335e1347807bea75a36015e3de1be26ddf6352372c6937f6ed4"
+    },
+    "prior_per_axis_catalog_checks": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/per-axis-catalog-checks.json",
+      "sha256": "610959f06f05f93c8c4fc10679e6cf55a7893246ef583333db8fb61b9a17b012"
+    },
+    "prior_stackup_audit": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/stackup/stackup-audit.json",
+      "sha256": "4ba52cddb72347f312a09142862df5df3c77b47a4d42a6ed93ca993441a99fca"
+    }
+  },
+  "structural_acceptance": false
+}

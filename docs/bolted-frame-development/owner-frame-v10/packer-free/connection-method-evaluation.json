@@ -1,0 +1,1299 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "climbing_released": false,
+  "complete_connection_acceptance": null,
+  "coverage": {
+    "axes": 112,
+    "axis_case_wrenches": 672,
+    "receiver_actions": 1464,
+    "same_host_geometry_pairs": 536,
+    "signed_plane_wrenches": 792,
+    "wood_action_rows": 816,
+    "wood_intervals": 136
+  },
+  "evaluation": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json",
+    "sha256": "41863a95230b64a67f3b8aeffd6874fcf75cb81891b4872459d0bd7bb87f4017"
+  },
+  "fabrication_released": false,
+  "force_only": {
+    "aggregate": {
+      "conditional_ratio_above_1_axis_case_ids": [],
+      "conditional_ratio_above_1_case_count": 0,
+      "evaluated_two_media_case_rows": 552,
+      "maximum_conditional_demand_over_Z": {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "case_id": "a12-rear",
+        "governing_TR12_mode": "IV",
+        "lateral_translation_demand_lbf": 340.7996048993273,
+        "minimum_six_mode_Z_lbf": 533.7360398470729,
+        "scenario": "wood_wood_G0p50_Fyb45_scenario_only",
+        "value": 0.6385171310466009
+      },
+      "maximum_conditional_lateral_translation_demand": {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "case_id": "a12-rear",
+        "demand_over_Z": 0.6385171310466009,
+        "minimum_six_mode_Z_lbf": 533.7360398470729,
+        "scenario": "wood_wood_G0p50_Fyb45_scenario_only",
+        "value_lbf": 340.7996048993273
+      },
+      "meaning": "A ratio above 1 identifies a conditional force-only scenario exceedance. Ratios at or below 1 are not a connection pass; no complete interaction, group capacity, or load-path acceptance is reported.",
+      "minimum_conditional_six_mode_Z": {
+        "axis_id": "rail_front_bolt_right_2",
+        "case_id": "a1-rear",
+        "demand_over_Z": 0.03247855928311459,
+        "lateral_translation_demand_lbf": 5.699619314504766,
+        "scenario": "wood_wood_G0p50_Fyb45_scenario_only",
+        "value_lbf": 175.48867438427186
+      }
+    },
+    "case_rows": 552,
+    "diameter_selection": {
+      "D_or_Dr_selected_by_frozen_thread_root_selector": true,
+      "manual_Dr_override_or_new_diameter_equation_added": false,
+      "profile_inputs": {
+        "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json",
+        "sha256": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d"
+      },
+      "root_or_body_dimensions_are_delivered_measurements": false,
+      "selection_basis_axis_counts": {
+        "NDS full-body one-quarter thread-bearing exception": 10,
+        "NDS thread-root diameter": 82
+      },
+      "selection_basis_case_row_counts": {
+        "NDS full-body one-quarter thread-bearing exception": 60,
+        "NDS thread-root diameter": 492
+      }
+    },
+    "qualification": {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "actual_delivered_bolt_thread_root_or_material_qualified": false,
+      "climbing_released": false,
+      "complete_group_capacity": null,
+      "complete_interaction_pass": null,
+      "complete_joint_capacity": null,
+      "fabrication_released": false,
+      "physical_force_bounds_established": false,
+      "structural_acceptance": false,
+      "wood_steel_scenario": "unadopted Fu=370 MPa steel scenario with actual candidate Fe left null",
+      "wood_wood_scenario": "unadopted G=0.50 and generic TR12 Fyb=45 ksi"
+    },
+    "scope": "Unadopted G=0.50, generic Fyb=45 ksi, and mixed-steel Fu=370 MPa/Fes scenarios. Six yield modes and existing D/Dr selector are retained. This scalar subcheck omits free couples and is not complete interaction/group acceptance.",
+    "three_media_not_applicable_axes": 20,
+    "two_media_axes": 92
+  },
+  "geometry": {
+    "068_069": "Fresh six-case net actions point away from the nearest 33.7043 mm edge. The opposite edge is 101.2582 mm. These exceed the separate principal unloaded 1.5D and loaded 4D markers respectively; neither moments nor local pressure reversal alone selects a different code edge. Optional both-edges 4D is not an established violation. Oblique/eccentric/splitting checks remain unresolved.",
+    "center_top": "Both center top grids retain 41.275 mm grainwise pitch and 50.8 mm crossgrain pitch. At l=88.9 mm, D=9.525 mm, the conditional perpendicular Table-D endpoint is 47.625 mm, a 6.35 mm shortfall. Actual oblique row definition and wood-length/steel-side footnote interpretation remain unresolved. Translation does not change pitch. A qualified factory pattern or other explicitly modeled hole choice would need geometry and fresh matched forces; no redrilling or connector selection is adopted.",
+    "coverage": {
+      "distinct_axes_with_wood": 112,
+      "expected_six_case_action_count": 816,
+      "pair_count_by_host": {
+        "base_floor_left": 3,
+        "base_floor_right": 3,
+        "base_header": 66,
+        "base_post_center_left": 1,
+        "base_post_center_right": 1,
+        "base_post_outer_left": 6,
+        "base_post_outer_right": 6,
+        "base_principal_center_left": 45,
+        "base_principal_center_right": 45,
+        "base_rail_bottom_left": 6,
+        "base_rail_bottom_right": 6,
+        "base_rail_service_lower_left": 6,
+        "base_rail_service_lower_right": 6,
+        "base_rail_service_upper_left": 6,
+        "base_rail_service_upper_right": 6,
+        "base_rail_top": 66,
+        "base_side_left": 105,
+        "base_side_right": 105,
+        "eoere_cleat_left": 21,
+        "eoere_cleat_right": 21,
+        "lumber_leg_left": 3,
+        "lumber_leg_right": 3
+      },
+      "pairwise_count_method": "sum over each wood host of n_host*(n_host\u22121)/2; these are geometry pairs, not forces or NDS rows",
+      "pairwise_same_host_geometry_count": 536,
+      "physical_axis_count": 112,
+      "six_case_signed_action_count": 816,
+      "wood_hosts": 22,
+      "wood_interval_count": 136,
+      "wood_interval_count_by_host": {
+        "base_floor_left": 3,
+        "base_floor_right": 3,
+        "base_header": 12,
+        "base_post_center_left": 2,
+        "base_post_center_right": 2,
+        "base_post_outer_left": 4,
+        "base_post_outer_right": 4,
+        "base_principal_center_left": 10,
+        "base_principal_center_right": 10,
+        "base_rail_bottom_left": 4,
+        "base_rail_bottom_right": 4,
+        "base_rail_service_lower_left": 4,
+        "base_rail_service_lower_right": 4,
+        "base_rail_service_upper_left": 4,
+        "base_rail_service_upper_right": 4,
+        "base_rail_top": 12,
+        "base_side_left": 15,
+        "base_side_right": 15,
+        "eoere_cleat_left": 7,
+        "eoere_cleat_right": 7,
+        "lumber_leg_left": 3,
+        "lumber_leg_right": 3
+      }
+    },
+    "join_checks": {
+      "action_rows_join_by_axis_host_and_interval": true,
+      "all_six_cases_admitted": true,
+      "checked_receipt_binds_clearance": true,
+      "checked_receipt_binds_physical_geometry": true,
+      "physical_analysis_axis_ids_and_nonreceiver_fields_match": true,
+      "physical_force_bounds_established": false,
+      "prepared_field_shaft_rows_match_preparation_for_all_six_cases": true,
+      "response_bank_and_prepared_inputs_bind_same_analysis_geometry": true,
+      "response_bank_binds_checked_physical_receipt": true,
+      "structural_acceptance": false,
+      "wood_intervals_match_across_six_cases": true
+    },
+    "nds_source_and_applicability": {
+      "Table_D_wood_length_basis": "Table 12.5.1D footnote 1 uses wood-main engagement ell_m and wood-side length ell_s; the 6.35 mm steel flange is not a wood-side length. Actual Table D row assignment remains unresolved for the oblique signed actions.",
+      "between_row_rule": "\u00a712.5.1.3 directs between-row spacing to Table 12.5.1D; \u00a712.5.1.2 Cdelta reductions do not supply an oblique interpolation or a between-row reduction.",
+      "couples_and_group_ownership": "All per-axis source moments are retained in the 816 action rows. This report does not combine them into a group wrench/capacity and does not assign ownership across angle groups, the top rail, or shared receivers.",
+      "edge_distance_markers": "Table 12.5.1C distinguishes loaded and unloaded perpendicular edges; the geometry direction and six signed action projections do not select an NDS loaded edge.",
+      "end_distance_markers": "Table 12.5.1A: 4D for perpendicular and parallel-compression branches, 7D for parallel softwood tension at Cdelta=1; these are conditional markers, not blanket pass/fail flags.",
+      "far_and_near_station_disposition": {
+        "center_near_axes_v10_top_bolt_005_to_008": "remain present as the near station in the two inner top grids; compare their geometric markers separately, without assigning a loaded-end category",
+        "classification": null,
+        "conditional_7D_marker_mm": 66.675,
+        "conditional_shortfall_to_7D_mm": 1.5875000000001336,
+        "far_station_geometry_reference_mm": 65.08749999999986,
+        "outer_near_axes_v10_top_bolt_001_to_004": "removed from current geometry; no current hole/action row exists at those outer positions, so this is not reported as an end-distance failure"
+      },
+      "no_automatic_crossgrain_component_classification": true,
+      "no_favorable_oblique_interpolation": true,
+      "outer_vs_inner_top_group_layouts": [
+        {
+          "NDS_row_alignment_or_group_ownership": null,
+          "axis_count": 2,
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "between_station_grain_pitch_mm": [],
+          "crossgrain_station_span_mm": 50.79999999961065,
+          "distinct_grainwise_station_count": 1,
+          "fitting_id": "eoere_clip_single_top_left_1",
+          "layout_station_rows": [
+            {
+              "axis_ids": [
+                "eoere_bolt_001",
+                "eoere_bolt_005"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                65.08749999999986,
+                65.08749999999986
+              ],
+              "layout_label_only": "far",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            }
+          ],
+          "overall_grainwise_station_span_mm": 0.0
+        },
+        {
+          "NDS_row_alignment_or_group_ownership": null,
+          "axis_count": 2,
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "between_station_grain_pitch_mm": [],
+          "crossgrain_station_span_mm": 50.79999999961065,
+          "distinct_grainwise_station_count": 1,
+          "fitting_id": "eoere_clip_single_top_right_2",
+          "layout_station_rows": [
+            {
+              "axis_ids": [
+                "eoere_bolt_017",
+                "eoere_bolt_018"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                2192.3374999999996,
+                2192.3374999999996
+              ],
+              "layout_label_only": "far",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            }
+          ],
+          "overall_grainwise_station_span_mm": 0.0
+        },
+        {
+          "NDS_row_alignment_or_group_ownership": null,
+          "axis_count": 4,
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023",
+            "v10_top_bolt_005",
+            "v10_top_bolt_006"
+          ],
+          "between_station_grain_pitch_mm": [
+            41.27499999999998
+          ],
+          "crossgrain_station_span_mm": 50.79999999961065,
+          "distinct_grainwise_station_count": 2,
+          "fitting_id": "eoere_clip_split_top_center_left",
+          "layout_station_rows": [
+            {
+              "axis_ids": [
+                "eoere_bolt_022",
+                "eoere_bolt_023"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                976.1624999999999,
+                976.1624999999999
+              ],
+              "layout_label_only": "far",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            },
+            {
+              "axis_ids": [
+                "v10_top_bolt_005",
+                "v10_top_bolt_006"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                1017.4375,
+                1017.4375
+              ],
+              "layout_label_only": "near",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            }
+          ],
+          "overall_grainwise_station_span_mm": 41.27500000000009
+        },
+        {
+          "NDS_row_alignment_or_group_ownership": null,
+          "axis_count": 4,
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028",
+            "v10_top_bolt_007",
+            "v10_top_bolt_008"
+          ],
+          "between_station_grain_pitch_mm": [
+            41.274999999999864
+          ],
+          "crossgrain_station_span_mm": 50.79999999961065,
+          "distinct_grainwise_station_count": 2,
+          "fitting_id": "eoere_clip_split_top_center_right",
+          "layout_station_rows": [
+            {
+              "axis_ids": [
+                "eoere_bolt_024",
+                "eoere_bolt_028"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                1245.2375,
+                1245.2375
+              ],
+              "layout_label_only": "far",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            },
+            {
+              "axis_ids": [
+                "v10_top_bolt_007",
+                "v10_top_bolt_008"
+              ],
+              "crossgrain_station_span_mm": [
+                44.450000001157335,
+                95.25000000076798
+              ],
+              "grain_station_span_mm": [
+                1203.9624999999999,
+                1203.9624999999999
+              ],
+              "layout_label_only": "near",
+              "within_station_crossgrain_spacing_mm": 50.79999999961065
+            }
+          ],
+          "overall_grainwise_station_span_mm": 41.27500000000009
+        }
+      ],
+      "primary_source": "ANSI/AWC NDS-2024 Chapter 12, pinned PDF in source_bindings",
+      "reused_clause_resolution": "fea/generated/v10-standard-top-stock-v1/connection-proposal/4x6-method/table-d-clause-resolution-v1.md",
+      "row_definition": "\u00a712.1.2.4: a row has two or more fasteners aligned with load direction. No angular tolerance for these current oblique patterns is established by this geometry inventory.",
+      "top_geometry_only": {
+        "Table_D_applicability_for_current_signed_oblique_wrenches": null,
+        "Table_D_branch_if_this_is_wood_main_engagement": "ell_m/D >= 6",
+        "actual_prepared_top_wood_bearing_length_mm": 88.9,
+        "actual_row_or_connection_group_assignment": null,
+        "conditional_between_row_parallel_to_grain_mm": 14.287500000000001,
+        "conditional_between_row_perpendicular_to_grain_mm": 47.625,
+        "ell_m_over_D": 9.333333333333334,
+        "inner_group_geometry": "Each center fitting retains near and far beam stations with two crossgrain axes per station; current pattern pitch and axis\u00d7grain projections are listed below.",
+        "inner_pitch_margin_over_conditional_parallel_1_5D_mm": 26.987499999999862,
+        "inner_pitch_short_of_conditional_perpendicular_5D_mm": 6.350000000000136,
+        "inner_two_grid_minimum_grainwise_pitch_mm": 41.274999999999864,
+        "nominal_D_mm": 9.525,
+        "outer_group_geometry": "Each translated outer angle retains one far beam station with two crossgrain-spaced axes; there is no second along-grain station within that fitting group."
+      }
+    },
+    "outer_top": "Each returned outer angle has one far grain station, 65.0875 mm from the beam end and 50.8 mm between its two active beam bolts across grain. Four outer near axes are absent. The far end is 1.5875 mm short of full 7D; applicable Cdelta/load branch remains unadopted. Extending the rail by that amount intersects each unchanged side by 19715.686 mm3 and is not an adopted remedy.",
+    "retained_nulls": {
+      "Cdelta": null,
+      "Cg": null,
+      "NDS_row_assignment": null,
+      "Table_D_oblique_applicability": null,
+      "climbing_released": false,
+      "complete_wrench_interaction": null,
+      "fabrication_released": false,
+      "loaded_edge_or_end": null,
+      "splitting_or_eccentric_group_resistance": null,
+      "structural_acceptance": false
+    }
+  },
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-receipt.json",
+    "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+  },
+  "group_method_disposition": {
+    "actual_factor_adopted": false,
+    "historical_method_context_only": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/connection-method-evaluation.json",
+      "sha256": "45dce94e647dff3c80a7e86cda641ce335c571acbada49492d373919906c5374"
+    },
+    "interpretation": "Receiver signatures are not established NDS physical rows. Inherited universal conservative lower-bound wording remains historical diagnostic metadata, not a proved whole-joint bound. Unequal FE load fractions and the penalty can overlap, but actual group redistribution/slip and simultaneous couples have not been calibrated to an equivalent NDS row model. Neither blanket Cg=1 nor repeated 1/n is adopted as acceptance.",
+    "receiver_signature_1_over_n_used_for_acceptance": false,
+    "universal_bound_proven": false
+  },
+  "hardware": {
+    "legacy_metadata": "Four selected overrides retain PENDING_PACKER_FREE_GEOMETRY_V1_REBUILD text. Actual current BReps, receipt, intervals and analysis were checked against the new stacks; this label is not used as proof of either physical fit or strength.",
+    "nominal_candidate_bom": {
+      "blank_recipe_rows_with_two_source_BRep_washers": [
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_right_1"
+      ],
+      "bolt_SKU_quantities": {
+        "363": 48,
+        "366": 12,
+        "400": 2,
+        "8092": 4,
+        "8095": 14,
+        "G0340956": 4,
+        "G0341148": 28
+      },
+      "nut_SKU_quantities": {
+        "2571": 88,
+        "2573": 6,
+        "2584": 18
+      },
+      "planning_only_not_purchase_order": true,
+      "spacers": {
+        "SKU_unspecified_axis_rows": [
+          {
+            "axis_id": "eoere_bolt_081",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "eoere_bolt_082",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "eoere_bolt_083",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "eoere_bolt_084",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "v10_header_bolt_001",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "v10_header_bolt_002",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "v10_header_bolt_003",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          },
+          {
+            "axis_id": "v10_header_bolt_004",
+            "known_model_lengths_mm": [
+              12.7
+            ],
+            "piece_count_without_selected_spacer_SKU": 1,
+            "status": "SKU_not_declared_in_selected_stack_override"
+          }
+        ],
+        "catalog_SKU_counts": {
+          "13731": 12,
+          "13733": 20
+        },
+        "pieces_without_selected_SKU": 8,
+        "selected_spacer_piece_count": 40,
+        "selected_stack_rows_by_piece_count": {
+          "0": 86,
+          "1": 12,
+          "2": 14
+        }
+      },
+      "stack_count": 112,
+      "washer_SKU_quantities_two_per_stack": {
+        "15023": 212,
+        "15025": 12
+      },
+      "washer_unit_total": 224
+    },
+    "physical_and_release_disposition": {
+      "actual_thread_engagement_and_wood_or_angle_root_resistance_resolved": false,
+      "catalog_SKUs_and_dimensions_are_nominal_selection_data_only": true,
+      "climbing_released": false,
+      "delivered_bolt_grade_lot_length_body_root_runout_and_fit_verified": false,
+      "delivered_washer_nut_spacer_dimensions_and_seating_verified": false,
+      "fabrication_released": false,
+      "purchase_authorized": false,
+      "structural_acceptance": false,
+      "tool_access_checked": false
+    },
+    "scope": "108 shared stack records remain unchanged; four posts are replaced and four near beam stacks omitted. G0341148 quantity remains 28; old 8-inch8096 quantity is zero. This is a nominal planning schedule, not a purchase order or delivered-part authentication. Eight modeled 12.7 mm header spacers have no selected SKU. Tool access for all four shortened posts is HOLD.",
+    "shortened_post_conditions": {
+      "access_state": "HOLD",
+      "axes": [
+        {
+          "access_disposition": "HOLD: no 9/16-inch tool body, insertion path, seating, swing, or removal clearance is modeled or physically checked at the current post orientation.",
+          "angle_flange_interval_u_mm": [
+            88.9,
+            95.25
+          ],
+          "angle_flange_mm": 6.35,
+          "axis_id": "eoere_bolt_006",
+          "bolt_direction_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "conditional_body_root_zone": {
+            "ASME_B18_2_1_2012_conditional_LB_mm": 87.376,
+            "actual_body_floor_or_thread_transition_measured": false,
+            "conditional_LB_shortfall_mm": 10.515599999999992,
+            "conditional_LG_mm": 95.25,
+            "conditional_body_transition_from_exterior_wood_face_mm": 84.73440000000001,
+            "direct_supplier_minimum_smooth_body_published": false,
+            "possible_root_or_thread_length_in_angle_mm": 6.35,
+            "possible_root_or_thread_length_in_wood_mm": 4.1656,
+            "root_bearing_resistance_resolved": false,
+            "target_to_farthest_receiver_with_head_washer_mm": 97.8916
+          },
+          "current_nominal_stack_BRep_components": [
+            {
+              "bytes": 6457,
+              "part_id": "eoere_bolt_006_head",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_006_head.brep",
+              "sha256": "f9aa3874f9c862978f5de0176e4a62cc64618e653b8574c6ee9bcfb57351bf51"
+            },
+            {
+              "bytes": 2959,
+              "part_id": "eoere_bolt_006_head_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_006_head_washer.brep",
+              "sha256": "5357395d4e09eec67f8cf08e0429ba43fe246d1a55f14e55e36863ec2781e98e"
+            },
+            {
+              "bytes": 1854,
+              "part_id": "eoere_bolt_006_shaft",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_006_shaft.brep",
+              "sha256": "f2e3a10d168f7ecca8a10d5faaafe109833866669a724802b93e171ce55f653b"
+            },
+            {
+              "bytes": 2971,
+              "part_id": "eoere_bolt_006_nut_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_006_nut_washer.brep",
+              "sha256": "8c3627cbb57197e67d6aa2565306609066f1caab138eb479c234190cf4434459"
+            },
+            {
+              "bytes": 7671,
+              "part_id": "eoere_bolt_006_nut",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_006_nut.brep",
+              "sha256": "14e9a4f25be942895db0d3623a636384b1cf196b29e5e49e1c1617dd87f5b231"
+            }
+          ],
+          "current_receivered_side_only": "base_side_left",
+          "nominal_bolt_grade_and_length": {
+            "actual_delivered_product_grade_lot_and_dimensions_verified": false,
+            "catalog_scenario": "SAE J429 Grade 5",
+            "diameter_mm": 9.525,
+            "threads_per_inch": 16,
+            "underhead_length_mm": 120.65
+          },
+          "nominal_stack_recipe": "G0341148 / 2x15023 / 2571 / no spacer",
+          "nominal_tip_and_thread_window": {
+            "delivered_thread_runout_and_full_form_engagement_verified": false,
+            "minimum_thread_length_listed_mm": 25.4,
+            "nominal_thread_window_qualified": false,
+            "tip_projection_past_nut_mm": 11.557000000000016,
+            "two_pitch_margin_at_source_minimum_length_mm": 5.842000000000016,
+            "two_pitch_margin_nominal_mm": 8.382000000000016
+          },
+          "outer_side_face_point_xyz_mm": [
+            -1219.2,
+            1363.637517219924,
+            2099.7571982325558
+          ],
+          "side": "left",
+          "wood_grip_mm": 88.9,
+          "wood_interval_u_mm": [
+            0.0,
+            88.9
+          ]
+        },
+        {
+          "access_disposition": "HOLD: no 9/16-inch tool body, insertion path, seating, swing, or removal clearance is modeled or physically checked at the current post orientation.",
+          "angle_flange_interval_u_mm": [
+            88.9,
+            95.25
+          ],
+          "angle_flange_mm": 6.35,
+          "axis_id": "eoere_bolt_009",
+          "bolt_direction_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "conditional_body_root_zone": {
+            "ASME_B18_2_1_2012_conditional_LB_mm": 87.376,
+            "actual_body_floor_or_thread_transition_measured": false,
+            "conditional_LB_shortfall_mm": 10.515599999999992,
+            "conditional_LG_mm": 95.25,
+            "conditional_body_transition_from_exterior_wood_face_mm": 84.73440000000001,
+            "direct_supplier_minimum_smooth_body_published": false,
+            "possible_root_or_thread_length_in_angle_mm": 6.35,
+            "possible_root_or_thread_length_in_wood_mm": 4.1656,
+            "root_bearing_resistance_resolved": false,
+            "target_to_farthest_receiver_with_head_washer_mm": 97.8916
+          },
+          "current_nominal_stack_BRep_components": [
+            {
+              "bytes": 6486,
+              "part_id": "eoere_bolt_009_head",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_009_head.brep",
+              "sha256": "511855eed9eb28091240f7edc0bc5bbf7e7b9844b44e29456c816b4925b925fb"
+            },
+            {
+              "bytes": 2963,
+              "part_id": "eoere_bolt_009_head_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_009_head_washer.brep",
+              "sha256": "48c6e9cfe6a9c17b8d181f9759d49e53962e5d3eef641ed3563aadd2f4c243c5"
+            },
+            {
+              "bytes": 1852,
+              "part_id": "eoere_bolt_009_shaft",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_009_shaft.brep",
+              "sha256": "90fb158026007a9d9839a15df0fdd65d45665b29de1f72d6507d03a76592f37d"
+            },
+            {
+              "bytes": 2963,
+              "part_id": "eoere_bolt_009_nut_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_009_nut_washer.brep",
+              "sha256": "659f5ff9bfaeefdb3347ef5714419839a4c0baeb37036c727de1aab06c98cbda"
+            },
+            {
+              "bytes": 7670,
+              "part_id": "eoere_bolt_009_nut",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_009_nut.brep",
+              "sha256": "ea20f5210d0e17960e6305963e3c9763c086cb4715f5be1a9fe63944a914b58f"
+            }
+          ],
+          "current_receivered_side_only": "base_side_right",
+          "nominal_bolt_grade_and_length": {
+            "actual_delivered_product_grade_lot_and_dimensions_verified": false,
+            "catalog_scenario": "SAE J429 Grade 5",
+            "diameter_mm": 9.525,
+            "threads_per_inch": 16,
+            "underhead_length_mm": 120.65
+          },
+          "nominal_stack_recipe": "G0341148 / 2x15023 / 2571 / no spacer",
+          "nominal_tip_and_thread_window": {
+            "delivered_thread_runout_and_full_form_engagement_verified": false,
+            "minimum_thread_length_listed_mm": 25.4,
+            "nominal_thread_window_qualified": false,
+            "tip_projection_past_nut_mm": 11.557000000000016,
+            "two_pitch_margin_at_source_minimum_length_mm": 5.842000000000016,
+            "two_pitch_margin_nominal_mm": 8.382000000000016
+          },
+          "outer_side_face_point_xyz_mm": [
+            1216.025,
+            1363.637517219924,
+            2099.7571982325558
+          ],
+          "side": "right",
+          "wood_grip_mm": 88.9,
+          "wood_interval_u_mm": [
+            0.0,
+            88.9
+          ]
+        },
+        {
+          "access_disposition": "HOLD: no 9/16-inch tool body, insertion path, seating, swing, or removal clearance is modeled or physically checked at the current post orientation.",
+          "angle_flange_interval_u_mm": [
+            88.9,
+            95.25
+          ],
+          "angle_flange_mm": 6.35,
+          "axis_id": "eoere_bolt_010",
+          "bolt_direction_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "conditional_body_root_zone": {
+            "ASME_B18_2_1_2012_conditional_LB_mm": 87.376,
+            "actual_body_floor_or_thread_transition_measured": false,
+            "conditional_LB_shortfall_mm": 10.515599999999992,
+            "conditional_LG_mm": 95.25,
+            "conditional_body_transition_from_exterior_wood_face_mm": 84.73440000000001,
+            "direct_supplier_minimum_smooth_body_published": false,
+            "possible_root_or_thread_length_in_angle_mm": 6.35,
+            "possible_root_or_thread_length_in_wood_mm": 4.1656,
+            "root_bearing_resistance_resolved": false,
+            "target_to_farthest_receiver_with_head_washer_mm": 97.8916
+          },
+          "current_nominal_stack_BRep_components": [
+            {
+              "bytes": 6457,
+              "part_id": "eoere_bolt_010_head",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_010_head.brep",
+              "sha256": "8bd7e4353e59420d0a5cfaaa317c13375c662debaa6be3e5b23a2185666d9e83"
+            },
+            {
+              "bytes": 2960,
+              "part_id": "eoere_bolt_010_head_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_010_head_washer.brep",
+              "sha256": "bcf02dcfce7502f9b66bb75982d8953109093565d4878e33e91f8ce6bab342c8"
+            },
+            {
+              "bytes": 1854,
+              "part_id": "eoere_bolt_010_shaft",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_010_shaft.brep",
+              "sha256": "6974bee22d49a9427ffe28d3dae2c4cddf333935aa925ca6a3785ae964d476cb"
+            },
+            {
+              "bytes": 2972,
+              "part_id": "eoere_bolt_010_nut_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_010_nut_washer.brep",
+              "sha256": "73f640afa83462b512e80dcfc641a78693a19a450cd2c878a4d698e2bcec83af"
+            },
+            {
+              "bytes": 7671,
+              "part_id": "eoere_bolt_010_nut",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_010_nut.brep",
+              "sha256": "004a7ae75fa701ec7d4a60a677dfc945f15841345a07aaa0ff3ac8a210eeb597"
+            }
+          ],
+          "current_receivered_side_only": "base_side_left",
+          "nominal_bolt_grade_and_length": {
+            "actual_delivered_product_grade_lot_and_dimensions_verified": false,
+            "catalog_scenario": "SAE J429 Grade 5",
+            "diameter_mm": 9.525,
+            "threads_per_inch": 16,
+            "underhead_length_mm": 120.65
+          },
+          "nominal_stack_recipe": "G0341148 / 2x15023 / 2571 / no spacer",
+          "nominal_tip_and_thread_window": {
+            "delivered_thread_runout_and_full_form_engagement_verified": false,
+            "minimum_thread_length_listed_mm": 25.4,
+            "nominal_thread_window_qualified": false,
+            "tip_projection_past_nut_mm": 11.557000000000016,
+            "two_pitch_margin_at_source_minimum_length_mm": 5.842000000000016,
+            "two_pitch_margin_nominal_mm": 8.382000000000016
+          },
+          "outer_side_face_point_xyz_mm": [
+            -1219.2,
+            1402.552574919924,
+            2067.1035876485557
+          ],
+          "side": "left",
+          "wood_grip_mm": 88.9,
+          "wood_interval_u_mm": [
+            0.0,
+            88.9
+          ]
+        },
+        {
+          "access_disposition": "HOLD: no 9/16-inch tool body, insertion path, seating, swing, or removal clearance is modeled or physically checked at the current post orientation.",
+          "angle_flange_interval_u_mm": [
+            88.9,
+            95.25
+          ],
+          "angle_flange_mm": 6.35,
+          "axis_id": "eoere_bolt_013",
+          "bolt_direction_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "conditional_body_root_zone": {
+            "ASME_B18_2_1_2012_conditional_LB_mm": 87.376,
+            "actual_body_floor_or_thread_transition_measured": false,
+            "conditional_LB_shortfall_mm": 10.515599999999992,
+            "conditional_LG_mm": 95.25,
+            "conditional_body_transition_from_exterior_wood_face_mm": 84.73440000000001,
+            "direct_supplier_minimum_smooth_body_published": false,
+            "possible_root_or_thread_length_in_angle_mm": 6.35,
+            "possible_root_or_thread_length_in_wood_mm": 4.1656,
+            "root_bearing_resistance_resolved": false,
+            "target_to_farthest_receiver_with_head_washer_mm": 97.8916
+          },
+          "current_nominal_stack_BRep_components": [
+            {
+              "bytes": 6486,
+              "part_id": "eoere_bolt_013_head",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_013_head.brep",
+              "sha256": "4a238b961c357de3dca8d9b46785fc1236e0b264115e83d9fd313bed8426954d"
+            },
+            {
+              "bytes": 2964,
+              "part_id": "eoere_bolt_013_head_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_013_head_washer.brep",
+              "sha256": "22bcf65658b5a850eeb5e72f776110af2adeff23b2cbe41f9c9e3b84089a192a"
+            },
+            {
+              "bytes": 1852,
+              "part_id": "eoere_bolt_013_shaft",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_013_shaft.brep",
+              "sha256": "712838f0604b6057e6c2b5d2cf6e3b547d43c2d752a7cd98828ddb7a4c578134"
+            },
+            {
+              "bytes": 2964,
+              "part_id": "eoere_bolt_013_nut_washer",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_013_nut_washer.brep",
+              "sha256": "87f7445c4df252855093657277d4967c8a3067fdb5ca0afa320b3ffaa7f23c30"
+            },
+            {
+              "bytes": 7670,
+              "part_id": "eoere_bolt_013_nut",
+              "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/breps/eoere_bolt_013_nut.brep",
+              "sha256": "fc53192bfc434981ce2a0dc496ec07a111351d6223344e4019b1e059fc1369fb"
+            }
+          ],
+          "current_receivered_side_only": "base_side_right",
+          "nominal_bolt_grade_and_length": {
+            "actual_delivered_product_grade_lot_and_dimensions_verified": false,
+            "catalog_scenario": "SAE J429 Grade 5",
+            "diameter_mm": 9.525,
+            "threads_per_inch": 16,
+            "underhead_length_mm": 120.65
+          },
+          "nominal_stack_recipe": "G0341148 / 2x15023 / 2571 / no spacer",
+          "nominal_tip_and_thread_window": {
+            "delivered_thread_runout_and_full_form_engagement_verified": false,
+            "minimum_thread_length_listed_mm": 25.4,
+            "nominal_thread_window_qualified": false,
+            "tip_projection_past_nut_mm": 11.557000000000016,
+            "two_pitch_margin_at_source_minimum_length_mm": 5.842000000000016,
+            "two_pitch_margin_nominal_mm": 8.382000000000016
+          },
+          "outer_side_face_point_xyz_mm": [
+            1216.025,
+            1402.552574919924,
+            2067.1035876485557
+          ],
+          "side": "right",
+          "wood_grip_mm": 88.9,
+          "wood_interval_u_mm": [
+            0.0,
+            88.9
+          ]
+        }
+      ],
+      "common_conditional_body_and_root_scenario": {
+        "body_target_to_farthest_receiver_end_mm": 97.8916,
+        "conditional_ASME_B18_2_1_2012_LB_mm": 87.376,
+        "conditional_ASME_B18_2_1_2012_LG_mm": 95.25,
+        "conditional_body_floor_shortfall_mm": 10.515599999999992,
+        "conditional_body_floor_u_from_exterior_wood_face_mm": 84.73440000000001,
+        "exact_type_edition_and_delivered_thread_runout_verified": false,
+        "full_smooth_body_through_wood_and_steel": false,
+        "interpretation": "The same conditional G0341148 body gap recorded for the V2 short beam stack carries over at this 88.9 mm wood + 6.35 mm angle grip. The final 4.1656 mm of wood and all 6.35 mm of angle lie beyond the conditional 87.376 mm LB floor. This is a possible root/transition zone, not a measured thread location or capacity result.",
+        "nominal_grip_equals_conditional_LG_mm": true,
+        "nominal_thread_window_qualified": false,
+        "steel_length_after_conditional_body_floor_mm": 6.349999999999994,
+        "wood_length_after_conditional_body_floor_mm": 4.165599999999998
+      },
+      "common_nominal_axial_stack_from_exterior_wood_face": {
+        "angle_flange_interval_u_mm": [
+          88.9,
+          95.25
+        ],
+        "bolt_underhead_bearing_plane_u_mm": -2.6416,
+        "head_washer_interval_u_mm": [
+          -2.6416,
+          0.0
+        ],
+        "nut_interval_u_mm": [
+          97.8916,
+          106.45139999999999
+        ],
+        "nut_washer_interval_u_mm": [
+          95.25,
+          97.8916
+        ],
+        "reference": "u=0 at the exterior side-wood face; u increases inward through the side and angle flange",
+        "shaft_tip_u_mm": 118.00840000000001,
+        "tip_projection_past_nut_mm": 11.557000000000016,
+        "two_pitch_margin_at_source_minimum_bolt_length_mm": 5.842000000000016,
+        "two_pitch_nominal_margin_mm": 8.382000000000016,
+        "wood_interval_u_mm": [
+          0.0,
+          88.9
+        ]
+      },
+      "common_nominal_recipe": "G0341148 / 2x15023 / 2571 / no spacer",
+      "tool_access_unknowns": [
+        "Actual socket/wrench across-flats profile and outside diameter",
+        "Approach/insertion path at both faces in the current post and shifted-angle orientation",
+        "Swing, seating depth, washer/head/nut clearance, and nut holding/removal path",
+        "Delivered part fit and actual side-face/angle seating"
+      ],
+      "tool_requirement": "9/16-inch external-hex tool family at exterior head and interior nut"
+    }
+  },
+  "producer": {
+    "path": "fea/generated/v10-packer-free-v1/delivery/assemble_method_summary_v1.py",
+    "sha256": "a622273ae717e720fc9f2d5acc9ba4e7975aeb17dda7976cdf002318b15bbee7"
+  },
+  "purchase_authorized": false,
+  "remaining": [
+    {
+      "criterion": "Full lateral/couple/group interaction",
+      "needed": "Defensible simultaneous-wrench capacity/load mapping for unequal media, effective fitting/member EA, row ownership and compatible load-slip. Existing force-only or per-axis material thresholds cannot silently omit the saved moments.",
+      "status": "UNRESOLVED_METHOD_AND_PHYSICAL_CALIBRATION"
+    },
+    {
+      "criterion": "Loaded end/edge/top rows and splitting",
+      "needed": "Actual signed oblique/eccentric action interpretation and applicable sloped/end/row provisions; local splitting/net paths. No arbitrary favorable interpolation, automatic edge trigger or Cdelta waiver.",
+      "status": "UNRESOLVED_APPLICABILITY"
+    },
+    {
+      "criterion": "Hardware and formed fitting",
+      "needed": "Delivered type/grade/lot, body/thread/root/runout, dimensions/seating/access, eight header-spacer SKU dispositions and steel material/plate-hole/fold resistance. Four post conditional body floors are 10.5156 mm short of the full underhead bearing path; model accounts for conditional root exposure but actual parts remain unverified.",
+      "status": "HOLD_PHYSICAL_INPUTS_AND_LOCAL_CAPACITY"
+    },
+    {
+      "criterion": "Wood/plywood/bond/support",
+      "needed": "Actual timber species/grade/moisture/dimensions, plywood grade/axis/leaf thickness and bond evidence, support/contact and finite-movement validity. No new floor-friction test or blanket external sign-off prerequisite.",
+      "status": "HOLD_PHYSICAL_INPUTS"
+    },
+    {
+      "criterion": "Panel screw resistance",
+      "needed": "No additional resistance work in this scope; 66 existing modeled axes remain.",
+      "status": "OWNER_DEFERRED"
+    }
+  ],
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json",
+    "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+  },
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "same_field": {
+    "coverage_and_closure": {
+      "all_672_axis_case_material_rows_point_to_exact_current_atlas_row": true,
+      "atlas_axis_case_rows": 672,
+      "atlas_receiver_action_rows": 1464,
+      "atlas_six_component_shear_plane_rows": 792,
+      "couple_preserving_pressure_reconstruction_and_source_cut_replay_per_row": true,
+      "static_closure_maxima": {
+        "continuous_integrator_force_residual_N": 1.148405275692628e-05,
+        "continuous_integrator_moment_residual_Nmm": 0.0006413804394280907,
+        "global_force_residual_N": 1.148405275657362e-05,
+        "global_moment_residual_Nmm": 3.9754891799784165e-05,
+        "maximum_source_cut_force_residual_N": 3.56043920425385e-08,
+        "maximum_source_cut_moment_residual_Nmm": 4.598792336349169e-11
+      }
+    },
+    "flagged_component_thresholds_not_capacities": [
+      {
+        "actual_material_values": null,
+        "axis_id": "eoere_bolt_067",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "a12-forward",
+          "value": 1102.6433582059262
+        },
+        "local_steel_Fu_MPa_pressure_only": {
+          "case_id": "a12-forward",
+          "value": 36.545020663027415
+        },
+        "required_Fe_parallel_psi": {
+          "case_id": "a12-forward",
+          "value": 1859.498385913839
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "a12-forward",
+          "value": 1045.9678420765345
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "a12-forward",
+          "value": 639.4135886678793
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "eoere_bolt_070",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "k12-right",
+          "value": 1028.3395116772217
+        },
+        "local_steel_Fu_MPa_pressure_only": {
+          "case_id": "k12-right",
+          "value": 35.14179972148415
+        },
+        "required_Fe_parallel_psi": {
+          "case_id": "k12-right",
+          "value": 1773.5179697157105
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "k12-right",
+          "value": 997.6038579650872
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "k12-right",
+          "value": 594.201097741103
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "a12-left",
+          "value": 606.8513416160491
+        },
+        "local_steel_Fu_MPa_pressure_only": null,
+        "required_Fe_parallel_psi": {
+          "case_id": "a12-rear",
+          "value": 3506.131228148587
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "a12-rear",
+          "value": 1990.9163885244382
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "a12-left",
+          "value": 345.0053650714229
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "lumber_leg_bolt_left_2",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "a12-left",
+          "value": 681.0420009858616
+        },
+        "local_steel_Fu_MPa_pressure_only": null,
+        "required_Fe_parallel_psi": {
+          "case_id": "a12-rear",
+          "value": 4150.873787429813
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "a12-rear",
+          "value": 2357.026053030636
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "a12-left",
+          "value": 385.71492980165334
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "lumber_leg_bolt_right_1",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "k12-right",
+          "value": 596.8394180558234
+        },
+        "local_steel_Fu_MPa_pressure_only": null,
+        "required_Fe_parallel_psi": {
+          "case_id": "k12-rear",
+          "value": 3460.0187263818775
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "k12-rear",
+          "value": 1964.7319334914523
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "k12-right",
+          "value": 339.23951807119846
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "lumber_leg_bolt_right_2",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "k12-right",
+          "value": 670.2605151685186
+        },
+        "local_steel_Fu_MPa_pressure_only": null,
+        "required_Fe_parallel_psi": {
+          "case_id": "k12-rear",
+          "value": 4093.7457100528245
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "k12-rear",
+          "value": 2324.586529780162
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "k12-right",
+          "value": 379.60398795627464
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "v10_header_bolt_001",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "a12-left",
+          "value": 72.69095847031592
+        },
+        "local_steel_Fu_MPa_pressure_only": {
+          "case_id": "a12-left",
+          "value": 14.625707938550342
+        },
+        "required_Fe_parallel_psi": {
+          "case_id": "a12-left",
+          "value": 1059.9429008415073
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "a12-left",
+          "value": 695.6929489019738
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "a12-left",
+          "value": 31.871203161709616
+        }
+      },
+      {
+        "actual_material_values": null,
+        "axis_id": "v10_header_bolt_004",
+        "complete_connection_capacity": null,
+        "extra_VM_divisor5_parameter_MPa_not_complete_NDS_interaction": {
+          "case_id": "k12-right",
+          "value": 72.81812837674896
+        },
+        "local_steel_Fu_MPa_pressure_only": {
+          "case_id": "k12-right",
+          "value": 14.721726548380568
+        },
+        "required_Fe_parallel_psi": {
+          "case_id": "k12-right",
+          "value": 1059.778354842022
+        },
+        "required_Fe_perpendicular_psi": {
+          "case_id": "k12-right",
+          "value": 695.5849492243298
+        },
+        "sufficient_pure_bending_Fyb_MPa": {
+          "case_id": "k12-right",
+          "value": 32.120390942914085
+        }
+      }
+    ],
+    "global_threshold_maxima_not_capacities": {
+      "required_Fe_parallel_psi": {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "case_id": "a12-rear",
+        "value": 4150.873787429813
+      },
+      "required_Fe_perpendicular_psi": {
+        "axis_id": "rail_rear_bolt_right_1",
+        "case_id": "k12-right",
+        "value": 2611.2638085854965
+      },
+      "required_steel_Fu_MPa": {
+        "axis_id": "eoere_bolt_006",
+        "case_id": "a12-left",
+        "value": 41.282130506713365
+      },
+      "same_section_VM_divisor_5_Fyb_threshold_MPa": {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "value": 1102.6433582059262
+      },
+      "sufficient_Fyb_bending_threshold_MPa": {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "value": 639.4135886678793
+      }
+    },
+    "inventory": {
+      "case_axis_rows": {
+        "actual_Cg_Cdelta_values": 0,
+        "actual_Fe_Fyb_Fu_values": 0,
+        "all_current_axis_case_rows": 672,
+        "all_rows_fresh_from_analysis_v2": 672,
+        "complete_connection_capacity_rows": 0,
+        "complete_simultaneous_interaction_pass_rows": 0,
+        "critical_three_media_axes": 4,
+        "critical_three_media_case_rows": 24,
+        "historical_material_result_rows_reused_as_current": 0,
+        "other_three_media_axes": 16,
+        "other_three_media_case_rows": 96,
+        "rear_two_media_axes": 4,
+        "rear_two_media_case_rows": 24,
+        "rows_with_same_field_continuous_shaft_sections": 672,
+        "steel_Fu_threshold_supported_rows": 576,
+        "two_media_nonrear_axes": 88,
+        "two_media_nonrear_case_rows": 528,
+        "unsupported_profile_rows": 0,
+        "wood_Fe_threshold_supported_rows": 672,
+        "woodwood_steel_not_applicable_rows": 96
+      },
+      "case_count": 6,
+      "physical_axis_count": 112,
+      "source_media_counts_per_case": {
+        "steel": 108,
+        "total": 244,
+        "wood": 136
+      },
+      "source_topology_axes": {
+        "three_media": 20,
+        "two_media": 92
+      }
+    },
+    "scope": "All 672 rows reconstruct pressure and shaft actions from the SAME signed force/couple field. The fields are statically admissible reference constructions, not observed embedment distributions. Required properties are sufficient for those constructions, not necessary physical capacities. Extra same-section VM/divisor-5 is a declared material stress comparison, not an established complete NDS interaction or interchangeable tensile Fy/Fyb. Actual values and complete capacity remain null."
+  },
+  "schema": "eoere_packer_free_connection_method_evaluation/v1",
+  "source_bindings": {
+    "force_only": {
+      "path": "fea/generated/v10-packer-free-v1/connections/force-only/force-only-tr12-v2.json",
+      "sha256": "1117e7877b50984aa785a282f177587748795ff1e73bcdc82a5645de8eb74035"
+    },
+    "geometry": {
+      "path": "fea/generated/v10-packer-free-v1/connections/geometry/packer-free-geometry-applicability-v2.json",
+      "sha256": "b2c44a9f4e358d9350f6d5cb6926421cf8770f3052b4954a740e5af2158e1903"
+    },
+    "hardware": {
+      "path": "fea/generated/v10-packer-free-v1/connections/hardware-final/hardware-binding-v2.json",
+      "sha256": "61dd844a17cbb335e1347807bea75a36015e3de1be26ddf6352372c6937f6ed4"
+    },
+    "same_field": {
+      "path": "fea/generated/v10-packer-free-v1/connections/same-field/same-field-material-reference-v1.json",
+      "sha256": "afbfa900f86b2621d1f06c6ca6113c2f5c9a25f48a85ac14cbc7d2926199136f"
+    },
+    "washer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/washer-face/current-washer-mean-review.json",
+      "sha256": "147966294a2ed7754a103b2eed9b20457b565cfaf8c716cc527048358411a035"
+    }
+  },
+  "structural_acceptance": false,
+  "washer": {
+    "maximum": {
+      "CD_applied": false,
+      "Cb": 1.0,
+      "Cg_applied": false,
+      "actual_contact_or_connection_accepted": false,
+      "axis_id": "eoere_bolt_005",
+      "body_force_already_in_saved_case": true,
+      "case_id": "a12-left",
+      "conditional_mean_reference_index": 0.18136538613672334,
+      "declared_Fcperp_MPa": 4.30922330823,
+      "end": "head",
+      "force_on_host_xyz_N": [
+        0.0,
+        -221.33224094167687,
+        -263.7734931295715
+      ],
+      "full_annulus_lower_mean_pressure_MPa": 0.7815439492465062,
+      "host": "base_rail_top",
+      "lateral_force_on_host_norm_N": 7.599138168587209e-08,
+      "load_to_grain_angle_deg": 90.0,
+      "mean_pressure_on_modeled_footprint_MPa": 0.7815439492465024,
+      "pressure_peaks_or_uniform_pressure_solution": false,
+      "real_preload_N": null,
+      "saved_capture_compression_N": 344.33184075545586,
+      "seat_key": "eoere_bolt_005/head",
+      "signed_force_into_host_N": 344.33184079345153
+    },
+    "scope": "102 actual modeled sawn seats \u00d76 cases, 90 exact unchanged footprints reused, 12 current top footprints queried against cached BRep. 108 steel and 14 plywood ends are excluded. Cb=1, no CD or Cg. Saved load-only axial reactions do not qualify real preload, peaks, washer rigidity/fit, pull-through or full transfer.",
+    "summary": {
+      "max_axial_balance_residual_N": 2.6076918402395677e-08,
+      "maximum_modeled_mean_pressure": {
+        "axis_id": "eoere_bolt_005",
+        "body_force_already_in_saved_case": true,
+        "case_id": "a12-left",
+        "end": "head",
+        "force_on_host_xyz_N": [
+          0.0,
+          -221.33224094167687,
+          -263.7734931295715
+        ],
+        "full_annulus_lower_mean_pressure_MPa": 0.7815439492465062,
+        "host": "base_rail_top",
+        "lateral_force_on_host_norm_N": 7.599138168587209e-08,
+        "mean_pressure_on_modeled_footprint_MPa": 0.7815439492465024,
+        "pressure_peaks_or_uniform_pressure_solution": false,
+        "real_preload_N": null,
+        "saved_capture_compression_N": 344.33184075545586,
+        "seat_key": "eoere_bolt_005/head",
+        "signed_force_into_host_N": 344.33184079345153
+      },
+      "no_coplanar_footprint_count": 0,
+      "omitted_steel_or_plywood_seats": 122,
+      "sawn_seats": 102,
+      "wood_cases": 612
+    }
+  }
+}

@@ -1,41 +1,35 @@
 # Compact bolted frame development
 
 This is the main entry for `compact-bolted-frame-development`.
-The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**.
-The [owner constraint](owner-frame-v10/owner-standard-side-4x6-v1.json) is implemented: top and both sides are **standard nominal 4×6, actual 88.9 × 139.7 mm**.
-Fresh geometry, all six cases and both replays, net sections, grips, rear-joint geometry and clearance are complete. The old deeper-side results and bound group scenarios remain history.
-**Latest owner direction: [NO WOOD PACKERS in the next candidate](owner-frame-v10/owner-no-wood-packers-v1.json).** Packer-free outer-top geometry is being assessed; top and both sides stay standard 4×6.
-The current solved model/viewer still contains packers; its results cannot transfer to their removal. Old packer machining/allocation is on hold. Lengths remain provisional; no purchase, fabrication, climbing or structural release.
+The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**.
+The [owner no-packers direction](owner-frame-v10/owner-no-wood-packers-v1.json) is implemented: top and both sides remain standard nominal **4×6, actual 88.9 × 139.7 mm**, with **no wood packers**.
+The two outer top angles return to direct side/top bearing. Their far factory rows remain; four near beam axes are omitted. The four side stacks use the existing conditional 4¾-inch bolt recipe.
+Own finished geometry, nominal clearance, all six cases and both independent replays, net sections, signed forces/couples and current connection-method audits are recorded. Old packer/deeper-side forces are history.
+No purchase, cutting, fabrication, climbing or structural release. Far end/edge/row applicability, complete interaction/group/splitting and physical qualifications remain unresolved.
 
-[Preserved C13 viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) ·
-[Selected 4×6 local viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
-[preserved C13 layout](owner-frame-v10/layout.md) ·
-[4×6 geometry receipt](owner-frame-v10/standard-side-stock/geometry-receipt.json).
+[Current packer-free viewer](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off) ·
+[Preserved 116-bolt packer viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
+[matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json).
 
-The selected development model contains **1,151 occupied parts**, 116 bolts and nuts,
-232 washers and 44 spacer pieces. Each cleat is two nominal **12.7 mm leaves
-bonded into a 25.4 mm pair**; the perimeter reference credits only 23.8 mm.
-The plywood hypothesis is PS 1 APA Group 1 sanded plywood, Other category,
-with strength axis along local vertical Z. The actual product and bond remain unqualified.
-Current vector indices: **left side 0.998500, right side 0.951121, top 0.575366, header 0.586700**.
-The additional scalar peak-sum screen is **1.014932**; both calculations and their unchanged scopes are retained in the matched evaluation. This is not a physical safety margin.
-There are **15 bearing diagnostic rows / eight bolts**; actual Cg and complete connection acceptance remain unresolved.
+The current model contains **1,125 occupied parts, 112 bolts/nuts, 224 washers, 40 metal spacers, 20 sawn members, 24 angles and 66 Hillman axes**; the six wall panels are retained.
+Each cleat remains two nominal **12.7 mm leaves bonded into a 25.4 mm pair**; perimeter strength credits 23.8 mm. PS 1 APA Group 1 sanded plywood, Other category, local-Z strength axis and perfect composite bond remain conditional hypotheses.
+Current vector indices: **left side 0.914625, right side 0.872071, top 0.613288, header 0.577484**. Additional scalar peak-sum: **0.921669**. These are unchanged reference methods, not physical safety margins.
+All **15 bearing diagnostic rows / eight bolts** remain; actual Cg/Cdelta and complete connection acceptance are null. The fresh force-only maximum is **0.638517**, which omits free couples and does not clear those joints.
+Washer load-only mean-pressure index is **0.181365**; preload, local peaks, fit and rigidity remain unqualified. The [method review](owner-frame-v10/packer-free/connection-method-evaluation.json) separates all current subchecks and exact unresolved inputs.
 
-The [selected screw-and-bracket baseline](../../current-candidate.json) retains
-separate authority and remains the viewer's no-query default. This integration
-does not publish the local changes to the hosted site.
+The [selected screw-and-bracket baseline](../../current-candidate.json) retains separate authority and remains the no-query default. No hosted deployment is performed.
 
 ## Active builder reading path
 | Need | Current record |
 | --- | --- |
-| Current model and changed members | [Selected 4×6 evaluation](owner-frame-v10/standard-side-stock-evaluation.json) · [geometry receipt](owner-frame-v10/standard-side-stock/geometry-receipt.json) |
+| Current model and changed members | [Packer-free matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json) |
 | Material, hardware and operation holds | [Preserved C13 readiness](owner-frame-v10/candidate13/packet-13-complete/readiness.json) · [current scope and preserved instructions](builder-plan.md) |
-| Buying list and catalog fit | [Current provisional wood plan](owner-frame-v10/standard-stock-planning.md) · [current planning CSV](owner-frame-v10/buying-list-current.csv) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
+| Buying list and catalog fit | [Current provisional wood plan](owner-frame-v10/standard-stock-planning.md) · [current planning CSV](owner-frame-v10/buying-list-current.csv) · [current nominal spacer mapping](owner-frame-v10/packer-free/hardware-spacer-mapping.json) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
 | Timber/profile planning | [Preserved C13 32-profile cut plan](owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv); not updated 4×6 cutting instructions |
 | Receiver coordinates | [Preserved C13 158-row drill plan](owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv); not updated 4×6 drilling instructions |
-| Own forces and references | [4×6 six-case response bank](owner-frame-v10/standard-side-stock/response-bank.json) · [component review](owner-frame-v10/standard-side-stock/reference-review.json) |
-| All current trial flags | [15 case rows / eight component maxima](owner-frame-v10/standard-side-stock/diagnostic-inventory.json); preserved C13 retains 26/13 below |
-| Applicable methods and remaining work | [Current connection methods and remaining work](owner-frame-v10/standard-side-stock/connection-method-evaluation.json) · [initial physical-row mapping](owner-frame-v10/standard-side-stock/connection-review.json) · [historical deeper-side comparison](owner-frame-v10/standard-top-stock/group-row-comparison-v1.json) · [read-first edge correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) · [corrected C13 completion](owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) · [preserved audit](owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt) · [joint inventory](owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json) · [task ledger](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) |
+| Own forces and references | [Own six-case response bank](owner-frame-v10/packer-free/response-bank.json) · [component review](owner-frame-v10/packer-free/evaluation.json) |
+| All current trial flags | [15 case rows / eight component maxima](owner-frame-v10/packer-free/evaluation.json); preserved C13 retains 26/13 below |
+| Applicable methods and remaining work | [Current connection methods and remaining work](owner-frame-v10/packer-free/connection-method-evaluation.json) · [initial physical-row mapping](owner-frame-v10/standard-side-stock/connection-review.json) · [historical deeper-side comparison](owner-frame-v10/standard-top-stock/group-row-comparison-v1.json) · [read-first edge correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) · [corrected C13 completion](owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) · [preserved audit](owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt) · [joint inventory](owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json) · [task ledger](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) |
 | Provenance and preservation | [Revision index](development-revisions.json) · [portable source mapping](../../site/eoere-v10-candidate13-provenance.json) · [frozen delivery manifest](owner-frame-v10/candidate13/delivery-bundle-13.json) |
 
 The [frozen builder plan](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md)
@@ -103,7 +97,7 @@ no Hillman resistance or force-slip index is qualified.
 
 The [continuation](owner-frame-v10/continuation-evaluation.json) preserves C13 work.
 The active criteria use physical rows/shear planes and complete force/moment transfer.
-Signature 1/n remains diagnostic only. Historical row benchmarks are not transferred; the fresh equal-EA scenario remains conditional;
+Signature 1/n remains diagnostic only. Historical row and equal-EA benchmarks are not transferred as current force/capacity results;
 actual Cg, the cleat three-media factor and complete connection acceptance remain null.
 Panel-screw work is deferred and the agent review loop is suspended.
 
@@ -116,8 +110,8 @@ The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group
 calls for a justified physical-group replacement for 1/n, preserving forces
 and couples. Cross-standard efficiencies are comparisons only. Translating
 an angle cannot fix its internal top-grid pitch; no relocation is adopted.
-All 116 axes have six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.641384; these omit local couples and do not establish complete capacity.
-The current washer mean-pressure index is 0.152000. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
+All 112 axes have fresh six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.638517; these omit local couples and do not establish complete capacity.
+The current washer mean-pressure index is 0.181365. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
 The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
 body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw
 connections, and finite-motion/contact/support applicability. Numerical

@@ -40,7 +40,7 @@ Node is not needed to serve the existing viewer assets.
 
 | Task | Command or reading path | What it establishes |
 | --- | --- | --- |
-| View the current development | `uv run python -m http.server 8767 --bind 127.0.0.1 --directory site`, then the [current local model](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear) | Serves existing assets; no CAD rebuild or structural replay |
+| View the current development | `uv run python -m http.server 8767 --bind 127.0.0.1 --directory site`, then the [current local model](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear) | Serves existing assets; no CAD rebuild or structural replay |
 | Fast portable checks | `node --test tests/*.mjs` and `uv run pytest -q tests/test_test_selection.py tests/test_viewer_mesh_assets.py` | Revision/document routing, preserved overlay contracts, test selection and mesh-sharing contracts |
 | Normal maintained regression | The commands under [Checks](#checks) | The default maintained test selection, lint and CAD smoke check |
 | Historical or recovered replay | The explicit pytest opt-ins under [Checks](#checks), after restoring their inputs | Those named evidence checks; missing inputs still fail |

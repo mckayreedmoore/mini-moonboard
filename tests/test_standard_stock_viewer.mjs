@@ -49,7 +49,7 @@ for (const [name, change] of [
 
 test('the selector adds a distinct choice while preserving the no-query baseline and C13 aliases', () => {
   const html = readFileSync(path.join(site, 'index.html'), 'utf8');
-  assert(html.includes("['"+STANDARD_STOCK_MODEL+"', 'Current standard 4×6 top and sides"));
+  assert(html.includes("['"+STANDARD_STOCK_MODEL+"', 'Preserved standard 4×6 packer frame"));
   assert(html.includes("? requestedModel : 'compact-floor-flush-development'"));
   assert(html.includes('const sceneLoader = standardStock ? loadStandardStockScene : v10 ? loadV10Scene'));
   for (const id of ['eoere-current-frame-development', 'eoere-owner-frame-v10-development']) assert(html.includes("['"+id+"', 'Preserved V10 Candidate 13"));
