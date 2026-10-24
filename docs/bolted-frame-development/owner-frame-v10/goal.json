@@ -1,0 +1,68 @@
+{
+  "schema": "eoere_v10_development_goal/v1",
+  "created_utc": "2026-10-24T07:33:56.615383+00:00",
+  "status": "in_progress_with_permission_blocker",
+  "goal": "Complete a versioned near-same-frame v10 development candidate adding supported extra top-rail angle bolt duties and attempting every numerical exceedance remedy, with matched six-case analysis, geometry/hardware/viewer/BOM/cut/drill evidence and honest readiness.",
+  "owner_authorized": true,
+  "baseline_index": {
+    "path": "docs/bolted-frame-development/development-revisions.json",
+    "sha256": "18b0f442c9125517c88f25314056a22c03cb5f2ec3e4112f77430dc6d0e5a1f3"
+  },
+  "preserve_v9": true,
+  "load_contract": {
+    "weight_lb": 250,
+    "downward_multiplier": 2,
+    "horizontal_force_N": 300,
+    "accessory_mass_kg": 25,
+    "duration_factor_CD": 1
+  },
+  "workstreams": {
+    "geometry": "v10_geometry",
+    "mechanics": "v10_mechanics",
+    "joint_applicability": "v10_joint_review",
+    "integration_viewer_documentation": "coordinator"
+  },
+  "gates": [
+    "Feasible explicit changed-axis and receiver geometry",
+    "Nominal catalog shank/thread/seat/access checks",
+    "Matched own six-case fields and independent replay",
+    "Complete valid numerical reference comparisons and disclosed unresolved qualifications",
+    "Viewer and hardware/cut/drill planning packet",
+    "Source hashes, validators and tests",
+    "Final resolved-versus-open report"
+  ],
+  "fabrication_released": false,
+  "climbing_released": false,
+  "purchases_or_outreach_authorized": false,
+  "updated_utc": "2026-10-24T07:42:52.399467+00:00",
+  "completed_changes": [
+    "Versioned goal and work ownership established",
+    "V10 delivery validator and7focused tests pass",
+    "V10 mechanics adapter draft and9focused tests pass",
+    "V10 planning packet skeleton created",
+    "Eight-port fitting local method draft and9in-memory controls pass",
+    "V10 viewer local draft and4validator contract tests pass"
+  ],
+  "pending": [
+    "First coherent CAD geometry/clearance attempt",
+    "Fitting module deployment denied",
+    "Matched six-case bank and checks not started",
+    "Viewer deployment/export/browser checks denied",
+    "Final BOM/cut/drill rows require frozen geometry"
+  ],
+  "blockers": [
+    {
+      "action": "Write new site/eoere-v10-overlay.mjs, tests/test_eoere_v10_viewer.mjs, scripts/publish_eoere_v10.py",
+      "target": "/home/mckay-linux/repos/mini-moonboard",
+      "outcome": "denied_twice_known_not_executed",
+      "reason": "Automatic approval review did not recognize delegated v10 authorization as trusted supersession of prior proposal-only restriction. No indirect retry or workaround."
+    },
+    {
+      "action": "Write new scripts/eoere_v10_fitting.py",
+      "target": "/home/mckay-linux/repos/mini-moonboard",
+      "outcome": "denied_known_not_executed",
+      "reason": "Automatic approval review cited prior authoritative-repository no-edit restriction. No indirect retry or workaround."
+    }
+  ],
+  "owner_input_pending": "Direct user confirmation of v10 repository edits requested asynchronously."
+}

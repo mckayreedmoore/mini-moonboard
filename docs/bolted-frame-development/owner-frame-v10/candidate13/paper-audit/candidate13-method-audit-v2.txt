@@ -1,0 +1,31 @@
+Candidate 13 paper audit: connection criteria, version 2
+
+The current bearing flags must remain visible, but they are not demonstrated NDS connection failures. They are conservative local reference screens. Conversely, none of this audit establishes a complete connection pass. All fabrication, climbing and structural-acceptance flags remain false.
+
+Primary-method findings
+
+NDS2024 sections11.3.1 and11.3.6 apply applicable adjustment factors, including Cg, to lateral connection design value Z. The row definition requires load alignment; an identical receiver tuple is not that definition. Section11.2.3 requires independent metal design and excludes NDS adjustments from metal strength. The current implementation's receiver-tuple1/n is therefore an explicitly unqualified diagnostic, not an established row factor. Actual unequal FE forces do not automatically waive Cg. Equally, applying1/n to every already-resolved individual pressure cannot be assumed equivalent to the specified group-capacity calculation.
+
+The bearing screen is not unadjusted Fe stress. Its4Ktheta matches Mode-I Rd in Table12.3.1B. But pointwise affine pressure divided by this term is not the complete minimum of applicable yield modes required by12.3.1. The shaft N/M screen uses plastic section d^3/6 with a uniform /4 and diagnostic Cg; a complete code derivation for that combined criterion has not been established. Keep it distinct from independent elastic steel reference .422766. No criterion is deleted or favorably re-factored here.
+
+TR12 provides single-fastener generalized lateral yield methods, including gaps and varying shaft diameters; Z is the minimum mode result divided by the appropriate reduction term. It does not establish that the present prescribed affine pressures and free couples are an equivalent whole-joint yield solution. Its edition is copyright2015, based on2012NDS; current2024NDS controls applicable provisions.
+
+Plywood bearing is a separate material audit from panel net/perimeter strength. TR12 Appendix A supports5600psi for plywood bolts above1/4inch across grades and grain directions. The inherited3150psi transverse assumption is lower; it is a conservative hypothesis, not that table value. The2024NDS small-fastener plywood table applies only through1/4inch. The half-inch APA strength/stiffness audit does not itself validate dowel bearing or perfect bonding. No factor is changed.
+
+Current per-component disposition
+
+All26 above-one case rows/13 components are preserved in the companion JSON with exact fields and geometry hashes. The largest local screen is rear-left bolt2:1.960159 with trialCg .5; its before-Cg reference .980079 still includes4Ktheta. Rear-left1 is1.664395; right1/2 are1.642028/1.933346. These are oblique wood-to-wood single-shear candidates, requiring actual grain/load angles, all yield modes, applicable row/geometry factors and joint-moment/local-splitting checks.
+
+Upper cleat067/070 screens are1.117076/1.023624; before-Cg .558538/.511812. Their three unequal media (plywood25.4, sidewood88.9, steel6.35mm) cannot be treated as symmetric double shear. Preserve combined connection N/M maximum .997005 and separate steel .422766; obtain a compatible multiport yield/interaction treatment, metal plate checks, washer/axial bearing and bond qualification.
+
+Center connection068 is1.001472 with before-Cg .500736. It remains independently open, with actual counterpart identities taken from geometry rather than numeric neighbors. Top extra bolts001-004 are1.281950/1.240537/1.206066/1.246603 using trial .25; header001/004 are1.068057/1.069855. Coupled flanges and actual load-aligned rows must be resolved before any applicable group factor is substituted. Geometry, steel local strength and timber splitting remain independent checks.
+
+Other completed numerical references remain source-bound: top timber vector .931580, side .899491, timber normal .658331, stability .821212 and credited23.8mm plywood perimeter .669241. These do not close connections, screws, adhesive, contact/finite motion or supports. Predicted25.234mm cleat translation and2.220degree center-post rotation require model-applicability review. Screw demand is not screw resistance.
+
+Minimal remaining analysis and explicit blocker
+
+Build the actual receiver/shear-plane/wrench atlas, then calculate every applicable NDS/TR12 yield mode with actual bearing lengths, gap/body/root intervals, load angles and justified main/side designations. Establish group load direction, stiffness areas and full group membership; apply the smallest applicable geometry factor consistently. Check eccentric tension-perpendicular-to-grain, splitting/tear-out/net sections, axial head/nut/washer load transfer and independent metal limit states. Validate physical screw force-slip/resistance, plywood bonds and floor supports. No new global solve is needed merely to audit these equations; changed joint constitutive assumptions would require fresh response evidence.
+
+No new complete Z is reported here: assigning simple shear planes while omitting measured free couples or unequal media would invent the missing applicability. This is a precise method/input blocker, not lack of solver convergence. The companion JSON performs only exact index-times-Cg decomposition and all-case maxima, preserving every diagnostic and all historical files.
+
+Sources: cached primary2024NDS Chapters11/12 (exact hashes in companion JSON); official AWC TR12 https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf . The related group-force atlas is owned by the joint-review worker. No repository files or response fields were modified.

@@ -8,7 +8,9 @@ import {documentsForModel, resolveDocumentPath} from '../site/documentation-link
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const html = readFileSync(path.join(root, 'site/index.html'), 'utf8');
-const index = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
+const currentIndex = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
+// Hosted site contracts retain Candidate13; the current stock preview is local only.
+const index = currentIndex.schema === 'bolted_frame_development_revisions/v16' ? currentIndex.preceding_revision : currentIndex;
 let responseIndex = index;
 while (responseIndex.preceding_revision) responseIndex = responseIndex.preceding_revision;
 let optionalIndex = index;
@@ -93,7 +95,7 @@ test('current and unadopted menus expose their own shop records and response bin
     if ([index.geometry.viewer, optionalIndex.optional_grid.viewer].includes(model)) {
       if (model === optionalIndex.optional_grid.viewer)
         assert.ok(rows.some(r => r.path === responseIndex.current_response.cases.path));
-      else assert.ok(rows.some(r => r.path.endsWith('#current-front-bolt-moves')));
+      else assert.ok(rows.some(r => r.path.endsWith('#current-v10-candidate13')));
       const receipt = model === index.geometry.viewer ? index.geometry.receipt : optionalIndex.optional_grid.receipt;
       assert.ok(rows.some(r => r.path === receipt.path));
       assert.ok(rows.some(r => r.path === 'docs/bolted-frame-development/builder-plan.md'));
@@ -118,10 +120,24 @@ test('loaded viewer status distinguishes completed current cases, optional grid 
     return node.textContent;
   }
   const current = render(index.geometry.viewer), optional = render(optionalIndex.optional_grid.viewer);
-  assert.match(current, /Current 92-bolt frame.*24 angles.*66 Hillman/);
-  assert.match(current, /Lower front bolts at 60 mm; upper at 100 mm/);
-  assert.match(current, /Cleat bolts retain their factory holes/);
-  assert.match(current, /no fabrication or climbing release/);
+  const v9 = render('eoere-owner-frame-v9-development');
+  assert.match(current, /V10 Candidate 13.*116 bolt stacks.*66 Hillman screws/);
+  assert.match(current, /Two glued nominal ½-inch leaves per cleat/);
+  assert.match(current, /Own six 250 lb cases and independent replays recorded/);
+  assert.match(current, /Twenty-six trial bearing flags remain across 13 components/);
+  assert.match(current, /No fabrication or climbing release/);
+  assert.equal(render('eoere-owner-frame-v10-development'), current);
+  assert.match(v9, /Preserved V9 96-bolt frame.*flat cleat sides without tabs or steps/);
+  assert.match(v9, /Own six 250 lb cases replayed; exceeded bolt and top-rail references are deferred/);
+  assert.match(v9, /Two upper bolts at each cleat and each center principal\/header connection/);
+  assert.match(v9, /Heads outside and nuts inside on 40 side\/top stacks/);
+  assert.match(v9, /Eight cleat stacks now use 7½-inch A574 bolts and one 1-inch factory spacer each; 16 spacers total/);
+  assert.match(v9, /Inset angles, timber holes and 66 screws remain/);
+  assert.match(v9, /actual fit and complete joint strength remain unqualified/);
+  assert.match(render('eoere-owner-frame-v8-development'), /Preserved 96-bolt frame.*Eight connected base\/header angles and their 24 shared bolt axes are inset 6 mm/);
+  assert.match(v9, /No fabrication or climbing release/);
+  assert.match(render('eoere-owner-frame-v6-development'), /Preserved 96-bolt frame.*Six 250 lb cases evaluated/);
+  assert.match(render('eoere-owner-frame-v4-development'), /Preserved 92-bolt frame.*24 angles.*66 Hillman/);
   assert.match(render('eoere-owner-frame-v3-development'), /Preserved 92-bolt frame before the lower-front-hole move/);
   const previous = render('eoere-leg-header-frame-development');
   assert.match(previous, /Single-bolt leg joints.*24 angles.*96 bolt stacks/);

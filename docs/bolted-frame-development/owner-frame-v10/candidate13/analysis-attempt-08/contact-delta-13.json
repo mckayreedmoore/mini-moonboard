@@ -1,0 +1,58 @@
+{
+  "schema": "eoere_v10_source_bound_contact_census_delta/v1",
+  "before": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-06/preparation/inputs.json",
+    "sha256": "839c0125f80747fa9dbd7a3a8c44d5bcb47ace25b19ca7e5e123414dd1ac4de1"
+  },
+  "after": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/preparation/inputs.json",
+    "sha256": "376a63de19c7a5e24da94f3b327fab70073acd146a5b8e5ec242c81af6d9c8d4"
+  },
+  "pair_changes": [
+    {
+      "first": "base_side_left",
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "new_x_max": -1219.2,
+      "old_cells": 18,
+      "new_x_min": -1219.2,
+      "new_area_mm2": 35943.987855022184,
+      "old_patches": 1,
+      "old_area_mm2": 34403.37320663055,
+      "bedding_n_mm3": 1.0,
+      "second": "eoere_cleat_left",
+      "new_patches": 1,
+      "new_cells": 75
+    },
+    {
+      "first": "base_side_right",
+      "normal": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "new_x_max": 1216.025,
+      "old_cells": 18,
+      "new_x_min": 1216.025,
+      "new_area_mm2": 35943.98785502217,
+      "old_patches": 1,
+      "old_area_mm2": 34403.373206630575,
+      "bedding_n_mm3": 1.0,
+      "second": "eoere_cleat_right",
+      "new_patches": 1,
+      "new_cells": 75
+    }
+  ],
+  "total_old": 1662,
+  "total_new": 1776,
+  "changed_pair_count": 2,
+  "no_new_owner_pairs": true,
+  "no_panel_pair_count_change": true,
+  "interpretation": "Same two existing side/cleat owner interfaces with larger actual source patches and finer cell decomposition. No11b operators transferred. Physical contact and finite-motion qualification remain open.",
+  "structural_acceptance": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}

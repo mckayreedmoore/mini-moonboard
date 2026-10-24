@@ -1,0 +1,35 @@
+{
+  "schema": "eoere_v10_primary_group_action_scope/v1",
+  "status": "PRIMARY_SCOPE_CONFIRMED_APPLICATION_REQUIRES_LOAD_ROW_CLASSIFICATION",
+  "primary_source": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+    "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33",
+    "pdf_page": 6,
+    "printed_page": 74,
+    "publisher": "American Wood Council",
+    "edition": "2024 NDS",
+    "read_method": "Existing cached pypdf6.21.2 offline; no PDF copied or dependency installed into repository"
+  },
+  "provisions": {
+    "11.3.6.1": "Equation11.3-1 multiplies reference lateral design values for the listed connector types or dowel fasteners D<=1inch in a row. The expressly stated Cg1 exception here is dowel D<1/4inch. No general perpendicular-to-grain Cg1 exception is stated.",
+    "11.3.6.2b": "A dowel row requires at least two same-diameter dowel fasteners in single or multiple shear aligned with the load direction.",
+    "11.3.6.2_staggering": "Merge adjacent staggered rows when their separation is less than one quarter of the closest longitudinal offset between their fasteners; apply pairwise for even row count and conservatively for odd row count.",
+    "11.3.6.3": "Use gross member cross sections. For a perpendicular-to-grain-loaded member, equivalent area is member thickness times overall fastener-group width. If only one row is used, group width is the minimum parallel-to-grain fastener spacing.",
+    "11.3.6C": "Steel side-plate table is PDFpage8/printed76; its stated tabulation conservatism covers D<1inch or spacing<4inch. Exact member EA and row/application conditions remain necessary."
+  },
+  "v10_grid_application": {
+    "top_header_grid_dimensions_mm": [41.275, 50.8],
+    "potential_n_for_principal_aligned_row": 2,
+    "all_four_bolts_automatically_one_row": false,
+    "grain_axis_automatically_load_axis": false,
+    "arbitrary_oblique_force_receives_principal_row_factor": false,
+    "perpendicular_grain_receives_automatic_Cg1": false,
+    "interpretation": "For a compatible principal load direction, a2x2 rectangular grid can have two2-fastener load-aligned rows rather than one4-fastener row. Actual row ownership, load direction, equivalent areas and the staggering rule must be established. Independent bolt forces or an EA lower-bound computation alone do not establish complete connection applicability."
+  },
+  "geometry_or_force_results_changed": false,
+  "structural_acceptance": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "complete_joint_Cg_established": false,
+  "complete_joint_Cdelta_established": false
+}

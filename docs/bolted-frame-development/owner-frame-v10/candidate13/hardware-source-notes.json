@@ -1,0 +1,57 @@
+{
+  "schema": "v10_isolated_hardware_source_notes/v1",
+  "revision": "eoere-strengthened-top-cleat-pairs-v10",
+  "sources": [
+    {
+      "url": "https://boltdepot.com/Product-Details?product=8096",
+      "observed_UTC_date": "2026-10-24",
+      "product": "8096",
+      "diameter_mm": 9.525,
+      "underhead_length_mm": 203.2,
+      "thread_count_per_inch": 16,
+      "minimum_thread_length_mm": 31.75,
+      "head_diameter_mm_range": [13.716, 14.2748],
+      "head_height_mm_range": [9.3472, 9.525],
+      "partially_threaded": true,
+      "material_standard": "ASTM A574",
+      "dimensional_standard": "ASME B18.3",
+      "minimum_smooth_body_published_on_page": false,
+      "stock_delivery_and_actual_part_verified": false
+    },
+    {
+      "repository_path": "docs/bolted-frame-development/owner-frame-v9/hardware-facts.json",
+      "sha256": "7ba6bc079965974d144f1307dfeb724b35d64074cb2b2e9cb4e621a1b8c98608",
+      "reused_scope": "Product8095 7.5inch conservative body144.272mm; washer15023; oneinch13733 and halfinch13731 spacers; Grade8nut2584",
+      "limits": "Published catalog dimensions do not qualify delivered part, spacer resistance, threadrunout or complete connection."
+    }
+  ],
+  "top_post_long_stack": {
+    "axis_ids": ["eoere_bolt_006", "eoere_bolt_009", "eoere_bolt_010", "eoere_bolt_013"],
+    "bolt_product": "8096",
+    "spacer_product": "13733",
+    "nut_product": "2584",
+    "washer_product": "15023",
+    "analytical_minimum_body_mm": 156.972,
+    "analytical_body_floor_qualified": false,
+    "required_body_to_cover_wood_and_steel_mm": 148.6916,
+    "hypothetical_body_margin_mm": 8.2804,
+    "minimum_free_nut_seating_margin_mm": 3.2512,
+    "minimum_two_pitch_tip_margin_mm": 11.684,
+    "readiness": "HOLD body floor, delivered gaging and complete joint qualification"
+  },
+  "new_direct_cleat_stacks": {
+    "count": 4,
+    "bolt_product": "8095",
+    "spacer_products": ["13733", "13731"],
+    "spacer_lengths_mm": [25.4, 12.7],
+    "steel_fitting_in_stack": false,
+    "required_body_to_cover_wood_mm": 129.6416,
+    "conservative_body_margin_mm": 14.6304,
+    "minimum_free_nut_seating_margin_mm": 9.6012,
+    "minimum_two_pitch_tip_margin_mm": 5.334,
+    "readiness": "Nominal dimensional screen only; delivered fit and complete joint qualification HOLD"
+  },
+  "fabrication_released": false,
+  "climbing_released": false,
+  "purchases_or_supplier_contacts_performed": false
+}

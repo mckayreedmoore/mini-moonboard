@@ -150,7 +150,7 @@ Lint excludes immutable launch and search-controller snapshots under
 Maintained analysis code remains linted.
 Ruff 0.16 expands the default rules. Exact source/rule waivers in `ruff.toml`
 preserve issued native and analysis witnesses instead of changing their bytes.
-`tests/frozen-lint-sources.json` pins all 76 waived files and their exact rules;
+`tests/frozen-lint-sources.json` pins all 78 waived files and their exact rules;
 its active test rejects changed source bytes or an unrecorded waiver. Portable
 maintained code and new helpers retain the current defaults. Executable shebang
 files have executable Git modes. The five maintained packet directories are

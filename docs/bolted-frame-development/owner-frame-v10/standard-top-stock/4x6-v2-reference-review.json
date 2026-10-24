@@ -1,0 +1,149 @@
+{
+  "all_declared_numerical_references_below_one": false,
+  "analysis_geometry": {
+    "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/geometry/geometry.json",
+    "sha256": "3bda133ddd3a561fac870ecd5e07ee3205eb69067dd7ecdf86b27685cde00edc"
+  },
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "climbing_released": false,
+  "fabrication_released": false,
+  "field_bindings": {
+    "a1-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a1-rear/field.json",
+      "sha256": "8afa8cf3972ae7e74cb84e7629e9381a78ac904dee5715473600c87d6b1201e0"
+    },
+    "a12-forward": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-forward/field.json",
+      "sha256": "6de1372c35af9e145f148a60b2932134a833a9c462c17d92521bda894134d63c"
+    },
+    "a12-left": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-left/field.json",
+      "sha256": "ccb4e955fd76491dc92b378135b0c10b24f28cb89f99cc31651f3e749e9eb7fa"
+    },
+    "a12-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-rear/field.json",
+      "sha256": "1ee777f021bc3229fd78c01526d5254f2482851d447c371c011b1aef5e96875c"
+    },
+    "k12-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/k12-rear/field.json",
+      "sha256": "1e753937fc7ec26c9a335a5258e01a18800894337e922a5d00706c848bac087e"
+    },
+    "k12-right": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/k12-right/field.json",
+      "sha256": "41f248c51bbe83a239726e141961f03befa4d0c7912f37358e8bbf8ea569def9"
+    }
+  },
+  "geometry_revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "numerical_reference_maxima": {
+    "cleat_actual_perimeter_rows": {
+      "above_reference": false,
+      "axes": [
+        "cleat_post_bolt_left_1",
+        "eoere_bolt_067"
+      ],
+      "case_id": "a12-forward",
+      "component": "eoere_cleat_left",
+      "index": 0.6611691380259221,
+      "wall_mm": 23.8,
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/cleat_actual_perimeter_rows.json",
+        "sha256": "b9ef408c52d47609a100de8645d5ef6300f9db15f13695c23f1380ee702e24ff"
+      }
+    },
+    "direct_elastic_steel": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.421501720472701,
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/direct_elastic_steel.json",
+        "sha256": "d91237f61de4d2f08968bb557b1afe51adc4332e99cd9115509a874a4ad03a82"
+      }
+    },
+    "reduced_connection_axial_bending": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.9944178774153133,
+      "individual_reference_before_Cg": 0.49720893870765664,
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/reduced_connection_axial_bending.json",
+        "sha256": "cc4bb439965b99eb959b5bfd13a920ff3fbaf9ff703f6e2033566fc2d41f0616"
+      }
+    },
+    "timber_net_shear_torsion": {
+      "above_reference": false,
+      "case_id": "a12-rear",
+      "component": "base_side_left",
+      "index": 0.8865468367110361,
+      "metric": "maximum_shear_torsion_reference_upper",
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/timber_net_shear_torsion.json",
+        "sha256": "bc4726c0c6f50eac54c0ce3b8fa9ff6793f2c184490e01bdf9954e300a23206c"
+      }
+    },
+    "timber_normal_and_stability": {
+      "above_reference": false,
+      "case_id": "a12-left",
+      "component": "lumber_leg_left",
+      "index": 0.8031784593344755,
+      "metric": "maximum_declared_restraint_normal_reference_upper",
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/timber_normal_and_stability.json",
+        "sha256": "c80ccf484b3e99b514e446434edfafdaa17561c659bf65eb52915a43c1570ae1"
+      }
+    },
+    "wood_bearing_whole_affine": {
+      "Cg": 0.5,
+      "above_reference": true,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "index": 1.9867105132239167,
+      "individual_reference_before_Cg": 0.9933552566119583,
+      "worksheet": {
+        "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/references-v1/wood_bearing_whole_affine.json",
+        "sha256": "10579865c849d4bb73aa15431fa36632a1bf99f8832f61df639a8d475407cced"
+      }
+    }
+  },
+  "physical_geometry": {
+    "path": "fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/analysis-receipt.json",
+    "sha256": "0b8fd199d012381308d5a7ce8a579195da6b1297a5b2de8647d30a9651ddcabf"
+  },
+  "producer": {
+    "path": "scripts/eoere_v10_checks.py",
+    "sha256": "d3cfb82f2bdf417bba8a06edbe64e990214a1238ed882856ace731b67c315a2c"
+  },
+  "response_bank": {
+    "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/response-bank.json",
+    "sha256": "9a885d4dbfe5ef54fbb0d598e3c30d7d0d7233af67d75b39695b6ccdea066736"
+  },
+  "schema": "eoere_v10_reference_review/v1",
+  "structural_acceptance": false,
+  "unresolved_qualifications": [
+    "Complete oblique end/edge/group applicability and local splitting",
+    "Compatible three-dimensional loaded-hole and fitting stress behavior",
+    "Actual Hillman screw force-slip, combined resistance and panel head/edge duties",
+    "Physical adhesive bond and actual plywood assembly properties",
+    "No-slip floor support, finite-motion/contact and delivered hardware assumptions"
+  ]
+}

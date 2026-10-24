@@ -1,0 +1,49 @@
+{
+  "schema": "eoere_v10_shop_planning_readiness/v1",
+  "candidate_revision": null,
+  "stage": "waiting_for_frozen_geometry",
+  "baseline_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v9/geometry.json",
+    "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+  },
+  "v10_geometry": null,
+  "v10_response_bank": null,
+  "v10_component_review": null,
+  "status": "PLANNING_ONLY_HOLD",
+  "catalog_stock_or_local_availability_verified": false,
+  "actual_stock_hardware_floor_tools_observed": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "operations": {
+    "buy": "Inspect existing materials and obtain reversible availability information only; revised structural BOM not frozen. No purchases authorized by task.",
+    "cut": "HOLD. Preserve uncut stock and rear-leg end allowance.",
+    "drill": "HOLD. CAD envelope/axis coordinates are planning data, not drill-bit or drilling instructions.",
+    "assemble": "HOLD permanent structural assembly/bonding/committed tightening. Inventory and unloaded layout only.",
+    "climb": "HOLD. No release."
+  },
+  "open_physical_qualifications": [
+    "Exact Hillman42605 combined withdrawal/lateral stiffness and resistance, head pull-through and plywood edge behavior",
+    "Actual glued cleat process and complete bonded load path",
+    "Four-host no-slip floor/support applicability, uplift/yaw/finite-motion behavior",
+    "Delivered bolt body/thread/runout, seats, washer/spacer behavior and tool access",
+    "Applicable complete oblique/end/edge/group/splitting and loaded-hole criteria"
+  ],
+  "actual_fields_must_remain_blank": true,
+  "source_bindings": {
+    "baseline_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v9/geometry.json",
+      "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+    },
+    "baseline_builder_plan": {
+      "path": "docs/bolted-frame-development/builder-plan.md",
+      "sha256": "d6ae9494634b90d58356b08152baf095f0d1c8b492352b74796f4ba02bb9a7e8"
+    }
+  },
+  "notes": [
+    "The baseline is reused as evidence and starting geometry, not transferred acceptance.",
+    "Final CSV counts and coordinates are populated only after the candidate geometry is frozen.",
+    "No fabrication or climbing safety certification is supplied."
+  ],
+  "geometry_revision": null,
+  "structural_acceptance": false
+}

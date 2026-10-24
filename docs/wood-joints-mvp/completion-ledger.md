@@ -5184,6 +5184,1996 @@ producer/evidence stay active with the frozen fields; nothing is pruned or
 archived. The arithmetic audit is complete. The bonded-cleat and broader
 current-frame strength questions remain governed by the engineering review.
 
+<a id="current-single-spacer-stacks"></a>
+**Owner-directed shorter bolts and single factory spacers, implemented.**
+Current geometry `eoere-single-spacer-cleat-stacks-v9` replaces each of eight
+8-inch ASTM A574 cleat bolts and three half-inch spacers with a **7½-inch
+3/8-16 A574 socket-cap bolt and one 1-inch factory steel spacer**. The stacks
+are `eoere_bolt_067/070/071/074` and `cleat_post_bolt_left/right_1/2`.
+The [current receipt](../bolted-frame-development/owner-frame-v9/geometry.json),
+[hardware selections](../bolted-frame-development/owner-frame-v9/hardware-selection.csv)
+and [viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)
+contain the change. All forty exterior stacks still face inward, and the eight
+inset angles, 96 bolt axes, member/cleat outlines, timber holes, six panels,
+32 passages and all 66 Hillman screws remain fixed.
+
+This removes **16 separate spacer pieces**: total spacers fall from 32 to 16,
+and occupied parts from 1,037 to 1,021. Bolts/nuts remain 96, washers 192,
+angles 24, sawn members 20 and plywood leaves four. The other eight remaining
+spacers are the existing single half-inch header spacers. The other 88 bolt
+selections remain byte-identical data. Heads, both washers and wood/steel
+bearing contacts do not move. The shaft shortens 12.7 mm, the replacement
+spacer envelope is 25.4 mm long, and each nut moves 12.7 mm toward the wood.
+The nominal tip projection stays 17.907 mm. No member, bore or fitting is rebuilt.
+
+The [catalog facts](../bolted-frame-development/owner-frame-v9/hardware-facts.json)
+bind [Bolt Depot 8095](https://boltdepot.com/Product-Details?product=8095) and
+the [13733 factory spacer](https://boltdepot.com/Spacers_Zinc_plated_steel_13_32),
+with the retained Grade 8 nut and specified USS washers. The listed bolt body
+minimum is 5.69 inches; the analysis uses a lower 5.68 inches, **144.272 mm**.
+This covers the nominal wood/steel support span with **8.2804 mm** margin.
+Free nut seating margins are **5.2832 mm nominal / 3.2512 mm with minimum USS
+washer thickness**, and the minimum-length two-pitch projection margin is
+**11.684 mm**. These are dimensional references, not delivered measurements.
+The combined conservative clamped wood/plate reference is **130.0988–141.6304 mm**;
+the separately recorded **145.034 mm** upper bound concerns tip projection only.
+All other delivered body/runout, washer/spacer, nut and actual-fit requirements
+remain. Actual/Disposition cells stay blank.
+
+The [7-inch product 8094](https://boltdepot.com/Product-Details?product=8094)
+lists a 5.19-inch body floor; it leaves **4.1656 mm of steel** beyond the
+guaranteed smooth body. The 6½-inch option enters the wood. A smaller ¾-inch
+spacer on the selected 7½-inch bolt fails the conservative free-seating check.
+The implemented combination therefore removes the multiple pieces while
+preserving smooth-body support through both wood and steel among these
+catalogued options. No old length-specific body formula or unlisted steel
+capacity is transferred. Stripe Directory was unavailable due to expired
+saved authentication; public primary catalogs supplied the facts. No account,
+order, payment, physical fabrication or message to a supplier is performed.
+
+The [frozen parameters](../bolted-frame-development/owner-frame-v9/candidate-parameters.json)
+bind eight before/after axes and selections, 24 part transforms and 16 removed
+parts. The [mechanics input delta](../bolted-frame-development/owner-frame-v9/mechanics-input-delta.json)
+adds actual CAD volume, centroid and bounds for each changed/removed body.
+Changed metal gravity and nut capture offsets require their own applicability
+comparison or matching response; v8 force/strength passes do not transfer.
+Engineering and bracing owners consume this same cumulative v9 and preserve
+the completed v8 bank as comparison. Exceeded/unresolved references remain
+recorded for later resolution, without blocking this bounded geometry work or
+relaxing acceptance. The owner's 2.0 body-weight basis remains unchanged.
+The [budget delta](../bolted-frame-development/builder-plan.md#latest-hardware-budget)
+retains its source and purchasing limits.
+
+The frozen raw geometry is `frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json`,
+SHA-256 `7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109`;
+clearance is `geometry/clearance.json`, SHA-256
+`f0f158ec397c41d8fbb49f30334ea1b68c1af043711720700e6ecdfa17e34996`.
+The public receipt is SHA-256
+`29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef`.
+The existing exact occupied-part method checks all 24 changed bodies against
+the complete 1,021-part registry and finds no collision or missing candidate;
+unchanged pairs reuse v8 clearance. The small viewer patch transforms existing
+shaft/spacer/nut meshes and removes the sixteen redundant pieces. No duplicate
+mesh bytes or installations are added. Commands:
+
+```sh
+uv run python -m scripts.eoere_single_spacer_basis
+uv run python -m scripts.eoere_single_spacer_stacks build
+uv run python -m scripts.eoere_single_spacer_stacks publish
+```
+
+The new raw geometry, frozen producers, dimensional checks and browser receipts
+stay active under `frame-completion-v1/owner-single-spacer-stacks-v9/`; all v8,
+v7 and earlier viewer/evidence dependencies remain active. No archive, pruning,
+mesh materialization or native mechanics is performed by this publication.
+No fabrication or climbing release follows. Model/viewer implementation is
+complete: **314 Node tests**, **24 focused Python controls** (including four
+independent body/seating/thickness checks), maintained Ruff and both mesh
+checks pass, with 13,618 shared aliases. Real Chromium verifies the preserved
+1,037-part v8 and current 1,021-part v9, all 96 inspection choices, every one
+of the eight six-piece cleat stacks, all 24 changed CAD/affine bounds, all 16
+removed pieces and 997 unchanged geometries. All forty nuts remain inward.
+Five captures include bolt 070, a lower cleat and a retained header stack;
+there are no page or request errors. The clearance includes 48 exact queries.
+
+Seven tracked records total 332,843 bytes; the transform-only scene is 32,085
+bytes. The parameter/selection and exact volume/centroid deltas are retained
+for the engineering applicability comparison; no mesh bytes are duplicated.
+The source snapshots, command/tool results and browser binding are in
+`model-viewer-checks-v1/validation.json`, SHA-256
+`67df1f3394ae5a6209a1f3b41401fa340c5711cbec9602f7221663382beda460`.
+Python 3.12.3 / CadQuery 2.8.0 / NumPy 2.5.2 and the existing Chromium installation
+are reused. A complete Python-suite pass is not claimed. Current engineering
+and bracing comparison remains active with its owners; all geometry, browser
+and retained historical dependencies stay active. Nothing is archived or pruned.
+
+<a id="current-v10-catalog-buying-list"></a>
+**V10 full buying list checked against current catalogs.** The owner's request
+to check V10 parts and update the full buying list is recorded in the
+[readable list](../bolted-frame-development/owner-frame-v10/buying-list.md),
+[34-line CSV](../bolted-frame-development/owner-frame-v10/buying-list.csv) and
+[catalog check](../bolted-frame-development/owner-frame-v10/catalog-check.json).
+The latest owner-directed standard 4×6 planning geometry is source-bound to
+`4x6/geometry-v2/geometry.json` SHA
+`8b27fbd4cf06378077bc7b5ac7702390634710b2e3a44606318eb0c677da1bbe`
+and `purchase-proposal/4x6-v2/hardware-recipe.json` SHA
+`33dc377024474b178435331e083beef74f1af0c99a94322f47ce738953efb294`,
+both under `fea/generated/v10-standard-top-stock-v1/`. It is distinct from
+the preserved Candidate 13 current-viewer packet and its 60 spacers.
+
+All 116 axis records reconcile to **116 bolts, 116 nuts, 232 washers and
+44 spacers: 24 one-inch and 20 half-inch**. The 24 Eoere angles and 66 purchased
+Hillman screws remain separate. Exactly sixteen 367 bolts become G0341148
+and sixteen 13733 spacers are removed; other hardware SKU counts match the
+frozen Candidate 13 BOM. Eight blank header spacer SKUs are translated to
+13731 using their recorded 12.7 mm pieces in the retained family. This changes
+the buying translation only. The legacy top-level V10 header-only CSVs and
+all frozen geometry, recipes, imported packets and manifests remain untouched.
+
+October 24 primary supplier pages confirm fifteen fastener/spacer SKU
+identities, listed dimensions/grades and catalog price observations. Direct
+nut, washer and spacer links replace the buying workflow's missing or
+bolt-only source links. Economical bags plus singles give **$359.85** for
+these fifteen lines, before owned inventory credit, tax and freight. This
+excludes angles, timber, plywood, screws, adhesive, hold/LED/pad equipment
+and tools. ZIP 84601 stock, delivery and checkout totals remain unverified.
+Stripe Directory setup was attempted first; the CLI lacked its plugin and
+installation was blocked by expired saved authentication. Public primary
+catalog pages supplied the lookup; no account change, contact or purchase.
+
+The exact envelope audit finds **60** 363/366 head-height gaps: catalog
+maximum 6.1722 mm versus the recorded 6.0 mm scenario. **Twenty washer pieces**
+also exceed recorded envelopes. Twelve 15025 washers allow OD 35.052 mm and
+thickness 3.3528 mm versus 34.925 / 3.175. Eight 15023 washers on the four
+`rail_front_bolt_{left,right}_{1,2}` stacks allow 26.162 / 2.6416 mm versus
+25.4 / 2.032. These are catalog/model-envelope gaps, not observed collisions.
+No nominal clearance pass is transferred to catalog-max or delivered parts.
+
+The four front 8092 bolts publish minimum smooth body **106.426 mm** versus
+the current last wood face **129.6416 mm** using the catalog maximum washer;
+the guaranteed floor ends **23.2156 mm** before that face. This does not by
+itself establish a strength failure. Retain applicable threaded wood-bearing
+treatment; full smooth-body coverage is not established. Product 8095's
+published 144.526 mm body floor is above the retained 144.272 mm analysis
+floor. The 8096 and Zoro pages do not supply a minimum smooth-body guarantee.
+The sixteen changed beam stacks retain the modeled 4.1656 mm threaded-wood
+and 6.35 mm threaded-steel spans. Catalog fit, nominal shaft stiffness and
+piecewise root strength remain distinct. Mixed source `minimum_length_mm`
+conventions are documented; stack-required lengths are not treated as
+supplier minimum delivered lengths.
+
+A bounding-stock allocation covers all **22 sawn members with 13 boards**:
+five 2×6×8 ft, three 2×6×10 ft, two 4×6×8 ft, one 4×6×10 ft and two 4×8×10 ft,
+about 175⅓ nominal board feet. It includes 25.4 mm each-end and 3.175 mm
+per-member kerf allowances, retains the raw blank or larger vertex length,
+and assigns both packers from the top-board remainder. It is not a released
+cutting sequence or a guarantee of usable grade. The current Lowe's
+100565 / 151980 dry No. 2-or-better Douglas-fir 4×8 lead provides dimensional
+room for the 88.9 × 152.4 mm sides; finished grade remains unverified. Dry
+DF-L 4×6 sourcing is still open: the checked Lowe's lead is green and Home
+Depot 603783 supplies dimensions but only generic “fir” and no supported dry
+designation. The old discontinued 2×6×10 link is replaced by 1000571227.
+
+The cleat-plywood dimensional lead is two Home Depot 00114 nominal half-inch
+23.75-inch-square BC sanded Douglas-fir project panels, yielding two leaf
+blanks each; PS 1 APA Group 1 Other, strength axis and measured 11.9 mm
+minimum remain unverified. Purchased face plywood retains its unresolved
+3.953-foot listing-width conflict. The full list includes existing screws,
+conditional Loctite 1390595 with unresolved spread/tube count, 142 selected
+T-nut locations and 426 conditional retention-screw roles, four Moon hold-bolt
+kit allowances, hold-specific screws, owned holds/LEDs/pads and tool inventory.
+The current LED catalog has 200 bulbs; it does not identify or replace the
+owner's retained three 50-light strings. No generic half-inch plywood,
+adhesive or screw property is silently credited.
+
+The catalog report SHA is
+`feaf3716870b3c0f3951dab504ad0ee97579c56929e59b645276338bdfd6aa60`;
+the CSV SHA is
+`f72fe8456f41a2eda6d1953f511fed4fb7021604a90b7f5d2c1e62afe0345cc6`.
+Detailed observations, executable inventory replay, stock allocation and
+per-axis checks stay in the existing ignored
+`fea/generated/v10-catalog-buying-list-v1/` packet. The public report retains
+about 66 kB of supplier facts, exact affected axes and source bindings; the
+CSV about 23 kB. These remain active with all current and historical source
+dependencies; nothing is archived or pruned. Actual/Disposition cells remain
+blank. This task performs no CAD/native solve, geometry change, staging,
+commit or purchase. Final validation SHA
+`ebef717d6fa2a1b1af21a7b06d3d48865d8da4a074b085962316783eac353c85`
+rechecks the source bindings, 116 per-axis selections, stock allocation and
+price arithmetic. Independent review confirms all fifteen SKU totals, exact
+per-axis sets, purchase coverage, blank observations and seven local links.
+The affected Node suites pass **445/445**, development authority and patch
+whitespace pass, and the frozen producer passes syntax/import lint
+`E4,E7,E9,F`. An optional full style check reports one SIM401 preference in
+that ignored executed snapshot; its bytes remain preserved, with the
+diagnostic and commands recorded in `final-validation.json`. No maintained
+application code changed. All catalog/model fit gaps remain explicit and
+no full-envelope, connection or physical-operation acceptance is established.
+
+<a id="current-v10-candidate13"></a>
+<a id="current-v10-owner-selected-standard-4x6"></a>
+<a id="current-v10-standard-top-and-sides"></a>
+**Current matched candidate: standard nominal 4×6 top and both sides.**
+The [owner decision](../bolted-frame-development/owner-frame-v10/owner-standard-side-4x6-v1.json)
+is implemented in **`v10-standard-4x6-top-and-sides-development-v1`**: all three sections are
+actual **88.9 × 139.7 mm**. The [matched evaluation](../bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json)
+binds fresh finished solids, 30 side bore-core checks, zero nominal collisions,
+all six cases and both independent replays, net sections, 116 stack grips,
+rear-joint end/edge/spacing and clearance. Maximum gradient is 4.505646e-6
+against unchanged 1e-5. External loads, material values and CD are unchanged;
+actual side self-weight is recomputed from the smaller solids.
+Declared vector section maxima: left **0.9985001243**, right **0.9511211008**,
+top **0.5753664568**, header **0.5867002389**. The additional scalar peak-sum
+screen reaches **1.0149317282**. Both use identical fields/properties; the
+historically adopted vector method is unchanged. Neither establishes a physical margin.
+Fresh diagnostics retain **15 case rows / eight bolts**, bearing maximum
+**1.9869528264**. No old side index or force-bound group benchmark was transferred.
+The [connection mapping](../bolted-frame-development/owner-frame-v10/standard-side-stock/connection-review.json)
+retains 228 case/axis rows, 312 signed plane wrenches and 540 receiver actions.
+All twelve new 068/069 case rows act away from the near edge. Oblique/eccentric,
+full force-and-moment, splitting and actual group/row checks remain unresolved;
+actual Cg/Cdelta and complete acceptance stay null. Rear center spacing is
+67.322723 mm, along-grain projection 60.028537 mm; actual row classification remains open.
+Fourteen cleat grips remain 114.3 mm. Both custom 177.8 × 139.6 × 50.8 mm
+solid packers remain unapproved; lengths around 2539.8 mm remain provisional.
+Hardware quantities are unchanged; product-400 conditional body floor is
+corrected to 72.644 mm without qualifying delivered parts. Panel-screw resistance
+is deferred, review loop suspended, and all physical/release holds remain.
+Historical geometry, failed runs, the initial registry-count draft and the additive
+path-key audit correction are preserved. Active raw runs and immutable producers
+remain in `fea/generated/v10-standard-side-stock-v1/`; no pruning/archive occurred.
+Only compact receipts, bank, review, diagnostic and connection summaries are added
+to the maintained packet; CAD, force fields and detailed wrenches remain ignored.
+Final development/source checks and **478 affected Node tests pass**. The nine
+vector-bound tests, eleven export tests, nine loader tests and twelve results-status
+checks are retained with their individual evidence. Mesh verification passes:
+6,823 retained files and 13,618 aliases. Whitespace passes; the current local
+viewer returns HTTP 200. Final reproducible check commands and bindings are in
+`fea/generated/v10-standard-side-stock-v1/final-validation.json`. The compact
+tracked addition is about 149 kB; detailed CAD/force outputs remain ignored.
+No staging, commit, push, purchase or physical release is performed.
+
+The owner standard-stock procurement handoff is consumed in the
+[current provisional wood plan](../bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
+and [33-line planning CSV](../bolted-frame-development/owner-frame-v10/buying-list-current.csv).
+The exact owner text and independent dimensional recheck are preserved with
+[source bindings](../bolted-frame-development/owner-frame-v10/standard-stock-planning/source-bindings.json).
+All 22 members fit 13 boards: five 2×6×8 ft, three 2×6×10 ft, two 4×6×8 ft
+and three 4×6×10 ft, before usable owned-stock credit. End trim and kerf are
+included. The old two-4×8 side-stock allocation is superseded; the original
+catalog markdown/CSV/report remain byte-exact historical sources. Packers
+require solid-stock milling, not bonded buildup. Existing face plywood is
+measured/reconciled before replacement buying. The source's earlier pending
+analysis wording does not supersede the completed current matched bank.
+The accepted group handoff is not queued or calculated again by this update.
+
+The owner also authorizes a software/evidence Git checkpoint and normal push
+to configured origin on master. Scoped independent reviews found one stale
+C13 viewer label, corrected to preserved, and no engineering/source blocker
+for checkpointing incomplete development evidence. The complete-joint holds
+remain. About 7.46 MB of new compact evidence/code retains the historical
+mesh/receipt/source chain; ignored CAD, operators, force banks, environments
+and temporary materialized aliases are excluded. The unselected
+`scripts/eoere_v10_geometry.py` draft stays untracked and unchanged.
+Two issued source adapters retain exact hash/rule lint waivers; their tests
+retain normal lint. Imported CRLF records and two paper EOF witnesses are
+preserved through exact-path attributes. No history or source hash is rewritten.
+The checkpoint uses `[skip ci]` because successful hosted CI automatically
+publishes Pages; this owner request authorizes a push, not a deployment.
+Local checks pass: **509 viewer/document tests**, **291 focused Python tests**
+covering all 24 newly checkpointed Python test modules plus source-waiver
+and test-selection controls (eight configured recovered-evidence cases
+deselected), scoped Ruff, CadQuery smoke, current development/source bindings,
+57 preserved C13 roots, 6,823 retained mesh files and 13,618 aliases. Secret
+pattern checks found no hits across the staged set. The broader default run
+was intentionally stopped in unchanged CadQuery geometry after **3,961 passes
+and 514 configured deselections in 841.43 seconds**; it is not reported as a
+completed full-suite pass. Focused checks and existing authenticated engineering
+evidence are sufficient for this incomplete-development checkpoint; no new
+CAD/global analysis or acceptance is derived from these software tests.
+The initial broad lint run included the excluded untracked geometry draft;
+checkpoint lint explicitly excludes that unchanged, unselected file. Exact
+staged-byte and whitespace checks pass. Commands, file hashes and logs are
+retained in the existing ignored standard-side packet's `git-checkpoint/`
+folder. These checks remain separate from engineering qualification. No purchase, outreach, privacy change, force push,
+merge or physical release is authorized by the checkpoint.
+
+The prior deeper-side selection and its benchmarks below retain historical scope.
+
+**Current owner decision: standard 4×6 development candidate selected.**
+The [source-backed owner decision](../bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.json)
+selects **`v10-standard-top-4x6-stock-proposal-v2`**, standard nominal 4×6
+top rail, actual **88.9 × 139.7 mm**, going forward. Fresh `analysis-v4`
+contains six admitted cases and both replays per case; the matched review
+supports top conditional index **0.573098**. All **15 bearing diagnostic rows
+across eight bolts remain**, with signature 1/n not adopted as NDS Cg.
+Actual row/group and top spacing, complete force-and-moment connection,
+splitting/tear-out/net section, fitting/hardware and physical screw/bond/
+material/support/contact checks remain open. Screw-resistance work remains
+deferred under the existing owner scope. This is development selection only:
+no purchase, fabrication, climbing or structural release, and no approval
+of other nonstandard members. Failed 2×6 probes and Candidate 13's intermediate
+top geometry, forces, packet and viewer remain preserved with their own limits.
+The separate hardware queue message `01a16efc-b059-7e53-9ed5-273e46f81417`
+is not duplicated or restarted by this selection.
+The JSON and readable owner record are copied byte-identically. Seven selection
+bindings, the authority checker, whitespace and **461 affected tests** pass.
+No geometry rebuild or force rerun was needed to record this decision.
+
+The completed isolated [group-effects comparison](../bolted-frame-development/owner-frame-v10/standard-top-stock/group-row-comparison-v1.json)
+and its producer are copied byte-identically and bound to this selected
+geometry and `analysis-v4` bank/review. Rear aligned-row gross-EA benchmark
+**Cg = 0.999773** and four header principal-row/gross-steel-strip benchmarks
+**0.996557–0.998182** differ from receiver-signature 0.5/0.25. They remain
+conditional examples, not adopted connection factors or passes. The exact
+helper was already bound by the slip audit: its six controls and Caltrans
+0.980632 result are reused. Three source hashes and the five saved factor
+values were verified without repeating the completed formula study or a solve.
+
+The [active connection criteria](../bolted-frame-development/owner-frame-v10/standard-top-stock/active-connection-criteria.json)
+replace signature 1/n as an acceptance rule with applicable physical
+row/shear-plane/group, complete signed force/moment and local failure checks.
+All eight flagged-component dispositions remain **UNRESOLVED**; all 15
+historical diagnostic rows remain intact. Actual Cg/Cdelta, complete capacity
+and the cleat three-media factor remain null. Other axes are not cleared by
+having no legacy flag. Neither complete double counting nor no overlap is
+established; FE gross EA/foundations do not demonstrate calibrated NDS serial-row
+redistribution. Effective fitting EA, slip/clearance, oblique grain, couples,
+splitting and fitting transfer remain open. Signed actions, the load contract,
+owner selection and release holds are unchanged. Existing workers were informed;
+no hardware queue, row study or general review loop was restarted.
+The integration verifies all ten active-criteria bindings; **467 affected
+tests**, the development checker and whitespace pass. No actual factor or
+connection pass is inferred from those software checks.
+
+**Prior owner stock constraint and completed comparison.** The
+[owner constraint](../bolted-frame-development/owner-frame-v10/top-rail-standard-stock-owner-constraint-v1.txt)
+supersedes Candidate 13's intermediate 50.8 × 139.7 mm top as a purchase
+design. Evaluate standard actual **38.1 × 139.7 mm first**; if unresolved
+exceedances remain, evaluate standard actual **88.9 × 139.7 mm**. Keep the
+other Candidate 13 inputs fixed unless an actual incompatibility is found.
+The [fresh stock evaluation](../bolted-frame-development/owner-frame-v10/standard-top-stock-evaluation.json)
+rejects the 2×6 with the current 116-bolt approach: top net shear/torsion is
+**1.258045 in k12-right and 1.073734 in a12-forward**. Both fresh cases pass
+the unchanged convergence gate and both independent replays. Checked geometry
+v2 has 1,151 occupied parts, 116 bolts, 44 spacers and 66 panel-screw axes.
+The 4×6 geometry, hardware, backing and matched forces are complete within
+the conditional scope below; four unneeded 2×6 cases were not run after this
+rejection. The 0.931580 Candidate 13 section
+result was not transferred. The rejected first geometry and incorrect initial
+material preparation remain recoverable under `fea/generated/v10-standard-top-stock-v1/`.
+The Candidate 13 integration and continuation below retain their
+own recorded scope and remain preserved history. Panel-screw work remains
+deferred, the review loop is suspended, and the overall completion goal is active.
+
+The revised standard 4×6 geometry now clears all **1,151 occupied parts**,
+with 116 bolts, 44 spacers and 66 screws. Six-inch top-beam bolts were rejected
+for twelve shaft/spacer collisions; the current model reuses the existing
+4¾-inch Grade 5 / USS-washer / no-spacer stack and preserves its threaded wood
+and steel portions for fresh checks. Two center panel-screw axes and their
+conditional apertures move 50.8 mm to retain timber backing. The
+[local preview](http://127.0.0.1:8780/fea/generated/v10-standard-top-stock-v1/viewer-proposal/preview-v3.html?model=eoere-standard-top-4x6-preview&view=rear&holds=off)
+passes its loader and focused browser checks; the current alias stays on C13.
+Its additive v3 status binds the current bank/review/inventory, records the
+six completed cases and 15/8 trial census, and passes eleven status/source
+checks plus live HTTP validation. The frozen v2 meshes/transforms remain exact.
+All six fresh `analysis-v4` cases and both independent replays are admitted:
+maximum residual **3.581892e-6** against the unchanged 1e-5 gate. The top-rail
+net shear/torsion reference is **0.573098**, header **0.579042**, side maximum
+**0.886547**, normal/stability **0.803178**, direct elastic steel **0.421502**
+and 23.8 mm cleat perimeter **0.661169**. The legacy N/M diagnostic is 0.994418;
+it is not a physical safety margin. The current inventory retains **15 trial
+bearing rows / eight components**, maximum **1.986711**, with all independent
+reference families below one. Original C13's 26/13 inventory remains unchanged.
+
+Two restored 5 mm circular contact faces required a bounded in-plane grid
+orientation fallback; original clipping, area/centroid checks, occupancy,
+stiffness rules and tolerances remain. Earlier failed preparation attempts and
+source snapshots are retained. The final gravity audit uses the bound 9.80665
+m/s² parameter; case loads were not lowered or changed by that audit correction.
+All six cases ran concurrently under the original parent-held mutex in about
+146 seconds wall time, using at most 891,748 kB per worker. Nominal shaft
+stiffness remains the inherited assumption; piecewise body/root resistance
+references do not qualify delivered shaft stiffness or loaded-hole behavior.
+
+The source-bound current atlas has 156 axis/case rows, 180 signed plane
+wrenches and 336 receiver force/free-couple records. Its 132 six-mode lateral
+scenarios reach 0.641094 for rear wood/wood, 0.230302 at 068, and 0.148599 for
+the added top beam bolts under explicit unadopted material hypotheses. All
+complete-wrench/group/interaction capacities remain null. New 068/069 net
+forces point away from the near edge in all twelve current rows; the optional
+both-edges 4D screen is not an established near-edge violation. Actual
+oblique/eccentric/splitting checks remain open. The 4×6 Table D perpendicular
+endpoint requires 47.625 mm versus the fixed 41.275 mm pitch; actual oblique
+applicability remains unresolved. No Cg/Cdelta is adopted or waived.
+
+The [catalog/buying review](../bolted-frame-development/owner-frame-v10/catalog-check.json)
+identifies 60 head and 20 washer envelopes smaller than published maxima.
+A separate catalog-maximum envelope sensitivity now passes: all 110 affected
+hardware IDs were checked against the 1,151-part bank, with zero collisions
+or missing candidates. Its clearance SHA is
+`0503505cc397378483b60633005e37b4ec84ab667367ec29e27a689a31b1489c`.
+This occupied-envelope check does not change the nominal geometry or force
+bank, qualify delivered parts, or transfer strength to the sensitivity.
+The planning list and exact source/part inventory remain separate from release.
+
+The owner-directed parallel hardware audit reuses the completed catalog work.
+Its common context authenticates `v10-standard-top-4x6-stock-proposal-v2`
+against the receipt, recipe and matched six-case bank: 116 bolts, 116 nuts,
+232 washers, 44 spacers and 24 angles. The handoff's 50.8 mm top is superseded.
+Existing worker `v10_package_map` owns bolt/body/thread/runout coverage;
+`v10_geometry_applicability` owns stackup/seating/access;
+`v10_connection_method` owns factory angle dimensions/material/holes;
+the parent owns consolidated dispositions and final revision verification.
+Research workers write only under the existing ignored catalog packet's
+`hardware-audit-v2/` directories. No duplicate catalog/pricing campaign,
+geometry alteration, purchase, supplier outreach or general review loop is
+authorized by this audit. Actual/Disposition observation cells remain blank.
+
+Those three assigned audits and the parent consolidation are now complete
+within their evidence scope. The [consolidated dispositions](../bolted-frame-development/owner-frame-v10/hardware-audit-dispositions.json)
+and [16-line CSV](../bolted-frame-development/owner-frame-v10/hardware-audit-dispositions.csv)
+retain the verified 4×6 revision: 116 axes, eight bolt SKUs, 270 physical
+wood/steel bearing intervals, 116 nuts, 232 washers, 44 spacers and 24 angles.
+Four SKU lines are HOLD and twelve provisional; BUY_SPEC_SETTLED describes
+nominal designation only and does not authorize an order. Product 400's two
+rear-foot modeled body floors are 72.898 mm versus conditional cap-screw
+minimum 72.644 mm; a stronger source guarantee or separately adopted reference
+reassessment is needed. Generic hex-bolt labeling does not establish that
+exact cap-screw type/edition. Products 8092/8095 have direct published minimum
+body support; other body/runout and delivered-fit qualifications remain.
+
+The four 8096 stack BReps show 17.907 mm shaft projection beyond the nut,
+versus stale 11.557 mm metadata. This is recorded without changing frozen
+geometry. All 116 catalog-maximum two-pitch arithmetic rows are nonnegative
+(2.032–16.1075 mm) under nominal bolt/spacer/grip inputs; this does not bound
+delivered stacks or establish full engagement. Spacer dimensions/material/
+compression, angle dimensions/material/contact and tool approach/removal
+evidence remain open. No actual hardware was inspected. Historical SKU 367
+has zero current quantity; the old source packet is unchanged. The separate
+hardware queue was completed once, with no new review loop, purchase, outreach,
+CAD/native/global run, geometry change or physical release.
+Parent validation verifies 79 distinct hardware source bindings, all sixteen
+disposition rows and blank Actual/Disposition observation cells; the
+consolidation producer's syntax/import lint passes. Small consolidated public
+records link the ignored detailed audits; source-page images and raw rows
+remain active in the existing catalog packet, with no archive or pruning.
+
+The current rear-bolt full-wrench construction covers all four bolts in all
+six cases. Its lateral bearing maximum is **0.821632**, but eight of 24
+constructed bending comparisons exceed the generic 45 ksi/divisor-5 reference;
+the sufficient bending index reaches **1.230337**. A separate, stricter
+elastic von Mises/divisor-5 envelope exceeds on ten rows, maximum **2.171633**.
+These are sufficient material-reference bounds, not adopted whole-connection
+criteria or demonstrated physical failures. They do not alter the retained
+15/8 diagnostic inventory or the separate direct elastic steel result.
+Actual Grade 5 bending-yield strength and root/body geometry remain unqualified.
+The construction includes saved axial captures once and preserves the full
+shaft wrench within 3.0e-8 N and 9.0e-7 Nmm. Its result SHA is
+`8731fc762a4f1dd766b66d63ca8ab177eab592840b9742f9f65ea257356c4f3a`.
+
+The bounded group-slip audit finds no calibrated mapping from the current
+gapped FE foundation/shaft law to NDS gamma. Six pure row-formula controls
+pass; their passing result does not establish actual row alignment or Cg.
+The report records the exact missing load-slip, EA and row/wrench mapping.
+No new global run, bolt-size change, favorable factor or geometry adoption
+follows from these method references. Panel-screw resistance remains deferred.
+
+The primary-clause resolution is complete within its stated question: NDS
+supports individual oblique bearing inputs, but the reviewed provisions do
+not supply an oblique Table D interpolation, angular alignment tolerance,
+or automatic substitution of resolved FE forces for Cg. The four top groups
+are bound across all six cases; center-group resultants are 3.57–23.97° from
+perpendicular. NDS 11.1.1.3 permits a demonstrated alternative method; a
+validated full group/wrench mapping remains missing. An across-grain two-bolt
+subset clears ideal Table D endpoints only and is not an adopted remedy.
+The bolt-axis origin is not a center of resistance; no half-thickness datum
+offset is treated as a new geometry failure. The report preserves all
+current 15/8 and historical 26/13 trial flags and the 068/069 correction.
+
+Affected software validation passes: **444 development-contract tests**,
+the development checker, both mesh checks (13,618 shared URLs), and whitespace.
+These validate software and source claims; complete connection capacity and
+structural/fabrication/climbing acceptance remain open. Raw method fields and
+rejected attempts stay active in the existing ignored packet; no archive or
+pruning is performed.
+
+**Candidate 13 V10 development integration and continued engineering.** The
+owner supplied the completed isolated package and directly selected both
+remaining engineering work and repository development/viewer integration.
+The development index now selects `eoere-candidate13-side-depth-v10`; its
+entire V14/V9 predecessor and the selected screw-and-bracket baseline remain
+separate. This is development selection, not structural or fabrication acceptance.
+
+The source package is
+`/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated`.
+The eight quoted main deliverable hashes match. Independent source checks
+also verify all 29 delivery artifacts, 19 additive paper artifacts, 74 direct
+paper-audit bindings, preparation bindings and case/replay records. The
+[portable provenance map](../../site/eoere-v10-candidate13-provenance.json),
+SHA `de8a8b3581e2bd808d866a10b8e7cf63e0815d21ca2b98d7244eaa2c931418e4`,
+maps 57 roots without changing the frozen source bytes or internal paths.
+Six large JSON files use deterministic gzip; decoded hashes are rechecked.
+The roots occupy **3,050,008 bytes**, versus 10,761,028 original bytes.
+No manuals, dependency installations or unchanged STL meshes are duplicated.
+
+The [current viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)
+and explicit `eoere-owner-frame-v10-development` route use the original
+compressed Candidate 13 patch, SHA
+`32abbcfcd2552d3df189ea35ab8c1c49d738f447e0dca5d1596eae310766b99f`,
+decoded SHA `9fe54709a8b0d7c0d980b2a783da3377d63175f3c11ee9c3c7b3eeb5a6d08001`.
+Its 150 replacements and 146 additions compose with the canonical V9 scene;
+871 V9 parts are retained. The preserved V9 route is now explicitly
+`eoere-owner-frame-v9-development`. Hosted publication is not performed here.
+
+Candidate 13 has 1,167 occupied parts, 116 bolt stacks, 24 angles, 22 sawn
+members, four nominal 12.7 mm plywood leaves, six wall panels and 66 Hillman
+screws. Two leaves are assumed perfectly bonded per cleat; nominal pair
+25.4 mm and credited wall 23.8 mm replace V9's separate ¾-inch-leaf basis.
+The [layout](../bolted-frame-development/owner-frame-v10/layout.md) and
+[conditional packet](../bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/readiness.json)
+explain larger actual stock dimensions, modified axes and all operation holds.
+Existing early V10 drafts in `owner-frame-v10/` and `scripts/eoere_v10_*`
+are preserved; they are not substituted for the imported final package.
+
+The bank retains six 250 lb × 2.0 downward / 300 N horizontal cases, 25 kg
+accessories and CD = 1. All six and both replays are admitted, with maximum
+residual 2.713029e-6 below 1e-5. Source verification does not establish a
+physical demand bound. All **26 bearing-trial case rows / 13 components**
+remain. Neither the trial 1/n signature grouping nor its 0.997005 N/M
+diagnostic is a complete NDS connection criterion or physical safety margin.
+The independent elastic steel screen is 0.422766. No actual Cg/Cdelta or
+favorable material adjustment is adopted by integration.
+
+| Work | Current disposition |
+| --- | --- |
+| Source import and development authority | Portable 57-root copy/check publisher and V15 authority contract implemented; all original trial flags and paper null factors are checked. Selected baseline and historical receipts are retained. |
+| Viewer and planning routes | Browser checks pass for preserved V9, explicit V10 and the current alias. Both V10 routes have all 116 individually selectable stacks; every complete-stack description and all 16 portable evidence routes were checked. No page errors or failed requests. Hosted publication was not performed. |
+| Connection interpretation | The [continuation evaluation](../bolted-frame-development/owner-frame-v10/continuation-evaluation.json) binds 84 six-mode force-only scenarios and 24 moment-preserving rear-bolt constructions to the unchanged fields. Full wrench/group, mixed-media, coupled-header, splitting and fitting acceptance remain open. No 1/n waiver or adoption is used. |
+| Geometry applicability | The owner's [center-principal correction](../bolted-frame-development/owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) and [completion index V3](../bolted-frame-development/owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) control earlier summaries: 068/069 net actions point away from the near edge in all six cases. Idealized perpendicular-resultant near-unloaded 1.5D/opposite-loaded 4D distances clear. Both-edges 4D is an optional conservative envelope, not an established NDS violation. Local pressure reversal does not automatically change that classification. Actual oblique/eccentric/splitting and top-grid Table D checks remain unresolved; no geometry remedy or Cdelta is adopted. |
+| Physical inputs | The owner deferred panel-screw exceedances and further screw work; the completed generic screen is retained without clearance. Delivered hardware and support/contact evidence remain open. Adhesive research was handled entirely by a subagent; its conditional product choice does not qualify the plywood leaf bond. |
+
+The owner's [group and relocation handoff](../bolted-frame-development/owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt),
+SHA `33a30a857b35b854d0244c7451d013d3702d80bba9105915d2fe60f4143a2bb5`,
+is retained unchanged and linked in the viewer. A replacement for signature
+1/n must establish physical groups/shear planes and applicable load sharing,
+preserve individual forces and moments, and cover splitting, tear-out, net
+sections, fittings and axial actions. No NDS/EC5/CWC factor is borrowed across
+design bases. The top factory pitch remains 41.275 mm after any rigid angle
+translation; a new orientation/pattern is a changed design. Principal moves
+must respect both receivers, and rear-pair changes affect moment arms and
+unequal sharing. No relocation, new steel drilling or favorable factor is adopted.
+
+**Continuation calculations, scope and remaining decisions.** The source-bound
+[continuation evaluation](../bolted-frame-development/owner-frame-v10/continuation-evaluation.json),
+SHA `e1125a2473ae8c2a54f2976ad81bc193a2a6a4c9408f24a336ff549210be146a`,
+adds numerical work without changing geometry, forces or the 26 original flags.
+It reuses `fea/dowel_yield.py`, the existing NDS material/reduction helper and
+`scripts/eoere_mixed_stack_yield.py` continuous shaft integration. No global
+force bank, native solve, material adjustment or CAD revision was generated.
+
+All six TR12 single-shear modes were calculated for **24 rear wood/wood rows**
+using the recorded body/root/thread geometry and the separately declared
+generic TR12 45 ksi Fyb scenario. A further **60 wood/steel rows** use the
+existing, unadopted Fu = 370 MPa hypothesis and TR12 Fes = 1.5 Fu. These are
+conditional force-only reference scenarios before actual connection
+adjustments. Actual candidate steel Fe, product Fyb, complete interaction,
+group and geometry acceptance remain null/unqualified. The full saved wrench
+is referenced for every row; it is not replaced by its net lateral force.
+
+| Component | Retained 1/n diagnostic maximum | New force-only scenario maximum | Remaining connection duty |
+| --- | ---: | ---: | --- |
+| 067 | 1.117076 | — | Unequal plywood/wood/steel; full mixed-media interaction |
+| 068 | 1.001472 | 0.232604 | Couples, physical group, oblique/splitting and qualified material basis; corrected idealized edge screen clears |
+| 070 | 1.023624 | — | Unequal plywood/wood/steel; full mixed-media interaction |
+| Rear left 1 | 1.664395 | 0.564630 | Full wrench/pair group, actual section/material and wood modes |
+| Rear left 2 | 1.960159 | 0.638161 | Same; local free couple retained |
+| Rear right 1 | 1.642028 | 0.557718 | Full wrench/pair group, actual section/material and wood modes |
+| Rear right 2 | 1.933346 | 0.630147 | Same; local free couple retained |
+| Header 001 | 1.068057 | — | Coupled steel-port/shear-plane mapping and shared-header interaction |
+| Header 004 | 1.069855 | — | Same; no symmetric double-shear substitution |
+| Top 001 | 1.281950 | 0.143135 | Couples, group, plate/wood transfer and actual row/spacing applicability |
+| Top 002 | 1.240537 | 0.137998 | Same |
+| Top 003 | 1.206066 | 0.134145 | Same |
+| Top 004 | 1.246603 | 0.139162 | Same |
+
+The two numerical columns answer different questions; the smaller new ratios
+do not demonstrate a stronger physical frame or clear the old trial records.
+The rear force-only maximum is 0.638161 in a12-rear; the wood/steel scenario
+maximum is 0.232604 at 068 in a12-forward. The focused controls pass **18 tests**,
+including the TR12 six-mode known answer, main/side swap, conditional exposure
+and unsupported/missing-input behavior. The synthetic double-shear control is
+not applied to the unequal candidate stacks.
+
+The rear calculation separately constructs two constant pressure cells per
+wood interval, preserving both force and couple in **all four rear bolts × six
+cases**. Maximum force/moment closure errors are 6.60e-9 N / 6.37e-7 Nmm.
+The ungrouped nominal-D/G = 0.50 `/5` bearing-reference maximum is **0.811172**;
+the retained signature-factor sensitivity is 1.622345. Continuously bounded
+shaft bending reaches **25.5892 kNmm**. Its **374.771 MPa** Fyb threshold is
+sufficient for this constructed field at constant nominal 12.7 mm diameter,
+not a necessary minimum property of the joint or an actual root-section pass.
+The known-answer, pure-couple and continuous-bound controls are recorded. A
+pure couple has zero scalar F/Z but nonzero bearing/bending, so scalar yield
+ratios cannot settle the complete wrench. Pressure redistribution here is a
+statics construction, not a newly solved compatible contact field.
+
+The geometry audit authenticates 22 source bindings and reproduces 54 nearest
+end occurrences. The 42 square-lumber occurrences yield **252 signed cases:
+124 toward-end, 57 away and 71 near zero**. Their full 4D principal compression/
+perpendicular markers and 3.5D softwood-tension minima clear; full 7D tension
+markers do not. The 2018 Commentary interpolation remains historical sensitivity
+only, with one partial value 0.982177788; no current Cdelta is adopted.
+All 12 principal 068/069 actions are net-away. Their idealized near-unloaded
+1.5D/opposite-loaded 4D screen clears; endpoint reversal does not change it.
+Each top grid retains 41.275 × 50.8 mm pitch and the sole 50.8 mm wood span:
+the principal perpendicular Table D trial needs 43.65625 mm, short by 2.38125 mm.
+Actual oblique rows/group application and attached-steel spacing remain open.
+
+The next engineering decisions are the justified physical group/wrench
+assessment and actual top-row applicability. Do not add bolts, enlarge stock,
+or move angles merely to erase the unsupported diagnostic. If an applicable
+top spacing failure is established, a compatible factory orientation/pattern
+requires its own fit/load-path/wood checks and a matched changed-input bank;
+whole-angle translation cannot change pitch. Use historical rejected layouts
+only within their original geometry/material limits. Physical bolt/plate,
+local wood, bond and contact/support qualifications remain distinct.
+
+The adhesive subagent selected standard tan **Loctite PL Premium 1390595**,
+Home Depot SKU 223222, as a conditional planning basis. The target bond is
+**plywood-to-plywood between the two 12.7 mm leaves**; frame attachment remains
+through-bolted. The manufacturer's lumber-to-plywood test data is adjacent
+evidence. Its 24-hour mechanical support and 24–48-hour cure at 25°C/50% RH
+do not supply a cleat face-spread/clamp schedule, design allowable, creep or
+perfect-bond stiffness. No purchase, material substitution or bond acceptance
+is inferred. The exact product/TDS/source identities are in the continuation.
+
+The owner suspended the agent review loop after the existing independent
+rounds; no further review rounds were scheduled. The implemented findings
+were stale inherited washer descriptions, the two rear-leg menu examples
+that hid individual `_2` entries, and the active correction/ledger routes.
+The successful browser result is
+`fea/generated/v10-candidate13-integration-v1/browser-v2/result.json`, SHA
+`92671c08527b9c199b780d3f62867df88dc0615897fa0c56371ca76194aaca01`;
+browser-v1 retains its reproduced 114-versus-116 menu failure. The continuation
+lists exact source hashes, commands and Python/NumPy versions for all new
+local calculations. Bulky case rows and prototypes remain in the active
+ignored workspace; do not prune them without the repository archive workflow.
+
+Geometry-only `current_response_computed=false`, the frozen readiness
+`FULL_ANALYSIS_PENDING` field and the isolated viewer non-selection label are
+retained as stage metadata. The later response bank/final mechanics join
+explicitly binds Candidate 13, including its two analytical perfectly bonded
+25.4 mm cleat hosts corresponding to four physical 12.7 mm leaves. Those
+labels do not prove a stale bank and do not establish current acceptance.
+Historical execution denials are preserved in the source package; the owner's
+current direct integration authorization is a separate later instruction.
+
+Raw response/operator banks and CAD remain in the original isolated package;
+the portable Git-only check does not claim to recover or re-solve them. The
+existing ignored `fea/generated/v10-candidate13-integration-v1/` packet retains
+integration proposals, source checks and validation. Its pre-integration
+source snapshot preserves the exact V9 index/checker/test bytes referenced by
+the preceding testing audit. All V10/V9 source dependencies and failed
+candidates remain active and recoverable. No archive, prune, shared staging,
+commit, new global/native solve, CAD rebuild or physical operation is performed.
+
+<a id="current-v9-response-bank"></a>
+**Current v9 response and corrected bolt geometry review complete.** The latest
+`eoere-single-spacer-cleat-stacks-v9` geometry has its own
+[six-case response bank](../bolted-frame-development/owner-frame-v9/response-bank.json),
+SHA-256 `5d60147d538afffef08444b489f69a96f5f539edd2a0004fbaf07cb8f0481579`,
+and [bolt geometry review](../bolted-frame-development/owner-frame-v9/bolt-geometry-review.json),
+SHA-256 `346368577c40c281ba5d06410c3fe6392abf30496e457b023ea0f0b4f2824f9d`.
+Both are bound by the maintained revision index to the exact current receipt.
+All six cases converge and pass independent full-frame and plywood-operator
+replays. Maximum generalized residual is **3.750705595884085×10⁻⁶ N**, below
+the unchanged **1×10⁻⁵ N** admission gate. Convergence supplies no strength or
+complete-joint acceptance.
+
+The load contract remains **250 lb**, **2.0 downward** (2,224.11080763025 N),
+300 N horizontal action, self-weight, a 25 kg accessory and CD = 1. The model
+contains 148 analytical bodies, 9,390 DOFs, 96 shafts, 112 wood-bearing walls,
+24 fittings/96 ports, six panels, 66 screw springs, 32 compression-only floor
+normals and 16 declared fixed-XY components at four hosts. Both corners retain
+**two glued nominal 19.05 mm leaves, 38.1 mm per analytical pair**. Perfect
+bond, the uniform 139.7 mm beam approximation, generic Hillman stiffness,
+nominal metal-role gravity and the no-slip floor remain unqualified scenarios.
+Actual stock, adhesive, hardware and floor observations remain blank.
+
+The completed v8 bank is preserved as a distinct baseline, not relabeled.
+Its [own manifest](../bolted-frame-development/owner-frame-v8/response-bank.json)
+is SHA-256 `9556349a9421dde771fb4fdc42bc5218ca925d0dc4d0e5542659e5bb7c38723e`.
+The v9 comparison at `owner-single-spacer-stacks-v9/analysis-v1/numerical-input-comparison.json`
+records eight shortened shaft domains, eight nut capture-plane moves of
+**−12.7 mm**, and changed metal gravity/centroids and case loads. Current
+nominal metal mass decreases **0.21745646385 kg**; independent summation of
+each case's applied loads confirms **2.13251943122 N** less downward gravity.
+Wood, holes, physical washer supports, fittings, panels, screws, floor inputs,
+material properties and the climber load recipe are unchanged. No response
+equivalence was claimed; these changed numerical inputs justify the one fresh
+v9 bank. No additional weight campaign, member enlargement or new solver
+method was introduced.
+
+The current checker evaluates each current host wrench, reconstructing its
+affine pressure from force and first moment. Every case contains **326
+canonical same-host pairs**, including 274 relationships omitted by the first
+whole-receiver-set grouping. All complete geometry factors remain null.
+Oblique loads, reversals, diagonal row applicability and complete ligaments
+remain unresolved; no invented factor or historical pass is applied. Actual
+upper-pair pitch is **50.8 mm**, with **32.653611 mm** grain projection. Current
+near-edge distances are **30.056008 mm** in the sloping sides, **33.704295 mm**
+in the center principals and **45.6875 mm** in the cleats; the center header's
+opposite edge is **38.45 mm**. These measurements are not a complete NDS joint
+verdict. The owner defers exceeded and unresolved duties to
+[the current component/bracing record](#current-v9-component-bracing-review).
+
+Reproduction uses `scripts.eoere_v9_analysis prepare` followed by its six case
+actions, with explicit receipt/physical hashes from the current geometry
+receipt. The wrapper reuses pinned v8/v6 methods and holds the existing shared
+run lock; every output is fresh-only. The read-only `scripts.eoere_response_bank`
+indexes the admitted fields, and `scripts.eoere_latest_bolt_geometry_review
+--analysis-module v9` computes the placement review from those own fields.
+The bank records Python/CadQuery/NumPy/SciPy versions and rehashes **1,521
+active source pins**. Prepared readiness SHA-256 is
+`2cf6da046594ab46d6ffa755afa1ebae7f2cd8f5538027468c3a4d94c90512c5`.
+Independent JSON/hash audits confirm all 96 current axes, eight exact hardware
+changes, counts, material, loads, floor law and direct BRep bindings.
+
+One inherited geometry-provenance pin for `scripts/eoere_builder_layout.py`
+differs from its historical hash. The attachment-axis check imports that
+module without invoking its old layout generator; current preparation binds
+current geometry/BReps directly. Active source hashes match. The audit records
+the exact old/current hashes rather than claiming full historical reconstruction.
+The A574 gravity roles retain the existing nominal solid-hex-head approximation;
+their v7 centroid discrepancy from socket-head CAD reaches 0.646358 mm. No
+exact CAD metal-gravity or delivered-shank claim is made.
+
+The 7,755,089-byte detailed placement review, six source/operator bundles,
+producer snapshots and logs stay ignored under the current v9 analysis packet;
+the 195,367-byte public placement record exposes case totals and source joins.
+The initial report-publication attempt computed all six cases but attempted to
+hash its full record before writing it. Its source/log are retained under the
+v8 `checks/bolt-report-attempt-v1`; the corrected writer and latest-wrapper
+publication control bind lineage before hashing. The earlier v8-only angle
+study and failed v8 receipt preflight remain recoverable method evidence.
+Current v9 and preceding v8 raw banks stay active for their recorded consumers;
+no archive, pruning, shared staging, commit or physical release is performed.
+
+The parent closure record is at
+`owner-single-spacer-stacks-v9/analysis-v1/checks/final-engineering-validation-v1/validation.json`,
+SHA-256 `41d6487acbefc87c40f6d516191ea5967449d5af04f400eba52dc4adf8f128c5`.
+It records **322 Node tests**, **154 focused Python tests**, maintained Ruff,
+current authority/document checks and `git diff --check` passing, with the
+current viewer/component validation manifests joined. Post-consumer audits
+rehash all **1,521 bank** and **76 placement-review** active sources unchanged.
+The 24 owned new checker/analysis source, test and compact-report files total
+**806,190 bytes**; separate immutable input versions retain their own reports
+while numerical helpers and unchanged meshes are reused. Closed preflight and
+publication-error snapshots are future archive candidates after consumer
+clearance; current banks and their supporting sources remain active. No
+additional analysis or redesign is required to close this scoped task; the
+recorded exceeded and unresolved duties remain deferred without a release.
+
+<a id="current-v9-testing-audit"></a>
+**Current v9 testing audit: reasonable numerical verification, incomplete physical validation.**
+The owner requested an evaluation of the testing, mistakes, and what to address
+next and how. Three independent reviewers covered calculation correctness,
+test coverage and evidence architecture. Their review targets the current
+96-bolt v9 bank and its consumers; no historical frame pass transfers.
+No new response bank, CAD rebuild, geometry remedy or physical test is performed.
+
+The saved results are internally consistent. Independent reductions reproduce
+all **65 published shaft, cleat and member maxima**, all component exceedance
+lists, **8,562 complete timber intervals**, and **72 bracing ratios**. All six
+saved source inputs equal their own prepared inputs with the correct selected
+case; direct summation retains 250 lb × 2.0 downward and 300 N horizontal action.
+All **1,521 active bank pins** match. The two actual plywood certificates in
+each case identify distinct left/right 24-DOF hosts, with maximum entry error
+**5.820766091346741e-11**, below the issued 1e-6 gate. Independent steel-interval
+recalculation covers 5,589 intervals with discrepancies below 2.3e-16 in index;
+cleat pressure reintegration closes force/first moment within 2.73e-12.
+These checks verify the implemented equations and data, not actual failure loads.
+
+The reproducible read-only audit is in
+`owner-single-spacer-stacks-v9/analysis-v1/checks/testing-reasonableness-v1/`:
+`audit.py` and `result.json`, SHA-256
+`3ace2e1b1c6e90fb2232cdd0f51532fe7a40e018e5314b7392dbe9d1f5d79a9b`.
+The observed revision index and load-helper bytes are retained there. Run its
+script with `uv run python -B -c 'import runpy; runpy.run_path(PATH, run_name="__main__")'`
+from the repository root, substituting that complete audit-script path and
+using a fresh output packet. Its recorded source/input hashes define this audit;
+later index changes do not revise the frozen result.
+
+| Confirmed finding | Effect on current results | Disposition |
+| --- | --- | --- |
+| The fast checker accepted component/bracing summaries with false load/result claims after their index hashes were updated. | The actual issued summaries have the correct load contract and false release flags; no wrong current result was found. | Added maintained semantic validators and mutation controls for own fields, sources, maxima, disclosed exceeded maxima, and all 72 bracing probes. Complete nonworst exceedance disclosure is checked against recovered raw worksheets, not inferred from compact maxima. |
+| Replay consumers accepted any two plywood-check records without checking their members, errors or material. | All six actual certificates pass the stronger check. | Added `scripts/eoere_replay_certificate.py` and the maintained `scripts/eoere_current_reference_review_v3.py` intake. It authenticates the expected producer and field-derived launcher, member/DOF maps, exact field/material joins, unchanged-operator flags and the original error gate before output. Frozen producers/reports remain preserved. |
+| The angle-dependent bearing formula is not necessarily maximal at affine interval endpoints. A known-answer interval with both endpoints at 0.99 reaches 1.015003 inside. | Independent 1,001-station scans found no missed interior maximum in this v9 bank. The subsequent whole-interval enclosure gives maximum **1.2475719181035054**, agreeing with the original 1.247571918100385 within its stated numerical allowance. | The joint-method owner added `scripts/eoere_bearing_envelope.py` with the crossing/interior regression and whole-affine subinterval bounds. The current recheck is `reference-review-v1/joint-followup-v1/bearing-envelope-01/result.json`, SHA `693fb2ee6440956830b0aa4647f2348a588ea72d5cbc35483795b7c34e947348`. Use the superseding method for changed actions; old worksheet bytes remain preserved. |
+| The preparation chain calls `scripts/eoere_load_parameters.py` without including it in its frozen method/source roster. | Current prepared forces and all six own field inputs independently match the recorded recipe. The audit does not establish the helper bytes at historical execution time. | Preserve the observed helper snapshot; bind and snapshot this imported dependency in the next fresh preparation. Do not retrofit the old provenance map or rerun a bank merely to add a pin. |
+| The legacy elastic steel index includes the wood-connection group factor. | Reclassifying the same steel-only comparison gives maximum **0.9246850884**, with no above-one steel-only rows. This does not replace the **1.370057** reduced lateral-connection reference or clear wood bearing/geometry. | Keep direct steel and NDS lateral connection criteria separately typed. [NDS 2024 §11.2.3](hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf), PDF p.3, excludes NDS adjustment factors from metal-controlled strength; §11.3.6 separately applies Cg to lateral Z. No blanket Cg waiver is adopted. |
+
+The [criterion-scope follow-up](../bolted-frame-development/owner-frame-v9/criterion-scope-review.json),
+SHA `d4d93b343a40f26c3d6d93bb915e822d8d8ba2d5645f2c1f870c8ffa12e5933e`,
+preserves these distinctions. It also finds an alternative admissible section
+traction below **0.374308** for all 20 Bernstein controls of the five flagged
+top intervals. Thus the existing **1.169225** top reference depends on its
+prismatic allocation; it is not a demonstrated unavoidable section failure.
+The alternative supplies no compatible three-dimensional field, free-side-face
+or brittle/joint proof and does not replace that reference. The Hillman demand
+atlas retains all 396 simultaneous screw/case points: peak withdrawal
+**1,487.144 N** occurs with **636.504 N lateral action** at the same upper-left
+screw/case. These are required actions, not qualified product capacities.
+
+The current demand model still needs engineering attention. V9 timber operator
+nodes reach **37.197801 mm translation** and **3.905356 degrees rotation**;
+these are analytical diagnostics, not measured wall/bolt movement or an adopted
+movement-limit failure. They warrant checking finite-motion and contact/load-path
+applicability before treating the left rail's **0.999631** as useful physical
+reserve. Identical 1,000 N/mm Hillman axial/lateral springs, absent strength caps,
+2 N/mm³ panel foundation, perfect glue bond and the uniform 139.7 mm cleat beam
+can change load sharing. Smaller residuals or more bookkeeping tests do not
+establish those inputs. The four-host no-slip floor remains the recorded
+assumption; no floor test or anchor requirement is introduced.
+
+| Priority | What to address | How to resolve it |
+| --- | --- | --- |
+| 1 | Applicable bolt criteria and complete placement | Separate direct steel, wood bearing, lateral yield and group/local brittle checks. Use each receiver's signed simultaneous forces and actual body/root windows. Resolve oblique end/edge/row applicability without inventing Cdelta or removing Cg wholesale. Correct the affine-bearing interval maximization before using changed actions. |
+| 2 | Top-corner loaded-hole and torque transfer | Reuse the five flagged top intervals and their complete forces/couples. Distinguish a failure of the present prismatic allocation from an unavoidable section failure. A different statically admissible stress field alone does not establish compatible three-dimensional deformation, free boundaries, splitting or joint capacity. Validate any local method on known-answer controls before a costly joint solve. |
+| 3 | Existing panel/screw and glue assumptions | Establish separate force-slip and resistance inputs for the actual Hillman 42605 screw, penetration, countersink, plywood and receivers; cover withdrawal, lateral action, head pull-through and edge/splitting duties together. Specify a supported glue/plywood assembly if composite action is credited. Replace generic inputs only with supported values, then check how demand sharing changes. Do not divide stresses by bracing stiffness ratios. |
+| 4 | Minimal remedies for confirmed remaining flags | Compare bearing length/thickness and bolt load-entry/lever-arm changes at the governing joints first. Check any extra bolt or changed diameter against factory holes, edge/spacing, net wood, complete joint transfer and purchased shank/nut windows. Recalculate changed inputs; adopt no remedy from the old forces alone. |
+
+The stronger guards pass **400 Node tests**, **257 focused Python tests including
+current recovered-evidence controls**, and maintained Ruff. Three independent
+review rounds finish with no substantial findings; the bearing enclosure also
+receives a separate independent mathematical review. All 1,521 bank and 76
+placement-review source pins still match. This audit packet's
+`closure-validation.json` SHA is
+`b83258cefc800a3ee1422ab6f4f142c8e20fb46e8bff35c80f3f11cf7bfa80ef`;
+`commands.json` retains exact test arguments and installed package versions.
+The four new maintained helper/test files total **27,340 bytes**; detailed
+evidence and logs stay ignored. Current v9 fields, certificates,
+worksheets and preceding dependencies remain active. Failed method attempts
+remain recoverable; no archive, pruning, staging or commit occurs here. This
+audit supplies no fabrication or climbing release.
+
+<a id="current-inward-angles"></a>
+**Cumulative current model: inward bolt stacks and inset base/header angles.**
+The owner directs that parallel active work converge on the latest model.
+Current geometry `eoere-inward-bolts-and-angles-v8` retains all 40 exterior
+stacks reversed in v7 and adds the separately owner-requested angle adjustment.
+The [current receipt](../bolted-frame-development/owner-frame-v8/geometry.json)
+binds the exact geometry and clearance. The
+[current viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)
+loads that cumulative revision. The [coordination record](#current-agent-coordination)
+identifies the remaining engineering/bracing and cost owners. No work is
+silently relabeled from an older revision.
+
+Eight connected base/header factory angles and all 24 shared bolt axes move
+6 mm in world Y toward the interior. Shared-axis closure moves the connected
+under-header fittings together; factory holes are not redrilled. Thirteen
+timber/plywood receivers have updated bores, with their stock, datums, grain,
+outer outlines and other cuts retained. The source-bound CAD producer restores
+78 old computational bore walls before recutting all 78 current walls; it
+checks radius-aware containment. This is a design for fresh stock, not a
+physical hole-filling or repair instruction. All 66 Hillman descriptors,
+six panels and 32 LED passages remain. The 40 inward bolt orientations,
+all 96 hardware selection rows, grades, nominal lengths, washers and spacers
+remain exactly those of v7. Quantities remain 20 sawn members, four leaves,
+24 angles, 96 stacks/nuts, 192 washers, 32 spacers and 1,037 occupied parts.
+
+[24 axis/eight fitting updates](../bolted-frame-development/owner-frame-v8/axis-updates.json),
+[13 receiver profiles](../bolted-frame-development/owner-frame-v8/member-updates.json),
+[78 bore rows](../bolted-frame-development/owner-frame-v8/receiver-updates.csv)
+and the [layout](../bolted-frame-development/owner-frame-v8/layout.md) supersede
+the affected older coordinates. The exact occupied-part method covers all
+173 changed bodies against the complete assembly and returns no collision
+or missing candidate. Unchanged pairs reuse v7 clearance. The viewer replaces
+only the 13 receiver meshes and translates the 152 existing hardware and eight
+angle meshes; all other meshes and historical choices remain shared.
+
+The frozen CAD is `frame-completion-v1/owner-inward-angles-v8/geometry/geometry.json`,
+SHA-256 `6dd5c7d9ce54c7d409e7ebfed0c321c46d57b68a1a8fa97527667a90bd49ebb9`;
+its clearance is `geometry/clearance.json`, SHA-256
+`2cd344acd144d3fa94977ee8b240dbec9ced830585bf8dbfd424f4d6c88db1d3`.
+The public receipt SHA-256 is
+`4119758599d0562cb0dbd9e328273e84ee36526517d3c1d97593bc7dd42ab36b`.
+The existing environment and factory-angle/clearance/mesh helpers are reused:
+
+```sh
+uv run python -m scripts.eoere_inward_angles_v8
+uv run python -m scripts.publish_eoere_inward_angles
+```
+
+The failed first source-guard preflight remains recoverable in
+`owner-inward-angles-v8/preflight-attempt-v1/`; it did not change v7 evidence.
+The successful corrected adapter binds the published v7 flags and raw geometry.
+Native mechanics are not run by this model/viewer publication. Nominal clearance
+does not establish complete edge/group factors, strength, thread windows,
+washer seating, installation or tool access. Matching current-model mechanics
+and bracing work belongs to the engineering owners and must name v8; prior v6
+fields and bracing/strength references remain prior evidence. The owner's
+2.0 body-weight load basis remains. The
+[materials budget](../bolted-frame-development/builder-plan.md#materials-budget-and-sourcing)
+is reconciled to this exact inventory; price and fit observation limits remain.
+Actual/Disposition cells stay blank. No fabrication or climbing release follows.
+
+The v8 packet, v7 transforms and all v6/v5 source packets stay active. Changed
+BReps, detailed bore proofs, frozen producers, clearance and browser receipts
+remain under ignored `frame-completion-v1/owner-inward-angles-v8/`. No archive,
+prune or mesh materialization is performed. The six tracked records total
+136,905 bytes; the 234,656-byte scene contains thirteen necessary receiver
+meshes and reuses all 160 translated metal meshes. Nominal clearance uses
+220 exact queries and records 50 intended screw/receiver engagements separately.
+
+Final publication validation passes **307 Node tests**, **20 focused Python
+mesh/selection/frozen-source controls**, maintained Ruff and both mesh-sharing
+checks (6,823 retained files, 13,618 aliases). Real Chromium verifies all 1,037
+parts and 96 bolt-inspection choices, all 40 inward nut directions, CAD bounds
+for all 173 changed parts and exact rendered vertex buffers for all thirteen
+new receiver meshes. Four captures include the cumulative rear view and three
+complete stacks, including bolt 070 with all three spacers. There are no page
+or request errors. The browser receipt is `browser-v1/result.json`; the source,
+tool, command and result manifest is `model-viewer-checks-v1/validation.json`,
+SHA-256 `243f5ed51e7aaff5857d209f54d70cec13ebdc64d3f05d0578aad27d8d67ac50`.
+Python 3.12.3, CadQuery 2.8.0, NumPy 2.5.2 and the existing browser installation
+are reused. The full Python suite is not claimed. Current geometry/viewer work
+is complete; matching engineering and bracing evaluation stays active with
+its separate owners on this same v8 geometry. All raw dependencies stay active.
+
+<a id="current-inward-bolts"></a>
+**Owner-requested exterior heads and interior nuts.** The bolt-only development
+revision is `eoere-inward-exterior-bolts-v7`, now preserved before the cumulative
+v8 angle move and recorded in the
+[geometry receipt](../bolted-frame-development/owner-frame-v7/geometry.json) and
+[40 stack transformations](../bolted-frame-development/owner-frame-v7/orientation.json).
+The owner requests every exterior-pointing bolt to point inward and explicitly
+requests the same change in the viewer. The change reverses 32 side stacks and
+eight top-edge stacks. Every head is exterior; its nut, nut washer and any
+spacers are interior. Bolts already inside the frame retain their orientation.
+The [v7 viewer](http://127.0.0.1:8767/?model=eoere-owner-frame-v7-development&view=rear)
+applies exactly the CAD rigid transformations to the existing meshes.
+The [preserved v6 viewer](http://127.0.0.1:8767/?model=eoere-owner-frame-v6-development&view=rear)
+retains the former hardware poses and its own evidence.
+
+Only 224 hardware bodies rotate, about the midpoint between each stack's
+unchanged clamped faces, including the factory flange thickness. Entry/exit
+metadata and head/nut plate duties exchange; physical holes, diameters, grain,
+member/cleat profiles, fitting poses, panels, 32 LED passages and all 66 Hillman
+axes stay fixed. There are still 20 sawn members, four plywood leaves, 24 angles,
+96 complete bolt stacks, 192 washers, 32 factory spacers and 1,037 occupied parts.
+All 96 flange ports remain on their installed shaft axes. The existing full
+occupied-registry method checks each changed body against the composed assembly;
+the saved result has no unintended intersection or missing candidate. Unchanged
+pairs reuse the authenticated v6 clearance. This is nominal geometric clearance.
+
+**Why bolt 070 has several spacers.** `eoere_bolt_070_spacer_2` is the second of
+three 12.7 mm (½-inch) factory spacers on an 8-inch (203.2 mm) partially threaded
+ASTM A574 bolt. Together they add 38.1 mm outside the nut washer, now inside the
+frame. The long bolt/spacer recipe was retained from the thicker-cleat detail;
+current cleat leaves are 19.05 mm. Spacers let the nut reach a usable threaded
+section while the chosen long smooth body occupies the nominated bearing
+regions. They are not an intrinsic three-piece joint requirement. A shorter
+bolt could simplify this stack, but nominal overall length alone does not show
+where its smooth body, imperfect threads and complete threads fall. The existing
+[length-specific hardware basis](../bolted-frame-development/paired-frame-v2/A574-hardware-basis.json)
+distinguishes those dimensions. Recheck shank coverage, runout, free nut seating,
+engagement/projection and the changed receiver/plate order before selecting a
+shorter replacement. This edit retains all lengths, grades, washers and spacers;
+it does not select a shorter bolt or claim current delivered fit.
+
+The preceding v6 strength, testing and oblique-geometry reviews remain attached
+to v6 in the revision index. They are not relabeled as reversed-hardware results.
+Thread windows, washer/plate seating, installation/tool access and matching
+mechanics remain open for the reversed stacks. Earlier stored seating/shank
+margins do not qualify them. Complete joint/frame and panel/Hillman work retain
+their recorded holds; the owner's 2.0 body-weight basis remains unchanged.
+No native mechanics solve, cutting/drilling, fabrication or climbing release
+follows. Actual/Disposition observations remain blank.
+
+Commands, using the existing Python/CadQuery environment:
+
+```sh
+uv run python -m scripts.eoere_inward_bolts build
+uv run python -m scripts.eoere_inward_bolts publish
+```
+
+The new tracked packet contains the geometry receipt and orientation overrides;
+the small scene contains transforms, not duplicate mesh bytes. Changed BReps,
+the full geometry, clearance, producer/index snapshots and browser receipts stay
+in ignored `frame-completion-v1/owner-inward-bolts-v7/`. This packet and v6/v5
+source packets remain active dependencies. No archive, prune or mesh
+materialization is performed. The tracked packet is 264,508 bytes and its
+transform-only scene is 30,698 bytes; the 224 changed BReps total 946,967 ignored
+bytes. The original v7 validation passed 298 Node checks, 20 focused Python
+mesh/selection/frozen-source controls and maintained Ruff. Real Chromium compared
+all 224 rendered hardware bounds with the checked CAD rotations, confirmed the
+other 813 parts unchanged and retained all 96 inspection choices. Five captures
+include bolt 070's eight-piece stack, a top stack and a rear-runner stack; there
+were no page or request failures. The browser receipt is
+`frame-completion-v1/owner-inward-bolts-v7/browser-v1/result.json`.
+
+<a id="current-principal-pair-revision"></a>
+**Owner clarification: flat cleat sides and paired center principal/header bolts.**
+The owner identifies the upper cleat and center principal/header connections
+as the required paired locations, and requests straight sides without every
+tab or step. Current revision `eoere-flat-cleats-principal-upper-pairs-v6`
+retains the v5 reference quadrilateral and restores `eoere_bolt_068/069`
+beside retained `072/073`. Together with `067/070` beside `071/074`, both
+specified connection families now have two upper bolts per side. Cleats also
+retain their two lower bolts. The [current receipt](../bolted-frame-development/owner-frame-v6/geometry.json)
+records 96 bolts/nuts, 192 washers, 32 spacers and 1,037 occupied parts.
+
+Each of the four cleat solids is independently inspected in CAD: both broad
+faces have exactly four straight outer edges and four inner bore wires.
+There is no stepped or tabbed outer perimeter. Their frozen finished BReps,
+19.05 mm thicknesses and 500.886083 mm maximum elevation remain unchanged.
+The distinct current label identifies the **flat cleats and paired upper/header
+bolts, 96 bolts**. The preceding 94-bolt scene has an explicit preserved choice.
+
+Only the two center principal bores and ten added hardware bodies change.
+Both new holes have complete 38.1 mm nominal cylindrical walls. All 96 actual
+factory ports pass the existing axis-alignment/identity contract. The complete
+occupied registry supplies 34 exact intersection queries for the twelve new
+or changed parts, with no collision or missing candidate. The preceding
+clearance receipt covers unchanged pairs. All 94 preceding axes, 66 Hillman
+axes, 24 fitting poses, six panels and 32 passages remain unchanged.
+
+[Two added axes](../bolted-frame-development/owner-frame-v6/axes-additions.json)
+compose with the preceding 94-axis file. [Principal member updates](../bolted-frame-development/owner-frame-v6/member-updates.json)
+and [updated principal receivers](../bolted-frame-development/owner-frame-v6/receiver-updates.csv)
+replace only those members' previous rows; the combined receiver census is
+120. [Two review drawings](../bolted-frame-development/owner-frame-v6/layout.md)
+and [two proposed hardware stacks](../bolted-frame-development/owner-frame-v6/hardware-additions.csv)
+complete the delta. Earlier material/stock/axis records otherwise retain scope.
+Actual/Disposition cells remain blank. Restoring these factory pairs reopens
+the earlier end/edge/oblique-row concerns. Complete eligibility and matching
+forces, resistance, floor/bond applicability and panel/Hillman duties remain
+open; no prior strength pass or equal bolt-force division is assumed.
+
+**Materials budget reused after the v8 inventory comparison.** The
+[builder-plan budget](../bolted-frame-development/builder-plan.md#materials-budget-and-sourcing)
+binds the original allowances to `eoere-inward-bolts-and-angles-v8` and its
+[receipt](../bolted-frame-development/owner-frame-v8/geometry.json).
+The read-only comparison matches all 30 stock/panel/cleat blank and outer
+profiles and all 96 per-axis purchase specifications to v6/v7; the complete
+selected-stack array matches v7. The 13 changed finished receiver records
+alter bores without adding stock or hardware. The 13-stick / 150-board-foot
+allocation and $647–$907 allowance base therefore remain, plus six Amazon
+four-packs. SendCutSend is an unquoted cost-comparison alternative, not an
+adopted custom-steel replacement. Changed seating/thread/access applicability,
+local 84601 package prices and the angle price/quote remain open. Current and
+source evidence stay active and unchanged; the cost update performs no new
+CAD, solve, archive or raw-run artifact generation.
+
+**V9 hardware budget carry-forward.** The
+[latest cost delta](../bolted-frame-development/builder-plan.md#latest-hardware-budget)
+uses the [frozen v9 selections](../bolted-frame-development/owner-frame-v9/candidate-parameters.json)
+and [catalog observations](../bolted-frame-development/owner-frame-v9/hardware-facts.json),
+bound by the [current v9 receipt](../bolted-frame-development/owner-frame-v9/geometry.json).
+Eight checked before selections match v8; eight new 8095 bolts and one
+13733 factory spacer per bolt replace the 8096 / three-13731 recipes.
+The derived spacer count is 16, with 96 bolts and all wood/panel/angle/screw
+quantities retained. At recorded each prices, the changed stacks total
+$80.08 instead of $141.84: a $61.76 reference reduction. The same-assumption
+planning base is about $585–$845 plus six Amazon four-packs, with package/tier
+prices, availability, tax and delivery still unverified. The 6½- and 7-inch
+alternatives remain unselected for the recorded body-support reasons;
+nominal selection does not close delivered-fit or structural qualification.
+V8 source/history stays unchanged. The cost update uses the frozen latest
+parameter handoff without waiting for a full structural acceptance result.
+
+**Conditional later remedy, not integrated geometry.** The owner permits
+considering a cleat extended toward `eoere_bolt_039_shaft` only in response
+to failed calculations. Axis `039` currently lies at world XYZ
+`(1127.125, 39.623598819, 521.85885427)` in the right sloping side. Current
+cleat height and perimeter are unchanged. If a matching calculation fails,
+first identify whether engaging that station supplies a compatible load path;
+then check the proposed perimeter, both sides, backing, fasteners and matching
+response before assigning any benefit. This is a conditional remedy option,
+not a new analysis gate, current capacity, fabrication or climbing release.
+
+The permanent delta is **8 files / 39,091 bytes** and a **97,678-byte** scene
+patch: two timber replacements plus ten additions. It reuses all v5 cleat and
+hardware meshes and the unchanged parent tables. Active raw evidence stays at
+`frame-completion-v1/owner-principal-pairs-v6/`; v5 and earlier sources remain
+active dependencies. The producer snapshot, CAD, full geometry, clearance and
+browser records remain ignored. No archive or prune is performed. Commands:
+
+```sh
+uv run python -B -m scripts.eoere_principal_pairs build
+uv run python -B -m scripts.eoere_principal_pairs publish
+```
+
+The existing Python 3.12.3 / CadQuery 2.8.0 / NumPy 2.5.2 environment and exact
+source-bound helpers are reused. No native or current-frame mechanics solve
+is run for this viewer revision. The next engineering work remains actual
+upper-pair eligibility and matching joint/member checks; the bolt-039 option
+is held for a relevant failed result. All 268 Node viewer/documentation
+checks, 23 focused Python mesh/selection/frozen-source/layout checks, maintained
+Ruff, CAD smoke and both mesh-sharing checks pass (13,618 aliases). Real Chromium
+checks the current 96-bolt and preserved 94-bolt routes, all eight upper stacks,
+and five captures including a cleat close-up, with no page or request errors.
+The earlier full Python run was interrupted after the owner's model clarification,
+with 3,808 passing tests and 506 deselected; it is not reported as a completed
+full-suite pass. Its log stays in `checks/earlier-full-python.log`. Final scoped
+results and source bindings are in `checks/validation.json`, SHA-256
+`c858de3d5519dc76f0537eae08eb6dabd7dc0334ea91a4fe234a9ebbb1b1b922`. All new and preceding evidence stays active; none is archived
+or pruned.
+
+<a id="current-principal-pair-calculations"></a>
+**Own 96-bolt calculations after the owner's model review: 250 lb reference only.**
+The owner requests tests and exceedances and explicitly selects 250 lb only.
+The question is whether the four restored upper axes and straight, narrower
+cleats resolve the prior reference failures without assuming equal bolt load
+sharing. The [current review](../bolted-frame-development/owner-frame-v6/engineering-review.json)
+answers that question with six new fields for
+`eoere-flat-cleats-principal-upper-pairs-v6`. The geometry receipt and issued
+viewer/CAD proofs above remain unchanged issue-time records; their
+`current_response_computed=false` field is not rewritten after analysis.
+
+The load recipe retains 2.0 downward (2,224.110808 N climber action), 300 N
+horizontal, current self-weight, the 25 kg accessory allowance and CD = 1.
+Only the six recorded hold/direction cases are run. No 150/175 lb result,
+earlier response, baseline pass or higher duration factor is transferred.
+Preparation refreshes every current gross timber row and fitting-hole pose,
+includes all 96 axes and gravity, and preserves all 66 Hillman axes.
+The analytical census is 20 sawn members, two plywood pair bodies, six panels,
+24 fittings and 96 shafts: 148 bodies, 96 fitting ports, 112 queried wood
+walls, 496 aggregated metal-gravity roles and 825 applied loads per case.
+
+Each physical pair is united only for the declared perfect-bond model; both
+source BReps, single-solid validity and volume-equals-sum checks are bound.
+All four physical leaves remain 19.05 mm thick. The active plywood beam width
+is recomputed at **139.7 mm**, replacing the former 203.2 mm operator width.
+Independent published axial EA and apparent flatwise EI inputs are retained;
+no DF-L stiffness is assigned to plywood. The uniform beam still approximates
+the actual trapezoid and is not a physical force bound. The frozen material's
+inherited `derivation` prose mentions the former eight-inch operator; the
+review explicitly supersedes that explanatory text with the active 139.7 mm
+properties and pinned `plywood_properties(139.7)` producer. Frozen inputs and
+fields are preserved rather than edited for that prose clarification.
+
+The existing four-host centroid-XY floor law is reused with all 32
+compression-only normals. The two long legs and two center posts must bear;
+other feet remain normal-only. `analysis-v1/method-readiness.json` binds the
+unchanged support law, seven original method controls, four-host known-answer
+control and negative unloaded-host rejection, plus empty current physical
+collision/missing-candidate lists. Its exact-answer gradient is below 1e-12.
+No floor capacity, actual friction, yaw restraint or anchor is established.
+Native execution remains serialized; these runs use the existing first-order
+Python mechanics, not a native FEA executable.
+
+All six fields converge and pass independent signed force/equilibrium and
+two-plywood-operator replay. The largest full gradient residual is
+**2.093949479e-6 N**, below the unchanged 1e-5 N admission gate. All 148 bodies,
+96 shaft cuts, 24 fitting recoveries, load work and false screw/floor-force
+controls are retained. Convergence is not complete joint acceptance.
+
+Conventional worksheets cover every current shaft, all 20 sawn net sections
+and all 15 nonempty four-bore subsets per cleat (30 per case). The ordinary
+84-shaft group factors are computed by case. The twelve dedicated cleat/header
+shafts use the universal Cg = 0.5 lower bound only after checking each complete
+receiver group has at most two bolts. No historical Cdelta is transferred:
+current signed end/edge directions and complete receiver groups supply it.
+The full statics, affine dedicated sawn/steel pressures, balanced plywood
+pressures, actual thread transitions, A574/Grade 5 selections and original
+force/first-moment preservation checks remain explicit. The 36.5 mm wall is
+a strength allowance on the nominal 38.1 mm response, not another stiffness
+solve. Terminal shaft closure retains the existing 1e-4 N / 1e-3 Nmm allowance;
+the separate full-field 1e-5 N gate is unchanged.
+
+| Conditional reference, limit 1.0 | Maximum | Governing location/case |
+| --- | ---: | --- |
+| Bolt/receiver bearing | 1.090956 | `lumber_leg_bolt_left_1`, `a12-rear` |
+| Bolt axial/bending after current Cdelta | 2.253738 | `eoere_bolt_067`, `a12-forward` |
+| Bolt axial/bending/shear after current Cdelta | 1.904957 | `eoere_bolt_067`, `a12-forward` |
+| Bonded cleat rows, nominal 38.1 mm | 0.568106 | Left upper `067`, `a12-forward` |
+| Bonded cleat rows, 36.5 mm allowance | 0.595824 | Left upper `067`, `a12-forward` |
+| Header net shear/torsion | 0.758726 | `base_header`, `a12-rear` |
+| Top rail net shear/torsion | 1.169290 | `base_rail_top`, `k12-right` |
+| Left sloping side net shear/torsion | 1.208387 | `base_side_left`, `a12-rear` |
+| Right sloping side net shear/torsion | 1.169794 | `base_side_right`, `k12-rear` |
+
+There are **26 shaft metric exceedance rows and nine timber metric exceedance
+rows**, counting each case/metric separately. All nine timber findings are
+shear/torsion references in the three listed members. Maximum timber normal
+and declared-restraint references are 0.851629 and 0.879501. No plywood row
+metric exceeds 1.0. These are conventional conditional comparisons, not actual
+failure loads, measured stresses or complete member/joint capacities.
+
+All four restored upper pairs fail the recorded perpendicular between-row
+minimum: grain projection **32.653611 mm < 35.718750 mm**. Current signed
+directions also fail loaded edges: the exterior upper pins have a 25.459742 mm
+side-member edge, the center principal pins a 29.108028 mm edge, and the
+cleat upper bores include a 33.235332 mm edge, against a 38.1 mm loaded-edge
+marker. Which signed directions govern is retained per case. Eight axes
+`eoere_bolt_067` through `074` are therefore ineligible in every case (88 of
+96 otherwise satisfy this geometry screen). A sub-1 stress/row comparison
+does not resolve these failures. The adjusted shaft worksheet retains legacy
+`*_before_Cdelta` column names although values are already divided by current
+Cdelta; the reducer independently checks and labels that adjustment.
+
+The next work is to resolve a compatible upper-joint geometry and load path,
+including timber receiver edges and factory-hole row orientation/spacing,
+then recalculate that proposed revision. The relevant failed upper-bolt result
+now supports studying the owner's bolt-039 cleat extension. More plywood
+height could improve a local end-distance adjustment, but cannot itself change
+the existing timber edge distances or factory-hole pair separation; its benefit
+must be calculated. Separately resolve the top-rail/sloping-side load transfer
+and perforated net-section shear/torsion construction. No member enlargement,
+new cleat, bolt move or remedy is adopted by this calculation task.
+
+Reproduction uses existing shared dependencies and source-bound helpers:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B -m scripts.eoere_v6_analysis prepare
+# Run once each, serially: a12-forward a12-left a12-rear k12-right k12-rear a1-rear
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B -m scripts.eoere_v6_analysis CASE
+# Run serially: preflight local group bearing boltgeometry geometry sections
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B -m scripts.eoere_v6_checks KIND
+uv run python -B -m scripts.eoere_v6_checks rows 38.1
+uv run python -B -m scripts.eoere_v6_checks rows 36.5
+```
+
+Fresh-only guards intentionally reject overwriting issued outputs. The
+producer snapshots, inputs, commands, case logs, fields/replays and complete
+worksheets remain active under
+`frame-completion-v1/owner-principal-pairs-v6/analysis-v1/`. Geometry parents,
+v4/v5 evidence and frozen method helpers remain active dependencies. Panel/
+Hillman resolution remains deferred; actual bond, floor, material, hardware,
+fit, complete joints and physical force applicability remain unqualified.
+Structural acceptance and fabrication/climbing release remain false.
+
+The fresh-only reducer is `scripts/eoere_v6_report.py`. It rehashes the own
+inputs/fields/replays and every current worksheet, verifies the all-96 Cdelta
+division, complete subset censuses and qualification boundaries, and retains
+every exceeded case/metric. Run it with `--out` set to this packet's
+`exceedances-v2.json` and `--public-summary` set to
+`docs/bolted-frame-development/owner-frame-v6/engineering-review.json`.
+The 269,483-byte full raw report remains ignored. The **122,693-byte** permanent
+review retains all maxima/exceedances, source bindings and compact signed
+geometry witnesses, with a hash link to the full report. This permanent size
+supports review of all 96 bolts and six cases; repeated geometry directions,
+case limits, full fields and raw meshes remain outside Git. The three new
+analysis/review producers and focused test total **88,009 bytes** and reuse
+the frozen preparation, equilibrium, yield, row and net-section helpers.
+The first reducer export and its exact producer snapshot are preserved; lint
+and compact-export improvements produced v2 without changing any numerical
+result. Parent independently rechecked both exports' extrema/counts against
+the original worksheets and confirmed identical v1/v2 numerical results.
+
+Final checks pass: **188 focused Python tests**, **272 Node tests**, documented
+maintained Ruff, both mesh checks (13,618 aliases) and real Chromium current96/
+preserved94 checks with all eight upper-stack inspections and five captures.
+The viewer status and reference menu point to the new review; meshes and
+geometry do not change. The focused Python command is:
+
+```sh
+uv run pytest -q --include-recovered-evidence \
+  tests/test_eoere_v6_analysis.py tests/test_eoere_load_parameters.py \
+  tests/test_eoere_mixed_stack_yield.py tests/test_eoere_mixed_continuous_bound.py \
+  tests/test_eoere_two_member_group_bound.py tests/test_eoere_front_bolt_row_factor.py \
+  tests/test_thin_bolted_timber_common_shaft_checks.py tests/test_reinforced_timber_resistance.py \
+  tests/test_eoere_leg_header_mechanics.py tests/test_test_selection.py
+node --test tests/*.mjs
+uv run ruff check --no-cache mini_moonboard fea scripts tests --extend-exclude fea/contact_wrench_benchmark.py
+```
+
+Three raw evidence-dependent new tests are explicitly registered in
+`tests/recovered-evidence.txt`; portable property controls remain in the
+default suite. Python 3.12.3, CadQuery 2.8.0, NumPy 2.5.2, SciPy 1.18.1,
+Ruff 0.16.6, Chromium 147.0.7727.15 and Playwright 1.59.1 are recorded in
+`analysis-v1/checks/validation.json`, SHA-256
+`390f65cd14c53a7c144dc3a58a39da9ca5c05fc931165fe81b358a4fb5deb3bb`.
+It also retains the initial obsolete viewer-label assertion and unscoped
+archival Ruff sweep as non-admission attempts; frozen archival sources are
+not edited. All case and report dependencies stay active, with no archive or
+prune. No new complete Python-suite pass is claimed.
+
+<a id="current-principal-pair-testing-review"></a>
+**Method-audit findings applied to the current 96-bolt testing.** The owner
+requests incorporating the preceding exceedance audit into model testing.
+The [current testing correction](../bolted-frame-development/owner-frame-v6/testing-review.json)
+now supplements the frozen v6 engineering review and is required by the
+maintained revision index and development validator. Its SHA-256 is
+`2cbde76692009b090b397bd6a7b62f38add9900c11cd4aa520ad08b6f17a194f`.
+The original review and all issued geometry, field, worksheet and producer
+bytes remain unchanged. This applies the method findings to v6's own six
+250 lb fields; no v4 numerical refinement or lighter-climber result transfers.
+
+The engineering question is whether the deliberately withheld 9.525 mm of
+side-rail breadth is absent from the current solids, and how restoring only
+contained material changes the continuous references. Both current side
+rails have a nominal 88.9 mm thickness. Their former rectangular cores
+credited 79.373 mm after tolerance; the correction credits **88.898 mm**,
+retaining the 0.001 mm margin at each face. All **46 whole-interval prisms**
+(23 per side across twelve regions) are queried against the existing finished
+BReps and pass the original containment allowance. Every projected bore,
+simultaneous staggered-hole deduction, grain interval, source solid and all
+18 other member cores remain unchanged. The proof does not restore a hole
+or establish physical material quality.
+
+The existing continuous worksheet then recomputes all 20 members across
+all six fields: **8,532 complete point-action/section intervals**. It retains
+the same signed forces, free couples, cubic self-weight, both event limits,
+Bernstein controls, NDS references and CD = 1. Expanding the analytical
+capacity core changes no gross beam response operator, bolt demand, load or
+modeled geometry, so no new frame or native solve is needed. All unaffected
+members reproduce exactly; both the independent field replays and the issued
+report's original extrema are reverified before the corrected calculation.
+
+| Conditional shear/torsion reference | Original v6 | Corrected v6 | Governing case |
+| --- | ---: | ---: | --- |
+| Left sloping side | 1.208387 | **1.003835** | `a12-rear` |
+| Right sloping side | 1.169794 | 0.971436 | `k12-rear` |
+| Top rail | 1.169290 | **1.169290** | `k12-right` |
+| Header | 0.758726 | 0.758726 | `a12-rear` |
+
+The timber exceedance count decreases from nine to **six case/metric rows**:
+five top-rail cases and the left side in `a12-rear`. The left side remains
+above 1.0; rounding does not clear it. Maximum timber normal and
+declared-restraint references become **0.736825** and **0.775452**.
+These are conditional worksheet comparisons, not measured failures or
+complete timber/joint capacities.
+
+The remaining audit findings are carried into the current testing disposition:
+
+- The full assembly already includes six panels and 66 Hillman screw
+  springs. Their generic 1,000 N/mm axial/lateral stiffness remains an
+  unqualified assumption; panel presence alone does not qualify load sharing
+  or screw strength.
+- Independently verified rectangular torsion mathematics remains distinct
+  from the common-twist, area-share shear and intact-bridge construction
+  through short loaded-hole zones. No selected midface probe replaces the
+  complete section comparison. Local joint/rail mechanics remain open.
+- Reduced bolt interaction and elastic axial/bending/shear stay separate.
+  The original current maxima remain **2.253738** and **1.904957**, with
+  bearing **1.090956**. No elastic comparison replaces a reduced reference
+  or clears receiver bearing, loaded edges or complete joints.
+- Both physical plywood leaves, pressure distribution and full force/first
+  moment remain in the row calculation. Force-only comparisons are lower
+  comparisons, not row passes. The current balanced row maxima remain
+  **0.568106 / 0.595824** for nominal/36.5 mm credited walls. The NDS-style
+  row/APA input combination remains an engineering extension.
+- All eight restored upper axes remain geometry-ineligible in all six
+  cases. Loaded-edge and between-row failures are not waived. Actual bond,
+  uniform trapezoid-beam approximation, floor support, first-order motion,
+  stated restraints, material and complete-joint limitations remain explicit.
+  No structural acceptance or fabrication/climbing release is established.
+
+Reproduction uses the issued inputs and shared dependencies, with a fresh
+ignored output directory under the current `analysis-v1` packet:
+
+```sh
+uv run python -B -m scripts.eoere_v6_testing_review \
+  --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/testing-method-review-v2
+```
+
+Fresh-only guards reject overwriting issued outputs. The command is the
+reproduction recipe; choose an unused sibling directory for another run.
+The maintained adapter reuses the existing core and continuous worksheet,
+with source hashes and its exact snapshot. Python 3.12.3, CadQuery 2.8.0,
+NumPy 2.5.2 and SciPy 1.18.1 are recorded in the correction. Corrected core
+SHA-256: `6ad15e6a4f884784fb7d93131111a52fa94df3e488e45d234d5d7b6e554616d1`;
+continuous worksheet: `6ccf31539fc0de7fcda8b9fea271ad5430c6a9679d0fd09d6dc42d9aa3174a88`.
+The 20,974-byte public correction retains the maxima, differences, source
+bindings and method dispositions; bulky intervals stay ignored.
+
+The first `testing-method-review-v1` attempt completes its numerical work
+but fails summary assembly because the bolt report uses `all_96` rather
+than the plywood report's `overall` maximum key. It supplies no admitted
+summary. Its exact failed producer, outputs and log remain recoverable;
+the corrected v2 packet and a population-summary regression check replace
+that reporting attempt. The v1 and v2 raw packets retain about 8.4 MB each.
+All stay active alongside the original cases and audit. No archive, pruning,
+mesh generation or new CAD/native solve occurs.
+
+The current development check now requires the correction and rejects
+foreign forces, old-model results, missing cases, filled bores, changed bolt
+references, geometry waivers, force-only/midface substitutions and claimed
+acceptance. Known drilled-solid controls reject an absent extra ligament and
+preserve the hole-band volume. Source-join verification rehashes both cores,
+the corrected worksheet and all their dependencies. Validation commands and
+results are retained in `testing-method-review-v2/checks/validation.json`,
+SHA-256 `3c24a2b00943cc7e8010f63b308ba77f828b4d598fd913c051d14dbb15dff253`:
+**61 Python tests pass** (five historical tests deselected), **282 Node tests
+pass**, maintained adapter/test Ruff passes, and `git diff --check` passes.
+The Python run includes the six new coupon/source controls, all six current
+fields and the existing force/cut/stability helpers. The separate historical
+checks retain their earlier audit results; no new full Python-suite pass is
+claimed. The three permanent additions total **40,836 bytes**: a 14,369-byte
+adapter, 5,493-byte test and the 20,974-byte compact correction. Existing
+summary, scope, index, reference menu and regression checks are updated in
+place. The current corrected references and remaining local-joint work stay
+active; the failed summary and older core results remain recoverable.
+
+<a id="current-bolt-geometry-checker-correction"></a>
+**Bolt geometry checker corrected; complete oblique joints remain unresolved.**
+The owner requests resolving the checker before choosing bigger or additional
+bolts. The [current geometry review](../bolted-frame-development/owner-frame-v6/bolt-geometry-review.json)
+supplements the frozen engineering and testing reports above. It supersedes
+their hard upper-pair edge/row-failure interpretation without rewriting those
+issued bytes. Public review SHA-256:
+`9af755bff30dd7e02687271c8efd3c05d01ff78da5e9f3ecf5849b753bd85f94`.
+
+The reproduced defect was treating every nonzero resolved grain component as
+a principal-direction end/edge case, and every diagonal pair as subject to
+both principal row minima. Actual upper-pair separation is **50.8 mm**;
+**32.653611 mm** is the along-grain projection and **38.915058 mm** the
+cross-grain projection in the sloping receivers. The earlier **35.71875 mm**
+marker comes from the perpendicular-load between-row table. The verified
+source does not establish applying it directly to this diagonal layout and
+oblique load. Passing actual spacing against that marker would not establish
+the missing applicability either.
+
+The correction reuses the whole-bearing-interval outer-profile method and
+authenticates every profile plane against all **22 cached finished timber/
+bonded-plywood bodies**. It checks all **96 bolts, 112 analytical wood-wall
+occurrences and six issued 250 lb fields**, reconstructing raw affine lateral
+pressures from each signed force and first moment. Axial capture is recorded
+separately. Known force/couple controls test the reconstruction, including a
+pure couple with zero resultant. Both bearing endpoints and all profile
+halfspaces contribute to distance minima; interior hole/channel ligaments
+remain separate duties. The cleat's grain-parallel edge distance for the added
+upper pin is **39.6875 mm**; the earlier **33.235332 mm** cross-grain ray reaches
+a sloping end boundary and must not be relabeled a square side edge.
+
+The pinned American Wood Council **2024 NDS Chapter 12** PDF has SHA-256
+`53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f`.
+Despite its filename, the cached 46-page file contains specification text,
+not authenticated current commentary. Section 12.1.2 and principal-direction
+tables are the verified placement basis. Section 12.5.1.2(b) concerns load
+oblique to the fastener, rather than an invented interpolation for load
+oblique to grain. The group-factor row convention does not establish a
+geometry-factor placement rule.
+
+The revised rules return principal-direction **component** results only where
+applicable. Oblique loads, reversals, sloped ends and unclassified diagonal
+rows remain **UNRESOLVED**. All 48 upper-axis/case records remain unresolved;
+no complete geometry factor, joint pass or structural acceptance is assigned.
+The old 2.253738 axial/bending, 1.904957 combined and 1.090956 bearing indices
+remain inspectable conservative screen diagnostics, not established capacities
+under a newly authenticated geometry factor. The six force fields, corrected
+timber references, four straight-sided leaves, 38.1 mm perfect-bond pairs,
+panels and all 66 generic screw springs are unchanged. Actual adhesive and
+Hillman stiffness/strength remain unqualified.
+
+Reproduction reads the issued fields without CAD rebuilding or a native solve:
+
+```sh
+uv run python -B -m scripts.eoere_v6_bolt_geometry_review --out UNUSED_GENERATED_OUTPUT
+uv run pytest -q tests/test_eoere_bolt_geometry_rules.py tests/test_eoere_v6_bolt_geometry_review.py tests/test_eoere_bolt_outer_geometry.py tests/test_eoere_bolt_directional_geometry.py
+```
+
+Use a fresh repository-relative directory under `fea/generated/` for the
+placeholder; the original published run used
+`owner-principal-pairs-v6/analysis-v1/bolt-geometry-review-v1/` within the active
+frame-completion packet. Its **4,616,401-byte** full review, producer snapshots
+and source pins remain ignored and active. Full review SHA-256:
+`8d1492de35316fe68c3ed320723cbe0ab04a1da335ac149c64b210c03242d29e`.
+The public review is **33,806 bytes** and reuses the existing PDF and geometry;
+it copies no meshes or reference manuals. **114 focused Python tests pass**.
+The maintained index, viewer status/menu and summary now require the corrected
+interpretation. A separate inward-angle geometry study is underway; it must
+establish its own clearance and cannot inherit unchanged force results.
+No archive, prune, physical repair or fabrication release is performed.
+
+**Pair-census completion, v2.** Independent review confirms the occurrence
+rules and wrench reconstruction but identifies a coverage gap: grouping bolts
+by their entire receiver set omits neighbors sharing one timber while joining
+different other parts. The [second checker review](../bolted-frame-development/owner-frame-v6/bolt-geometry-review-v2.json)
+preserves the first report and all its source bytes. Its SHA-256 is
+`f8981ba01a5f0d691385544d5b993dd5bc3787632bcc05e7669f7ad6817a7dfc`.
+The reusable census now enumerates every unordered pair sharing each wood
+receiver, independently of other receivers, ordering or shaft direction.
+All six cases contain **326 canonical pairs: 52 preceding connection-group
+pairs plus 274 additional pairs**. All additional connection-row relationships
+remain unresolved; this count does not mean 274 physical spacing failures.
+Each axis's complete geometry factor remains null, and all **96 component
+rollups per case** are unresolved after including these relationships.
+
+For parallel shafts, reported separation is perpendicular distance between
+their centerlines; moving a shaft's reference point along its own axis or
+reversing the axis representation cannot change the result. Nonparallel
+shafts receive no invented spacing verdict. Known neighboring-pair controls
+exercise differing receiver sets, reversed directions and translated reference
+points. The sample upper-pair load classifications now explicitly identify
+`a12-forward`; all endpoint-pressure fields say **reconstructed**, reflecting
+their derivation from admitted force and midpoint couple. The 672 endpoint
+vector records and every original field remain exactly unchanged.
+
+The 123,426-byte public v2 review retains every added pair's geometry and the
+six census totals; complete intervals remain in the **7,732,769-byte** ignored
+full review at `analysis-v1/bolt-geometry-review-v2/full-review.json`, SHA-256
+`c296259c7c6f0a4cdd2b61558eee0fd64d6c6ee16e42dd2f568cb90a4156b169`.
+Its new wrapper reuses the immutable first producer rather than copying it.
+All 57 active source pins and six field bindings are independently reverified;
+the **13 pair-census tests** and Ruff pass. Current-model publication owns the
+nested v6 binding update and regression wiring. Both raw checker versions
+remain active method evidence; neither transfers v6 forces to the later
+inward-bolt/angle geometry. No source archive or pruning is performed.
+
+<a id="current-v9-joint-followup"></a>
+**V9 joint-criterion, top-section and Hillman follow-up completed.** The owner
+approved the follow-up to the remaining-exceedance recommendations. The
+[typed scope review](../bolted-frame-development/owner-frame-v9/criterion-scope-review.json)
+SHA `d4d93b343a40f26c3d6d93bb915e822d8d8ba2d5645f2c1f870c8ffa12e5933e`
+uses the same six admitted v9 fields, physical receipt, 250 lb / 2.0 / 300 N /
+25 kg / CD = 1 scenario and original force/couple terms. The frozen component
+report `22529cc9...c657` and its flags remain. This follow-up distinguishes
+material screens, connection references and section-only feasibility; it
+establishes no complete-joint, fabrication or climbing acceptance.
+
+**Steel versus connection factors.** Reading the retained primary 2024 NDS
+Chapter 11 confirms §11.2.3 (PDF p.3 / printed p.70): metal-controlled strength
+uses metal procedures without NDS connection adjustments. Section 11.3.6
+(PDF p.6 / printed p.73) applies Cg to lateral connection Z. The primary PDF
+SHA is `45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33`.
+The [2018 AWC Commentary](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf),
+C11.2.3, independently explains the scope and warns against replacing lateral
+dowel-bending provisions with a direct metal check. The recorded 2024 URL
+was not retrievable in this session; authenticated retained bytes were read
+with pypdf[crypto] 6.21.2, without copying the manual.
+
+Independent N/M/V arithmetic on every current shaft segment gives a maximum
+**0.924685** for the separate conditional elastic **Fy/2** steel envelope,
+with **zero** exceedances across 576 bolt/case comparisons. The governing
+case is left leg bolt 1 in `a12-left`. Root/body sections, grade assumptions,
+forces and conservative stress formula are unchanged. The former **1.154307**
+includes wood-connection Cg and must be described as that group-reduced
+comparison, rather than a standalone steel-strength result. This is a scope
+and interpretation correction. It neither establishes a metal-standard or
+delivered-property qualification nor clears the **1.370057 connection
+axial/bending yield-work reference**. Cg and complete Cdelta are not waived.
+An unequal two-spring control demonstrates why an equal-share group reduction
+and an individual-force check must be distinguished; it does not prove the
+current finite-frame slip law captures every physical group effect.
+
+**Top rail: a different section allocation is possible.** Reuse the existing
+exact-rational `eoere_section_patches` method with current DF-L reference
+inputs. All **five flagged intervals and 20 cubic Bernstein controls** admit
+alternative tractions with a maximum **0.374308** under a deliberately explicit
+pointwise normal-plus-two-shear interaction law. All six encoded cut
+resultants are recovered exactly. Every contained ligament, hole deduction,
+one-sided load event and free couple is retained; the original control and
+**1.169225** prismatic shear/torsion maximum are independently reproduced.
+The first result SHA is
+`73a5a02061a80a8f774a8118a52609ac8dd8e1e7d228f2322dbd70495233404e`.
+This demonstrates that the 17% overrun is allocation-dependent rather than
+forced by cut equilibrium alone. The alternative field proves **no**
+three-dimensional compatibility, free-side-face or complete-volume equilibrium,
+load-introduction behavior, splitting/fracture resistance or physical joint
+capacity. The 0.374 value is not a strength multiplier or an adopted replacement
+for the current top-rail criterion. A compatible local assessment needs explicit
+bore/washer/panel/screw load footprints and applicable brittle-mode properties.
+
+**Whole-bearing-interval method corrected.** The frozen pressure worksheet
+checks endpoint utilization, but the angle-dependent Hankinson/Ktheta
+expression is not generally convex. A known counterexample has endpoint index
+**0.99** and an interior index above **1.015**. The new
+`eoere_bearing_envelope` helper encloses pressure norm and grain angle on each
+subinterval and refines an upper bound, preserving material inputs, Cg,
+actual body/thread transitions and force fields. It is an outward-padded
+floating engineering enclosure, not a formal interval-arithmetic proof.
+All **672 wood occurrences / 1,749 affine segments** are checked. No current
+underestimate above 1e-7 is found; the current global upper is
+**1.2475719181035054**, consistent with the original 1.247571918100385.
+The result SHA is `693fb2ee6440956830b0aa4647f2348a588ea72d5cbc35483795b7c34e947348`.
+Use the new whole-interval helper for future pressure inputs; the frozen
+endpoint producer remains preserved as evidence. No complete-joint geometry
+factor or physical failure is established by this numerical repair.
+
+**Hillman evidence and required response points.** The exact-SKU public-source
+review still finds no applicable resistance, dimensional conformity or
+force-slip curve. The inspected model 42605 retailer specifications are
+product metadata; [ICC-ES ESL-1284](https://cdn-v2.icc-es.org/wp-content/uploads/report-directory/ESL-1284.pdf)
+(reissued July 2026) covers corrosion for other named Hillman families and
+supplies no 42605 connection strength. No SPAX/SDS value is transferred.
+All **396 simultaneous screw/case points** were replayed; their source fields
+and per-axis nondominated envelopes remain in the raw follow-up. The governing
+upper-left rim screw has:
+
+| Case | Withdrawal | Simultaneous lateral force |
+| --- | ---: | ---: |
+| `a12-rear`, maximum withdrawal | 1,487.144 N | 636.504 N |
+| `a12-left`, maximum lateral force | 1,433.175 N | 645.429 N |
+
+Do not combine the two independent peaks into a fictitious simultaneous case.
+The recorded 1.487 mm axial extension is force divided by the assumed
+1,000 N/mm spring stiffness, not a measured connection slip. Required inputs
+are exact-product geometry/material evidence; withdrawal/lateral load-slip
+and resistance for the actual wood, pilot and penetration; head/panel-edge
+resistance for the plywood/countersink; and an applicable combined-load and
+variability/design basis. [ASTM D1761-20(2025)](https://store.astm.org/standards/d1761)
+is a characterization framework, not a test result. No physical test, supplier
+message, new fastener policy or inspection is performed.
+
+The smallest supported next action is a compatible local transfer assessment
+and acquisition of these screw inputs. If a supported local criterion remains
+exceeded, investigate existing timber bearing or load-entry changes. The
+current evidence does not select new cuts, parts, larger allowables, a floor
+friction test or an external sign-off prerequisite. No new global/native
+solve, CAD rebuild, physical geometry change or acceptance loop was run.
+Active evidence remains in the existing v9 `reference-review-v1/joint-followup-v1/`
+packet: `attempt-01`, `bearing-envelope-01`, `publication-v1` and
+`final-validation-v1`. Each retains
+its executed source snapshot; maintained entry points can evolve without
+substituting frozen producer bytes. All earlier dependencies remain active;
+no archive, prune, staging or commit is performed. The public scope snapshot
+retains its source-hash chain; bulky per-bolt, per-screw and exact-traction
+records stay ignored. The public snapshot is 138,839 bytes because it retains
+889 source hashes; the four maintained helper/test files add about 42 kB.
+The existing ignored packet retains about 2.6 MB across 16 files. Final
+validation SHA `160b0a7fa342362651c7c6c042941c78cf2424f0bf390132e70f86f1588b8e41`
+rechecks all 889 source hashes and four primary bindings, reintegrates all
+20 six-resultant certificates, replays 60 continuous patch enclosures and
+checks 576 steel comparisons, 396 simultaneous screw points and 66 per-axis
+envelopes. The 42 focused arithmetic, envelope and section controls, 386
+documentation/viewer tests, maintained Ruff, development authority and patch
+whitespace checks pass. Commands, versions and logs accompany that result.
+
+<a id="current-v9-component-bracing-review"></a>
+**Current v9 component and panel-bracing evaluation completed.** The owner-directed
+exceedance review now uses `eoere-single-spacer-cleat-stacks-v9`, its own six
+250 lb fields, 2.0 downward multiplier, 300 N horizontal action, self-weight,
+25 kg accessories and CD = 1. The [component report](../bolted-frame-development/owner-frame-v9/reference-review.json)
+SHA `22529cc9b539ca540b5dd9e496d5a6af19126219b89ac6ae3476f61ea070c657`
+and [bracing report](../bolted-frame-development/owner-frame-v9/panel-bracing-review.json)
+SHA `1307d5b15bebfd59f2df9853cb21cf3c995861f93c1a038b41a38207fa5c18e4`
+join the current physical receipt `29db14a7...00ef`, analytical geometry,
+readiness and both independent replays for each case. No v6/v8 force pass
+transfers. Remaining exceeded and unresolved duties are deferred follow-up;
+they do not reopen a geometry redesign loop or establish acceptance.
+
+| Current conditional comparison | Maximum | Disposition |
+| --- | ---: | --- |
+| Bolt/receiver bearing, Cg included | 1.247572 | Exceeds; left leg/side bolt in `a12-rear` |
+| Reduced bolt axial/bending | 1.370057 | Exceeds; upper left cleat bolt `067`, `a12-forward` |
+| Elastic bolt axial/bending/shear | 1.154307 | Exceeds; same bolt/case, distinct criterion |
+| Top rail net shear/torsion | 1.169225 | Exceeds in five cases; `k12-right` governs |
+| Left/right side net shear/torsion | 0.999631 / 0.967659 | Below refined reference; left has a very small margin |
+| Header net shear/torsion | 0.828402 | Below reference |
+| Cleat rows, 38.1 / 36.5 mm wall | 0.511696 / 0.539641 | Below conditional balanced-row references |
+
+The complete list retains **18 bolt/case/metric exceedances**, including both
+leg/side bolts, the upper cleat bolts `067/070`, and header bearing at `081/084`.
+All 96 bolts and all 30 four-bore subsets per case are covered. Formal complete
+Cdelta factors remain **null**, as in the separate current geometry review;
+none of these raw/group reference values establishes joint eligibility.
+All 20 timber members cover **8,562 complete event/hole intervals**. Their
+contained net cores reuse the v8 geometric proof only after checking every
+complete sawn-profile dictionary and all 20 finished-solid hashes unchanged.
+Full 88.898 mm side breadth, all hole deductions and all force/free-couple
+terms remain. Current normal/stability reference maxima are 0.737588/0.779098.
+
+**Method correction.** The original scalar shear-plus-torsion result remains
+recorded: the left side reaches about 1.0070. The refined sufficient bound
+intersects the rectangular torsion component box with its maximum-stress disk
+and maximizes the vector sum with the direct-shear box. It bounds every point,
+retains the explicit torsion-series tail and is convex in the full cut wrench,
+so the same cubic Bernstein controls bound every complete action interval.
+It is not a selected face probe. The top result remains 1.169225 because its
+peaks are compatible. Both methods remain prismatic common-strain/common-twist
+constructions near short loaded holes, without three-dimensional splitting or
+complete joint qualification. The [FPL structural-analysis chapter](https://research.fs.usda.gov/download/treesearch/62251.pdf)
+supports the prismatic components and requires separate treatment of local
+stress concentrations; it does not validate this drilled-corner capacity.
+
+**Current panel restraint.** Fresh operators and branches give 72 directional
+comparisons, 12 sparse factorizations and 144 balanced RHS solves. Top-grain
+translation stiffness increases **2.715–20.981 times**, side-grain translation
+**1.408–13.292**, top-grain twist **3.774–6.388**, side-grain twist **2.133–59.207**,
+and in-plane rotation **2.079–3.402**. At the governing right `k12-right` corner,
+top/side twist gains are **5.5795/6.3280**. All six panels, 66 screw springs and
+914 panel contacts are removed together in the comparator; other frame/floor
+branches stay fixed at each original braced state. The A1 panel-normal outlier
+reaches **1,985.605** and remains disclosed. These are tangent stiffness ratios,
+not strength multipliers, compression capacities or a newly equilibrated
+unbraced climber case. The load sharing is already in every reported demand.
+The generic 1,000 N/mm Hillman laws, zero clearance, missing failure caps and
+2 N/mm³ panel foundation remain unqualified. The preceding literature review
+is reused within its stated limits; no matched external corner-strength factor
+is established. Maximum probe residual is **2.493e-9**, below the unchanged
+1e-7 gate; normalized reciprocity error is **5.456e-11**.
+
+**Deferred, minimal follow-up options.** First assess the loaded-hole/warping
+and torque-transfer construction at the top corner. If the reference still
+fails, evaluate a small timber bearing or load-entry change that reduces the
+local couple; do not infer capacity from a stiffer panel. Establish applicable
+oblique end/edge/group checks for the complete bolt receivers. Review whether
+standard row reductions overlap with explicitly modeled individual load sharing:
+the [FPL fastening chapter](https://research.fs.usda.gov/download/treesearch/62253.pdf)
+derives group factors from unequal row distribution and connection slip. This
+is an applicability question, not an adopted Cg waiver. Establish supported
+Hillman force-slip/resistance, panel head/edge and local wood/steel/washer/spacer
+behavior before claiming additional assembly strength. The perfect bond,
+uniform cleat approximation and four-host no-slip floor retain their limits;
+no adhesive, delivered hardware, actual build or floor is physically qualified.
+No new floor test, enlarged stock, external sign-off prerequisite or fabrication
+instruction is introduced.
+
+Reproduce through `scripts.eoere_current_reference_review_v2` with
+`--analysis-module scripts.eoere_v9_analysis`, the full physical/receipt hashes
+above, `--public-folder docs/bolted-frame-development/owner-frame-v9` and fresh
+own review/bracing output paths. This entry point preserves frozen v1 bytes and
+corrects rich/minimal source-reference matching plus the corner reference datum.
+The physical flange-hole centroid exactly equals the earlier v6 probe point;
+reversing bolt head origins no longer moves it outside a timber span. The strict
+span, balanced-work, residual and source gates remain. Initial vector-output,
+metadata-join/receipt and out-of-span stops, their snapshots and logs remain
+recoverable in the existing v8/v9 packets; no failed output is promoted.
+Final independent reduction checks all **149 consumed source references**, all
+**8,562 intervals**, the reported maxima, and all 72 physical probe locations
+and stiffness ratios. Its frozen `reference-review-v1/final-validation.json`
+SHA is `97b06e3ac28ce2cfbcb83bb7b6be7c6cd44a58894f4ac563c01bb0c3b5c3cb3a`.
+The 28 focused Python controls, affected development/document-link Node tests,
+maintained Ruff, authority checker and `git diff --check` pass. The development
+summary remains 149 lines. The two public summaries total **147,174 bytes**;
+about 28.3 MB of detailed component/bracing output remains ignored and active,
+without copying operator banks, CAD or manuals into this packet.
+
+Active raw evidence is under `owner-single-spacer-stacks-v9/analysis-v1/`:
+`reference-review-v1/` and `panel-bracing-review-v2/`. V8 containment and v6
+method/literature dependencies stay active. No archive, prune, mesh change,
+new global/native campaign, staging or commit is performed by this task.
+
+<a id="v6-panel-bracing-comparison"></a>
+**V6 panel/screw bracing: quantified stiffness, unresolved strength.** The
+owner asks how much the panels brace the rail joints, whether compression
+and torsion improve, and whether published tests support comparable gains.
+The [panel-bracing review](../bolted-frame-development/owner-frame-v6/panel-bracing-review.json)
+now answers the numerical stiffness question for the six saved **v6** states
+that produced the preceding exceedances. Its SHA-256 is
+`0396836fd03e3ce76b6cd77c889e18f67f669529241fd6e1cae76bcbe32221ce`.
+The later inward-bolt orientation revision receives no force or strength
+transfer. Original geometry, forces, worksheet results and issued producers
+remain unchanged; the comparison supplies no new fabrication or climbing status.
+
+**What was measured.** Reuse each own captured sparse material operator and
+its saved screw, bearing and compression-only contact branches. At each upper
+outer rail/side corner, impose balanced, work-conjugate unit force/couple
+probes at the mean location of that fitting's four bolt axes. Other frame
+members remain free to respond under the same declared floor restraints.
+Six directions distinguish translations along each member grain, panel-normal
+translation, rotations about each member grain and in-plane corner rotation.
+The recorded ratio is relative corner stiffness with panels divided by that
+without panels; it includes the rest of the frame and is not an isolated
+connector-material property.
+
+The comparator removes **all six climbing/kicker panels, all 66 screw springs
+and all 914 panel contacts together**, retaining 7,212 of the original 9,390
+coordinates. No residual panel foundation or artificial replacement support
+is retained. Loads enter the timbers as balanced probes, so the study does
+not leave a climber hanging from a disconnected panel. The remaining contact
+branches stay frozen at the original braced state. This is an infinitesimal
+linear comparison, **not a newly equilibrated frame-only climber case**.
+Twelve sparse factorizations cover **72 directional comparisons / 144 RHS
+solves**, with no native solver, CAD rebuild or copied operator bank.
+
+| Relative stiffness direction | With/without ratio across all six states |
+| --- | ---: |
+| Translation along top-rail grain | 2.727–21.067 |
+| Translation along side-rail grain | 1.408–13.728 |
+| Twist about top-rail grain | 3.780–6.383 |
+| Twist about side-rail grain | 2.057–59.444 |
+| In-plane corner rotation | 2.060–3.401 |
+| Translation normal to the panel | 2.408–2,000.902 |
+
+At the **right corner in `k12-right`**, which governs the top-rail section
+reference, the top/side twist stiffness ratios are **5.579 / 6.348**. At the
+**left corner in `a12-rear`**, governing the left-side reference, they are
+**3.854 / 5.419**. The right-side `k12-rear` location gives **4.325 / 5.346**.
+Thus the existing modeled panel restraint is substantial; it is not absent
+from the original response. The largest side-twist and panel-normal ratios
+come from `a1-rear`, whose frame-only fixed-branch comparator is very compliant.
+These outliers remain disclosed. They do not establish physical instability,
+a 2,000-fold strength gain or the contact pattern after panel removal.
+
+**What this changes in interpretation.** The original rail references
+1.169290 / 1.003835 / 0.971436 already use the modeled panel/screw force
+sharing. Dividing them again by these stiffness ratios would count that
+effect twice. The new study establishes no additional ultimate-strength
+credit. Translation along grain is a compression-direction stiffness probe,
+not a timber crushing test or buckling capacity. The existing resistance
+worksheets still do not credit intermediate panel attachments as buckling
+braces. Such a capacity credit needs an applicable directional restraint and
+strength assessment rather than a larger wood material allowable.
+
+The main model assumptions remain consequential: identical **1,000 N/mm axial
+and lateral Hillman springs**, zero screw clearance, tension-only withdrawal,
+no screw failure/yield cap, and **2 N/mm³ compression-only panel foundation**.
+The captured panel operators allow in-plane deformation and bending; they are
+not a rigid sheet. The current fields give peak screw withdrawal of **1,257.687 N**
+on the top rail and **1,487.320 / 1,449.987 N** on the left/right sides. These
+are demands, not established Hillman resistances. A spring that can continue
+carrying force does not demonstrate the real head, threads, plywood or timber
+can sustain it. Neither underestimated nor overestimated bracing is proven.
+
+**Published comparison.** [Marxhausen's timber stud-wall tests](https://digital.auraria.edu/works/publication-dissertation/1bcp0-k5107),
+Table 5.1 (printed p.113, PDF p.125), report average axial failure loads of
+8.25 kip without sheathing, 34.81 kip with OSB on one side and 41.12 kip with
+OSB on both sides: **4.219 / 4.984 times** the unsheathed result. The unsheathed
+specimens had diagonal straps; the relevant benefit was weak-axis buckling
+restraint. These are timber-wall strength results, not this screw/plywood
+corner's torsional resistance. They support the possibility of large bracing
+benefits without validating the present numerical factors.
+
+[Hirashima and Tahara's plywood-versus-diagonal-brace tests](https://www.jstage.jst.go.jp/article/jwrs/52/5/52_5_312/_article/-char/en)
+give normalized wall multipliers 2.84 versus 1.91 (ratio **1.487**), with nail
+withdrawal limiting the plywood specimens. This is not a bare-frame comparison
+or a torsional-stiffness ratio. [APA's diaphragm guidance](https://www.apawood.org/applications-systems/fully-sheathed-wall-systems/shear-walls-diaphragms/)
+supports panel shear transfer through the edge connections. The
+[FPL fastening chapter](https://research.fs.usda.gov/download/treesearch/62253.pdf)
+and [Rammer's deformation models](https://research.fs.usda.gov/download/treesearch/50078.pdf)
+support separate force-slip, clearance and resistance treatment. The
+steel-stud AISI RP13-1 study is retained only as a mechanism/workflow analogy;
+its 16% one-sided and up-to-91% two-sided compression-strength gains are not
+timber calibration. Source URLs, exact metrics, limitations and the single
+new cached university PDF are bound in `literature-review.json`. No universal
+joint-strength multiplier or matched external validation was found.
+
+**Practical engineering next steps.** First draw the actual panel-edge force
+route and distinguish racking restraint, panel-normal opening, rail twist,
+and axial bearing/buckling. Establish separate supported screw force-slip
+and resistance inputs, retaining actual fastener, penetration, plywood and
+countersink conditions. Published service-slip methods are starting points;
+the current equality of axial and lateral stiffness is not a measured law.
+Then use the coupled response to check bolt/rail demands together with screw
+withdrawal, lateral resistance, head pull-through, panel edges and timber
+splitting. A stiffer spring cannot be credited past an unsupported failure
+load. If needed, characterize representative connections and a complete
+corner specimen with a common fixture, comparing force/displacement and
+moment/rotation with and without the panel. [ASTM D1761](https://store.astm.org/standards/d1761)
+provides a framework for the fastener withdrawal/lateral part; it is not a
+complete corner torsion test. These are proposed engineering investigations;
+no physical test, changed screw policy or model redesign is performed.
+
+Reproduction uses the source-bound helper and a fresh ignored directory:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B -m scripts.eoere_panel_bracing_review \
+  --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/panel-bracing-review-v1/full-six-v2
+```
+
+Fresh-only guards intentionally reject existing outputs; choose an unused
+sibling for another run. NumPy 2.5.2 and SciPy 1.18.1 are reused. The solver
+uses diagonal scaling and sparse LU, with extended-precision residual
+accumulation/refinement of the **same literal operator**. It adds no stiffness
+or support. Maximum relative residual is **1.644e-9** against the unchanged
+1e-7 probe gate, binary64 replay residual **1.976e-8**, and normalized
+reciprocity error **5.768e-11**. Independent series/parallel and floating-panel
+controls, an ill-conditioned exact two-spring answer and dense coupled-work
+control pass. The original pilot metadata-join stops and first full sweep's
+last-state residual stop remain preserved with their exact snapshots/logs.
+The admitted full raw result SHA-256 is
+`ccbeba6074015f5bb0af49b72ec4b229ce0932ed846f048dfa8d2fd0772da8f8`.
+The first public reduction and its source are also preserved; the final
+reducer locates v6 through the revision history after the parallel v7 update.
+
+Active evidence stays under `analysis-v1/panel-bracing-review-v1/`; frozen
+operator bundles are reused. The 38,446-byte public summary keeps all-state
+ranges, governing-location probes and the A1 outlier while the full rows and
+literature cache remain ignored. The eight focused numerical/report/source
+checks and fifteen test-selection checks pass (**23 Python tests**); maintained
+adapter/test Ruff and `git diff --check` pass. The recovered-source opt-in
+explicitly verifies all 39 active source pins, six case/operator pairs and
+the public/raw summary join. No new complete Python-suite pass is claimed.
+The ten documentation-routing tests also pass. Logs and source joins are in
+`panel-bracing-review-v1/checks/validation.json`, SHA-256
+`0c8796072dfa3ddebb255ede37016dac1369e96bc3cafd6be53cf431cc4ea1db`.
+The three new maintained files total **57,842 bytes**, including the compact
+public summary; raw records and one 4.6 MB literature PDF remain ignored.
+No source archive, prune, mesh materialization or commit is performed.
+
+**Feed the latest cumulative model.** The geometry/checker and publisher
+owners are composing `eoere-inward-bolts-and-angles-v8`: preserve v7's forty
+inward bolt-stack reversals and apply the requested +6Y adjustment to eight
+angles and their 24 axes. The same comparison method and known-answer controls
+are reusable. The v6 stiffness numbers, contact branches, pressure states,
+thread/washer arrangements and strength interpretations do not transfer.
+The v6 record remains preserved evidence, not the current v8 result.
+
+After that single geometry is frozen, the force-analysis owner must supply
+its checked physical geometry/clearance receipt, own analytical geometry and
+material, exact current panel/screw/bolt/fitting maps, unchanged owner load
+contract, and **six own independently admitted fields with operator bundles**.
+The bracing continuation will consume those refs through a candidate-specific
+intake; it will not re-run a competing frame analysis. Verify actual corner
+axis membership and probe location, every current panel/screw/contact row,
+the same declared four-host floor law and all force/work/source joins before
+computing its own 72 stiffness comparisons. Retain that candidate's complete
+contact-dependent range and outliers. Feed those current directional results
+and the supported connection-strength inputs into the local joint/rail
+assessment; do not divide existing rail indices by a stiffness gain.
+
+At this handoff, v8 geometry is in preparation and **no v8 admitted fields or
+operator bundles exist yet**. Fresh candidate comparisons therefore await
+those specific analysis inputs, not another owner approval. The geometry/
+checker owner offered to own the reusable v8 force wrapper after the coordinated
+freeze, and the bracing owner will own the subsequent intake/comparison.
+Native and other heavy work remain serialized through the existing lock.
+No duplicate solve is launched while geometry is changing.
+
+<a id="current-reference-cleat-revision"></a>
+**Owner-requested reference cleat and second upper bolt — geometry review complete.**
+The owner identifies `eoere-narrow-channels-frame-development` as the cleat
+reference and points out the single upper bolt in the current viewer. The new
+revision is `eoere-reference-cleat-upper-pair-v5`. It restores the reference's
+straight sloping top and rectangular lower portion while retaining two
+19.05 mm plywood leaves per corner. Each corner now has two upper and two
+lower cleat bolts. The reference supplies its perimeter and pattern only;
+its material, forces, passes and 14 mm service-channel geometry do not transfer.
+
+The [current receipt](../bolted-frame-development/owner-frame-v5/geometry.json),
+[94 axes](../bolted-frame-development/owner-frame-v5/axes.json),
+[118 receiver rows](../bolted-frame-development/owner-frame-v5/receiver-holes.csv)
+and [four revised cleat drawings](../bolted-frame-development/owner-frame-v5/layout.md)
+bind this review. Twenty sawn members, 24 angles, six panels, 32 LED passages,
+66 Hillman axes and all 92 preceding bolt axes remain unchanged. Added axes
+`eoere_bolt_067/070` pass through the adjacent existing base-angle factory
+holes and both plywood leaves. Their complete eight-piece A574 stacks copy
+the retained upper stacks' nominal dimensions, including three factory spacers.
+Totals are 94 bolts/nuts, 188 washers, 32 spacers and 1,027 occupied parts.
+The front runner/post bolts retain the 60/100 mm positions.
+
+The new CAD rebuilds four leaves and cuts the two side-member receiver holes;
+it adds sixteen hardware solids. All eighteen affected bore-wall occurrences
+have complete nominal cylindrical removal: 19.05 mm in each leaf and 88.9 mm
+in each side member. The existing occupied-registry/intersection helper tests
+48 candidate pairs involving the 22 changed/added parts. No collision or
+missing candidate is found. The preceding receipt covers unchanged pairs;
+its `changed_parts` census is the complete inherited replacement registry,
+not the number newly queried. Geometry clearance is not joint eligibility.
+
+Restoring the upper pair reopens its recorded edge/row concerns. The added
+pin's near-edge distance is 25.459742 mm, compared with the 38.1 mm 4D
+perpendicular-loaded-edge marker. The pair's grain projection is 32.653611 mm,
+compared with the recorded 35.71875 mm perpendicular-row marker. Actual
+force-direction applicability and complete oblique-pair eligibility remain
+unresolved; no edge factor, force division or capacity is invented. Physical
+cutting/drilling remains held by those unresolved duties. A compatible detail
+or applicable complete assessment must resolve them. Bond, complete joint,
+member, floor and panel/Hillman duties remain open. This geometry task supplies
+no updated frame response, strength, fabrication or climbing release.
+
+The public packet is **11 files / 364,856 bytes**, containing complete current
+axis/member/receiver joins, the four changed leaf drawings and only two added
+hardware rows. The **153,650-byte** viewer patch contains six replacements and
+sixteen additions; unchanged meshes, historical scenes and issued producers
+are reused. The added coordinate tables are permanent so all 118 receiver
+occurrences and four holes per leaf can be reviewed without the raw CAD bank.
+Actual/Disposition cells stay blank. The v4 viewer is preserved explicitly as
+`eoere-owner-frame-v4-development`. Its six-case and 175 lb results retain
+their own one-upper-pin geometry. The weight-study command still targets v4.
+
+Active raw evidence stays under `frame-completion-v1/owner-reference-cleats-v5/`:
+`geometry/` holds CAD and clearance, and `browser-before/` / `browser-after/`
+hold reference, preceding and revised captures. The existing frozen raw prefix
+is `fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/`.
+Python 3.12.3, CadQuery 2.8.0 and NumPy 2.5.2 use the existing locked environment.
+The maintained producer is `scripts/eoere_reference_cleats.py`; geometry and
+publication run sequentially through the existing materialization wrapper:
+
+```sh
+uv run python -m scripts.compact_viewer_meshes --run -- uv run python -B -m scripts.eoere_reference_cleats build
+uv run python -m scripts.compact_viewer_meshes --run -- uv run python -B -m scripts.eoere_reference_cleats publish
+bun scripts/check_eoere_reference_cleats_browser.cjs FRESH_BROWSER_OUTPUT
+```
+
+Build/publication refuse existing output paths. The revision index contains
+the complete preceding index; earlier scene, geometry and evidence bytes stay
+unchanged. No raw run is archived or pruned. Next engineering work is the upper
+pair's compatible load/geometry treatment followed by matching joint/member
+checks. All existing evidence remains active. The 265 affected Node checks,
+maintained Ruff and CAD smoke checks pass. The v5 browser check passes all
+three routes and four complete upper-stack inspections, with seven captures
+and no page or request errors. Its initial reference-menu expectation of 100
+was corrected to the observed 98 inspection options; that assertion stop,
+producer snapshot and result remain in `browser-after/`. The passing record
+is `browser-after-v2/result.json`. No geometry or physical criterion changes
+for that browser expectation correction.
+
 <a id="current-front-bolt-moves"></a>
 **Approved local moves and requested larger upper bolt: completed bounded review.**
 The owner directed applying the lower front-pin and cleat-row proposals, then
@@ -5535,6 +7525,315 @@ All 245 affected development/documentation Node controls, new local links
 and focused whitespace checks pass; the active summary remains under 150
 lines. No archive or prune is performed.
 
+<a id="current-agent-coordination"></a>
+**Owner-directed coordination of the latest development model.** The owner
+asked for an audit of concurrent work, then clarified that all active work
+must feed the latest model. The geometry/viewer, engineering/checker,
+panel-bracing and costing tasks acknowledged the shared scope. Their next
+target is one cumulative successor containing both the v7 inward-facing bolt
+stacks and the separately owner-requested inward angle adjustment. The
+[revision index](../bolted-frame-development/development-revisions.json)
+identifies the published geometry; an unfinished proposal is not silently
+promoted by this coordination note.
+
+The cumulative [v8 geometry receipt](../bolted-frame-development/owner-frame-v8/geometry.json)
+has since been published and independently matched to the current index,
+checked geometry and clearance hashes. Its stable inputs are available to
+engineering, bracing and costing without waiting for viewer/browser work.
+The remaining analysis handoff is the engineering task's fresh admitted
+response bank; the bracing continuation uses that same bank.
+
+The owner subsequently established an ongoing coordination goal: each task
+must finish its authorized work. Found exceedances are recorded as deferred
+follow-up and do not hold up other independent analysis, documentation or
+model work. A deferred item retains its failed or unresolved status; it is
+not a capacity pass or authorization for the affected physical operation.
+Completion here means the task's checked deliverables and handoffs are
+finished, with exact deferred duties retained, rather than requiring every
+structural exceedance to be repaired first.
+
+| Active task | Completion work and next handoff | State |
+| --- | --- | --- |
+| Bolt/spacer model and viewer | [Completed v9 implementation](#current-single-spacer-stacks), exact changed-axis recipes and engineering handoff preserve both preceding geometry changes. | Complete; 314 Node and 24 focused Python checks, maintained Ruff, both mesh checks and real-browser/CAD comparisons pass; the final validation manifest is retained. |
+| Engineering and bolt geometry | [Completed own-input v9 bank and geometry review](#current-v9-response-bank) bind the final model and feed the shared component/bracing review. | Complete; six replay pairs, 322 Node and 154 focused Python checks, maintained Ruff and post-consumer source audits pass; maximum force residual is 3.750706e-6 N. |
+| Bracing and local joint/rail assessment | [Completed v9 component/bracing review](#current-v9-component-bracing-review) binds the shared latest bank and retains deferred duties. | Complete; 28 focused Python checks and independent source/interval/probe audits pass; 18 shaft case/metric flags, five top-rail case flags and unresolved qualifications remain deferred. |
+| Materials budget | [Latest hardware budget](../bolted-frame-development/builder-plan.md#latest-hardware-budget) binds the final v9 recipes and inventory, preserves the v8 reference and distinguishes allowances from quotes. | Complete; quantities and the $61.76 each-price reduction reconcile, and 300 targeted model/document checks pass; supplier/package/local-price gaps remain explicit. |
+
+All four owner-authorized tasks are complete on the same cumulative v9 model.
+The coordination goal closes with the exceeded references and unresolved
+joint, screw, bond and floor qualifications retained as deferred work in the
+[current component/bracing record](#current-v9-component-bracing-review).
+Deferral supplies no pass or physical release. The coordinator independently
+checked the final model/result bindings, replay admission, direct evidence
+hashes, current authority/document routing and unchanged selected authority.
+The v8/v9 banks, source snapshots, corrections, failed routing evidence and
+viewer validation records remain active evidence dependencies. No packet is
+designated for archiving or pruning by this task; no staging, commit or push
+is performed by the coordination audit.
+
+- The geometry/viewer task owns the single current-model publication and
+  index/summary transition. The engineering task supplies its checked
+  cumulative geometry and clearance inputs, retaining all forty stack
+  reversals, rather than publishing a competing v6-based angle model.
+  The owner's subsequent shorter-bolt/spacer continuation starts from that
+  combined geometry. Changed hardware belongs in a cumulative successor;
+  the running v8 bank and its frozen inputs stay unchanged. Exact changed
+  axes, lengths, spacers, shank/thread and seating positions go to engineering,
+  bracing and costing for a bounded applicability and inventory comparison.
+- The engineering task owns the reusable bolt-checker correction, including
+  the omitted cross-receiver neighboring pairs, and subsequent source-bound
+  response/input preparation for the frozen latest geometry. Old force
+  fields and principal-direction diagnostic factors are not relabeled as
+  current complete-joint results.
+- The panel-bracing task owns its comparison adapter and consumes that same
+  admitted response bank. The owner's subsequent continuation also covers
+  latest-model local joint/rail assessment and targeted remedies for remaining
+  exceedances, coordinated with the engineering task's checker worksheets.
+  Useful intake and method work continues while the shared inputs are being
+  completed; no duplicate global response campaign is assigned. Completed v6
+  results remain preserved evidence; the method and controls carry forward,
+  while numerical gains require the new candidate's own states and contact
+  branches.
+- The costing task reconciles the latest inventory before labeling its budget
+  current. Unchanged quantities/specifications can reuse sourcing research;
+  allowances, verified prices and alternative quote research remain distinct.
+
+Shared edits use narrow owned hunks. The geometry publisher coordinates
+current headings, viewer links and revision-index bindings with the other
+tasks. Heavy mechanics and any mesh materialization remain serialized;
+no duplicate response campaign is assigned. The final cumulative geometry
+receipt/clearance and its admitted six-case response bank are the concrete
+handoff inputs for later consumers. This sequencing adds no model-review
+approval gate or external native-solver authorization. The owner retains
+2.0 times body weight; higher multipliers remain optional.
+
+The audit checked the then-published v7 revision chain and eighteen public
+receipt hashes without a mismatch. No index paths were staged, and the
+panel-bracing mechanics lock was idle when ownership was reconciled. Existing
+v6/v7 inputs, results and the first angle proposal remain active dependencies;
+no evidence is archived, pruned or overwritten by this audit. The separate
+selected-baseline authority and all release boundaries remain unchanged.
+
+<a id="bouldering-load-multiplier-review"></a>
+**Bouldering load multiplier: online evidence review, October 23, 2026.**
+The owner asked whether the 2.0 body-weight multiplier is reasonable for
+bouldering. It is a reasonable comparison scenario, but the evidence does
+not establish it as an upper envelope for dynamic bouldering. Retain the
+existing 2.0 reference; do not lower it to clear an exceeded criterion or
+describe it as a universal safety factor. This review changes no load input,
+geometry, resistance, adopted criterion or release flag. The later
+[v6 evaluation](#current-principal-pair-testing-review) retains its own scope;
+the weight-study command continues to target v4.
+
+**Owner decision following the review:** retain **2.0 times body weight** as
+the working downward climber-load basis for the intended one-person
+bouldering use. The proposed 2.5 and 3.0 comparisons remain optional; they
+are not a new completion prerequisite. The separate 300 N horizontal action,
+dead/accessory loads, CD1 and existing criteria remain unchanged. This records
+the owner's selected analytical assumption, without converting the published
+evidence into a universal bound or accepting any failed joint/frame criterion.
+
+The [load adapter](../../scripts/eoere_load_parameters.py) applies
+`downward_multiplier × mass × 9.80665` at one recorded hold, plus an
+independent 300 N horizontal action. Self-weight and the 25 kg accessory
+allowance are separate. Two times body weight is the total downward climber
+force, not an additional twice-weight impact on top of static weight, and
+not a separate allowance for each hand. These are equivalent static cases,
+not measured force histories or transient structural tests. Movement
+amplification and material/load-duration factors remain separate; CD stays 1.
+
+| Primary evidence checked online | Finding and applicability |
+| --- | --- |
+| [Fuss and Niegl, 2010, Sports Engineering](https://link.springer.com/article/10.1007/s12283-010-0052-1), sections 2 and 3.6; [author-posted full text](https://www.researchgate.net/publication/225113929_Biomechanics_of_the_two-handed_dyno_technique_for_sport_climbing) | Nine experienced climbers performed two-handed dynos at a bouldering wall. Upper-hold vertical catch peaks were 1.10–1.63 body weights, supporting 2.0 as a useful catch comparison for that protocol. This is the shared upper hold, not 1.63 per hand. Participants weighed 45–60 kg; the experiment does not bound all moves or the heavier project scenarios. |
+| [Hugues et al., 2025, Multidisciplinary Biomechanics Journal, pp. 475–477](https://mbj.episciences.org/api/pdf-proxy?disposition=inline&url=https://hal.science/hal-04738064v2/document), Figure 1 and results, p. 476 | Seven expert climbers performed three dynos each. The group-averaged force history reaches 2.26 body weights in total vertical takeoff force, 13% above 2.0. This is a takeoff result, not a catch value or an individual maximum bound. Opposing hand/foot horizontal forces also show why a small net horizontal resultant does not bound local hold forces or couples. |
+| [Metolius home bouldering-wall guide, PDF p. 2](https://www.metoliusclimbing.com/pdf/How-to-Build-a-Home-Bouldering-Wall.pdf) | The manufacturer warns that movement can generate several times the climber's weight. It supplies no universal numeric multiplier or measured upper bound. |
+
+The newer takeoff evidence prevents treating the earlier catch result as
+proof that every bouldering action stays below 2.0. It also does not prove
+that this frame fails at 2.26: hand/foot positions, simultaneous directions,
+moments and the resulting load paths differ from our single-hold cases.
+Increasing the single downward force alone cannot establish coverage of
+those local actions, lateral motion, repeated loading or structural dynamics.
+For bouldering, hold catches and takeoffs are relevant wall actions; a rope
+fall-arrest load is a different use, and pad landing impact is not assigned
+to this frame without a physical load path.
+
+The public [CWA specification, first edition January 2009](https://www.cwapro.org/file/secure/cwadesignpecfinal2022.pdf),
+Table 1 on printed p. 6 (PDF p. 9), lists 1.2 kN for an unroped climber.
+The [CWA engineering page](https://www.cwapro.org/design-and-engineering)
+still identifies its specification as the first edition. Our 250 lb × 2.0
+action is 2.224 kN, above that individual nominal action, but that comparison
+does not implement the specification's separate combinations, utilization,
+complete load paths or stability provisions, or establish conformity. The
+2009 edition is not relabeled as a 2022 edition from its filename.
+
+[BSI lists EN 12572-2:2017 as current and under review](https://knowledge.bsigroup.com/products/artificial-climbing-structures-safety-requirements-and-test-methods-for-bouldering-walls).
+This is the bouldering part. The [official SIST preview](https://preview.sist.si/sist-preview/39968/eb82f102549541eba9b79bad025432c2/SIST-EN-12572-2-2017.pdf),
+section 4.5, refers structural integrity and stability to Annexes A/B;
+sections 4.6/4.7 separately address surface and insert tests. The preview does
+not expose the full annex calculation procedure. No EN dynamic multiplier,
+whole-frame proof load or conformity is inferred from a panel/insert test.
+
+Optional future comparisons at **2.5** and **3.0** would show sensitivity to
+additional movement load. Following the owner's decision, neither is required
+for routine continuation. These are unadopted project comparisons, not
+published requirements or guaranteed upper bounds. Downward climber forces
+would be:
+
+| Climber input | Existing 2.0 | Proposed 2.5 | Proposed 3.0 |
+| --- | ---: | ---: | ---: |
+| 175 lb | 1.557 kN | 1.946 kN | 2.335 kN |
+| 250 lb reference | 2.224 kN | 2.780 kN | 3.336 kN |
+
+If an optional comparison is pursued, retain dead/accessory loads independently
+and re-evaluate complete cases; do not multiply saved utilization ratios.
+Reconcile its geometry with the v4-only weight-study command before using that
+command for a later revision. A universal dynamic envelope would additionally
+need representative takeoff/catch hand/foot positions, simultaneous force
+vectors and couples, and directional/temporal evidence including the horizontal
+action. Those inputs are not established by selecting 2.0 or by increasing
+the multiplier alone. No native solve, CAD rebuild or load study is run for
+this source review or the owner's load-basis decision. Existing geometry/evidence
+packets remain active; no new raw packet or archive/prune operation is needed.
+
+<a id="current-exceedance-method-review"></a>
+**Owner-requested audit of the exceedance methods — completed within its frozen scope.**
+The target is the six 250 lb cases of `eoere-local-front-bolt-moves-v4`, the
+92-bolt revision discussed with the owner. Its fixed 2.0 downward multiplier,
+300 N horizontal action, dead loads, CD1, material references and acceptance
+limits remain unchanged. The audit authenticates the preserved v4 records
+directly; it does not require the development revision index to keep naming
+that historical geometry. Later v6 geometry and response work retain their
+own evidence and are outside this audit's force and capacity conclusions.
+The v6 public report was published during this review; its analysis, row,
+worksheet, report-producer and full-report bindings verify in the separate
+`later-revision-applicability.json` note. This source/version check does not
+replay or qualify the new v6 actions, geometry or reference values.
+
+**No candidate arithmetic or force-recovery defect was found in the reviewed
+exceedances.** Independent reduction of the raw interaction tables and
+Gaussian integration of affine selfweight reproduce 72 member cuts within
+1.164153e-10 N/Nmm. Internal action pairs close within 7.58e-11 Nmm; opposite
+member cuts close within 0.004297 Nmm, inside the existing 0.1 Nmm allowance.
+Changing the cut datum and rotating the transverse axes preserves the section
+comparisons within 4.45e-16. All six fields include six panels, 66 screw
+connections, 92 shafts and 24 angles. The local checks did not assign the
+whole frame load independently to every bolt or omit the panel screws.
+
+The principal findings concern the interpretation and conservatism of the
+local references:
+
+- **Side-rail breadth is deliberately reduced.** The producer withholds
+  9.525 mm from the nominal 88.9 mm thickness, crediting about 79.373 mm.
+  Six temporary intersection probes against the unchanged cached BReps show
+  zero absent material when the three ligaments at each governing interval
+  are expanded to the full nominal thickness. This is avoidable conservatism
+  at those intervals, not an incorrect CAD stock dimension or a proof about
+  every member station. The original reduced-core records remain unchanged.
+- **The timber warnings are mainly torsion references.** At the left-side
+  governing midpoint, the scalar comparison is about 0.204 from transverse
+  shear plus 1.140 from the adopted torsion construction. The method projects
+  complete hole bands out of the section and assigns common twist to the
+  remaining rectangular ligaments. Its arithmetic is reproducible, but this
+  is not a complete loaded-bore, warping, splitting or joint stress solution.
+  An exceeded reference does not establish the actual frame's fracture margin.
+- **The upper support bolt indices are not reduced twice.** Independent
+  integration reproduces all twelve upper-support bolt/case comparisons:
+  maximum moment error is 1.21e-10 Nmm and reference-index error is below
+  4.57e-15. Both Cg and Cdelta equal 1.0 for these bolts. Their governing
+  steel intervals are smooth body, not thread root. The recorded reduced
+  axial/bending maxima remain 1.089846/1.076285; the distinct elastic N/M/V
+  comparisons remain 0.943142/0.931380. Neither is silently substituted for
+  the other. The separate side-member bearing references still exceed at
+  1.113637/1.098425, so changing only the steel interpretation cannot close
+  the joint.
+- **The plywood exceedance includes an actual saved bore couple.** All 168
+  row/subset/thickness comparisons reproduce, with zero reference-capacity
+  difference and index error below 8.89e-16. The governing nominal left lower
+  bore gives 0.750885 using integrated force alone, versus 1.066325 when its
+  own first moment and the recorded pressure/row construction are retained.
+  A different pressure block alone cannot clear its 1.055443 scalar lower
+  bound within that hypothesis. This construction remains an engineering
+  extension, not an APA-tested complete plywood gusset capacity.
+- **Full assembly participation is distinct from physical qualification.**
+  The panel screws use an explicit 1,000 N/mm axial/lateral stiffness prior,
+  tension-only withdrawal and zero modeled clearance. This is not measured
+  Hillman stiffness or SPAX credit. Gross timber stiffness, the full-width
+  cleat beam approximation, small-motion kinematics and declared floor
+  restraints remain hypotheses. Conservatism in one resistance comparison
+  cannot be assumed to cancel demand-model uncertainty elsewhere.
+
+The following **non-adopted, fixed-action probes** quantify the side-width
+and peak-addition choices. The first column is the original continuous
+screen; the other columns are selected midpoint evaluations, not replacement
+continuous member results or all-point physical passes.
+
+| Member | Original continuous screen | Full-thickness scalar at selected cut | Full-thickness compatible midface probe |
+| --- | ---: | ---: | ---: |
+| Left side | 1.343708 | 1.121853 | 1.002934 |
+| Right side | 1.306019 | 1.090297 | 0.975563 |
+
+The full-thickness scalar references still exceed one at those cuts. A right
+midface probe below one does not clear all other points or complete joint
+behavior. The header and top rail retain 1.128148/1.176955 continuous screens;
+their existing compatible midface probes remain about 1.119030/1.176231.
+No absent wood is restored, hole moved, material value raised, failure waived
+or new capacity model adopted by these diagnostics.
+
+**Source and method checks.** Three rectangle shapes, each on three independent
+Poisson finite-difference grids, reproduce the frozen Fourier torsion constants.
+The finest-grid peak-coefficient errors are below 0.0193%; torsional-constant
+errors are below 0.0484%. A separate uniformly loaded, simply supported unit
+beam gives its exact 1/8 maximum moment. These ten known-answer controls check
+the software mathematics, not the physical loaded-hole interpretation.
+The [USDA FPL chapter 9](https://research.fs.usda.gov/download/treesearch/62251.pdf)
+supports the rectangular equations and explicitly separates local stresses at
+load/support introduction. Pinned NDS2024 §3.1.2.2 supports the stated net-hole
+deduction rule, while §3.4.4 retains distinct bolted-connection effective-depth
+shear duties. NDS Appendix E.3.3's triangular stress distribution explains why
+its two shear paths do not add a missing factor of two to `n Fv t s`.
+[APA D510F](https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/)
+Table 9 confirms the assumed 24 oc, five-ply 4,350/2,550 lbf/ft tension and
+110 lbf/in shear products. Section 4.5.5's size factor is width-dependent;
+the recorded 0.5 is a conservative minimum, and the governing single-bore row
+uses no group net-tension term. No factor, stamp or installation is adopted
+from these software/source controls.
+
+Evidence stays in the existing ignored
+`frame-completion-v1/owner-assumptions-audit-v1/exceedance-method-review-v1/`
+packet. `scope.json` freezes the questions and six original fields;
+`independent_timber_review.py`, `cached_geometry_review.py`,
+`connection_reference_review.py`, `independent_method_controls.py` and
+`primary_reference_review.py` produce their corresponding JSON receipts.
+Run the first four from the repository root with
+`PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B`
+and their packet path. The source reader uses
+`PYTHONPATH=. uv run --with 'pypdf[crypto]==6.21.2' python -B` and its path.
+The producers reject existing outputs. Cached manuals and shared dependencies
+are reused, with no copied installations or unchanged assets.
+
+The final summary is `final-result.json`, SHA-256
+`1458f6c2aa76148eb6ddd0c8d84c277f6508aa48e92483888e6ca3b364951c2d`.
+It authenticates 1,544 source/result bindings. Python 3.12.3, NumPy 2.5.2,
+SciPy 1.18.1, CadQuery 2.8.0 and pypdf 6.21.2 are recorded. The selected
+regression run passes 76 controls; its explicit historical-only followup
+passes the five initially deselected controls. Fatal source syntax/name
+checks pass. Optional full style lint findings on the frozen raw producers
+remain recorded separately from engineering results. The initial harness
+stops for external-archive path normalization and a missing historical `/tmp`
+manual are retained with their snapshots; the corrected reader uses the
+existing shared FPL cache. The earlier summary's test-selection label is
+corrected by `final-result.json` without rewriting its numerical results.
+
+This audit is complete; current frame/joint acceptance remains unestablished.
+Resolve the governing joint/support and hole-section interpretation before
+selecting physical remedies, and bind any later candidate to its own eligible
+geometry and matching forces. All audit outputs, failed harness records and
+earlier dependencies stay active; nothing is archived or pruned. Only the
+existing summary and ledger are changed in Git. No native executable solve,
+candidate frame-response solve, candidate CAD rebuild, mesh change, physical
+inspection, fabrication or climbing release is performed.
+
 <a id="climber-weight-studies"></a>
 **Climber-weight inputs and proportionate modeling approach.** The owner
 requested a weight parameter, comparison with common wall-building practice
@@ -5737,6 +8036,105 @@ the unchanged 13,997-byte producer has SHA-256
 The 219,333,005-byte raw bank stays ignored and active; no frozen source,
 geometry, mesh, selected-baseline artifact or release flag changes. No
 native executable, CAD rebuild, archive or prune is used for this study.
+
+<a id="climber-weight-150lb"></a>
+**150 lb owner-requested comparison.** All six current v4 cases are recomputed
+at 150 lb (68.0388555 kg), retaining the 2.0 downward multiplier, 300 N
+horizontal action and CD1. All 802 nonclimber load rows per case remain
+unchanged, including nominal self-weight and the 25 kg accessory allowance.
+Downward climber force is 1,334.466485 N and total downward action is
+3,509.817493 N, about 6% below the 175 lb comparison. Geometry, capacity
+references and the selected 250 lb reference remain unchanged.
+
+| Governing conditional reference, limit 1.0 | 175 lb comparison | 150 lb comparison |
+| --- | ---: | ---: |
+| Front post/runner wood, left / right | 0.746588 / 0.698596 | 0.684084 / 0.640089 |
+| Front post/runner bolt axial/bending, left / right | 0.658515 / 0.610892 | 0.581377 / 0.539541 |
+| Upper long support/side rim wood, left / right | 0.878547 / 0.866067 | 0.800292 / 0.788691 |
+| Upper long support/side rim bolt axial/bending, left / right | 0.860677 / 0.849761 | 0.779089 / 0.769535 |
+| Bonded cleat, 38.1 mm / 36.5 mm credit | 0.850972 / 0.901843 | 0.779207 / 0.826139 |
+| Header net shear/torsion | 0.964567 | 0.906385 |
+| Top rail net shear/torsion | 1.040608 | 0.995259 |
+| Left / right sloping side net shear/torsion | 1.118066 / 1.085426 | **1.042243 / 1.010075** |
+
+All 82 ordinary-bolt layouts meet their mandatory geometry checks and none
+of their reported references exceed one. The top rail clears its sufficient
+net shear/torsion reference by only about 0.47%. The two sloping sides still
+exceed: left at A12-rear by about 4.22%, right at K12-rear by about 1.01%.
+These are the existing sufficient engineering screens, not observed
+fracture loads. The [assumption audit](#current-assumption-and-reference-audit)
+and its applicability limits remain in force. All six raw-force and
+two-plywood-operator replays pass; maximum full-gradient residual is
+6.780893e-8 N, below the unchanged 1e-5 N admission limit. All four credited
+floor hosts remain in compression in every case.
+
+**Retained numerical stop and bounded correction.** The original
+`weight-150lb-v1` A12-forward attempt stopped before exporting an accepted
+field because the separate body/global closure gate failed. Replaying its
+saved operators reproduces a 1.197200e-6 N full-gradient residual and
+0.100029694 Nmm global moment residual against the existing 0.1 Nmm limit.
+No failed result or acceptance limit is rewritten. The source-bound
+`weight150_tighter_stop.py` adapter reuses the maintained study orchestration
+and frozen physical kernels, changing exactly the two Newton iteration
+stopping comparisons to a tighter 1e-7 N target. The final 1e-5 N admission,
+1e-4 N body/global force and 0.1 Nmm moment limits remain unchanged. A
+threshold regression demonstrates the extra iteration on a known scalar
+equilibrium; all seven existing fixed-floor method fixtures also pass.
+The fresh v2 A12-forward result clears the original closure gates, with
+about 0.00731 Nmm global moment residual. Every v2 case starts fresh; no
+failed or historical displacement is reused.
+
+The cleat references still assume perfect bonding and the nominal full-width
+beam approximation. The 36.5 mm result changes reference credit at nominal
+stiffness. Actual bond and floor behavior, the ten dedicated joints and
+complete steel/end/group/seat/washer/spacer duties remain unqualified;
+panel/Hillman strength remains deferred. This comparison does not select a
+lower design load, establish a climber rating or release fabrication/climbing.
+The next engineering work remains the governing timber/joint/support review.
+
+The active successful bank is
+`frame-completion-v1/owner-bolt-moves-v4/weight-150lb-v2/`. The initial
+failure and its saved-operator diagnosis remain in `weight-150lb-v1/`.
+The adapter and `weight150-tighter-stop-fixtures-v1.json` remain alongside
+those banks. The completed commands, using the existing shared raw prefix,
+are:
+
+```sh
+moonboard_weight_packet=fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4
+uv run python -B -m scripts.eoere_weight_study --weight-lb 150 --out "$moonboard_weight_packet/weight-150lb-v1"
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. uv run python -B "$moonboard_weight_packet/weight-150lb-v1/diagnose-closure.py"
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. uv run python -B "$moonboard_weight_packet/weight150_tighter_stop.py" --fixtures-only
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. uv run python -B "$moonboard_weight_packet/weight150_tighter_stop.py" --weight-lb 150 --out "$moonboard_weight_packet/weight-150lb-v2"
+```
+
+The failed bank retains its producer snapshots, source-bound inputs, failure
+log and diagnosis helper. The recorded commands refuse to overwrite their existing
+evidence; a repeated study needs a fresh `--out` directory and reuses the
+authenticated fixture receipt. Final `verification.json` checks 87 JSON
+records and 1,643 distinct source/result bindings, including unchanged
+geometry/material and all six cases' fixed load rows. Python 3.12.3,
+NumPy 2.5.2 and SciPy 1.18.1 match the preceding comparison. The 48 existing
+load/incremental/support controls pass. Raw-adapter Ruff passes with a scoped
+S102 exception for the source-checked AST compiler; frozen producer bytes
+remain unchanged.
+
+`result.json` is 65,990 bytes, SHA-256
+`0372d5c14efd51e1da0b34ecefe04a7eb156dba8299a2927a56add20b99917ff`;
+the 1,072-byte `comparison.tsv` is
+`e06028b8091fa5ce226f5dc19b4ac911468195a6757a8e83c0957e9c97b507f8`.
+Prepared inputs have SHA-256
+`5f5ad30de94b54152a541fdc15d2eb738a1ffdaf7006bdcb837cf2d6bcddbd71`;
+the 5,174-byte numerical adapter is
+`1c05d8316a8866423ec6379b9c10111efc1ffdb3430993d2c330f22d1a82c462`.
+The 2,542-byte fixture receipt is
+`aa20ab42ddc984f4d0fefa9afedbf2d8a7eb3c4ee19faa30077c7d491f17bb6d`;
+the final 3,013-byte verification receipt is
+`b39eeb2025257f731c5e3acbf5f9fe97d60819db4ddbdaad3b3ac504768911f4`.
+The successful raw bank is 219,373,025 bytes; the failed bank and diagnosis
+are 20,029,306 bytes. These ignored banks, their source-bound helpers and
+earlier dependencies stay active. No bulky permanent artifact is added to
+Git; no historical source, mesh, selected-baseline artifact or release flag
+changes. No native executable, CAD rebuild, archive or prune is used.
 
 <a id="current-exceedance-proposals"></a>
 **Owner-requested remedies for the current exceedances — proposals only.**

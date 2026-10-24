@@ -19,3 +19,45 @@ fea/results/reinforced-*.json linguist-generated=true
 # Preserve hash-bound shop CSV bytes, including their standard CRLF records.
 docs/bolted-frame-development/paired-frame-v*/hardware-totals.csv -text whitespace=cr-at-eol
 docs/bolted-frame-development/paired-frame-v*/stock-nesting.csv -text whitespace=cr-at-eol
+
+# Preserve exact imported development evidence and source-bound CSV records.
+# CRLF is part of these frozen hashes; the two paper witnesses retain EOF blanks.
+docs/bolted-frame-development/owner-frame-v10/buying-list-current.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/buying-list.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/analysis-attempt-08/contact-area-weight-check.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/analysis-attempt-08/contact-delta-13.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/analysis-attempt-08/final-mechanics-join.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/delivery-bundle-13.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/execution-boundary.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/geometry-viewer-join-13.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/hardware-source-notes.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/joint-applicability-13-bank-scope.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/hardware-bom.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/completion-index-v2.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/completion-index-v3.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/completion-summary-corrected-13-v1.txt -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/group-action-overlap-review-13-v2.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/group-action-overlap-review-13-v2.md -text whitespace=cr-at-eol,-blank-at-eof
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/group-paper-final-binding-13.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/mechanics-audit-source-binding-v2.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/mechanics-method-and-group-scope-13.txt -text whitespace=cr-at-eol,-blank-at-eof
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/paper-audit-bundle-v1.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/washer-face-audit-binding-13-v1.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/cut-plan.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/drill-plan.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/hardware-bom.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.json -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.txt -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v10/standard-stock-planning/board-allocation.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v5/hardware-additions.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v5/members.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v5/receiver-holes.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v6/hardware-additions.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v6/receiver-updates.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v8/receiver-updates.csv -text whitespace=cr-at-eol
+docs/bolted-frame-development/owner-frame-v9/hardware-selection.csv -text whitespace=cr-at-eol

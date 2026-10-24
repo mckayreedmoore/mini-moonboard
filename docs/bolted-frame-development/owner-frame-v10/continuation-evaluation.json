@@ -1,0 +1,899 @@
+{
+  "actual_Cdelta_adopted": null,
+  "actual_Cg_adopted": null,
+  "adhesive_planning_basis": {
+    "bond_target": "plywood-to-plywood face bond between two 12.7 mm leaves; frame attachment through bolts",
+    "home_depot_sku": "223222",
+    "manufacturer_TDS": "https://datasheets.tdx.henkel.com/LOCTITE-PL-Premium-Construction-Adhesive-en_US.pdf",
+    "manufacturer_process": "One component; clean fitted surfaces; press within 15-20 min; mechanical support 24 h; stated cure 24-48 h at 25 C/50% RH, longer cold/dry.",
+    "model_IDH": "1390595",
+    "perfect_bond_qualified": false,
+    "product": "Loctite PL Premium Construction Adhesive, standard tan 10 fl oz",
+    "purchase_performed": false,
+    "qualification": "TDS lumber-to-plywood tests are adjacent evidence. No leaf-bond allowable, full-face spread/clamp schedule, creep or perfect-bond stiffness is established.",
+    "retailer": "https://www.homedepot.com/p/202020473"
+  },
+  "all_applicable_connection_criteria_resolved": false,
+  "candidate_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/geometry-receipt-13.json",
+    "sha256": "b79b35e0b159ddea43bb3a1a456f3e34a7acafc2f802c5abb782356e620c0cff"
+  },
+  "candidate_geometry_changed": false,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "component_dispositions": [
+    {
+      "complete_connection_qualified": false,
+      "component": "eoere_bolt_067",
+      "conditional_single_fastener_summary": null,
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_067",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.1170762873984987,
+        "individual_reference_before_Cg": 0.5585381436992494
+      },
+      "scope": "unequal plywood/wood/steel; symmetric double-shear substitution excluded",
+      "unresolved_duties": [
+        "compatible unequal-media yield/interaction retaining each receiver wrench",
+        "actual material/bond and plate properties",
+        "group, splitting and axial/washer transfer"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "eoere_bolt_068",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-forward",
+        "max_lateral_translation_demand_N": 234.36053089897973,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.23260393447744795,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 3496.540799856186,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_068",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0014715870661846,
+        "individual_reference_before_Cg": 0.5007357935330923
+      },
+      "scope": "two-member wood/steel; six-mode translation calculated on unadopted material scenario",
+      "unresolved_duties": [
+        "qualified fitting steel Fe/Fu and bolt Fyb/section basis",
+        "complete couple/axial interaction, group treatment and splitting",
+        "actual oblique/eccentric acceptance; idealized near-unloaded/opposite-loaded edge screen clears"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "eoere_bolt_070",
+      "conditional_single_fastener_summary": null,
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_070",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0236239019208646,
+        "individual_reference_before_Cg": 0.5118119509604323
+      },
+      "scope": "unequal plywood/wood/steel; symmetric double-shear substitution excluded",
+      "unresolved_duties": [
+        "compatible unequal-media yield/interaction retaining each receiver wrench",
+        "actual material/bond and plate properties",
+        "group, splitting and axial/washer transfer"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "lumber_leg_bolt_left_1",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 1382.4659849375103,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.5646299252202424,
+        "wood_wood_max_ratio_case": "a12-rear"
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_1",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.6643953619011496,
+        "individual_reference_before_Cg": 0.8321976809505748
+      },
+      "scope": "two-member wood/wood; six-mode translation and moment-preserving rear reference calculated",
+      "unresolved_duties": [
+        "physical pair ownership and applicable group treatment",
+        "qualified bolt bending/section and combined wrench interaction",
+        "wood splitting, tear-out and applicable oblique detailing"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "lumber_leg_bolt_left_2",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 1514.213166576532,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.6381606908774683,
+        "wood_wood_max_ratio_case": "a12-rear"
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_2",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.960158957569383,
+        "individual_reference_before_Cg": 0.9800794787846915
+      },
+      "scope": "two-member wood/wood; six-mode translation and moment-preserving rear reference calculated",
+      "unresolved_duties": [
+        "physical pair ownership and applicable group treatment",
+        "qualified bolt bending/section and combined wrench interaction",
+        "wood splitting, tear-out and applicable oblique detailing"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "lumber_leg_bolt_right_1",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 1366.4007919481937,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.5577178561173376,
+        "wood_wood_max_ratio_case": "k12-rear"
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_1",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.6420276909631062,
+        "individual_reference_before_Cg": 0.8210138454815531
+      },
+      "scope": "two-member wood/wood; six-mode translation and moment-preserving rear reference calculated",
+      "unresolved_duties": [
+        "physical pair ownership and applicable group treatment",
+        "qualified bolt bending/section and combined wrench interaction",
+        "wood splitting, tear-out and applicable oblique detailing"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "lumber_leg_bolt_right_2",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 1496.222189804342,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.6301469250686798,
+        "wood_wood_max_ratio_case": "k12-rear"
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.5,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_2",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.9333462069770881,
+        "individual_reference_before_Cg": 0.9666731034885441
+      },
+      "scope": "two-member wood/wood; six-mode translation and moment-preserving rear reference calculated",
+      "unresolved_duties": [
+        "physical pair ownership and applicable group treatment",
+        "qualified bolt bending/section and combined wrench interaction",
+        "wood splitting, tear-out and applicable oblique detailing"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_header_bolt_001",
+      "conditional_single_fastener_summary": null,
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v10_header_bolt_001",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0680565625867964,
+        "individual_reference_before_Cg": 0.2670141406466991
+      },
+      "scope": "wood and two coupled steel-port actions; symmetric actions not established",
+      "unresolved_duties": [
+        "physical shear-plane and common-header group mapping",
+        "compatible multi-plane force/moment interaction and fitting transfer",
+        "local wood stress and applicable end/edge/net sections"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_header_bolt_004",
+      "conditional_single_fastener_summary": null,
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v10_header_bolt_004",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0698550062626915,
+        "individual_reference_before_Cg": 0.26746375156567287
+      },
+      "scope": "wood and two coupled steel-port actions; symmetric actions not established",
+      "unresolved_duties": [
+        "physical shear-plane and common-header group mapping",
+        "compatible multi-plane force/moment interaction and fitting transfer",
+        "local wood stress and applicable end/edge/net sections"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_top_bolt_001",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 199.47146600239154,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.1431349087021183,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2339.374685406685,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v10_top_bolt_001",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.2819501841264036,
+        "individual_reference_before_Cg": 0.3204875460316009
+      },
+      "scope": "two-member wood/steel; six-mode translation calculated on unadopted material scenario",
+      "unresolved_duties": [
+        "qualified fitting steel Fe/Fu and bolt Fyb/section basis",
+        "complete couple/axial interaction, group treatment and splitting",
+        "top-grid actual row classification and fitting/wood geometry applicability"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_top_bolt_002",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 187.3177504817715,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13799808188804444,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2226.4868326187134,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v10_top_bolt_002",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.2405369834625684,
+        "individual_reference_before_Cg": 0.3101342458656421
+      },
+      "scope": "two-member wood/steel; six-mode translation calculated on unadopted material scenario",
+      "unresolved_duties": [
+        "qualified fitting steel Fe/Fu and bolt Fyb/section basis",
+        "complete couple/axial interaction, group treatment and splitting",
+        "top-grid actual row classification and fitting/wood geometry applicability"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_top_bolt_003",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 181.78886469657064,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13414509761388663,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2162.7896173000336,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v10_top_bolt_003",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.2060660860923613,
+        "individual_reference_before_Cg": 0.30151652152309033
+      },
+      "scope": "two-member wood/steel; six-mode translation calculated on unadopted material scenario",
+      "unresolved_duties": [
+        "qualified fitting steel Fe/Fu and bolt Fyb/section basis",
+        "complete couple/axial interaction, group treatment and splitting",
+        "top-grid actual row classification and fitting/wood geometry applicability"
+      ]
+    },
+    {
+      "complete_connection_qualified": false,
+      "component": "v10_top_bolt_004",
+      "conditional_single_fastener_summary": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 193.61825131613665,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13916244511884027,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2272.4678869247437,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "legacy_diagnostic_maximum_unchanged": {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v10_top_bolt_004",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.2466033240822325,
+        "individual_reference_before_Cg": 0.31165083102055813
+      },
+      "scope": "two-member wood/steel; six-mode translation calculated on unadopted material scenario",
+      "unresolved_duties": [
+        "qualified fitting steel Fe/Fu and bolt Fyb/section basis",
+        "complete couple/axial interaction, group treatment and splitting",
+        "top-grid actual row classification and fitting/wood geometry applicability"
+      ]
+    }
+  ],
+  "deferred_panel_screw_record": {
+    "disposition": "Owner deferred further work; recorded results are retained, not cleared.",
+    "result": {
+      "bytes": 214191,
+      "path": "fea/generated/v10-candidate13-integration-v1/physical-input-review/screw-action-screen-result.json",
+      "sha256": "b6d7129cfd8aaf8b90f12eec2da49b60bfc808fc42a58483151e2374fc25a73d"
+    }
+  },
+  "engineering_next_actions": [
+    "Complete the existing receiver atlas physical-group/shear-plane mapping and applicable force/moment capacity interpretation; retain mixed-media and coupled-header actions.",
+    "Establish actual top-grid oblique row and splitting applicability. A rigid angle translation cannot repair its internal pitch; if a spacing deficiency is established, design a compatible factory orientation/pattern and run only the affected matched analyses.",
+    "Specify or substantiate fitting steel and bolt bending/section assumptions, delivered body/thread/grip and washer/spacer fit. Do not replace known model inputs with false analytical nulls.",
+    "Cover local wood splitting/tear-out/net sections, fitting transfer and axial/head/nut duties; member stress and solver equilibrium do not settle them.",
+    "Keep the current frame, member sizes and bolt count pending a demonstrated applicable failure. A larger bolt or extra hole alone is not an established remedy.",
+    "Retain bond and finite-motion/contact/support limitations; selecting an adhesive does not substantiate perfect composite action."
+  ],
+  "fabrication_released": false,
+  "geometry_classification": {
+    "actual_oblique_eccentric_splitting_qualified": false,
+    "center_principal_idealized_edge_screen_clears": true,
+    "center_principal_net_away_cases": 12,
+    "conditional_perpendicular_between_row_requirement_mm": 43.65625,
+    "conditional_shortfall_mm": 2.38125,
+    "counts": {
+      "all_short_7D_occurrences": 54,
+      "analysis_perfect_bond_plywood_hosts": 2,
+      "physical_plywood_leaves": 4,
+      "plywood_analytical_host_occurrences": 8,
+      "pure_parallel_compression_or_perpendicular_principal_marker_at_full_count": 42,
+      "pure_parallel_tension_principal_factor_sensitivity_values": {
+        "0.899888": 2,
+        "0.97619": 40
+      },
+      "pure_parallel_tension_principal_marker_above_minimum_count": 42,
+      "pure_parallel_tension_principal_marker_at_full_count": 0,
+      "short_7D_occurrences_by_host": {
+        "base_floor_left": 1,
+        "base_floor_right": 1,
+        "base_post_center_left": 2,
+        "base_post_center_right": 2,
+        "base_post_outer_left": 3,
+        "base_post_outer_right": 3,
+        "base_principal_center_left": 2,
+        "base_principal_center_right": 2,
+        "base_rail_bottom_left": 4,
+        "base_rail_bottom_right": 4,
+        "base_rail_service_lower_left": 4,
+        "base_rail_service_lower_right": 4,
+        "base_rail_service_upper_left": 4,
+        "base_rail_service_upper_right": 4,
+        "eoere_cleat_left": 2,
+        "eoere_cleat_left_outer": 2,
+        "eoere_cleat_right": 2,
+        "eoere_cleat_right_outer": 2,
+        "lumber_leg_left": 1,
+        "lumber_leg_right": 1,
+        "top_packer_left": 2,
+        "top_packer_right": 2
+      },
+      "sloped_end_occurrences": 4,
+      "square_end_case_actions_with_affine_endpoint_pressure_reversal": 167,
+      "square_end_lumber_occurrences": 42,
+      "square_end_occurrences_with_any_net_tension_case": 31,
+      "square_end_occurrences_with_any_partial_tension_Cdelta_sensitivity": 1,
+      "square_end_occurrences_with_any_pressure_reversal": 37,
+      "square_end_occurrences_with_nonzero_model_couple": 42,
+      "square_end_occurrences_without_net_tension_case": 11,
+      "square_end_signed_action_branch_counts": {
+        "net_bearing_away_from_nearest_end_compression_endpoint_branch": 57,
+        "net_bearing_toward_nearest_end_tension_branch": 124,
+        "no_resolved_net_end_component_at_tolerance": 71
+      },
+      "square_end_signed_action_count": 252
+    },
+    "current_2024_full_commentary_authenticated": false,
+    "historical_2018_angle_interpolation_adopted_as_2024": false,
+    "near_edge_4D_is_optional_both_edges_envelope": true,
+    "near_edge_established_NDS_violation": false,
+    "pressure_reversal_automatically_reclassifies_loaded_edge": false,
+    "top_actual_row_rule_established": false,
+    "top_factory_grid_mm": [
+      41.275,
+      50.8
+    ],
+    "top_sole_wood_bearing_length_mm": 50.8,
+    "whole_angle_translation_changes_internal_pitch": false
+  },
+  "geometry_revision": "eoere-candidate13-side-depth-v10",
+  "global_force_reruns": 0,
+  "legacy_inventory": {
+    "bytes": 14881,
+    "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/analysis-attempt-08/reference-attempt-01/complete-exceedance-inventory.json",
+    "sha256": "d3ed16338c93a8d7716c5325e9ba12c0369b423d33b5986b222276fd8a3fe339"
+  },
+  "native_solves": 0,
+  "owner_scope": {
+    "adhesive_research_subagent_only": true,
+    "agent_review_loop_suspended": true,
+    "panel_screw_exceedances_deferred": true,
+    "reuse_frozen_historical_evidence": true
+  },
+  "rear_moment_preserving_reference": {
+    "qualification": "Two-cell equilibrium construction, not compatible physical pressure or whole-joint capacity. Fyb threshold is sufficient for this constructed field at constant nominal D, not a necessary full-joint property.",
+    "scope": {
+      "all_four_rear_wood_bolts_by_six_cases": true,
+      "axis_case_rows": 24,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "bearing_D_mm_used": "nominal frozen shaft diameter per axis; root-transition section was not applied to the saved response",
+      "case_ids": [
+        "a12-forward",
+        "a12-left",
+        "a12-rear",
+        "k12-right",
+        "k12-rear",
+        "a1-rear"
+      ],
+      "common_strength_divisor": 5.0,
+      "divisor_basis": "NDS 2024 Table 12.3.1B max Rd=5 for D>=1/4 in and Ktheta<=1.25",
+      "formal_Cg_applied_or_waived": false,
+      "physical_wood_or_bolt_properties_observed": false,
+      "signature_1_over_n_only_sensitivity_reported": true,
+      "wood_specific_gravity_hypothesis": 0.5
+    },
+    "summary": {
+      "maximum_Bernstein_continuous_bending_upper_n_mm": 25589.163621667074,
+      "maximum_conditional_Fyb_required_at_nominal_D_MPa": 374.7711773872427,
+      "maximum_constructed_field_lateral_shear_n_separate": 1514.2131665765328,
+      "maximum_exact_continuous_trial_bending_n_mm": 25588.9477902034,
+      "maximum_force_closure_error_n": 6.598434513044412e-09,
+      "maximum_moment_closure_error_n_mm": 6.366113718652305e-07,
+      "maximum_wood_ellipse_utilization_with_signature_1_over_n_only": 1.6223447116015328,
+      "maximum_wood_ellipse_utilization_without_signature_trial": 0.8111723558007664,
+      "original_26_trial_flags_retained": true,
+      "structural_acceptance": false
+    }
+  },
+  "reproduction": {
+    "geometry": "uv run python -B fea/generated/v10-candidate13-integration-v1/geometry-reference-proposal/produce_conditional_geometry.py",
+    "lateral": "PYTHONPATH=. uv run python -B fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/candidate13_tr12_yield_subcheck.py --output fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/tr12-yield-subcheck-v1.json",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "raw_inputs_recovered_by_portable_check": false,
+    "rear": "uv run python fea/generated/v10-candidate13-integration-v1/independent-method-review/reference.py",
+    "required_external_package": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated",
+    "screw_deferred": "uv run python -B fea/generated/v10-candidate13-integration-v1/physical-input-review/screw_action_screen.py"
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/response-bank-13.json",
+    "sha256": "9630fe3275f62201176399f61448b8ab47390d5d36d178a8b4ee42e2114123fb"
+  },
+  "schema": "eoere_v10_candidate13_continuation_evaluation/v1",
+  "signature_1_over_n_used_as_qualified_acceptance_criterion": false,
+  "single_fastener_lateral_reference": {
+    "material_inputs": {
+      "D_and_Dr": "known conditional scenario values from pinned thread-root input plus per-axis candidate stack minimum-body lengths; not delivered measurements",
+      "candidate_specific_Fyb": "missing: no NDS \u00a712.3.6.2 ASTM F1575 bending result or ASTM F606 tensile-yield evaluation into Fyb is supplied for selected fasteners",
+      "generic_TR12_Fyb": "45 ksi source-backed generic bolt reference for D>=3/8 in; unadopted and not product-specific",
+      "geometric_gap": "known 0 mm nominal gap from the contiguous source-bound member intervals; physical actual gap/contact remains unobserved",
+      "physical_observations": "all physical part, thread, member, plate and gap observations remain false/null and are not treated as analytical blockers to conditional scenario calculations",
+      "steel_Fes": "actual value missing: no candidate13 steel-fitting material grade/minimum Fu is source-bound. The frozen mixed-stack wrapper's steel_Fu_mpa=370.0 is reused only as an unadopted scenario and produces a hypothetical TR12/AISC Fes=80,495.95 psi; it is not actual candidate Fe or an adopted pass",
+      "thread_extent": "known conditional intervals from selected minimum-body length plus source-bound bolt head station and receiver-bearing intervals; actual thread runout/full-form engagement remain unverified",
+      "wood_Fe": "conditional G=0.50 solid-wood scenario from the source-bound bearing wrappers; physical species, grade, moisture, grain/runout remain unobserved"
+    },
+    "mode_completeness": {
+      "unsupported_multi_media_and_multi_steel_axes_not_relabelled_as_double_shear": [
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_079",
+        "eoere_bolt_080",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v10_header_bolt_001",
+        "v10_header_bolt_002",
+        "v10_header_bolt_003",
+        "v10_header_bolt_004"
+      ],
+      "wood_steel_axes": [
+        "eoere_bolt_068",
+        "eoere_bolt_069",
+        "v10_top_bolt_001",
+        "v10_top_bolt_002",
+        "v10_top_bolt_003",
+        "v10_top_bolt_004",
+        "v10_top_bolt_005",
+        "v10_top_bolt_006",
+        "v10_top_bolt_007",
+        "v10_top_bolt_008"
+      ],
+      "wood_steel_rows_with_all_six_modes": 0,
+      "wood_steel_rows_with_all_six_modes_at_actual_candidate_Fe": 0,
+      "wood_steel_rows_with_all_six_modes_at_unadopted_Fu370MPa_scenario": 60,
+      "wood_steel_rows_with_wood_Im_and_all_mode_Fe_thresholds": 60,
+      "wood_wood_axes": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "wood_wood_rows_with_all_six_modes": 24,
+      "wood_wood_rows_with_all_six_modes_at_actual_candidate_materials": 0
+    },
+    "per_axis_summary": {
+      "eoere_bolt_068": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-forward",
+        "max_lateral_translation_demand_N": 234.36053089897973,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.23260393447744795,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 3496.540799856186,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "eoere_bolt_069": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-forward",
+        "max_lateral_translation_demand_N": 166.64144502296975,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.16070963320620846,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2450.9884123802185,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "lumber_leg_bolt_left_1": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 1382.4659849375103,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.5646299252202424,
+        "wood_wood_max_ratio_case": "a12-rear"
+      },
+      "lumber_leg_bolt_left_2": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 1514.213166576532,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.6381606908774683,
+        "wood_wood_max_ratio_case": "a12-rear"
+      },
+      "lumber_leg_bolt_right_1": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 1366.4007919481937,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.5577178561173376,
+        "wood_wood_max_ratio_case": "k12-rear"
+      },
+      "lumber_leg_bolt_right_2": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 1496.222189804342,
+        "topology": "two-member wood/wood, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 0,
+        "wood_steel_Fu370_scenario_max_translation_ratio": null,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 0,
+        "wood_steel_max_required_Fes_for_any_mode_psi": null,
+        "wood_wood_all_six_reference_cases": 6,
+        "wood_wood_max_conditional_translation_ratio": 0.6301469250686798,
+        "wood_wood_max_ratio_case": "k12-rear"
+      },
+      "v10_top_bolt_001": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 199.47146600239154,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.1431349087021183,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2339.374685406685,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_002": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 187.3177504817715,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13799808188804444,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2226.4868326187134,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_003": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 181.78886469657064,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13414509761388663,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2162.7896173000336,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_004": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 193.61825131613665,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.13916244511884027,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 2272.4678869247437,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_005": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-right",
+        "max_lateral_translation_demand_N": 63.266906698627565,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.04783403195680853,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 765.0066217780113,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_006": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-rear",
+        "max_lateral_translation_demand_N": 130.05346321695717,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.0835344218838181,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 1462.6178864240646,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_007": {
+        "case_count": 6,
+        "max_lateral_translation_case": "k12-rear",
+        "max_lateral_translation_demand_N": 128.3658612723116,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.0828672279171774,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 1446.031914114952,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      },
+      "v10_top_bolt_008": {
+        "case_count": 6,
+        "max_lateral_translation_case": "a12-left",
+        "max_lateral_translation_demand_N": 61.66808147606929,
+        "topology": "two-member wood/steel, one shear plane",
+        "wood_steel_Fu370_scenario_complete_Z_rows": 6,
+        "wood_steel_Fu370_scenario_max_translation_ratio": 0.04652282916705346,
+        "wood_steel_complete_Z_rows": 0,
+        "wood_steel_im_only_rows": 6,
+        "wood_steel_max_required_Fes_for_any_mode_psi": 744.3886489272118,
+        "wood_wood_all_six_reference_cases": 0,
+        "wood_wood_max_conditional_translation_ratio": null,
+        "wood_wood_max_ratio_case": null
+      }
+    },
+    "qualification": "Unadjusted force-only reference scenarios. No complete wrench, group or candidate/product acceptance follows.",
+    "worst_rear_translation_ratio": 0.6381606908774683,
+    "worst_wood_steel_Fu370_translation_ratio": 0.23260393447744795
+  },
+  "sources_retained_in_active_ignored_workspace": [
+    {
+      "bytes": 1120524,
+      "path": "fea/generated/v10-candidate13-integration-v1/geometry-reference-proposal/conditional-geometry-classification-v1.json",
+      "sha256": "e731194b37a8ffe2077094207a93e078e21bbe5ef8fd9f630e7a1dcc5387864d"
+    },
+    {
+      "bytes": 74189,
+      "path": "fea/generated/v10-candidate13-integration-v1/geometry-reference-proposal/produce_conditional_geometry.py",
+      "sha256": "8d7c55d34af64473023c6d749fafdc52b7b6a9467cb7978b63c44ddbca0a9f92"
+    },
+    {
+      "bytes": 229505,
+      "path": "fea/generated/v10-candidate13-integration-v1/independent-method-review/reference-result.json",
+      "sha256": "46b0c41de5f51df864a3b69b0996a7004dcd1db48557a1ed11f66f63af4ecc73"
+    },
+    {
+      "bytes": 38611,
+      "path": "fea/generated/v10-candidate13-integration-v1/independent-method-review/reference.py",
+      "sha256": "9067cd21d60aed4bc12fc6243336a8d6925e891a7155f4e990afc30d9cfeddc2"
+    },
+    {
+      "bytes": 472420,
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/tr12-yield-subcheck-v1.json",
+      "sha256": "1be37f30e2c98428f966e75f50d0e69dfbfce9b1f793957a8057e280a3ed6f57"
+    },
+    {
+      "bytes": 51190,
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/candidate13_tr12_yield_subcheck.py",
+      "sha256": "8df99b92fa54141450ebd1c758a0b707c58bda680bc128e534a2cbb7dfcc4d51"
+    },
+    {
+      "bytes": 48401,
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/candidate13_lateral_translation.py",
+      "sha256": "427a2f1d9101d8aba6692cd0759b0293f18cc9df0eca8d84fc204f8b8d7a52f6"
+    },
+    {
+      "bytes": 8652,
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/test_candidate13_tr12_yield_subcheck.py",
+      "sha256": "7d23fd7d45051eac2765c04a7db572bae60c6f1718eeeba21a21cfe460ecee03"
+    },
+    {
+      "bytes": 8736,
+      "path": "fea/generated/v10-candidate13-integration-v1/engineering-reference-proposal/test_candidate13_lateral_translation.py",
+      "sha256": "05821abbf8f16e7a01dcecb02efe4096ba9f91722459e992ad33e654795970eb"
+    },
+    {
+      "bytes": 214191,
+      "path": "fea/generated/v10-candidate13-integration-v1/physical-input-review/screw-action-screen-result.json",
+      "sha256": "b6d7129cfd8aaf8b90f12eec2da49b60bfc808fc42a58483151e2374fc25a73d"
+    },
+    {
+      "bytes": 23569,
+      "path": "fea/generated/v10-candidate13-integration-v1/physical-input-review/screw_action_screen.py",
+      "sha256": "580b7d13298c116e20f76b5e5543884ee132408fbd92f2ba3ff091d6a6fe857e"
+    },
+    {
+      "bytes": 6228,
+      "path": "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/cleat-adhesive-basis-v1.md",
+      "sha256": "ef3c76ecd5f6f41c7e92ff2cbe7d8082ec5f08b076f6dc859a275cdc225530ed"
+    },
+    {
+      "bytes": 5243,
+      "path": "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/source-bindings-v1.json",
+      "sha256": "50263db8d6251a8c8d294ed33cfa60afb877d2af378f090825c4ccf59bd3a951"
+    },
+    {
+      "bytes": 3743,
+      "path": "fea/generated/v10-candidate13-integration-v1/browser-v2/result.json",
+      "sha256": "92671c08527b9c199b780d3f62867df88dc0615897fa0c56371ca76194aaca01"
+    }
+  ],
+  "status": "bounded_numerical_subchecks_complete_full_connection_assessment_unresolved",
+  "structural_acceptance": false,
+  "trial_flagged_component_count": 13,
+  "trial_flags_retained": 26
+}

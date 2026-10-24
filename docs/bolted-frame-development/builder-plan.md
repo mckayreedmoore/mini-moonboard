@@ -1,40 +1,325 @@
+# Owner-selected 4×6 development planning and preserved instructions
+
+The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The [owner constraint](owner-frame-v10/owner-standard-side-4x6-v1.json)
+is implemented: top and both sides are standard nominal **4×6, actual 88.9 × 139.7 mm**.
+The [matched evaluation](owner-frame-v10/standard-side-stock-evaluation.json) contains new
+geometry, all six forces and both replays, net sections, grips, rear-joint
+end/edge/spacing and clearance checks. Declared vector indices: left side
+**0.998500**, right side **0.951121**, top **0.575366**. The additional scalar
+peak-sum screen is **1.014932**; neither replaces complete joint qualification.
+All **15 bearing diagnostic rows across eight bolts** remain. Actual Cg, full
+force-and-moment capacity, splitting, fitting/hardware and physical checks remain open.
+All fourteen cleat grips remain 114.3 mm. Two custom solid packers remain
+**unapproved**; lengths around 2539.8 mm are provisional. The model corrects the
+conditional product-400 body floor to 72.644 mm, without qualifying delivered hardware.
+No purchase, cutting, drilling, assembly, climbing or structural release.
+
+For current wood planning use the [provisional owner stock plan](owner-frame-v10/standard-stock-planning.md)
+and [current planning CSV](owner-frame-v10/buying-list-current.csv): five 2×6×8′,
+three 2×6×10′, two 4×6×8′ and three 4×6×10′ before owned-stock credit.
+All 22 sawn members are allocated; no 4×8 side stock is intended. The two solid
+packers need milling from the top-board offcut, not glued buildup. Measure and
+reuse existing face/kicker plywood before replacement purchasing. Material,
+milling and complete-connection qualifications remain open; keep stock uncut.
+
+The following top-stock and catalog records describe the preserved deeper-side stage;
+reuse supplier facts within scope, not its 4×8 side-stock buying line or bound forces.
+The preserved evaluated geometry is `eoere-candidate13-side-depth-v10`.
+The [latest top-rail constraint](owner-frame-v10/top-rail-standard-stock-owner-constraint-v1.txt)
+requires standard 2×6 first, then 4×6 if exceedances remain. The
+[fresh matched evaluation](owner-frame-v10/standard-top-stock-evaluation.json)
+rejects 2×6; all six 4×6 cases and their replays are recorded, with complete
+connection capacity still open. Candidate 13's intermediate 50.8 mm top is
+superseded as a purchase design; its section result was not transferred.
+Use the [Candidate 13 layout and material requirements](owner-frame-v10/layout.md),
+[frozen planning packet](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md),
+[hardware BOM](owner-frame-v10/candidate13/packet-13-complete/hardware-bom.csv),
+[cut plan](owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv) and
+[drill plan](owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv).
+These describe 116 stacks, 22 sawn members, two glued nominal half-inch
+plywood leaves per cleat and 66 Hillman screws. All 26 trial bearing flags
+remain, with complete joint and physical qualifications unresolved.
+
+The [updated catalog buying list](owner-frame-v10/buying-list.md) follows the
+owner-selected standard 4×6 development candidate and its 116-bolt, **44-spacer** recipe.
+It reconciles the full basket and stock allowances, records current supplier
+links, and identifies catalog head/washer envelope and body-coverage limits.
+It leaves the frozen Candidate 13 packet and physical-operation holds intact.
+
+The separate completed [hardware audit](owner-frame-v10/hardware-audit-dispositions.json)
+and [16-line dispositions](owner-frame-v10/hardware-audit-dispositions.csv)
+join the same selected geometry and matched bank. Product 400's two rear-foot
+body-floor assumptions, unqualified spacer capacity/tolerances and the angle
+specification remain HOLD; other complete fit/runout windows remain provisional.
+Nominal designation marked BUY_SPEC_SETTLED is not permission to order.
+Tool access is unresolved. No hardware or source geometry was changed.
+
+Cutting, drilling, structural assembly and climbing remain on hold. Stock
+must satisfy the new actual dimensions and recorded material assumptions;
+earlier V9 quantities, spacer recipes, budgets and drawings do not describe
+Candidate 13. Actual/Disposition cells remain blank. See the
+[development summary](README.md) for the current results and next work.
+
+<details>
+<summary>Preserved V9 review, budget and earlier assembly instructions</summary>
+
+The following text retains its own revision scope. Its uses of “current”
+belong to those recorded revisions and do not identify the active V10 packet.
+
 # Current design review and preserved assembly instructions
 
-The current geometry is `eoere-local-front-bolt-moves-v4`:
-[92-bolt viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-current-frame-development&view=rear).
-The [current receipt](owner-frame-v4/geometry.json) retains20 sawn members,
-four trimmed nominal19.05mm plywood leaves,24 angles and92 bolt stacks.
-The two lower short-post/runner bolts move50 to60mm above the floor. Upper
-bolts stay100mm, and all four stay80mm from the common front end. Timber
-sections, lengths, hardware and66 Hillman axes are unchanged.
+The current geometry is `eoere-single-spacer-cleat-stacks-v9`:
+[current local viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear).
+The [current receipt](owner-frame-v9/geometry.json) records 20 sawn members,
+four 19.05 mm plywood leaves, glued in two 38.1 mm corner pairs, 24 angles and 96 bolt stacks. Each center principal/header connection also
+has two upper bolts. Each cleat has
+two upper and two lower bolts, matching the owner's reference pattern and
+straight sloping outline. Both added upper pins use existing factory holes.
+The front runner/post bolts retain their 60/100 mm positions.
 
-Use the [four revised post/runner sheets](owner-frame-v4/layout.md),
-[complete112 receiver rows](owner-frame-v4/receiver-holes.csv) and
-[current member records](owner-frame-v4/members.csv). Other drawings, stock
-allocation and hardware remain in the [preceding metric packet](owner-frame-v3/layout.md).
-Its four old post/runner drawings are superseded by the current ones. These
-are coordinated review dimensions, not cutting/drilling directions or a
+[Forty exterior stacks](owner-frame-v7/orientation.json) now have heads outside
+and nuts/spacers inside: 32 side stacks and eight top-edge stacks. The complete
+stacks retain their complete v7 reversals. The cumulative revision also moves
+eight connected base/header angles and their 24 bolt axes 6 mm in world Y,
+toward the interior. Stock outlines, washers, bolt axes and screw policy remain.
+Eight cleat bolts are now shorter, with one factory spacer each. Nominal
+intersections clear against all 1,021 occupied parts.
+Old hardware seating/shank margins and v6 strength results do not qualify the
+reversal; thread windows, washer seats and tool access require their own check.
+Bolt `eoere_bolt_070` and the other seven cleat stacks now use a 7½-inch A574
+socket-cap bolt and one 1-inch factory spacer. The
+[current hardware table](owner-frame-v9/hardware-selection.csv) and
+[catalog window checks](owner-frame-v9/stack-checks.json) supersede the old
+8-inch/three-spacer recipe. A 7-inch bolt is rejected because its supplier body
+floor does not cover the full steel bearing span. The selected nominal body
+margin is 8.2804 mm; minimum-thickness USS washers leave 3.2512 mm for free nut
+seating. Combined reference limits for actual clamped wood/steel thickness are
+130.0988–141.6304 mm under the recorded hardware assumptions; 145.034 mm is the
+separate upper limit for two-pitch projection alone. Actual fit is unobserved.
+The eight header stacks retain their single ½-inch spacers. Full joint strength,
+washer/spacer behavior and tool access are not qualified by these fit checks.
+
+Use the [current cumulative layout](owner-frame-v8/layout.md),
+[24 changed axes/eight fitting poses](owner-frame-v8/axis-updates.json),
+[13 updated receiver profiles](owner-frame-v8/member-updates.json) and
+[78 current bore rows](owner-frame-v8/receiver-updates.csv). These supersede the
+affected hole coordinates in the older drawings and receiver tables. The
+[four straight-sided cleat outlines](owner-frame-v5/layout.md) remain, with
+their holes now described by the v8 rows. The
+[added cleat](owner-frame-v5/hardware-additions.csv) and
+[center stacks](owner-frame-v6/hardware-additions.csv) retain their station/count basis;
+the v9 hardware table supersedes the cleat lengths and spacers.
+The preceding [front post/runner drawings](owner-frame-v4/layout.md),
+[other member sheets](owner-frame-v3/layout.md) and
+[92 proposed stacks](owner-frame-v3/hardware-review.csv) retain their scope.
+Earlier cleat drawings and sheet nesting do not describe the revised outline.
+These are geometry-review coordinates, not cutting/drilling directions or a
 current build shopping list. Actual/Disposition cells stay blank.
 
-The proposed10mm cleat-row move conflicts with the under-header angle factory
-holes and intersects steel. Keep those axes at173.8125mm. The proposed5/8in
-upper support bolt fails the adopted loaded-edge check at the existing hole;
-the current1/2in bolt and upper axis remain. No angle is redrilled or shifted.
+The [current v9 response bank](owner-frame-v9/response-bank.json) contains six
+own 250 lb cases at the retained 2.0 downward multiplier; both independent
+force replays pass in every case. The [current bolt geometry review](owner-frame-v9/bolt-geometry-review.json)
+uses those fields and all 96 current shafts. The inset puts the upper side pin
+30.056 mm from its near edge and the center principal pin 33.704 mm from its
+edge; the center header's opposite edge is 38.450 mm. Pins remain 50.8 mm apart;
+32.654 mm is their along-grain projection. Principal-direction tables do not
+establish a complete rule for the observed oblique loads and diagonal layout.
+Complete geometry factors remain unresolved; nominal clearance and numerical
+equilibrium do not establish joint acceptance.
 
-The [own six-case engineering review](owner-frame-v4/engineering-review.json)
-uses recalculated forces and the preceding four-host/perfect-bond assumptions.
-Front references now reach0.937383 wood bearing and0.893340 bolt axial/bending.
-The bonded cleat still exceeds:1.066325 nominal38.1mm, or1.129031 with36.5mm
-wall credit. Upper-support and timber references also exceed1.0. No adhesive
-is selected or qualified. A passed individual comparison does not qualify
-a complete joint or frame, or clear an affected fabrication operation.
+The [current conventional references](owner-frame-v9/reference-review.json)
+and [panel-bracing comparison](owner-frame-v9/panel-bracing-review.json) use the
+same own fields. The bracing comparison measures modeled stiffness effects;
+it supplies no strength multiplier or qualified Hillman/adhesive resistance.
 
-The [preceding92-bolt review](owner-frame-v3/engineering-review.json) and
-[same-load lamination screen](owner-frame-v3/lamination-screen.json) retain
-their original geometry/actions. The102-bolt instructions below belong to
-the earlier extended-top frame; its knees/packers, rail length, cleat thickness
-and coordinates do not describe this revision. No cutting or drilling follows
-from the current sizing model. Panel/Hillman strength remains deferred.
+The cleats have four straight outer edges without tabs or steps. Their height
+is unchanged. Extending them toward `eoere_bolt_039_shaft` remains conditional
+on a failed calculation; no such extension is modeled here.
+
+The [preceding v6 review](owner-frame-v6/engineering-review.json), with its
+[testing correction](owner-frame-v6/testing-review.json), evaluates six
+250 lb cases at 2.0 downward, 300 N horizontal, self-weight, the 25 kg accessory
+allowance and CD = 1. All force replays pass. The earlier geometry-adjusted
+bolt screens and the top rail/left-side net-section references exceed their
+stated limits; the corrected right-side and bonded
+cleat row references are below 1.0. The correction restores the full contained
+side-rail thickness across all current section intervals while retaining every
+hole, force and couple. The short loaded-hole stress construction still needs
+an applicable local assessment. The
+[development summary](README.md#current-96-bolt-results-at-250-lb) lists maxima.
+These are conditional comparisons using a uniform 139.7 mm perfect-bond beam
+approximation to the tapered cleat, with no physical force bound. A taller
+cleat changes end geometry but does not establish an applicable joint assessment.
+No geometry is changed by either postprocessing correction. Those results
+retain the exterior-nut orientation, available in the preserved v6 viewer.
+The preceding
+[92-bolt review](owner-frame-v4/engineering-review.json), its 175 lb study and
+the older 102-bolt conditional evaluation retain their own geometry, forces,
+support and material assumptions. No historical pass or exceeded value is
+silently relabeled as a new-frame result. Bond/floor applicability, complete
+joint and member work remain open. Panel/Hillman strength remains deferred.
+
+The preserved 102-bolt instructions below describe the earlier extended-top
+frame and are retained as history. No cutting, drilling, fabrication or
+climbing release follows from the current review model.
+
+## Materials budget and sourcing
+
+This planning record, added October 23, 2026, retains the source allowances
+for `eoere-inward-bolts-and-angles-v8` and its
+[geometry receipt](owner-frame-v8/geometry.json). The latest hardware budget
+below uses `eoere-single-spacer-cleat-stacks-v9` and its
+[current receipt](owner-frame-v9/geometry.json).
+The wood and unchanged hardware allowances are reused; the eight changed
+stacks are compared separately. This budget does not qualify hardware for
+purchase or construction. Reconcile later substitutions before reusing it.
+All ranges are discussion allowances in USD, not a complete purchase quote;
+dated catalog unit observations are identified separately.
+
+The owner requested Lowe's or Home Depot for ZIP **84601**. The lookup used
+[Provo Home Depot, store 4416](https://www.homedepot.com/l/Provo/UT/Provo/84601/4416)
+and [Orem Lowe's, store 0178](https://www.lowes.com/store/UT-Orem/0178).
+Public product listings were found, but local pricing access was blocked;
+84601 prices, stock, tax and delivery charges remain unverified.
+
+### Latest hardware budget
+
+The [v9 receipt](owner-frame-v9/geometry.json),
+[frozen parameters](owner-frame-v9/candidate-parameters.json) and
+[catalog facts](owner-frame-v9/hardware-facts.json) replace eight cleat-stack
+recipes with **3/8-16 × 7½-inch ASTM A574 bolts, Bolt Depot 8095, and one
+factory 1-inch spacer, 13733, per bolt**. Their before selections match v8
+exactly. The other 88 bolt selections, 96 nuts, 192 washers, 24 angles,
+20 sawn members, four cleat leaves, six panels and 66 Hillman screws remain.
+Spacer count changes from 32 to **16 pieces: eight 1-inch pieces and eight
+retained ½-inch pieces**. No stock or hole changes are selected by this delta.
+
+| Eight changed stacks | Bolt each | Spacers per bolt | Each-price subtotal |
+| --- | --- | --- | ---: |
+| V8 reference | [8096, 8 in](https://boltdepot.com/Product-Details?product=8096), $10.14 | Three [13731, ½ in](https://boltdepot.com/Product-Details?product=13731), $2.53 each | $141.84 |
+| V9 selection | [8095, 7½ in](https://boltdepot.com/Product-Details?product=8095), $7.20 | One [13733, 1 in](https://boltdepot.com/Product-Details?product=13733), $2.81 | $80.08 |
+
+The old bolt observation is retained in the
+[A574 catalog basis](paired-frame-v2/A574-hardware-basis.json); the other
+unit observations are in the October 23 v9 catalog facts. At those each
+prices the eight changed stacks cost **$61.76 less**, before tax and delivery.
+Package/tier pricing and actual availability remain unverified, so this is
+a changed-line reference comparison, not a checkout saving or full-basket quote.
+
+**The same-assumption planning carry-forward is about $585–$845 plus six
+Amazon four-packs.** This subtracts the $61.76 reference saving from the
+original $647–$907 v8 base below. It is an arithmetic adjustment to an
+unverified allowance, not a repricing of every unchanged item.
+
+The catalog facts retain the unselected 6½- and 7-inch bolt alternatives and
+their smooth-body limitations. The eight header stacks retain their one
+½-inch factory spacer each; no unsupported zero-spacer replacement is priced.
+The nominal selection and its thread/body windows do not establish delivered
+dimensions, spacer strength/tolerances, complete joint resistance or actual
+fit. No v8 mechanics acceptance is transferred. The current receipt binds
+this selection and its nominal geometry check; full structural acceptance
+is not a prerequisite for recording the bounded cost comparison.
+
+### Wood quantities and allowances
+
+The [13-stick allocation](owner-frame-v3/stock-nesting.csv) supplies the
+20 sawn members: nine 2×6 boards and four 4×6 boards, totaling 150 nominal
+board feet. The v8 comparison confirms that the intervening bore and
+orientation revisions retain those blanks. Retain the dry, untreated DF-L
+No. 2 material basis.
+
+| Wood category | Replacement purchase allowance | Unit allowance | Category allowance |
+| --- | --- | ---: | ---: |
+| 2×6 × 8 ft | Six boards | $7–$10 | $42–$60 |
+| 2×6 × 10 ft | Three boards | $10–$14 | $30–$42 |
+| 4×6 × 8 ft | Two boards | $25–$35 | $50–$70 |
+| 4×6 × 10 ft | Two boards | $30–$45 | $60–$90 |
+| 23/32 CAT AC fir face plywood | Three nominal 4×8 sheets for four main panels and two kickers | $60–$80 | $180–$240 |
+| Structural cleat plywood | One small panel sufficient for four nominal ¾-inch leaves | $30–$60 | $30–$60 |
+| **Wood subtotal** | | | **$392–$562** |
+
+Retail leads are Lowe's [2×6 × 8 ft](https://www.lowes.com/pd/Top-Choice-2-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-1-5-in-x-5-5-in-x-8-ft-Actual/1000902078)
+and [2×6 × 10 ft](https://www.lowes.com/pd/Top-Choice-2-in-x-6-in-x-10-ft-Douglas-Fir-Lumber-Common-1-5-in-x-5-5-in-x-10-ft-Actual/1000028979),
+Home Depot's [4×6 × 10 ft](https://www.homedepot.com/p/202094390), and the
+owner's [Roseburg face plywood](https://www.lowes.com/pd/Roseburg-23-32-CAT-PS1-09-Square-Structural-Plywood-Douglas-Fir-Application-as-4-x-8/1000015973).
+These links establish sourcing leads, not the allowance prices or delivered
+material conformance. The checked Lowe's [4×6 × 8 ft listing](https://www.lowes.com/pd/4-in-x-6-in-x-8-ft-Douglas-Fir-Lumber-Common-3-562-in-x-5-625-in-x-8-ft-Actual/1000028917)
+is labeled green and is not a matching dry-stock quote.
+
+The three face sheets are a nominal replacement allowance, not a verified
+cutting yield or a count of additional sheets to buy. Reconcile usable sheet
+dimensions and kerf with the [six panel profiles](owner-frame-v5/current_profiles.json)
+and [purchased-material record](../purchased-materials.md). The four current
+[cleat blanks](owner-frame-v5/layout.md) are each
+361.186083 × 139.7 × 19.05 mm. Their plywood specification, actual thickness
+and strength-axis orientation remain separate from the face-panel purchase;
+no shared offcut credit is included.
+
+### V8 hardware reference
+
+The [v8 receipt](owner-frame-v8/geometry.json) records 96 bolts, 96 nuts,
+192 washers, 32 spacer pieces, 24 angles and 66 Hillman screws. The proposed
+purchase selections originate in the [92-stack review](owner-frame-v3/hardware-review.csv),
+[two exterior additions](owner-frame-v5/hardware-additions.csv) and
+[two principal additions](owner-frame-v6/hardware-additions.csv).
+
+The frozen v8 geometry was compared with v6 and v7: all 30 sawn-member,
+cleat and panel blank/outer-profile records match. All 96 per-axis purchase
+SKUs, grades, nominal diameters and underhead lengths, nut/washer selections
+and spacer recipes match. The complete `selected_stack_overrides` array is
+identical to v7. Thirteen finished receiver records replace bore geometry;
+they do not add stock or hardware. Thus the original quantity-based
+allowances can be reused without another price search. This comparison does
+not transfer old body/thread, washer-seat or access margins to reversed
+stacks or relocated holes. Shorter bolts or fewer spacers remain unselected
+options and receive no savings credit here.
+
+| Hardware category | Quantity basis | Allowance excluding angles |
+| --- | --- | ---: |
+| Specified bolts, nuts, washers and factory spacers | 96 bolts, 96 matching nuts, 192 washers, 32 spacers | $240–$320 |
+| Hillman 42605 panel/kicker screws | 66 installed; two 50-count boxes for replacement costing | $15–$25 |
+| **Hardware subtotal excluding angles** | | **$255–$345** |
+
+The [purchased screw record](../current-panel-screw-purchase.md) identifies
+[Lowe's item 755741 / Hillman 42605](https://www.lowes.com/pd/Hillman-10-x-2-1-2-in-Ceramic-Deck-Screws-50-Count/999995042).
+The exact long A574 bolts and other specified stack components were not
+established as a complete Lowe's/Home Depot basket. The allowance preserves
+their recorded recipes; it does not select generic hardware substitutes.
+
+### Angle sourcing and corrected total
+
+The recorded Amazon item is [Eoere ZX128-B-T4, ASIN B0C7V7VS89](https://www.amazon.com/dp/B0C7V7VS89),
+sold in four-piece packs. V8 needs **six packs for 24 angles**. The retained
+[product source record](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-source-inputs.json)
+contains the listing identity, drawing, material claims and dimensional
+differences between its inch and metric descriptions. Its four-pack price
+is explicitly unverified; the latest lookup did not establish a numerical
+Amazon offer. The earlier $150–$180 angle allowance is not a verified price
+and is excluded from the corrected basis below.
+
+The owner identified SendCutSend as the alternative sourcing route if Amazon
+is not used. No SendCutSend quote or supplier-specific manufacturing packet
+was found in the checkout. This records a cost-comparison route only; custom
+fabricated steel remains outside the development lane unless separately
+authorized. No replacement geometry, material, fit or capacity is adopted.
+
+**The original v8 replacement allowance is $647–$907 plus six times the
+verified Amazon four-pack price**, before tax and delivery. The latest v9
+carry-forward above adjusts that source allowance for the selected shorter
+stacks. A separately authorized SendCutSend alternative would replace only
+the Amazon line with its quote for all 24 angles. The v8 source base is the
+$392–$562 wood allowance plus $255–$345 hardware allowance. Local package
+prices and the angle quote remain missing; record those against the latest
+purchase selections rather than silently reusing the v8 spacer basket.
+
+Face plywood and Hillman screws are already recorded as purchased. Their
+allowances above describe replacement value, not automatic repurchases;
+remaining cash outlay depends on the quantities actually owned and usable.
+Hold T-nuts and retention screws, hold bolts, adhesive, tools, consumables,
+finish, LEDs and pads are outside this budget. Actual/Disposition cells stay
+blank. The v9 parameter/fact records, v8 receipt and retained v6/v7 inventory
+sources stay active; this cost update performs no CAD rebuild, mechanics
+replay or archive operation.
 
 <details>
 <summary>Preserved 102-bolt frame assembly instructions</summary>
@@ -250,5 +535,7 @@ hole marks on surrounding historical sheets do not supersede this packet.
 [panels]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/panel-machining.csv
 [recess]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/rear-recess.svg
 [projections]: ../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md#current-coordinates-and-drawings
+
+</details>
 
 </details>

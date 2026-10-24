@@ -31,6 +31,12 @@ extend = "pyproject.toml"
 "scripts/eoere_requested_mechanics.py" = ["I001", "S102"]
 "scripts/publish_eoere_requested_frame.py" = ["I001"]
 
+# Issued V10 bank and method-source bindings pin these exact adapter bytes.
+# Preserve the fixed local source compilation and existing import/dict syntax;
+# maintained tests and successors retain the normal lint rules.
+"scripts/eoere_v10_analysis.py" = ["C408", "F401", "I001", "PIE800", "S102"]
+"scripts/eoere_v10_checks.py" = ["C408"]
+
 # Frozen native-method and issued evidence sources predate the expanded Ruff
 # defaults in 0.16. Exact path/rule waivers are byte-locked by
 # tests/test_frozen_lint_sources.py; new or edited sources receive no waiver.

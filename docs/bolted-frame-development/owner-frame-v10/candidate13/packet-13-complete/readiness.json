@@ -1,0 +1,826 @@
+{
+  "schema": "eoere_v10_shop_planning_readiness/v1",
+  "geometry_revision": "eoere-candidate13-side-depth-v10",
+  "candidate_iteration": "13",
+  "stage": "candidate13_full_six_case_reference_review_complete",
+  "status": "COMPLETE_REFERENCE_FLAGS_AND_PHYSICAL_HOLD",
+  "structural_acceptance": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "candidate_location": "separate_task_workspace_only",
+  "promotion_to_authoritative_repository_blocked": true,
+  "current_model_route_changed": false,
+  "source_bindings": {
+    "baseline_geometry": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/bolted-frame-development/owner-frame-v9/geometry.json",
+      "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+    },
+    "geometry": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/geometry.json",
+      "sha256": "00f54e2f42737455253bab33ac4091b1f94bfd39111f20c52a4b2e0adf8eb6fe"
+    },
+    "inherited_hardware_metadata": {
+      "path": "docs/bolted-frame-development/owner-frame-v3/hardware-review.csv",
+      "sha256": "9517da80792e1a4ae8549727ad2b0d5ae891a2680ec083370cf32ee0372cfe1b"
+    },
+    "geometry_receipt": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/geometry-receipt-13.json",
+      "sha256": "b79b35e0b159ddea43bb3a1a456f3e34a7acafc2f802c5abb782356e620c0cff"
+    },
+    "current_geometry": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/geometry.json",
+      "sha256": "00f54e2f42737455253bab33ac4091b1f94bfd39111f20c52a4b2e0adf8eb6fe"
+    },
+    "backing_led_audit": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/backing-led-audit-13.json",
+      "sha256": "0e5e370bb4846dcbb1eff0dfe9ac7903d62e4156fd78a3aab6b60c6c385c03ca"
+    },
+    "full_wall_audit": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/wall-audit-13.json",
+      "sha256": "92e2bcce0bc25c07dd965d573fe9f678aa4a63cad1162105265d3a629f57af07"
+    },
+    "response_bank": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/response-bank-13.json",
+      "sha256": "9630fe3275f62201176399f61448b8ab47390d5d36d178a8b4ee42e2114123fb"
+    },
+    "component_review": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/reference-review-13.json",
+      "sha256": "4552d6034ae4d72709a71e9ce27ac43e2e364b9f68f42d071aace1bad1313d08"
+    },
+    "criterion_family_map": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/criterion-family-map.json",
+      "sha256": "7f6ff0f2dba989f980d73b2d0f1f78e326fe9f7cc0688e20778117e102c4fc1c"
+    },
+    "complete_exceedance_inventory": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/complete-exceedance-inventory.json",
+      "sha256": "d3ed16338c93a8d7716c5325e9ba12c0369b423d33b5986b222276fd8a3fe339"
+    },
+    "joint-applicability-13-revision-bound": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/joint-applicability-13-revision-bound.json",
+      "sha256": "6eeebf8c1542d1cb24f1ecf30be94936bf0db26c0ab77fcec44cb1a4ab612b9f"
+    },
+    "joint-applicability-13-canonical-wsl": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/joint-applicability-13-canonical-wsl.json",
+      "sha256": "825c0369d55bbd1f6be840ecfdaa102d04f09b2cfa808d50723ab921ce03cc91"
+    },
+    "half-profile-audit": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/half-profile-audit.json",
+      "sha256": "9a3c7b05d104859ea484b5efe1c63f78820767dc079be3b6389248612c08d64f"
+    },
+    "contact-area-weight-check": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/contact-area-weight-check.json",
+      "sha256": "4c0fadcc0eba2b522d25bfc87d9a23b63c98f99a2bb22de63ff6743100bc344c"
+    },
+    "contact-delta-13": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/contact-delta-13.json",
+      "sha256": "5472bae0b0b4214e88186e1a9b5646ebb85a41c1388f2bdd0228d2116f16102f"
+    }
+  },
+  "notes": [
+    "Preferred completed development candidate 13; remaining reference flags and physical qualifications remain open.",
+    "All six cases and both replays admitted under unchanged load contract.",
+    "Earlier planning packet and all historical variants preserved."
+  ],
+  "operations": {
+    "buy": "No purchases authorized. Exact candidate quantities; actual grade, product dimensions, gaging and availability unverified.",
+    "cut": "HOLD. Candidate profiles are planning data, not released cuts or tolerances.",
+    "drill": "HOLD. Modeled bores/reference lines are not bit/pilot choices or entry-face instructions.",
+    "assemble": "HOLD permanent structural assembly, bonding and committed tightening.",
+    "climb": "HOLD. No acceptance or release."
+  },
+  "candidate_revision": "eoere-candidate13-side-depth-v10",
+  "v10_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/geometry.json",
+    "sha256": "00f54e2f42737455253bab33ac4091b1f94bfd39111f20c52a4b2e0adf8eb6fe"
+  },
+  "planning_counts": {
+    "bolt_stacks": 116,
+    "nuts": 116,
+    "washers": 232,
+    "spacer_pieces": 60,
+    "angles": 24,
+    "Hillman_axes": 66,
+    "profile_rows": 32,
+    "receiver_bore_rows": 158,
+    "sawn_members": 22,
+    "physical_plywood_leaves": 4,
+    "panels": 6,
+    "occupied_parts": 1167
+  },
+  "authoritative_repository_modified_by_packet": false,
+  "packet_files": {
+    "builder-plan.md": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/packet-13-complete/builder-plan.md",
+      "sha256": "b3c4e629479099ad2df6e39b926ac610b44a6e507733e491793aef07ddee6d20"
+    },
+    "hardware-bom.csv": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/packet-13-complete/hardware-bom.csv",
+      "sha256": "14328febf9bdb52b3812231c164d6e9f1c92521a28f246ecac1d490358b12cfb"
+    },
+    "cut-plan.csv": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/packet-13-complete/cut-plan.csv",
+      "sha256": "73c49b3e6b86e3f3ea71e6ba6a37149d43e79b0a826445129beb752d18b0c17c"
+    },
+    "drill-plan.csv": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/packet-13-complete/drill-plan.csv",
+      "sha256": "d07657ab64f5f617073a569ad6cfe79e674fece7ed2896c0c7bf7353527e194d"
+    }
+  },
+  "selected_final_candidate": true,
+  "candidate_status": "FULL_ANALYSIS_PENDING",
+  "v10_geometry_receipt": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/geometry-receipt-13.json",
+    "sha256": "b79b35e0b159ddea43bb3a1a456f3e34a7acafc2f802c5abb782356e620c0cff"
+  },
+  "v10_clearance": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/clearance.json",
+    "sha256": "9a688e1bd46eb5561911b812858f7eedee346c7ee7ed8377155b1bf935cffd40"
+  },
+  "v10_response_bank": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/response-bank-13.json",
+    "sha256": "9630fe3275f62201176399f61448b8ab47390d5d36d178a8b4ee42e2114123fb"
+  },
+  "v10_component_review": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/reference-review-13.json",
+    "sha256": "4552d6034ae4d72709a71e9ce27ac43e2e364b9f68f42d071aace1bad1313d08"
+  },
+  "current_response_computed": true,
+  "profile_material_hypotheses": {
+    "base_floor_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_floor_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_header": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_post_center_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_post_center_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_post_outer_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_post_outer_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_principal_center_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_principal_center_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_bottom_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_bottom_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_service_lower_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_service_lower_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_service_upper_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_service_upper_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "base_rail_top": "Solid dry unincised DF-L No.2;50.8mm S thickness ripped from solid stock;139.7mm N retained;not built-up",
+    "base_side_left": "Solid dry unincised DouglasFir-LarchNo2 hypothesis; actual4x8stock ripped to152.4mmdepth,CF1 unchanged. Actualgrade/defects HOLD.",
+    "base_side_right": "Solid dry unincised DouglasFir-LarchNo2 hypothesis; actual4x8stock ripped to152.4mmdepth,CF1 unchanged. Actualgrade/defects HOLD.",
+    "eoere_cleat_left": "Nominal half-inch PS1 sanded Group1 plywood, strength axis Z; actual thickness>=11.9 each HOLD; independent APA half-inch reference, no prior three-quarter-inch capacity transfer.",
+    "eoere_cleat_left_outer": "Nominal half-inch PS1 sanded Group1 plywood, strength axis Z; actual thickness>=11.9 each HOLD; independent APA half-inch reference, no prior three-quarter-inch capacity transfer.",
+    "eoere_cleat_right": "Nominal half-inch PS1 sanded Group1 plywood, strength axis Z; actual thickness>=11.9 each HOLD; independent APA half-inch reference, no prior three-quarter-inch capacity transfer.",
+    "eoere_cleat_right_outer": "Nominal half-inch PS1 sanded Group1 plywood, strength axis Z; actual thickness>=11.9 each HOLD; independent APA half-inch reference, no prior three-quarter-inch capacity transfer.",
+    "kicker_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "kicker_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "lumber_leg_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "lumber_leg_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "main_lower_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "main_lower_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "main_upper_left": "Inherited analytical basis; actual grade/moisture unverified",
+    "main_upper_right": "Inherited analytical basis; actual grade/moisture unverified",
+    "top_packer_left": "Solid DF-L No.2 dry unincised; cut50.8mm thickness from solid stock, not laminated;0.1mm front-plane clearance",
+    "top_packer_right": "Solid DF-L No.2 dry unincised; cut50.8mm thickness from solid stock, not laminated;0.1mm front-plane clearance"
+  },
+  "independent_half_inch_plywood_hypothesis": "APA D510F2020 Table10 sanded Group1 Other half-inch; strength Z; actual minimum11.9 each leaf and aggregate23.8mm wall hypothesis; no prior three-quarter-inch capacity transfer.",
+  "nominal_leaf_thickness_mm": 12.7,
+  "minimum_actual_leaf_thickness_hypothesis_mm": 11.9,
+  "credited_aggregate_wall_mm": 23.8,
+  "side_depth_mm": 152.4,
+  "top_rail_section_S_N_mm": [
+    50.8,
+    139.7
+  ],
+  "unqualified_selected_hardware": [
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "selected_product": "400",
+      "selected_underhead_length_mm": 114.3,
+      "minimum_body_mm": 72.898,
+      "minimum_body_basis": "UNQUALIFIED72.898mm analyticalbodyfloor;partofwoodbearingusesroot. Product400 minimumthreaddoesnotguaranteebody;fullroot sensitivity required."
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "selected_product": "400",
+      "selected_underhead_length_mm": 114.3,
+      "minimum_body_mm": 72.898,
+      "minimum_body_basis": "UNQUALIFIED72.898mm analyticalbodyfloor;partofwoodbearingusesroot. Product400 minimumthreaddoesnotguaranteebody;fullroot sensitivity required."
+    },
+    {
+      "axis_id": "eoere_bolt_001",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_005",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_006",
+      "selected_product": "8096",
+      "selected_underhead_length_mm": 203.2,
+      "minimum_body_mm": 156.972,
+      "minimum_body_basis": "UNQUALIFIED hypothetical156.972mm analytical floor; supplier8096page does not publish minimum smooth body; deliveredgaging or supportedASMEbodyproof required"
+    },
+    {
+      "axis_id": "eoere_bolt_009",
+      "selected_product": "8096",
+      "selected_underhead_length_mm": 203.2,
+      "minimum_body_mm": 156.972,
+      "minimum_body_basis": "UNQUALIFIED hypothetical156.972mm analytical floor; supplier8096page does not publish minimum smooth body; deliveredgaging or supportedASMEbodyproof required"
+    },
+    {
+      "axis_id": "eoere_bolt_010",
+      "selected_product": "8096",
+      "selected_underhead_length_mm": 203.2,
+      "minimum_body_mm": 156.972,
+      "minimum_body_basis": "UNQUALIFIED hypothetical156.972mm analytical floor; supplier8096page does not publish minimum smooth body; deliveredgaging or supportedASMEbodyproof required"
+    },
+    {
+      "axis_id": "eoere_bolt_013",
+      "selected_product": "8096",
+      "selected_underhead_length_mm": 203.2,
+      "minimum_body_mm": 156.972,
+      "minimum_body_basis": "UNQUALIFIED hypothetical156.972mm analytical floor; supplier8096page does not publish minimum smooth body; deliveredgaging or supportedASMEbodyproof required"
+    },
+    {
+      "axis_id": "eoere_bolt_017",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_018",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_022",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_023",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_024",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "eoere_bolt_028",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_001",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_002",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_003",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_004",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_005",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_006",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_007",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    },
+    {
+      "axis_id": "v10_top_bolt_008",
+      "selected_product": "367",
+      "selected_underhead_length_mm": 101.6,
+      "minimum_body_mm": 68.326,
+      "minimum_body_basis": "UNQUALIFIED hypothetical68.326mm bodyfloor for numericalanalysis; product367 publishes minimumthread only;deliveredgaging required"
+    }
+  ],
+  "current_metadata_model_lengths_and_spacer_recipes_checked": true,
+  "metadata_erratum_pending": false,
+  "all_declared_numerical_references_below_one": false,
+  "numerical_reference_maxima": {
+    "cleat_actual_perimeter_rows": {
+      "above_reference": false,
+      "axes": [
+        "cleat_post_bolt_left_1",
+        "eoere_bolt_067"
+      ],
+      "case_id": "a12-forward",
+      "component": "eoere_cleat_left",
+      "index": 0.6692407006560563,
+      "wall_mm": 23.8,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/cleat_actual_perimeter_rows.json",
+        "sha256": "61cb0ae0a494711fa6953dee98f7749d1061a2cd83365234a362e182b801aafb"
+      }
+    },
+    "direct_elastic_steel": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.4227660071503528,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/direct_elastic_steel.json",
+        "sha256": "88936046449371fe89dd1ba96b4e9731de2294351c11b79483ef6a38b92966de"
+      }
+    },
+    "reduced_connection_axial_bending": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.9970048152833094,
+      "individual_reference_before_Cg": 0.4985024076416547,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/reduced_connection_axial_bending.json",
+        "sha256": "ccaa0a22512193e0f54fc75a3111e6802ab7ce3407f42aa5372184728a591850"
+      }
+    },
+    "timber_net_shear_torsion": {
+      "above_reference": false,
+      "case_id": "k12-right",
+      "component": "base_rail_top",
+      "index": 0.9315797669461476,
+      "metric": "maximum_shear_torsion_reference_upper",
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/timber_net_shear_torsion.json",
+        "sha256": "f807b604755b1064596dfeef9131bd97a6b60542d453fdaf04d732387227560b"
+      }
+    },
+    "timber_normal_and_stability": {
+      "above_reference": false,
+      "case_id": "a12-left",
+      "component": "lumber_leg_left",
+      "index": 0.8212120277017132,
+      "metric": "maximum_declared_restraint_normal_reference_upper",
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/timber_normal_and_stability.json",
+        "sha256": "a996e5690adaaebee22c3841cf07a8410bf31ad04377b40049dc53f3002d4c51"
+      }
+    },
+    "wood_bearing_whole_affine": {
+      "Cg": 0.5,
+      "above_reference": true,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "index": 1.960158957569383,
+      "individual_reference_before_Cg": 0.9800794787846915,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/wood_bearing_whole_affine.json",
+        "sha256": "16ce37c819bc578c68e1715ba6ec464660e12c6003ad8776662fbcbc3bbd5181"
+      }
+    }
+  },
+  "above_reference_case_rows": [
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.263030883077738,
+      "individual_reference_before_Cg": 0.631515441538869
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.1170762873984987,
+      "individual_reference_before_Cg": 0.5585381436992494
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_068",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0014715870661846,
+      "individual_reference_before_Cg": 0.5007357935330923
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.1467416694255341,
+      "individual_reference_before_Cg": 0.28668541735638353
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_002",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.1082630980708206,
+      "individual_reference_before_Cg": 0.27706577451770514
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.5546595227108182,
+      "individual_reference_before_Cg": 0.7773297613554091
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.3790511910539758,
+      "individual_reference_before_Cg": 0.6895255955269879
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0298531509265814,
+      "individual_reference_before_Cg": 0.5149265754632907
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2674066847077177,
+      "individual_reference_before_Cg": 0.3168516711769294
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_002",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2293573176753614,
+      "individual_reference_before_Cg": 0.30733932941884035
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0680565625867964,
+      "individual_reference_before_Cg": 0.2670141406466991
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6674057497826802,
+      "individual_reference_before_Cg": 0.8337028748913401
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6643953619011496,
+      "individual_reference_before_Cg": 0.8321976809505748
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2819501841264036,
+      "individual_reference_before_Cg": 0.3204875460316009
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_002",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2405369834625684,
+      "individual_reference_before_Cg": 0.3101342458656421
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.960158957569383,
+      "individual_reference_before_Cg": 0.9800794787846915
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.3597757379267386,
+      "individual_reference_before_Cg": 0.6798878689633693
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_070",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0236239019208646,
+      "individual_reference_before_Cg": 0.5118119509604323
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_003",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.1618256236026685,
+      "individual_reference_before_Cg": 0.2904564059006671
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_004",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.197252738348111,
+      "individual_reference_before_Cg": 0.29931318458702777
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_004",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0698550062626915,
+      "individual_reference_before_Cg": 0.26746375156567287
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6455863140736289,
+      "individual_reference_before_Cg": 0.8227931570368144
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6420276909631062,
+      "individual_reference_before_Cg": 0.8210138454815531
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_003",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2060660860923613,
+      "individual_reference_before_Cg": 0.30151652152309033
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_004",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2466033240822325,
+      "individual_reference_before_Cg": 0.31165083102055813
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.9333462069770881,
+      "individual_reference_before_Cg": 0.9666731034885441
+    }
+  ],
+  "component_maxima": [
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.1170762873984987,
+      "individual_reference_before_Cg": 0.5585381436992494
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_068",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0014715870661846,
+      "individual_reference_before_Cg": 0.5007357935330923
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_070",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0236239019208646,
+      "individual_reference_before_Cg": 0.5118119509604323
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6643953619011496,
+      "individual_reference_before_Cg": 0.8321976809505748
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.960158957569383,
+      "individual_reference_before_Cg": 0.9800794787846915
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_1",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.6420276909631062,
+      "individual_reference_before_Cg": 0.8210138454815531
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_2",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.9333462069770881,
+      "individual_reference_before_Cg": 0.9666731034885441
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0680565625867964,
+      "individual_reference_before_Cg": 0.2670141406466991
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_004",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.0698550062626915,
+      "individual_reference_before_Cg": 0.26746375156567287
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_001",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2819501841264036,
+      "individual_reference_before_Cg": 0.3204875460316009
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_002",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2405369834625684,
+      "individual_reference_before_Cg": 0.3101342458656421
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_003",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2060660860923613,
+      "individual_reference_before_Cg": 0.30151652152309033
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_004",
+      "criterion": "wood_bearing_whole_affine",
+      "index": 1.2466033240822325,
+      "individual_reference_before_Cg": 0.31165083102055813
+    }
+  ],
+  "count_above_reference_case_rows": 26,
+  "maximum_gradient_inf_N": 2.7130290590508463e-06,
+  "complete_joint_qualified": false,
+  "reference_group_factor_scope": "Universal 1/n complete-receiver-set lower-bound trial; actual sharing remains solved and unequal. Not an applicable whole-joint factor.",
+  "final_metadata_equivalence": {
+    "changed_recipe_axis_ids": [
+      "eoere_bolt_001",
+      "eoere_bolt_005",
+      "eoere_bolt_017",
+      "eoere_bolt_018",
+      "eoere_bolt_022",
+      "eoere_bolt_023",
+      "eoere_bolt_024",
+      "eoere_bolt_028",
+      "v10_top_bolt_001",
+      "v10_top_bolt_002",
+      "v10_top_bolt_003",
+      "v10_top_bolt_004",
+      "v10_top_bolt_005",
+      "v10_top_bolt_006",
+      "v10_top_bolt_007",
+      "v10_top_bolt_008"
+    ],
+    "finalizer": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/metadata-producer-snapshot.py",
+      "sha256": "0fe6bd778a0714a81ed8ab430dac7e939d12dd61b29a30f971af0d0e390c3832"
+    },
+    "physical_and_operator_payloads_identical_except_descriptive_recipe_strings": true,
+    "prior_exact_audits": [
+      {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/backing-led-audit-13.json",
+        "sha256": "0e5e370bb4846dcbb1eff0dfe9ac7903d62e4156fd78a3aab6b60c6c385c03ca"
+      },
+      {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/wall-audit-13.json",
+        "sha256": "92e2bcce0bc25c07dd965d573fe9f678aa4a63cad1162105265d3a629f57af07"
+      }
+    ],
+    "provisional_geometry": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/geometry/geometry.json",
+      "sha256": "3f00a942c717f2bcf5a6ced91c8f8af00b1624452b928db8c0c706b917d37f88"
+    }
+  },
+  "explicit_report_bindings_checked": 55
+}

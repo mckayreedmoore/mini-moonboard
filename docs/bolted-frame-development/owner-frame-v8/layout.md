@@ -1,0 +1,5 @@
+# Inset-angle geometry with inward-facing nuts
+
+Current development revision `eoere-inward-bolts-and-angles-v8` retains all 40 inward-facing exterior stacks from v7. Eight connected base/header angles and all 24 shared bolt axes move 6 mm in world Y, toward the frame interior. The [changes](changes.json), [axis updates](axis-updates.json), [13 receiver profiles](member-updates.json) and [78 full-wall bore rows](receiver-updates.csv) supersede their preceding poses and hole locations. The stock sections, member/cleat outlines, six panels, 66 Hillman axes, factory holes and hardware lengths/counts remain.
+
+This is a fresh-stock design revision: suppressed computational holes are not a physical hole-filling repair. The geometry and full occupied-part intersection check do not establish strength, complete edge/group factors, thread windows, washer seats or installation/tool access. No cutting, drilling, fabrication or climbing release. Actual/Disposition fields remain blank. The v6 forces and bracing study remain bound to v6; new matching results must identify this cumulative revision.

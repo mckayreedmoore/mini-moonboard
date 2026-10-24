@@ -1,0 +1,179 @@
+Candidate 13: saved mechanics and group-factor scope audit
+Paper audit only. No repository promotion, global rerun, load change, resistance
+change, fabrication release, climbing release or structural acceptance.
+
+Finding
+
+The force model already generates unequal simultaneous fastener actions. It
+does not prescribe equal sharing and does not contain an explicit Cg or 1/n
+capacity reduction in its equilibrium equations. Applying a second reduction
+solely to reproduce the SAME load-distribution effect would duplicate that
+effect under a narrowly defined, qualified scalar group model. The present
+three-dimensional model is not that qualified scalar model. Its foundation
+stiffness, gross member/plate approximations, interpolation and physical inputs
+are not validated bounds. Therefore this audit does not justify Cg=1, remove
+any of the 26 saved bearing-trial flags, or establish a whole-joint pass.
+
+1. What the actual candidate 13 force model resolves
+
+Timber: independent, gross rectangular, linear 3D Timoshenko beams. The declared
+DF-L scenario uses E=11031.612 MPa and G/E=0.064, with beam segments at most
+150 mm. Axial EA/L, bending EI, transverse shear GA and torsion GJ couple the
+fastener ports through each member. Point translations and rotations are
+interpolated between beam nodes and retain eccentric rigid arms. Thus common
+member extension affects fastener sharing, but a short bolt row within one
+150 mm segment is not an independently refined sequence of exact NDS row
+segments. Gross beam stiffness does not include local hole stress fields or
+net-section compliance. Net-section resistance is a separate postprocessor.
+Source: scripts/thin_bolted_frame_mechanics.py lines93-223.
+
+Bonded cleats: two nominal 12.7 mm plywood leaves become one 25.4 mm analytical
+body under perfect compatibility. Separate published half-inch EA and apparent
+flatwise EI, parallel-axis composite action and the retained in-plane shear
+surrogate are used. The trapezoidal body is approximated by a full-width beam.
+Adhesive qualification, delamination, actual stiffness bounds and force-slip
+behavior are not established. Source: scripts/eoere_v10_thin_cleat.py and
+thin-stiffness-input.json, both frozen in the candidate inputs.
+
+Shafts: independent nominal-diameter circular linear elastic Timoshenko shafts,
+E=200000 MPa, nu=0.3, shear factor 0.9. Nodes include actual surface boundaries,
+midspans, end seats and nominal segments at most 25 mm. Their bending response
+couples the actual separate wood and steel bearing intervals. The global force
+model does not represent physical thread-root/transition stiffness, yielding,
+plastic hinges, damage or a delivered-shank bound. Those diameter/material
+resistance scenarios are separate checks. Source:
+scripts/thin_bolted_common_shaft.py lines111-241.
+
+Wood/steel bearing springs: two axial Gauss points per actual bearing interval.
+Each has independent radial slip relative to its own receiver/angle port and
+its own bore radial clearance c=(boreD-majorD)/2. With lateral slip vector d,
+r=norm(d), spring force is zero for r<=c and k(1-c/r)d for r>c. This is a
+radial dead-zone law with linear magnitude beyond engagement; its direction,
+active-set changes and consistent tangent make the global problem nonlinear.
+It is NOT nonlinear wood crushing or a plastic embedment law. The force model
+uses a common isotropic wood foundation 26.2467191601 N/mm^2 times Gauss length
+weight, and steel foundation 1799.77502812 N/mm^2 times length weight. Grain
+angle affects subsequent resistance calculations, not this isotropic wood
+foundation coefficient. Axial stiffness of these radial springs is zero.
+Sources: thin_bolted_common_shaft.py lines214-241;
+thin_bolted_frame_mechanics.py lines305-323; first_order_factory.py lines237-241.
+
+Axial capture: separate compression-only center captures at actual end/host
+support stations, stiffness 1000 N/mm. They transfer axial reactions but do not
+resolve washer pressure, rotational clamping, preload, friction or prying.
+They are included in stored surface wrenches; the affine lateral bearing
+tractions use radial springs only. Sources: thin_bolted_common_shaft.py
+lines232-241 and328-352.
+
+Angles: actual near and far bolt ports are independently controlled by the
+48 DOF eight-port linear gross half-strip operator and condensed rigid heel.
+This includes finite angle-strip deformation and work-conjugate eccentric
+load paths. It is not physical plate, bend-root, loaded-hole or local steel
+yield qualification. Interior contact uses the declared unloaded heel-lift
+Ritz kinematics; contact-dependent heel condensation and finite-motion
+accuracy are not established. Source: scripts/eoere_v10_fitting.py and its
+frozen provenance/controls, rather than inherited four-port descriptive text.
+
+Direct contacts: area-weighted compression-only bedding, with separation
+allowed, retain actual owner pairs. Candidate 13 added no owner pair relative
+to 11b; each existing side/cleat patch grew from 34403.3732 to 35943.9879 mm^2
+while its cells grew 18 to 75. Every changed cell has k=area*bedding exactly;
+the summed stiffness grew 4.48%, not fourfold. These are actual-source contact
+priors, not proven physical pressure/slip laws. See contact-delta-13.json and
+contact-area-weight-check.json. Floor no-slip and panel/screw assumptions
+remain the same unqualified physical conditions as the completed bank.
+
+Unequal actions therefore arise jointly from member extension/bending, shaft
+bending and interval length, angle compliance, eccentric moment, independent
+bore engagement, contact opening/closure, asymmetric loading and the global
+load path. No scalar Cg is required for the solver to produce unequal actions.
+It nevertheless lacks a calibrated single-fastener load-deformation law,
+orthotropic local continuum response, wood crushing/yield, brittle splitting,
+row/group tear-out, local notch effects, fastening tolerances and actual
+fabrication/material observations. Equilibrium cannot establish these.
+
+2. Independent saved-action checks completed here
+
+The new audit uses direct vector sums/cross products, not the original action
+recovery functions, and verifies field hashes against response-bank-13.json.
+It audits all 13 flagged axes in all 6 simultaneous cases:
+
+- 180 surface wrenches reconstruct exactly from saved Gauss forces plus their
+ own end captures, using host support points for end moments.
+- 78 complete shaft-state force/moment balances include every saved physical
+ metal gravity role and both end captures. Maximum residuals are
+ 3.209025667e-6 N and 3.441229186e-5 Nmm.
+- 3096 saved cuts away from concentrated-load jumps independently reconstruct
+ to maximum differences 5.684341886e-13 N and 4.302691536e-11 Nmm.
+- 270 actual wood/steel interval-boundary cut resultants are recorded as
+ simultaneous N,V1,V2,T,M1,M2, with adjacent physical interval ownership.
+
+These checks validate saved-action consistency and signs, not a new force
+solution, pressure convergence, physical demand bounds or design acceptance.
+Artifacts: audit_saved_mechanics.py and saved-point-resultant-audit.json.
+The independent group-force-atlas-13.json provides the simultaneous 52 exact
+surface-signature groups, per-host wrenches and actual sharing diagnostics.
+Shared-host/steel adjacency is not asserted to be a single NDS design group.
+
+3. Distribution overlap: exact algebra and its limits
+
+For ONLY a parallel positive scalar group with equal individual resistance Z,
+fixed load fractions alpha_i>=0, sum(alpha_i)=1 and group force P:
+
+  max individual index = alpha_max*P/Z
+  Cg_distribution = 1/(n*alpha_max)
+  group index P/(n*Cg_distribution*Z) = alpha_max*P/Z.
+
+Dividing the already unequal individual index by that SAME distribution
+factor again repeats the distribution allowance. This identity is not an
+adopted factor for candidate 13. Vector forces, different bearing directions,
+multi-interval shafts, group moments, end reactions, contact paths, different
+resistances and uncalibrated compliance prevent its direct adoption here.
+Signed/vector cancellation also makes a simple load fraction unsuitable as
+a general capacity or Cg bound.
+
+The saved universal 1/n trial is keyed by identical complete surface signature,
+not an independently qualified NDS row. Its conservative purpose is to retain
+an unresolved group-distribution allowance. It is not evidence that the code
+requires an additional arbitrary n-fold local bearing-strength reduction.
+Conversely the present mechanics is not evidence that all prescribed group
+adjustments can be discarded. A source-supported application decision must
+identify the actual connection/row, the design value being adjusted, member
+EA and spacing, applicable single-fastener slip/modulus assumptions, load
+direction, and all other governing geometry/strength mechanisms.
+
+The old flag list remains unchanged. A fixed-force parameter comparison
+between unadjusted individual references and the 1/n trial is interpretation
+of two declared postprocessing hypotheses, not a physical sensitivity bound.
+Changing spring stiffness, crushing, preload, support or contact assumptions
+could redistribute forces and cannot be evaluated by reusing the same forces
+as if they were new global solutions. No such rerun was done.
+
+4. Primary engineering scope
+
+American Wood Council, Design of Bolted Connections per the 2015 NDS:
+https://awc.org/resources/design-of-bolted-connections-per-the-2015-nds/
+AWC explains Cg as accounting for unequal group load distribution and treats
+spacing/geometry adjustments separately. This explanatory source does not
+itself qualify the present 2024 NDS oblique mixed-material arrangements.
+
+USDA Forest Products Laboratory, Rammer 2006, Wood Construction Codes Issues
+in the United States, section 2.1.2 and 2.2:
+https://research.fs.usda.gov/download/treesearch/27033.pdf
+The research distinguishes elastic distribution assumptions involving member
+extension and single-fastener deformation from wood limit states and local
+crushing redistribution; it separately describes brittle wood failure modes.
+
+American Wood Council Technical Report 12, sections 1.1-1.3:
+https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf
+The generalized dowel yield equations address single-fastener yield-limit
+references; spacing, group action, member strength and end-use adjustments
+remain separate design considerations. This supports separating force
+distribution, local resistance and complete-joint qualification.
+
+No source in this audit establishes that a Cg adjustment to a group lateral
+design value can automatically be applied as an identical multiplier on local
+elastic bearing stress or material Fe. The companion joint applicability
+review owns the exact current NDS clause assessment. Until that assessment and
+physical applicability are supported, retain every trial flag and hold.
+

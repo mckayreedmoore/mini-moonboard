@@ -1,0 +1,25 @@
+WSL MOONBOARD HANDOFF: GROUP ASSESSMENT AND BOLT RELOCATION
+For Summarize current state, WSL Ubuntu, thread 01a16a87-2956-7eb2-8b80-05b0c3930c44.
+Candidate 13 frozen evidence; no new implementation or release.
+
+1. Replace the custom receiver-signature 1/n diagnostic with an explicitly justified assessment; do not simply delete it and clear flags. Preserve original records and compare identical cases. Establish actual physical groups and shear planes; retain individual forces AND local moments. Check splitting, tear-out, net sections, fitting transfer, axial actions and uncertainty. Unequal bolt sharing is already resolved conditionally in the response model; neither automatic group-factor waiver nor repeated load-concentration penalty is justified.
+
+2. NDS Cg depends on member EA, fastener slip stiffness, spacing and count. AWC's Cg0.97 example and notes about conservative tabulations for smaller bolts are not factors for this frame:
+https://web-media.awc.org/wp-content/uploads/2021/12/17210649/StructureMag-NDS2015-PracticalSolutions-1611.pdf
+EC5 parallel-row neff=min(n,n^0.9*(a1/(13d))^0.25) gives illustrative four-bolt/7d efficiency about0.746 versus diagnostic0.25. It is not an individual utilization factor or direct replacement:
+https://www.swedishwood.com/siteassets/5-publikationer/pdfer/glulamhandbook3-240508.pdf
+CWC integrates group effects in yield/wood failure checks:
+https://cwc.ca/wp-content/uploads/2022/06/WDM2020_June2022Errata-1.pdf
+Do not mix ASD/LRFD/EC5 bases. Brittle wood checks remain essential:
+https://research.fs.usda.gov/download/treesearch/27033.pdf
+
+3. Relocation: translating a complete angle can change edge/end distances and eccentricity but cannot change its internal factory hole pitch. Therefore it cannot increase the top grid's fixed41.275 mm along-grain spacing. Changing the angle orientation or internal pattern is a different design with altered flange/load-path/fit duties. For center principals, moving a whole fitting could improve the conservative edge envelope but must be checked in BOTH connected receivers; earlier bounded translation screens found competing side/header end reserves. For rear-leg wood-to-wood pairs, a revised diagonal layout can change pitch, edge/end distances and moment arm; verify oblique applicability and unequal sharing rather than merely increasing bolt count. No specific new layout is verified by this handoff. Preserve front faces/LED/panel duties where possible; check end/edge/net sections, clearance, grip/spacer and tool space, T-nuts, eccentricity and support/contact. Changed geometry or stiffness requires matched analyses. No new steel drilling or physical instructions are released.
+
+4. Top grid:41.275 mm along grain,50.8 mm across grain; actual sole wood bearing interval50.8 mm,D9.525 mm. NDS perpendicular screen43.65625 mm. EC5 BOLT a1=(4+|cos alpha|)D at actual approximately63 degrees gives42.424 mm, still above41.275. Do not select90 degrees favorably, use the nail0.7 factor, or substitute the dowel formula:
+https://www.swedishwood.com/siteassets/5-publikationer/pdfer/design-of-timber-structures-2-2016.pdf
+No demonstrated heuristic clears the grid. Moment/splitting analysis is a possible route needing calculation and supported inputs, not a spacing waiver:
+https://www.swedishwood.com/siteassets/5-publikationer/pdfer/glulamhandbook2-240508.pdf section14.2,p205.
+
+5. Prominent correction: bolts068/069 net actions point AWAY from the33.704 mm near edge in all six cases. Near-edge4D is an optional both-edges-loaded conservative envelope, not an established NDS violation. Idealized perpendicular-resultant classification clears near1.5D and opposite4D. Local pressure reversal alone does not automatically change loaded-edge classification. Actual oblique/eccentric/splitting acceptance remains unresolved. Saved source-backed correction: center-principal-correction-13-v1.json/.txt; latest corrected completion entrypoint: completion-index-v3.json.
+
+Delivery: supported new-findings message attempted once; rejected with 'thread 01a16a87-2956-7eb2-8b80-05b0c3930c44 already has an active writer'. No retry/unlock/bypass. New handoff receipt NOT confirmed. Separately, latest supported conversation read shows the lead explicitly acknowledging that it read both correction files and the linked068/069 correction, and promising prominent propagation. Actual downstream worker/ledger propagation is not verified here.

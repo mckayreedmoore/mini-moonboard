@@ -1,0 +1,149 @@
+{
+  "all_declared_numerical_references_below_one": false,
+  "analysis_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/geometry/geometry.json",
+    "sha256": "89a901620f57b0b1c2785205a8dab8425a62ddaadb01adccdf7a1e794b96b2d4"
+  },
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "climbing_released": false,
+  "fabrication_released": false,
+  "field_bindings": {
+    "a1-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a1-rear/field.json",
+      "sha256": "397482eef930465fa04f050f02c042a4a43837dbb3c0b89da099fc9ebe2d43c5"
+    },
+    "a12-forward": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-forward/field.json",
+      "sha256": "e29bc74bee891fa64df8c2c92669d9c3a2e858431e0ae2cf4c441a027723204c"
+    },
+    "a12-left": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-left/field.json",
+      "sha256": "59c90031125343e4580e86f3c2fb17d8ca00a61aeee9230787862e502b346f6d"
+    },
+    "a12-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-rear/field.json",
+      "sha256": "916ca4a2c5c04207a5978947861d298af975b374ed7bb9584ed3747860085f49"
+    },
+    "k12-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/k12-rear/field.json",
+      "sha256": "c37a74640c4f8dd6696cac93e8d4814442ffd806af15cfa1bf55639c988a3d5c"
+    },
+    "k12-right": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/k12-right/field.json",
+      "sha256": "9a0946e380c1a4fedf969212c930ec684c688e0b5041f1c066dc7cd9175eeed2"
+    }
+  },
+  "geometry_revision": "eoere-candidate13-side-depth-v10",
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "numerical_reference_maxima": {
+    "cleat_actual_perimeter_rows": {
+      "above_reference": false,
+      "axes": [
+        "cleat_post_bolt_left_1",
+        "eoere_bolt_067"
+      ],
+      "case_id": "a12-forward",
+      "component": "eoere_cleat_left",
+      "index": 0.6692407006560563,
+      "wall_mm": 23.8,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/cleat_actual_perimeter_rows.json",
+        "sha256": "61cb0ae0a494711fa6953dee98f7749d1061a2cd83365234a362e182b801aafb"
+      }
+    },
+    "direct_elastic_steel": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.4227660071503528,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/direct_elastic_steel.json",
+        "sha256": "88936046449371fe89dd1ba96b4e9731de2294351c11b79483ef6a38b92966de"
+      }
+    },
+    "reduced_connection_axial_bending": {
+      "Cg": 0.5,
+      "above_reference": false,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 0.9970048152833094,
+      "individual_reference_before_Cg": 0.4985024076416547,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/reduced_connection_axial_bending.json",
+        "sha256": "ccaa0a22512193e0f54fc75a3111e6802ab7ce3407f42aa5372184728a591850"
+      }
+    },
+    "timber_net_shear_torsion": {
+      "above_reference": false,
+      "case_id": "k12-right",
+      "component": "base_rail_top",
+      "index": 0.9315797669461476,
+      "metric": "maximum_shear_torsion_reference_upper",
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/timber_net_shear_torsion.json",
+        "sha256": "f807b604755b1064596dfeef9131bd97a6b60542d453fdaf04d732387227560b"
+      }
+    },
+    "timber_normal_and_stability": {
+      "above_reference": false,
+      "case_id": "a12-left",
+      "component": "lumber_leg_left",
+      "index": 0.8212120277017132,
+      "metric": "maximum_declared_restraint_normal_reference_upper",
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/timber_normal_and_stability.json",
+        "sha256": "a996e5690adaaebee22c3841cf07a8410bf31ad04377b40049dc53f3002d4c51"
+      }
+    },
+    "wood_bearing_whole_affine": {
+      "Cg": 0.5,
+      "above_reference": true,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "index": 1.960158957569383,
+      "individual_reference_before_Cg": 0.9800794787846915,
+      "worksheet": {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/wood_bearing_whole_affine.json",
+        "sha256": "16ce37c819bc578c68e1715ba6ec464660e12c6003ad8776662fbcbc3bbd5181"
+      }
+    }
+  },
+  "physical_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/geometry-receipt-13.json",
+    "sha256": "b79b35e0b159ddea43bb3a1a456f3e34a7acafc2f802c5abb782356e620c0cff"
+  },
+  "producer": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_checks.py",
+    "sha256": "92f6e1bf7f4ebdcd2b6c9016503ebdc450b03f9a39b59049f192b610c9754ea5"
+  },
+  "response_bank": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/response-bank-13.json",
+    "sha256": "9630fe3275f62201176399f61448b8ab47390d5d36d178a8b4ee42e2114123fb"
+  },
+  "schema": "eoere_v10_reference_review/v1",
+  "structural_acceptance": false,
+  "unresolved_qualifications": [
+    "Complete oblique end/edge/group applicability and local splitting",
+    "Compatible three-dimensional loaded-hole and fitting stress behavior",
+    "Actual Hillman screw force-slip, combined resistance and panel head/edge duties",
+    "Physical adhesive bond and actual plywood assembly properties",
+    "No-slip floor support, finite-motion/contact and delivered hardware assumptions"
+  ]
+}

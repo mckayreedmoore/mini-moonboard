@@ -1,0 +1,73 @@
+{
+  "checked_clearance": {
+    "path": "fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/clearance.json",
+    "sha256": "e8b2a70ff866fa759bb9eb0b3e367e3c2adeb353e7357c47f23136d3f047cfbc"
+  },
+  "checked_geometry": {
+    "path": "fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry.json",
+    "sha256": "8b27fbd4cf06378077bc7b5ac7702390634710b2e3a44606318eb0c677da1bbe"
+  },
+  "clearance_required": false,
+  "climbing_released": false,
+  "command": "uv run python fea/generated/v10-standard-top-stock-v1/geometry-proposal/build_4x6_geometry_v2.py --build",
+  "counts": {
+    "angles": 24,
+    "bolt_stacks": 116,
+    "changed_finished_solids": 660,
+    "expected_occupied_parts_before_global_clearance": 1151,
+    "occupied_parts": 1151,
+    "occupied_parts_checked": 1151,
+    "panel_screw_axes": 66,
+    "removed_spacer_parts": 16,
+    "spacer_pieces": 44,
+    "structural_axes": 116
+  },
+  "fabrication_released": false,
+  "finite_top_post_capsule_screen": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/purchase-proposal/4x6-v2/finite-end-check.json",
+    "sha256": "449d06747d70c4457f11b4feca2e438ff104e823b847dfb9e6b508a2e1614319"
+  },
+  "geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry.json",
+    "sha256": "8b27fbd4cf06378077bc7b5ac7702390634710b2e3a44606318eb0c677da1bbe"
+  },
+  "hardware_recipe": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/purchase-proposal/4x6-v2/hardware-recipe.json",
+    "sha256": "33dc377024474b178435331e083beef74f1af0c99a94322f47ce738953efb294"
+  },
+  "hardware_reuse_plan": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/purchase-proposal/4x6-v2/brep-reuse-plan.json",
+    "sha256": "f7d0ed9d830020f61fcfa8b42e4cb5fc659a9f8def329193c030a570833fc6ae"
+  },
+  "limits": [
+    "The inherited v1 global CAD clearance failed; this v2 geometry still requires the parent-owned complete clearance run.",
+    "The finite capsule screen covers only all 1,920 combinations of the 16 beam stacks' five parts against the four outer-post stacks' six parts.",
+    "Exact existing BReps and catalog dimensions do not verify delivered product, fit, joint strength, or bearing resistance.",
+    "The conditional 4x6 Table D perpendicular pitch issue remains: 47.625 mm versus retained 41.275 mm factory pitch.",
+    "No fresh matched mechanics, physical observation, fabrication, or climbing release is inferred."
+  ],
+  "nominal_geometry_clear": true,
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/geometry-proposal/build_4x6_geometry_v2.py",
+    "sha256": "a67af61fc7f2b77af24acfdf4eb4beffe94ffb51aca5cdff5056b40e6cc12a78"
+  },
+  "raw_candidate13_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/geometry.json",
+    "sha256": "00f54e2f42737455253bab33ac4091b1f94bfd39111f20c52a4b2e0adf8eb6fe"
+  },
+  "revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "schema": "v10-standard-top-4x6-geometry-receipt/v2",
+  "source_geometry_receipt": {
+    "path": "fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry-receipt.json",
+    "sha256": "7908dd24c5910bc79938b6448a918cd32bf7e3169048eee65b66f355be030263"
+  },
+  "source_v1_clearance": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/4x6/geometry/clearance.json",
+    "sha256": "bf1b9c940d452a6c0a11c3309ec551452e544f04f0501660188428d67a9d9744"
+  },
+  "source_v1_geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/4x6/geometry/geometry.json",
+    "sha256": "04959b5211571cc643adb7d1122a673346aa882b28ffe0b3fa57cd587a982e93"
+  },
+  "status": "checked 4x6 shorter-catalog-hardware geometry; fresh matched mechanics required"
+}

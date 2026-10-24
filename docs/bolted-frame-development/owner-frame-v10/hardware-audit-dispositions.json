@@ -1,0 +1,359 @@
+{
+  "actual_observations": false,
+  "body_floor_hold": {
+    "SKU": "400",
+    "axes": [
+      "rail_rear_bolt_left_1",
+      "rail_rear_bolt_right_1"
+    ],
+    "conditional_HCS_floor_mm": 72.644,
+    "difference_mm": 0.254,
+    "model_floor_mm": 72.898
+  },
+  "bolt_axes_audited": 116,
+  "catalog_maximum_two_pitch_margin_range_mm": {
+    "maximum": [
+      16.107507692307657,
+      "lumber_leg_bolt_right_2"
+    ],
+    "minimum": [
+      2.031999999999866,
+      "eoere_bolt_003"
+    ],
+    "negative_margin_axis_count": 0
+  },
+  "climbing_released": false,
+  "counts": {
+    "Hillman_screws": 66,
+    "angles": 24,
+    "bolts": 116,
+    "half_inch_spacers": 20,
+    "nuts": 116,
+    "one_inch_spacers": 24,
+    "spacer_pieces": 44,
+    "washers": 232
+  },
+  "current_hardware_SKU_lines": 16,
+  "designation_meaning": "BUY_SPEC_SETTLED means nominal designation only. It is neither a fully qualified part nor permission to order; audit dispositions and project holds remain separate.",
+  "disposition_csv": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/hardware-audit-dispositions.csv",
+    "sha256": "7bb447b487849c7192a66a88fa0e4922f47ce2d317af9e426bb97745ccdf168f"
+  },
+  "fabrication_released": false,
+  "final_geometry_receipt_recipe_bank_join_reverified": true,
+  "four_8inch_metadata_discrepancies": {
+    "actual_modeled_tip_projection_mm": 17.907,
+    "axes": [
+      "eoere_bolt_006",
+      "eoere_bolt_009",
+      "eoere_bolt_010",
+      "eoere_bolt_013"
+    ],
+    "difference_mm": 6.35,
+    "source_geometry_or_metadata_changed": false,
+    "stored_scalar_mm": 11.557
+  },
+  "geometry_or_hardware_selection_changed": false,
+  "global_dependencies": [
+    "Owner selection covers the standard 4x6 top development candidate only, not other nonstandard stock or physical operations.",
+    "Applicable physical-row/group and full force/moment/splitting connection checks remain unresolved; the 15 historical diagnostic rows are preserved.",
+    "Actual bolt/body/thread/runout, washer/nut/spacer fit and material evidence remain conditional; no full-thread substitution is adopted.",
+    "Tool dimensions and approach/swing/removal paths are not established by modeled hardware clearance. Analytical or observed access evidence may resolve this; no blanket new physical-test prerequisite is imposed.",
+    "Fitting strength/contact, actual material/bond and support/contact qualifications retain their recorded limits. Panel-screw resistance remains deferred."
+  ],
+  "global_native_or_CAD_run": false,
+  "historical_exclusions": [
+    {
+      "current_quantity": 0,
+      "disposition": "DO_NOT_ORDER_FOR_CURRENT_CANDIDATE",
+      "scope": "Old 16 top 4-inch assumptions preserved; current 16 replacements are 4.75-inch G0341148. No retrospective body guarantee or release.",
+      "sku": "367"
+    }
+  ],
+  "new_worker_assignments_or_duplicate_queue": false,
+  "physical_bearing_intervals_audited": 270,
+  "producer": {
+    "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/consolidated/build.py",
+    "sha256": "a6ae320fb2d3ceda89f5d3ee3c12a3f91c3defe0ddec842d4f2cfda8bc93a669"
+  },
+  "project_order_disposition": "HOLD",
+  "projection_scope": "Catalog-maximum washer/nut arithmetic with nominal bolt/spacer/grip only; not a bounded delivered stack or strength proof.",
+  "purchase_authorized": false,
+  "purchases_or_outreach": false,
+  "reproduce": "uv run python fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/consolidated/build.py",
+  "revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "rows": [
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "eoere_bolt_002;eoere_bolt_003;eoere_bolt_004;eoere_bolt_007;eoere_bolt_008;eoere_bolt_011;eoere_bolt_012;eoere_bolt_014;eoere_bolt_015;eoere_bolt_016;eoere_bolt_019;eoere_bolt_020;eoere_bolt_021;eoere_bolt_025;eoere_bolt_026;eoere_bolt_027;eoere_bolt_029;eoere_bolt_030;eoere_bolt_031;eoere_bolt_033;eoere_bolt_034;eoere_bolt_037;eoere_bolt_038;eoere_bolt_040;eoere_bolt_041;eoere_bolt_042;eoere_bolt_044;eoere_bolt_045;eoere_bolt_048;eoere_bolt_049;eoere_bolt_052;eoere_bolt_053;eoere_bolt_056;eoere_bolt_057;eoere_bolt_059;eoere_bolt_060;eoere_bolt_061;eoere_bolt_062;eoere_bolt_063;eoere_bolt_064;eoere_bolt_068;eoere_bolt_069;eoere_bolt_072;eoere_bolt_073;eoere_bolt_075;eoere_bolt_076;eoere_bolt_077;eoere_bolt_078",
+      "category": "bolt",
+      "description": "3/8-16 x 2.5 in partially threaded Grade 5 hex bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 48,
+      "requirement": "Supplier labels generic hex bolt plus B18.2.1; confirm exact full-size long hex-cap-screw type/edition, or obtain exact bolt-type manufacturer body/grip limits. Grade 5 alone is insufficient.",
+      "sku": "363",
+      "source_url": "https://boltdepot.com/Product-Details?product=363"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "eoere_bolt_065;eoere_bolt_066;eoere_bolt_079;eoere_bolt_080;eoere_bolt_081;eoere_bolt_082;eoere_bolt_083;eoere_bolt_084;v10_header_bolt_001;v10_header_bolt_002;v10_header_bolt_003;v10_header_bolt_004",
+      "category": "bolt",
+      "description": "3/8-16 x 3.5 in partially threaded Grade 5 hex bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 12,
+      "requirement": "Supplier labels generic hex bolt plus B18.2.1; confirm exact full-size long hex-cap-screw type/edition, or obtain exact bolt-type manufacturer body/grip limits. Grade 5 alone is insufficient.",
+      "sku": "366",
+      "source_url": "https://boltdepot.com/Product-Details?product=366"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "rail_front_bolt_left_1;rail_front_bolt_left_2;rail_front_bolt_right_1;rail_front_bolt_right_2",
+      "category": "bolt",
+      "description": "3/8-16 x 6 in ASTM A574 socket-head bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 4,
+      "requirement": "Direct supplier minimum supports the modeled body floor; complete delivered body maximum/runout and grip-gaging/full-form thread limits remain unqualified. Do not transfer Unbrako data.",
+      "sku": "8092",
+      "source_url": "https://boltdepot.com/Product-Details?product=8092"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "cleat_post_bolt_left_1;cleat_post_bolt_left_2;cleat_post_bolt_right_1;cleat_post_bolt_right_2;eoere_bolt_067;eoere_bolt_070;eoere_bolt_071;eoere_bolt_074;v10_cleat_bolt_left_1;v10_cleat_bolt_left_2;v10_cleat_bolt_left_3;v10_cleat_bolt_right_1;v10_cleat_bolt_right_2;v10_cleat_bolt_right_3",
+      "category": "bolt",
+      "description": "3/8-16 x 7.5 in ASTM A574 socket-head bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 14,
+      "requirement": "Direct supplier minimum supports the modeled body floor; complete delivered body maximum/runout and grip-gaging/full-form thread limits remain unqualified. Do not transfer Unbrako data.",
+      "sku": "8095",
+      "source_url": "https://boltdepot.com/Product-Details?product=8095"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "eoere_bolt_006;eoere_bolt_009;eoere_bolt_010;eoere_bolt_013",
+      "category": "bolt",
+      "description": "3/8-16 x 8 in ASTM A574 socket-head bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 4,
+      "requirement": "No supplier minimum body for 8096; minimum thread length does not bound minimum smooth body. Require manufacturer-supported LB/LG/runout bounds tied to exact ASME B18.3 type/edition, or source-supported alternative.",
+      "sku": "8096",
+      "source_url": "https://boltdepot.com/Product-Details?product=8096"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "eoere_bolt_001;eoere_bolt_005;eoere_bolt_017;eoere_bolt_018;eoere_bolt_022;eoere_bolt_023;eoere_bolt_024;eoere_bolt_028;eoere_bolt_032;eoere_bolt_035;eoere_bolt_036;eoere_bolt_039;eoere_bolt_043;eoere_bolt_046;eoere_bolt_047;eoere_bolt_050;eoere_bolt_051;eoere_bolt_054;eoere_bolt_055;eoere_bolt_058;v10_top_bolt_001;v10_top_bolt_002;v10_top_bolt_003;v10_top_bolt_004;v10_top_bolt_005;v10_top_bolt_006;v10_top_bolt_007;v10_top_bolt_008",
+      "category": "bolt",
+      "description": "3/8-16 x 4.75 in partially threaded Grade 5 hex bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 28,
+      "requirement": "Supplier lists hex head cap screw/B18.2.1. LB/LG are conditional 2012 HCS limits; exact delivered edition/type conformance and complete thread/runout window are unobserved. No stronger manufacturer body floor is published.",
+      "sku": "G0341148",
+      "source_url": "https://www.zoro.com/zoro-select-grade-5-38-16-hex-head-cap-screw-zinc-plated-steel-4-34-in-l-10-pk-n012000370475/i/G0341148/"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "HOLD",
+      "axis_or_member_ids": "rail_rear_bolt_left_1;rail_rear_bolt_right_1",
+      "category": "bolt",
+      "description": "1/2-13 x 4.5 in partially threaded Grade 5 hex bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 2,
+      "requirement": "Even if exact HCS conformity is confirmed, Table 12 supports 72.644 mm, below modeled 72.898 mm. Require source-supported floor >=72.898 mm, or separately adopt 72.644 mm/root-interval reassessment. Also confirm exact bolt/cap-screw type.",
+      "sku": "400",
+      "source_url": "https://boltdepot.com/Product-Details?product=400"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "lumber_leg_bolt_left_1;lumber_leg_bolt_left_2;lumber_leg_bolt_right_1;lumber_leg_bolt_right_2",
+      "category": "bolt",
+      "description": "1/2-13 x 8.5 in partially threaded Grade 5 hex bolt",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 4,
+      "requirement": "Supplier lists hex head cap screw/B18.2.1. LB/LG are conditional 2012 HCS limits; exact delivered edition/type conformance and complete thread/runout window are unobserved. No stronger manufacturer body floor is published.",
+      "sku": "G0340956",
+      "source_url": "https://www.zoro.com/zoro-select-grade-5-12-13-hex-head-cap-screw-zinc-plated-steel-8-12-in-l-5-pk-n012000500850/i/G0340956/"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "eoere_bolt_001;eoere_bolt_002;eoere_bolt_003;eoere_bolt_004;eoere_bolt_005;eoere_bolt_007;eoere_bolt_008;eoere_bolt_011;eoere_bolt_012;eoere_bolt_014;eoere_bolt_015;eoere_bolt_016;eoere_bolt_017;eoere_bolt_018;eoere_bolt_019;eoere_bolt_020;eoere_bolt_021;eoere_bolt_022;eoere_bolt_023;eoere_bolt_024;eoere_bolt_025;eoere_bolt_026;eoere_bolt_027;eoere_bolt_028;eoere_bolt_029;eoere_bolt_030;eoere_bolt_031;eoere_bolt_032;eoere_bolt_033;eoere_bolt_034;eoere_bolt_035;eoere_bolt_036;eoere_bolt_037;eoere_bolt_038;eoere_bolt_039;eoere_bolt_040;eoere_bolt_041;eoere_bolt_042;eoere_bolt_043;eoere_bolt_044;eoere_bolt_045;eoere_bolt_046;eoere_bolt_047;eoere_bolt_048;eoere_bolt_049;eoere_bolt_050;eoere_bolt_051;eoere_bolt_052;eoere_bolt_053;eoere_bolt_054;eoere_bolt_055;eoere_bolt_056;eoere_bolt_057;eoere_bolt_058;eoere_bolt_059;eoere_bolt_060;eoere_bolt_061;eoere_bolt_062;eoere_bolt_063;eoere_bolt_064;eoere_bolt_065;eoere_bolt_066;eoere_bolt_068;eoere_bolt_069;eoere_bolt_072;eoere_bolt_073;eoere_bolt_075;eoere_bolt_076;eoere_bolt_077;eoere_bolt_078;eoere_bolt_079;eoere_bolt_080;eoere_bolt_081;eoere_bolt_082;eoere_bolt_083;eoere_bolt_084;v10_header_bolt_001;v10_header_bolt_002;v10_header_bolt_003;v10_header_bolt_004;v10_top_bolt_001;v10_top_bolt_002;v10_top_bolt_003;v10_top_bolt_004;v10_top_bolt_005;v10_top_bolt_006;v10_top_bolt_007;v10_top_bolt_008",
+      "category": "nut",
+      "description": "3/8-16 SAE J995 Grade 5 hex nut",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 88,
+      "requirement": "Catalog grade/dimensions identify the proposal; delivered fit, seating, washer bore/fillet, and complete thread engagement remain conditional.",
+      "sku": "2571",
+      "source_url": "https://boltdepot.com/Product-Details?product=2571"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "cleat_post_bolt_left_1;cleat_post_bolt_left_2;cleat_post_bolt_right_1;cleat_post_bolt_right_2;eoere_bolt_006;eoere_bolt_009;eoere_bolt_010;eoere_bolt_013;eoere_bolt_067;eoere_bolt_070;eoere_bolt_071;eoere_bolt_074;rail_front_bolt_left_1;rail_front_bolt_left_2;rail_front_bolt_right_1;rail_front_bolt_right_2;v10_cleat_bolt_left_1;v10_cleat_bolt_left_2;v10_cleat_bolt_left_3;v10_cleat_bolt_right_1;v10_cleat_bolt_right_2;v10_cleat_bolt_right_3",
+      "category": "nut",
+      "description": "3/8-16 SAE J995 Grade 8 hex nut",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 22,
+      "requirement": "Catalog grade/dimensions identify the proposal; delivered fit, seating, washer bore/fillet, and complete thread engagement remain conditional.",
+      "sku": "2584",
+      "source_url": "https://boltdepot.com/Product-Details?product=2584"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "lumber_leg_bolt_left_1;lumber_leg_bolt_left_2;lumber_leg_bolt_right_1;lumber_leg_bolt_right_2;rail_rear_bolt_left_1;rail_rear_bolt_right_1",
+      "category": "nut",
+      "description": "1/2-13 SAE J995 Grade 5 hex nut",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 6,
+      "requirement": "Catalog grade/dimensions identify the proposal; delivered fit, seating, washer bore/fillet, and complete thread engagement remain conditional.",
+      "sku": "2573",
+      "source_url": "https://boltdepot.com/Product-Details?product=2573"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "HOLD",
+      "axis_or_member_ids": "cleat_post_bolt_left_1;cleat_post_bolt_left_2;cleat_post_bolt_right_1;cleat_post_bolt_right_2;eoere_bolt_065;eoere_bolt_066;eoere_bolt_067;eoere_bolt_070;eoere_bolt_071;eoere_bolt_074;eoere_bolt_079;eoere_bolt_080;eoere_bolt_081;eoere_bolt_082;eoere_bolt_083;eoere_bolt_084;v10_header_bolt_001;v10_header_bolt_002;v10_header_bolt_003;v10_header_bolt_004",
+      "category": "spacer",
+      "description": "0.5 in long steel spacer; 13/32 in ID, 3/4 in OD",
+      "designation_disposition": "IDENTITY_AND_NOMINAL_SIZE_ONLY",
+      "purchase_authorized": false,
+      "required_quantity": 20,
+      "requirement": "Length/ID/OD tolerances and an applicable material/compression/bearing basis remain unqualified; nominal size alone is insufficient.",
+      "sku": "13731",
+      "source_url": "https://boltdepot.com/Product-Details?product=13731"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "HOLD",
+      "axis_or_member_ids": "cleat_post_bolt_left_1;cleat_post_bolt_left_2;cleat_post_bolt_right_1;cleat_post_bolt_right_2;eoere_bolt_006;eoere_bolt_009;eoere_bolt_010;eoere_bolt_013;eoere_bolt_067;eoere_bolt_070;eoere_bolt_071;eoere_bolt_074;v10_cleat_bolt_left_1;v10_cleat_bolt_left_2;v10_cleat_bolt_left_3;v10_cleat_bolt_right_1;v10_cleat_bolt_right_2;v10_cleat_bolt_right_3",
+      "category": "spacer",
+      "description": "1 in long steel spacer; 13/32 in ID, 3/4 in OD",
+      "designation_disposition": "IDENTITY_AND_NOMINAL_SIZE_ONLY",
+      "purchase_authorized": false,
+      "required_quantity": 24,
+      "requirement": "Length/ID/OD tolerances and an applicable material/compression/bearing basis remain unqualified; nominal size alone is insufficient.",
+      "sku": "13733",
+      "source_url": "https://boltdepot.com/Product-Details?product=13733"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "cleat_post_bolt_left_1;cleat_post_bolt_left_2;cleat_post_bolt_right_1;cleat_post_bolt_right_2;eoere_bolt_001;eoere_bolt_002;eoere_bolt_003;eoere_bolt_004;eoere_bolt_005;eoere_bolt_006;eoere_bolt_007;eoere_bolt_008;eoere_bolt_009;eoere_bolt_010;eoere_bolt_011;eoere_bolt_012;eoere_bolt_013;eoere_bolt_014;eoere_bolt_015;eoere_bolt_016;eoere_bolt_017;eoere_bolt_018;eoere_bolt_019;eoere_bolt_020;eoere_bolt_021;eoere_bolt_022;eoere_bolt_023;eoere_bolt_024;eoere_bolt_025;eoere_bolt_026;eoere_bolt_027;eoere_bolt_028;eoere_bolt_029;eoere_bolt_030;eoere_bolt_031;eoere_bolt_032;eoere_bolt_033;eoere_bolt_034;eoere_bolt_035;eoere_bolt_036;eoere_bolt_037;eoere_bolt_038;eoere_bolt_039;eoere_bolt_040;eoere_bolt_041;eoere_bolt_042;eoere_bolt_043;eoere_bolt_044;eoere_bolt_045;eoere_bolt_046;eoere_bolt_047;eoere_bolt_048;eoere_bolt_049;eoere_bolt_050;eoere_bolt_051;eoere_bolt_052;eoere_bolt_053;eoere_bolt_054;eoere_bolt_055;eoere_bolt_056;eoere_bolt_057;eoere_bolt_058;eoere_bolt_059;eoere_bolt_060;eoere_bolt_061;eoere_bolt_062;eoere_bolt_063;eoere_bolt_064;eoere_bolt_065;eoere_bolt_066;eoere_bolt_067;eoere_bolt_068;eoere_bolt_069;eoere_bolt_070;eoere_bolt_071;eoere_bolt_072;eoere_bolt_073;eoere_bolt_074;eoere_bolt_075;eoere_bolt_076;eoere_bolt_077;eoere_bolt_078;eoere_bolt_079;eoere_bolt_080;eoere_bolt_081;eoere_bolt_082;eoere_bolt_083;eoere_bolt_084;rail_front_bolt_left_1;rail_front_bolt_left_2;rail_front_bolt_right_1;rail_front_bolt_right_2;v10_cleat_bolt_left_1;v10_cleat_bolt_left_2;v10_cleat_bolt_left_3;v10_cleat_bolt_right_1;v10_cleat_bolt_right_2;v10_cleat_bolt_right_3;v10_header_bolt_001;v10_header_bolt_002;v10_header_bolt_003;v10_header_bolt_004;v10_top_bolt_001;v10_top_bolt_002;v10_top_bolt_003;v10_top_bolt_004;v10_top_bolt_005;v10_top_bolt_006;v10_top_bolt_007;v10_top_bolt_008",
+      "category": "washer",
+      "description": "3/8 in USS Grade 5 flat washer",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 220,
+      "requirement": "Catalog grade/dimensions identify the proposal; delivered fit, seating, washer bore/fillet, and complete thread engagement remain conditional.",
+      "sku": "15023",
+      "source_url": "https://boltdepot.com/Product-Details?product=15023"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "PROVISIONAL",
+      "axis_or_member_ids": "lumber_leg_bolt_left_1;lumber_leg_bolt_left_2;lumber_leg_bolt_right_1;lumber_leg_bolt_right_2;rail_rear_bolt_left_1;rail_rear_bolt_right_1",
+      "category": "washer",
+      "description": "1/2 in USS Grade 5 flat washer",
+      "designation_disposition": "BUY_SPEC_SETTLED",
+      "purchase_authorized": false,
+      "required_quantity": 12,
+      "requirement": "Catalog grade/dimensions identify the proposal; delivered fit, seating, washer bore/fillet, and complete thread engagement remain conditional.",
+      "sku": "15025",
+      "source_url": "https://boltdepot.com/Product-Details?product=15025"
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "audit_disposition": "HOLD",
+      "axis_or_member_ids": "",
+      "category": "factory angles",
+      "description": "Eoere ZX128-B-T4 / B0C7V7VS89",
+      "designation_disposition": "CATALOG_IDENTITY_ONLY",
+      "purchase_authorized": false,
+      "required_quantity": 24,
+      "requirement": "Authenticated dimensions/hole/bend tolerances and material/strength/contact basis are missing in the audited evidence; current oblique grid and complete fitting transfer remain unresolved.",
+      "sku": "B0C7V7VS89",
+      "source_url": "https://www.amazon.com/dp/B0C7V7VS89"
+    }
+  ],
+  "schema": "v10_consolidated_hardware_dispositions/v1",
+  "sources": {
+    "angles/factory-angle-audit-v1.json": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/angles/factory-angle-audit-v1.json",
+      "sha256": "1d145760dad185dc57164d4a3bf250b0e9685ae865d81d160acfe6712650bbec"
+    },
+    "audit-context.json": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/audit-context.json",
+      "sha256": "64224630a4e79e3b41a29e9e5d670385cc6e5f75c1f86f44b131bee637d0f01a"
+    },
+    "bolt_SKU_rows": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/bolts/bolt-SKU-audit.csv",
+      "sha256": "9b8d4cf379b1951d6e3a1de98bb90e1c6b731eb8e70f505519b0363d0eb49887"
+    },
+    "bolts/bolt-audit.json": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/bolts/bolt-audit.json",
+      "sha256": "71fc1071bd493c5165e535d7a6b95e36761bc105748c8e1916378ba5e2ae29b2"
+    },
+    "owner_decision": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.json",
+      "sha256": "2e32671d521acce746a0bb3e677d457fc2d15b29e6c057065b607fe8143667e5"
+    },
+    "stackup/stackup-audit.json": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/stackup/stackup-audit.json",
+      "sha256": "4ba52cddb72347f312a09142862df5df3c77b47a4d42a6ed93ca993441a99fca"
+    }
+  },
+  "structural_acceptance": false,
+  "tool_access": {
+    "assembly_and_removal_access_verified": false,
+    "disposition": "HOLD tool access. Catalog wrench sizes and modeled fastener orientation identify nominal tool families only; socket outer diameter/depth, extension, ratchet swing, insertion/removal path and actual inventory remain unverified.",
+    "inventory_owned_or_physically_checked": false,
+    "model_contains_tool_body_or_approach_swing_envelopes": false,
+    "nominal_tool_families_from_listed_product_geometry": {
+      "1_2_external_hex_bolt_heads": 6,
+      "1_2_external_hex_wrench_family": "3/4 inch",
+      "1_2_nuts": 6,
+      "3_8_external_hex_bolt_heads": 88,
+      "3_8_external_hex_wrench_family": "9/16 inch",
+      "3_8_nuts": 110,
+      "socket_cap_bolt_heads": 22,
+      "socket_cap_drive_family": "5/16 inch hex key"
+    },
+    "orientation_annotations": {
+      "head=exterior;nut=interior": 56,
+      "head=unset;nut=unset": 60
+    }
+  }
+}

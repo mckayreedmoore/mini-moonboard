@@ -38,7 +38,127 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
-  if (model === 'eoere-current-frame-development')
+  if (['eoere-current-frame-development', 'eoere-owner-frame-v10-development'].includes(model))
+    return [
+      {"label": "Read first: corrected center-principal edge classification", "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt"},
+      {"label": "Corrected package completion index", "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/completion-index-v3.json"},
+      {"label": "Group assessment and relocation limits", "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt"},
+
+      {
+        "label": "V10 development status and remaining checks",
+        "path": "docs/bolted-frame-development/README.md"
+      },
+      {
+        "label": "Candidate 13 layout and source boundaries",
+        "path": "docs/bolted-frame-development/owner-frame-v10/layout.md"
+      },
+      {
+        "label": "Frozen geometry receipt",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/geometry-receipt-13.json"
+      },
+      {
+        "label": "Own six-case response bank",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/response-bank-13.json"
+      },
+      {
+        "label": "Component references and remaining flags",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/reference-review-13.json"
+      },
+      {
+        "label": "Canonical joint applicability and open qualifications",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json"
+      },
+      {
+        "label": "Hardware and material planning holds",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/readiness.json"
+      },
+      {
+        "label": "Hardware planning quantities",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/hardware-bom.csv"
+      },
+      {
+        "label": "Candidate cut planning data",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv"
+      },
+      {
+        "label": "Candidate bore planning data",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv"
+      },
+      {
+        "label": "Frozen 29-artifact delivery manifest",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/delivery-bundle-13.json"
+      },
+      {
+        "label": "Additive paper audit and method limits",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt"
+      },
+      {
+        "label": "Paper audit source bindings",
+        "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/paper-audit-bundle-v1.json"
+      }
+    ,
+      {label: 'Conditional Candidate 13 builder sequence', path: current + 'owner-frame-v10/candidate13/packet-13-complete/builder-plan.md'},
+      {label: 'Current scope and preserved instructions', path: current + 'builder-plan.md'},
+      {label: 'Current integration and engineering ledger', path: ledger + '#current-v10-candidate13'}
+    ];
+  if (model === 'eoere-owner-frame-v9-development')
+    return [
+      {label: 'Current design and outstanding checks', path: current + 'README.md'},
+      {label: 'Current shorter cleat bolts and single spacers · geometry receipt', path: current + 'owner-frame-v9/geometry.json'},
+      {label: 'Eight changed hardware selections and catalog checks', path: current + 'owner-frame-v9/layout.md'},
+      {label: 'Current mechanics input delta · no old force transfer', path: current + 'owner-frame-v9/mechanics-input-delta.json'},
+      {label: 'Own six-case 250 lb response and independent replays', path: current + 'owner-frame-v9/response-bank.json'},
+      {label: 'Current bolt geometry and unresolved complete joints', path: current + 'owner-frame-v9/bolt-geometry-review.json'},
+      {label: 'Current bolt, timber and cleat reference comparisons', path: current + 'owner-frame-v9/reference-review.json'},
+      {label: 'Current modeled panel and screw bracing contribution', path: current + 'owner-frame-v9/panel-bracing-review.json'},
+      {label: 'Current changed axes, receivers and 78 bore rows', path: current + 'owner-frame-v8/layout.md'},
+      {label: 'All 40 inward-facing exterior stacks and retained spacer lengths', path: current + 'owner-frame-v7/orientation.json'},
+      {label: 'Preceding six-case 250 lb review · exterior-nut orientation', path: current + 'owner-frame-v6/engineering-review.json'},
+      {label: 'Preceding testing correction and method limits', path: current + 'owner-frame-v6/testing-review.json'},
+      {label: 'Preceding bolt geometry rules and unresolved oblique joints', path: current + 'owner-frame-v6/bolt-geometry-review-v2.json'},
+      {label: 'Two restored center principal axes', path: current + 'owner-frame-v6/axes-additions.json'},
+      {label: 'Updated principal member and receiver review', path: current + 'owner-frame-v6/layout.md'},
+      {label: 'Straight-sided four-hole cleat drawings', path: current + 'owner-frame-v5/layout.md'},
+      {label: 'Two added nominal center bolt stacks', path: current + 'owner-frame-v6/hardware-additions.csv'},
+      {label: 'Current scope and preserved assembly instructions', path: current + 'builder-plan.md'},
+      {label: 'Paired-bolt update and conditional bolt-039 remedy', path: ledger + '#current-principal-pair-revision'},
+      {label: 'Inward-nut change and spacer explanation', path: ledger + '#current-inward-bolts'},
+      {label: 'Cumulative angle revision and next checks', path: ledger + '#current-inward-angles'},
+      {label: 'Single-spacer selection, checks and next actions', path: ledger + '#current-single-spacer-stacks'},
+      {label: 'Preceding v6 panel/screw bracing study · no current force transfer', path: current + 'owner-frame-v6/panel-bracing-review.json'},
+    ];
+  if (model === 'eoere-owner-frame-v8-development')
+    return [
+      {label: 'Preserved inward bolts and inset angles before shorter hardware', path: current + 'owner-frame-v8/geometry.json'},
+      {label: 'Own six-case response bank · before hardware change', path: current + 'owner-frame-v8/response-bank.json'},
+      {label: 'Own unresolved bolt geometry review', path: current + 'owner-frame-v8/bolt-geometry-review.json'},
+      {label: 'Current shorter hardware', path: current + 'owner-frame-v9/layout.md'},
+    ];
+  if (model === 'eoere-owner-frame-v7-development')
+    return [
+      {label: 'Preserved inward nuts before angle move', path: current + 'owner-frame-v7/geometry.json'},
+      {label: 'Forty stack reversals and unchanged hardware lengths', path: current + 'owner-frame-v7/orientation.json'},
+      {label: 'Current cumulative angle revision', path: current + 'owner-frame-v8/layout.md'},
+    ];
+  if (model === 'eoere-owner-frame-v6-development')
+    return [
+      {label: 'Preserved exterior-nut geometry', path: current + 'owner-frame-v6/geometry.json'},
+      {label: 'Own six-case 250 lb review', path: current + 'owner-frame-v6/engineering-review.json'},
+      {label: 'Own testing correction and method limits', path: current + 'owner-frame-v6/testing-review.json'},
+      {label: 'Current orientation change', path: ledger + '#current-inward-bolts'},
+    ];
+  if (model === 'eoere-owner-frame-v5-development')
+    return [
+      {label: 'Current design and outstanding checks', path: current + 'README.md'},
+      {label: 'Reference cleat revision and two restored upper bolts', path: current + 'owner-frame-v5/geometry.json'},
+      {label: '94 axes and retained 66 screw locations', path: current + 'owner-frame-v5/axes.json'},
+      {label: 'Current cleat review drawings and receiver coordinates', path: current + 'owner-frame-v5/layout.md'},
+      {label: 'Two added nominal upper bolt stacks', path: current + 'owner-frame-v5/hardware-additions.csv'},
+      {label: 'Preceding 92-bolt strength results · different geometry', path: current + 'owner-frame-v4/engineering-review.json'},
+      {label: 'Current scope and preserved assembly instructions', path: current + 'builder-plan.md'},
+      {label: 'Reference cleat changes and open upper-pair checks', path: ledger + '#current-reference-cleat-revision'},
+    ];
+  if (model === 'eoere-owner-frame-v4-development')
     return [
       {label: 'Current design and outstanding checks', path: current + 'README.md'},
       {label: 'Current front-bolt revision and retained geometry', path: current + 'owner-frame-v4/geometry.json'},

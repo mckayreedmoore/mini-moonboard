@@ -1,0 +1,2376 @@
+{
+  "all_six_case_ranges": {
+    "in_plane_corner_rotation": {
+      "maximum": {
+        "case_id": "a1-rear",
+        "corner": "right",
+        "direction_xyz": [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "eoere_bolt_017",
+          "eoere_bolt_018"
+        ],
+        "mode": "in_plane_corner_rotation",
+        "modeled_stiffness_ratio": 3.4016042841083456,
+        "point_xyz_mm": [
+          1094.58125,
+          1436.6673759225,
+          2147.27540949
+        ],
+        "second": "base_side_right",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 14127314.608767046,
+        "without_panels_stiffness": 4153132.8834359706
+      },
+      "minimum": {
+        "case_id": "a12-forward",
+        "corner": "left",
+        "direction_xyz": [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "in_plane_corner_rotation",
+        "modeled_stiffness_ratio": 2.079462360536461,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 20956999.90203379,
+        "without_panels_stiffness": 10078085.710879274
+      }
+    },
+    "panel_normal_translation": {
+      "maximum": {
+        "case_id": "a1-rear",
+        "corner": "right",
+        "direction_xyz": [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "eoere_bolt_017",
+          "eoere_bolt_018"
+        ],
+        "mode": "panel_normal_translation",
+        "modeled_stiffness_ratio": 1985.6053053742744,
+        "point_xyz_mm": [
+          1094.58125,
+          1436.6673759225,
+          2147.27540949
+        ],
+        "second": "base_side_right",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 102.9169103201885,
+        "without_panels_stiffness": 0.051831504499726996
+      },
+      "minimum": {
+        "case_id": "k12-rear",
+        "corner": "right",
+        "direction_xyz": [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "eoere_bolt_017",
+          "eoere_bolt_018"
+        ],
+        "mode": "panel_normal_translation",
+        "modeled_stiffness_ratio": 2.411250467084311,
+        "point_xyz_mm": [
+          1094.58125,
+          1436.6673759225,
+          2147.27540949
+        ],
+        "second": "base_side_right",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 281.3811116678866,
+        "without_panels_stiffness": 116.69509887462384
+      }
+    },
+    "side_grain_compression": {
+      "maximum": {
+        "case_id": "a1-rear",
+        "corner": "left",
+        "direction_xyz": [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "side_grain_compression",
+        "modeled_stiffness_ratio": 13.29195873327258,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 95.69212555550634,
+        "without_panels_stiffness": 7.199249371423997
+      },
+      "minimum": {
+        "case_id": "a12-forward",
+        "corner": "left",
+        "direction_xyz": [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "side_grain_compression",
+        "modeled_stiffness_ratio": 1.407727076259635,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 474.875350285098,
+        "without_panels_stiffness": 337.3348131847072
+      }
+    },
+    "side_grain_torsion": {
+      "maximum": {
+        "case_id": "a1-rear",
+        "corner": "left",
+        "direction_xyz": [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "side_grain_torsion",
+        "modeled_stiffness_ratio": 59.20718454311499,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 5618427.891546147,
+        "without_panels_stiffness": 94894.3601169682
+      },
+      "minimum": {
+        "case_id": "a12-forward",
+        "corner": "right",
+        "direction_xyz": [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "eoere_bolt_017",
+          "eoere_bolt_018"
+        ],
+        "mode": "side_grain_torsion",
+        "modeled_stiffness_ratio": 2.132833880218142,
+        "point_xyz_mm": [
+          1094.58125,
+          1436.6673759225,
+          2147.27540949
+        ],
+        "second": "base_side_right",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 6288837.813035783,
+        "without_panels_stiffness": 2948583.0431353487
+      }
+    },
+    "top_grain_compression": {
+      "maximum": {
+        "case_id": "a1-rear",
+        "corner": "left",
+        "direction_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "top_grain_compression",
+        "modeled_stiffness_ratio": 20.981496208304847,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 900.731044915603,
+        "without_panels_stiffness": 42.929781364165905
+      },
+      "minimum": {
+        "case_id": "a12-rear",
+        "corner": "left",
+        "direction_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "top_grain_compression",
+        "modeled_stiffness_ratio": 2.7152866105169107,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "N/mm",
+        "with_panels_stiffness": 2189.7972034973236,
+        "without_panels_stiffness": 806.4700039457163
+      }
+    },
+    "top_grain_torsion": {
+      "maximum": {
+        "case_id": "k12-right",
+        "corner": "left",
+        "direction_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "top_grain_torsion",
+        "modeled_stiffness_ratio": 6.3877660243531915,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 1829409.6360223633,
+        "without_panels_stiffness": 286392.71210745454
+      },
+      "minimum": {
+        "case_id": "a12-forward",
+        "corner": "left",
+        "direction_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "first": "base_rail_top",
+        "joint_axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "mode": "top_grain_torsion",
+        "modeled_stiffness_ratio": 3.773708100166738,
+        "point_xyz_mm": [
+          -1097.7562500000001,
+          1436.6673759225,
+          2147.2754094899997
+        ],
+        "second": "base_side_left",
+        "stiffness_unit": "Nmm/rad",
+        "with_panels_stiffness": 2226906.106885916,
+        "without_panels_stiffness": 590110.8532447229
+      }
+    }
+  },
+  "analysis_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/geometry/geometry.json",
+    "sha256": "9b7f70875fc606282bc3edb18308004b076e1fa2e47496809bb0044a1e59d3d7"
+  },
+  "case_count": 6,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "climbing_released": false,
+  "compression_capacity_or_buckling_gain_established": false,
+  "controls": {
+    "floating_panel_gain": 1.0,
+    "known_answer_controls_passed": true,
+    "series_parallel_gain": 1.4
+  },
+  "double_strength_credit_applied": false,
+  "fabrication_released": false,
+  "geometry_revision": "eoere-single-spacer-cleat-stacks-v9",
+  "inventory": {
+    "balanced_rhs_solves": 144,
+    "corners": 2,
+    "factorizations": 12,
+    "panels_removed": 6,
+    "probe_comparisons": 72,
+    "screw_springs_removed": 66
+  },
+  "limits": [
+    "Balanced unit force/couple probes measure relative top-rail/side-member tangent compliance at the same declared corner point.",
+    "The full frame can deform and redistribute incremental loads. All six panels, 66 screws and all panel contacts are removed together only in the comparator.",
+    "Other contacts and bearing active branches stay frozen at each original braced equilibrium. The unbraced comparator is not a newly equilibrated climber-load case.",
+    "Compression labels identify a translation probe along a member grain direction, not timber crushing or column capacity.",
+    "Stiffness gains do not establish strength gains, physical Hillman behavior, fracture resistance, or clearance/finite-motion applicability.",
+    "No strength criterion, geometry, physical loading or adopted current result is changed. No native solver or CAD rebuild is used."
+  ],
+  "literature_review": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/panel-bracing-review-v1/literature-review.json",
+    "sha256": "81759efd5a45f07e5e390388cfde9da6d89a4cfb842e99471e9ba48dd22edd20"
+  },
+  "model_assumptions": {
+    "Hillman_axial_N_per_mm": 1000.0,
+    "Hillman_lateral_N_per_mm": 1000.0,
+    "contact_branches_frozen_at_braced_state": true,
+    "panel_contact_N_per_mm3": 2.0,
+    "physical_Hillman_law_qualified": false
+  },
+  "new_unbraced_climber_load_equilibrium": false,
+  "numerical_checks": {
+    "maximum_normalized_reciprocity_error": 5.456257755904585e-11,
+    "maximum_relative_binary64_equilibrium_error": 1.5358148012719277e-08,
+    "maximum_relative_equilibrium_error": 2.492942953547342e-09
+  },
+  "physical_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v9/geometry.json",
+    "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+  },
+  "probes": [
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 2.949084411106965,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 2185.4593077416116,
+      "without_panels_stiffness": 741.0636669166347
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 1.407727076259635,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 474.875350285098,
+      "without_panels_stiffness": 337.3348131847072
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 2.426489768837295,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 282.3801987252883,
+      "without_panels_stiffness": 116.37394987269899
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 3.773708100166738,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2226906.106885916,
+      "without_panels_stiffness": 590110.8532447229
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 5.305895374875918,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 15126443.36429925,
+      "without_panels_stiffness": 2850874.790318117
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.079462360536461,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 20956999.90203379,
+      "without_panels_stiffness": 10078085.710879274
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 10.788647211973833,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 455.2951754888393,
+      "without_panels_stiffness": 42.201322051158336
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 2.2919004326020223,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 220.9621345598973,
+      "without_panels_stiffness": 96.41000604421384
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 4.194110113383522,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 179.4472699187648,
+      "without_panels_stiffness": 42.785540929443776
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 4.109042240096856,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1860306.5068202412,
+      "without_panels_stiffness": 452734.82191713643
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 2.132833880218142,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 6288837.813035783,
+      "without_panels_stiffness": 2948583.0431353487
+    },
+    {
+      "case_id": "a12-forward",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.256903519644242,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 18298665.857689098,
+      "without_panels_stiffness": 8107863.583186548
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 3.0055784061809043,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 2168.2815435928023,
+      "without_panels_stiffness": 721.4190583528881
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 1.4469705232818069,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 478.5959188873971,
+      "without_panels_stiffness": 330.75720008581504
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 2.452444450926832,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 279.93629031512756,
+      "without_panels_stiffness": 114.14582304171397
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 5.599893407887256,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2147518.698815405,
+      "without_panels_stiffness": 383492.78145021456
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 6.033344477490839,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 15692864.445812097,
+      "without_panels_stiffness": 2601022.4518687655
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.2012473082585515,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 20551868.25482734,
+      "without_panels_stiffness": 6419956.434420982
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 10.380775623767434,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 464.6828988114101,
+      "without_panels_stiffness": 44.76379373305108
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 2.4931411057828536,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 213.06946341231955,
+      "without_panels_stiffness": 85.46225599429724
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 4.311564740904186,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 184.62003921386057,
+      "without_panels_stiffness": 42.8197302622768
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 6.3271929145642645,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1795208.2367944967,
+      "without_panels_stiffness": 283729.0187030953
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 2.7314895067545013,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 6533963.775182246,
+      "without_panels_stiffness": 2392088.1844959985
+    },
+    {
+      "case_id": "a12-left",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.3639423478920323,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 17806359.49575164,
+      "without_panels_stiffness": 5293301.030236072
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 2.7152866105169107,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 2189.7972034973236,
+      "without_panels_stiffness": 806.4700039457163
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 1.4121016204639472,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 473.4803550598238,
+      "without_panels_stiffness": 335.3018990972204
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 2.411911243315307,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 281.00170818591886,
+      "without_panels_stiffness": 116.50582456743571
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 3.89964763908478,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2217458.306092973,
+      "without_panels_stiffness": 568630.4280079507
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 5.436128850922336,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 16311418.759839563,
+      "without_panels_stiffness": 3000557.787932499
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.087285659950826,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 21000550.365605935,
+      "without_panels_stiffness": 10061176.947912669
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 7.280242395186556,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 493.9105521695572,
+      "without_panels_stiffness": 67.84259717727446
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 2.195943969601435,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 248.98056784336072,
+      "without_panels_stiffness": 113.38202216905873
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 3.822910928458516,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 190.34171422082701,
+      "without_panels_stiffness": 49.78973295032461
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 4.5952404261134925,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1985179.3022620282,
+      "without_panels_stiffness": 432007.7119318498
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 4.110018785918221,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 6286208.631103281,
+      "without_panels_stiffness": 1529484.1601797875
+    },
+    {
+      "case_id": "a12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.2595837589884797,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 18611031.05929437,
+      "without_panels_stiffness": 8236486.470245184
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 10.015675885516345,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 463.20984347005225,
+      "without_panels_stiffness": 46.24848575021276
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 2.4475225191634333,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 217.0868166443187,
+      "without_panels_stiffness": 88.69655537164138
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 4.182566946997662,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 187.36233728732114,
+      "without_panels_stiffness": 44.79601633676513
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 6.3877660243531915,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1829409.6360223633,
+      "without_panels_stiffness": 286392.71210745454
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 2.9485786042942235,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 6489828.258245377,
+      "without_panels_stiffness": 2201002.2893043384
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.2953669648347637,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 17863924.49964393,
+      "without_panels_stiffness": 5420921.156967313
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 2.998436080646594,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 2167.140726752937,
+      "without_panels_stiffness": 722.7570201481857
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 1.45327023128426,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 483.1323259055792,
+      "without_panels_stiffness": 332.4449338500751
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 2.46078851990592,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 281.4815383704802,
+      "without_panels_stiffness": 114.38672445580238
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 5.5794814390031,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2153128.709000537,
+      "without_panels_stiffness": 385901.2226385759
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 6.327978482655831,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 16689062.360701688,
+      "without_panels_stiffness": 2637344.99199772
+    },
+    {
+      "case_id": "k12-right",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.181169201861448,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 20571332.10747527,
+      "without_panels_stiffness": 6466594.765043632
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 7.132630017920318,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 492.7208454445329,
+      "without_panels_stiffness": 69.07982668477132
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 2.1680857497265134,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 250.03695046300524,
+      "without_panels_stiffness": 115.32613527603574
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 3.730892125090571,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 192.9349490913964,
+      "without_panels_stiffness": 51.712818978038044
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 4.609196325963062,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2027574.2627500533,
+      "without_panels_stiffness": 439897.56984942587
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 4.00319987139548,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 6263206.051580259,
+      "without_panels_stiffness": 1564549.923258506
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.196439558658703,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 18708174.32499668,
+      "without_panels_stiffness": 8517500.174883561
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 2.7182132986685104,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 2201.61368675957,
+      "without_panels_stiffness": 809.9488321383787
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 1.425257356310846,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 482.6026155684059,
+      "without_panels_stiffness": 338.6073493544917
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 2.411250467084311,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 281.3811116678866,
+      "without_panels_stiffness": 116.69509887462384
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 4.3853975549558895,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 2517076.770130173,
+      "without_panels_stiffness": 573967.7506057922
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 5.416127900599868,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 16381741.221339792,
+      "without_panels_stiffness": 3024622.298806019
+    },
+    {
+      "case_id": "k12-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 2.138926248255273,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 21276248.997592676,
+      "without_panels_stiffness": 9947163.449393246
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 20.981496208304847,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 900.731044915603,
+      "without_panels_stiffness": 42.929781364165905
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 13.29195873327258,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 95.69212555550634,
+      "without_panels_stiffness": 7.199249371423997
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 1505.5190753756208,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 115.43090849963329,
+      "without_panels_stiffness": 0.07667183391272128
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 5.777630717923016,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1692350.3700035536,
+      "without_panels_stiffness": 292914.25025722856
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 59.20718454311499,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 5618427.891546147,
+      "without_panels_stiffness": 94894.3601169682
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "left",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.2362668885420693,
+      "point_xyz_mm": [
+        -1097.7562500000001,
+        1436.6673759225,
+        2147.2754094899997
+      ],
+      "second": "base_side_left",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 14042363.730497126,
+      "without_panels_stiffness": 4339062.325240789
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_compression",
+      "modeled_stiffness_ratio": 14.119969761340105,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 577.026920454852,
+      "without_panels_stiffness": 40.86601672722613
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_compression",
+      "modeled_stiffness_ratio": 12.099738921296538,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 93.77984306077944,
+      "without_panels_stiffness": 7.750567485032192
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "panel_normal_translation",
+      "modeled_stiffness_ratio": 1985.6053053742744,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "N/mm",
+      "with_panels_stiffness": 102.9169103201885,
+      "without_panels_stiffness": 0.051831504499726996
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "top_grain_torsion",
+      "modeled_stiffness_ratio": 4.986717950240821,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 1462427.6312472916,
+      "without_panels_stiffness": 293264.5571375592
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "side_grain_torsion",
+      "modeled_stiffness_ratio": 40.16314927558697,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 3744421.275134936,
+      "without_panels_stiffness": 93230.27060059182
+    },
+    {
+      "case_id": "a1-rear",
+      "corner": "right",
+      "direction_xyz": [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      "first": "base_rail_top",
+      "joint_axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "mode": "in_plane_corner_rotation",
+      "modeled_stiffness_ratio": 3.4016042841083456,
+      "point_xyz_mm": [
+        1094.58125,
+        1436.6673759225,
+        2147.27540949
+      ],
+      "second": "base_side_right",
+      "stiffness_unit": "Nmm/rad",
+      "with_panels_stiffness": 14127314.608767046,
+      "without_panels_stiffness": 4153132.8834359706
+    }
+  ],
+  "producer": {
+    "path": "scripts/eoere_current_reference_review.py",
+    "sha256": "d6656ba5c748a9e41bf7274554a7d1e35400d8783c8045d22fa575f894491586"
+  },
+  "schema": "eoere_current_panel_bracing_summary/v1",
+  "source_bindings": {
+    "candidate_intake": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/panel-bracing-review-v2/candidate-intake.json",
+      "sha256": "6c626443e8bdb188b8c1c698a7e915c098cbf21c22aa11a0ce11112697a111fb"
+    },
+    "method": {
+      "path": "scripts/eoere_panel_bracing_review.py",
+      "sha256": "461d0141a1ce308100f98d52ab25ef47cf48d3db28d5ffb94935c2f88f7e8c1b"
+    },
+    "raw_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/panel-bracing-review-v2/result.json",
+      "sha256": "0e4cd6dae073453ca338bd9f8c00529262be6db0ba2d29ba0f53617ca259e265"
+    },
+    "reference_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v9/reference-review.json",
+      "sha256": "22529cc9b539ca540b5dd9e496d5a6af19126219b89ac6ae3476f61ea070c657"
+    }
+  },
+  "stiffness_comparison_only": true,
+  "strength_gain_factor": null,
+  "structural_acceptance": false,
+  "tools": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  }
+}

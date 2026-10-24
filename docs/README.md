@@ -4,20 +4,29 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 **[main development summary and revision map](bolted-frame-development/README.md)**.
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
-The current geometry is **`eoere-local-front-bolt-moves-v4`**:
-[current local viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)
+The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**:
+[standard 4×6 top-and-sides local viewer](http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)
 ([serving instructions](../CONTRIBUTING.md#software-walkthrough)).
-The [checked revision index](bolted-frame-development/development-revisions.json)
-binds the owner-requested removal of the outboard knees/packers and top-rail
-extension: 24 angles, 92 bolts, four trimmed nominal ¾-inch plywood leaves,
-32 enclosed LED passages and 66 Hillman axes. The lower front bolts move50 to60mm, keeping their upper companions at100mm. Own six-case bolt/wood references fall below1.0; the cleat-row move and larger upper-bolt trial were rejected for incompatible geometry. Nominal geometry is clear;
-the completed ideal-bond investigation reaches1.066 nominal or1.129 with
-the thickness allowance on the declared four-host floor basis. Bolt and
-timber references also exceed1.0. The completed 102-bolt frame and its shop
-packet remain history, not acceptance of this revision.
-Panel/Hillman strength remains deferred. The
-[builder plan](bolted-frame-development/builder-plan.md) separates the current
-review tables from the preceding assembly instructions.
+The [owner's constraint](bolted-frame-development/owner-frame-v10/owner-standard-side-4x6-v1.json)
+is implemented: both sides and top are actual **88.9 × 139.7 mm**.
+The [fresh matched evaluation](bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json)
+contains six cases and both replays, net sections, grip, rear-joint geometry and clearance checks.
+Declared vector indices are **0.998500 left side, 0.951121 right side and 0.575366 top**.
+All **15 bearing diagnostic rows across eight bolts** remain; complete connection,
+splitting, fitting/hardware and physical qualifications remain unresolved.
+There are 116 stacks, 44 spacers, 24 angles and 66 Hillman axes.
+The [current provisional wood plan](bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
+and [planning CSV](bolted-frame-development/owner-frame-v10/buying-list-current.csv) supersede the old 4×8 side-stock basket.
+Lengths remain provisional and custom packers unapproved. No purchase, fabrication,
+climbing or structural release. Failed probes and deeper-side evidence remain history.
+
+The [portable source map](../site/eoere-v10-candidate13-provenance.json)
+preserves the isolated package's original hashes and status snapshots. The
+maintained index identifies the integrated development model. The
+[preserved V9 viewer](http://127.0.0.1:8767/?model=eoere-owner-frame-v9-development&view=rear)
+and earlier candidates retain their own geometry and evidence. The
+[builder plan](bolted-frame-development/builder-plan.md) routes current planning
+records separately from historical assembly instructions.
 
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by
@@ -33,7 +42,7 @@ the applicable records; frozen packets preserve what was known when issued.
 
 | Scope | Reading path | How to use it |
 | --- | --- | --- |
-| Active compact bolted development | [Summary and revision map](bolted-frame-development/README.md), [builder plan](bolted-frame-development/builder-plan.md), [task ledger](wood-joints-mvp/completion-ledger.md#current-bonded-frame-review) | Current92-bolt/24-angle geometry and metric layout are coordinated. The ideal-bond cleat, bolt and timber references exceed1.0. Review records retain those failures; full structural acceptance remains open. Panel/Hillman strength remains deferred. |
+| Active compact bolted development | [Summary and revision map](bolted-frame-development/README.md), [builder plan](bolted-frame-development/builder-plan.md), [task ledger](wood-joints-mvp/completion-ledger.md#current-v10-candidate13) | Standard 4×6 top and sides, revision v10-standard-4x6-top-and-sides-development-v1; left-side vector index 0.998500, 15 diagnostic rows/eight bolts. Connection and physical qualifications remain open; no purchase or physical release. |
 | Selected screw-and-bracket baseline | This page, [working set](selected-working-set.md), [recorded applicability](current-candidate-status.md) | Separate twelve-bolt / 24-ML24Z design. The six recorded passes precede two later clip translations; current-layout mechanics applicability is unverified. |
 | Purchased components and shared references | [Purchased plywood](purchased-materials.md), [Hillman screws](current-panel-screw-purchase.md), [hold hardware](moonboard-hold-hardware.md), [LED reference](led-wiring-reference.md), [pads](current-crash-pad-construction.md), [orientation](orientation.md) | Component identity and recorded owner policy; use the active candidate's placement tables and retain each reference's observation limits. |
 | Earlier design and procurement assumptions | [V1 materials](materials.md), [round-frame cost ledger](material-costs.md), [baseline design basis](current-design-basis.md) | Historical or baseline-specific inventories, quantities and dated prices; no current bolted-frame shopping list is implied. |

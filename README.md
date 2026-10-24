@@ -6,12 +6,21 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[Current development demo · run locally](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear)**
+**[Owner-selected 4×6 development viewer · desktop local](http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)**
 
-The current geometry is **`eoere-local-front-bolt-moves-v4`**. Its
-[development entry and revision index](docs/bolted-frame-development/README.md)
-record the exact model, engineering findings and remaining work. The viewer
-runs entirely in the browser; it does not call a Python CAD backend.
+The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The top and both side rails
+are standard nominal **4×6, actual 88.9 × 139.7 mm**, following the
+[owner's side-stock decision](docs/bolted-frame-development/owner-frame-v10/owner-standard-side-4x6-v1.json).
+Fresh geometry, all six cases and both replays, net sections, grips,
+rear-joint geometry and clearance are complete. The declared vector section
+indices are **0.998500 left side, 0.951121 right side and 0.575366 top**.
+[The matched evaluation](docs/bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json)
+preserves **15 bearing diagnostic rows across eight bolts**. Complete connection,
+splitting, fitting/hardware and physical checks remain unresolved. Lengths
+remain provisional; custom packers are unapproved. No purchase or physical release.
+The deeper-side results and group benchmarks remain history and were not transferred.
+The [current provisional wood list](docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
+replaces the historical 4×8 side-stock allocation and credits usable owned material first.
 
 ## Run locally
 
@@ -22,10 +31,14 @@ uv sync --locked
 uv run python -m http.server 8767 --bind 127.0.0.1 --directory site
 ```
 
-Open the current-development link above.
+Open the [preserved Candidate 13 viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear).
 This serves committed visualization assets. It does **not** regenerate CAD or
 replay an engineering study. Browser rendering also needs access to the pinned
 Three.js modules on unpkg.com.
+
+The selected 4×6 viewer above uses retained development outputs and a repository-root
+server on port 8780 (`uv run python -m http.server 8780 --bind 127.0.0.1 --directory .`).
+It is a local preview; Candidate 13's integrated site assets remain preserved.
 
 The [published demo](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear)
 shows the preserved 102-bolt revision. The published site checked at commit
@@ -71,16 +84,19 @@ current development and historical studies keep separate evidence and limits.
 <details>
 <summary>Current development scope and engineering findings</summary>
 
-The owner-directed model removes the two outboard knees, two leg packers and
-508-mm top-rail extension. It has 20 sawn members, four trimmed nominal ¾-inch
-plywood cleats at the lower header corners, 24 angles, 92 bolt stacks,
-184 washers and 26 factory spacers. The 32 enclosed LED passages and 66 Hillman
-axes remain. The lower front bolts now sit60mm above the floor, with upper bolts at100mm. Their own six-case references fall to0.937 wood bearing and0.893 bolt axial/bending. Cleat-row and upper-bolt-size trials were rejected for incompatible factory holes and edge distances. Its geometry clears nominal occupancy. The completed ideal-bond
-investigation reaches1.066 nominal or1.129 with the thickness allowance on
-the declared four-host floor basis; bolt and timber references also exceed1.0.
-The full frame does not pass, and no preceding strength pass transfers.
-The completed 102-bolt/extended-top evaluation remains preserved within its own
-geometry. Panel/Hillman strength remains deferred and unresolved. Actual stock,
-hardware, fit and floor are unobserved; no fabrication or climbing release.
+Candidate 13 contains 22 sawn members, four nominal half-inch plywood leaves
+bonded into two cleats, 24 angles, 116 bolt stacks and 66 Hillman screws.
+Its own six 250 lb cases use a 2.0 downward multiplier and 300 N horizontal
+force, with two independent replays each. Timber, cleat and steel reference
+families are below one; 26 trial bearing flags across 13 components remain.
+Those signature-group diagnostics are not established complete NDS joint
+capacities or physical safety margins. Complete joint/geometry, screw,
+bond, delivered hardware and support/contact qualification remain open.
+
+The [development entry](docs/bolted-frame-development/README.md) and
+[Candidate 13 layout](docs/bolted-frame-development/owner-frame-v10/layout.md)
+route to the portable source-bound viewer and conditional planning packet.
+V9 and older candidates retain their geometry and results. Fabrication,
+drilling, structural assembly and climbing remain on hold.
 
 </details>

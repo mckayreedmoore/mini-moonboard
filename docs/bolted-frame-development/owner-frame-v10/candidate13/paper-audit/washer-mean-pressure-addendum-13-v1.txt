@@ -1,0 +1,13 @@
+Candidate13 washer-face mean-pressure addendum
+
+Computed from the unchanged six-case force bank:106 sawn-wood washer seats,636 case rows. Every seat has a modeled coplanar finished-solid footprint; actual holes and edges were subtracted.126 steel/plywood seats are excluded from the sawn-wood criterion.
+
+Maximum modeled average pressure is0.652638845MPa at eoere_bolt_002 nut, a1-rear, base_rail_bottom_left. Saved compression is287.538961N. Conditional comparison with625psi=4.309223308MPa gives0.151451619. There are no above-one average-pressure rows under that declared dry Douglas Fir-LarchNo2 basis.
+
+Primary2024NDS3.10.2 uses net bearing area. Section3.10.3 gives angle-to-grain bearing;625psi is no greater than the corresponding Hankinson reference between Fc1350 andFcperp625. Cb is held at1. Section3.10.4 permits an increase only under its bearing-length/end-distance conditions; no such increase is adopted. Chapter2 excludes deformation-limited Fcperp from load-duration increases. Neither group-action nor plywood compression values are applied.
+
+This is a load-only average-pressure comparison, not a contact-stress solution or acceptance. Unknown tightening preload could add force. Local contact peaks, washer bending, spacer alignment, wood defects, actual washer dimensions/flatness and delivered material/service conditions remain unqualified. Software equilibrium and low average pressure do not establish these physical properties.
+
+The prior connection-yield blocker remains. Rear bolts have two adjacent wood media, but an isolated scalar lateralP/Z check does not represent the saved free couples, simultaneous axial actions and group moment unless a conservative equivalence is established. Upper cleats have three unequal media and lengths (plywood, sawn wood, steel), not symmetric double shear. All applicable yield modes, actual group/geometry factors, eccentric/local stresses and independent metal/axial limit states remain to be completed. This addendum does not claim that missing yield work was performed.
+
+Supporting artifacts: washer-face-mean-demand-13-v2.json (mechanics extraction), washer-bearing-primary-scope-v2.json (primary references and hashes), washer-conditional-mean-comparison-13-v1.json (all636 comparisons and exact source bindings), compare_washer_means_13_v1.py (bounded calculation). Fabrication_released=false; climbing_released=false; structural_acceptance=false. No repository edits or new global solve.

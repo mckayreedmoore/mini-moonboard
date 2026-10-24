@@ -1,0 +1,583 @@
+{
+  "analysis_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+    "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+  },
+  "base_review": {
+    "path": "docs/bolted-frame-development/owner-frame-v6/engineering-review.json",
+    "sha256": "4bd66c8c05ea0f835ad960812ba9fd467f913386314763e6e79b7b450911b53f"
+  },
+  "case_count": 6,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "geometry_eligibility": {
+    "all_geometry_eligible": false,
+    "eligible_axis_count_by_case": {
+      "a1-rear": 88,
+      "a12-forward": 88,
+      "a12-left": 88,
+      "a12-rear": 88,
+      "k12-rear": 88,
+      "k12-right": 88
+    },
+    "no_pass_when_geometry_ineligible": true
+  },
+  "geometry_revision": "eoere-flat-cleats-principal-upper-pairs-v6",
+  "inventory": {
+    "current_bolts": 96,
+    "panel_screws_deferred": 66,
+    "physical_plywood_leaves": 4,
+    "sawn_timber_members": 20
+  },
+  "limitations": [
+    "All six fields already include the complete modeled assembly, six panels and 66 screw springs. Generic 1000 N/mm axial/lateral Hillman spring stiffness is an unqualified assumption; panel presence does not establish physical load sharing or complete screw strength.",
+    "The rectangular torsion mathematics was independently checked in the prior audit. Common twist, area-proportional direct shear and intact ligament bridges at short loaded bore zones remain an engineering construction, not a verified three-dimensional joint stress bound.",
+    "Separate shear and torsion peak addition remains a conservative worksheet construction. Selected compatible midface probes cannot replace an all-point bound.",
+    "Reduced bolt interaction and elastic axial/bending/shear are distinct references; neither clears wood bearing, loaded edges or complete-joint behavior.",
+    "Plywood rows retain both leaves, through-thickness pressure and full force/first moment. The force-only lower comparison cannot clear the balanced row comparison. The NDS-style row/APA input combination remains an engineering extension.",
+    "Perfect plywood bonding, uniform 139.7 mm trapezoid beam approximation, gross timber response, first-order kinematics, stated restraints and the unverified no-slip floor hypothesis retain their original applicability limits. No actual adhesive or floor is qualified.",
+    "The eight upper axes remain geometry-ineligible in all six cases. Correcting side-core breadth does not change their edges, pair spacing, bolt forces or joint eligibility."
+  ],
+  "load_contract": {
+    "downward_multiplier": 2.0,
+    "duration_factor_CD": 1.0,
+    "horizontal_force_n": 300.0,
+    "input_unit": "lb",
+    "input_weight": 250
+  },
+  "member_comparisons": [
+    {
+      "current": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.3660609787339964
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.349748502396536
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.7587260746336846
+        }
+      },
+      "member": "base_header",
+      "original": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.3660609787339964
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.349748502396536
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.7587260746336846
+        }
+      }
+    },
+    {
+      "current": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.5257726087194048
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.5018455790950417
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "k12-right",
+          "index": 1.1692904907723478
+        }
+      },
+      "member": "base_rail_top",
+      "original": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.5257726087194048
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.5018455790950417
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "k12-right",
+          "index": 1.1692904907723478
+        }
+      }
+    },
+    {
+      "current": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.7523572668139626
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.7368249710771385
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 1.0038354821334996
+        }
+      },
+      "member": "base_side_left",
+      "original": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.879500908326599
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 0.8516294892413964
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "a12-rear",
+          "index": 1.2083866846630555
+        }
+      }
+    },
+    {
+      "current": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.7364380864768972
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.7214463820646646
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.9714356138173497
+        }
+      },
+      "member": "base_side_right",
+      "original": {
+        "maximum_declared_restraint_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.8603703594944111
+        },
+        "maximum_normal_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 0.8334811325943626
+        },
+        "maximum_shear_torsion_reference_upper": {
+          "case_id": "k12-rear",
+          "index": 1.1697940900860402
+        }
+      }
+    }
+  ],
+  "physical_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v6/geometry.json",
+    "sha256": "d2849e0bb7e3751396854556fa0bb411d83f3cf94dec55ec157a582f4f5b6e80"
+  },
+  "qualification": {
+    "climbing_released": false,
+    "complete_conditional_frame_evaluation": false,
+    "complete_joint_qualified": false,
+    "fabrication_released": false,
+    "panel_Hillman_resolution_deferred": true,
+    "physical_bond_qualified": false,
+    "physical_demand_bounds_established": false,
+    "physical_floor_qualified": false,
+    "structural_acceptance": false
+  },
+  "release": false,
+  "schema": "eoere_current96_testing_method_review/v1",
+  "side_core_changes": [
+    {
+      "cached_solid_unchanged": true,
+      "current_bounds_U_mm": [
+        0.001,
+        88.89900000000009
+      ],
+      "grain_intervals_unchanged": true,
+      "member": "base_side_left",
+      "previous_bounds_U_mm": [
+        0.001,
+        79.37400000000008
+      ],
+      "projected_holes_unchanged": true,
+      "restored_breadth_mm": 9.525,
+      "whole_interval_prisms_queried": 23
+    },
+    {
+      "cached_solid_unchanged": true,
+      "current_bounds_U_mm": [
+        0.001,
+        88.89900000000009
+      ],
+      "grain_intervals_unchanged": true,
+      "member": "base_side_right",
+      "previous_bounds_U_mm": [
+        9.526,
+        88.89900000000009
+      ],
+      "projected_holes_unchanged": true,
+      "restored_breadth_mm": 9.525,
+      "whole_interval_prisms_queried": 23
+    }
+  ],
+  "source_bindings": {
+    "corrected_core": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/testing-method-review-v2/timber-net-geometry-v1.json",
+      "sha256": "6ad15e6a4f884784fb7d93131111a52fa94df3e488e45d234d5d7b6e554616d1"
+    },
+    "corrected_sections": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/testing-method-review-v2/timber-sections-v1.json",
+      "sha256": "6ccf31539fc0de7fcda8b9fea271ad5430c6a9679d0fd09d6dc42d9aa3174a88"
+    },
+    "original_core": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/complete-v1/timber-net-geometry-v1.json",
+      "sha256": "9ff00642cf8cea20ad7afd5fa995181caefe3c356b2477bf7dadbb2812b2377a"
+    },
+    "original_sections": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/complete-v1/timber-sections-v1.json",
+      "sha256": "498885e07f9d98d7b16e9a974c1f4f8806d31aed71c8cb7642804ab0cee61bad"
+    },
+    "prior_method_audit": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-assumptions-audit-v1/exceedance-method-review-v1/final-result.json",
+      "sha256": "1458f6c2aa76148eb6ddd0c8d84c277f6508aa48e92483888e6ca3b364951c2d"
+    },
+    "producer": {
+      "path": "scripts/eoere_v6_testing_review.py",
+      "sha256": "d1635f081accb0502c8276d0151041595f9031f966aed15fd6bbd646d4992b10"
+    },
+    "worksheet_intake": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/testing-method-review-v2/sections.current96-intake.json",
+      "sha256": "229d36776bc062651467819181a5b7f50748e44e1be0645ea2e98b997ddabbdb"
+    }
+  },
+  "testing_disposition": {
+    "all_force_couples_and_hole_deductions_retained": true,
+    "cad_rebuilt": false,
+    "current_six_case_all_interval_timber_references_recomputed": true,
+    "geometry_ineligibility_waived": false,
+    "midface_probe_or_force_only_row_used_as_pass": false,
+    "new_frame_or_native_solve": false,
+    "original_bolt_and_cleat_references_retained": true,
+    "physical_failure_inferred_from_reference_exceedance": false,
+    "physical_geometry_or_loads_changed": false,
+    "reduced_bolt_interaction_replaced_by_elastic_index": false,
+    "side_core_breadth_correction_applied": true
+  },
+  "timber_member_metric_exceedances": [
+    {
+      "case_id": "a12-forward",
+      "geometry_status": "section_reference_only",
+      "index": 1.0014227656368389,
+      "member": "base_rail_top",
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    {
+      "case_id": "a12-left",
+      "geometry_status": "section_reference_only",
+      "index": 1.1027754487935655,
+      "member": "base_rail_top",
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    {
+      "case_id": "a12-rear",
+      "geometry_status": "section_reference_only",
+      "index": 1.0918255835833992,
+      "member": "base_rail_top",
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    {
+      "case_id": "a12-rear",
+      "geometry_status": "section_reference_only",
+      "index": 1.0038354821334996,
+      "member": "base_side_left",
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    {
+      "case_id": "k12-right",
+      "geometry_status": "section_reference_only",
+      "index": 1.1692904907723478,
+      "member": "base_rail_top",
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    {
+      "case_id": "k12-rear",
+      "geometry_status": "section_reference_only",
+      "index": 1.166607277362305,
+      "member": "base_rail_top",
+      "metric": "maximum_shear_torsion_reference_upper"
+    }
+  ],
+  "timber_reference_maxima": {
+    "maximum_declared_restraint_normal_reference_upper": {
+      "by_case": {
+        "a1-rear": {
+          "case_id": "a1-rear",
+          "index": 0.32417650971165657,
+          "member": "base_rail_bottom_left",
+          "section_interval_count": 58
+        },
+        "a12-forward": {
+          "case_id": "a12-forward",
+          "index": 0.6193965432478532,
+          "member": "lumber_leg_left",
+          "section_interval_count": 36
+        },
+        "a12-left": {
+          "case_id": "a12-left",
+          "index": 0.7424791870752528,
+          "member": "lumber_leg_left",
+          "section_interval_count": 36
+        },
+        "a12-rear": {
+          "case_id": "a12-rear",
+          "index": 0.7754520881070719,
+          "member": "lumber_leg_left",
+          "section_interval_count": 36
+        },
+        "k12-rear": {
+          "case_id": "k12-rear",
+          "index": 0.7649161910767315,
+          "member": "lumber_leg_right",
+          "section_interval_count": 36
+        },
+        "k12-right": {
+          "case_id": "k12-right",
+          "index": 0.7305198209134891,
+          "member": "lumber_leg_right",
+          "section_interval_count": 36
+        }
+      },
+      "overall": {
+        "case_id": "a12-rear",
+        "index": 0.7754520881070719,
+        "member": "lumber_leg_left",
+        "section_interval_count": 36
+      },
+      "source_field_name": "maximum_declared_restraint_normal_reference_upper",
+      "unit": "reference upper index"
+    },
+    "maximum_normal_reference_upper": {
+      "by_case": {
+        "a1-rear": {
+          "case_id": "a1-rear",
+          "index": 0.3104096221498942,
+          "member": "base_rail_bottom_left",
+          "section_interval_count": 58
+        },
+        "a12-forward": {
+          "case_id": "a12-forward",
+          "index": 0.6027999981167307,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "a12-left": {
+          "case_id": "a12-left",
+          "index": 0.6184175774138505,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "a12-rear": {
+          "case_id": "a12-rear",
+          "index": 0.7368249710771385,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "k12-rear": {
+          "case_id": "k12-rear",
+          "index": 0.7214463820646646,
+          "member": "base_side_right",
+          "section_interval_count": 174
+        },
+        "k12-right": {
+          "case_id": "k12-right",
+          "index": 0.603916992437352,
+          "member": "base_side_right",
+          "section_interval_count": 174
+        }
+      },
+      "overall": {
+        "case_id": "a12-rear",
+        "index": 0.7368249710771385,
+        "member": "base_side_left",
+        "section_interval_count": 176
+      },
+      "source_field_name": "maximum_normal_reference_upper",
+      "unit": "reference upper index"
+    },
+    "maximum_shear_torsion_reference_upper": {
+      "by_case": {
+        "a1-rear": {
+          "case_id": "a1-rear",
+          "index": 0.5718208834712081,
+          "member": "base_rail_bottom_left",
+          "section_interval_count": 58
+        },
+        "a12-forward": {
+          "case_id": "a12-forward",
+          "index": 1.0014227656368389,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "a12-left": {
+          "case_id": "a12-left",
+          "index": 1.1027754487935655,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "a12-rear": {
+          "case_id": "a12-rear",
+          "index": 1.0918255835833992,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "k12-rear": {
+          "case_id": "k12-rear",
+          "index": 1.166607277362305,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "k12-right": {
+          "case_id": "k12-right",
+          "index": 1.1692904907723478,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        }
+      },
+      "overall": {
+        "case_id": "k12-right",
+        "index": 1.1692904907723478,
+        "member": "base_rail_top",
+        "section_interval_count": 99
+      },
+      "source_field_name": "maximum_shear_torsion_reference_upper",
+      "unit": "reference upper index"
+    }
+  },
+  "tools": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "unchanged_reference_maxima": {
+    "plywood_credited_36p5": {
+      "balanced_pressure_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.5958239671725435,
+        "leaf": "eoere_cleat_left",
+        "metric": "balanced_pressure_reference_index",
+        "reference_role": "balanced_group_reference"
+      },
+      "integrated_force_only_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.5265295125512901,
+        "leaf": "eoere_cleat_left",
+        "metric": "integrated_force_only_reference_index",
+        "reference_role": "lower_bound"
+      },
+      "minimum_scalar_pressure_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.589336794461947,
+        "leaf": "eoere_cleat_left",
+        "metric": "minimum_scalar_pressure_reference_index",
+        "reference_role": "lower_bound"
+      }
+    },
+    "plywood_nominal_38p1": {
+      "balanced_pressure_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.5681059656590388,
+        "leaf": "eoere_cleat_left",
+        "metric": "balanced_pressure_reference_index",
+        "reference_role": "balanced_group_reference"
+      },
+      "integrated_force_only_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.504418036958585,
+        "leaf": "eoere_cleat_left",
+        "metric": "integrated_force_only_reference_index",
+        "reference_role": "lower_bound"
+      },
+      "minimum_scalar_pressure_reference_index": {
+        "axes": [
+          "eoere_bolt_067"
+        ],
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "group_id": "eoere_cleat_left:eoere_bolt_067",
+        "index": 0.5619327050978986,
+        "leaf": "eoere_cleat_left",
+        "metric": "minimum_scalar_pressure_reference_index",
+        "reference_role": "lower_bound"
+      }
+    },
+    "shafts_Cdelta_adjusted": {
+      "axial_bending_reference_index_after_Cdelta": {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 2.253738413799307,
+        "population": "dedicated_12"
+      },
+      "axial_bending_shear_reference_index_after_Cdelta": {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.9049569154465338,
+        "population": "dedicated_12"
+      },
+      "bearing_reference_index_after_Cdelta": {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0909556278629111,
+        "population": "ordinary_84"
+      }
+    }
+  }
+}

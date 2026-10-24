@@ -1,0 +1,3374 @@
+{
+  "analysis_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+    "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+  },
+  "case_count": 6,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "current_response_computed": true,
+  "exceedances": {
+    "plywood_credited_36p5_group_metric_exceedances": [],
+    "plywood_nominal_38p1_group_metric_exceedances": [],
+    "shaft_metric_exceedances": [
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.001146166188127,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.0112510304537732,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "eoere_bolt_081",
+        "case_id": "a12-left",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0886020051219376,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0909556278629111,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.0126483438381184,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "eoere_bolt_084",
+        "case_id": "k12-right",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0850959719270117,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-rear",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0759940724992814,
+        "metric": "bearing_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5116235470566182,
+        "axis_id": "cleat_post_bolt_left_2",
+        "case_id": "a12-forward",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.1298872971519736,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 2.253738413799307,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5116235470566182,
+        "axis_id": "cleat_post_bolt_left_2",
+        "case_id": "a12-left",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.3386758655938704,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 2.182828752466505,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-left",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0626670801505818,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-rear",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.8677850322735499,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0407195427677285,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5116235470566182,
+        "axis_id": "cleat_post_bolt_right_2",
+        "case_id": "k12-right",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.33209754237083,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 2.161604514200318,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-right",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0493808366026467,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-rear",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.8341902008260116,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 1.0,
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-rear",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.0302229972145869,
+        "metric": "axial_bending_reference_index_after_Cdelta",
+        "population": "ordinary_84",
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.9049569154465338,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5116235470566182,
+        "axis_id": "cleat_post_bolt_left_2",
+        "case_id": "a12-left",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.1289227795047643,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.841207126980963,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-rear",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.578366010706961,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5116235470566182,
+        "axis_id": "cleat_post_bolt_right_2",
+        "case_id": "k12-right",
+        "geometry_eligible": true,
+        "geometry_status": "eligible_reference_only",
+        "index": 1.123019368716427,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.823116219756105,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      },
+      {
+        "Cdelta": 0.5940506428230565,
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-rear",
+        "geometry_eligible": false,
+        "geometry_status": "geometry_ineligible_no_pass",
+        "index": 1.5499280345188615,
+        "metric": "axial_bending_shear_reference_index_after_Cdelta",
+        "population": "dedicated_12",
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "status": "exceeds_reference_geometry_ineligible"
+      }
+    ],
+    "timber_member_metric_exceedances": [
+      {
+        "case_id": "a12-forward",
+        "geometry_status": "section_reference_only",
+        "index": 1.0014227656368389,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-left",
+        "geometry_status": "section_reference_only",
+        "index": 1.1027754487935655,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-left",
+        "geometry_status": "section_reference_only",
+        "index": 1.0875947263999843,
+        "member": "base_side_left",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.0918255835833992,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.2083866846630555,
+        "member": "base_side_left",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-right",
+        "geometry_status": "section_reference_only",
+        "index": 1.1692904907723478,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-right",
+        "geometry_status": "section_reference_only",
+        "index": 1.0503470684462592,
+        "member": "base_side_right",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.166607277362305,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.1697940900860402,
+        "member": "base_side_right",
+        "metric": "maximum_shear_torsion_reference_upper"
+      }
+    ]
+  },
+  "geometry_eligibility": {
+    "all_geometry_eligible": false,
+    "eligible_axis_count_by_case": {
+      "a1-rear": 88,
+      "a12-forward": 88,
+      "a12-left": 88,
+      "a12-rear": 88,
+      "k12-rear": 88,
+      "k12-right": 88
+    },
+    "ineligible_axes": [
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a12-forward",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a12-left",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "k12-right",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "k12-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_073",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_072",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "dedicated_12",
+        "status": "ineligible_no_pass"
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a1-rear",
+        "eligible": false,
+        "population": "ordinary_84",
+        "status": "ineligible_no_pass"
+      }
+    ],
+    "ineligible_receiver_pairs": [
+      {
+        "Cdelta_spacing": 1.0,
+        "axes": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "edge_for_long_penetration_eligible": true,
+        "eligible": false,
+        "grain_cross_separations_mm": [
+          32.6536105843968,
+          38.91505770010586
+        ],
+        "host": "base_principal_center_left",
+        "parallel_direction_eligible": true,
+        "perpendicular_between_row_minimum_mm": 35.71875,
+        "perpendicular_direction_eligible": false,
+        "reasons": [
+          "perpendicular_direction_eligible"
+        ]
+      },
+      {
+        "Cdelta_spacing": 1.0,
+        "axes": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "edge_for_long_penetration_eligible": true,
+        "eligible": false,
+        "grain_cross_separations_mm": [
+          32.6536105843968,
+          38.91505770010586
+        ],
+        "host": "base_principal_center_right",
+        "parallel_direction_eligible": true,
+        "perpendicular_between_row_minimum_mm": 35.71875,
+        "perpendicular_direction_eligible": false,
+        "reasons": [
+          "perpendicular_direction_eligible"
+        ]
+      },
+      {
+        "Cdelta_spacing": 1.0,
+        "axes": [
+          "eoere_bolt_067",
+          "eoere_bolt_071"
+        ],
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "edge_for_long_penetration_eligible": true,
+        "eligible": false,
+        "grain_cross_separations_mm": [
+          32.65361058439679,
+          38.915057700105855
+        ],
+        "host": "base_side_left",
+        "parallel_direction_eligible": true,
+        "perpendicular_between_row_minimum_mm": 35.71874999999994,
+        "perpendicular_direction_eligible": false,
+        "reasons": [
+          "perpendicular_direction_eligible"
+        ]
+      },
+      {
+        "Cdelta_spacing": 1.0,
+        "axes": [
+          "eoere_bolt_070",
+          "eoere_bolt_074"
+        ],
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "edge_for_long_penetration_eligible": true,
+        "eligible": false,
+        "grain_cross_separations_mm": [
+          32.65361058439679,
+          38.915057700105855
+        ],
+        "host": "base_side_right",
+        "parallel_direction_eligible": true,
+        "perpendicular_between_row_minimum_mm": 35.71874999999994,
+        "perpendicular_direction_eligible": false,
+        "reasons": [
+          "perpendicular_direction_eligible"
+        ]
+      }
+    ],
+    "ineligible_surfaces": [
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_ids": [
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          101.25817460373332,
+          25.45974157701459
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "k12-right",
+            "local_line_force_N_per_mm": [
+              0.4951601575854557,
+              0.0,
+              0.22182020860529705
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.9260260868421415,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "k12-rear",
+            "local_line_force_N_per_mm": [
+              -1.0271401736740418,
+              0.0,
+              0.48225985432379664
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              33.3375,
+              19.05
+            ]
+          },
+          {
+            "Cdelta_end": 0.9260260868421415,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "a1-rear",
+            "local_line_force_N_per_mm": [
+              -0.1092173835601876,
+              0.0,
+              0.2355776011578108
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              33.3375,
+              19.05
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          61.74278934019978,
+          2464.3970550709037
+        ],
+        "host": "base_side_left",
+        "minimum_crossgrain_edge_distance_mm": 25.45974157701459,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_067",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          33.235332247278656,
+          100.01249999999999
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-forward",
+            "local_line_force_N_per_mm": [
+              19.49831952114599,
+              0.0,
+              -3.4636330253950973
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-left",
+            "local_line_force_N_per_mm": [
+              18.553182960508042,
+              0.0,
+              -3.7404056195269506
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-rear",
+            "local_line_force_N_per_mm": [
+              16.77283611770821,
+              0.0,
+              -2.4249126647642156
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "k12-right",
+            "local_line_force_N_per_mm": [
+              1.2834526816013299,
+              0.0,
+              -0.21031701317496018
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "k12-rear",
+            "local_line_force_N_per_mm": [
+              2.7762679911016788,
+              0.0,
+              -0.8451090134333612
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a1-rear",
+            "local_line_force_N_per_mm": [
+              0.1279042852375837,
+              0.0,
+              -0.08100927656280586
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          202.3875,
+          39.608326610227294
+        ],
+        "host": "eoere_cleat_left",
+        "minimum_crossgrain_edge_distance_mm": 33.235332247278656,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_068",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          101.25817457295133,
+          29.10802824143997
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-forward",
+            "local_line_force_N_per_mm": [
+              9.043114708295347,
+              0.0,
+              20.008088792156595
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-left",
+            "local_line_force_N_per_mm": [
+              4.507189867586281,
+              0.0,
+              10.47647188838015
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-rear",
+            "local_line_force_N_per_mm": [
+              5.8007684078765065,
+              0.0,
+              11.698455738953546
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "k12-right",
+            "local_line_force_N_per_mm": [
+              4.591209124114444,
+              0.0,
+              10.348396998852268
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "k12-rear",
+            "local_line_force_N_per_mm": [
+              7.4275617015234365,
+              0.0,
+              7.503718602116027
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          80.04199085696911,
+          2423.235779090889
+        ],
+        "host": "base_principal_center_left",
+        "minimum_crossgrain_edge_distance_mm": 29.10802824143997,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          101.25817457295133,
+          29.10802824143997
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-forward",
+            "local_line_force_N_per_mm": [
+              8.283326373957859,
+              0.0,
+              14.119506356910371
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-left",
+            "local_line_force_N_per_mm": [
+              4.651105214150209,
+              0.0,
+              10.97774009145295
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a12-rear",
+            "local_line_force_N_per_mm": [
+              7.5003093370447695,
+              0.0,
+              7.770002937104019
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "k12-right",
+            "local_line_force_N_per_mm": [
+              4.301174718935384,
+              0.0,
+              10.653854601316082
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "k12-rear",
+            "local_line_force_N_per_mm": [
+              5.675086982007432,
+              0.0,
+              12.197917787395332
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817457295133,
+              29.10802824143997
+            ],
+            "actual_end_distances_mm": [
+              80.04199085696911,
+              2423.235779090889
+            ],
+            "case_id": "a1-rear",
+            "local_line_force_N_per_mm": [
+              -0.0211624242522798,
+              0.0,
+              0.002456068127492397
+            ],
+            "maximum_edge_shortfall_mm": 8.99197175856003,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              33.3375,
+              19.05
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          80.04199085696911,
+          2423.235779090889
+        ],
+        "host": "base_principal_center_right",
+        "minimum_crossgrain_edge_distance_mm": 29.10802824143997,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_ids": [
+          "a12-left",
+          "a12-rear",
+          "a1-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          101.25817460373332,
+          25.45974157701459
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 1.0,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "a12-left",
+            "local_line_force_N_per_mm": [
+              0.5453241974853776,
+              0.0,
+              0.20649779586998576
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.9260260868421415,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "a12-rear",
+            "local_line_force_N_per_mm": [
+              -0.9896988818807199,
+              0.0,
+              0.6824396614886791
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              33.3375,
+              19.05
+            ]
+          },
+          {
+            "Cdelta_end": 0.9260260868421415,
+            "actual_edge_distances_mm": [
+              101.25817460373332,
+              25.45974157701459
+            ],
+            "actual_end_distances_mm": [
+              61.74278934019978,
+              2464.3970550709037
+            ],
+            "case_id": "a1-rear",
+            "local_line_force_N_per_mm": [
+              -0.11448916027634018,
+              0.0,
+              0.3373267286569429
+            ],
+            "maximum_edge_shortfall_mm": 12.640258422985411,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              14.287500000000001,
+              38.1
+            ],
+            "required_end_minimum_mm": [
+              33.3375,
+              19.05
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          61.74278934019978,
+          2464.3970550709037
+        ],
+        "host": "base_side_right",
+        "minimum_crossgrain_edge_distance_mm": 25.45974157701459,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_070",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "centered_four_diameter_equivalent_width_eligible": true,
+        "centered_width_required_mm": 19.05,
+        "crossgrain_edge_distances_mm": [
+          33.235332247278656,
+          100.01249999999999
+        ],
+        "diameter_mm": 9.525,
+        "eligible": false,
+        "failed_signed_minimum_witnesses": [
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-forward",
+            "local_line_force_N_per_mm": [
+              3.1878782845517213,
+              0.0,
+              -0.7526957361118036
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-left",
+            "local_line_force_N_per_mm": [
+              1.0453241553768458,
+              0.0,
+              -0.1432012894146211
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a12-rear",
+            "local_line_force_N_per_mm": [
+              2.6576121669912856,
+              0.0,
+              -0.7949406549656634
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "k12-right",
+            "local_line_force_N_per_mm": [
+              18.268982005253648,
+              0.0,
+              -3.7208633151912
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "k12-rear",
+            "local_line_force_N_per_mm": [
+              16.49300416569216,
+              0.0,
+              -2.3875610171423487
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          },
+          {
+            "Cdelta_end": 0.5940506428230565,
+            "actual_edge_distances_mm": [
+              33.235332247278656,
+              100.01249999999999
+            ],
+            "actual_end_distances_mm": [
+              202.3875,
+              39.608326610227294
+            ],
+            "case_id": "a1-rear",
+            "local_line_force_N_per_mm": [
+              0.04063919908299447,
+              0.0,
+              -0.32720251765747393
+            ],
+            "maximum_edge_shortfall_mm": 4.8646677527213456,
+            "maximum_end_shortfall_mm": 0.0,
+            "required_edge_mm": [
+              38.1,
+              14.287500000000001
+            ],
+            "required_end_minimum_mm": [
+              19.05,
+              33.3375
+            ]
+          }
+        ],
+        "grain_end_distances_mm": [
+          202.3875,
+          39.608326610227294
+        ],
+        "host": "eoere_cleat_right",
+        "minimum_crossgrain_edge_distance_mm": 33.235332247278656,
+        "reasons": [
+          "one or more signed end/edge pressure directions fail a minimum"
+        ]
+      }
+    ],
+    "no_pass_when_geometry_ineligible": true,
+    "shaft_geometry_metric_semantics": "The worksheet's maximum_*_index_before_Cdelta keys are already divided by its computed Cdelta; the reducer validates against the Cg-adjusted statics rows and reports them as after_Cdelta.",
+    "unsupported_oblique_cases": {
+      "a1-rear": [],
+      "a12-forward": [],
+      "a12-left": [],
+      "a12-rear": [],
+      "k12-rear": [],
+      "k12-right": []
+    }
+  },
+  "geometry_revision": "eoere-flat-cleats-principal-upper-pairs-v6",
+  "inventory": {
+    "analytical_laminated_bodies": 2,
+    "bonded_plywood_hosts": 2,
+    "bounded_Cg_factors_by_population": {
+      "dedicated_12": {
+        "axis_count_per_case": 12,
+        "by_case": {
+          "a1-rear": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          },
+          "a12-forward": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          },
+          "a12-left": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          },
+          "a12-rear": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          },
+          "k12-rear": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          },
+          "k12-right": {
+            "factor_counts": {
+              "0.5": 12
+            },
+            "maximum": 0.5,
+            "minimum": 0.5
+          }
+        },
+        "maximum_all_cases": 0.5,
+        "minimum_all_cases": 0.5
+      },
+      "ordinary_84": {
+        "axis_count_per_case": 84,
+        "by_case": {
+          "a1-rear": {
+            "factor_counts": {
+              "0.984531270689": 2,
+              "0.985712009396": 32,
+              "0.985712009397": 18,
+              "0.990018503674": 4,
+              "0.995133389434": 16,
+              "1": 12
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          },
+          "a12-forward": {
+            "factor_counts": {
+              "0.984531270689": 4,
+              "0.985712009396": 32,
+              "0.985712009397": 24,
+              "0.990018503674": 4,
+              "0.995133389434": 16,
+              "1": 4
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          },
+          "a12-left": {
+            "factor_counts": {
+              "0.984531270689": 4,
+              "0.985712009396": 32,
+              "0.985712009397": 22,
+              "0.990018503674": 4,
+              "0.995133389434": 14,
+              "1": 8
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          },
+          "a12-rear": {
+            "factor_counts": {
+              "0.984531270689": 4,
+              "0.985712009396": 32,
+              "0.985712009397": 24,
+              "0.990018503674": 4,
+              "0.995133389434": 16,
+              "1": 4
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          },
+          "k12-rear": {
+            "factor_counts": {
+              "0.984531270689": 4,
+              "0.985712009396": 32,
+              "0.985712009397": 24,
+              "0.990018503674": 4,
+              "0.995133389434": 16,
+              "1": 4
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          },
+          "k12-right": {
+            "factor_counts": {
+              "0.984531270689": 4,
+              "0.985712009396": 32,
+              "0.985712009397": 22,
+              "0.990018503674": 4,
+              "0.995133389434": 14,
+              "1": 8
+            },
+            "maximum": 1.0,
+            "minimum": 0.9845312706887517
+          }
+        },
+        "maximum_all_cases": 1.0,
+        "minimum_all_cases": 0.9845312706887517
+      }
+    },
+    "current_bolts": 96,
+    "dedicated_bolts": 12,
+    "four_port_fittings": 24,
+    "ordinary_bolts": 84,
+    "panel_screws_deferred": 66,
+    "physical_bodies": 148,
+    "physical_plywood_leaves": 4,
+    "sawn_timber_members": 20,
+    "selected_bolt_grades": {
+      "A574": 12,
+      "Grade 5": 84
+    },
+    "wood_bearing_walls": 112
+  },
+  "limitations": [
+    "Own six 250 lb fields use a uniform 139.7 mm full-width plywood beam approximation for the actual trapezoidal cleats; it is not a physical demand bound.",
+    "The two bonded analytical hosts represent four physical plywood leaves with perfect compatibility; actual adhesive bond and plywood stiffness are unqualified.",
+    "Four-host floor support and no-slip boundary behavior are analytical assumptions; the physical floor is unverified and no anchor capacity is established.",
+    "The 66 panel/Hillman screw duties remain deferred and are not a strength pass or complete load path.",
+    "The 12 dedicated shafts and 84 ordinary shafts are summarized separately. All values are conditional reference comparisons; no historical force or strength pass is transferred.",
+    "A reference index at or below 1 is not a pass when geometry is ineligible, and no index establishes complete-joint or frame acceptance.",
+    "This report does not establish actual material, hardware, adhesive, installation, floor, physical demand, or climber qualification."
+  ],
+  "load_contract": {
+    "downward_multiplier": 2.0,
+    "duration_factor_CD": 1.0,
+    "horizontal_force_n": 300.0,
+    "input_unit": "lb",
+    "input_weight": 250
+  },
+  "material": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+    "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+  },
+  "material_derivation_applicability": {
+    "active_current_envelope_width_mm": 139.7,
+    "active_material_ref": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+      "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+    },
+    "active_properties_source_pin_verified": true,
+    "current_producer": {
+      "path": "scripts/eoere_v6_analysis.py",
+      "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+    },
+    "explanation": "The frozen material.properties and 139.7 mm current_envelope_width_mm are the active, source-bound values used by the six fields. The inherited material.derivation prose still describes the former 203.2 mm (8 in) operator; it is historical explanatory text, superseded by the current analysis producer's plywood_properties(139.7). Frozen material and input bytes remain source-bound.",
+    "inherited_derivation_text_retained_in_full_report": true
+  },
+  "material_properties": {
+    "EA_N": 23853588.411834426,
+    "EI_y_Nmm2": 38794064855.69314,
+    "EI_z_Nmm2": 3032250650.9901285,
+    "GA_u_N": 1375000000000.0,
+    "GA_v_N": 2201869.6995539474,
+    "GJ_Nmm2": 882444785.1870432,
+    "shear_factor": 0.8333333333333334
+  },
+  "metric_maxima": {
+    "plywood_credited_36p5": {
+      "balanced_pressure_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.03899466326722932,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5958239671725435,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5811346027438561,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5008164842245625,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.4906834672232715,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.5734522651604878,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.5958239671725435,
+          "leaf": "eoere_cleat_left",
+          "metric": "balanced_pressure_reference_index",
+          "reference_role": "balanced_group_reference"
+        },
+        "reference_role": "balanced_group_reference",
+        "unit": "reference index"
+      },
+      "integrated_force_only_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.022028153862942823,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5265295125512901,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5151960687633719,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.4361004350797218,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.42868720096853485,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.5091168617715901,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.5265295125512901,
+          "leaf": "eoere_cleat_left",
+          "metric": "integrated_force_only_reference_index",
+          "reference_role": "lower_bound"
+        },
+        "reference_role": "lower_bound",
+        "unit": "reference index"
+      },
+      "minimum_scalar_pressure_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.0389946632672293,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.589336794461947,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.573939354583542,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.490272466149431,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.48218947890893993,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.5662792201696103,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.589336794461947,
+          "leaf": "eoere_cleat_left",
+          "metric": "minimum_scalar_pressure_reference_index",
+          "reference_role": "lower_bound"
+        },
+        "reference_role": "lower_bound",
+        "unit": "reference index"
+      }
+    },
+    "plywood_nominal_38p1": {
+      "balanced_pressure_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.036551618939527485,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5681059656590388,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5542071704860045,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.47738453914149315,
+            "leaf": "eoere_cleat_left",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.4677175813270371,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.546916988339278,
+            "leaf": "eoere_cleat_right",
+            "metric": "balanced_pressure_reference_index",
+            "reference_role": "balanced_group_reference"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.5681059656590388,
+          "leaf": "eoere_cleat_left",
+          "metric": "balanced_pressure_reference_index",
+          "reference_role": "balanced_group_reference"
+        },
+        "reference_role": "balanced_group_reference",
+        "unit": "reference index"
+      },
+      "integrated_force_only_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.021103087034052836,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.504418036958585,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.49356053831661606,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.4177865060475025,
+            "leaf": "eoere_cleat_left",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.41068458885437065,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.48773662610664137,
+            "leaf": "eoere_cleat_right",
+            "metric": "integrated_force_only_reference_index",
+            "reference_role": "lower_bound"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.504418036958585,
+          "leaf": "eoere_cleat_left",
+          "metric": "integrated_force_only_reference_index",
+          "reference_role": "lower_bound"
+        },
+        "reference_role": "lower_bound",
+        "unit": "reference index"
+      },
+      "minimum_scalar_pressure_reference_index": {
+        "by_case": {
+          "a1-rear": {
+            "axes": [
+              "cleat_post_bolt_right_2"
+            ],
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "group_id": "eoere_cleat_right:cleat_post_bolt_right_2",
+            "index": 0.036551618939527485,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-forward": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5619327050978986,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-left": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.5473583680924291,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "a12-rear": {
+            "axes": [
+              "eoere_bolt_067"
+            ],
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_left:eoere_bolt_067",
+            "index": 0.4673895796952445,
+            "leaf": "eoere_cleat_left",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-rear": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.45967392938060186,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          },
+          "k12-right": {
+            "axes": [
+              "eoere_bolt_070"
+            ],
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "group_id": "eoere_cleat_right:eoere_bolt_070",
+            "index": 0.5400881473362548,
+            "leaf": "eoere_cleat_right",
+            "metric": "minimum_scalar_pressure_reference_index",
+            "reference_role": "lower_bound"
+          }
+        },
+        "overall": {
+          "axes": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "group_id": "eoere_cleat_left:eoere_bolt_067",
+          "index": 0.5619327050978986,
+          "leaf": "eoere_cleat_left",
+          "metric": "minimum_scalar_pressure_reference_index",
+          "reference_role": "lower_bound"
+        },
+        "reference_role": "lower_bound",
+        "unit": "reference index"
+      }
+    },
+    "shafts_Cdelta_adjusted": {
+      "axial_bending_reference_index_after_Cdelta": {
+        "all_96": {
+          "Cdelta": 0.5940506428230565,
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "index": 2.253738413799307,
+          "population": "dedicated_12"
+        },
+        "by_case": {
+          "a1-rear": {
+            "Cdelta": 1.0,
+            "axis_id": "lumber_leg_bolt_left_1",
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 0.29814588890929483,
+            "population": "ordinary_84"
+          },
+          "a12-forward": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 2.253738413799307,
+            "population": "dedicated_12"
+          },
+          "a12-left": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 2.182828752466505,
+            "population": "dedicated_12"
+          },
+          "a12-rear": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.8677850322735499,
+            "population": "dedicated_12"
+          },
+          "k12-rear": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_070",
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.8341902008260116,
+            "population": "dedicated_12"
+          },
+          "k12-right": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_070",
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 2.161604514200318,
+            "population": "dedicated_12"
+          }
+        },
+        "dedicated_12": {
+          "Cdelta": 0.5940506428230565,
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "index": 2.253738413799307,
+          "population": "dedicated_12"
+        },
+        "label": "axial_bending_reference_index_after_Cdelta",
+        "ordinary_84": {
+          "Cdelta": 1.0,
+          "axis_id": "lumber_leg_bolt_left_1",
+          "case_id": "a12-left",
+          "geometry_eligible": true,
+          "geometry_status": "eligible_reference_only",
+          "index": 1.0626670801505818,
+          "population": "ordinary_84"
+        },
+        "source_field_name": "maximum_N_M_index_before_Cdelta",
+        "unit": "reference index",
+        "values_already_divided_by_Cdelta": true
+      },
+      "axial_bending_shear_reference_index_after_Cdelta": {
+        "all_96": {
+          "Cdelta": 0.5940506428230565,
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "index": 1.9049569154465338,
+          "population": "dedicated_12"
+        },
+        "by_case": {
+          "a1-rear": {
+            "Cdelta": 1.0,
+            "axis_id": "lumber_leg_bolt_left_1",
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 0.25893843138899064,
+            "population": "ordinary_84"
+          },
+          "a12-forward": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.9049569154465338,
+            "population": "dedicated_12"
+          },
+          "a12-left": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-left",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.841207126980963,
+            "population": "dedicated_12"
+          },
+          "a12-rear": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.578366010706961,
+            "population": "dedicated_12"
+          },
+          "k12-rear": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_070",
+            "case_id": "k12-rear",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.5499280345188615,
+            "population": "dedicated_12"
+          },
+          "k12-right": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_070",
+            "case_id": "k12-right",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.823116219756105,
+            "population": "dedicated_12"
+          }
+        },
+        "dedicated_12": {
+          "Cdelta": 0.5940506428230565,
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-forward",
+          "geometry_eligible": false,
+          "geometry_status": "geometry_ineligible_no_pass",
+          "index": 1.9049569154465338,
+          "population": "dedicated_12"
+        },
+        "label": "axial_bending_shear_reference_index_after_Cdelta",
+        "ordinary_84": {
+          "Cdelta": 1.0,
+          "axis_id": "lumber_leg_bolt_left_1",
+          "case_id": "a12-left",
+          "geometry_eligible": true,
+          "geometry_status": "eligible_reference_only",
+          "index": 0.9128863581497454,
+          "population": "ordinary_84"
+        },
+        "source_field_name": "maximum_N_M_V_index_before_Cdelta",
+        "unit": "reference index",
+        "values_already_divided_by_Cdelta": true
+      },
+      "bearing_reference_index_after_Cdelta": {
+        "all_96": {
+          "Cdelta": 1.0,
+          "axis_id": "lumber_leg_bolt_left_1",
+          "case_id": "a12-rear",
+          "geometry_eligible": true,
+          "geometry_status": "eligible_reference_only",
+          "index": 1.0909556278629111,
+          "population": "ordinary_84"
+        },
+        "by_case": {
+          "a1-rear": {
+            "Cdelta": 1.0,
+            "axis_id": "lumber_leg_bolt_left_1",
+            "case_id": "a1-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 0.31858746150067885,
+            "population": "ordinary_84"
+          },
+          "a12-forward": {
+            "Cdelta": 0.5940506428230565,
+            "axis_id": "eoere_bolt_067",
+            "case_id": "a12-forward",
+            "geometry_eligible": false,
+            "geometry_status": "geometry_ineligible_no_pass",
+            "index": 1.001146166188127,
+            "population": "dedicated_12"
+          },
+          "a12-left": {
+            "Cdelta": 1.0,
+            "axis_id": "eoere_bolt_081",
+            "case_id": "a12-left",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 1.0886020051219376,
+            "population": "dedicated_12"
+          },
+          "a12-rear": {
+            "Cdelta": 1.0,
+            "axis_id": "lumber_leg_bolt_left_1",
+            "case_id": "a12-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 1.0909556278629111,
+            "population": "ordinary_84"
+          },
+          "k12-rear": {
+            "Cdelta": 1.0,
+            "axis_id": "lumber_leg_bolt_right_1",
+            "case_id": "k12-rear",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 1.0759940724992814,
+            "population": "ordinary_84"
+          },
+          "k12-right": {
+            "Cdelta": 1.0,
+            "axis_id": "eoere_bolt_084",
+            "case_id": "k12-right",
+            "geometry_eligible": true,
+            "geometry_status": "eligible_reference_only",
+            "index": 1.0850959719270117,
+            "population": "dedicated_12"
+          }
+        },
+        "dedicated_12": {
+          "Cdelta": 1.0,
+          "axis_id": "eoere_bolt_081",
+          "case_id": "a12-left",
+          "geometry_eligible": true,
+          "geometry_status": "eligible_reference_only",
+          "index": 1.0886020051219376,
+          "population": "dedicated_12"
+        },
+        "label": "bearing_reference_index_after_Cdelta",
+        "ordinary_84": {
+          "Cdelta": 1.0,
+          "axis_id": "lumber_leg_bolt_left_1",
+          "case_id": "a12-rear",
+          "geometry_eligible": true,
+          "geometry_status": "eligible_reference_only",
+          "index": 1.0909556278629111,
+          "population": "ordinary_84"
+        },
+        "source_field_name": "maximum_bearing_index_before_Cdelta",
+        "unit": "reference index",
+        "values_already_divided_by_Cdelta": true
+      }
+    },
+    "timber_sections": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.32417650971165657,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.7184274558436029,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.7424791870752528,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.879500908326599,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.8603703594944111,
+            "member": "base_side_right",
+            "section_interval_count": 174
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.7305198209134891,
+            "member": "lumber_leg_right",
+            "section_interval_count": 36
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.879500908326599,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "source_field_name": "maximum_declared_restraint_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.3104096221498942,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.6947789664602847,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.7089653829360982,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.8516294892413964,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.8334811325943626,
+            "member": "base_side_right",
+            "section_interval_count": 174
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.6918404501853332,
+            "member": "base_side_right",
+            "section_interval_count": 174
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.8516294892413964,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "source_field_name": "maximum_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.5718208834712081,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 1.0014227656368389,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 1.1027754487935655,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 1.2083866846630555,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 1.1697940900860402,
+            "member": "base_side_right",
+            "section_interval_count": 174
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 1.1692904907723478,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 1.2083866846630555,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "source_field_name": "maximum_shear_torsion_reference_upper",
+        "unit": "reference upper index"
+      }
+    }
+  },
+  "physical_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v6/geometry.json",
+    "sha256": "d2849e0bb7e3751396854556fa0bb411d83f3cf94dec55ec157a582f4f5b6e80"
+  },
+  "public_compaction": {
+    "full_raw_report": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/exceedances-v2.json",
+      "sha256": "829a4463cd3421bc66add0fd307c05197e0acb5a29a9f3ba3e0eb1b38123c5b0"
+    },
+    "geometry_compaction": "Surfaces unique by axis/host with signed witnesses; receiver pairs unique by host/axes with case coverage.",
+    "omits_repeated_detail_lists": true
+  },
+  "qualification": {
+    "climbing_released": false,
+    "complete_conditional_frame_evaluation": false,
+    "complete_joint_qualified": false,
+    "fabrication_released": false,
+    "panel_Hillman_resolution_deferred": true,
+    "physical_bond_qualified": false,
+    "physical_demand_bounds_established": false,
+    "physical_floor_qualified": false,
+    "structural_acceptance": false
+  },
+  "release": false,
+  "schema": "eoere_current96_exceedance_review/v1",
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+      "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+    },
+    "analysis_geometry_active_pins_verified": [
+      {
+        "path": "scripts/eoere_v6_analysis.py",
+        "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+      },
+      {
+        "path": "docs/bolted-frame-development/owner-frame-v6/geometry.json",
+        "sha256": "d2849e0bb7e3751396854556fa0bb411d83f3cf94dec55ec157a582f4f5b6e80"
+      },
+      {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/geometry/geometry.json",
+        "sha256": "bc3cc322a25269d84a5d5163ab4f47f7c94bf569a105c7d6a1db4829b0020d1e"
+      },
+      {
+        "path": "scripts/eoere_v6_analysis.py",
+        "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+      }
+    ],
+    "analysis_producer": {
+      "path": "scripts/eoere_v6_analysis.py",
+      "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+    },
+    "cleat_row_producer": {
+      "path": "scripts/eoere_requested_cleat_screen.py",
+      "sha256": "a2f2ef716af7384400abb2ea4804070a00150d2d8a38901ef448981db81acbec"
+    },
+    "fields_and_replays": {
+      "a1-rear": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a1-rear/field.json",
+          "sha256": "a61b9f92becc9e453714edcf5f73d01c11f6b78fe8109fed3f642b46089f75c7"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a1-rear/independent-replay-plywood.json",
+          "sha256": "477061798edb98611c12d4908364e80ab50803eab58e16536c546344202e79be"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a1-rear/independent-replay.json",
+          "sha256": "0f0fa41ff731afd2c979fb2acc60fcf028bc3bd2e803f4cb4342887cd94585ef"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      },
+      "a12-forward": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-forward/field.json",
+          "sha256": "458239f3d6fe4f920bd12ab9e09c4053c63c6285c1632cf72d6d056521ebede6"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-forward/independent-replay-plywood.json",
+          "sha256": "35e9586e3e4a57438888f3522ae8399ade13784e908bbcf30eb66573c0662ce7"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-forward/independent-replay.json",
+          "sha256": "1b32f0b1c2a54cd8910e0b517ba7d71a4951ca65b27549bcf27c6149987960c8"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      },
+      "a12-left": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-left/field.json",
+          "sha256": "0b73ab5b367c97facf8d17c5773e128230210d60a5894c9ded33731b1ba0a3e6"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-left/independent-replay-plywood.json",
+          "sha256": "d554567849505d41750d95d408a81abcab821095abe718aa70d0e32bc333f535"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-left/independent-replay.json",
+          "sha256": "8f6c1db509bdbb37c171d430027675a458c38586a1cb160204ae2f5c3d79a1c3"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      },
+      "a12-rear": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-rear/field.json",
+          "sha256": "4dd26acc40d87f361dcfcb6623d4360200f37a22d2538621b35e8b6367e1310a"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-rear/independent-replay-plywood.json",
+          "sha256": "afe0413cfd6a5dbe2d30050efe1449139a1ac85b8b63f070b348045bc4f08de2"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/a12-rear/independent-replay.json",
+          "sha256": "c2e06a9aa2786e71649811c4bc630c170c585dca0bf58a499b6016401e517672"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      },
+      "k12-rear": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-rear/field.json",
+          "sha256": "278dada47e09b133218ebe2fb7ba80148d15ae284ace046b142122ec1deb6153"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-rear/independent-replay-plywood.json",
+          "sha256": "963ef1ad6323d407ad66ef7f6c3f58cf92e753840037903a5f96fbc16f4ef0c8"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-rear/independent-replay.json",
+          "sha256": "6d292cc9aa32a13bb47afaac23a326033a1ff28189ca52240477ae95400882ed"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      },
+      "k12-right": {
+        "active_field_pins_verified": [
+          {
+            "path": "scripts/eoere_v6_analysis.py",
+            "sha256": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be"
+          },
+          {
+            "path": "scripts/eoere_leg_header_mechanics.py",
+            "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/geometry/geometry.json",
+            "sha256": "0c193511373e0264e19bce0920fedb4ef9cc73070ec027c78103ecabf3ab4529"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+            "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+          },
+          {
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+            "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+          }
+        ],
+        "field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-right/field.json",
+          "sha256": "9b5d33484ad1816ff37af704813086c80e83535d0861bd1c58d5e0140b8ccfea"
+        },
+        "field_source_map_entries": 1484,
+        "independent_plywood_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-right/independent-replay-plywood.json",
+          "sha256": "d294acafdb62b6e6f3c3d3256fdad4f4f69d01c53f1a25515a5fadffdac4852b"
+        },
+        "independent_replay": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/k12-right/independent-replay.json",
+          "sha256": "fcb4da1f566663b92e69900b4853678edeb3e4993aaaa645086feae2b017a9bc"
+        },
+        "inherited_source_closure_verified_at_preparation": true
+      }
+    },
+    "frozen_readiness_receipt": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/readiness.json",
+      "sha256": "39edc73827fd182450f0cebc65d25ab3aa6d7a5d355d2e4b6a2130b731fd515a"
+    },
+    "full_raw_report": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/exceedances-v2.json",
+      "sha256": "829a4463cd3421bc66add0fd307c05197e0acb5a29a9f3ba3e0eb1b38123c5b0"
+    },
+    "hardware_selection": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/hardware-selection.csv",
+      "sha256": "305721fa445c410fdd41f981170178e06f7dfa3b36335b009484b24a6e1b3422"
+    },
+    "material": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/material.json",
+      "sha256": "cb332b5c1dc12eb0d673f3ebf89af0b7f45b0ab230e84b2bd9b4385783b94a1f"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/geometry/geometry.json",
+      "sha256": "bc3cc322a25269d84a5d5163ab4f47f7c94bf569a105c7d6a1db4829b0020d1e"
+    },
+    "physical_geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/geometry.json",
+      "sha256": "d2849e0bb7e3751396854556fa0bb411d83f3cf94dec55ec157a582f4f5b6e80"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/four-hosts/preparation/inputs.json",
+      "sha256": "5a84b40a687eba0ee22fd959e142441c0e24375f5a5e9b72aa78b3b2dd350db2"
+    },
+    "report_producer": {
+      "path": "scripts/eoere_v6_report.py",
+      "sha256": "999e9414afe906734e4d44f2cbc88fd4629c42e2fcc647667272d5b0fb4a55eb"
+    },
+    "worksheet_adapter": {
+      "path": "scripts/eoere_v6_checks.py",
+      "sha256": "c7d0eeaa15be9a8eac450fdcb6c1d594169fc188c5e808c9738837cafe0e2a6f"
+    },
+    "worksheets": {
+      "credited_36p5_plywood_groups": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/bonded-rows-v1.json",
+        "sha256": "088f3c7b88dd821e29058a21e82e7eec9fb925f05a0cfd1fef1bb1a012db0316"
+      },
+      "nominal_38p1_plywood_groups": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/nominal38p1-rows-v1.json",
+        "sha256": "db944f1759091aea1d8593721351185621147e0942bf9a886645ade57df9aec4"
+      },
+      "shaft_bearing_statics_Cg_adjusted": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/complete-v1/shaft-bearing-blocks-v1.json",
+        "sha256": "6ac130520e4e6239f064b5ef2e27c3d8be515d78e2d14cd2edb57b8832c865a8"
+      },
+      "shaft_geometry_Cdelta_adjusted": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/complete-v1/shaft-geometry-adjustments-v3.json",
+        "sha256": "4ec77fc1f51a027b5ef8da7a159f02e4807f0899ad95d10b72e6a8a98521979b"
+      },
+      "timber_sections": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/analysis-v1/review/complete-v1/timber-sections-v1.json",
+        "sha256": "498885e07f9d98d7b16e9a974c1f4f8806d31aed71c8cb7642804ab0cee61bad"
+      }
+    }
+  },
+  "source_map_limits": {
+    "active_field_source_pins_reverified": true,
+    "all_inherited_source_closure_receipts_verified_at_preparation": true,
+    "inherited_historical_source_maps_reexecuted": false
+  }
+}

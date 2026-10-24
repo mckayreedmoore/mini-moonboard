@@ -1,0 +1,316 @@
+{
+  "acceptance_rule": "Applicable physical shear-plane/row/group resistance plus complete signed force-and-moment transfer, applicable geometry and local splitting/net-section checks. Unknown applicability or resistance remains unresolved.",
+  "actual_Cdelta_adopted": null,
+  "actual_Cg_adopted": null,
+  "analysis_geometry": {
+    "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/geometry/geometry.json",
+    "sha256": "3bda133ddd3a561fac870ecd5e07ee3205eb69067dd7ecdf86b27685cde00edc"
+  },
+  "climbing_released": false,
+  "complete_connection_acceptance": null,
+  "complete_connection_capacity": null,
+  "conditional_benchmark_factor_used_for_acceptance": false,
+  "current_modeled_axes": 116,
+  "double_counting_disposition": "Neither complete double counting nor no overlap is established. Gross member EA and shaft foundations do not demonstrate NDS-equivalent calibrated serial-row redistribution.",
+  "fabrication_released": false,
+  "field_bindings": {
+    "a1-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a1-rear/field.json",
+      "sha256": "8afa8cf3972ae7e74cb84e7629e9381a78ac904dee5715473600c87d6b1201e0"
+    },
+    "a12-forward": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-forward/field.json",
+      "sha256": "6de1372c35af9e145f148a60b2932134a833a9c462c17d92521bda894134d63c"
+    },
+    "a12-left": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-left/field.json",
+      "sha256": "ccb4e955fd76491dc92b378135b0c10b24f28cb89f99cc31651f3e749e9eb7fa"
+    },
+    "a12-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/a12-rear/field.json",
+      "sha256": "1ee777f021bc3229fd78c01526d5254f2482851d447c371c011b1aef5e96875c"
+    },
+    "k12-rear": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/k12-rear/field.json",
+      "sha256": "1e753937fc7ec26c9a335a5258e01a18800894337e922a5d00706c848bac087e"
+    },
+    "k12-right": {
+      "path": "fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/four-hosts/k12-right/field.json",
+      "sha256": "41f248c51bbe83a239726e141961f03befa4d0c7912f37358e8bbf8ea569def9"
+    }
+  },
+  "flagged_component_dispositions": [
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "eoere_bolt_067",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_067",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.12014892832985,
+        "individual_reference_before_Cg": 0.560074464164925
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "eoere_bolt_070",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_070",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0350203026258011,
+        "individual_reference_before_Cg": 0.5175101513129006
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "lumber_leg_bolt_left_1",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_1",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.692217550018021,
+        "individual_reference_before_Cg": 0.8461087750090105
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "lumber_leg_bolt_left_2",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_2",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.9867105132239167,
+        "individual_reference_before_Cg": 0.9933552566119583
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "lumber_leg_bolt_right_1",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_1",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.6700787844838256,
+        "individual_reference_before_Cg": 0.8350393922419128
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "lumber_leg_bolt_right_2",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.5,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_2",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.959490982283163,
+        "individual_reference_before_Cg": 0.9797454911415815
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "v10_header_bolt_001",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v10_header_bolt_001",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.0558609915588701,
+        "individual_reference_before_Cg": 0.26396524788971754
+      },
+      "status": "UNRESOLVED"
+    },
+    {
+      "actual_Cg": null,
+      "actual_physical_group_id": null,
+      "actual_row_assignment": null,
+      "complete_connection_capacity": null,
+      "complete_force_and_moment_interaction_pass": null,
+      "component": "v10_header_bolt_004",
+      "legacy_trial_is_acceptance_criterion": false,
+      "legacy_trial_maximum": {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v10_header_bolt_004",
+        "criterion": "wood_bearing_whole_affine",
+        "index": 1.054350011657502,
+        "individual_reference_before_Cg": 0.2635875029143755
+      },
+      "status": "UNRESOLVED"
+    }
+  ],
+  "force_bank_rerun": false,
+  "hardware_or_geometry_selected_by_this_comparison": false,
+  "legacy_diagnostics": {
+    "case_rows": 15,
+    "components": 8,
+    "diagnostic_only": true,
+    "established_physical_failure_count": null,
+    "inventory": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/4x6-v2-trial-inventory.json",
+      "sha256": "4234d5117b401df98dcc1a6b7a439fae019127a41b2818c9b76db01124380902"
+    },
+    "preserved": true
+  },
+  "legacy_signature_1_over_n_used_for_acceptance": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "loads_reduced": false,
+  "moments_omitted": false,
+  "other_axes_not_cleared_by_absence_of_legacy_flag": true,
+  "physical_method_dispositions": [
+    {
+      "evidence": "Actual centers and gross-EA aligned-row benchmark authenticated. Current full receiver forces/couples and 24 equilibrated constructions retained.",
+      "remaining": "Actual oblique row/load-path definition, applicable calibrated slip and complete force/moment/axial/splitting resistance. A constructed sufficient bound exceedance is not physical failure.",
+      "row_or_Cg_status": "UNRESOLVED",
+      "scope": "Rear paired wood/wood axes"
+    },
+    {
+      "evidence": "Four conditional two-fastener principal-row scenarios use full-flange gross steel strips.",
+      "remaining": "Fitting effective EA and coupled steel-port participation are not proven by gross-strip EA. Actual nonparallel forces, free couples, row ownership and local wood/steel transfer remain.",
+      "row_or_Cg_status": "UNRESOLVED",
+      "scope": "Header connections"
+    },
+    {
+      "actual_Cg": null,
+      "evidence": "Three unequal media and shared laminated cleat load paths retained.",
+      "remaining": "No two-member or symmetric double-shear Cg is assigned. Bond/slip, shear-plane partition, local couples, wood splitting and simultaneous transfer remain.",
+      "row_or_Cg_status": "UNRESOLVED",
+      "scope": "Upper cleat plywood/sidewood/steel paths"
+    },
+    {
+      "evidence": "Own six-case demands, individual force-only references and conditional geometry endpoints are retained within scope.",
+      "remaining": "Actual oblique row/geometry, complete wrench/group transfer and fitting/hardware applicability. Absence of a legacy flag is not a whole-connection pass.",
+      "row_or_Cg_status": "UNRESOLVED",
+      "scope": "Top-angle grid and other connections"
+    }
+  ],
+  "provided_benchmarks": {
+    "actual_connection_factors_or_passes": false,
+    "existing_formula_controls_reused": 6,
+    "five_saved_factor_values_checked_with_the_provided_helper": true,
+    "header_conditional_Cg_range": [
+      0.996556584233378,
+      0.9981822123468869
+    ],
+    "rear_conditional_Cg": 0.9997730545069687,
+    "same_helper_as_existing_slip_audit": true,
+    "scenario_count": 5,
+    "source_bindings_verified": 3
+  },
+  "purchase_authorized": false,
+  "required_next_evidence": [
+    "Physical row and effective member load-path definition",
+    "Applicable calibrated/standard slip and clearance basis",
+    "Matched benchmark of existing FE axial-row redistribution vs NDS equation",
+    "Full actual force-plus-moment mapping, splitting/tear-out/net/fitting checks"
+  ],
+  "revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "schema": "eoere_physical_row_full_wrench_criteria/v1",
+  "signed_forces_changed": false,
+  "signed_moments_changed": false,
+  "source_bindings": {
+    "existing_group_slip_assessment": {
+      "path": "fea/generated/v10-standard-top-stock-v1/connection-proposal/4x6-method/group-slip-assumptions/fresh-fe-vs-nds-group-slip-v1.json",
+      "sha256": "7e29d154bdf60715da353843a5f716569d27c8dc033848b0fe79073d216dcdf7"
+    },
+    "full_signed_force_and_couple_atlas": {
+      "path": "fea/generated/v10-standard-top-stock-v1/connection-proposal/4x6-method/tr12-current-sixcase-subcheck-v2.json",
+      "sha256": "16b06fc3f3318d5bd4b98261706e614c5c8bfbf27ccccf2bebe067586699684b"
+    },
+    "legacy_trial_inventory": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/4x6-v2-trial-inventory.json",
+      "sha256": "4234d5117b401df98dcc1a6b7a439fae019127a41b2818c9b76db01124380902"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry.json",
+      "sha256": "8b27fbd4cf06378077bc7b5ac7702390634710b2e3a44606318eb0c677da1bbe"
+    },
+    "primary_row_method_disposition": {
+      "path": "fea/generated/v10-standard-top-stock-v1/connection-proposal/4x6-method/method-resolution/nds-oblique-row-group-method-resolution-v1.md",
+      "sha256": "b9f56e51698856aab5fdf5df16e9cbb1e5b7925631b1941a35f2a0e2a4a6b153"
+    },
+    "provided_comparison": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group-row-comparison-v1.json",
+      "sha256": "b5d3b1543c3db9c42eacd4373c321013dc0d9812d114f827ad31768005d7b362"
+    },
+    "provided_producer": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group_row_comparison_v1.py",
+      "sha256": "7b3d136f32e62abb073858fdd71e1287f691417826997e2576d9c5f931e68cfb"
+    },
+    "rear_full_wrench_construction": {
+      "path": "fea/generated/v10-standard-top-stock-v1/connection-proposal/4x6-method/rear-wrench-current/reference-result.json",
+      "sha256": "8731fc762a4f1dd766b66d63ca8ab177eab592840b9742f9f65ea257356c4f3a"
+    },
+    "reference_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/4x6-v2-reference-review.json",
+      "sha256": "88018056e852726221561ef1823cb603ba8afec2224c21ee84dd001b2e245abf"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/4x6-v2-response-bank.json",
+      "sha256": "9a885d4dbfe5ef54fbb0d598e3c30d7d0d7233af67d75b39695b6ccdea066736"
+    }
+  },
+  "status": "UNRESOLVED",
+  "structural_acceptance": false,
+  "upper_cleat_three_media_Cg": null
+}

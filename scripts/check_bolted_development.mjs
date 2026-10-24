@@ -5,6 +5,7 @@ import {createHash} from 'node:crypto';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {runInNewContext} from 'node:vm';
+import {isDeepStrictEqual} from 'node:util';
 import {gunzipSync} from 'node:zlib';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
@@ -16,6 +17,13 @@ import {validateLegHeader} from '../site/eoere-leg-header-overlay.mjs';
 import {validatePairedFrame} from '../site/eoere-paired-frame-overlay.mjs';
 import {validateRetainedFrame} from '../site/eoere-retained-frame-overlay.mjs';
 import {validateOwnerFrame} from '../site/eoere-owner-frame-overlay.mjs';
+import {validateReferenceCleats} from '../site/eoere-reference-cleat-overlay.mjs';
+import {validatePrincipalPairs} from '../site/eoere-principal-pair-overlay.mjs';
+import {validateInwardBolts} from '../site/eoere-inward-bolts-overlay.mjs';
+import {validateInwardAngles} from '../site/eoere-inward-angles-overlay.mjs';
+import {validateSingleSpacers} from '../site/eoere-single-spacer-overlay.mjs';
+import {validateV10Provenance, resolveV10SourceRef, validateV10SceneProvenance, V10_PROVENANCE_SHA256,
+  V10_SCENE, V10_REVISION as V10_CANDIDATE13_REVISION, V10_COUNTS as V10_CANDIDATE13_COUNTS} from '../site/eoere-v10-provenance.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const INDEX_PATH = 'docs/bolted-frame-development/development-revisions.json';
@@ -39,9 +47,614 @@ export function viewerModel(html, requestedModel) {
 }
 
 export function validateEntry(text, index) {
+  const selection = index.development_selection;
   assert.equal(text.match(/The current geometry is \*\*`([^`]+)`\*\*/)?.[1],
-    index.geometry.revision, 'incoming current geometry differs');
-  assert.ok(text.includes(`?model=${index.geometry.viewer}&view=rear`), 'incoming viewer differs');
+    selection?.revision ?? index.geometry.revision, 'incoming current geometry differs');
+  assert.ok(text.includes(`?model=${selection?.viewer.model ?? index.geometry.viewer}&view=rear`), 'incoming viewer differs');
+}
+
+export function validateCurrent96Review(report, index) {
+  assert.equal(report.schema, 'eoere_current96_exceedance_review/v1');
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  assert.equal(report.case_count, 6);
+  assert.deepEqual([...report.case_ids].sort(),
+    ['a12-forward', 'a12-left', 'a12-rear', 'k12-right', 'k12-rear', 'a1-rear'].sort());
+  assert.ok(report.analysis_geometry.path.includes('/owner-principal-pairs-v6/analysis-v1/'));
+  assert.match(report.analysis_geometry.sha256, /^[a-f0-9]{64}$/);
+  assert.equal(report.current_response_computed, true);
+  assert.deepEqual(report.load_contract, {input_weight: 250, input_unit: 'lb',
+    downward_multiplier: 2, horizontal_force_n: 300, duration_factor_CD: 1});
+  for (const [key, count] of Object.entries({current_bolts: 96, ordinary_bolts: 84,
+    dedicated_bolts: 12, sawn_timber_members: 20, bonded_plywood_hosts: 2,
+    physical_plywood_leaves: 4, physical_bodies: 148, wood_bearing_walls: 112,
+    four_port_fittings: 24, panel_screws_deferred: 66}))
+    assert.equal(report.inventory[key], count, `current96 inventory: ${key}`);
+  assert.equal(report.qualification.panel_Hillman_resolution_deferred, true);
+  for (const key of ['complete_conditional_frame_evaluation', 'physical_demand_bounds_established',
+    'structural_acceptance', 'fabrication_released', 'climbing_released'])
+    assert.equal(report.qualification[key], false, `current96 claim boundary: ${key}`);
+  assert.ok(report.geometry_eligibility && report.metric_maxima && report.exceedances);
+  assert.equal(report.geometry_eligibility.no_pass_when_geometry_ineligible, true);
+  assert.equal(report.geometry_eligibility.all_geometry_eligible, false);
+  assert.equal(report.source_map_limits.active_field_source_pins_reverified, true);
+  for (const name of ['analysis_producer', 'worksheet_adapter', 'report_producer'])
+    bound(report.source_bindings[name]);
+}
+
+export function validateCurrentBoltGeometryReview(report, index) {
+  const target = {
+    'eoere-inward-bolts-and-angles-v8': ['eoere-v8-perfect-bond-four-host-analysis-v1', 'owner-inward-angles-v8'],
+    'eoere-single-spacer-cleat-stacks-v9': ['eoere-v9-perfect-bond-four-host-analysis-v1', 'owner-single-spacer-stacks-v9'],
+  }[index.geometry.revision];
+  assert.ok(target, 'supported own-bank geometry required');
+  const physical = JSON.parse(bound(index.geometry.receipt));
+  assert.equal(report.schema, 'eoere_current_bolt_geometry_review/v1');
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  assert.equal(report.analysis_revision, target[0]);
+  assert.deepEqual(report.physical_geometry_raw, physical.checked_geometry);
+  assert.equal(report.status, 'CURRENT_COMPONENT_REVIEW_COMPLETE_JOINT_UNRESOLVED');
+  assert.deepEqual(report.load_contract, {input_weight: 250, input_unit: 'lb',
+    downward_multiplier: 2, horizontal_force_n: 300, duration_factor_CD: 1, accessory_mass_kg: 25});
+  assert.equal(report.all_six_fields_share_geometry_and_material_intake, true);
+  assert.ok(report.analysis_geometry.path.includes(`/${target[1]}/analysis-v1/geometry/`));
+  assert.match(report.analysis_geometry.sha256, /^[a-f0-9]{64}$/);
+  assert.equal(report.formal_geometry_Cdelta, null);
+  for (const key of ['complete_joint_qualified', 'complete_joint_acceptance', 'candidate_accepted',
+    'capacity_established', 'structural_acceptance', 'structural_released',
+    'physical_demand_bounds_established', 'fabrication_released', 'climbing_released',
+    'historical_pass_transferred', 'new_force_response_computed_by_this_review'])
+    assert.equal(report[key], false, `current geometry claim boundary: ${key}`);
+  assert.deepEqual(report.base_input_manifest.legacy_screen_adjusted_indices, {});
+  assert.deepEqual(report.inventory, {shafts: 96, wood_occurrences_per_case: 112,
+    timber_rows: 22, fitting_ports: 96, analytical_plywood_bodies: 2,
+    physical_plywood_leaves: 4, cases: 6, panels: 6, screws: 66});
+  for (const key of ['producer', 'occurrence_producer', 'rules_producer',
+    'outer_geometry_producer', 'pair_census_producer', 'pair_upgrade_producer']) bound(report[key]);
+  const cases = ['a12-forward', 'a12-left', 'a12-rear', 'k12-right', 'k12-rear', 'a1-rear'];
+  assert.deepEqual(report.case_summaries.map(r => r.case_id).sort(), [...cases].sort());
+  assert.deepEqual(Object.keys(report.source_bindings.fields_and_replays).sort(), [...cases].sort());
+  for (const row of report.case_summaries) {
+    assert.deepEqual(row.field, report.source_bindings.fields_and_replays[row.case_id].field);
+    assert.equal(Object.values(row.axis_status_counts).reduce((a, b) => a+b, 0), 96);
+    assert.equal(Object.values(row.load_class_counts).reduce((a, b) => a+b, 0), 112);
+    assert.deepEqual(row.pair_census_counts, {same_host_pairs: 326, existing_connection_group_pairs: 52,
+      additional_pairs_with_unresolved_applicability: 274});
+    for (const ref of Object.values(report.source_bindings.fields_and_replays[row.case_id])) {
+      assert.ok(ref.path.includes(`/${target[1]}/analysis-v1/four-hosts/${row.case_id}/`));
+      assert.match(ref.sha256, /^[a-f0-9]{64}$/);
+    }
+  }
+  assert.equal(report.additional_same_host_pairs.length, 274);
+  const pairs = new Set();
+  for (const row of report.additional_same_host_pairs) {
+    assert.equal(row.axes.length, 2); assert.ok(row.axes[0] < row.axes[1]);
+    pairs.add(`${row.host}/${row.axes.join('/')}`);
+    assert.equal(row.status, 'UNRESOLVED'); assert.equal(row.complete_Cdelta, null);
+    assert.equal(row.complete_joint_qualified, false);
+    assert.deepEqual([...row.case_ids].sort(), [...cases].sort());
+  }
+  assert.equal(pairs.size, 274);
+  if (report.method_blueprint) {
+    for (const key of ['analysis_module', 'frozen_geometry_reader', 'latest_wrapper'])
+      bound(report.method_blueprint[key]);
+    assert.equal(report.method_blueprint.analysis_revision, report.analysis_revision);
+    assert.equal(report.method_blueprint.physical_geometry_revision, report.geometry_revision);
+  }
+}
+
+export function validateOwnResponseBank(report, index) {
+  const target = {
+    'eoere-inward-bolts-and-angles-v8': ['eoere-v8-perfect-bond-four-host-analysis-v1', 'owner-inward-angles-v8'],
+    'eoere-single-spacer-cleat-stacks-v9': ['eoere-v9-perfect-bond-four-host-analysis-v1', 'owner-single-spacer-stacks-v9'],
+  }[index.geometry.revision];
+  assert.ok(target, 'own response-bank geometry required');
+  assert.equal(report.schema, 'eoere_own_response_bank/v1');
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  assert.deepEqual(report.physical_geometry_raw, JSON.parse(bound(index.geometry.receipt)).checked_geometry);
+  assert.equal(report.analysis_revision, target[0]);
+  assert.ok(report.analysis_geometry.path.includes(`/${target[1]}/analysis-v1/geometry/`));
+  assert.equal(report.all_six_cases_admitted, true);
+  assert.equal(report.admission_gate_N, 1e-5);
+  assert.ok(Number.isFinite(report.maximum_gradient_inf_N) && report.maximum_gradient_inf_N >= 0 && report.maximum_gradient_inf_N < 1e-5);
+  assert.deepEqual(report.load_contract, {weight_lb: 250, downward_multiplier: 2,
+    horizontal_force_N: 300, accessory_mass_kg: 25, duration_factor_CD: 1});
+  for (const key of ['historical_force_pass_transferred', 'physical_force_bounds_established',
+    'complete_joint_or_frame_qualified', 'structural_acceptance', 'fabrication_released', 'climbing_released'])
+    assert.equal(report[key], false, `own-bank boundary: ${key}`);
+  bound(report.producer);
+  const cases = ['a12-forward', 'a12-left', 'a12-rear', 'k12-right', 'k12-rear', 'a1-rear'];
+  assert.deepEqual(report.cases.map(r => r.case_id).sort(), [...cases].sort());
+  const base = report.analysis_geometry.path.replace(/\/geometry\/geometry\.json$/, '/four-hosts/');
+  for (const row of report.cases) {
+    assert.equal(row.both_independent_replays_admitted, true);
+    assert.equal(row.physical_bodies, 148);assert.equal(row.shafts, 96);
+    assert.equal(row.panels, 6);assert.equal(row.Hillman_axes, 66);
+    assert.ok(Number.isFinite(row.gradient_inf_N) && row.gradient_inf_N >= 0 && row.gradient_inf_N < 1e-5);
+    for (const key of ['field', 'independent_replay', 'independent_plywood_replay']) {
+      assert.ok(row[key].path.startsWith(base+row.case_id+'/'));
+      assert.match(row[key].sha256, /^[a-f0-9]{64}$/);
+    }
+  }
+  assert.equal(report.maximum_gradient_inf_N, Math.max(...report.cases.map(r => r.gradient_inf_N)));
+}
+
+const CURRENT_CASES = ['a12-forward', 'a12-left', 'a12-rear', 'k12-right', 'k12-rear', 'a1-rear'];
+const SHAFT_REFERENCE_METRICS = ['maximum_bearing_index_before_Cdelta',
+  'maximum_N_M_index_before_Cdelta', 'maximum_N_M_V_index_before_Cdelta'];
+const TIMBER_REFERENCE_METRICS = ['maximum_normal_reference_upper',
+  'maximum_shear_torsion_reference_upper', 'maximum_declared_restraint_normal_reference_upper'];
+const CURRENT_SAWN_MEMBERS = ['base_header', 'base_rail_top', ...['left', 'right'].flatMap(side =>
+  ['base_floor', 'base_post_center', 'base_post_outer', 'base_principal_center',
+    'base_rail_bottom', 'base_rail_service_lower', 'base_rail_service_upper', 'base_side', 'lumber_leg']
+    .map(name => `${name}_${side}`))];
+const BRACING_MODES = ['top_grain_compression', 'side_grain_compression', 'panel_normal_translation',
+  'top_grain_torsion', 'side_grain_torsion', 'in_plane_corner_rotation'];
+const BRACING_FITTINGS = {left: 'eoere_clip_single_top_left_1', right: 'eoere_clip_single_top_right_2'};
+const BRACING_AXIS_TOLERANCE = 1e-8; // Tracked factory directions are rounded to nine decimal places.
+
+function referenceKeys(value, expected, label) {
+  assert.ok(value && typeof value === 'object' && !Array.isArray(value), `${label}: object required`);
+  assert.deepEqual(Object.keys(value).sort(), [...expected].sort(), `${label}: keys differ`);
+}
+
+function referenceBinding(binding, expectedPath) {
+  referenceKeys(binding, ['path', 'sha256'], 'source binding');
+  assert.ok(typeof binding.path === 'string' && binding.path.split('/').every(part =>
+    part && part !== '.' && part !== '..') && !binding.path.includes('\\') && !path.isAbsolute(binding.path),
+  'source binding must use a repository-relative path');
+  assert.match(binding.sha256, /^[a-f0-9]{64}$/);
+  if (expectedPath !== undefined) assert.equal(binding.path, expectedPath, 'own source path differs');
+}
+
+function referenceIndex(value, label) {
+  assert.ok(Number.isFinite(value) && value >= 0, `${label}: finite nonnegative index required`);
+}
+
+function referenceClose(actual, expected, label) {
+  assert.ok(Number.isFinite(actual) && Number.isFinite(expected) &&
+    Math.abs(actual-expected) <= 1e-12*Math.max(1, Math.abs(expected)), `${label}: values differ`);
+}
+
+function parallelProbeAxes(first, second) {
+  return Math.min(Math.hypot(...first.map((value, i) => value-second[i])),
+    Math.hypot(...first.map((value, i) => value+second[i]))) <= BRACING_AXIS_TOLERANCE;
+}
+
+export function currentFittingProbeGeometry(axisMap, fitting) {
+  assert.ok(Object.values(BRACING_FITTINGS).includes(fitting), 'known bracing fitting required');
+  const holes = [];
+  for (const [axisID, axis] of axisMap) {
+    assert.ok(Array.isArray(axis.attachments), 'axis attachment list required');
+    const attachments = axis.attachments.filter(row => row?.angle_id === fitting);
+    assert.ok(attachments.length <= 1, 'one fitting hole center per bolt axis required');
+    if (!attachments.length) continue;
+    const {point, receiver, direction} = attachments[0];
+    assert.ok(Array.isArray(point) && point.length === 3 && point.every(Number.isFinite),
+      'finite physical fitting hole center required');
+    holes.push({axisID, point, receiver, direction});
+  }
+  assert.equal(holes.length, 4, 'four physical fitting hole centers required');
+  assert.equal(new Set(holes.map(row => JSON.stringify(row.point))).size, 4,
+    'four distinct physical fitting hole centers required');
+  const corner = Object.keys(BRACING_FITTINGS).find(side => BRACING_FITTINGS[side] === fitting);
+  const beam = holes.filter(row => row.receiver === 'base_rail_top');
+  const post = holes.filter(row => row.receiver === `base_side_${corner}`);
+  assert.equal(beam.length, 2, 'current corner needs two top-rail attachments');
+  assert.equal(post.length, 2, 'current corner needs two side-member attachments');
+  const receiverAxis = rows => {
+    const axes = rows.map(({direction}) => {
+      assert.ok(Array.isArray(direction) && direction.length === 3 && direction.every(Number.isFinite),
+        'finite fitting attachment direction required');
+      const norm = Math.hypot(...direction);
+      assert.ok(Math.abs(norm-1) <= BRACING_AXIS_TOLERANCE, 'unit fitting attachment direction required');
+      return direction.map(value => value/norm);
+    });
+    assert.ok(parallelProbeAxes(...axes), 'two receiver attachments must define one consistent axis');
+    return axes[0];
+  };
+  // This frozen corner layout uses post bores along top grain and beam bores
+  // along side grain. Require its recorded 2+2 receiver arrangement; this is
+  // not a general rule for other fitting layouts or timber profiles.
+  const top = receiverAxis(post), side = receiverAxis(beam);
+  assert.ok(Math.abs(top.reduce((total, value, i) => total+value*side[i], 0)) <= BRACING_AXIS_TOLERANCE,
+    'current corner grain axes must remain orthogonal');
+  const cross = [top[1]*side[2]-top[2]*side[1], top[2]*side[0]-top[0]*side[2],
+    top[0]*side[1]-top[1]*side[0]];
+  const normal = cross.map(value => value/Math.hypot(...cross));
+  return {axes: holes.map(row => row.axisID).sort(),
+    point: [0, 1, 2].map(i => holes.reduce((total, row) => total+row.point[i], 0)/4),
+    directions: {top, side, normal}};
+}
+
+function currentPublicReview(report, index) {
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  referenceBinding(report.physical_geometry);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  const bank = JSON.parse(bound(index.response_bank));
+  validateOwnResponseBank(bank, index);
+  referenceBinding(report.analysis_geometry);
+  assert.deepEqual(report.analysis_geometry, bank.analysis_geometry);
+  assert.deepEqual([...report.case_ids].sort(), [...CURRENT_CASES].sort());
+  const base = bank.analysis_geometry.path.replace(/geometry\/geometry\.json$/, '');
+  assert.notEqual(base, bank.analysis_geometry.path, 'own analysis geometry filename required');
+  referenceBinding(report.producer, 'scripts/eoere_current_reference_review.py');
+  bound(report.producer);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released'])
+    assert.equal(report[key], false, `current review claim boundary: ${key}`);
+  // Recover receiver/attachment records from tracked axis rows.
+  // Recent packets contain updates, so retain the preceding complete census.
+  const axisSources = [];
+  for (let revision = index; revision; revision = revision.preceding_revision) {
+    const receipt = JSON.parse(bound(revision.geometry.receipt));
+    for (const name of ['axes.json', 'axes-additions.json', 'axis-updates.json'])
+      if (receipt.files[name]) axisSources.push(JSON.parse(bound(receipt.files[name])).axes);
+    if (receipt.files['candidate-parameters.json']) axisSources.push(
+      JSON.parse(bound(receipt.files['candidate-parameters.json'])).axis_updates.map(row => row.after_axis));
+    if (receipt.files['axes.json']) break;
+  }
+  const axisMap = new Map(axisSources.reverse().flat().map(axis => [axis.id, axis]));
+  assert.equal(axisMap.size, 96);
+  return {bank, base, axisMap};
+}
+
+export function validateCurrentConventionalReferenceReview(report, index) {
+  assert.equal(report.schema, 'eoere_current_conventional_reference_review/v1');
+  const {bank, base, axisMap} = currentPublicReview(report, index);
+  referenceBinding(report.physical_source_geometry);
+  assert.deepEqual(report.physical_source_geometry, bank.physical_geometry_raw);
+  referenceBinding(report.prepared_readiness, base+'adapter-readiness.json');
+  assert.deepEqual(report.prepared_readiness, bank.readiness);
+  assert.deepEqual(report.load_contract, {...bank.load_contract, self_weight: true});
+  assert.equal(report.complete_joint_Cdelta_established, false);
+  assert.equal(report.physical_failure_inferred, false);
+  assert.equal(report.physical_geometry_loads_screws_resistances_unchanged_by_review, true);
+  assert.equal(report.fields.length, CURRENT_CASES.length);
+  for (const [i, caseID] of report.case_ids.entries())
+    assert.deepEqual(report.fields[i], bank.cases.find(row => row.case_id === caseID).field,
+      'reference field must join its own admitted bank');
+  const sources = {
+    shaft_Cg_only: 'reference-review-v1/complete-v1/shaft-bearing-blocks-v1.json',
+    timber_scalar: 'reference-review-v1/complete-v1/timber-sections-v1.json',
+    timber_vector: 'reference-review-v1/vector-bound-v2/timber-sections-v1.json',
+    cleat_nominal: 'reference-review-v1/nominal38p1-rows-v1.json',
+    cleat_wall_allowance: 'reference-review-v1/bonded-rows-v1.json',
+    timber_cores: 'reference-review-v1/complete-v1/timber-net-geometry-v1.json',
+    thread_windows: 'reference-review-v1/head-to-nut-windows.json',
+  };
+  referenceKeys(report.source_bindings, [...Object.keys(sources), 'vector_method'], 'reference sources');
+  for (const [name, suffix] of Object.entries(sources)) referenceBinding(report.source_bindings[name], base+suffix);
+  referenceBinding(report.source_bindings.vector_method, 'scripts/timber_vector_shear_bound.py');
+  bound(report.source_bindings.vector_method);
+  assert.ok(Number.isSafeInteger(report.interval_count) && report.interval_count >= 6*20,
+    'whole-interval reference census required');
+
+  const caseWitness = row => {
+    assert.ok(CURRENT_CASES.includes(row.case_id), 'current case witness required');
+    referenceIndex(row.index, 'reference witness');
+  };
+  const shaftWitness = row => {
+    caseWitness(row);
+    assert.ok(axisMap.has(row.axis), 'current shaft identity required');
+    assert.ok(SHAFT_REFERENCE_METRICS.includes(row.metric), 'known shaft reference metric required');
+    assert.ok(Number.isFinite(row.Cg) && row.Cg > 0 && row.Cg <= 1, 'bounded Cg required');
+    assert.equal(row.complete_joint_Cdelta, null);
+  };
+  referenceKeys(report.shaft_Cg_only_maxima, SHAFT_REFERENCE_METRICS, 'shaft maxima');
+  for (const [metric, row] of Object.entries(report.shaft_Cg_only_maxima)) {
+    shaftWitness(row);
+    assert.equal(row.metric, metric);
+  }
+  const timberWitness = row => {
+    caseWitness(row);
+    assert.ok(CURRENT_SAWN_MEMBERS.includes(row.member), 'current sawn member required');
+    assert.ok(Number.isSafeInteger(row.section_interval_count) && row.section_interval_count > 0,
+      'section interval count required');
+  };
+  referenceKeys(report.timber_maxima, ['timber_scalar', 'timber_vector'], 'timber constructions');
+  for (const [construction, metrics] of Object.entries(report.timber_maxima)) {
+    referenceKeys(metrics, TIMBER_REFERENCE_METRICS, 'timber metrics');
+    for (const [metric, summary] of Object.entries(metrics)) {
+      assert.equal(summary.source_field_name, metric);
+      assert.equal(summary.unit, 'reference upper index');
+      referenceKeys(summary.by_case, CURRENT_CASES, 'timber case maxima');
+      for (const [caseID, row] of Object.entries(summary.by_case)) {
+        timberWitness(row);
+        assert.equal(row.case_id, caseID);
+      }
+      timberWitness(summary.overall);
+      assert.deepEqual(summary.overall, summary.by_case[summary.overall.case_id], 'whole maximum witness differs');
+      assert.equal(summary.overall.index, Math.max(...Object.values(summary.by_case).map(row => row.index)));
+      if (construction === 'timber_vector') {
+        const scalar = report.timber_maxima.timber_scalar[metric];
+        if (metric === 'maximum_shear_torsion_reference_upper') {
+          for (const caseID of CURRENT_CASES) assert.ok(summary.by_case[caseID].index <= scalar.by_case[caseID].index+1e-7,
+            'vector bound exceeds scalar beyond the issued series-tail allowance');
+        } else assert.deepEqual(summary, scalar, 'vector refinement changed another reference');
+      }
+    }
+  }
+  referenceKeys(report.vector_timber_member_maxima, CURRENT_SAWN_MEMBERS, 'vector member maxima');
+  for (const [member, metrics] of Object.entries(report.vector_timber_member_maxima)) {
+    referenceKeys(metrics, TIMBER_REFERENCE_METRICS, 'member metrics');
+    for (const [metric, row] of Object.entries(metrics)) {
+      caseWitness(row);
+      const interval = row.worst_interval;
+      for (const name of TIMBER_REFERENCE_METRICS) referenceIndex(interval[name.replace('maximum_', '')], 'interval reference');
+      assert.equal(row.index, interval[metric.replace('maximum_', '')], 'member maximum and interval disagree');
+      for (const name of ['world_grain_interval_mm', 'net_core_interval_local_L_mm'])
+        assert.ok(interval[name].length === 2 && interval[name].every(Number.isFinite) && interval[name][1] > interval[name][0],
+          'finite increasing interval required');
+      const byCase = report.timber_maxima.timber_vector[metric].by_case[row.case_id];
+      assert.ok(row.index <= byCase.index, 'member witness exceeds its case maximum');
+      for (const witness of Object.values(report.timber_maxima.timber_vector[metric].by_case))
+        if (witness.member === member) assert.ok(witness.index <= row.index, 'case witness exceeds its member maximum');
+    }
+  }
+  for (const metric of TIMBER_REFERENCE_METRICS) assert.equal(
+    report.timber_maxima.timber_vector[metric].overall.index,
+    Math.max(...Object.values(report.vector_timber_member_maxima).map(row => row[metric].index)),
+    'whole and member maxima disagree');
+
+  const cleatWitness = row => {
+    caseWitness(row);
+    assert.ok(['eoere_cleat_left', 'eoere_cleat_right'].includes(row.host), 'current bonded cleat required');
+    assert.ok(Array.isArray(row.axes) && row.axes.length > 0 && row.axes.length <= 4 &&
+      new Set(row.axes).size === row.axes.length && row.axes.every(axis => axisMap.get(axis)?.receivers.includes(row.host)),
+    'unique cleat subset axes required');
+  };
+  referenceKeys(report.cleat_maxima, ['cleat_nominal', 'cleat_wall_allowance'], 'cleat maxima');
+  for (const row of Object.values(report.cleat_maxima)) cleatWitness(row);
+  referenceKeys(report.reference_exceedances,
+    ['shaft_Cg_only', 'timber_scalar', 'timber_vector', 'cleat_nominal', 'cleat_wall_allowance'], 'exceedance groups');
+  for (const [group, rows] of Object.entries(report.reference_exceedances)) {
+    assert.ok(Array.isArray(rows), 'exceedance array required');
+    const identities = new Set();
+    for (const row of rows) {
+      caseWitness(row);
+      assert.ok(row.index > 1, 'strict reference exceedance required');
+      let identity;
+      if (group === 'shaft_Cg_only') {
+        shaftWitness(row);
+        assert.ok(row.index <= report.shaft_Cg_only_maxima[row.metric].index, 'shaft exceedance exceeds maximum');
+        identity = `${row.case_id}/${row.axis}/${row.metric}`;
+      } else if (group.startsWith('timber_')) {
+        assert.ok(CURRENT_SAWN_MEMBERS.includes(row.member) && TIMBER_REFERENCE_METRICS.includes(row.metric));
+        assert.equal(row.geometry_status, 'section_reference_only');
+        const summary = report.timber_maxima[group][row.metric].by_case[row.case_id];
+        assert.ok(row.index <= summary.index, 'timber exceedance exceeds case maximum');
+        if (row.member === summary.member) assert.equal(row.index, summary.index);
+        if (group === 'timber_vector') assert.ok(row.index <= report.vector_timber_member_maxima[row.member][row.metric].index,
+          'timber exceedance exceeds member maximum');
+        identity = `${row.case_id}/${row.member}/${row.metric}`;
+      } else {
+        cleatWitness(row);
+        assert.ok(row.index <= report.cleat_maxima[group].index, 'cleat exceedance exceeds maximum');
+        identity = `${row.case_id}/${row.host}/${[...row.axes].sort().join('/')}`;
+      }
+      assert.ok(!identities.has(identity), 'duplicate reference exceedance');
+      identities.add(identity);
+    }
+  }
+  // The compact report exposes maxima, not every shaft/member comparison.
+  // Require every disclosed maximum above one; raw nonworst completeness is
+  // checked only by the separate recovered-evidence audit.
+  const requireDisclosed = (rows, expected) => assert.ok(rows.some(row => isDeepStrictEqual(row, expected)),
+    'exceeded published maximum is not disclosed');
+  for (const row of Object.values(report.shaft_Cg_only_maxima))
+    if (row.index > 1) requireDisclosed(report.reference_exceedances.shaft_Cg_only, row);
+  for (const [construction, metrics] of Object.entries(report.timber_maxima))
+    for (const [metric, summary] of Object.entries(metrics))
+      for (const row of Object.values(summary.by_case)) if (row.index > 1)
+        requireDisclosed(report.reference_exceedances[construction], {case_id: row.case_id, member: row.member,
+          metric, index: row.index, geometry_status: 'section_reference_only'});
+  for (const [member, metrics] of Object.entries(report.vector_timber_member_maxima))
+    for (const [metric, row] of Object.entries(metrics)) if (row.index > 1)
+      requireDisclosed(report.reference_exceedances.timber_vector, {case_id: row.case_id, member,
+        metric, index: row.index, geometry_status: 'section_reference_only'});
+  for (const [group, row] of Object.entries(report.cleat_maxima))
+    if (row.index > 1) requireDisclosed(report.reference_exceedances[group], row);
+}
+
+export function validateCurrentPanelBracingSummary(report, index) {
+  assert.equal(report.schema, 'eoere_current_panel_bracing_summary/v1');
+  const {base, axisMap} = currentPublicReview(report, index);
+  assert.equal(report.case_count, 6);
+  assert.equal(report.stiffness_comparison_only, true);
+  assert.equal(report.strength_gain_factor, null);
+  for (const name of ['new_unbraced_climber_load_equilibrium', 'double_strength_credit_applied',
+    'compression_capacity_or_buckling_gain_established']) assert.equal(report[name], false, `bracing boundary: ${name}`);
+  assert.deepEqual(report.inventory, {corners: 2, probe_comparisons: 72, factorizations: 12,
+    balanced_rhs_solves: 144, panels_removed: 6, screw_springs_removed: 66});
+  assert.deepEqual(report.controls, {floating_panel_gain: 1, known_answer_controls_passed: true, series_parallel_gain: 1.4});
+  assert.deepEqual(report.model_assumptions, {Hillman_axial_N_per_mm: 1000, Hillman_lateral_N_per_mm: 1000,
+    panel_contact_N_per_mm3: 2, physical_Hillman_law_qualified: false, contact_branches_frozen_at_braced_state: true});
+  referenceKeys(report.source_bindings, ['raw_result', 'candidate_intake', 'reference_review', 'method'], 'bracing sources');
+  referenceBinding(report.source_bindings.raw_result, base+'panel-bracing-review-v2/result.json');
+  referenceBinding(report.source_bindings.candidate_intake, base+'panel-bracing-review-v2/candidate-intake.json');
+  referenceBinding(report.source_bindings.reference_review);
+  assert.deepEqual(report.source_bindings.reference_review, index.engineering_review);
+  referenceBinding(report.source_bindings.method, 'scripts/eoere_panel_bracing_review.py');
+  bound(report.source_bindings.method);
+  referenceBinding(report.literature_review);
+  referenceKeys(report.numerical_checks, ['maximum_relative_equilibrium_error',
+    'maximum_relative_binary64_equilibrium_error', 'maximum_normalized_reciprocity_error'], 'bracing numerical checks');
+  for (const value of Object.values(report.numerical_checks)) referenceIndex(value, 'bracing numerical check');
+  assert.ok(report.numerical_checks.maximum_relative_equilibrium_error < 1e-7);
+  assert.ok(report.numerical_checks.maximum_normalized_reciprocity_error < 1e-6);
+
+  assert.equal(report.probes.length, 72);
+  const corners = Object.fromEntries(Object.entries(BRACING_FITTINGS).map(([corner, fitting]) =>
+    [corner, currentFittingProbeGeometry(axisMap, fitting)]));
+  const identities = new Set();
+  for (const row of report.probes) {
+    assert.ok(CURRENT_CASES.includes(row.case_id) && ['left', 'right'].includes(row.corner) &&
+      BRACING_MODES.includes(row.mode), 'current case/corner/mode probe required');
+    const identity = `${row.case_id}/${row.corner}/${row.mode}`;
+    assert.ok(!identities.has(identity), 'duplicate bracing probe'); identities.add(identity);
+    assert.equal(row.first, 'base_rail_top'); assert.equal(row.second, `base_side_${row.corner}`);
+    assert.equal(row.stiffness_unit, BRACING_MODES.indexOf(row.mode) < 3 ? 'N/mm' : 'Nmm/rad');
+    for (const key of ['point_xyz_mm', 'direction_xyz'])
+      assert.ok(row[key].length === 3 && row[key].every(Number.isFinite), 'finite probe geometry required');
+    referenceClose(Math.hypot(...row.direction_xyz), 1, 'unit probe direction');
+    assert.ok(row.joint_axis_ids.length === 4 && new Set(row.joint_axis_ids).size === 4 &&
+      row.joint_axis_ids.every(axis => typeof axis === 'string' && axis), 'four unique corner axes required');
+    assert.deepEqual([...row.joint_axis_ids].sort(), corners[row.corner].axes, 'probe must use its own corner axes');
+    // Match the V2 flange_probe_points datum: physical hole centers, not head origins.
+    for (const [i, coordinate] of row.point_xyz_mm.entries())
+      assert.ok(Math.abs(coordinate-corners[row.corner].point[i]) <= 1e-7,
+        'probe point must be the centroid of its four physical fitting holes');
+    const axis = row.mode.startsWith('top_grain') ? 'top' : row.mode.startsWith('side_grain') ? 'side' : 'normal';
+    assert.ok(parallelProbeAxes(row.direction_xyz, corners[row.corner].directions[axis]),
+      'probe direction must follow its recorded corner mode axis, allowing either parallel sign');
+    for (const key of ['with_panels_stiffness', 'without_panels_stiffness', 'modeled_stiffness_ratio'])
+      assert.ok(Number.isFinite(row[key]) && row[key] > 0, 'finite positive probe stiffness/ratio required');
+    referenceClose(row.modeled_stiffness_ratio, row.with_panels_stiffness/row.without_panels_stiffness, 'probe ratio');
+    assert.ok(row.modeled_stiffness_ratio >= 1-1e-6, 'removing positive restraint cannot stiffen the comparator');
+  }
+  referenceKeys(report.all_six_case_ranges, BRACING_MODES, 'bracing mode ranges');
+  for (const [mode, ranges] of Object.entries(report.all_six_case_ranges)) {
+    referenceKeys(ranges, ['minimum', 'maximum'], 'bracing range');
+    const candidates = report.probes.filter(row => row.mode === mode);
+    for (const [kind, witness] of Object.entries(ranges)) {
+      const own = candidates.find(row => row.case_id === witness.case_id && row.corner === witness.corner);
+      assert.deepEqual(witness, own, 'range must retain its complete own probe witness');
+      assert.equal(witness.modeled_stiffness_ratio,
+        Math[kind === 'minimum' ? 'min' : 'max'](...candidates.map(row => row.modeled_stiffness_ratio)));
+    }
+  }
+}
+
+export function validateBoltGeometryReview(report, index) {
+  const base = JSON.parse(bound(index.engineering_review));
+  assert.ok(['eoere_current96_bolt_geometry_review/v1', 'eoere_current96_bolt_geometry_review/v2'].includes(report.schema));
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  assert.deepEqual(report.base_review, index.engineering_review);
+  assert.deepEqual(report.analysis_geometry, base.analysis_geometry);
+  assert.deepEqual(report.load_contract, base.load_contract);
+  assert.deepEqual(report.legacy_screen_adjusted_indices_unchanged, base.metric_maxima.shafts_Cdelta_adjusted);
+  assert.equal(report.status, 'RULE_APPLICABILITY_CORRECTED_COMPLETE_JOINT_UNRESOLVED');
+  assert.deepEqual(report.inventory, {shafts: 96, wood_occurrences_per_case: 112,
+    cases: 6, panels: 6, screws: 66});
+  assert.equal(report.formal_geometry_Cdelta, null);
+  assert.equal(report.all_complete_geometry_factors_unresolved, true);
+  for (const key of ['complete_joint_qualified', 'structural_acceptance',
+    'fabrication_released', 'climbing_released', 'frame_CAD_or_mechanics_recomputed',
+    'historical_pass_transferred']) assert.equal(report[key], false, `geometry review boundary: ${key}`);
+  bound(report.producer); bound(report.rules_producer);
+  assert.equal(report.case_summaries.length, 6);
+  assert.deepEqual(report.case_summaries.map(c => c.case_id).sort(), [...base.case_ids].sort());
+  for (const row of report.case_summaries) {
+    assert.deepEqual(row.field, base.source_bindings.fields_and_replays[row.case_id].field);
+    assert.equal(Object.values(row.axis_status_counts).reduce((a, b) => a+b, 0), 96);
+    assert.equal(Object.values(row.load_class_counts).reduce((a, b) => a+b, 0), 112);
+  }
+  assert.equal(report.upper_pair_statuses.length, 48);
+  const upperAxes = Array.from({length: 8}, (_, i) => `eoere_bolt_${String(i+67).padStart(3, '0')}`);
+  const expectedUpper = base.case_ids.flatMap(c => upperAxes.map(a => `${c}/${a}`)).sort();
+  assert.deepEqual(report.upper_pair_statuses.map(r => `${r.case_id}/${r.axis_id}`).sort(), expectedUpper);
+  for (const row of report.upper_pair_statuses) {
+    assert.equal(row.component_status, 'UNRESOLVED');
+    assert.equal(row.complete_Cdelta, null);
+    assert.equal(row.complete_joint_qualified, false);
+  }
+  assert.equal(report.affected_pair_measurements.length, 6);
+  for (const pair of report.affected_pair_measurements) {
+    assert.ok(Math.abs(pair.rule.actual_spacing_mm-50.8) < 1e-6);
+    assert.equal(pair.rule.status, 'unresolved');
+    assert.equal(pair.rule.required_mm, null);
+    assert.equal(pair.complete_Cdelta, null);
+  }
+  if (report.schema.endsWith('/v2')) {
+    bound(report.occurrence_producer); bound(report.census_producer);
+    const preceding = JSON.parse(bound(report.preceding_geometry_review));
+    assert.equal(preceding.schema, 'eoere_current96_bolt_geometry_review/v1');
+    assert.deepEqual(preceding.physical_geometry, report.physical_geometry);
+    assert.equal(report.same_host_pair_census_complete, true);
+    for (const row of report.case_summaries)
+      assert.deepEqual(row.pair_census_counts, {same_host_pairs: 326, existing_connection_group_pairs: 52,
+        additional_pairs_with_unresolved_applicability: 274});
+    assert.equal(report.additional_same_host_pairs.length, 274);
+    const pairs = new Set();
+    for (const row of report.additional_same_host_pairs) {
+      assert.equal(row.axes.length, 2);
+      assert.ok(row.axes[0] < row.axes[1], 'same-host pair must be canonical');
+      pairs.add(`${row.host}/${row.axes.join('/')}`);
+      assert.equal(row.component_status, 'UNRESOLVED');
+      assert.equal(row.complete_Cdelta, null);
+      assert.equal(row.complete_joint_qualified, false);
+      assert.equal(row.parallel_bore_axes, true);
+      assert.ok(Number.isFinite(row.actual_spacing_mm) && row.actual_spacing_mm > 0);
+    }
+    assert.equal(pairs.size, 274, 'same-host pairs must not be duplicated');
+    for (const pair of report.affected_pair_measurements) assert.equal(pair.case_id, 'a12-forward');
+  }
+}
+
+export function validateCurrent96TestingReview(report, index) {
+  const base = JSON.parse(bound(index.engineering_review));
+  assert.equal(report.schema, 'eoere_current96_testing_method_review/v1');
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.deepEqual(report.physical_geometry, index.geometry.receipt);
+  assert.deepEqual(report.base_review, index.engineering_review);
+  for (const key of ['analysis_geometry', 'case_ids', 'case_count', 'load_contract', 'qualification'])
+    assert.deepEqual(report[key], base[key], `testing review changed ${key}`);
+  for (const key of ['current_bolts', 'sawn_timber_members', 'physical_plywood_leaves', 'panel_screws_deferred'])
+    assert.equal(report.inventory[key], base.inventory[key]);
+  bound(report.source_bindings.producer);
+  for (const name of ['original_core', 'original_sections', 'prior_method_audit',
+    'corrected_core', 'corrected_sections', 'worksheet_intake']) {
+    const binding = report.source_bindings[name];
+    assert.ok(binding.path.startsWith('fea/generated/'));
+    assert.match(binding.sha256, /^[a-f0-9]{64}$/);
+  }
+  assert.deepEqual(report.source_bindings.original_sections, base.source_bindings.worksheets.timber_sections);
+  for (const key of ['side_core_breadth_correction_applied',
+    'current_six_case_all_interval_timber_references_recomputed',
+    'original_bolt_and_cleat_references_retained', 'all_force_couples_and_hole_deductions_retained'])
+    assert.equal(report.testing_disposition[key], true, `missing audit correction: ${key}`);
+  for (const key of ['midface_probe_or_force_only_row_used_as_pass',
+    'reduced_bolt_interaction_replaced_by_elastic_index', 'geometry_ineligibility_waived',
+    'physical_failure_inferred_from_reference_exceedance', 'new_frame_or_native_solve',
+    'cad_rebuilt', 'physical_geometry_or_loads_changed'])
+    assert.equal(report.testing_disposition[key], false, `unsupported testing claim: ${key}`);
+  assert.equal(report.release, false);
+  for (const [group, metrics] of Object.entries(report.unchanged_reference_maxima))
+    for (const [metric, value] of Object.entries(metrics))
+      assert.deepEqual(value, base.metric_maxima[group][metric][group === 'shafts_Cdelta_adjusted' ? 'all_96' : 'overall'],
+        'unchanged reference differs');
+  assert.deepEqual(Object.keys(report.unchanged_reference_maxima).sort(),
+    ['plywood_credited_36p5', 'plywood_nominal_38p1', 'shafts_Cdelta_adjusted']);
+  for (const group of Object.keys(report.unchanged_reference_maxima))
+    assert.deepEqual(Object.keys(report.unchanged_reference_maxima[group]).sort(),
+      Object.keys(base.metric_maxima[group]).sort());
+  for (const [key, value] of Object.entries(report.geometry_eligibility))
+    assert.deepEqual(value, base.geometry_eligibility[key]);
+  assert.equal(report.geometry_eligibility.no_pass_when_geometry_ineligible, true);
+  assert.equal(report.geometry_eligibility.all_geometry_eligible, false);
+  assert.deepEqual(report.side_core_changes.map(r => r.member).sort(), ['base_side_left', 'base_side_right']);
+  for (const change of report.side_core_changes) {
+    assert.equal(change.restored_breadth_mm, 9.525);
+    assert.ok(Math.abs(change.current_bounds_U_mm[1]-change.current_bounds_U_mm[0]-88.898) < 1e-6);
+    assert.ok(change.whole_interval_prisms_queried > 0);
+    for (const key of ['projected_holes_unchanged', 'grain_intervals_unchanged', 'cached_solid_unchanged'])
+      assert.equal(change[key], true);
+  }
+  const metrics = Object.keys(base.metric_maxima.timber_sections).sort();
+  assert.deepEqual(Object.keys(report.timber_reference_maxima).sort(), metrics);
+  for (const value of Object.values(report.timber_reference_maxima)) {
+    assert.ok(Number.isFinite(value.overall.index) && value.overall.index >= 0);
+    assert.deepEqual(Object.keys(value.by_case).sort(), [...base.case_ids].sort());
+  }
+  assert.deepEqual(report.member_comparisons.map(r => r.member).sort(),
+    ['base_header', 'base_rail_top', 'base_side_left', 'base_side_right']);
+  for (const member of report.member_comparisons) {
+    assert.deepEqual(Object.keys(member.current).sort(), metrics);
+    if (!member.member.startsWith('base_side_')) assert.deepEqual(member.current, member.original);
+  }
 }
 
 export function validateStructuralAssessment(report, index) {
@@ -700,7 +1313,1112 @@ function checkFrontPostRevision(index, entryChecks) {
     mechanics_executed: false, full_ignored_input_closure_checked: false};
 }
 
+// Proposal insertion before checkDevelopment in scripts/check_bolted_development.mjs.
+// Uses that file's assert, sha, bound, gunzipSync, referenceKeys,
+// referenceBinding, referenceIndex, referenceClose, CURRENT_CASES and isDeepStrictEqual.
+const V10_CANDIDATE13_ORIGIN = '/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/';
+const V10_CANDIDATE13_ROOT = 'docs/bolted-frame-development/owner-frame-v10/candidate13/';
+const V10_CANDIDATE13_LOAD = {weight_lb: 250, downward_multiplier: 2,
+  horizontal_force_N: 300, accessory_mass_kg: 25, duration_factor_CD: 1};
+const V10_CANDIDATE13_GEOMETRY_SHA = V10_SCENE.layoutSha256;
+const V10_CANDIDATE13_SCENE_SHA = V10_SCENE.expectedSha256;
+const V10_CANDIDATE13_SCENE_DECODED_SHA = V10_SCENE.decodedSha256;
+const V10_CANDIDATE13_FAMILIES = ['cleat_actual_perimeter_rows', 'direct_elastic_steel',
+  'reduced_connection_axial_bending', 'timber_net_shear_torsion',
+  'timber_normal_and_stability', 'wood_bearing_whole_affine'];
+
+function v10FrozenReference(ref, expectedPath) {
+  assert.ok(ref && typeof ref.path === 'string' && ref.path.startsWith(V10_CANDIDATE13_ORIGIN),
+    'Candidate13 original reference must stay in its frozen source package');
+  assert.ok(ref.path.slice(V10_CANDIDATE13_ORIGIN.length).split('/').every(part =>
+    part && part !== '.' && part !== '..'), 'unambiguous original source path required');
+  assert.match(ref.sha256, /^[a-f0-9]{64}$/);
+  if (expectedPath !== undefined) assert.equal(ref.path, V10_CANDIDATE13_ORIGIN+expectedPath);
+}
+
+export function candidate13SourceResolver(manifest, readIntegrated = bound) {
+  validateV10Provenance(manifest);
+  const rows = [...Object.values(manifest.artifacts), ...manifest.support_files];
+  const originals = new Map(), integrated = new Map();
+  for (const row of rows) {
+    const encoded = readIntegrated(row.integrated);
+    assert.equal(encoded.length, row.integrated.bytes, 'integrated file length changed');
+    assert.equal(sha(encoded), row.integrated.sha256, 'integrated encoded bytes changed');
+    const decoded = row.encoding === 'gzip' ? gunzipSync(encoded) : encoded;
+    assert.equal(decoded.length, row.original.bytes, 'frozen original file length changed');
+    assert.equal(sha(decoded), row.original.sha256, 'frozen original bytes changed during integration');
+    originals.set(row.original.path, decoded);
+    integrated.set(row.integrated.path, row);
+  }
+  return {
+    sourceBound(ref) {
+      resolveV10SourceRef(ref, manifest);
+      return originals.get(ref.path);
+    },
+    originalFor(ref, relative) {
+      referenceBinding(ref, V10_CANDIDATE13_ROOT+relative);
+      const row = integrated.get(ref.path);
+      assert.ok(row && row.encoding === 'identity' && row.integrated.sha256 === ref.sha256,
+        'index roots must name the byte-identical small copied record');
+      assert.equal(row.original.path, V10_CANDIDATE13_ORIGIN+relative);
+      return {path: row.original.path, sha256: row.original.sha256};
+    },
+  };
+}
+
+export function readV10Candidate13Authority(index, readIntegrated = bound) {
+  referenceBinding(index.integration_manifest, 'site/eoere-v10-candidate13-provenance.json');
+  const manifestBytes = readIntegrated(index.integration_manifest);
+  assert.equal(sha(manifestBytes), V10_PROVENANCE_SHA256);
+  assert.equal(index.integration_manifest.sha256, V10_PROVENANCE_SHA256);
+  const manifest = JSON.parse(manifestBytes);
+  const resolver = candidate13SourceResolver(manifest, readIntegrated);
+  const refs = {}, data = {manifest};
+  for (const [key, ref, relative] of [
+    ['geometry', index.geometry.receipt, 'geometry-receipt-13.json'],
+    ['delivery', index.delivery_bundle, 'delivery-bundle-13.json'],
+    ['validation', index.delivery_validation, 'delivery-validation-13.json'],
+    ['bank', index.response_bank, 'response-bank-13.json'],
+    ['review', index.engineering_review, 'reference-review-13.json'],
+    ['inventory', index.exceedance_inventory, 'analysis-attempt-08/reference-attempt-01/complete-exceedance-inventory.json'],
+    ['joint', index.joint_applicability, 'joint-applicability-13-canonical-wsl.json'],
+    ['paper', index.paper_audit, 'paper-audit/paper-audit-bundle-v1.json'],
+    ['edgeCorrection', index.center_principal_correction, 'paper-audit/center-principal-correction-13-v1.json'],
+    ['correctedCompletion', index.corrected_completion_index, 'paper-audit/completion-index-v3.json'],
+    ['readiness', index.shop.readiness, 'packet-13-complete/readiness.json'],
+  ]) {
+    refs[key] = resolver.originalFor(ref, relative);
+    data[key] = JSON.parse(resolver.sourceBound(refs[key]));
+  }
+  assert.equal(refs.geometry.sha256, V10_CANDIDATE13_GEOMETRY_SHA);
+  refs.groupHandoff = resolver.originalFor(index.group_replacement_handoff,
+    'paper-audit/wsl-group-and-relocation-handoff-v1.txt');
+  resolver.sourceBound(refs.groupHandoff);
+  // Authenticate every mapped delivery/paper artifact, but never follow raw
+  // field references or inherited source paths outside that explicit mapping.
+  for (const ref of [...Object.values(data.delivery.artifacts), ...data.paper.artifacts]) resolver.sourceBound(ref);
+  for (const [key, name] of Object.entries({clearance: 'clearance', rawGeometry: 'geometry_raw',
+    geometryJoin: 'geometry_viewer_join', jointBank: 'joint_bank_scope'}))
+    data[key] = JSON.parse(resolver.sourceBound(data.delivery.artifacts[name]));
+  for (const [key, relative] of Object.entries({group: 'paper-audit/group-action-overlap-review-13-v2.json',
+    groupSeal: 'paper-audit/group-paper-final-binding-13.json',
+    method: 'paper-audit/candidate13-group-factor-method-audit-v2.json'})) {
+    const ref = data.paper.artifacts.find(row => row.path === V10_CANDIDATE13_ORIGIN+relative);
+    assert.ok(ref, 'current paper audit record required');
+    data[key] = JSON.parse(resolver.sourceBound(ref));
+  }
+  const sceneRef = data.delivery.artifacts.viewer_scene;
+  v10FrozenReference(sceneRef, 'site/eoere-v10-scene-13.json.gz');
+  assert.equal(sceneRef.sha256, V10_CANDIDATE13_SCENE_SHA);
+  referenceKeys(index.geometry.scene, ['path', 'sha256', 'decoded_sha256'], 'current scene binding');
+  assert.equal(index.geometry.scene.path, 'site/eoere-v10-scene-13.json.gz');
+  assert.equal(index.geometry.scene.sha256, V10_CANDIDATE13_SCENE_SHA);
+  assert.equal(index.geometry.scene.decoded_sha256, V10_CANDIDATE13_SCENE_DECODED_SHA);
+  const sceneBytes = gunzipSync(resolver.sourceBound(sceneRef));
+  assert.equal(sha(sceneBytes), index.geometry.scene.decoded_sha256);
+  const scene = JSON.parse(sceneBytes);
+  validateV10SceneProvenance(scene, manifest);
+  referenceBinding(index.continuation_evaluation,
+    'docs/bolted-frame-development/owner-frame-v10/continuation-evaluation.json');
+  const continuationBytes = readIntegrated(index.continuation_evaluation);
+  assert.equal(sha(continuationBytes), index.continuation_evaluation.sha256);
+  data.continuation = JSON.parse(continuationBytes);
+  referenceBinding(index.standard_top_stock_evaluation.evidence,
+    'docs/bolted-frame-development/owner-frame-v10/standard-top-stock-evaluation.json');
+  const stockBytes = readIntegrated(index.standard_top_stock_evaluation.evidence);
+  assert.equal(sha(stockBytes), index.standard_top_stock_evaluation.evidence.sha256);
+  data.standardTopStock = JSON.parse(stockBytes);
+  const groupCriteria = data.standardTopStock.fallback.physical_row_group_criteria;
+  for (const [key, ref, filename] of [
+    ['activeConnectionCriteria', groupCriteria.active_criteria, 'active-connection-criteria.json'],
+    ['groupRowComparison', groupCriteria.comparison, 'group-row-comparison-v1.json'],
+  ]) {
+    referenceBinding(ref, 'docs/bolted-frame-development/owner-frame-v10/standard-top-stock/'+filename);
+    data[key] = JSON.parse(bound(ref));
+  }
+  referenceBinding(groupCriteria.producer,
+    'docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group_row_comparison_v1.py');
+  bound(groupCriteria.producer);
+  referenceBinding(index.development_selection.owner_decision,
+    'docs/bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.json');
+  data.ownerDecision = JSON.parse(bound(index.development_selection.owner_decision));
+  referenceBinding(index.development_selection.readable_owner_decision,
+    'docs/bolted-frame-development/owner-frame-v10/owner-selected-standard-4x6-top-v1.txt');
+  bound(index.development_selection.readable_owner_decision);
+  data.stockRecords = {};
+  for (const [key, role, filename] of [
+    ['bank', 'response_bank', '4x6-v2-response-bank.json'],
+    ['review', 'reference_review', '4x6-v2-reference-review.json'],
+    ['inventory', 'trial_inventory', '4x6-v2-trial-inventory.json'],
+    ['receipt', 'geometry_receipt', '4x6-v2-geometry-receipt.json'],
+  ]) {
+    const ref = data.standardTopStock.fallback.matched_results[role];
+    referenceBinding(ref, 'docs/bolted-frame-development/owner-frame-v10/standard-top-stock/'+filename);
+    const bytes = readIntegrated(ref);
+    assert.equal(sha(bytes), ref.sha256);
+    data.stockRecords[key] = JSON.parse(bytes);
+  }
+  return {...data, refs, scene};
+}
+
+export function validateV10Candidate13Authority(index, data) {
+  const {geometry, delivery, validation, bank, review, inventory, joint, paper,
+    readiness, clearance, rawGeometry, geometryJoin, jointBank, group, groupSeal, method,
+    edgeCorrection, correctedCompletion, continuation, scene, refs} = data;
+  assert.equal(index.schema, 'bolted_frame_development_revisions/v15');
+  assert.equal(index.candidate, 'compact-bolted-frame-development');
+  assert.equal(index.evidence_candidate, 'compact-floor-flush-eoere-bolted-development');
+  assert.equal(index.geometry.revision, V10_CANDIDATE13_REVISION);
+  assert.equal(index.geometry.viewer, 'eoere-current-frame-development');
+  assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v14');
+  assert.equal(index.preceding_revision.geometry.revision, 'eoere-single-spacer-cleat-stacks-v9');
+  assert.equal(index.preceding_revision.geometry.receipt.sha256, '29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef');
+  assert.equal(index.preserved_owner_v9_viewer, 'eoere-owner-frame-v9-development');
+  assert.deepEqual(index.selected_baseline, {authority: 'current-candidate.json', candidate: 'compact-floor-flush-development'});
+  assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+  assert.equal(index.conditional_frame_evaluation, null);
+  assert.equal(index.panel_Hillman_resolution_deferred, true);
+  assert.equal(index.shop.shop_planning_only, true);
+  assert.equal(index.shop.instructions_current_for_fabrication, false);
+  assert.equal(index.shop.packet, V10_CANDIDATE13_ROOT+'packet-13-complete/builder-plan.md');
+  for (const row of [index.hardware_model, index.shop]) {
+    assert.equal(row.revision, index.geometry.revision);
+    assert.deepEqual(row.receipt ?? row.geometry, index.geometry.receipt);
+  }
+  for (const key of ['selected_for_build', 'actual_parts_verified', 'analysis_pass_transferred'])
+    assert.equal(index.hardware_model[key], false);
+  const falseClaims = (row, keys = ['structural_acceptance', 'fabrication_released', 'climbing_released']) => {
+    for (const key of keys) assert.equal(row[key], false, `Candidate13 claim boundary: ${key}`);
+  };
+  falseClaims(index, ['structural_acceptance', 'complete_joint_qualified', 'physical_operations_authorized',
+    'fabrication_released', 'climbing_released']);
+  for (const row of [geometry, delivery, validation, bank, review, joint, paper, readiness, group, groupSeal, method, inventory]) {
+    if ('geometry_revision' in row) assert.equal(row.geometry_revision, index.geometry.revision);
+    if ('physical_geometry' in row) assert.deepEqual(row.physical_geometry, refs.geometry);
+    for (const [key, value] of Object.entries(row))
+      if (/(?:^structural_acceptance$|^fabrication_released$|^climbing_released$|_qualified$|_adopted$|^physical_operations_authorized$|^physical_force_bounds_established$)/.test(key))
+        assert.ok(value === false || value === null, `Candidate13 must retain unresolved ${key}`);
+  }
+  for (const row of [delivery, bank, review, paper, readiness, group, groupSeal, method, inventory]) falseClaims(row);
+  falseClaims(geometry, ['fabrication_released', 'climbing_released']);
+  falseClaims(delivery, ['complete_joint_qualified', 'physical_force_bounds_established', 'physical_operations_authorized']);
+  assert.equal(delivery.schema, 'eoere_v10_delivery_bundle/v1');
+  assert.equal(geometry.schema, 'eoere_v10_geometry_revision/v1');
+  assert.equal(geometry.revision, index.geometry.revision);
+  assert.equal(geometry.iteration, '13');
+  assert.deepEqual(geometry.counts, V10_CANDIDATE13_COUNTS);
+  assert.deepEqual(geometry.parent_geometry, {path: '/home/mckay-linux/repos/mini-moonboard/'+index.preceding_revision.geometry.receipt.path,
+    sha256: index.preceding_revision.geometry.receipt.sha256});
+  assert.equal(geometry.geometry_adopted, false);
+  assert.equal(geometry.complete_joint_qualified, false);
+  assert.equal(geometry.complete_conditional_frame_evaluation, false);
+  assert.equal(geometry.catalog_delivery_or_strength_qualified, false);
+  assert.equal(geometry.actual_observations, null);
+  assert.equal(geometry.nominal_geometry_clear, true);
+  assert.equal(rawGeometry.revision, index.geometry.revision);
+  assert.equal(rawGeometry.axes.length, 116);
+  const axes = new Set(rawGeometry.axes.map(row => row.id)); assert.equal(axes.size, 116);
+  assert.equal(Object.keys(rawGeometry.profiles).length, 32);
+  assert.equal(rawGeometry.fitting_poses.length, 24); assert.equal(rawGeometry.screw_axes.length, 66);
+  assert.deepEqual(geometry.checked_geometry, delivery.artifacts.geometry_raw);
+  assert.deepEqual(geometry.checked_clearance, delivery.artifacts.clearance);
+  assert.deepEqual(clearance.geometry, geometry.checked_geometry);
+  assert.equal(clearance.nominal_geometry_clear, true); assert.equal(clearance.occupied_part_count, 1167);
+  assert.deepEqual(clearance.collisions, []); assert.deepEqual(clearance.missing_candidates, []);
+  for (const key of ['release', 'strength_qualified', 'actual_tools_or_hardware_verified']) assert.equal(clearance[key], false);
+  for (const [role, key] of Object.entries({geometry: 'geometry', bank: 'response_bank', review: 'reference_review',
+    inventory: 'exceedance_inventory', joint: 'joint_applicability', readiness: 'readiness'}))
+    assert.deepEqual(refs[role], delivery.artifacts[key], 'current index must join the exact frozen delivery artifact');
+  assert.equal(validation.status, 'validated_conditional_delivery');
+  assert.equal(validation.artifacts_checked, Object.keys(delivery.artifacts).length);
+  assert.equal(validation.cases_checked, 6);
+  for (const row of [delivery, bank, review, jointBank, method]) assert.deepEqual(row.load_contract, V10_CANDIDATE13_LOAD);
+  for (const row of [delivery, bank, review]) assert.deepEqual([...row.case_ids].sort(), [...CURRENT_CASES].sort());
+  assert.equal(bank.schema, 'eoere_v10_own_response_bank/v1');
+  assert.equal(bank.admission_gate_N, 1e-5); assert.equal(bank.all_six_cases_admitted, true);
+  assert.equal(bank.historical_force_pass_transferred, false);
+  assert.deepEqual(bank.analysis_inventory, {bodies: 170, fittings: 24, ports: 112, roles: 626, shafts: 116, walls: 144, wood: 24});
+  assert.deepEqual(bank.cases.map(row => row.case_id).sort(), [...CURRENT_CASES].sort());
+  for (const [name, suffix] of Object.entries({analysis_geometry: 'geometry/geometry.json', material: 'material.json',
+    inputs: 'four-hosts/preparation/inputs.json', prepared_readiness: 'adapter-readiness.json'}))
+    v10FrozenReference(bank[name], 'analysis-attempt-08/'+suffix);
+  const fields = {};
+  for (const row of bank.cases) {
+    assert.equal(row.both_independent_replays_admitted, true);
+    referenceIndex(row.gradient_inf_N, 'Candidate13 equilibrium residual'); assert.ok(row.gradient_inf_N < 1e-5);
+    for (const [key, file] of Object.entries({field: 'field.json', independent_replay: 'independent-replay.json',
+      independent_plywood_replay: 'independent-replay-plywood.json', replay_binding: 'v10-replay-binding.json'}))
+      v10FrozenReference(row[key], `analysis-attempt-08/four-hosts/${row.case_id}/${file}`);
+    fields[row.case_id] = row.field;
+  }
+  assert.equal(bank.maximum_gradient_inf_N, Math.max(...bank.cases.map(row => row.gradient_inf_N)));
+  for (const row of [review, inventory, method]) {
+    assert.deepEqual(row.analysis_geometry, bank.analysis_geometry);
+    assert.deepEqual(row.field_bindings, fields, 'reference fields must be the own admitted Candidate13 bank');
+  }
+  assert.equal(review.schema, 'eoere_v10_reference_review/v1');
+  assert.deepEqual(review.response_bank, refs.bank);
+  assert.equal(review.all_declared_numerical_references_below_one, false);
+  referenceKeys(review.numerical_reference_maxima, V10_CANDIDATE13_FAMILIES, 'Candidate13 reference families');
+  referenceKeys(inventory.source_families, V10_CANDIDATE13_FAMILIES, 'Candidate13 inventory sources');
+  for (const [family, row] of Object.entries(review.numerical_reference_maxima)) {
+    referenceIndex(row.index, 'Candidate13 reference maximum');
+    assert.ok(CURRENT_CASES.includes(row.case_id) && typeof row.component === 'string');
+    assert.equal(row.above_reference, row.index > 1);
+    v10FrozenReference(row.worksheet, `analysis-attempt-08/reference-attempt-01/${family}.json`);
+    assert.deepEqual(row.worksheet, inventory.source_families[family]);
+    if ('complete_Cdelta' in row) assert.equal(row.complete_Cdelta, null);
+    if (family === 'wood_bearing_whole_affine' || family === 'reduced_connection_axial_bending')
+      referenceClose(row.index*row.Cg, row.individual_reference_before_Cg, 'unadopted trial decomposition');
+  }
+  assert.equal(inventory.schema, 'eoere_v10_complete_reference_flag_inventory/v1');
+  const flags = inventory.above_reference_case_rows;
+  assert.equal(inventory.count_above_reference_case_rows, 26); assert.equal(flags.length, 26);
+  const keys = new Set();
+  for (const row of flags) {
+    assert.ok(CURRENT_CASES.includes(row.case_id) && axes.has(row.component));
+    assert.equal(row.criterion, 'wood_bearing_whole_affine');
+    assert.equal(row.complete_Cdelta, null);
+    assert.ok(Number.isFinite(row.index) && row.index > 1 && Number.isFinite(row.Cg) && row.Cg > 0 && row.Cg <= 1);
+    referenceClose(row.index*row.Cg, row.individual_reference_before_Cg, 'trial factor is arithmetic only');
+    const key = `${row.case_id}/${row.component}/${row.criterion}`;
+    assert.ok(!keys.has(key), 'duplicate trial flag'); keys.add(key);
+  }
+  for (const rows of [delivery.remaining_numerical_exceedances, validation.remaining_numerical_exceedances,
+    readiness.above_reference_case_rows]) assert.deepEqual(rows, flags, 'all 26 original trial flags must remain intact');
+  const maxima = [...new Set(flags.map(row => row.component))].sort().map(component =>
+    flags.filter(row => row.component === component).reduce((a, b) => a.index >= b.index ? a : b));
+  assert.equal(maxima.length, 13);
+  const byComponent = rows => [...rows].sort((a, b) => a.component.localeCompare(b.component));
+  assert.deepEqual(byComponent(inventory.component_maxima), byComponent(maxima));
+  assert.deepEqual(byComponent(readiness.component_maxima), byComponent(maxima));
+  assert.equal(readiness.count_above_reference_case_rows, 26);
+  const worst = flags.reduce((a, b) => a.index >= b.index ? a : b);
+  const trialValues = row => Object.fromEntries(['case_id', 'component', 'index', 'Cg',
+    'complete_Cdelta', 'individual_reference_before_Cg'].map(key => [key, row[key]]));
+  assert.deepEqual(trialValues(review.numerical_reference_maxima.wood_bearing_whole_affine), trialValues(worst));
+  assert.equal(readiness.schema, 'eoere_v10_shop_planning_readiness/v1');
+  assert.equal(readiness.status, 'COMPLETE_REFERENCE_FLAGS_AND_PHYSICAL_HOLD');
+  assert.deepEqual(readiness.v10_geometry_receipt, refs.geometry); assert.deepEqual(readiness.v10_response_bank, refs.bank);
+  assert.deepEqual(readiness.v10_component_review, refs.review);
+  assert.equal(readiness.current_response_computed, true); assert.equal(readiness.complete_joint_qualified, false);
+  assert.equal(readiness.credited_aggregate_wall_mm, 23.8); assert.equal(readiness.nominal_leaf_thickness_mm, 12.7);
+  assert.equal(readiness.minimum_actual_leaf_thickness_hypothesis_mm, 11.9);
+  assert.equal(readiness.side_depth_mm, 152.4); assert.deepEqual(readiness.top_rail_section_S_N_mm, [50.8, 139.7]);
+  assert.equal(joint.schema, 'v10_joint_applicability_canonical_wsl_wrapper/v1');
+  assert.equal(joint.review.axis_count, 116); assert.equal(joint.review.wood_occurrences, 158);
+  falseClaims(joint.review, ['structural_acceptance', 'fabrication_released', 'climbing_released',
+    'complete_geometry_factor_qualified', 'complete_group_action_qualified']);
+  assert.equal(jointBank.schema, 'v10_candidate13_joint_applicability_bank_scope/v1');
+  assert.deepEqual(jointBank.physical_geometry, refs.geometry); assert.deepEqual(jointBank.response_bank, refs.bank);
+  assert.deepEqual(jointBank.applicability, refs.joint);
+  for (const key of ['material', 'analysis_geometry', 'inputs', 'prepared_readiness']) assert.deepEqual(jointBank[key], bank[key]);
+  assert.equal(jointBank.verified_proof_count, 24); assert.equal(jointBank.verified_case_proof_files.length, 24);
+  const proofKeys = new Set();
+  for (const row of jointBank.verified_case_proof_files) {
+    const own = bank.cases.find(item => item.case_id === row.case_id);
+    assert.ok(own && ['field', 'independent_replay', 'independent_plywood_replay', 'replay_binding'].includes(row.kind));
+    assert.deepEqual(row.verified, own[row.kind]); proofKeys.add(`${row.case_id}/${row.kind}`);
+  }
+  assert.equal(proofKeys.size, 24);
+  assert.equal(paper.schema, 'candidate13_bounded_paper_audit_bundle/v1');
+  assert.equal(paper.status, 'bounded_paper_audit_complete_connection_acceptance_unresolved');
+  assert.deepEqual(paper.candidate_geometry, refs.geometry); assert.deepEqual(paper.unchanged_response_bank, refs.bank);
+  assert.deepEqual(paper.original_diagnostic_inventory, refs.inventory); assert.deepEqual(paper.prior_package_bundle, refs.delivery);
+  assert.equal(paper.old_case_flags_preserved, true); assert.equal(paper.all13_component_maxima_and_dispositions_join_exactly, true);
+  assert.equal(paper.actual_Cg_adopted, null); assert.equal(paper.actual_Cdelta_adopted, null);
+  assert.equal(paper.old_trial_criterion_retained, 'wood_bearing_whole_affine');
+  assert.equal(paper.candidate_geometry_changed, false); assert.equal(paper.global_reruns, 0);
+  assert.equal(edgeCorrection.schema, 'candidate13_center_principal_correction/v1');
+  assert.equal(edgeCorrection.net_actions_toward_near_edge_all_cases, false);
+  assert.equal(edgeCorrection.fourD_both_edges_is_optional_conservative_envelope, true);
+  assert.equal(edgeCorrection.established_NDS_near_edge_violation, false);
+  assert.equal(edgeCorrection.idealized_resultant_edge_screen_clears, true);
+  falseClaims(edgeCorrection, ['complete_oblique_eccentric_splitting_qualified', 'fabrication_released', 'climbing_released']);
+  assert.equal(correctedCompletion.schema, 'v10_corrected_handoff_completion/v1');
+  assert.equal(correctedCompletion.read_first_correction.sha256, refs.edgeCorrection.sha256);
+  assert.equal(correctedCompletion.candidate_unchanged, true);
+  falseClaims(correctedCompletion, ['full_connection_qualified', 'fabrication_released', 'climbing_released']);
+  assert.equal(group.schema, 'candidate13_group_ownership_distribution_paper_audit/v2');
+  assert.equal(group.per_component_dispositions.length, 13);
+  assert.equal(group.signature_group_count, 52); assert.equal(group.wood_host_count, 24); assert.equal(group.steel_host_count, 24);
+  assert.deepEqual(group.wood_actions_per_case, Array(6).fill(144));
+  const dispositions = byComponent(group.per_component_dispositions);
+  assert.deepEqual(dispositions.map(row => row.component), maxima.map(row => row.component));
+  for (const row of dispositions) assert.deepEqual(row.worst_trial,
+    trialValues(maxima.find(maximum => maximum.component === row.component)));
+  for (const key of ['actual_model_equivalence_to_NDS_distribution_proven', 'actual_Cg_equal_1_adopted',
+    'diagnostic_1_over_n_removed']) assert.equal(group.double_counting[key], false);
+  assert.equal(groupSeal.schema, 'candidate13_group_paper_final_binding/v1');
+  for (const row of [group, groupSeal]) {
+    assert.deepEqual(row.physical_geometry, refs.geometry); assert.deepEqual(row.response_bank, refs.bank);
+    falseClaims(row, ['complete_joint_qualified', 'complete_group_action_qualified', 'complete_geometry_factor_qualified']);
+  }
+  assert.equal(method.schema, 'candidate13-group-factor-method-audit-v1');
+  assert.equal(method.current_above_one_case_rows, 26); assert.equal(method.current_above_one_component_rows.length, 13);
+  assert.deepEqual(byComponent(method.current_above_one_component_rows).map(trialValues), byComponent(maxima).map(trialValues));
+  assert.equal(continuation.schema, 'eoere_v10_candidate13_continuation_evaluation/v1');
+  assert.equal(continuation.geometry_revision, index.geometry.revision);
+  assert.deepEqual(continuation.candidate_geometry, index.geometry.receipt);
+  assert.deepEqual(continuation.response_bank, index.response_bank);
+  assert.equal(continuation.trial_flags_retained, 26);
+  assert.equal(continuation.trial_flagged_component_count, 13);
+  assert.deepEqual(byComponent(continuation.component_dispositions.map(row => row.legacy_diagnostic_maximum_unchanged)), maxima);
+  assert.equal(continuation.actual_Cg_adopted, null); assert.equal(continuation.actual_Cdelta_adopted, null);
+  assert.equal(continuation.owner_scope.panel_screw_exceedances_deferred, true);
+  assert.equal(continuation.owner_scope.agent_review_loop_suspended, true);
+  falseClaims(continuation, ['candidate_geometry_changed', 'signature_1_over_n_used_as_qualified_acceptance_criterion',
+    'all_applicable_connection_criteria_resolved', 'complete_joint_qualified', 'structural_acceptance',
+    'fabrication_released', 'climbing_released']);
+  assert.equal(continuation.global_force_reruns, 0); assert.equal(continuation.native_solves, 0);
+  const stock = data.standardTopStock, first = stock.first_option;
+  assert.equal(stock.schema, 'eoere_v10_standard_top_stock_evaluation/v1');
+  assert.deepEqual(stock.owner_constraint, index.owner_top_rail_constraint);
+  assert.equal(stock.owner_constraint.sha256, 'e697c55556d2c437cfa265cc183eb52e18aadf4dfcc3edc7bdadc7a1a38cc247');
+  assert.equal(stock.status, index.standard_top_stock_evaluation.status);
+  assert.equal(stock.candidate13_section_result_transferred, false);
+  assert.deepEqual(stock.load_contract, V10_CANDIDATE13_LOAD);
+  assert.deepEqual(first.actual_section_mm, [38.1, 139.7]);
+  assert.equal(first.counts.bolt_stacks, 116);
+  assert.equal(first.counts.added_top_beam_bolts, 8);
+  assert.equal(first.counts.panel_screw_axes, 66);
+  assert.equal(first.status, 'rejected_by_fresh_top_rail_reference');
+  assert.equal(first.all_six_cases_evaluated, false);
+  assert.deepEqual(first.evaluated_cases.map(row => row.case_id), ['k12-right', 'a12-forward']);
+  for (const row of first.evaluated_cases) {
+    assert.deepEqual(row.input_bindings.physical_geometry, first.geometry);
+    assert.deepEqual(row.input_bindings.receipt, first.receipt);
+    assert.equal(row.status, 'early_rejection_by_top_rail_reference');
+    assert.equal(row.complete_six_case_pass, null);
+    assert.equal(row.early_rejection_sufficient, true);
+    assert.ok(row.metric_values.shear_torsion_reference_upper > 1);
+  }
+  assert.equal(first.maximum_shear_torsion_reference,
+    Math.max(...first.evaluated_cases.map(row => row.metric_values.shear_torsion_reference_upper)));
+  assert.equal(first.maximum_shear_torsion_reference,
+    index.standard_top_stock_evaluation.first_option_maximum_top_shear_torsion_reference);
+  assert.equal(index.standard_top_stock_evaluation.preferred_purchase_stock_qualified, false);
+  assert.deepEqual(stock.fallback.actual_section_mm, [88.9, 139.7]);
+  falseClaims(stock, ['complete_joint_qualified', 'structural_acceptance', 'fabrication_released', 'climbing_released']);
+  const matched = stock.fallback.matched_results;
+  const selection = index.development_selection, decision = data.ownerDecision;
+  assert.equal(decision.schema, 'moonboard_owner_candidate_decision/v1');
+  assert.equal(selection.revision, 'v10-standard-top-4x6-stock-proposal-v2');
+  assert.equal(selection.revision, decision.selected_revision);
+  assert.equal(selection.revision, stock.fallback.geometry_revision);
+  assert.deepEqual(selection.actual_top_section_mm, [88.9, 139.7]);
+  assert.deepEqual(selection.actual_top_section_mm, decision.actual_top_section_mm);
+  assert.deepEqual(selection.geometry_receipt, matched.geometry_receipt);
+  assert.deepEqual(selection.physical_geometry, stock.fallback.geometry);
+  for (const key of ['response_bank', 'reference_review', 'trial_inventory'])
+    assert.deepEqual(selection[key], matched[key]);
+  assert.equal(selection.response_bank.sha256, decision.source_response_bank.sha256);
+  assert.equal(selection.reference_review.sha256, decision.source_reference_review.sha256);
+  assert.equal(selection.top_conditional_shear_torsion_index,
+    matched.member_section_references.base_rail_top.maximum_shear_torsion_reference.maximum_shear_torsion_reference_upper);
+  assert.equal(selection.top_conditional_shear_torsion_index, decision.top_conditional_shear_torsion_index);
+  assert.equal(selection.retained_bearing_diagnostic_case_rows, matched.trial_case_flags);
+  assert.equal(selection.retained_bearing_diagnostic_case_rows, decision.retained_bearing_diagnostic_case_rows);
+  assert.equal(selection.retained_bearing_diagnostic_components, matched.trial_flagged_components);
+  assert.equal(selection.retained_bearing_diagnostic_components, decision.retained_bearing_diagnostic_components);
+  assert.equal(selection.candidate_selection_only, true);
+  assert.equal(selection.actual_NDS_Cg_adopted, null);
+  assert.equal(decision.custom_receiver_signature_penalty_is_not_adopted_NDS_Cg, true);
+  assert.equal(decision.no_other_member_stock_approval, true);
+  assert.equal(decision.no_purchases_authorized, true);
+  falseClaims(selection, ['other_nonstandard_member_stock_approved', 'purchase_authorized',
+    'fabrication_released', 'climbing_released', 'structural_acceptance', 'complete_joint_qualified',
+    'hardware_queue_duplicated_by_selection']);
+  falseClaims(decision, ['fabrication_released', 'climbing_released', 'structural_acceptance']);
+  assert.deepEqual(selection.still_open, decision.still_open);
+  assert.equal(selection.still_open.length, 4);
+  assert.deepEqual(selection.history_preserved, decision.preserve_history);
+  assert.equal(selection.history_preserved.length, 2);
+  assert.equal(stock.development_candidate_selection.revision, selection.revision);
+  assert.deepEqual(stock.development_candidate_selection.owner_decision, selection.owner_decision);
+  assert.equal(stock.development_candidate_selection.candidate_selection_only, true);
+  falseClaims(stock.development_candidate_selection, ['other_nonstandard_member_stock_approved',
+    'purchase_authorized', 'fabrication_released', 'climbing_released', 'structural_acceptance']);
+  const {bank: stockBank, review: stockReview, inventory: stockInventory,
+    receipt: stockReceipt} = data.stockRecords;
+  assert.equal(stockBank.geometry_revision, stock.fallback.geometry_revision);
+  assert.equal(stockReceipt.revision, stock.fallback.geometry_revision);
+  assert.deepEqual(stockBank.physical_geometry, stock.fallback.receipt);
+  assert.deepEqual(stockReceipt.checked_geometry, stock.fallback.geometry);
+  assert.deepEqual(stockReceipt.checked_clearance, stock.fallback.clearance);
+  assert.equal(stockReceipt.nominal_geometry_clear, true);
+  assert.equal(stockReceipt.counts.occupied_parts_checked, 1151);
+  assert.deepEqual(stockBank.case_ids, CURRENT_CASES);
+  assert.equal(stockBank.cases.length, 6);
+  assert.equal(stockBank.all_six_cases_admitted, true);
+  assert.deepEqual(stockBank.load_contract, V10_CANDIDATE13_LOAD);
+  for (const row of stockBank.cases) {
+    assert.equal(row.both_independent_replays_admitted, true);
+    assert.ok(row.gradient_inf_N <= 1e-5);
+  }
+  assert.equal(stockBank.maximum_gradient_inf_N,
+    Math.max(...stockBank.cases.map(row => row.gradient_inf_N)));
+  assert.equal(stockBank.maximum_gradient_inf_N, matched.maximum_gradient_inf_N);
+  const stockFields = Object.fromEntries(stockBank.cases.map(row => [row.case_id, row.field]));
+  for (const row of [stockReview, stockInventory]) {
+    assert.deepEqual(row.analysis_geometry, stockBank.analysis_geometry);
+    assert.deepEqual(row.field_bindings, stockFields);
+  }
+  assert.equal(stockReview.response_bank.sha256, matched.response_bank.sha256);
+  assert.deepEqual(stockReview.physical_geometry, stockBank.physical_geometry);
+  assert.deepEqual(stockReview.numerical_reference_maxima, matched.numerical_reference_maxima);
+  assert.equal(stockInventory.count_above_reference_case_rows, stockInventory.above_reference_case_rows.length);
+  assert.equal(stockInventory.count_above_reference_case_rows, matched.trial_case_flags);
+  assert.deepEqual(stockInventory.component_maxima, matched.trial_component_maxima);
+  assert.equal(stockInventory.component_maxima.length, matched.trial_flagged_components);
+  assert.equal(matched.actual_Cg_adopted, null); assert.equal(matched.actual_Cdelta_adopted, null);
+  falseClaims(matched, ['complete_joint_qualified']);
+  for (const row of [stockBank, stockReview, stockInventory]) falseClaims(row);
+  falseClaims(stockReceipt, ['fabrication_released', 'climbing_released']);
+  const connection = stock.fallback.connection_method_summary;
+  assert.equal(connection.current_case_axis_rows, 156);
+  assert.equal(connection.force_only_scenario_rows, 132);
+  for (const key of ['complete_connection_capacity', 'complete_group_capacity',
+    'complete_wrench_interaction_pass', 'actual_Cg_adopted', 'actual_Cdelta_adopted',
+    'NDS_edge_pass_or_violation_established']) assert.equal(connection[key], null);
+  assert.equal(connection.current_068_069_net_actions.length, 12);
+  for (const component of ['eoere_bolt_068', 'eoere_bolt_069']) {
+    const rows = connection.current_068_069_net_actions.filter(row => row.axis_id === component);
+    assert.deepEqual(rows.map(row => row.case_id), CURRENT_CASES);
+    assert.ok(rows.every(row => row.net_force_toward_near_edge_N < 0 &&
+      row.direction === 'away_from_near_edge'));
+  }
+  const catalogProbe = stock.fallback.catalog_audit.catalog_maximum_clearance_sensitivity;
+  assert.deepEqual(catalogProbe.source_geometry, stock.fallback.geometry);
+  assert.equal(catalogProbe.known_catalog_maximum_occupied_envelopes_clear, true);
+  assert.equal(catalogProbe.changed_hardware_ids_checked, 110);
+  assert.equal(catalogProbe.occupied_parts, 1151);
+  assert.equal(catalogProbe.collisions, 0); assert.equal(catalogProbe.missing_candidates, 0);
+  falseClaims(catalogProbe, ['source_geometry_or_force_bank_changed',
+    'all_catalog_properties_or_delivered_fit_qualified', 'force_or_strength_result_transferred']);
+  const slip = stock.fallback.group_slip_method_assessment;
+  assert.equal(slip.actual_Cg_assigned, null);
+  falseClaims(slip, ['FE_equivalent_to_NDS_gamma', 'subpath_values_are_qualified_connection_stiffness']);
+  const rear = stock.fallback.rear_full_wrench_reference;
+  assert.equal(rear.current_case_axis_rows, 24);
+  for (const key of ['complete_connection_capacity', 'complete_wrench_interaction_pass',
+    'actual_Cg_adopted', 'actual_Cdelta_adopted']) assert.equal(rear[key], null);
+  falseClaims(rear, ['physical_failure_established', 'bolt_size_or_grade_remedy_adopted',
+    'selected_Grade_5_Fyb_qualified', 'root_profile_is_delivered_or_acceptance_minimum',
+    'legacy_trial_inventory_changed']);
+  const groupCriteria = stock.fallback.physical_row_group_criteria;
+  const active = data.activeConnectionCriteria, comparison = data.groupRowComparison;
+  assert.equal(active.schema, 'eoere_physical_row_full_wrench_criteria/v1');
+  assert.equal(active.revision, selection.revision);
+  assert.equal(comparison.revision, selection.revision);
+  assert.equal(comparison.selected_revision, selection.revision);
+  assert.deepEqual(comparison.sources.map(row => row.sha256),
+    [selection.physical_geometry, selection.response_bank, selection.reference_review].map(row => row.sha256));
+  assert.deepEqual(active.source_bindings.provided_comparison, groupCriteria.comparison);
+  assert.deepEqual(active.source_bindings.provided_producer, groupCriteria.producer);
+  assert.deepEqual(active.source_bindings.legacy_trial_inventory, selection.trial_inventory);
+  assert.deepEqual(active.load_contract, stockBank.load_contract);
+  assert.deepEqual(active.analysis_geometry, stockBank.analysis_geometry);
+  assert.deepEqual(active.field_bindings, stockFields);
+  assert.equal(active.status, 'UNRESOLVED'); assert.equal(groupCriteria.status, active.status);
+  for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted', 'upper_cleat_three_media_Cg',
+    'complete_connection_capacity', 'complete_connection_acceptance']) assert.equal(active[key], null);
+  for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted', 'upper_cleat_Cg',
+    'complete_connection_acceptance']) assert.equal(groupCriteria[key], null);
+  falseClaims(active, ['legacy_signature_1_over_n_used_for_acceptance', 'conditional_benchmark_factor_used_for_acceptance',
+    'signed_forces_changed', 'signed_moments_changed', 'moments_omitted', 'loads_reduced', 'force_bank_rerun',
+    'structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized',
+    'hardware_or_geometry_selected_by_this_comparison']);
+  assert.equal(groupCriteria.legacy_1_over_n_is_acceptance_criterion, false);
+  assert.equal(comparison.actual_Cg_adopted, null);
+  falseClaims(comparison, ['acceptance_changed', 'release_changed']);
+  assert.equal(comparison.tests.tests_passed, 6);
+  assert.equal(comparison.conditional_scenarios.length, 5);
+  assert.equal(active.provided_benchmarks.actual_connection_factors_or_passes, false);
+  for (const row of comparison.conditional_scenarios) {
+    assert.equal(row.actual_connection_Cg, null);
+    assert.equal(row.complete_connection_status, 'UNRESOLVED');
+    assert.equal(row.n_per_assumed_row, 2);
+    assert.ok(row.Cg > 0.99 && row.Cg < 1, 'conditional row benchmark remains separate from 1/n');
+  }
+  assert.equal(active.legacy_diagnostics.case_rows, 15);
+  assert.equal(active.legacy_diagnostics.components, 8);
+  assert.equal(active.legacy_diagnostics.diagnostic_only, true);
+  assert.equal(active.other_axes_not_cleared_by_absence_of_legacy_flag, true);
+  assert.equal(active.flagged_component_dispositions.length, 8);
+  assert.deepEqual(byComponent(active.flagged_component_dispositions.map(row => row.legacy_trial_maximum)),
+    byComponent(stockInventory.component_maxima));
+  for (const row of active.flagged_component_dispositions) {
+    assert.equal(row.status, 'UNRESOLVED');
+    assert.equal(row.legacy_trial_is_acceptance_criterion, false);
+    for (const key of ['actual_physical_group_id', 'actual_row_assignment', 'actual_Cg',
+      'complete_connection_capacity', 'complete_force_and_moment_interaction_pass']) assert.equal(row[key], null);
+  }
+  assert.equal(scene.schema, 'eoere_v10_geometry_patch/v1'); assert.equal(scene.revision, index.geometry.revision);
+  assert.equal(scene.key, 'eoere-owner-frame-v10-development');
+  assert.equal(scene.iteration, '13'); assert.equal(scene.part_count, 1167); assert.equal(scene.parent_part_count, 1021);
+  assert.deepEqual(scene.counts, V10_CANDIDATE13_COUNTS);
+  assert.equal(scene.layout_report.path, refs.geometry.path); assert.equal(scene.layout_report.sha256, refs.geometry.sha256);
+  assert.deepEqual(scene.geometry_source, geometry.checked_geometry); assert.deepEqual(scene.clearance_source, geometry.checked_clearance);
+  assert.equal(scene.parent_layout.path, index.preceding_revision.geometry.receipt.path);
+  assert.equal(scene.parent_layout.sha256, index.preceding_revision.geometry.receipt.sha256);
+  for (const key of ['current_response_computed', 'historical_capacity_transferred', 'complete_conditional_frame_evaluation',
+    'actual_parts_verified', 'fabrication_released', 'climbing_released']) assert.equal(scene[key], false);
+  assert.equal(scene.panel_Hillman_resolution_deferred, true);
+  assert.equal(geometryJoin.scene.sha256, index.geometry.scene.sha256);
+  assert.deepEqual(geometryJoin.geometry, refs.geometry); assert.deepEqual(geometryJoin.counts, V10_CANDIDATE13_COUNTS);
+  return {passed: true, revision: index.geometry.revision, bolt_axes: 116, screw_axes: 66,
+    angles: 24, occupied_parts: 1167, spacer_pieces: 60, current_response_revision: index.geometry.revision,
+    trial_case_flags: 26, trial_flagged_components: 13, actual_Cg_adopted: null, complete_geometry_factor_resolved: false,
+    center_principal_optional_both_edges_envelope_only: true, center_principal_established_NDS_near_edge_violation: false,
+    complete_joint_qualified: false, structural_acceptance: false, fabrication_released: false, climbing_released: false,
+    full_ignored_input_closure_checked: false, mechanics_executed: false};
+}
+
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v16') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.standard_side_stock_evaluation));
+    const owner = JSON.parse(bound(index.owner_side_constraint));
+    const geometry = JSON.parse(bound(index.geometry.receipt));
+    const bank = JSON.parse(bound(index.response_bank));
+    const review = JSON.parse(bound(index.engineering_review));
+    const inventory = JSON.parse(bound(index.exceedance_inventory));
+    const revision = 'v10-standard-4x6-top-and-sides-development-v1';
+    const stock = JSON.parse(bound(index.stock_planning));
+    assert.equal(stock.schema, 'eoere_v10_standard_stock_planning_sources/v1');
+    assert.equal(stock.revision, revision);
+    for (const ref of Object.values(stock.outputs)) bound(ref);
+    for (const [key, ref] of Object.entries(stock.source_bindings))
+      if (key !== 'allocation_physical_geometry') bound(ref);
+    assert.deepEqual(stock.source_bindings.allocation_physical_geometry, report.geometry);
+    for (const imported of Object.values(stock.imports)) {
+      assert.equal(imported.integrated.sha256, imported.original.sha256);
+      bound(imported.integrated);
+    }
+    assert.deepEqual(stock.source_bindings.current_checked_geometry_receipt, index.geometry.receipt);
+    assert.deepEqual(stock.source_bindings.current_response_bank, index.response_bank);
+    assert.deepEqual(stock.dimensional_validation.board_counts,
+      {stock_2x6x10: 3, stock_2x6x8: 5, stock_4x6x10: 3, stock_4x6x8: 2});
+    assert.equal(stock.dimensional_validation.sawn_members, 22);
+    assert.equal(stock.current_buying_CSV.obsolete_4x8_solid_timber_row_removed, true);
+    for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released'])
+      assert.equal(stock[key], false);
+    assert.equal(owner.schema, 'owner-standard-side-4x6-v1');
+    assert.deepEqual(owner.owner_constraint.actual_cross_section_mm, [88.9, 139.7]);
+    assert.deepEqual(owner.owner_constraint.members, ['base_side_left', 'base_side_right']);
+    assert.equal(report.schema, 'eoere_v10_standard_side_stock_evaluation/v1');
+    for (const row of [index.geometry, report, geometry]) assert.equal(row.revision, revision);
+    assert.equal(index.development_selection.revision, revision);
+    assert.deepEqual(index.development_selection.actual_sections_mm, report.actual_sections_mm);
+    assert.equal(index.development_selection.custom_packers_approved, false);
+    assert.equal(index.development_selection.purchase_authorized, false);
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.hardware_model.actual_parts_verified, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    assert.equal(index.shop.historical_cut_drill_packet_current, false);
+    assert.equal(index.complete_joint_qualified, false);
+    assert.equal(index.physical_operations_authorized, false);
+    assert.ok(index.conditional_frame_evaluation == null, 'no inherited complete frame acceptance');
+    for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted', 'complete_connection_acceptance'])
+      assert.equal(index[key], null);
+    assert.deepEqual(report.owner_constraint, index.owner_side_constraint);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.equal(report.new_geometry_verified, true);
+    assert.equal(report.new_sixcase_bank_complete, true);
+    assert.equal(report.old_152p4_side_geometry_results_and_bound_group_scenarios_transferred, false);
+    for (const name of ['base_side_left', 'base_side_right', 'base_rail_top'])
+      assert.deepEqual(report.actual_sections_mm[name], [88.9, 139.7]);
+    assert.deepEqual(geometry.checked_geometry, report.geometry);
+    assert.deepEqual(geometry.checked_clearance, report.clearance);
+    assert.equal(geometry.nominal_geometry_clear, true);
+    assert.equal(geometry.counts.occupied_parts_checked, 1151);
+    assert.equal(geometry.counts.structural_axes, 116);
+    assert.equal(geometry.counts.panel_screw_axes, 66);
+    assert.equal(geometry.counts.side_receiver_bore_cores_checked, 30);
+    assert.deepEqual(bank.physical_geometry, index.geometry.receipt_source);
+    assert.equal(bank.geometry_revision, revision);
+    assert.equal(bank.all_six_cases_admitted, true);
+    assert.deepEqual(bank.case_ids, CURRENT_CASES);
+    assert.equal(bank.cases.length, 6);
+    assert.equal(bank.admission_gate_N, 1e-5);
+    assert.deepEqual(bank.load_contract, V10_CANDIDATE13_LOAD);
+    assert.deepEqual(report.load_contract, bank.load_contract);
+    assert.equal(report.gravity_m_s2, 9.80665);
+    const oldBank = JSON.parse(bound(index.preceding_revision.development_selection.response_bank));
+    const oldFields = new Set(oldBank.cases.map(row => row.field.sha256));
+    for (const row of bank.cases) {
+      assert.equal(row.both_independent_replays_admitted, true);
+      assert.ok(row.gradient_inf_N < 1e-5);
+      assert.ok(row.field.path.includes('/v10-standard-side-stock-v1/'));
+      assert.ok(!oldFields.has(row.field.sha256), 'old deeper-side forces cannot be reused');
+    }
+    const fields = Object.fromEntries(bank.cases.map(row => [row.case_id, row.field]));
+    for (const row of [review, inventory]) {
+      assert.deepEqual(row.analysis_geometry, bank.analysis_geometry);
+      assert.deepEqual(row.field_bindings, fields);
+    }
+    assert.equal(review.geometry_revision, revision);
+    assert.deepEqual(review.load_contract, bank.load_contract);
+    assert.deepEqual(report.artifacts.geometry_receipt, index.geometry.receipt);
+    assert.deepEqual(report.artifacts.response_bank, index.response_bank);
+    assert.deepEqual(report.artifacts.reference_review, index.engineering_review);
+    assert.deepEqual(report.artifacts.diagnostic_inventory, index.exceedance_inventory);
+    assert.deepEqual(report.artifacts.connection_review, index.connection_review);
+    for (const ref of Object.values(report.artifacts)) bound(ref);
+    const connection = JSON.parse(bound(index.connection_review));
+    assert.equal(connection.revision, revision);
+    assert.deepEqual(connection.geometry, report.geometry);
+    assert.deepEqual(connection.response_bank, report.response_bank_source);
+    assert.equal(connection.axis_case_rows, 228);
+    assert.equal(connection.signed_plane_wrenches, 312);
+    assert.equal(connection.receiver_actions_with_local_moments, 540);
+    assert.equal(connection.status, 'UNRESOLVED');
+    assert.equal(connection.legacy_signature_1_over_n_used_for_acceptance, false);
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_group_capacity',
+      'complete_wrench_interaction_pass', 'upper_cleat_three_media_Cg']) assert.equal(connection[key], null);
+    assert.deepEqual(review.response_bank, report.response_bank_source);
+    assert.equal(inventory.count_above_reference_case_rows, inventory.above_reference_case_rows.length);
+    assert.equal(report.reference_case_exceedances, inventory.count_above_reference_case_rows);
+    assert.equal(report.reference_component_exceedances, inventory.component_maxima.length);
+    assert.equal(report.bearing_diagnostic_case_rows, inventory.above_reference_case_rows
+      .filter(row => row.criterion === 'wood_bearing_whole_affine').length);
+    assert.deepEqual(report.reference_maxima, review.numerical_reference_maxima);
+    assert.equal(report.custom_packers.stock_and_geometry_approved, false);
+    assert.deepEqual(report.custom_packers.members, ['top_packer_left', 'top_packer_right']);
+    assert.equal(report.lengths_provisional, true);
+    assert.equal(report.connection_assessment.status, 'UNRESOLVED');
+    assert.equal(report.connection_assessment.legacy_signature_1_over_n_used_for_acceptance, false);
+    for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted',
+      'upper_cleat_three_media_Cg', 'complete_connection_acceptance']) assert.equal(report[key], null);
+    for (const row of [index, report, bank, review, inventory]) for (const key of [
+      'structural_acceptance', 'fabrication_released', 'climbing_released']) assert.equal(row[key], false);
+    assert.equal(index.purchase_authorized, false);
+    assert.equal(report.purchase_authorized, false);
+    assert.equal(index.other_nonstandard_member_stock_approved, false);
+    assert.equal(index.geometry.viewer_scope, 'desktop_local_preview');
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {passed: true, revision, bolt_axes: 116, screw_axes: 66, angles: 24,
+      occupied_parts: 1151, spacer_pieces: 44, current_response_revision: revision,
+      reference_case_exceedances: report.reference_case_exceedances,
+      reference_component_exceedances: report.reference_component_exceedances,
+      bearing_diagnostic_case_rows: report.bearing_diagnostic_case_rows,
+      legacy_signature_1_over_n_used_for_acceptance: false, connection_assessment_status: 'UNRESOLVED',
+      actual_Cg_adopted: null, complete_connection_acceptance: null, custom_packers_approved: false,
+      purchase_authorized: false, other_nonstandard_member_stock_approved: false,
+      structural_acceptance: false, fabrication_released: false, climbing_released: false,
+      preserved_previous_development_revision: prior.revision,
+      preserved_integrated_package_revision: index.preceding_revision.geometry.revision,
+      selected_baseline_candidate: index.selected_baseline.candidate, mechanics_executed: false};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v15') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const data = readV10Candidate13Authority(index);
+    const result = validateV10Candidate13Authority(index, data);
+    const html = read('site/index.html').toString();
+    for (const model of [index.geometry.viewer, index.preserved_owner_v9_viewer, 'eoere-owner-frame-v10-development'])
+      assert.equal(viewerModel(html, model), model, 'current and preserved development viewers must remain selectable');
+    assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {...result, revision: index.development_selection.revision,
+      occupied_parts: 1151, spacer_pieces: 44, trial_case_flags: 15, trial_flagged_components: 8,
+      current_response_revision: index.development_selection.revision,
+      candidate_selection_only: true, other_nonstandard_member_stock_approved: false, purchase_authorized: false,
+      legacy_signature_1_over_n_used_for_acceptance: false,
+      connection_assessment_status: 'UNRESOLVED', complete_connection_acceptance: null,
+      preserved_integrated_package_revision: result.revision,
+      preserved_previous_development_revision: prior.revision,
+      selected_baseline_candidate: index.selected_baseline.candidate};
+  }
+
+  if (index.schema === 'bolted_frame_development_revisions/v14') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_single_spacer_revision/v1');
+    assert.equal(report.revision, 'eoere-single-spacer-cleat-stacks-v9');
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    for (const row of [index.geometry, index.hardware_model, index.shop]) assert.equal(row.revision, report.revision);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.deepEqual(index.shop.geometry, index.geometry.receipt);assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    for (const key of ['engineering_review', 'testing_review', 'bolt_geometry_review', 'panel_bracing_review']) if (index[key]) {
+      const review = JSON.parse(bound(index[key]));
+      assert.equal(review.geometry_revision, report.revision, 'changed hardware needs its own applicable review');
+      assert.deepEqual(review.physical_geometry, index.geometry.receipt);
+      if (key === 'bolt_geometry_review') validateCurrentBoltGeometryReview(review, index);
+      if (key === 'engineering_review') validateCurrentConventionalReferenceReview(review, index);
+      if (key === 'panel_bracing_review') validateCurrentPanelBracingSummary(review, index);
+    }
+    if (index.response_bank) validateOwnResponseBank(JSON.parse(bound(index.response_bank)), index);
+    for (const row of [index, report]) {
+      assert.equal(row.fabrication_released, false);assert.equal(row.climbing_released, false);
+      assert.equal(row.panel_Hillman_resolution_deferred, true);
+    }
+    for (const flag of ['current_response_computed', 'historical_capacity_transferred', 'complete_conditional_frame_evaluation',
+      'actual_parts_verified']) assert.equal(report[flag], false);
+    for (const flag of ['nominal_geometry_clear', 'nominal_catalog_windows_checked',
+      'timber_holes_fittings_and_66_screws_unchanged', 'forty_inward_stacks_preserved']) assert.equal(report[flag], true);
+    assert.equal(report.changed_stacks, 8);assert.equal(report.changed_parts, 24);assert.equal(report.removed_spacer_parts, 16);
+    assert.equal(report.actual_observations, null);bound(report.producer);
+    for (const binding of Object.values(report.files)) bound(binding);
+    const previous = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    assert.deepEqual(report.counts, {...previous.counts, spacer_pieces: 16, occupied_parts: 1021});
+    const parameters = JSON.parse(bound(report.files['candidate-parameters.json']));
+    assert.deepEqual(parameters.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(parameters.parent_checked_geometry, previous.checked_geometry);
+    assert.equal(parameters.axis_updates.length, 8);assert.equal(parameters.part_transforms.length, 24);
+    assert.equal(parameters.removed_parts.length, 16);assert.equal(parameters.actual_parts_verified, false);
+    assert.equal(parameters.mechanical_force_or_strength_results_transferred, false);
+    bound(parameters.producer);
+    const oldAxes = new Map(JSON.parse(bound(previous.files['axis-updates.json'])).axes.map(a => [a.id, a]));
+    for (const update of parameters.axis_updates) {
+      assert.deepEqual(update.before_axis, oldAxes.get(update.axis_id));
+      for (const key of ['id', 'point_xyz_mm', 'direction_xyz', 'diameter_mm', 'bore_diameter_mm', 'attachments',
+        'receivers', 'grip_mm', 'before_plate_mm', 'after_plate_mm', 'head_faces', 'nut_faces'])
+        assert.deepEqual(update.after_axis[key], update.before_axis[key]);
+      assert.equal(update.after_axis.nominal_under_head_length_mm, 190.5);
+      assert.equal(update.after_axis.nut_side_spacer_mm, 25.4);
+      for (const key of ['selected_bolt_grade', 'selected_nut_SKU', 'selected_washer_SKU', 'selected_drive', 'selected_diameter_mm'])
+        assert.deepEqual(update.after_selection[key], update.before_selection[key]);
+      assert.equal(update.after_selection.minimum_body_mm, 144.272);
+      assert.equal(update.after_selection.maximum_grip_gaging_mm, 158.75);
+      assert.equal(update.after_selection.minimum_body_to_nominated_target_margin_mm > 8, true);
+    }
+    for (const row of parameters.stack_checks) {
+      assert.equal(row.nominal.all_nominal_reference_margins_positive, true);
+      assert.equal(row.USS_minimum_thickness.all_nominal_reference_margins_positive, true);
+      assert.equal(row.delivered_dimensions_observed, false);assert.equal(row.complete_joint_qualified, false);
+      assert.equal(row.rejected_shorter_options.find(r => r.product === '8094').wood_and_steel_body_margin_mm < 0, true);
+    }
+    const scene = validateSingleSpacers(JSON.parse(bound(index.geometry.scene)), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.parent_layout, index.preceding_revision.geometry.receipt);
+    for (const row of scene.part_transforms) {
+      const own = parameters.part_transforms.find(r => r.name === row.name);
+      for (const key of Object.keys(row)) assert.deepEqual(row[key], own[key]);
+    }
+    assert.deepEqual(scene.removals, parameters.removed_parts.map(r => r.id));
+    assert.deepEqual(scene.stack_updates, parameters.axis_updates.map(u => u.after_selection));
+    const html = read('site/index.html').toString();
+    for (const value of [path.basename(index.geometry.scene.path), index.geometry.scene.sha256,
+      index.geometry.receipt.sha256, index.preserved_owner_v8_viewer]) assert.ok(html.includes(value), 'single-spacer viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    const currentReference = index.engineering_review ? JSON.parse(bound(index.engineering_review)) : null;
+    const currentMethods = currentReference?.schema === 'eoere_current_conventional_reference_review/v1' &&
+      Boolean(currentReference.source_bindings?.timber_cores && currentReference.source_bindings?.timber_vector);
+    return {...prior, revision: report.revision, spacer_pieces: 16, occupied_parts: 1021, simplified_cleat_stacks: 8,
+      testing_method_correction_applied: currentMethods,
+      testing_method_correction_scope: 'current own-field core and vector references; no historical force pass',
+      current_response_revision: (index.response_bank || index.engineering_review) ? report.revision : null};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v13') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_inward_angles_revision/v1');
+    assert.equal(report.revision, 'eoere-inward-bolts-and-angles-v8');
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    for (const row of [index.geometry, index.hardware_model, index.shop]) assert.equal(row.revision, report.revision);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.deepEqual(index.shop.geometry, index.geometry.receipt);
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    for (const key of ['engineering_review', 'testing_review', 'bolt_geometry_review', 'panel_bracing_review']) if (index[key]) {
+      const review = JSON.parse(bound(index[key]));
+      assert.equal(review.geometry_revision, report.revision, 'matching cumulative geometry required');
+      assert.deepEqual(review.physical_geometry, index.geometry.receipt);
+      if (key === 'bolt_geometry_review') validateCurrentBoltGeometryReview(review, index);
+    }
+    if (index.response_bank) validateOwnResponseBank(JSON.parse(bound(index.response_bank)), index);
+    for (const row of [index, report]) {
+      assert.equal(row.fabrication_released, false);assert.equal(row.climbing_released, false);
+      assert.equal(row.panel_Hillman_resolution_deferred, true);
+    }
+    for (const flag of ['current_response_computed', 'historical_capacity_transferred', 'complete_conditional_frame_evaluation'])
+      assert.equal(report[flag], false);
+    for (const flag of ['nominal_geometry_clear', 'inward_bolt_directions_preserved',
+      'stock_outlines_and_66_screws_preserved', 'hardware_lengths_and_counts_preserved']) assert.equal(report[flag], true);
+    assert.equal(report.retained_inward_exterior_stacks, 40);
+    assert.equal(report.moved_angles, 8);assert.equal(report.moved_axes, 24);
+    assert.equal(report.changed_receivers, 13);assert.equal(report.changed_parts, 173);
+    assert.deepEqual(report.translation_xyz_mm, [0, 6, 0]);assert.equal(report.actual_observations, null);
+    bound(report.producer);
+    for (const binding of Object.values(report.files)) bound(binding);
+    const previous = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    assert.deepEqual(report.counts, previous.counts);
+    const changes = JSON.parse(bound(report.files['changes.json']));
+    assert.deepEqual(changes.parent_geometry, previous.checked_geometry);
+    assert.equal(changes.prior_force_results_transferred, false);
+    assert.equal(changes.fresh_stock_only_not_a_physical_repair_instruction, true);
+    assert.equal(changes.panel_and_kicker_screws_changed, false);assert.equal(changes.member_outlines_changed, false);
+    const updates = JSON.parse(bound(report.files['axis-updates.json']));
+    assert.equal(updates.axes.length, 24);assert.equal(updates.fitting_poses.length, 8);
+    assert.equal(updates.inward_bolt_directions_preserved, true);assert.equal(updates.screw_axes_changed, false);
+    const v6 = JSON.parse(bound(index.preceding_revision.preceding_revision.geometry.receipt));
+    const additions = JSON.parse(bound(v6.files['axes-additions.json']));
+    const axes = new Map([...JSON.parse(bound(additions.parent_axes)).axes, ...additions.axes].map(a => [a.id, a]));
+    const orientation = JSON.parse(bound(previous.files['orientation.json']));
+    for (const {after} of orientation.axis_updates) axes.set(after.id, after);
+    for (const after of updates.axes) {
+      const before = axes.get(after.id);
+      assert.deepEqual(after.point_xyz_mm, before.point_xyz_mm.map((p, i) => p+(i === 1 ? 6 : 0)));
+      for (const key of Object.keys(before).filter(k => !['point_xyz_mm', 'attachments'].includes(k)))
+        assert.deepEqual(after[key], before[key], 'inward orientation and hardware must remain: '+after.id+' '+key);
+      assert.equal(after.attachments.length, before.attachments.length);
+      for (let i = 0; i < after.attachments.length; i++) {
+        assert.deepEqual(after.attachments[i].point, before.attachments[i].point.map((p, j) => p+(j === 1 ? 6 : 0)));
+        const a = {...after.attachments[i]}, b = {...before.attachments[i]};delete a.point;delete b.point;
+        assert.deepEqual(a, b);
+      }
+    }
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateInwardAngles(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.parent_layout, index.preceding_revision.geometry.receipt);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), [...changes.affected_wood_receivers].sort());
+    const html = read('site/index.html').toString();
+    for (const value of [path.basename(index.geometry.scene.path), index.geometry.scene.sha256,
+      index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256, index.preserved_owner_v7_viewer])
+      assert.ok(html.includes(value), 'cumulative geometry viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {...prior, revision: report.revision, retained_inward_exterior_stacks: 40,
+      inset_angles: 8, translated_shared_axes: 24,
+      current_response_revision: index.engineering_review ? report.revision : null};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v12') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_inward_bolts_revision/v1');
+    assert.equal(report.revision, 'eoere-inward-exterior-bolts-v7');
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    for (const row of [index.geometry, index.hardware_model, index.shop]) assert.equal(row.revision, report.revision);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.deepEqual(index.shop.geometry, index.geometry.receipt);
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    for (const key of ['engineering_review', 'testing_review', 'bolt_geometry_review'])
+      assert.equal(index[key], undefined, 'reversed hardware cannot inherit a preceding review');
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    for (const row of [index, report]) {
+      assert.equal(row.fabrication_released, false); assert.equal(row.climbing_released, false);
+      assert.equal(row.panel_Hillman_resolution_deferred, true);
+    }
+    for (const key of ['current_response_computed', 'historical_capacity_transferred',
+      'complete_conditional_frame_evaluation', 'thread_windows_washer_seats_and_tool_access_requalified'])
+      assert.equal(report[key], false, 'orientation change is nominal geometry only');
+    for (const key of ['nominal_geometry_clear', 'holes_members_panels_and_screws_unchanged',
+      'bolt_lengths_grades_and_spacer_counts_unchanged']) assert.equal(report[key], true);
+    assert.equal(report.actual_observations, null);
+    assert.equal(report.reversed_stacks, 40); assert.equal(report.side_stacks, 32);
+    assert.equal(report.top_stacks, 8); assert.equal(report.changed_hardware_parts, 224);
+    bound(report.producer);
+    const previous = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    assert.deepEqual(report.counts, previous.counts);
+    const orientation = JSON.parse(bound(report.files['orientation.json']));
+    assert.deepEqual(orientation.parent, previous.checked_geometry);
+    const additions = JSON.parse(bound(previous.files['axes-additions.json']));
+    const old = JSON.parse(bound(additions.parent_axes));
+    const axes = new Map([...old.axes, ...additions.axes].map(a => [a.id, a]));
+    assert.equal(axes.size, 96); assert.equal(orientation.axis_updates.length, 40);
+    for (const {before, after} of orientation.axis_updates) {
+      assert.deepEqual(before, axes.get(before.id));
+      assert.equal(after.id, before.id);
+      assert.deepEqual(after.direction_xyz, before.direction_xyz.map(n => -n));
+      assert.deepEqual(after.point_xyz_mm, before.point_xyz_mm.map((p, i) => p+before.grip_mm*before.direction_xyz[i]));
+      assert.equal(after.before_plate_mm, before.after_plate_mm);
+      assert.equal(after.after_plate_mm, before.before_plate_mm);
+      for (const key of ['attachments', 'receivers', 'grip_mm', 'diameter_mm', 'bore_diameter_mm',
+        'nominal_under_head_length_mm', 'hardware_scenario']) assert.deepEqual(after[key], before[key]);
+      assert.equal(after.nut_faces, 'interior'); assert.equal(after.head_faces, 'exterior');
+    }
+    const scene = validateInwardBolts(JSON.parse(bound(index.geometry.scene)), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.parent_layout, index.preceding_revision.geometry.receipt);
+    assert.equal(orientation.transforms.length, 40);
+    assert.equal(orientation.replacement_part_ids.length, 224);
+    for (const row of orientation.transforms) {
+      const transform = scene.transforms.find(r => r.axis_id === row.axis_id);
+      assert.ok(transform);
+      for (const key of Object.keys(transform)) assert.deepEqual(transform[key], row[key]);
+      const head = row.after_centers_xyz_mm.head, nut = row.after_centers_xyz_mm.nut;
+      if (row.exterior_face === 'top') assert.ok(nut[1] < head[1] && nut[2] < head[2]);
+      else assert.ok(Math.abs(nut[0]) < Math.abs(head[0]));
+    }
+    const html = read('site/index.html').toString();
+    for (const value of [path.basename(index.geometry.scene.path), index.geometry.scene.sha256,
+      index.geometry.receipt.sha256, index.preserved_owner_v6_viewer]) assert.ok(html.includes(value), 'inward-bolt viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {...prior, revision: report.revision, exterior_stacks_reversed: 40,
+      current_response_revision: null, testing_method_correction_applied: false,
+      previous_testing_method_correction_preserved: true, geometry_clear: true};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v11') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_principal_pair_revision/v1');
+    assert.equal(report.revision, 'eoere-flat-cleats-principal-upper-pairs-v6');
+    for (const value of [index.geometry.revision, index.hardware_model.revision, index.shop.revision])
+      assert.equal(value, report.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.deepEqual(index.shop.geometry, index.geometry.receipt);
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    if (index.engineering_review)
+      validateCurrent96Review(JSON.parse(bound(index.engineering_review)), index);
+    assert.ok(index.bolt_geometry_review, 'current96 bolt rule correction must remain incorporated');
+    validateBoltGeometryReview(JSON.parse(bound(index.bolt_geometry_review)), index);
+    assert.ok(index.testing_review, 'current96 method findings must remain incorporated');
+    validateCurrent96TestingReview(JSON.parse(bound(index.testing_review)), index);
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    for (const record of [index, report]) {
+      assert.equal(record.fabrication_released, false);
+      assert.equal(record.climbing_released, false);
+      assert.equal(record.panel_Hillman_resolution_deferred, true);
+    }
+    for (const key of ['current_response_computed', 'old_force_pass_transferred',
+      'upper_pair_eligible', 'complete_conditional_frame_evaluation']) assert.equal(report[key], false);
+    assert.equal(report.nominal_geometry_clear, true); assert.equal(report.actual_observations, null);
+    assert.deepEqual(report.counts, {sawn_members: 20, plywood_cleats: 4, panels: 6,
+      angles: 24, bolt_stacks: 96, nuts: 96, washers: 192, spacer_pieces: 32,
+      Hillman_axes: 66, receiver_occurrences: 120, occupied_parts: 1037});
+    bound(report.producer);
+    for (const binding of Object.values(report.files)) bound(binding);
+    const previous = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    const additions = JSON.parse(bound(report.files['axes-additions.json']));
+    assert.deepEqual(additions.parent_axes, previous.files['axes.json']);
+    assert.equal(additions.screw_axes_changed, false); assert.equal(additions.fitting_poses_changed, false);
+    const old = JSON.parse(bound(additions.parent_axes));
+    assert.equal(old.axes.length+additions.axes.length, 96);
+    assert.deepEqual(additions.axes.map(a => a.id), ['eoere_bolt_068', 'eoere_bolt_069']);
+    for (const [i, retained] of ['eoere_bolt_072', 'eoere_bolt_073'].entries()) {
+      const a = additions.axes[i], b = old.axes.find(a => a.id === retained);
+      assert.deepEqual(a.point_xyz_mm, b.point_xyz_mm.map((n, j) => n-(j === 1 ? 50.8 : 0)));
+      assert.deepEqual(a.receivers, b.receivers);
+    }
+    const updated = JSON.parse(bound(report.files['member-updates.json']));
+    const profiles = JSON.parse(bound(previous.files['current_profiles.json']));
+    assert.deepEqual(Object.keys(updated).sort(), ['base_principal_center_left', 'base_principal_center_right']);
+    for (const [name, p] of Object.entries(updated))
+      assert.deepEqual({...p, finished: profiles[name].finished}, profiles[name]);
+    const revision = report.principal_pair_revision;
+    assert.equal(revision.cleat_height_changed, false);
+    assert.equal(revision.extend_toward_bolt_039_only_after_failed_calculation, true);
+    assert.equal(revision.complete_upper_pair_eligibility_established, false);
+    assert.equal(revision.flat_cleat_proofs.length, 4);
+    for (const proof of revision.flat_cleat_proofs) {
+      assert.equal(proof.outline_edges_per_face, 4); assert.equal(proof.straight_edges_only, true);
+      assert.equal(proof.bolt_holes_per_leaf, 4);
+      assert.deepEqual(proof.finished, profiles[proof.member].finished);
+    }
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validatePrincipalPairs(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.flat_cleat_outline_yz_mm, previous.reference_cleat_revision.outline_yz_mm);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), revision.replacement_part_ids);
+    const html = read('site/index.html').toString();
+    for (const value of [path.basename(index.geometry.scene.path), index.geometry.scene.sha256,
+      index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256, index.preserved_owner_v5_viewer])
+      assert.ok(html.includes(value), 'principal-pair viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {passed: prior.passed, revision: report.revision, bolt_axes: 96, angles: 24,
+      screw_axes: 66, flat_cleat_sides: true, geometry_clear: true,
+      current_response_revision: index.engineering_review ? report.revision : null,
+      testing_method_correction_applied: true,
+      bolt_rule_applicability_corrected: true, complete_bolt_geometry_resolved: false,
+      complete_conditional_frame_evaluation: false};
+  }
+  if (index.schema === 'bolted_frame_development_revisions/v10') {
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const report = JSON.parse(bound(index.geometry.receipt));
+    assert.equal(report.schema, 'eoere_reference_cleat_revision/v1');
+    assert.equal(report.revision, 'eoere-reference-cleat-upper-pair-v5');
+    for (const value of [index.geometry.revision, index.hardware_model.revision, index.shop.revision])
+      assert.equal(value, report.revision);
+    assert.deepEqual(report.parent_geometry, index.preceding_revision.geometry);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    assert.deepEqual(index.shop.geometry, index.geometry.receipt);
+    assert.deepEqual(index.shop.result, index.geometry.receipt);
+    assert.deepEqual(index.hardware_model.receipt, index.geometry.receipt);
+    assert.equal(index.conditional_frame_evaluation, null);
+    assert.equal(index.engineering_review, undefined, 'changed geometry cannot inherit the preceding strength review');
+    assert.equal(index.hardware_model.selected_for_build, false);
+    assert.equal(index.shop.instructions_current_for_fabrication, false);
+    for (const record of [index, report]) {
+      assert.equal(record.panel_Hillman_resolution_deferred, true);
+      assert.equal(record.fabrication_released, false);
+      assert.equal(record.climbing_released, false);
+    }
+    for (const key of ['old_force_pass_transferred', 'current_response_computed',
+      'complete_conditional_frame_evaluation', 'upper_pair_eligible']) assert.equal(report[key], false);
+    assert.equal(report.nominal_geometry_clear, true);
+    assert.equal(report.actual_observations, null);
+    assert.deepEqual(report.counts, {sawn_members: 20, plywood_cleats: 4, panels: 6,
+      angles: 24, bolt_stacks: 94, nuts: 94, washers: 188, spacer_pieces: 32,
+      Hillman_axes: 66, receiver_occurrences: 118, occupied_parts: 1027});
+    bound(report.producer);
+    for (const binding of Object.values(report.files)) bound(binding);
+    const reference = JSON.parse(bound(report.reference_cleat_revision.outline_source));
+    assert.deepEqual(report.reference_cleat_revision.outline_yz_mm, reference.new_cleat_YZ_polygon_mm);
+    assert.equal(report.reference_cleat_revision.leaf_thickness_mm, 19.05);
+    const previous = JSON.parse(bound(index.preceding_revision.geometry.receipt));
+    const axes = JSON.parse(bound(report.files['axes.json']));
+    const old = JSON.parse(bound(previous.files['axes.json']));
+    assert.deepEqual(axes.screw_axes, old.screw_axes);
+    assert.deepEqual(axes.fitting_poses, old.fitting_poses);
+    assert.equal(axes.axes.length, 94);
+    for (const axis of old.axes) assert.deepEqual(axes.axes.find(a => a.id === axis.id), axis);
+    for (const [side, added, retained] of [['left', 'eoere_bolt_067', 'eoere_bolt_071'],
+      ['right', 'eoere_bolt_070', 'eoere_bolt_074']]) {
+      const a = axes.axes.find(a => a.id === added), b = axes.axes.find(a => a.id === retained);
+      assert.ok(a && b, 'two upper pins per corner required');
+      assert.deepEqual(a.point_xyz_mm, b.point_xyz_mm.map((v, i) => v-(i === 1 ? 50.8 : 0)));
+      assert.deepEqual(a.receivers, b.receivers);
+      for (const suffix of ['', '_outer'])
+        assert.equal(axes.axes.filter(a => a.receivers.includes('eoere_cleat_'+side+suffix)).length, 4);
+    }
+    const profiles = JSON.parse(bound(report.files['current_profiles.json']));
+    const oldProfiles = JSON.parse(bound(previous.files['current_profiles.json']));
+    for (const [name, profile] of Object.entries(profiles)) {
+      if (!/^(eoere_cleat_|base_side_)/.test(name)) assert.deepEqual(profile, oldProfiles[name]);
+      if (name.startsWith('eoere_cleat_')) {
+        assert.equal(profile.blank_mm[2], 19.05);
+        const outline = [...new Set(profile.vertices_luv_mm.map(([l, , v]) =>
+          JSON.stringify([Number((v+profile.datum_xyz_mm[1]).toFixed(6)), Number((l+profile.datum_xyz_mm[2]).toFixed(6))])))].sort();
+        assert.deepEqual(outline, report.reference_cleat_revision.outline_yz_mm
+          .map(p => JSON.stringify(p.map(v => Number(v.toFixed(6))))).sort());
+      }
+    }
+    const decoded = gunzipSync(bound(index.geometry.scene));
+    assert.equal(sha(decoded), index.geometry.scene.decoded_sha256);
+    const scene = validateReferenceCleats(JSON.parse(decoded), index.geometry.receipt.sha256);
+    assert.deepEqual(scene.parent_scene, index.preceding_revision.geometry.scene);
+    assert.deepEqual(scene.replacements.map(r => r.name).sort(), report.reference_cleat_revision.replacement_part_ids);
+    const html = read('site/index.html').toString();
+    for (const value of [path.basename(index.geometry.scene.path), index.geometry.scene.sha256,
+      index.geometry.scene.decoded_sha256, index.geometry.receipt.sha256, index.preserved_owner_v4_viewer])
+      assert.ok(html.includes(value), 'reference cleat viewer binding missing');
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {passed: prior.passed, revision: report.revision, bolt_axes: 94, angles: 24,
+      screw_axes: 66, geometry_clear: true, current_response_revision: null,
+      upper_pair_eligible: false, complete_conditional_frame_evaluation: false};
+  }
   if (index.schema === 'bolted_frame_development_revisions/v9') {
     const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
     const report = JSON.parse(bound(index.geometry.receipt));

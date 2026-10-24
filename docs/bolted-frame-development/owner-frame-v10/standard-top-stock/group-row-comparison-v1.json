@@ -1,0 +1,227 @@
+{
+  "schema": "conditional-group-row-comparison-v1",
+  "revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "selected_revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "sources": [
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry.json",
+      "sha256": "8b27fbd4cf06378077bc7b5ac7702390634710b2e3a44606318eb0c677da1bbe"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/response-bank.json",
+      "sha256": "9a885d4dbfe5ef54fbb0d598e3c30d7d0d7233af67d75b39695b6ccdea066736"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/reference-review.json",
+      "sha256": "88018056e852726221561ef1823cb603ba8afec2224c21ee84dd001b2e245abf"
+    }
+  ],
+  "primary_references": [
+    "https://dot.ca.gov/-/media/dot-media/programs/engineering/documents/structureconstruction/fw-appendixd-ex12-a11y.pdf",
+    "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf"
+  ],
+  "row_geometry_checks": {
+    "rear_center_spacing_mm": 67.3227228110386,
+    "header_pair_distances_mm": [
+      50.79999999999998,
+      41.27500000000009,
+      65.4543018066804,
+      65.4543018066804,
+      41.27500000000009,
+      50.79999999999998
+    ],
+    "status": "center spacings verified; load alignment NOT established"
+  },
+  "equations": {
+    "gamma": "180000*D_in**1.5 wood/wood;270000*D_in**1.5 wood/metal; lbf/in",
+    "REA": "min(EAm/EAs,EAs/EAm)",
+    "u": "1+gamma*s/2*(1/EAm+1/EAs)",
+    "m": "u-sqrt(u*u-1)",
+    "Cg": "m*(1-m**(2*n))/(n*((1+REA*m**n)*(1+m)-1+m**(2*n)))*(1+REA)/(1-m)"
+  },
+  "units": {
+    "EA": "N in inputs, converted to lbf",
+    "spacing": "mm in inputs, converted to in"
+  },
+  "model_Ewood_MPa": 11031.612,
+  "tests": {
+    "tests_passed": 6,
+    "Caltrans_example": {
+      "Cg": 0.9806318451462117,
+      "gamma_lbf_per_in": 88939.05919223567,
+      "REA": 0.07555555555555556,
+      "u": 1.0068688892477664,
+      "m": 0.8894595193702697
+    },
+    "scope": "equation benchmark, SI conversion, n=1, EA symmetry, diagnostic comparison, invalid spacing"
+  },
+  "conditional_scenarios": [
+    {
+      "name": "rear wood-to-wood gross-EA aligned-row surrogate",
+      "n_per_assumed_row": 2,
+      "spacing_mm": 67.3227228110386,
+      "D_mm": 12.7,
+      "EA_main_N": 149460250.75632015,
+      "EA_side_N": 137005229.85996,
+      "metal": false,
+      "Cg": 0.9997730545069687,
+      "gamma_lbf_per_in": 63639.610306789284,
+      "REA": 0.9166666666666659,
+      "u": 1.005248332388873,
+      "m": 0.9026607611601409,
+      "legacy_receiver_signature_factor": 0.5,
+      "comparison_scope": "Conditional elastic axial-row surrogate ONLY; not applicable complete candidate factor",
+      "physical_inputs": "Two actual centers, modeled gross member areas and E; nominal diameter. Hypothetical force aligned with centerline and axial member load paths.",
+      "applicability_failures": [
+        "Actual centerline is oblique to both member grains",
+        "Actual individual forces not uniform or aligned with row",
+        "Saved local force couples cannot be replaced by scalar axial-row demand",
+        "Effective axial transfer areas and calibrated slip are not established"
+      ],
+      "actual_connection_Cg": null,
+      "complete_connection_status": "UNRESOLVED"
+    },
+    {
+      "name": "header 41.275mm two-fastener row, 1 gross steel strip(s)",
+      "n_per_assumed_row": 2,
+      "spacing_mm": 41.275,
+      "D_mm": 9.525,
+      "EA_main_N": 58716527.082839996,
+      "EA_side_N": 112903000.0,
+      "metal": true,
+      "Cg": 0.9981822123468869,
+      "gamma_lbf_per_in": 62002.70911419921,
+      "REA": 0.5200617085714285,
+      "u": 1.0058012463760593,
+      "m": 0.8979302715420744,
+      "legacy_receiver_signature_factor": 0.25,
+      "comparison_scope": "Conditional elastic axial-row surrogate ONLY; not applicable complete candidate factor",
+      "physical_inputs": "Wood gross EA; E steel200000MPa times modeled6.35x88.9mm strip. Two strips assumes simultaneous equal-action participation, not verified.",
+      "applicability_failures": [
+        "Formed fitting effective EA/heel bending not equal to full gross axial strip by proof",
+        "Actual force directions vary across bolts and cases; principal rows are comparators",
+        "Two steel interfaces are coupled and not established symmetric double shear",
+        "Local couples, splitting and steel transfer remain"
+      ],
+      "actual_connection_Cg": null,
+      "complete_connection_status": "UNRESOLVED"
+    },
+    {
+      "name": "header 41.275mm two-fastener row, 2 gross steel strip(s)",
+      "n_per_assumed_row": 2,
+      "spacing_mm": 41.275,
+      "D_mm": 9.525,
+      "EA_main_N": 58716527.082839996,
+      "EA_side_N": 225806000.0,
+      "metal": true,
+      "Cg": 0.9971973339056553,
+      "gamma_lbf_per_in": 62002.70911419921,
+      "REA": 0.26003085428571426,
+      "u": 1.004808850447274,
+      "m": 0.9066211427788885,
+      "legacy_receiver_signature_factor": 0.25,
+      "comparison_scope": "Conditional elastic axial-row surrogate ONLY; not applicable complete candidate factor",
+      "physical_inputs": "Wood gross EA; E steel200000MPa times modeled6.35x88.9mm strip. Two strips assumes simultaneous equal-action participation, not verified.",
+      "applicability_failures": [
+        "Formed fitting effective EA/heel bending not equal to full gross axial strip by proof",
+        "Actual force directions vary across bolts and cases; principal rows are comparators",
+        "Two steel interfaces are coupled and not established symmetric double shear",
+        "Local couples, splitting and steel transfer remain"
+      ],
+      "actual_connection_Cg": null,
+      "complete_connection_status": "UNRESOLVED"
+    },
+    {
+      "name": "header 50.8mm two-fastener row, 1 gross steel strip(s)",
+      "n_per_assumed_row": 2,
+      "spacing_mm": 50.8,
+      "D_mm": 9.525,
+      "EA_main_N": 58716527.082839996,
+      "EA_side_N": 112903000.0,
+      "metal": true,
+      "Cg": 0.9977666270421107,
+      "gamma_lbf_per_in": 62002.70911419921,
+      "REA": 0.5200617085714285,
+      "u": 1.007139995539765,
+      "m": 0.8874279634968744,
+      "legacy_receiver_signature_factor": 0.25,
+      "comparison_scope": "Conditional elastic axial-row surrogate ONLY; not applicable complete candidate factor",
+      "physical_inputs": "Wood gross EA; E steel200000MPa times modeled6.35x88.9mm strip. Two strips assumes simultaneous equal-action participation, not verified.",
+      "applicability_failures": [
+        "Formed fitting effective EA/heel bending not equal to full gross axial strip by proof",
+        "Actual force directions vary across bolts and cases; principal rows are comparators",
+        "Two steel interfaces are coupled and not established symmetric double shear",
+        "Local couples, splitting and steel transfer remain"
+      ],
+      "actual_connection_Cg": null,
+      "complete_connection_status": "UNRESOLVED"
+    },
+    {
+      "name": "header 50.8mm two-fastener row, 2 gross steel strip(s)",
+      "n_per_assumed_row": 2,
+      "spacing_mm": 50.8,
+      "D_mm": 9.525,
+      "EA_main_N": 58716527.082839996,
+      "EA_side_N": 225806000.0,
+      "metal": true,
+      "Cg": 0.996556584233378,
+      "gamma_lbf_per_in": 62002.70911419921,
+      "REA": 0.26003085428571426,
+      "u": 1.0059185851658756,
+      "m": 0.8969589596979208,
+      "legacy_receiver_signature_factor": 0.25,
+      "comparison_scope": "Conditional elastic axial-row surrogate ONLY; not applicable complete candidate factor",
+      "physical_inputs": "Wood gross EA; E steel200000MPa times modeled6.35x88.9mm strip. Two strips assumes simultaneous equal-action participation, not verified.",
+      "applicability_failures": [
+        "Formed fitting effective EA/heel bending not equal to full gross axial strip by proof",
+        "Actual force directions vary across bolts and cases; principal rows are comparators",
+        "Two steel interfaces are coupled and not established symmetric double shear",
+        "Local couples, splitting and steel transfer remain"
+      ],
+      "actual_connection_Cg": null,
+      "complete_connection_status": "UNRESOLVED"
+    }
+  ],
+  "upper_cleat": {
+    "axes": [
+      "eoere_bolt_067",
+      "eoere_bolt_071",
+      "eoere_bolt_070",
+      "eoere_bolt_074"
+    ],
+    "status": "UNRESOLVED; no two-member Cg mapping calculated",
+    "reason": "Serial plywood/sidewood/steel; differently oriented members, shared continuous laminated cleat and other bolt paths. Effective areas, bond/slip, shear-plane load partition and external moments require coupled treatment."
+  },
+  "model_coverage": {
+    "present": [
+      "gross beam axial EA",
+      "distributed shaft foundations",
+      "unequal individual forces",
+      "saved local moments",
+      "hole gaps"
+    ],
+    "not_demonstrated": [
+      "NDS-equivalent calibrated load-slip",
+      "resolved local row ligament deformation",
+      "physical fitting effective EA",
+      "full brittle wood capacities",
+      "full simultaneous wrench capacity"
+    ],
+    "double_counting": "Neither fully established nor excluded; compare same-boundary-condition row benchmark before adopting a treatment."
+  },
+  "legacy_diagnostics": {
+    "case_rows": 15,
+    "components": 8,
+    "preserved": true,
+    "not_established_physical_failures": true
+  },
+  "actual_Cg_adopted": null,
+  "acceptance_changed": false,
+  "release_changed": false,
+  "minimum_next_evidence": [
+    "Physical row and effective member load-path definition",
+    "Applicable calibrated/standard slip and clearance basis",
+    "Matched benchmark of existing FE axial-row redistribution vs NDS equation",
+    "Full actual force-plus-moment mapping, splitting/tear-out/net/fitting checks"
+  ]
+}

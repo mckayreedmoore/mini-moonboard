@@ -1,0 +1,38 @@
+{
+  "schema": "moonboard_owner_candidate_decision/v1",
+  "recorded_utc": "2026-10-24T18:58:33.895586+00:00",
+  "owner_decision": "Select the evaluated standard nominal 4 x 6 top rail as the development candidate going forward",
+  "selected_revision": "v10-standard-top-4x6-stock-proposal-v2",
+  "actual_top_section_mm": [
+    88.9,
+    139.7
+  ],
+  "source_response_bank": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/response-bank.json",
+    "sha256": "9a885d4dbfe5ef54fbb0d598e3c30d7d0d7233af67d75b39695b6ccdea066736"
+  },
+  "source_reference_review": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/reference-review.json",
+    "sha256": "88018056e852726221561ef1823cb603ba8afec2224c21ee84dd001b2e245abf"
+  },
+  "top_conditional_shear_torsion_index": 0.5730979746537578,
+  "retained_bearing_diagnostic_case_rows": 15,
+  "retained_bearing_diagnostic_components": 8,
+  "custom_receiver_signature_penalty_is_not_adopted_NDS_Cg": true,
+  "still_open": [
+    "actual bolt row/group applicability including top spacing",
+    "complete force-plus-moment connection and splitting/tear-out/net section",
+    "fitting/washer transfer and final hardware shank/thread/grip/access",
+    "physical screw, bond, material, support/contact qualifications"
+  ],
+  "preserve_history": [
+    "failed standard 2 x 6 probes",
+    "Candidate 13 intermediate top geometry and evidence"
+  ],
+  "no_other_member_stock_approval": true,
+  "no_purchases_authorized": true,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false,
+  "user_evidence": "Excellent. Lets select that for the candidate."
+}

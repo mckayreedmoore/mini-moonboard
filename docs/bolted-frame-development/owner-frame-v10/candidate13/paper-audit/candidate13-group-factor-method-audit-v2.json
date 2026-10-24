@@ -1,0 +1,222 @@
+{
+  "schema": "candidate13-group-factor-method-audit-v1",
+  "created_utc": "2026-10-24T11:22:15.506038+00:00",
+  "sources": [
+    {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/wood_bearing_whole_affine.json",
+      "sha256": "16ce37c819bc578c68e1715ba6ec464660e12c6003ad8776662fbcbc3bbd5181"
+    },
+    {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/reduced_connection_axial_bending.json",
+      "sha256": "ccaa0a22512193e0f54fc75a3111e6802ab7ce3407f42aa5372184728a591850"
+    },
+    {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/reference-attempt-01/direct_elastic_steel.json",
+      "sha256": "88936046449371fe89dd1ba96b4e9731de2294351c11b79483ef6a38b92966de"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+      "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    }
+  ],
+  "analysis_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/geometry/geometry.json",
+    "sha256": "89a901620f57b0b1c2785205a8dab8425a62ddaadb01adccdf7a1e794b96b2d4"
+  },
+  "field_bindings": {
+    "a1-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a1-rear/field.json",
+      "sha256": "397482eef930465fa04f050f02c042a4a43837dbb3c0b89da099fc9ebe2d43c5"
+    },
+    "a12-forward": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-forward/field.json",
+      "sha256": "e29bc74bee891fa64df8c2c92669d9c3a2e858431e0ae2cf4c441a027723204c"
+    },
+    "a12-left": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-left/field.json",
+      "sha256": "59c90031125343e4580e86f3c2fb17d8ca00a61aeee9230787862e502b346f6d"
+    },
+    "a12-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/a12-rear/field.json",
+      "sha256": "916ca4a2c5c04207a5978947861d298af975b374ed7bb9584ed3747860085f49"
+    },
+    "k12-rear": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/k12-rear/field.json",
+      "sha256": "c37a74640c4f8dd6696cac93e8d4814442ffd806af15cfa1bf55639c988a3d5c"
+    },
+    "k12-right": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/analysis-attempt-08/four-hosts/k12-right/field.json",
+      "sha256": "9a0946e380c1a4fedf969212c930ec684c688e0b5041f1c066dc7cd9175eeed2"
+    }
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "sources_primary": [
+    {
+      "url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf",
+      "edition": "2015 copyright, based on 2012 NDS; use alongside current 2024 NDS, not as superseding edition",
+      "sections": [
+        "1.1",
+        "1.2",
+        "1.3",
+        "1.7"
+      ]
+    }
+  ],
+  "findings": [
+    "Cg applies to reference lateral design value Z under NDS11.3.6; no primary support found for treating receiver-tuple1/n as an applicable row Cg.",
+    "Existing bearing includes4Ktheta, the ModeI reduction; before-Cg is not raw Fe utilization.",
+    "Pointwise affine pressure plus reduced plastic shaft N/M is not demonstrated equivalent to min(all applicable yield modes)Z for these mixed multiport connections.",
+    "NDS11.2.3 separates independent metal design and excludes NDS adjustment factors from metal strength.",
+    "Unequal modeled individual forces do not automatically waive Cg, but also do not establish that applying1/n to each already-resolved individual demand is the prescribed group check.",
+    "NDS11.1.2/11.1.3 and12.6 require member local-stress and eccentric/oblique treatment beyond bolt yield."
+  ],
+  "current_above_one_case_rows": 26,
+  "current_above_one_component_rows": [
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "index": 1.6643953619011496,
+      "individual_reference_before_Cg": 0.8321976809505748,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_1",
+      "index": 1.6420276909631062,
+      "individual_reference_before_Cg": 0.8210138454815531,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_067",
+      "index": 1.1170762873984987,
+      "individual_reference_before_Cg": 0.5585381436992494,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_070",
+      "index": 1.0236239019208646,
+      "individual_reference_before_Cg": 0.5118119509604323,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "eoere_bolt_068",
+      "index": 1.0014715870661846,
+      "individual_reference_before_Cg": 0.5007357935330923,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_001",
+      "index": 1.2819501841264036,
+      "individual_reference_before_Cg": 0.3204875460316009,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_002",
+      "index": 1.2405369834625684,
+      "individual_reference_before_Cg": 0.3101342458656421,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_003",
+      "index": 1.2060660860923613,
+      "individual_reference_before_Cg": 0.30151652152309033,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v10_top_bolt_004",
+      "index": 1.2466033240822325,
+      "individual_reference_before_Cg": 0.31165083102055813,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_001",
+      "index": 1.0680565625867964,
+      "individual_reference_before_Cg": 0.2670141406466991,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v10_header_bolt_004",
+      "index": 1.0698550062626915,
+      "individual_reference_before_Cg": 0.26746375156567287,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_2",
+      "index": 1.960158957569383,
+      "individual_reference_before_Cg": 0.9800794787846915,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    },
+    {
+      "Cg": 0.5,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_2",
+      "index": 1.9333462069770881,
+      "individual_reference_before_Cg": 0.9666731034885441,
+      "disposition": "Unqualified conservative local bearing diagnostic; applicable whole-connection Z and adjustment audit remains open. Not a confirmed physical failure or a connection pass."
+    }
+  ],
+  "largest_individual_reference_before_Cg": {
+    "Cg": 0.5,
+    "case_id": "a12-rear",
+    "complete_Cdelta": null,
+    "component": "lumber_leg_bolt_left_2",
+    "index": 1.960158957569383,
+    "individual_reference_before_Cg": 0.9800794787846915
+  },
+  "calculation_scope": "Only exact algebraic decomposition index*Cg and all-case maxima from admitted results; no factor adopted, no new capacity or force solve.",
+  "missing_capacity_status": "No complete NDS/TR12 Z calculated in this audit: actual load/plane/member mapping, free couples, mixed receiver groups and geometry-factor applicability must be established first.",
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false,
+  "plywood_bearing_audit": {
+    "primary": "AWC TR12 Appendix A A.3/Table A1, printed25/27, PDF29/31; cites APA E825E1997",
+    "supported_reference": "Plywood bolted joints D>1/4in: Fe5600psi all grades regardless face-grain direction.",
+    "current_hypothesis": "5600parallel/3150perpendicular via Hankinson;3150is inherited lower conservative material assumption, not the primary tabulated isotropic plywood value.",
+    "qualification": "No claim that new half-inch APA net/perimeter tables establish dowel-bearing/bonded-leaf capacity; no changed factor adopted. NDS2024Table12.3.3B is D<=1/4in only."
+  }
+}

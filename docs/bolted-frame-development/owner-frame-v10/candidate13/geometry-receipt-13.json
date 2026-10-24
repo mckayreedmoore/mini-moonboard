@@ -1,0 +1,160 @@
+{
+  "actual_observations": null,
+  "applied_metadata_erratum": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/candidate11b-metadata-erratum-v2.json",
+    "sha256": "b5fcc47562ffec5ff1e970749b80878da27ca7e0afc031ec43a23833cfa28d5c"
+  },
+  "audits": [
+    {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/backing-led-audit-13.json",
+      "sha256": "0e5e370bb4846dcbb1eff0dfe9ac7903d62e4156fd78a3aab6b60c6c385c03ca"
+    },
+    {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/wall-audit-13.json",
+      "sha256": "92e2bcce0bc25c07dd965d573fe9f678aa4a63cad1162105265d3a629f57af07"
+    }
+  ],
+  "catalog_delivery_or_strength_qualified": false,
+  "checked_clearance": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/clearance.json",
+    "sha256": "9a688e1bd46eb5561911b812858f7eedee346c7ee7ed8377155b1bf935cffd40"
+  },
+  "checked_geometry": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/geometry.json",
+    "sha256": "00f54e2f42737455253bab33ac4091b1f94bfd39111f20c52a4b2e0adf8eb6fe"
+  },
+  "climbing_released": false,
+  "complete_conditional_frame_evaluation": false,
+  "complete_joint_qualified": false,
+  "counts": {
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolt_stacks": 116,
+    "occupied_parts": 1167,
+    "panels": 6,
+    "plywood_cleats": 4,
+    "sawn_members": 22,
+    "spacer_pieces": 60
+  },
+  "current_response_computed": false,
+  "current_scope": "Candidate13:116 bolt stacks,60 spacer pieces,1167 occupied parts. Solid top rail50.8mm S by139.7mm N retains added beam-flange rows at all four top angles; post near rows omitted. Outer top angles are50.8mm inboard on solid packers. Both side rails deepen to152.4mm while front faces and X-directed bolt grips remain fixed. Four nominal12.7mm plywood leaves give25.4mm per corner; independent half-inch APA material hypothesis and23.8mm credited wall apply, subject to actual minimum11.9mm each leaf and qualification holds. Original eight steel-cleat stacks remain3/8A574; all fourteen cleat-crossing stacks have114.3mm wood grip and revised outside spacers. Three direct wood-cleat pins per side remain, including third at66L-65V. Upper rear joints retain two1/2inch diagonal bolts per side; their group/oblique qualification remains unresolved. No M10 or5/8inch hardware is present. No physical release.",
+  "deviations": [
+    "Top beam near rows populated at all four angles; top post near rows omitted because receiver/end applicability is not established. Outer fittings move50.8mm inboard on solid packers.",
+    "Rear upper diagonal pair retained from08:67.322723mm separation/60.028536mm along each grain;complete oblique/group classification unresolved.",
+    "Requested100L directcleat iteration09 collided with bottomrail nutwashers56.1055mm3 each. Iteration09b uses92L-15V withabout5.83mm nominal washer-edge clearance;no smallerwasher orseat waiver.",
+    "Minimal solid toprailSthickness50.8mm replaces38.1mm;upperSface,139.7mmN andclimbingplane retained;four complete topangles move\u2212S12.7mm;centerprincipals/packers trim toactualnewunderside plane."
+  ],
+  "fabrication_released": false,
+  "geometry_adopted": false,
+  "hardware_model_updated": true,
+  "historical_metadata_prefixes_not_current_inventories": [
+    "/single_spacer_revision",
+    "/socket_head_cleat_option",
+    "/socket_head_front_option",
+    "/owner_requested_revision",
+    "/retained_2x6_refinement",
+    "/inward_angle_study",
+    "/inward_bolt_revision",
+    "/local_bolt_moves",
+    "/front_pair_refinement",
+    "/principal_pair_revision",
+    "/reference_cleat_revision",
+    "/upper_leg_edge_correction",
+    "/material_sensitivity",
+    "/moved_axes",
+    "/added_axes",
+    "/removed_axes",
+    "/restorations",
+    "/retained_cleat_axis_ids",
+    "/omitted_cleat_axis_ids",
+    "/v10_revision/added_axes",
+    "/v10_revision/modified_axis_ids",
+    "/v10_revision/full_wall_proofs",
+    "/v10_revision/metadata_finalization",
+    "/v10_revision/old_bore_restorations",
+    "/v10_revision/variant_parameters",
+    "/v10_revision/iteration10_changes"
+  ],
+  "historical_prefix_policy": "Inherited prior-iteration narratives under the listed prefixes are provenance only, not current scope, hole inventory, material, hardware or results. Current116axes/profiles/finished meshes/fitting poses/screw axes/current stack dimensions, iteration13_changes and matching source-bound13analyses govern. Readiness remains developmental; no physical release.",
+  "iteration": "13",
+  "iteration_parent": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/geometry-receipt-11b.json",
+    "sha256": "2b08e2eb50c9cb5e564781d05e39d4d1a1d621a3973a3fe5adf0a687e737448d"
+  },
+  "limits": [
+    "Isolated candidate; authoritative promotion blocked by auto-review.",
+    "8inchA574bodyfloor hypothetical; current productpage confirms grade,length,minimumthread only.",
+    "Actualwood,screws,bond,floor,spacerstrength andhardwarefit unqualified.",
+    "Diagonal rear pair has60.028536mm grain projections but remains complete-oblique/group-unqualified.",
+    "New top4inchGrade5 and foot4.5inchhalf-inchbodyfloors unqualified;fullroot sensitivity required as diagnostic.",
+    "Nominal top16stack minimumtwo-pitchmargin afterpublishedlengthtolerance0.508mm;actualgaging/seating not observed.",
+    "Added third direct cleat pin eachside;requires own three-pin group diagnostic and matched forces;no oldpass transferred.",
+    "Fresh side-depth and half-inch cleat variant; independent half-inch APA capacities and23.8mm wall adapter; nominal fit and delivered-fit holds apply.",
+    "Candidate13only: fresh152.4side-depth stock preserves11bhardware; matched forces/net sections and physical qualification remain required."
+  ],
+  "metadata_finalization": {
+    "changed_recipe_axis_ids": [
+      "eoere_bolt_001",
+      "eoere_bolt_005",
+      "eoere_bolt_017",
+      "eoere_bolt_018",
+      "eoere_bolt_022",
+      "eoere_bolt_023",
+      "eoere_bolt_024",
+      "eoere_bolt_028",
+      "v10_top_bolt_001",
+      "v10_top_bolt_002",
+      "v10_top_bolt_003",
+      "v10_top_bolt_004",
+      "v10_top_bolt_005",
+      "v10_top_bolt_006",
+      "v10_top_bolt_007",
+      "v10_top_bolt_008"
+    ],
+    "finalizer": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/final-geometry/metadata-producer-snapshot.py",
+      "sha256": "0fe6bd778a0714a81ed8ab430dac7e939d12dd61b29a30f971af0d0e390c3832"
+    },
+    "physical_and_operator_payloads_identical_except_descriptive_recipe_strings": true,
+    "prior_exact_audits": [
+      {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/backing-led-audit-13.json",
+        "sha256": "0e5e370bb4846dcbb1eff0dfe9ac7903d62e4156fd78a3aab6b60c6c385c03ca"
+      },
+      {
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/wall-audit-13.json",
+        "sha256": "92e2bcce0bc25c07dd965d573fe9f678aa4a63cad1162105265d3a629f57af07"
+      }
+    ],
+    "provisional_geometry": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/geometry/geometry.json",
+      "sha256": "3f00a942c717f2bcf5a6ced91c8f8af00b1624452b928db8c0c706b917d37f88"
+    }
+  },
+  "metadata_parent": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/geometry-receipt.json",
+    "sha256": "3d6c08790132b5a2b8eac09d0cd37f392d36f613be8d879495890bdd7e4dda22"
+  },
+  "nominal_geometry_clear": true,
+  "parent_geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/docs/bolted-frame-development/owner-frame-v9/geometry.json",
+    "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+  },
+  "producer": {
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/geometry/producer-snapshot.py",
+    "sha256": "f5e7115c420e709829a88cbc34bc910232282e41683acb43408f5d124986458a"
+  },
+  "readiness": "DEVELOPMENT_GEOMETRY_ONLY_NOT_FABRICATION",
+  "revision": "eoere-candidate13-side-depth-v10",
+  "schema": "eoere_v10_geometry_revision/v1",
+  "variant_parameters": {
+    "plan": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/candidate13-side-only-plan.json",
+      "sha256": "ab36ec675e8fb811fc434bbbb6eb976a40c99cca0789d1bfb2a8d6f8a38c587d"
+    },
+    "producer": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-13/geometry/producer-snapshot.py",
+      "sha256": "f5e7115c420e709829a88cbc34bc910232282e41683acb43408f5d124986458a"
+    }
+  }
+}

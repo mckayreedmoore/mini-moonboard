@@ -1,0 +1,48 @@
+{
+  "schema": "candidate13-washer-bearing-primary-scope-v2",
+  "sources": [
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+      "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter2-2024-awc.pdf",
+      "sha256": "6bb62f3560ab5bcdbed297cd03bba560f20882a638ee591c0c97013f7c075100"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf",
+      "sha256": "1f65975633f111c308944c470b6cc10e9207b6c45e8a0804b8bdec3378bbc71b"
+    }
+  ],
+  "primary_provisions": {
+    "NDS3.10.2": "Compression perpendicular to grain uses actual stress based on net bearing area compared with adjusted Fc_perp.",
+    "NDS3.10.3": "Fc_theta=Fc_star*Fc_perp_prime/(Fc_star*sin(theta)^2+Fc_perp_prime*cos(theta)^2); Fc_star excludes column stability.",
+    "NDS3.10.4": "Bearing-area enhancement optional for bearing length<6in and not nearer than3in to member end. Cb=(lb+.375)/lb, roundwasher lb=diameter.",
+    "NDS2.3.2": "No duration enhancement for deformation-limited Fc_perp.",
+    "NDS12.1.3.3": "Standard cut washer or equal-or-larger metalplate/strap between wood and head/nut; this is not a substitute for metal design.",
+    "NDS2024SupplementTable4A": "Dry dimension lumber DFLNo2 declared basis Fc_perp625psi,Fc1350psi. Subject to actual species/grade/service confirmation."
+  },
+  "proposed_conditional_calculation": {
+    "net_annulus_mm2": "pi/4*(OD^2-max(washer_ID,wood_bore_diameter)^2) for concentric full untruncated supported footprint; subtract any additional unsupported wood area. Washer-ID-only annulus is upper area/lower mean-stress diagnostic if wood bore is larger.",
+    "compression_force_N": "actual field-derived head/nut compression with correct sign; excludes unknown installation preload",
+    "stress_MPa": "N/A",
+    "baseline_Fcperp_MPa": 4.30922330823,
+    "index": "(N/A)/(625psi); Cb1, CD not applied, remaining service assumptions declared",
+    "oblique": "625psi baseline is no greater than Hankinson value between Fc1350 andFcperp625, but it does not qualify shear/contact details",
+    "plywood": "No plywood Fcperp invented. Exclude from sawnwood625 criterion."
+  },
+  "applicability_limits": [
+    "Average full-annulus pressure is not a bound on peak contact stress.",
+    "Unknown preload adds compression and cannot be silently zeroed for hardware acceptance.",
+    "Footprint truncation, nearby bores/edges, grain flaws and actual seats must be checked.",
+    "Washer bending, punching, head/nut/steel strength, tolerances and actual contact state remain separate.",
+    "Numerical comparison cannot release the connection."
+  ],
+  "scalar_Z_limit": {
+    "rear": "Two adjacent wood intervals establish a possible single-shear topology, but field contains simultaneous unequal distributed force, free couples, axial action and group moment. A scalar P/Z comparison alone discards independently prescribed moment/axial demands unless an explicit equivalence or conservative wrench envelope is proved. Standard plastic yield-bearing patterns need not equal prescribed affine elastic pressures.",
+    "cleat": "Three unequal wood-plywood-steel media and unequal side lengths/materials are not symmetric double shear. No unsupported doubling or favorable main/side assignment. Need generalized actual multibody yield/interaction plus independent metal and axial transfer checks.",
+    "status": "No complete yield work or Z pass claimed."
+  },
+  "fabrication_released": false,
+  "climbing_released": false
+}

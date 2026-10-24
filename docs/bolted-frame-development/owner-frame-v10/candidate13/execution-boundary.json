@@ -1,0 +1,40 @@
+{
+  "schema": "v10_execution_boundary/v1",
+  "final_candidate_location": "separate task workspace; no authoritative promotion",
+  "source_repository": "/home/mckay-linux/repos/mini-moonboard",
+  "denied_operations": [
+    {
+      "action": "update v10 geometry producer",
+      "target": "scripts/eoere_v10_geometry.py",
+      "outcome": "denied; known not executed"
+    },
+    {
+      "action": "update v10 analysis adapter",
+      "target": "scripts/eoere_v10_analysis.py",
+      "outcome": "denied; known not executed"
+    },
+    {
+      "action": "create v10 fitting implementation",
+      "target": "scripts/eoere_v10_fitting.py",
+      "outcome": "denied; known not executed"
+    },
+    {
+      "action": "create v10 viewer/publisher files",
+      "target": [
+        "site/eoere-v10-overlay.mjs",
+        "tests/test_eoere_v10_viewer.mjs",
+        "scripts/publish_eoere_v10.py"
+      ],
+      "outcome": "denied; permitted materially informed retry also denied; known not executed"
+    }
+  ],
+  "stated_approval_reason": "Automatic approval review continued to enforce the earlier proposal-only restriction despite later delegated v10 authorization.",
+  "safe_alternative_completed": "All final geometry, hardware models, fresh force cases, component reviews, viewer and documentation created in own task workspace using read-only WSL dependencies.",
+  "direct_user_authorization_request": "pending; user asleep; no repeated request",
+  "early_repository_drafts": "Some new unselected v10 scripts/tests/planning files were created before later denials; preserved rather than deleted. Historical v9 design/report bytes were not rewritten.",
+  "release_flags": {
+    "fabrication_released": false,
+    "climbing_released": false,
+    "structural_acceptance": false
+  }
+}

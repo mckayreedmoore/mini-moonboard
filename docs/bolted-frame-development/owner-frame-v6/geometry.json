@@ -1,0 +1,263 @@
+{
+  "actual_observations": null,
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "checked_clearance": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/geometry/clearance.json",
+    "sha256": "d242ac238b9977ea9de857f3fd5ba2d448afe2e75a4474aa26f853f7f585286a"
+  },
+  "checked_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-principal-pairs-v6/geometry/geometry.json",
+    "sha256": "bc3cc322a25269d84a5d5163ab4f47f7c94bf569a105c7d6a1db4829b0020d1e"
+  },
+  "climbing_released": false,
+  "complete_conditional_frame_evaluation": false,
+  "counts": {
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolt_stacks": 96,
+    "nuts": 96,
+    "occupied_parts": 1037,
+    "panels": 6,
+    "plywood_cleats": 4,
+    "receiver_occurrences": 120,
+    "sawn_members": 20,
+    "spacer_pieces": 32,
+    "washers": 192
+  },
+  "current_response_computed": false,
+  "fabrication_released": false,
+  "files": {
+    "axes-additions.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/axes-additions.json",
+      "sha256": "57bbbd06eb5cb69f365cd80d48603eb7e587ca2bed0d101de3329e79e7b5f242"
+    },
+    "drawings/base_principal_center_left.svg": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/drawings/base_principal_center_left.svg",
+      "sha256": "740369b12e942282a9f6421f654920cd234be185508f6e98efd9a528660f3503"
+    },
+    "drawings/base_principal_center_right.svg": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/drawings/base_principal_center_right.svg",
+      "sha256": "ef267f294d29ffd695e0aae39218d2699748bdbba56317146434d393d445acfd"
+    },
+    "hardware-additions.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/hardware-additions.csv",
+      "sha256": "4abdce70254d9a53c9f058960272e2c90e00baf09f6b34f7b2acc0497e5b95d4"
+    },
+    "layout.md": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/layout.md",
+      "sha256": "06a64d582234ef735fb61c3a28560db4e19cc3d3a0a691492b12671ad77c59b1"
+    },
+    "member-updates.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/member-updates.json",
+      "sha256": "1336aa8c4f425511481a9b0810be8cbf1cf25108f67286f49aa152f0e6f07737"
+    },
+    "receiver-updates.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v6/receiver-updates.csv",
+      "sha256": "fb881c5dee756dae0a6785bfa9d55c986f607ea99c56d3ce29ad25c8b4c19b2e"
+    }
+  },
+  "nominal_geometry_clear": true,
+  "old_force_pass_transferred": false,
+  "panel_Hillman_resolution_deferred": true,
+  "parent_geometry": {
+    "receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v5/geometry.json",
+      "sha256": "d48d48a6b2c9b0d11e535f78ffd66102dc3ec1f0b67476de5e17c27252379898"
+    },
+    "revision": "eoere-reference-cleat-upper-pair-v5",
+    "scene": {
+      "decoded_sha256": "94af5d373d94b66a007fcbdb19e1af85dff1539e36906cc0a35c687cafa20235",
+      "path": "site/eoere-owner-frame-v5-scene.json.gz",
+      "sha256": "f3ee9ff3f8f0ef63a2ebe9dc1999ba85526cac6775bc0f8b1e06768cd18b731e"
+    },
+    "viewer": "eoere-current-frame-development"
+  },
+  "principal_pair_revision": {
+    "added_stacks": [
+      {
+        "axis_id": "eoere_bolt_068",
+        "copied_stack_axis": "eoere_bolt_072",
+        "roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "translation_xyz_mm": [
+          0,
+          -50.8,
+          0
+        ]
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "copied_stack_axis": "eoere_bolt_073",
+        "roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "translation_xyz_mm": [
+          0,
+          -50.8,
+          0
+        ]
+      }
+    ],
+    "cleat_height_changed": false,
+    "complete_upper_pair_eligibility_established": false,
+    "extend_toward_bolt_039_only_after_failed_calculation": true,
+    "flat_cleat_proofs": [
+      {
+        "bolt_holes_per_leaf": 4,
+        "finished": {
+          "bounds_xyz_mm": [
+            -1238.2500000000002,
+            -1219.2,
+            -175.7,
+            -36.0,
+            139.7,
+            500.8860828293809
+          ],
+          "bytes": 8478,
+          "center_of_mass_xyz_mm": [
+            -1228.7249999999997,
+            -98.77463114408367,
+            283.0424970340886
+          ],
+          "id": "eoere_cleat_left",
+          "kind": "timber",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-reference-cleats-v5/geometry/eoere_cleat_left.brep",
+          "sha256": "c001e7f46bbca78774ecb0c12df63f6012271073c9fd680860e2a082568d46e5",
+          "volume_mm3": 733310.7852787095
+        },
+        "member": "eoere_cleat_left",
+        "outline_edges_per_face": 4,
+        "straight_edges_only": true
+      },
+      {
+        "bolt_holes_per_leaf": 4,
+        "finished": {
+          "bounds_xyz_mm": [
+            -1257.3000000000002,
+            -1238.25,
+            -175.7,
+            -36.0,
+            139.7,
+            500.8860828293809
+          ],
+          "bytes": 8366,
+          "center_of_mass_xyz_mm": [
+            -1247.7749999999994,
+            -98.77463114408367,
+            283.0424970340886
+          ],
+          "id": "eoere_cleat_left_outer",
+          "kind": "timber",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-reference-cleats-v5/geometry/eoere_cleat_left_outer.brep",
+          "sha256": "12f08c4257b877fd0762180e0bbd05aa063a4474c4208011f53175adbeeddf06",
+          "volume_mm3": 733310.7852787095
+        },
+        "member": "eoere_cleat_left_outer",
+        "outline_edges_per_face": 4,
+        "straight_edges_only": true
+      },
+      {
+        "bolt_holes_per_leaf": 4,
+        "finished": {
+          "bounds_xyz_mm": [
+            1216.025,
+            1235.0750000000003,
+            -175.7,
+            -36.0,
+            139.7,
+            500.8860828293809
+          ],
+          "bytes": 8598,
+          "center_of_mass_xyz_mm": [
+            1225.5500000000002,
+            -98.77463114408371,
+            283.0424970340885
+          ],
+          "id": "eoere_cleat_right",
+          "kind": "timber",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-reference-cleats-v5/geometry/eoere_cleat_right.brep",
+          "sha256": "d07ca52022b7be0a76d7c0fe6b5a18bebb9da4a3e6d621c0d4e4cf6914ff8c5f",
+          "volume_mm3": 733310.7852787094
+        },
+        "member": "eoere_cleat_right",
+        "outline_edges_per_face": 4,
+        "straight_edges_only": true
+      },
+      {
+        "bolt_holes_per_leaf": 4,
+        "finished": {
+          "bounds_xyz_mm": [
+            1235.075,
+            1254.125,
+            -175.7,
+            -36.0,
+            139.7,
+            500.8860828293809
+          ],
+          "bytes": 8214,
+          "center_of_mass_xyz_mm": [
+            1244.6000000000001,
+            -98.77463114408371,
+            283.0424970340885
+          ],
+          "id": "eoere_cleat_right_outer",
+          "kind": "timber",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-reference-cleats-v5/geometry/eoere_cleat_right_outer.brep",
+          "sha256": "7ccd2fb2d7cccb5eb0204484ab37aa91afdd5057881462ba6b436f0b6f104638",
+          "volume_mm3": 733310.7852787094
+        },
+        "member": "eoere_cleat_right_outer",
+        "outline_edges_per_face": 4,
+        "straight_edges_only": true
+      }
+    ],
+    "full_wall_proofs": [
+      {
+        "axis_id": "eoere_bolt_068",
+        "full_bore_wall_mm": 38.1,
+        "receiver": "base_principal_center_left",
+        "removed_volume_mm3": 3186.1706905867886
+      },
+      {
+        "axis_id": "eoere_bolt_069",
+        "full_bore_wall_mm": 38.1,
+        "receiver": "base_principal_center_right",
+        "removed_volume_mm3": 3186.1706905867895
+      }
+    ],
+    "parent": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-reference-cleats-v5/geometry/geometry.json",
+      "sha256": "54b2c936442a20493c099cb08de8c29998e6f9562ea9289b1cb5c0435dde2607"
+    },
+    "replacement_part_ids": [
+      "base_principal_center_left",
+      "base_principal_center_right",
+      "eoere_bolt_068_head",
+      "eoere_bolt_068_head_washer",
+      "eoere_bolt_068_nut",
+      "eoere_bolt_068_nut_washer",
+      "eoere_bolt_068_shaft",
+      "eoere_bolt_069_head",
+      "eoere_bolt_069_head_washer",
+      "eoere_bolt_069_nut",
+      "eoere_bolt_069_nut_washer",
+      "eoere_bolt_069_shaft"
+    ]
+  },
+  "producer": {
+    "path": "scripts/eoere_principal_pairs.py",
+    "sha256": "895db37bf081da506377865f80392ede41a276258c74ac2a8f6c4f20a2384feb"
+  },
+  "revision": "eoere-flat-cleats-principal-upper-pairs-v6",
+  "schema": "eoere_principal_pair_revision/v1",
+  "upper_pair_eligible": false
+}

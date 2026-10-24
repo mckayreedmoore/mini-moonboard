@@ -1,0 +1,2413 @@
+{
+  "analysis_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/geometry/geometry.json",
+    "sha256": "9b7f70875fc606282bc3edb18308004b076e1fa2e47496809bb0044a1e59d3d7"
+  },
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cleat_maxima": {
+    "cleat_nominal": {
+      "axes": [
+        "cleat_post_bolt_left_2"
+      ],
+      "case_id": "a12-left",
+      "host": "eoere_cleat_left",
+      "index": 0.5116959036107852
+    },
+    "cleat_wall_allowance": {
+      "axes": [
+        "cleat_post_bolt_left_2"
+      ],
+      "case_id": "a12-left",
+      "host": "eoere_cleat_left",
+      "index": 0.5396412853592695
+    }
+  },
+  "climbing_released": false,
+  "complete_joint_Cdelta_established": false,
+  "fabrication_released": false,
+  "fields": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/a12-forward/field.json",
+      "sha256": "4b645977c166b53364234bd783cdfd59e3157d91a9c2ae6137ea9487bec0091c"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/a12-left/field.json",
+      "sha256": "c30a9ab4f813b622ae5416cc0713b6a59617ef42a3116a5cf0b31eebbe9dc418"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/a12-rear/field.json",
+      "sha256": "aece47a656782fbe9f75076f0ca7da314f2e6aded9fad405fb21b3a354aaf43f"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/k12-right/field.json",
+      "sha256": "6dab1bfaf20dc04ec9beb305577571dd06f61efb16ab8370267a03c90bdac07f"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/k12-rear/field.json",
+      "sha256": "216a3ce0783cc7498c0116b05e784aa4442c3b909a0aa615bcabe63cb52c71cc"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/four-hosts/a1-rear/field.json",
+      "sha256": "a42873e8a95431a78be8900cbe2d03f16568475ee9ff4c3a712c1b40a270534a"
+    }
+  ],
+  "geometry_revision": "eoere-single-spacer-cleat-stacks-v9",
+  "interval_count": 8562,
+  "limitations": [
+    "Every force field already includes six panels, 66 unqualified Hillman springs and contact sharing. Stiffness ratios cannot be applied again as strength multipliers.",
+    "Shaft references include conditional purchased body/thread intervals and Cg, but no complete applicable end/edge/spacing factor. Below-one raw indices do not clear a joint.",
+    "The vector upper bound preserves all rectangular-ligament wrenches, hole deductions, point-event limits and cubic Bernstein controls. The original scalar result is retained.",
+    "Both section constructions remain prismatic common-strain/common-twist engineering models near short loaded holes. Neither establishes three-dimensional splitting, bond, washer-seat, fitting or joint strength.",
+    "The bonded 139.7 mm uniform cleat operator, nominal metal gravity and four-host no-slip floor retain their recorded unqualified applicability. Actual wood, hardware, adhesive, fits and floor remain unobserved.",
+    "A later bolt/spacer revision must receive an explicit applicability check; this review is tied to this frozen candidate's hardware and does not transfer its force or strength result."
+  ],
+  "load_contract": {
+    "accessory_mass_kg": 25.0,
+    "downward_multiplier": 2.0,
+    "duration_factor_CD": 1.0,
+    "horizontal_force_N": 300.0,
+    "self_weight": true,
+    "weight_lb": 250
+  },
+  "method_sources": [
+    {
+      "scope": "Eqs 9-14 and 9-24/Fig9-15 support the prismatic reference components; not loaded-hole qualification.",
+      "title": "USDA FPL Wood Handbook, chapter 9, transverse shear and rectangular torsion",
+      "url": "https://research.fs.usda.gov/download/treesearch/62251.pdf"
+    }
+  ],
+  "physical_failure_inferred": false,
+  "physical_geometry": {
+    "path": "docs/bolted-frame-development/owner-frame-v9/geometry.json",
+    "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+  },
+  "physical_geometry_loads_screws_resistances_unchanged_by_review": true,
+  "physical_source_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json",
+    "sha256": "7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109"
+  },
+  "prepared_readiness": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/adapter-readiness.json",
+    "sha256": "2cf6da046594ab46d6ffa755afa1ebae7f2cd8f5538027468c3a4d94c90512c5"
+  },
+  "producer": {
+    "path": "scripts/eoere_current_reference_review.py",
+    "sha256": "d6656ba5c748a9e41bf7274554a7d1e35400d8783c8045d22fa575f894491586"
+  },
+  "reference_exceedances": {
+    "cleat_nominal": [],
+    "cleat_wall_allowance": [],
+    "shaft_Cg_only": [
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "complete_joint_Cdelta": null,
+        "index": 1.3700573621183423,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "complete_joint_Cdelta": null,
+        "index": 1.1543069526550356,
+        "metric": "maximum_N_M_V_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_081",
+        "case_id": "a12-left",
+        "complete_joint_Cdelta": null,
+        "index": 1.0740022932287565,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_left_1",
+        "case_id": "a12-left",
+        "complete_joint_Cdelta": null,
+        "index": 1.0568931608142453,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_left_1",
+        "case_id": "a12-left",
+        "complete_joint_Cdelta": null,
+        "index": 1.0619583144638909,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "complete_joint_Cdelta": null,
+        "index": 1.3183610855051109,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_067",
+        "case_id": "a12-left",
+        "complete_joint_Cdelta": null,
+        "index": 1.1081691507495959,
+        "metric": "maximum_N_M_V_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.247571918100385,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.044373490623967,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_067",
+        "case_id": "a12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.1425832091481927,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_084",
+        "case_id": "k12-right",
+        "complete_joint_Cdelta": null,
+        "index": 1.0688710211810324,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_right_1",
+        "case_id": "k12-right",
+        "complete_joint_Cdelta": null,
+        "index": 1.0424096210458227,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_right_1",
+        "case_id": "k12-right",
+        "complete_joint_Cdelta": null,
+        "index": 1.0484872010922657,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "complete_joint_Cdelta": null,
+        "index": 1.3058783226448196,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "complete_joint_Cdelta": null,
+        "index": 1.097469439959123,
+        "metric": "maximum_N_M_V_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_right_1",
+        "case_id": "k12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.2305797750452778,
+        "metric": "maximum_bearing_index_before_Cdelta"
+      },
+      {
+        "Cg": 1.0,
+        "axis": "lumber_leg_bolt_right_1",
+        "case_id": "k12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.0335185781735945,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      },
+      {
+        "Cg": 0.5,
+        "axis": "eoere_bolt_070",
+        "case_id": "k12-rear",
+        "complete_joint_Cdelta": null,
+        "index": 1.1241509939201695,
+        "metric": "maximum_N_M_index_before_Cdelta"
+      }
+    ],
+    "timber_scalar": [
+      {
+        "case_id": "a12-forward",
+        "geometry_status": "section_reference_only",
+        "index": 1.0016916562589897,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-left",
+        "geometry_status": "section_reference_only",
+        "index": 1.1029475774825555,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.091937659709878,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.006982903613035,
+        "member": "base_side_left",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-right",
+        "geometry_status": "section_reference_only",
+        "index": 1.1692252292188732,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.1668940509047105,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      }
+    ],
+    "timber_vector": [
+      {
+        "case_id": "a12-forward",
+        "geometry_status": "section_reference_only",
+        "index": 1.0016916562688813,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-left",
+        "geometry_status": "section_reference_only",
+        "index": 1.1029475774932875,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "a12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.091937659720506,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-right",
+        "geometry_status": "section_reference_only",
+        "index": 1.1692252292298393,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      },
+      {
+        "case_id": "k12-rear",
+        "geometry_status": "section_reference_only",
+        "index": 1.1668940509156391,
+        "member": "base_rail_top",
+        "metric": "maximum_shear_torsion_reference_upper"
+      }
+    ]
+  },
+  "schema": "eoere_current_conventional_reference_review/v1",
+  "shaft_Cg_only_maxima": {
+    "maximum_N_M_V_index_before_Cdelta": {
+      "Cg": 0.5,
+      "axis": "eoere_bolt_067",
+      "case_id": "a12-forward",
+      "complete_joint_Cdelta": null,
+      "index": 1.1543069526550356,
+      "metric": "maximum_N_M_V_index_before_Cdelta"
+    },
+    "maximum_N_M_index_before_Cdelta": {
+      "Cg": 0.5,
+      "axis": "eoere_bolt_067",
+      "case_id": "a12-forward",
+      "complete_joint_Cdelta": null,
+      "index": 1.3700573621183423,
+      "metric": "maximum_N_M_index_before_Cdelta"
+    },
+    "maximum_bearing_index_before_Cdelta": {
+      "Cg": 1.0,
+      "axis": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "complete_joint_Cdelta": null,
+      "index": 1.247571918100385,
+      "metric": "maximum_bearing_index_before_Cdelta"
+    }
+  },
+  "source_bindings": {
+    "cleat_nominal": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/nominal38p1-rows-v1.json",
+      "sha256": "f13fd6e7ea1067ed375ea49d070a1485ca6f22d277a1f99b142bb4f2284a37de"
+    },
+    "cleat_wall_allowance": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/bonded-rows-v1.json",
+      "sha256": "1465a97f0d876b50aadf587fad628e10919e26a859cd20f711d082e34d82eab6"
+    },
+    "shaft_Cg_only": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/complete-v1/shaft-bearing-blocks-v1.json",
+      "sha256": "996506f8ec4d4fada6772559931446f20dac4f672fae96724462380154e560ef"
+    },
+    "thread_windows": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/head-to-nut-windows.json",
+      "sha256": "76845f8a4809ce59a71b28ad5ac4438a702a7fb7bda238adf4cb088e035afcf6"
+    },
+    "timber_cores": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/complete-v1/timber-net-geometry-v1.json",
+      "sha256": "e31ffef9f2e9c2c76815a2f9159043a752dfd0c22be5bb92f1a0e1cf319bf167"
+    },
+    "timber_scalar": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/complete-v1/timber-sections-v1.json",
+      "sha256": "671bc0d37feeb8d31223e6c92ee7732178a40bfac2d819d3ff31175fcc63e08c"
+    },
+    "timber_vector": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/vector-bound-v2/timber-sections-v1.json",
+      "sha256": "257074b3ae1e010f1a3ed5779931a4a20d1ecffff1d11a64a6bf365e916e2ace"
+    },
+    "vector_method": {
+      "path": "scripts/timber_vector_shear_bound.py",
+      "sha256": "ae1e9df7e1b9e084a5b1e59a343672f05657c7421e8cc46ed7054b39e8f45acd"
+    }
+  },
+  "structural_acceptance": false,
+  "timber_maxima": {
+    "timber_scalar": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.3241091481157347,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.6201479123908972,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.7427834518390787,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.7790976996380787,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.7683601211778218,
+            "member": "lumber_leg_right",
+            "section_interval_count": 36
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.7307559363404662,
+            "member": "lumber_leg_right",
+            "section_interval_count": 36
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.7790976996380787,
+          "member": "lumber_leg_left",
+          "section_interval_count": 36
+        },
+        "source_field_name": "maximum_declared_restraint_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.31033168844307085,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.6029723748597808,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.6192443016096172,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.737587834031847,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.7222930094907682,
+            "member": "base_side_right",
+            "section_interval_count": 180
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.6047715846450067,
+            "member": "base_side_right",
+            "section_interval_count": 180
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.737587834031847,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "source_field_name": "maximum_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.5722776680532212,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 1.0016916562589897,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 1.1029475774825555,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 1.091937659709878,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 1.1668940509047105,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 1.1692252292188732,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          }
+        },
+        "overall": {
+          "case_id": "k12-right",
+          "index": 1.1692252292188732,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "source_field_name": "maximum_shear_torsion_reference_upper",
+        "unit": "reference upper index"
+      }
+    },
+    "timber_vector": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.3241091481157347,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.6201479123908972,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.7427834518390787,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.7790976996380787,
+            "member": "lumber_leg_left",
+            "section_interval_count": 36
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.7683601211778218,
+            "member": "lumber_leg_right",
+            "section_interval_count": 36
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.7307559363404662,
+            "member": "lumber_leg_right",
+            "section_interval_count": 36
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.7790976996380787,
+          "member": "lumber_leg_left",
+          "section_interval_count": 36
+        },
+        "source_field_name": "maximum_declared_restraint_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_normal_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.31033168844307085,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 0.6029723748597808,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 0.6192443016096172,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 0.737587834031847,
+            "member": "base_side_left",
+            "section_interval_count": 176
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 0.7222930094907682,
+            "member": "base_side_right",
+            "section_interval_count": 180
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 0.6047715846450067,
+            "member": "base_side_right",
+            "section_interval_count": 180
+          }
+        },
+        "overall": {
+          "case_id": "a12-rear",
+          "index": 0.737587834031847,
+          "member": "base_side_left",
+          "section_interval_count": 176
+        },
+        "source_field_name": "maximum_normal_reference_upper",
+        "unit": "reference upper index"
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "by_case": {
+          "a1-rear": {
+            "case_id": "a1-rear",
+            "index": 0.5722776680565493,
+            "member": "base_rail_bottom_left",
+            "section_interval_count": 58
+          },
+          "a12-forward": {
+            "case_id": "a12-forward",
+            "index": 1.0016916562688813,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-left": {
+            "case_id": "a12-left",
+            "index": 1.1029475774932875,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "a12-rear": {
+            "case_id": "a12-rear",
+            "index": 1.091937659720506,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "k12-rear": {
+            "case_id": "k12-rear",
+            "index": 1.1668940509156391,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          },
+          "k12-right": {
+            "case_id": "k12-right",
+            "index": 1.1692252292298393,
+            "member": "base_rail_top",
+            "section_interval_count": 99
+          }
+        },
+        "overall": {
+          "case_id": "k12-right",
+          "index": 1.1692252292298393,
+          "member": "base_rail_top",
+          "section_interval_count": 99
+        },
+        "source_field_name": "maximum_shear_torsion_reference_upper",
+        "unit": "reference upper index"
+      }
+    }
+  },
+  "vector_timber_member_maxima": {
+    "base_floor_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.08497183818225798,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08497183818225798,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.07676202223956674,
+          "shear_torsion_reference_upper": 0.044423415350931014,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              531.1312922930798,
+              -159.03545606083125,
+              36.419831708538915,
+              12093.544403519552,
+              12067.66249940887,
+              -15959.71065494058
+            ],
+            "index": 0.08497183818225798
+          },
+          "world_grain_interval_mm": [
+            -95.69999999999999,
+            -90.14274999999998
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.07676202223956674,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08497183818225798,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.07676202223956674,
+          "shear_torsion_reference_upper": 0.044423415350931014,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              531.1312922930798,
+              -159.03545606083125,
+              36.419831708538915,
+              12093.544403519552,
+              12067.66249940887,
+              -15959.71065494058
+            ],
+            "index": 0.08497183818225798
+          },
+          "world_grain_interval_mm": [
+            -95.69999999999999,
+            -90.14274999999998
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.20735823616363366,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.05931082072865539,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.05145004257458773,
+          "shear_torsion_reference_upper": 0.20735823616363366,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.0,
+              206.37664252542342,
+              3.5711942965053014,
+              -8773.431086469034,
+              339.2430371753426,
+              -10558.108645225686
+            ],
+            "index": 0.20735823616363366
+          },
+          "world_grain_interval_mm": [
+            -101.25725,
+            -95.69999999999999
+          ]
+        }
+      }
+    },
+    "base_floor_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.08540075778544838,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08540075778544838,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.07715922278130538,
+          "shear_torsion_reference_upper": 0.0431679769571214,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              535.5043053461775,
+              152.63553476649383,
+              36.41196936887186,
+              -10292.365491366323,
+              12383.552357645598,
+              -4311.600797069915
+            ],
+            "index": 0.08540075778544838
+          },
+          "world_grain_interval_mm": [
+            -95.69999999999999,
+            -90.14274999999998
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.07715922278130538,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08540075778544838,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.07715922278130538,
+          "shear_torsion_reference_upper": 0.0431679769571214,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              535.5043053461775,
+              152.63553476649383,
+              36.41196936887186,
+              -10292.365491366323,
+              12383.552357645598,
+              -4311.600797069915
+            ],
+            "index": 0.08540075778544838
+          },
+          "world_grain_interval_mm": [
+            -95.69999999999999,
+            -90.14274999999998
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.21190059796552246,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.0600938762180915,
+          "net_core_interval_local_L_mm": [
+            74.44274999999999,
+            85.55725000000001
+          ],
+          "normal_reference_upper": 0.05212931556010364,
+          "shear_torsion_reference_upper": 0.21190059796552246,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.0,
+              -209.22835137080074,
+              3.2681729112348377,
+              8960.048785643667,
+              316.68529194699977,
+              10704.000406258363
+            ],
+            "index": 0.21190059796552246
+          },
+          "world_grain_interval_mm": [
+            -101.25725,
+            -95.69999999999999
+          ]
+        }
+      }
+    },
+    "base_header": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.3679141255019409,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.3679141255019409,
+          "net_core_interval_local_L_mm": [
+            1070.222875,
+            1328.9771250000001
+          ],
+          "normal_reference_upper": 0.35152840413094666,
+          "shear_torsion_reference_upper": 0.14357285121348443,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              125.21134560047115,
+              24.77500653011737,
+              172.7443128042808,
+              3992.816700589845,
+              -58791.18155204045,
+              -131256.5026500487
+            ],
+            "index": 0.3679141255019409
+          },
+          "world_grain_interval_mm": [
+            21.27499999999999,
+            21.275
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.35152840413094666,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.3679141255019409,
+          "net_core_interval_local_L_mm": [
+            1070.222875,
+            1328.9771250000001
+          ],
+          "normal_reference_upper": 0.35152840413094666,
+          "shear_torsion_reference_upper": 0.14357285121348443,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              125.21134560047115,
+              24.77500653011737,
+              172.7443128042808,
+              3992.816700589845,
+              -58791.18155204045,
+              -131256.5026500487
+            ],
+            "index": 0.3679141255019409
+          },
+          "world_grain_interval_mm": [
+            21.27499999999999,
+            21.275
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.8284017840940355,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.2582923148745802,
+          "net_core_interval_local_L_mm": [
+            1059.902125,
+            1070.222875
+          ],
+          "normal_reference_upper": 0.246885825170957,
+          "shear_torsion_reference_upper": 0.8284017840940355,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              125.21134560047112,
+              24.775006530117366,
+              -379.56535640684615,
+              -57223.227626533226,
+              -21951.421774915063,
+              -126910.65681708444
+            ],
+            "index": 0.8284017840940355
+          },
+          "world_grain_interval_mm": [
+            -154.1375,
+            -148.97712500000011
+          ]
+        }
+      }
+    },
+    "base_post_center_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.07552027170204913,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.07552027170204913,
+          "net_core_interval_local_L_mm": [
+            0.001,
+            168.65212499999998
+          ],
+          "normal_reference_upper": 0.08454391407723186,
+          "shear_torsion_reference_upper": 0.06960528831560794,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -534.7323050470408,
+              124.33623049938232,
+              -280.1510930226775,
+              -14021.76402246386,
+              -0.27832558017324344,
+              20373.176984144382
+            ],
+            "index": 0.08454391407723186
+          },
+          "world_grain_interval_mm": [
+            0.001,
+            23.89
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.08454391407723186,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.07552027170204913,
+          "net_core_interval_local_L_mm": [
+            0.001,
+            168.65212499999998
+          ],
+          "normal_reference_upper": 0.08454391407723186,
+          "shear_torsion_reference_upper": 0.06960528831560794,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -534.7323050470408,
+              124.33623049938232,
+              -280.1510930226775,
+              -14021.76402246386,
+              -0.27832558017324344,
+              20373.176984144382
+            ],
+            "index": 0.08454391407723186
+          },
+          "world_grain_interval_mm": [
+            0.001,
+            23.89
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.2853763427829876,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.024661726091891586,
+          "net_core_interval_local_L_mm": [
+            168.65212499999998,
+            178.97287500000002
+          ],
+          "normal_reference_upper": 0.03428456001045531,
+          "shear_torsion_reference_upper": 0.2853763427829876,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -461.3783962961925,
+              2.611644966683585,
+              -282.6574029554491,
+              3237.611289357359,
+              -44047.39450524367,
+              11231.974753332552
+            ],
+            "index": 0.2853763427829876
+          },
+          "world_grain_interval_mm": [
+            168.65212499999998,
+            170.36556508957128
+          ]
+        }
+      }
+    },
+    "base_post_center_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.04086967782428203,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.04086967782428203,
+          "net_core_interval_local_L_mm": [
+            0.001,
+            168.65212499999998
+          ],
+          "normal_reference_upper": 0.044651939990621836,
+          "shear_torsion_reference_upper": 0.15085595635539797,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -224.61852676827726,
+              63.244631911837516,
+              -202.48207757837977,
+              -15444.290795264578,
+              -3020.1159924741632,
+              10940.096028361719
+            ],
+            "index": 0.15085595635539797
+          },
+          "world_grain_interval_mm": [
+            60.0,
+            71.79724459767155
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.044837075821645186,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03999019203075743,
+          "net_core_interval_local_L_mm": [
+            0.001,
+            168.65212499999998
+          ],
+          "normal_reference_upper": 0.044837075821645186,
+          "shear_torsion_reference_upper": 0.040600116232680825,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -283.58824362764585,
+              -29.269413594541994,
+              -176.3681604738431,
+              -1315.3449174479522,
+              -0.17454264762440896,
+              10804.741849709531
+            ],
+            "index": 0.044837075821645186
+          },
+          "world_grain_interval_mm": [
+            0.001,
+            23.89
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.22016372036658857,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.014486135596517707,
+          "net_core_interval_local_L_mm": [
+            168.65212499999998,
+            178.97287500000002
+          ],
+          "normal_reference_upper": 0.019785722174297166,
+          "shear_torsion_reference_upper": 0.22016372036658857,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -252.85827365587832,
+              -84.58395557295418,
+              -136.81651918957797,
+              10643.36992182093,
+              -22210.16349352926,
+              2696.543536768082
+            ],
+            "index": 0.22016372036658857
+          },
+          "world_grain_interval_mm": [
+            173.8125,
+            178.97287500000002
+          ]
+        }
+      }
+    },
+    "base_post_outer_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.03540543940889963,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03540543940889963,
+          "net_core_interval_local_L_mm": [
+            94.44274999999999,
+            105.55725000000001
+          ],
+          "normal_reference_upper": 0.03534375807286308,
+          "shear_torsion_reference_upper": 0.2229727101813442,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              42.9057723508949,
+              93.93434826386434,
+              -544.268905427378,
+              -779.0311979094595,
+              27248.058252031293,
+              14080.599122266773
+            ],
+            "index": 0.2229727101813442
+          },
+          "world_grain_interval_mm": [
+            100.0,
+            105.55725000000001
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.051093651121659395,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03200425482616706,
+          "net_core_interval_local_L_mm": [
+            54.442750000000004,
+            65.55725000000001
+          ],
+          "normal_reference_upper": 0.051093651121659395,
+          "shear_torsion_reference_upper": 0.007809337553637038,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -1863.535689774413,
+              -22.089324652654582,
+              6.50193734043255,
+              901.3815662936013,
+              -159536.21762328243,
+              64103.870465996
+            ],
+            "index": 0.051093651121659395
+          },
+          "world_grain_interval_mm": [
+            54.442750000000004,
+            60.0
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.2397295600074196,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.024646315427875556,
+          "net_core_interval_local_L_mm": [
+            168.65212499999998,
+            178.97287500000002
+          ],
+          "normal_reference_upper": 0.024678255356159168,
+          "shear_torsion_reference_upper": 0.2397295600074196,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -6.810247050761623,
+              -45.775807930075516,
+              -507.54440269480415,
+              3560.0174016618867,
+              -15811.484938801426,
+              10906.117927834972
+            ],
+            "index": 0.2397295600074196
+          },
+          "world_grain_interval_mm": [
+            168.65212499999998,
+            170.3655650895713
+          ]
+        }
+      }
+    },
+    "base_post_outer_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.035627522453406245,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.035627522453406245,
+          "net_core_interval_local_L_mm": [
+            94.44274999999999,
+            105.55725000000001
+          ],
+          "normal_reference_upper": 0.03556486746515196,
+          "shear_torsion_reference_upper": 0.22299363362890767,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              30.177950137393978,
+              -92.19480523179365,
+              -549.7097562695529,
+              -47896.0580830846,
+              25191.917848057437,
+              -16922.176682310692
+            ],
+            "index": 0.22299363362890767
+          },
+          "world_grain_interval_mm": [
+            100.0,
+            105.55725000000001
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.03556486746515196,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.035627522453406245,
+          "net_core_interval_local_L_mm": [
+            94.44274999999999,
+            105.55725000000001
+          ],
+          "normal_reference_upper": 0.03556486746515196,
+          "shear_torsion_reference_upper": 0.22299363362890767,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              30.177950137393978,
+              -92.19480523179365,
+              -549.7097562695529,
+              -47896.0580830846,
+              25191.917848057437,
+              -16922.176682310692
+            ],
+            "index": 0.22299363362890767
+          },
+          "world_grain_interval_mm": [
+            100.0,
+            105.55725000000001
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.2368019328493653,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.023237363261329438,
+          "net_core_interval_local_L_mm": [
+            168.65212499999998,
+            178.97287500000002
+          ],
+          "normal_reference_upper": 0.02319726895660721,
+          "shear_torsion_reference_upper": 0.2368019328493653,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              34.14364938309356,
+              75.47290128538265,
+              -546.7311187684344,
+              -51634.39673086063,
+              -10854.77160053741,
+              -11928.788328626484
+            ],
+            "index": 0.2368019328493653
+          },
+          "world_grain_interval_mm": [
+            168.65212499999998,
+            170.36556508957128
+          ]
+        }
+      }
+    },
+    "base_principal_center_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.11270616727261987,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.11270616727261987,
+          "net_core_interval_local_L_mm": [
+            1463.0942443266356,
+            1473.4149943268717
+          ],
+          "normal_reference_upper": 0.10971012004897371,
+          "shear_torsion_reference_upper": 0.09644438433047295,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -203.27714455952037,
+              -10.430656037415185,
+              52.61786234898765,
+              4265.425465422168,
+              -71095.59303838015,
+              -1107.1626207914221
+            ],
+            "index": 0.11270616727261987
+          },
+          "world_grain_interval_mm": [
+            1563.0116336804156,
+            1566.2260764481648
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.10972066718895132,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.11256758220237112,
+          "net_core_interval_local_L_mm": [
+            1463.0942443266356,
+            1473.4149943268717
+          ],
+          "normal_reference_upper": 0.10972066718895132,
+          "shear_torsion_reference_upper": 0.092427271999277,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -212.79214765959375,
+              -2.1004898613747613,
+              48.732716790336156,
+              4388.867880676596,
+              -71195.41140689555,
+              -765.9932260067876
+            ],
+            "index": 0.11256758220237112
+          },
+          "world_grain_interval_mm": [
+            1557.8512586801796,
+            1563.0116336801798
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.6568881071246864,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03523709510196413,
+          "net_core_interval_local_L_mm": [
+            90.76348688878416,
+            124.60205145308252
+          ],
+          "normal_reference_upper": 0.03942174706715405,
+          "shear_torsion_reference_upper": 0.6568881071246864,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -324.9492898707234,
+              124.66289652349894,
+              -101.14634819972467,
+              26652.29630136491,
+              37409.29167982046,
+              5127.552130294035
+            ],
+            "index": 0.6568881071246864
+          },
+          "world_grain_interval_mm": [
+            190.69567607950196,
+            193.27359483763144
+          ]
+        }
+      }
+    },
+    "base_principal_center_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.08229016231231168,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08229016231231168,
+          "net_core_interval_local_L_mm": [
+            1161.0899943279555,
+            1463.0942443266356
+          ],
+          "normal_reference_upper": 0.082519038723857,
+          "shear_torsion_reference_upper": 0.031902476939265664,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -355.8450881438193,
+              9.21788037656897,
+              -12.671678567028312,
+              -1867.1866885888608,
+              -10140.523246958797,
+              -7452.771626168686
+            ],
+            "index": 0.082519038723857
+          },
+          "world_grain_interval_mm": [
+            1334.8241337091974,
+            1334.8241337092636
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.08306761102998994,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08163490528860962,
+          "net_core_interval_local_L_mm": [
+            1150.7692443277197,
+            1161.0899943279555
+          ],
+          "normal_reference_upper": 0.08306761102998994,
+          "shear_torsion_reference_upper": 0.03356171517247036,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -357.4611852765475,
+              34.36245934348675,
+              -14.02774507591913,
+              -5.7524487155002975,
+              -9020.640237246384,
+              -5087.787966793882
+            ],
+            "index": 0.08306761102998994
+          },
+          "world_grain_interval_mm": [
+            1250.6866336814996,
+            1255.8470086814996
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.47177924314363345,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.05096169384102275,
+          "net_core_interval_local_L_mm": [
+            90.76348688878416,
+            124.60205145308252
+          ],
+          "normal_reference_upper": 0.05298058278753776,
+          "shear_torsion_reference_upper": 0.47177924314363345,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -263.06425948301165,
+              -148.15081392041523,
+              -129.32816648577082,
+              -24577.43692958256,
+              30760.12783354564,
+              10553.08498411115
+            ],
+            "index": 0.47177924314363345
+          },
+          "world_grain_interval_mm": [
+            190.69567607950228,
+            193.27359483763144
+          ]
+        }
+      }
+    },
+    "base_rail_bottom_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.3241091481157347,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.3241091481157347,
+          "net_core_interval_local_L_mm": [
+            292.0489999999999,
+            330.1509999999999
+          ],
+          "normal_reference_upper": 0.31033168844307085,
+          "shear_torsion_reference_upper": 0.16046220659073246,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -174.33562648304357,
+              37.64254889937923,
+              228.7926807618432,
+              -1885.8071104837557,
+              -178949.16542685463,
+              30213.591024045978
+            ],
+            "index": 0.3241091481157347
+          },
+          "world_grain_interval_mm": [
+            -835.075,
+            -808.0042286709456
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.31033168844307085,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.3241091481157347,
+          "net_core_interval_local_L_mm": [
+            292.0489999999999,
+            330.1509999999999
+          ],
+          "normal_reference_upper": 0.31033168844307085,
+          "shear_torsion_reference_upper": 0.16046220659073246,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -174.33562648304357,
+              37.64254889937923,
+              228.7926807618432,
+              -1885.8071104837557,
+              -178949.16542685463,
+              30213.591024045978
+            ],
+            "index": 0.3241091481157347
+          },
+          "world_grain_interval_mm": [
+            -835.075,
+            -808.0042286709456
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a1-rear",
+        "index": 0.5722776680565493,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.09659513957013835,
+          "net_core_interval_local_L_mm": [
+            92.04899999999991,
+            130.15099999999993
+          ],
+          "normal_reference_upper": 0.09835406584234274,
+          "shear_torsion_reference_upper": 0.5722776680565493,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -317.39240160155686,
+              -124.31864515897676,
+              -565.7088193221878,
+              -18190.734438202682,
+              -63036.24229005749,
+              8075.17138859127
+            ],
+            "index": 0.5722776680565493
+          },
+          "world_grain_interval_mm": [
+            -1038.251,
+            -1006.3416666666667
+          ]
+        }
+      }
+    },
+    "base_rail_bottom_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.03214353820989905,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03214353820989905,
+          "net_core_interval_local_L_mm": [
+            711.899,
+            750.0009999999999
+          ],
+          "normal_reference_upper": 0.03414523613401319,
+          "shear_torsion_reference_upper": 0.04842790395594162,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -157.51137321449795,
+              9.838431536079032,
+              -34.162730500438116,
+              197.11772864319846,
+              -30481.83472066967,
+              1612.4082720613615
+            ],
+            "index": 0.04842790395594162
+          },
+          "world_grain_interval_mm": [
+            761.749,
+            799.8509999999999
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.03414523613401319,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03214353820989905,
+          "net_core_interval_local_L_mm": [
+            711.899,
+            750.0009999999999
+          ],
+          "normal_reference_upper": 0.03414523613401319,
+          "shear_torsion_reference_upper": 0.04842790395594162,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -157.51137321449795,
+              9.838431536079032,
+              -34.162730500438116,
+              197.11772864319846,
+              -30481.83472066967,
+              1612.4082720613615
+            ],
+            "index": 0.04842790395594162
+          },
+          "world_grain_interval_mm": [
+            761.749,
+            799.8509999999999
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.04842790395594162,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.03214353820989905,
+          "net_core_interval_local_L_mm": [
+            711.899,
+            750.0009999999999
+          ],
+          "normal_reference_upper": 0.03414523613401319,
+          "shear_torsion_reference_upper": 0.04842790395594162,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -157.51137321449795,
+              9.838431536079032,
+              -34.162730500438116,
+              197.11772864319846,
+              -30481.83472066967,
+              1612.4082720613615
+            ],
+            "index": 0.04842790395594162
+          },
+          "world_grain_interval_mm": [
+            761.749,
+            799.8509999999999
+          ]
+        }
+      }
+    },
+    "base_rail_service_lower_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.01730430389153908,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.01730430389153908,
+          "net_core_interval_local_L_mm": [
+            292.0489999999999,
+            330.1509999999999
+          ],
+          "normal_reference_upper": 0.016467398998288026,
+          "shear_torsion_reference_upper": 0.020421401995886407,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.11133339764224721,
+              10.631080634291566,
+              -25.661764646461755,
+              -748.2871026460309,
+              -6315.9393464018085,
+              -1935.307117521559
+            ],
+            "index": 0.020421401995886407
+          },
+          "world_grain_interval_mm": [
+            -838.251,
+            -835.075
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.016467398998288026,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.01730430389153908,
+          "net_core_interval_local_L_mm": [
+            292.0489999999999,
+            330.1509999999999
+          ],
+          "normal_reference_upper": 0.016467398998288026,
+          "shear_torsion_reference_upper": 0.020421401995886407,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.11133339764224721,
+              10.631080634291566,
+              -25.661764646461755,
+              -748.2871026460309,
+              -6315.9393464018085,
+              -1935.307117521559
+            ],
+            "index": 0.020421401995886407
+          },
+          "world_grain_interval_mm": [
+            -838.251,
+            -835.075
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.0342800342369514,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.016573282004851003,
+          "net_core_interval_local_L_mm": [
+            292.0489999999999,
+            330.1509999999999
+          ],
+          "normal_reference_upper": 0.01593208688378596,
+          "shear_torsion_reference_upper": 0.0342800342369514,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -6.553675397690375,
+              -10.757879203205645,
+              3.162354874130971,
+              -456.19182285406123,
+              -6167.7532357984355,
+              -1845.11784016346
+            ],
+            "index": 0.0342800342369514
+          },
+          "world_grain_interval_mm": [
+            -835.075,
+            -808.0042286709438
+          ]
+        }
+      }
+    },
+    "base_rail_service_lower_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.01490931959708881,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.01490931959708881,
+          "net_core_interval_local_L_mm": [
+            750.0009999999999,
+            911.899
+          ],
+          "normal_reference_upper": 0.014136918607206915,
+          "shear_torsion_reference_upper": 0.014639474602813403,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.07056110705887564,
+              -10.532674914242465,
+              29.682148590264266,
+              781.6657368655493,
+              -7307.082797473016,
+              -1860.4558660355005
+            ],
+            "index": 0.01490931959708881
+          },
+          "world_grain_interval_mm": [
+            835.075,
+            858.0231239302573
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-forward",
+        "index": 0.014136918607206915,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.01490931959708881,
+          "net_core_interval_local_L_mm": [
+            750.0009999999999,
+            911.899
+          ],
+          "normal_reference_upper": 0.014136918607206915,
+          "shear_torsion_reference_upper": 0.014639474602813403,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.07056110705887564,
+              -10.532674914242465,
+              29.682148590264266,
+              781.6657368655493,
+              -7307.082797473016,
+              -1860.4558660355005
+            ],
+            "index": 0.01490931959708881
+          },
+          "world_grain_interval_mm": [
+            835.075,
+            858.0231239302573
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.034515797928045135,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.014668424888499629,
+          "net_core_interval_local_L_mm": [
+            711.899,
+            750.0009999999999
+          ],
+          "normal_reference_upper": 0.014048771724973718,
+          "shear_torsion_reference_upper": 0.034515797928045135,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -5.721006404100296,
+              10.75343036306958,
+              1.3233905356500097,
+              561.7312977144738,
+              -6283.165156985742,
+              -1456.621595631629
+            ],
+            "index": 0.034515797928045135
+          },
+          "world_grain_interval_mm": [
+            761.749,
+            799.8509999999999
+          ]
+        }
+      }
+    },
+    "base_rail_service_upper_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.022423398144417482,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.022423398144417482,
+          "net_core_interval_local_L_mm": [
+            692.049,
+            730.1509999999998
+          ],
+          "normal_reference_upper": 0.0213388561248416,
+          "shear_torsion_reference_upper": 0.02288807742805989,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.12060601044202102,
+              -11.084586876308196,
+              33.32157592083603,
+              -629.8141004162978,
+              -6965.973414825653,
+              -2392.2078259834666
+            ],
+            "index": 0.02288807742805989
+          },
+          "world_grain_interval_mm": [
+            -435.075,
+            -411.15652672117795
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.0213388561248416,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.022423398144417482,
+          "net_core_interval_local_L_mm": [
+            692.049,
+            730.1509999999998
+          ],
+          "normal_reference_upper": 0.0213388561248416,
+          "shear_torsion_reference_upper": 0.02288807742805989,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.12060601044202102,
+              -11.084586876308196,
+              33.32157592083603,
+              -629.8141004162978,
+              -6965.973414825653,
+              -2392.2078259834666
+            ],
+            "index": 0.02288807742805989
+          },
+          "world_grain_interval_mm": [
+            -435.075,
+            -411.15652672117795
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.04461416655073158,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.018305372416715354,
+          "net_core_interval_local_L_mm": [
+            692.049,
+            730.1509999999998
+          ],
+          "normal_reference_upper": 0.017642914004258468,
+          "shear_torsion_reference_upper": 0.04461416655073158,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -9.135517053098553,
+              13.717631982176336,
+              -13.813609667180788,
+              2279.8641452865713,
+              -3224.516988199673,
+              -2496.1860627337396
+            ],
+            "index": 0.04461416655073158
+          },
+          "world_grain_interval_mm": [
+            -438.251,
+            -435.075
+          ]
+        }
+      }
+    },
+    "base_rail_service_upper_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.022461478265010746,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.022461478265010746,
+          "net_core_interval_local_L_mm": [
+            311.89899999999994,
+            350.0009999999999
+          ],
+          "normal_reference_upper": 0.021297905032846037,
+          "shear_torsion_reference_upper": 0.01871989824578932,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.10785313200437865,
+              11.513754422686642,
+              -24.989579959533017,
+              741.9047314100467,
+              -7674.217556960932,
+              -2671.4410125245363
+            ],
+            "index": 0.022461478265010746
+          },
+          "world_grain_interval_mm": [
+            368.1357954545455,
+            399.8509999999999
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.021297905032846037,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.022461478265010746,
+          "net_core_interval_local_L_mm": [
+            311.89899999999994,
+            350.0009999999999
+          ],
+          "normal_reference_upper": 0.021297905032846037,
+          "shear_torsion_reference_upper": 0.01871989824578932,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              0.10785313200437865,
+              11.513754422686642,
+              -24.989579959533017,
+              741.9047314100467,
+              -7674.217556960932,
+              -2671.4410125245363
+            ],
+            "index": 0.022461478265010746
+          },
+          "world_grain_interval_mm": [
+            368.1357954545455,
+            399.8509999999999
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.04055848930292236,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.010856404573805347,
+          "net_core_interval_local_L_mm": [
+            511.89899999999994,
+            550.0009999999999
+          ],
+          "normal_reference_upper": 0.010627630672535452,
+          "shear_torsion_reference_upper": 0.04055848930292236,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -13.516270408724084,
+              -12.064642502914039,
+              -0.9860076596200775,
+              -2384.2971972242794,
+              -2582.2090471122956,
+              -1068.0522338843718
+            ],
+            "index": 0.04055848930292236
+          },
+          "world_grain_interval_mm": [
+            561.7489999999999,
+            564.0039772727273
+          ]
+        }
+      }
+    },
+    "base_rail_top": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.5278318024533788,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.5278318024533788,
+          "net_core_interval_local_L_mm": [
+            1250.3978749999999,
+            2187.1771249999993
+          ],
+          "normal_reference_upper": 0.5037874184432913,
+          "shear_torsion_reference_upper": 0.4642101850789477,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -86.30399166263183,
+              -27.93692853188841,
+              -42.87700056070678,
+              -30457.69942054098,
+              -417769.2326081582,
+              26263.144696588435
+            ],
+            "index": 0.5278318024533788
+          },
+          "world_grain_interval_mm": [
+            415.3381144486082,
+            435.075
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.5037874184432913,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.5278318024533788,
+          "net_core_interval_local_L_mm": [
+            1250.3978749999999,
+            2187.1771249999993
+          ],
+          "normal_reference_upper": 0.5037874184432913,
+          "shear_torsion_reference_upper": 0.4642101850789477,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -86.30399166263183,
+              -27.93692853188841,
+              -42.87700056070678,
+              -30457.69942054098,
+              -417769.2326081582,
+              26263.144696588435
+            ],
+            "index": 0.5278318024533788
+          },
+          "world_grain_interval_mm": [
+            415.3381144486082,
+            435.075
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 1.1692252292298393,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.08036911407657929,
+          "net_core_interval_local_L_mm": [
+            2187.1771249999993,
+            2197.497875
+          ],
+          "normal_reference_upper": 0.0879344569376379,
+          "shear_torsion_reference_upper": 1.1692252292298393,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -660.9389513260005,
+              -85.38872262802141,
+              1195.9032834514744,
+              -9146.436808887323,
+              -109898.82538484866,
+              13605.928571260718
+            ],
+            "index": 1.1692252292298393
+          },
+          "world_grain_interval_mm": [
+            1056.8771249999993,
+            1058.5905650895777
+          ]
+        }
+      }
+    },
+    "base_side_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.7531749486656377,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7531749486656377,
+          "net_core_interval_local_L_mm": [
+            1957.4607695840618,
+            1971.7502695840617
+          ],
+          "normal_reference_upper": 0.737587834031847,
+          "shear_torsion_reference_upper": 0.6460734931938964,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -519.3806827173094,
+              -43.01747159354903,
+              -1753.590755975328,
+              -167518.67709488884,
+              970211.127295535,
+              202061.0850098795
+            ],
+            "index": 0.7531749486656377
+          },
+          "world_grain_interval_mm": [
+            2063.8620472071093,
+            2066.331810782782
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.737587834031847,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7531749486656377,
+          "net_core_interval_local_L_mm": [
+            1957.4607695840618,
+            1971.7502695840617
+          ],
+          "normal_reference_upper": 0.737587834031847,
+          "shear_torsion_reference_upper": 0.6460734931938964,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -519.3806827173094,
+              -43.01747159354903,
+              -1753.590755975328,
+              -167518.67709488884,
+              970211.127295535,
+              202061.0850098795
+            ],
+            "index": 0.7531749486656377
+          },
+          "world_grain_interval_mm": [
+            2063.8620472071093,
+            2066.331810782782
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.9996309627802314,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.10591611900608564,
+          "net_core_interval_local_L_mm": [
+            2431.4197310581653,
+            2441.740481058402
+          ],
+          "normal_reference_upper": 0.1061539125904652,
+          "shear_torsion_reference_upper": 0.9996309627802314,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -249.5451531091077,
+              560.8928793104102,
+              -1491.2450928767475,
+              -154394.31231319724,
+              54804.923466469154,
+              85064.94558347171
+            ],
+            "index": 0.9996309627802314
+          },
+          "world_grain_interval_mm": [
+            2535.8366336814493,
+            2540.9970086814496
+          ]
+        }
+      }
+    },
+    "base_side_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.7373389101527732,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7373389101527732,
+          "net_core_interval_local_L_mm": [
+            1957.4607695840618,
+            1971.7502695840617
+          ],
+          "normal_reference_upper": 0.7222930094907682,
+          "shear_torsion_reference_upper": 0.6227574898051823,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -503.08681753705406,
+              48.220251803786994,
+              -1730.4203654279256,
+              8785.549721874317,
+              954225.1872569373,
+              -150375.66544787146
+            ],
+            "index": 0.7373389101527732
+          },
+          "world_grain_interval_mm": [
+            2063.8620472071093,
+            2066.331810782782
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.7222930094907682,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7373389101527732,
+          "net_core_interval_local_L_mm": [
+            1957.4607695840618,
+            1971.7502695840617
+          ],
+          "normal_reference_upper": 0.7222930094907682,
+          "shear_torsion_reference_upper": 0.6227574898051823,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -503.08681753705406,
+              48.220251803786994,
+              -1730.4203654279256,
+              8785.549721874317,
+              954225.1872569373,
+              -150375.66544787146
+            ],
+            "index": 0.7373389101527732
+          },
+          "world_grain_interval_mm": [
+            2063.8620472071093,
+            2066.331810782782
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.9676590002396478,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.10353114457827622,
+          "net_core_interval_local_L_mm": [
+            2431.4197310581653,
+            2441.740481058402
+          ],
+          "normal_reference_upper": 0.10378323727486002,
+          "shear_torsion_reference_upper": 0.9676590002396478,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -244.75212310159858,
+              -559.4817758469658,
+              -1453.87372948731,
+              19855.1247140441,
+              53588.731981543744,
+              -61444.097689906666
+            ],
+            "index": 0.9676590002396478
+          },
+          "world_grain_interval_mm": [
+            2535.8366336814493,
+            2540.9970086814496
+          ]
+        }
+      }
+    },
+    "lumber_leg_left": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.7790976996380787,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7790976996380787,
+          "net_core_interval_local_L_mm": [
+            1815.1533923274126,
+            1829.4428923274124
+          ],
+          "normal_reference_upper": 0.6288688412328649,
+          "shear_torsion_reference_upper": 0.13263972900974402,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2839.427018898332,
+              49.83782277171461,
+              84.03615633572944,
+              14940.331861120307,
+              230187.73681351103,
+              254625.53035445517
+            ],
+            "index": 0.7790976996380787
+          },
+          "world_grain_interval_mm": [
+            1422.9571866032957,
+            1430.101936603296
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "a12-rear",
+        "index": 0.6288688412328649,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7790976996380787,
+          "net_core_interval_local_L_mm": [
+            1815.1533923274126,
+            1829.4428923274124
+          ],
+          "normal_reference_upper": 0.6288688412328649,
+          "shear_torsion_reference_upper": 0.13263972900974402,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2839.427018898332,
+              49.83782277171461,
+              84.03615633572944,
+              14940.331861120307,
+              230187.73681351103,
+              254625.53035445517
+            ],
+            "index": 0.7790976996380787
+          },
+          "world_grain_interval_mm": [
+            1422.9571866032957,
+            1430.101936603296
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "a12-left",
+        "index": 0.3557727408138642,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.44101073062591684,
+          "net_core_interval_local_L_mm": [
+            82.71223504804595,
+            93.82673504804598
+          ],
+          "normal_reference_upper": 0.36605579746407624,
+          "shear_torsion_reference_upper": 0.3557727408138642,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2731.852558014034,
+              -147.5552665066624,
+              -79.75005450114885,
+              16021.359631217229,
+              340709.9400892795,
+              9378.407744157657
+            ],
+            "index": 0.44101073062591684
+          },
+          "world_grain_interval_mm": [
+            -303.9267206760709,
+            -298.3694706760709
+          ]
+        }
+      }
+    },
+    "lumber_leg_right": {
+      "maximum_declared_restraint_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.7683601211778218,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7683601211778218,
+          "net_core_interval_local_L_mm": [
+            1815.1533923274126,
+            1829.4428923274124
+          ],
+          "normal_reference_upper": 0.622036104182649,
+          "shear_torsion_reference_upper": 0.12580148436618754,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2806.499226324206,
+              -55.09106368317161,
+              76.93249424374065,
+              -7765.987254158083,
+              227563.0211002689,
+              -2313.9000056866785
+            ],
+            "index": 0.7683601211778218
+          },
+          "world_grain_interval_mm": [
+            1422.9571866032957,
+            1430.101936603296
+          ]
+        }
+      },
+      "maximum_normal_reference_upper": {
+        "case_id": "k12-rear",
+        "index": 0.622036104182649,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.7683601211778218,
+          "net_core_interval_local_L_mm": [
+            1815.1533923274126,
+            1829.4428923274124
+          ],
+          "normal_reference_upper": 0.622036104182649,
+          "shear_torsion_reference_upper": 0.12580148436618754,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2806.499226324206,
+              -55.09106368317161,
+              76.93249424374065,
+              -7765.987254158083,
+              227563.0211002689,
+              -2313.9000056866785
+            ],
+            "index": 0.7683601211778218
+          },
+          "world_grain_interval_mm": [
+            1422.9571866032957,
+            1430.101936603296
+          ]
+        }
+      },
+      "maximum_shear_torsion_reference_upper": {
+        "case_id": "k12-right",
+        "index": 0.35520625522404,
+        "worst_interval": {
+          "declared_restraint_normal_reference_upper": 0.4325924519657238,
+          "net_core_interval_local_L_mm": [
+            82.71223504804595,
+            93.82673504804598
+          ],
+          "normal_reference_upper": 0.3603795693950066,
+          "shear_torsion_reference_upper": 0.35520625522404,
+          "witness": {
+            "control_wrench_at_profile_datum_N_Nmm": [
+              -2696.4768204432526,
+              145.6356751553901,
+              -78.42158695477326,
+              -23149.848909504046,
+              335531.9677321656,
+              230397.5196216397
+            ],
+            "index": 0.4325924519657238
+          },
+          "world_grain_interval_mm": [
+            -303.9267206760709,
+            -298.3694706760709
+          ]
+        }
+      }
+    }
+  }
+}

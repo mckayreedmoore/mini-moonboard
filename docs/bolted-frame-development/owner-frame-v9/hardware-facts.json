@@ -1,0 +1,104 @@
+{
+  "bolt": {
+    "catalog_minimum_body_in": 5.69,
+    "catalog_minimum_body_mm": 144.526,
+    "catalog_unit_price_USD": 7.2,
+    "conservative_analysis_minimum_body_mm": 144.272,
+    "conservative_maximum_grip_gaging_mm": 158.75,
+    "diameter_mm": 9.525,
+    "dimensional_standard": "ASME B18.3",
+    "drive_size_mm": 7.9375,
+    "grip_gaging_basis": "Conservative upper bound: maximum nominal length minus the 1.25 in minimum thread length; free seating remains conditional on delivered complete-thread/runout gaging.",
+    "head_style": "socket cap",
+    "length_tolerance_mm": [
+      -3.048,
+      0.0
+    ],
+    "material_standard": "ASTM A574",
+    "minimum_body_basis": "Use 5.68 in, below the specific product stated 5.69 in floor; do not extrapolate the old 8 in formula.",
+    "minimum_complete_thread_length_mm": 31.75,
+    "minimum_yield_psi": 153000,
+    "product": "8095",
+    "threads_per_inch": 16,
+    "underhead_length_mm": 190.5,
+    "url": "https://boltdepot.com/Product-Details?product=8095"
+  },
+  "directory_lookup": "Stripe Directory plugin unavailable: saved authentication expired. Public primary supplier pages used; no account change, message, order or purchase.",
+  "limits": [
+    "Catalog facts and nominal CAD envelopes are not delivered measurements. Actual/Disposition observations remain blank.",
+    "New spacer grade/strength/tolerance and complete joint resistance are not qualified by its catalog geometry. Existing conditional steel assumptions remain explicit.",
+    "Prices are catalog observations only; taxes, delivery, stock and local purchase costs are not verified.",
+    "No mechanical force, strength, build or climbing acceptance is transferred from v8."
+  ],
+  "rejected_shorter_bolts": [
+    {
+      "catalog_minimum_body_mm": 119.126,
+      "product": "8093",
+      "reason": "Shorter smooth-body floor enters the current wood bearing span.",
+      "underhead_length_mm": 165.1,
+      "url": "https://boltdepot.com/Product-Details?product=8093"
+    },
+    {
+      "catalog_minimum_body_mm": 131.826,
+      "product": "8094",
+      "reason": "Covers nominal wood but leaves 4.1656 mm of the nut-side steel beyond the guaranteed body; no strength waiver adopted.",
+      "underhead_length_mm": 177.8,
+      "url": "https://boltdepot.com/Product-Details?product=8094"
+    }
+  ],
+  "retained_half_inch_spacer": {
+    "catalog_unit_price_USD": 2.53,
+    "inside_diameter_mm": 10.31875,
+    "length_mm": 12.7,
+    "outside_diameter_mm": 19.05,
+    "product": "13731",
+    "url": "https://boltdepot.com/Product-Details?product=13731"
+  },
+  "retained_header_stacks": {
+    "axis_ids": [
+      "eoere_bolt_065",
+      "eoere_bolt_066",
+      "eoere_bolt_079",
+      "eoere_bolt_080",
+      "eoere_bolt_081",
+      "eoere_bolt_082",
+      "eoere_bolt_083",
+      "eoere_bolt_084"
+    ],
+    "reason": "Already one factory half-inch spacer per stack. A shorter generic Grade 5 bolt would reduce smooth-body support; no unsupported zero-spacer substitution."
+  },
+  "retained_nut": {
+    "height_envelope_mm": 8.5598,
+    "material_standard": "SAE J995 Grade 8",
+    "product": "2584"
+  },
+  "retrieved_UTC": "2026-10-23",
+  "revision": "eoere-single-spacer-cleat-stacks-v9",
+  "schema": "eoere_single_spacer_catalog_facts/v1",
+  "shared_length_tolerance_reference": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/hardware-source-v1/unbrako-engguide.pdf",
+    "printed_page": 8,
+    "scope": "Length tolerance only; no proprietary strength or unsupported body-length transfer.",
+    "sha256": "a9e38895968c53db075a4135f56fd20c35e65598c7f3efac4166cdbe9db0213a",
+    "url": "https://www.unbrako.com/images/downloads/engguide.pdf"
+  },
+  "spacer": {
+    "capacity_or_tolerance_published": false,
+    "catalog_family_url": "https://boltdepot.com/Spacers_Zinc_plated_steel_13_32",
+    "catalog_unit_price_USD": 2.81,
+    "inside_diameter_mm": 10.31875,
+    "length_mm": 25.4,
+    "material": "Low carbon steel; zinc plated",
+    "outside_diameter_mm": 19.05,
+    "product": "13733",
+    "url": "https://boltdepot.com/Product-Details?product=13733"
+  },
+  "washer": {
+    "catalog_minimum_thickness_mm": 1.6256,
+    "nominal_inside_diameter_mm": 11.1125,
+    "nominal_thickness_mm": 2.6416,
+    "outside_diameter_mm": 26.162,
+    "product": "15023",
+    "url": "https://boltdepot.com/Product-Details?product=15023"
+  }
+}

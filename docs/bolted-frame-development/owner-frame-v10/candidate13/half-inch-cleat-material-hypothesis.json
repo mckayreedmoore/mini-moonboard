@@ -1,0 +1,37 @@
+{
+  "schema": "eoere_v10_half_inch_cleat_material_hypothesis/v1",
+  "material": "Two aligned leaves of PS 1 APA-trademarked Group 1 sanded plywood, Other column, one-half-inch Performance Category, strength axis along local vertical Z",
+  "nominal_leaf_mm": 12.7,
+  "nominal_combined_mm": 25.4,
+  "declared_minimum_credited_combined_wall_mm": 23.8,
+  "actual_leaf_and_combined_thickness_observed": false,
+  "wall_floor_is_automatic_standard_product_minimum": false,
+  "primary": {
+    "url": "https://law.resource.org/pub/us/cfr/ibr/inc/ansi/apa.d-510c.2020.pdf",
+    "authorship": "APA Panel Design Specification D510F, September 2020; public mirror of primary-authored standard",
+    "official_identity": "https://www.apawood.org/guides-tools-training/technical-document-library/technical-guides/panel-design-specification/",
+    "table": "Table 10, Sanded Group 1 plywood, Other column, one-half-inch row",
+    "tension_locator": "printed page 28, PDF page 31 (zero-based)",
+    "tension_per_leaf_parallel_lbf_ft": 3200,
+    "tension_per_leaf_perpendicular_lbf_ft": 2050,
+    "through_thickness_shear_locator": "printed page 30, PDF page 33 (zero-based)",
+    "through_thickness_shear_per_leaf_lbf_in": 81
+  },
+  "primary_stiffness_same_table_grade_and_half_inch_row": {
+    "EA_parallel_lbf_ft": 3500000,
+    "EA_perpendicular_lbf_ft": 2250000,
+    "flatwise_EI_parallel_lbf_in2_ft": 140000,
+    "flatwise_EI_perpendicular_lbf_in2_ft": 15500,
+    "Gvtv_parallel_and_perpendicular_lbf_in": 38500,
+    "locators": "Table10 printed pages28-30, PDF zero-based31-33"
+  },
+  "pair_stiffness_hypothesis": "Use per-leaf primary half-inch values, nominal leaf12.7 mm and retained strength-axis orientation. The existing perfect-bond parallel-axis combination remains conditional; neither bond nor local trimmed-plate force-slip is qualified. Inherited extremely stiff GA_u surrogate is an unresolved model assumption, not a new published plywood property.",
+  "method": "Retain issued balanced pressure and all-subset actual-perimeter worksheet. Sum two equal aligned leaf references only under retained composite/bond hypothesis. Retain narrow-width tension multiplier 0.5 and CD1. No Structural I increase. The 23.8 mm sensitivity conservatively reduces these half-inch nominal references by23.8/25.4; it never scales three-quarter-inch material values.",
+  "strength_axis_mapping": "Worksheet direction1 is weak Y, direction2 strong Z, matching the retained analytical plywood basis; verify changed field material orientation.",
+  "ordinary_bearing_method": "Retained equivalent-specific-gravity plywood bore-bearing reference remains a separate method; physical contact pressure and joint splitting remain unqualified.",
+  "adhesive_and_composite_action_qualified": false,
+  "actual_product_stamp_and_grade_qualified": false,
+  "structural_acceptance": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}

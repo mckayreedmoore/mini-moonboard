@@ -3,13 +3,18 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
 import {validateNarrowChannels} from '../site/eoere-narrow-channels-overlay.mjs';
 import {validateRetainedFrame} from '../site/eoere-retained-frame-overlay.mjs';
 import {validateOwnerFrame} from '../site/eoere-owner-frame-overlay.mjs';
+import {validateReferenceCleats} from '../site/eoere-reference-cleat-overlay.mjs';
+import {validatePrincipalPairs} from '../site/eoere-principal-pair-overlay.mjs';
+import {validateInwardBolts} from '../site/eoere-inward-bolts-overlay.mjs';
+import {validateInwardAngles} from '../site/eoere-inward-angles-overlay.mjs';
+import {validateSingleSpacers} from '../site/eoere-single-spacer-overlay.mjs';
 
 // Keep exercising the preserved force/shop contracts against their own geometry.
 function ownRevision(revision) {
@@ -21,7 +26,369 @@ function ownRevision(revision) {
 const readNotchIndex = () => ownRevision('eoere-narrow-channel-openings-v1');
 const readPostIndex = () => ownRevision('eoere-4x6-front-posts-v1');
 const readIndex = () => ownRevision('eoere-raised-kicker-screws-v1');
+const read96Index = () => ownRevision('eoere-flat-cleats-principal-upper-pairs-v6');
 const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index, {entryChecks: false});
+
+const candidate13Index = ownRevision('eoere-candidate13-side-depth-v10');
+const candidate13 = readV10Candidate13Authority(candidate13Index);
+test('Candidate13 source resolver reads only mapped repository copies, leaving raw fields unopened', () => {
+  const requested = [];
+  const resolver = candidate13SourceResolver(candidate13.manifest, ref => {
+    requested.push(ref.path);
+    assert.ok(ref.path.startsWith('docs/bolted-frame-development/owner-frame-v10/candidate13/') ||
+      ref.path === 'site/eoere-v10-scene-13.json.gz');
+    return readFileSync(path.join(ROOT, ref.path));
+  });
+  assert.equal(requested.length, 57);
+  assert.throws(() => resolver.sourceBound(candidate13.bank.cases[0].field));
+  assert.equal(requested.length, 57, 'an unmapped raw field must never trigger another file read');
+});
+test('Candidate13 source resolver rejects a changed decoded frozen paper source hash', () => {
+  const manifest = structuredClone(candidate13.manifest);
+  manifest.support_files.find(row => row.encoding === 'gzip').original.sha256 = '0'.repeat(64);
+  assert.throws(() => candidate13SourceResolver(manifest));
+});
+test('Candidate13 source resolver rejects changed integrated encoded bytes', () => {
+  const compressed = candidate13.manifest.support_files.find(row => row.encoding === 'gzip').integrated.path;
+  assert.throws(() => candidate13SourceResolver(candidate13.manifest, ref => {
+    const bytes = readFileSync(path.join(ROOT, ref.path));
+    if (ref.path === compressed) {const changed = Buffer.from(bytes); changed[changed.length-1] ^= 1; return changed;}
+    return bytes;
+  }));
+});
+test('Candidate13 current development retains its own conditional package and all 26 trial flags', () => {
+  assert.equal(validateV10Candidate13Authority(candidate13Index, candidate13).trial_case_flags, 26);
+});
+test('owner-selected 4x6 development has its own matched bank and preserves Candidate13 separately', () => {
+  const selected = candidate13Index.development_selection;
+  const result = checkCurrentDevelopment(candidate13Index, {entryChecks: false});
+  assert.equal(result.revision, selected.revision);
+  assert.equal(result.preserved_integrated_package_revision, 'eoere-candidate13-side-depth-v10');
+  assert.equal(result.trial_case_flags, 15); assert.equal(result.trial_flagged_components, 8);
+  assert.equal(result.occupied_parts, 1151); assert.equal(result.spacer_pieces, 44);
+  assert.equal(result.candidate_selection_only, true); assert.equal(result.purchase_authorized, false);
+});
+test('standard 4x6 top and sides use a fresh matched bank with unresolved complete joints', () => {
+  const result = checkCurrentDevelopment();
+  assert.equal(result.revision, 'v10-standard-4x6-top-and-sides-development-v1');
+  assert.equal(result.reference_case_exceedances, 15);
+  assert.equal(result.reference_component_exceedances, 8);
+  assert.equal(result.actual_Cg_adopted, null);
+  assert.equal(result.custom_packers_approved, false);
+});
+for (const [name, mutate] of [
+  ['deeper side substitution', r => {r.development_selection.actual_sections_mm.base_side_left = [88.9, 152.4];}],
+  ['approved custom packers', r => {r.development_selection.custom_packers_approved = true;}],
+  ['purchasing through selection', r => {r.development_selection.purchase_authorized = true;}],
+  ['build selection', r => {r.hardware_model.selected_for_build = true;}],
+  ['released historical drills', r => {r.shop.historical_cut_drill_packet_current = true;}],
+  ['adopted group factor', r => {r.actual_Cg_adopted = 1;}],
+  ['complete joint qualification', r => {r.complete_joint_qualified = true;}],
+  ['older force bank', r => {r.response_bank = r.preceding_revision.development_selection.response_bank;}],
+  ['foreign connection review', r => {r.connection_review = r.preceding_revision.engineering_review;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+]) test(`reject standard-side candidate ${name}`, () => {
+  const index = readCurrentIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+for (const [name, target, mutate] of [
+  ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],
+  ['baseline promotion', 'index', (r) => {r.selected_baseline.candidate = r.evidence_candidate;}],
+  ['missing previous development', 'index', (r) => {r.preceding_revision.schema = 'old';}],
+  ['build selection', 'index', (r) => {r.hardware_model.selected_for_build = true;}],
+  ['owner selection changes the chosen revision', 'index', r => {r.development_selection.revision = r.geometry.revision;}],
+  ['owner selection uses an older force bank', 'index', r => {r.development_selection.response_bank = r.response_bank;}],
+  ['owner selection removes current diagnostic rows', 'index', r => {r.development_selection.retained_bearing_diagnostic_case_rows = 0;}],
+  ['owner selection approves other member stock', 'index', r => {r.development_selection.other_nonstandard_member_stock_approved = true;}],
+  ['owner selection authorizes purchasing', 'index', r => {r.development_selection.purchase_authorized = true;}],
+  ['owner record becomes fabrication release', 'ownerDecision', r => {r.fabrication_released = true;}],
+  ['released instructions', 'index', (r) => {r.shop.instructions_current_for_fabrication = true;}],
+  ['older shop route', 'index', r => {r.shop.packet = 'docs/bolted-frame-development/owner-frame-v9/layout.md';}],
+  ['wrong geometry count', 'geometry', r => {r.counts.bolt_stacks = 96;}],
+  ['fabricated observations', 'geometry', r => {r.actual_observations = {checked: true};}],
+  ['complete joint qualification', 'geometry', r => {r.complete_joint_qualified = true;}],
+  ['missing current axis', 'rawGeometry', r => {r.axes.pop();}],
+  ['clearance promoted to strength', 'clearance', r => {r.strength_qualified = true;}],
+  ['lower load multiplier', 'bank', r => {r.load_contract.downward_multiplier = 1;}],
+  ['partial force bank', 'bank', r => {r.cases.pop();}],
+  ['duplicate force case', 'bank', r => {r.cases[1] = r.cases[0];}],
+  ['relaxed equilibrium gate', 'bank', r => {r.admission_gate_N = 1e-4;}],
+  ['foreign force field route', 'bank', r => {r.cases[0].field.path = r.cases[0].field.path.replace('analysis-attempt-08', 'analysis-attempt-06');}],
+  ['foreign own-field hash', 'review', r => {r.field_bindings['a1-rear'].sha256 = '0'.repeat(64);}],
+  ['all references claimed below one', 'review', r => {r.all_declared_numerical_references_below_one = true;}],
+  ['nonfinite reference maximum', 'review', r => {r.numerical_reference_maxima.direct_elastic_steel.index = NaN;}],
+  ['changed maximum disposition', 'review', r => {r.numerical_reference_maxima.wood_bearing_whole_affine.above_reference = false;}],
+  ['credited complete geometry factor', 'review', r => {r.numerical_reference_maxima.wood_bearing_whole_affine.complete_Cdelta = 1;}],
+  ['empty trial census', 'inventory', r => {r.above_reference_case_rows = [];}],
+  ['omitted nonworst trial flag', 'inventory', r => {r.above_reference_case_rows[1] = r.above_reference_case_rows[0];}],
+  ['trial criterion renamed', 'inventory', r => {r.above_reference_case_rows[0].criterion = 'qualified_failure';}],
+  ['trial arithmetic changed', 'inventory', r => {r.above_reference_case_rows[0].individual_reference_before_Cg *= 2;}],
+  ['missing component maximum', 'inventory', r => {r.component_maxima.pop();}],
+  ['omitted delivery flag', 'delivery', r => {r.remaining_numerical_exceedances.pop();}],
+  ['omitted validation flag', 'validation', r => {r.remaining_numerical_exceedances.pop();}],
+  ['changed credited wall', 'readiness', r => {r.credited_aggregate_wall_mm = 25.4;}],
+  ['missing canonical proof', 'jointBank', r => {r.verified_case_proof_files.pop();}],
+  ['duplicate canonical proof', 'jointBank', r => {r.verified_case_proof_files[1] = r.verified_case_proof_files[0];}],
+  ['actual Cg adopted', 'paper', r => {r.actual_Cg_adopted = 1;}],
+  ['actual Cdelta adopted', 'paper', r => {r.actual_Cdelta_adopted = 1;}],
+  ['missing original flag preservation', 'paper', r => {r.old_case_flags_preserved = false;}],
+  ['near-edge net reversal invented', 'edgeCorrection', r => {r.net_actions_toward_near_edge_all_cases = true;}],
+  ['optional envelope declared a code violation', 'edgeCorrection', r => {r.established_NDS_near_edge_violation = true;}],
+  ['optional both-edges envelope made mandatory', 'edgeCorrection', r => {r.fourD_both_edges_is_optional_conservative_envelope = false;}],
+  ['corrected idealized screen erased', 'edgeCorrection', r => {r.idealized_resultant_edge_screen_clears = false;}],
+  ['oblique eccentric splitting qualification invented', 'edgeCorrection', r => {r.complete_oblique_eccentric_splitting_qualified = true;}],
+  ['correction completion points to a different record', 'correctedCompletion', r => {r.read_first_correction.sha256 = '0'.repeat(64);}],
+  ['missing component disposition', 'group', r => {r.per_component_dispositions.pop();}],
+  ['trial disposition changed', 'group', r => {r.per_component_dispositions[0].worst_trial.index *= .5;}],
+  ['trial group diagnostic removed', 'group', r => {r.double_counting.diagnostic_1_over_n_removed = true;}],
+  ['qualified complete group', 'groupSeal', r => {r.complete_group_action_qualified = true;}],
+  ['method audit component witness changed', 'method', r => {r.current_above_one_component_rows[0].index *= 2;}],
+  ['nested joint qualification', 'joint', r => {r.review.complete_geometry_factor_qualified = true;}],
+  ['continuation erases a retained flag', 'continuation', r => {r.trial_flags_retained = 0;}],
+  ['continuation substitutes another force bank', 'continuation', r => {r.response_bank.sha256 = '0'.repeat(64);}],
+  ['continuation adopts a group factor', 'continuation', r => {r.actual_Cg_adopted = 1;}],
+  ['continuation claims full criterion resolution', 'continuation', r => {r.all_applicable_connection_criteria_resolved = true;}],
+  ['changed stock inherits Candidate13 result', 'standardTopStock', r => {r.candidate13_section_result_transferred = true;}],
+  ['partial stock bank claims six-case pass', 'standardTopStock', r => {r.first_option.evaluated_cases[0].complete_six_case_pass = true;}],
+  ['old top result substitutes for fresh rejection', 'standardTopStock', r => {r.first_option.evaluated_cases[0].metric_values.shear_torsion_reference_upper = 0.931579767;}],
+  ['fresh stock bank drops a case', 'stockRecords', r => {r.bank.cases.pop();}],
+  ['fresh stock bank changes load multiplier', 'stockRecords', r => {r.bank.load_contract.downward_multiplier = 1;}],
+  ['fresh stock review substitutes old field geometry', 'stockRecords', r => {r.review.analysis_geometry.sha256 = '0'.repeat(64);}],
+  ['fresh stock inventory hides a trial flag', 'stockRecords', r => {r.inventory.above_reference_case_rows.pop();}],
+  ['force-only stock subcheck claims whole group capacity', 'standardTopStock', r => {r.fallback.connection_method_summary.complete_group_capacity = 1;}],
+  ['stock net-away finding claims normative edge clearance', 'standardTopStock', r => {r.fallback.connection_method_summary.NDS_edge_pass_or_violation_established = true;}],
+  ['catalog envelope sensitivity transfers strength', 'standardTopStock', r => {r.fallback.catalog_audit.catalog_maximum_clearance_sensitivity.force_or_strength_result_transferred = true;}],
+  ['bearing subpath comparison adopts actual group factor', 'standardTopStock', r => {r.fallback.group_slip_method_assessment.actual_Cg_assigned = 1;}],
+  ['rear sufficient bound claims physical failure', 'standardTopStock', r => {r.fallback.rear_full_wrench_reference.physical_failure_established = true;}],
+  ['active connection assessment uses signature penalty for acceptance', 'activeConnectionCriteria', r => {r.legacy_signature_1_over_n_used_for_acceptance = true;}],
+  ['conditional row comparison adopts an actual connection factor', 'groupRowComparison', r => {r.conditional_scenarios[0].actual_connection_Cg = r.conditional_scenarios[0].Cg;}],
+  ['active connection assessment discards free couples', 'activeConnectionCriteria', r => {r.moments_omitted = true;}],
+  ['cleat three-media factor becomes a two-member factor', 'activeConnectionCriteria', r => {r.upper_cleat_three_media_Cg = 1;}],
+  ['unknown physical row becomes a passing connection', 'activeConnectionCriteria', r => {r.flagged_component_dispositions[0].status = 'PASS';}],
+  ['active group method lowers horizontal load', 'activeConnectionCriteria', r => {r.load_contract.horizontal_force_N = 0;}],
+  ['wrong scene population', 'scene', r => {r.part_count = 1021;}],
+  ['historical strength transferred', 'scene', r => {r.historical_capacity_transferred = true;}],
+]) test(`reject Candidate13 ${name}`, () => {
+  const index = target === 'index' ? structuredClone(candidate13Index) : candidate13Index;
+  const data = target === 'index' ? candidate13 : {...candidate13, [target]: structuredClone(candidate13[target])};
+  mutate(target === 'index' ? index : data[target]);
+  assert.throws(() => validateV10Candidate13Authority(index, data));
+});
+
+
+function fittingProbeAxes() {
+  return new Map([[0, 0, 0], [2, 0, 0], [0, 4, 0], [2, 4, 0]].map((point, i) =>
+    [`bolt_${i}`, {point_xyz_mm: [900+i, 0, 0],
+      attachments: [{angle_id: 'eoere_clip_single_top_left_1', point,
+        receiver: i < 2 ? 'base_rail_top' : 'base_side_left', direction: i < 2 ? [0, 0, 1] : [1, 0, 0]}]}]));
+}
+
+test('physical fitting probe centroid uses all four hole centers and ignores bolt head origins', () => {
+  const axes = fittingProbeAxes();
+  const expected = {axes: ['bolt_0', 'bolt_1', 'bolt_2', 'bolt_3'], point: [1, 2, 0],
+    directions: {top: [1, 0, 0], side: [0, 0, 1], normal: [0, -1, 0]}};
+  assert.deepEqual(currentFittingProbeGeometry(axes, 'eoere_clip_single_top_left_1'), expected);
+  for (const axis of axes.values()) axis.point_xyz_mm = [-999, 0, 0];
+  assert.deepEqual(currentFittingProbeGeometry(axes, 'eoere_clip_single_top_left_1'), expected);
+});
+
+test('physical fitting probe axes retain reversed attachment signs and recorded direction roundoff', () => {
+  const axes = fittingProbeAxes();
+  const expected = currentFittingProbeGeometry(axes, 'eoere_clip_single_top_left_1');
+  axes.get('bolt_0').attachments[0].direction = [0, 0, 1+5e-10];
+  for (const name of ['bolt_1', 'bolt_3']) {
+    const attachment = axes.get(name).attachments[0];
+    attachment.direction = attachment.direction.map(value => -value);
+  }
+  assert.deepEqual(currentFittingProbeGeometry(axes, 'eoere_clip_single_top_left_1'), expected);
+});
+
+for (const [name, mutate, fitting = 'eoere_clip_single_top_left_1'] of [
+  ['unknown fitting', () => {}, 'unknown-fitting'],
+  ['missing physical hole', axes => {axes.delete('bolt_3');}],
+  ['duplicate attachment on one bolt', axes => {axes.get('bolt_0').attachments.push(axes.get('bolt_0').attachments[0]);}],
+  ['coincident hole centers', axes => {axes.get('bolt_1').attachments[0].point = [0, 0, 0];}],
+  ['malformed hole center', axes => {axes.get('bolt_0').attachments[0].point = [0, 0];}],
+  ['nonfinite hole center', axes => {axes.get('bolt_0').attachments[0].point[0] = NaN;}],
+  ['unknown receiver', axes => {axes.get('bolt_0').attachments[0].receiver = 'base_header';}],
+  ['wrong receiver population', axes => {axes.get('bolt_2').attachments[0].receiver = 'base_rail_top';}],
+  ['malformed attachment direction', axes => {axes.get('bolt_0').attachments[0].direction = [0, 1];}],
+  ['nonfinite attachment direction', axes => {axes.get('bolt_0').attachments[0].direction = [0, 0, NaN];}],
+  ['nonunit attachment direction', axes => {axes.get('bolt_0').attachments[0].direction = [0, 0, 2];}],
+  ['inconsistent receiver axes', axes => {axes.get('bolt_1').attachments[0].direction = [0, 1, 0];}],
+  ['unsupported corner axis arrangement', axes => {
+    for (const name of ['bolt_2', 'bolt_3']) axes.get(name).attachments[0].direction = [0, 0, 1];
+  }],
+]) test(`reject physical fitting probe ${name}`, () => {
+  const axes = fittingProbeAxes();
+  mutate(axes);
+  assert.throws(() => currentFittingProbeGeometry(axes, fitting));
+});
+
+// Exercise current public contracts only where that report schema exists.
+for (const revision of ['eoere-inward-bolts-and-angles-v8', 'eoere-single-spacer-cleat-stacks-v9']) {
+  const index = ownRevision(revision);
+  if (!index.engineering_review) continue;
+  const reference = JSON.parse(readFileSync(path.join(ROOT, index.engineering_review.path)));
+  if (reference.schema !== 'eoere_current_conventional_reference_review/v1') continue;
+  const label = revision.endsWith('v9') ? 'v9' : 'v8';
+  test(`${label} conventional reference report retains its own public evidence`, () => {
+    validateCurrentConventionalReferenceReview(reference, index);
+  });
+  for (const [name, mutate] of [
+    ['release claims and empty results', r => {
+      r.structural_acceptance = r.fabrication_released = r.climbing_released = true;
+      r.load_contract.downward_multiplier = .01;
+      r.fields = []; r.reference_exceedances = {}; r.shaft_Cg_only_maxima = {};
+      r.vector_timber_member_maxima = {};
+    }],
+    ['structural acceptance', r => {r.structural_acceptance = true;}],
+    ['fabrication release', r => {r.fabrication_released = true;}],
+    ['climbing release', r => {r.climbing_released = true;}],
+    ['invented complete Cdelta', r => {r.complete_joint_Cdelta_established = true;}],
+    ['changed load multiplier', r => {r.load_contract.downward_multiplier = .01;}],
+    ['duplicate case', r => {r.case_ids[1] = r.case_ids[0];}],
+    ['missing own fields', r => {r.fields = [];}],
+    ['different own field hash', r => {r.fields[0].sha256 = '0'.repeat(64);}],
+    ['foreign analysis', r => {r.analysis_geometry.path = r.analysis_geometry.path.replace('owner-single-spacer-stacks-v9', 'owner-inward-angles-v8');}],
+    ['foreign worksheet', r => {r.source_bindings.timber_vector.path = r.source_bindings.timber_vector.path.replace('owner-single-spacer-stacks-v9', 'owner-inward-angles-v8');}],
+    ['malformed worksheet binding', r => {r.source_bindings.timber_cores.sha256 = 'unknown';}],
+    ['empty shaft maxima', r => {r.shaft_Cg_only_maxima = {};}],
+    ['nonfinite shaft maximum', r => {r.shaft_Cg_only_maxima.maximum_N_M_index_before_Cdelta.index = NaN;}],
+    ['foreign shaft witness', r => {r.shaft_Cg_only_maxima.maximum_N_M_index_before_Cdelta.axis = 'not-a-current-bolt';}],
+    ['credited shaft geometry factor', r => {r.shaft_Cg_only_maxima.maximum_N_M_index_before_Cdelta.complete_joint_Cdelta = 1;}],
+    ['missing timber member', r => {delete r.vector_timber_member_maxima.base_header;}],
+    ['nonfinite member maximum', r => {r.vector_timber_member_maxima.base_header.maximum_normal_reference_upper.index = Infinity;}],
+    ['changed interval witness', r => {r.vector_timber_member_maxima.base_header.maximum_normal_reference_upper.worst_interval.normal_reference_upper *= .5;}],
+    ['missing case maximum', r => {delete r.timber_maxima.timber_vector.maximum_normal_reference_upper.by_case['a1-rear'];}],
+    ['understated whole maximum', r => {r.timber_maxima.timber_vector.maximum_shear_torsion_reference_upper.overall.index = .5;}],
+    ['empty exceedance disclosures', r => {r.reference_exceedances = {};}],
+    ['omitted shaft maximum exceedance', r => {r.reference_exceedances.shaft_Cg_only = [];}],
+    ['duplicate shaft exceedance', r => {r.reference_exceedances.shaft_Cg_only.push(r.reference_exceedances.shaft_Cg_only[0]);}],
+    ['nonexceeding disclosure', r => {r.reference_exceedances.shaft_Cg_only[0].index = 1;}],
+    ['omitted case timber maximum exceedance', r => {r.reference_exceedances.timber_vector.shift();}],
+    ['false cleat exceedance', r => {r.reference_exceedances.cleat_nominal = [{...r.cleat_maxima.cleat_nominal, index: 2}];}],
+  ]) test(`reject ${label} conventional reference ${name}`, () => {
+    const report = structuredClone(reference);
+    mutate(report);
+    assert.throws(() => validateCurrentConventionalReferenceReview(report, index));
+  });
+  test(`${label} compact references do not certify omitted nonworst raw results`, () => {
+    const report = structuredClone(reference);
+    // Keep the published maxima; an absent nonworst row needs the raw audit.
+    report.reference_exceedances.shaft_Cg_only = Object.values(report.shaft_Cg_only_maxima)
+      .filter(row => row.index > 1).map(row => structuredClone(row));
+    validateCurrentConventionalReferenceReview(report, index);
+  });
+
+  if (!index.panel_bracing_review) continue;
+  const bracing = JSON.parse(readFileSync(path.join(ROOT, index.panel_bracing_review.path)));
+  if (bracing.schema !== 'eoere_current_panel_bracing_summary/v1') continue;
+  test(`${label} current bracing report retains every public probe`, () => {
+    const report = structuredClone(bracing);
+    report.probes.reverse();
+    validateCurrentPanelBracingSummary(report, index);
+  });
+  test(`${label} current bracing probe allows coordinate roundoff within 1e-7 mm`, () => {
+    const report = structuredClone(bracing);
+    for (const row of report.probes) row.point_xyz_mm[0] += 5e-8;
+    for (const ranges of Object.values(report.all_six_case_ranges))
+      for (const witness of Object.values(ranges)) witness.point_xyz_mm[0] += 5e-8;
+    validateCurrentPanelBracingSummary(report, index);
+  });
+  test(`${label} current bracing allows parallel probe sign reversal`, () => {
+    const report = structuredClone(bracing);
+    for (const row of report.probes) row.direction_xyz = row.direction_xyz.map(value => -value);
+    for (const ranges of Object.values(report.all_six_case_ranges))
+      for (const witness of Object.values(ranges)) witness.direction_xyz = witness.direction_xyz.map(value => -value);
+    validateCurrentPanelBracingSummary(report, index);
+  });
+  for (const mode of ['top_grain_compression', 'side_grain_compression', 'panel_normal_translation',
+    'top_grain_torsion', 'side_grain_torsion', 'in_plane_corner_rotation'])
+    test(`reject ${label} current bracing wrong unit direction for ${mode}`, () => {
+      const report = structuredClone(bracing);
+      const probe = report.probes.find(row => row.mode === mode &&
+        !Object.values(report.all_six_case_ranges[mode]).some(witness =>
+          witness.case_id === row.case_id && witness.corner === row.corner));
+      assert.ok(probe, 'fixture needs a non-extreme mode probe');
+      probe.direction_xyz = mode.startsWith('top_grain') ? [0, 1, 0] : [1, 0, 0];
+      assert.throws(() => validateCurrentPanelBracingSummary(report, index));
+    });
+  for (const [name, mutate] of [
+    ['structural acceptance', r => {r.structural_acceptance = true;}],
+    ['fabrication release', r => {r.fabrication_released = true;}],
+    ['climbing release', r => {r.climbing_released = true;}],
+    ['strength multiplier', r => {r.strength_gain_factor = 2;}],
+    ['double strength credit', r => {r.double_strength_credit_applied = true;}],
+    ['qualified Hillman law', r => {r.model_assumptions.physical_Hillman_law_qualified = true;}],
+    ['changed screw stiffness', r => {r.model_assumptions.Hillman_lateral_N_per_mm = 2000;}],
+    ['missing probe', r => {r.probes.pop();}],
+    ['duplicate probe', r => {r.probes[1] = r.probes[0];}],
+    ['unknown probe mode', r => {r.probes[0].mode = 'strength';}],
+    ['zero stiffness', r => {r.probes[0].without_panels_stiffness = 0;}],
+    ['nonfinite stiffness', r => {r.probes[0].with_panels_stiffness = Infinity;}],
+    ['wrong ratio', r => {r.probes[0].modeled_stiffness_ratio *= 2;}],
+    ['foreign probe case', r => {r.probes[0].case_id = 'old-case';}],
+    ['foreign corner axes', r => {r.probes[0].joint_axis_ids[0] = 'eoere_bolt_067';}],
+    ['non-extreme probe moved to origin', r => {
+      const probe = r.probes.find(row => !Object.values(r.all_six_case_ranges[row.mode]).some(witness =>
+        witness.case_id === row.case_id && witness.corner === row.corner));
+      assert.ok(probe, 'fixture needs a probe outside the displayed range extrema');
+      probe.point_xyz_mm = [0, 0, 0];
+    }],
+    ['all probe points and range witnesses moved to origin', r => {
+      for (const row of r.probes) row.point_xyz_mm = [0, 0, 0];
+      for (const ranges of Object.values(r.all_six_case_ranges))
+        for (const witness of Object.values(ranges)) witness.point_xyz_mm = [0, 0, 0];
+    }],
+    ['foreign raw result', r => {r.source_bindings.raw_result.path = r.source_bindings.raw_result.path.replace('owner-single-spacer-stacks-v9', 'owner-inward-angles-v8');}],
+    ['wrong reference review', r => {r.source_bindings.reference_review.sha256 = '0'.repeat(64);}],
+    ['mixed range witness', r => {r.all_six_case_ranges.top_grain_torsion.maximum.with_panels_stiffness *= 2;}],
+    ['false range maximum', r => {r.all_six_case_ranges.top_grain_torsion.maximum = r.all_six_case_ranges.top_grain_torsion.minimum;}],
+    ['missing mode range', r => {delete r.all_six_case_ranges.top_grain_torsion;}],
+    ['failed equilibrium gate', r => {r.numerical_checks.maximum_relative_equilibrium_error = 1e-4;}],
+  ]) test(`reject ${label} current bracing ${name}`, () => {
+    const report = structuredClone(bracing);
+    mutate(report);
+    assert.throws(() => validateCurrentPanelBracingSummary(report, index));
+  });
+  for (const [name, mutate] of [
+    ['reference report replaced by bracing summary', i => {i.engineering_review = i.panel_bracing_review;}],
+    ['bracing summary replaced by reference report', i => {i.panel_bracing_review = i.engineering_review;}],
+  ]) test(`current development validates ${label} ${name}`, () => {
+    const changed = structuredClone(index);
+    mutate(changed);
+    assert.throws(() => checkCurrentDevelopment(changed, {entryChecks: false}));
+  });
+}
+
+for (const [label, mutate] of [
+  ['geometry factor credited', r => {r.formal_geometry_Cdelta = 1;}],
+  ['legacy adjusted capacity imported', r => {r.base_input_manifest.legacy_screen_adjusted_indices = {axial_bending: 0.5};}],
+  ['unresolved neighbor accepted', r => {r.additional_same_host_pairs[0].complete_joint_qualified = true;}],
+  ['older field route relabeled', r => {
+    const row = r.case_summaries[0];
+    row.field.path = row.field.path.replace('owner-inward-angles-v8', 'owner-principal-pairs-v6');
+    r.source_bindings.fields_and_replays[row.case_id].field = row.field;
+  }],
+]) test(`reject own-field geometry review ${label}`, () => {
+  const index = ownRevision('eoere-inward-bolts-and-angles-v8');
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.bolt_geometry_review.path)));
+  mutate(report);
+  assert.throws(() => validateCurrentBoltGeometryReview(report, index));
+});
+
+for (const [label, mutate] of [
+  ['relaxed equilibrium gate', r => {r.admission_gate_N = 1e-4;}],
+  ['partial case population', r => {r.cases.pop();}],
+  ['different downward multiplier', r => {r.load_contract.downward_multiplier = 2.5;}],
+  ['convergence promoted to acceptance', r => {r.structural_acceptance = true;}],
+]) test(`reject own response bank ${label}`, () => {
+  const index = ownRevision('eoere-inward-bolts-and-angles-v8');
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.response_bank.path)));
+  mutate(report);
+  assert.throws(() => validateOwnResponseBank(report, index));
+});
 
 test('current geometry/shop, preceding response and baseline keep their own identities', () => {
   assert.equal(checkCurrentDevelopment().passed, true);
@@ -38,10 +405,155 @@ for (const [label, mutate] of [
   ['foreign parent', scene => {scene.parent_layout.sha256 = '0'.repeat(64);}],
   ['front move claims acceptance', scene => {scene.complete_conditional_frame_evaluation = true;}],
 ]) test(`reject local front revision ${label}`, () => {
-  const index = readCurrentIndex();
+  const index = ownRevision('eoere-local-front-bolt-moves-v4');
   const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
   mutate(scene);
   assert.throws(() => validateOwnerFrame(scene, index.geometry.receipt.sha256));
+});
+
+for (const [label, mutate] of [
+  ['second upper shaft missing', scene => {scene.replacements = scene.replacements.filter(r => r.name !== 'eoere_bolt_067_shaft');}],
+  ['second upper stack borrows the first connection identity', scene => {scene.replacements.find(r => r.name === 'eoere_bolt_070_nut').fabrication.connection_name = 'eoere_bolt_074';}],
+  ['preceding strength transferred', scene => {scene.complete_conditional_frame_evaluation = true;}],
+  ['panel screw count changed', scene => {scene.counts.Hillman_axes = 68;}],
+  ['unrelated geometry included', scene => {scene.replacements[0].name = 'base_header';}],
+]) test(`reject reference cleat revision ${label}`, () => {
+  const index = ownRevision('eoere-reference-cleat-upper-pair-v5');
+  const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validateReferenceCleats(scene, index.geometry.receipt.sha256));
+});
+
+test('restored cleats cannot inherit a preceding strength review', () => {
+  const index = read96Index();
+  index.engineering_review = ownRevision('eoere-local-front-bolt-moves-v4').engineering_review;
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+for (const [label, mutate] of [
+  ['different load weight', r => {r.load_contract.input_weight = 175;}],
+  ['restored pins omitted', r => {r.inventory.current_bolts = 92;}],
+  ['complete joint acceptance', r => {r.qualification.structural_acceptance = true;}],
+  ['ineligible geometry treated as passing', r => {r.geometry_eligibility.no_pass_when_geometry_ineligible = false;}],
+]) test(`reject current96 review ${label}`, () => {
+  const index = read96Index();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.engineering_review.path)));
+  mutate(report);
+  assert.throws(() => validateCurrent96Review(report, index));
+});
+
+for (const [label, mutate] of [
+  ['preceding model results', r => {r.geometry_revision = 'eoere-local-front-bolt-moves-v4';}],
+  ['different forces', r => {r.analysis_geometry.sha256 = '0'.repeat(64);}],
+  ['loaded-edge waiver', r => {r.testing_disposition.geometry_ineligibility_waived = true;}],
+  ['force-only row adopted as pass', r => {r.testing_disposition.midface_probe_or_force_only_row_used_as_pass = true;}],
+  ['elastic steel reference replaces reduced interaction', r => {r.testing_disposition.reduced_bolt_interaction_replaced_by_elastic_index = true;}],
+  ['changed bolt comparison', r => {r.unchanged_reference_maxima.shafts_Cdelta_adjusted.axial_bending_reference_index_after_Cdelta.index = 0.5;}],
+  ['filled hole', r => {r.side_core_changes[0].projected_holes_unchanged = false;}],
+  ['missing current case', r => {delete r.timber_reference_maxima.maximum_shear_torsion_reference_upper.by_case['a12-rear'];}],
+  ['complete frame acceptance', r => {r.qualification.structural_acceptance = true;}],
+]) test(`reject current96 testing refinement ${label}`, () => {
+  const index = read96Index();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.testing_review.path)));
+  mutate(report);
+  assert.throws(() => validateCurrent96TestingReview(report, index));
+});
+
+test('current development requires the incorporated method review', () => {
+  const index = read96Index();
+  delete index.testing_review;
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+test('current development requires the corrected bolt rule review', () => {
+  const index = read96Index();
+  delete index.bolt_geometry_review;
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+for (const [label, mutate] of [
+  ['unresolved pair promoted to pass', r => {r.affected_pair_measurements[0].rule.status = 'pass';}],
+  ['projection substituted for actual spacing', r => {r.affected_pair_measurements[0].rule.actual_spacing_mm = 32.6536;}],
+  ['unclassified geometry factor credited', r => {r.formal_geometry_Cdelta = 1;}],
+  ['unresolved upper axis marked eligible', r => {r.upper_pair_statuses[0].component_status = 'PASS_COMPONENTS_ONLY';}],
+  ['different case field', r => {r.case_summaries[0].field.sha256 = '0'.repeat(64);}],
+  ['duplicate upper axis', r => {r.upper_pair_statuses[1] = r.upper_pair_statuses[0];}],
+  ['missing pair measurement', r => {r.affected_pair_measurements.pop();}],
+  ['different load recipe', r => {r.load_contract.downward_multiplier = 1;}],
+  ['changed earlier screen', r => {r.legacy_screen_adjusted_indices_unchanged = {};}],
+]) test(`reject bolt geometry review ${label}`, () => {
+  const index = read96Index();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.bolt_geometry_review.path)));
+  mutate(report);
+  assert.throws(() => validateBoltGeometryReview(report, index));
+});
+
+for (const [label, mutate] of [
+  ['missing shared-host neighbor', r => {r.additional_same_host_pairs.pop();}],
+  ['duplicate shared-host neighbor', r => {r.additional_same_host_pairs[1] = r.additional_same_host_pairs[0];}],
+  ['neighbor promoted to a joint pass', r => {r.additional_same_host_pairs[0].complete_joint_qualified = true;}],
+  ['pair sample with unlabeled loading', r => {delete r.affected_pair_measurements[0].case_id;}],
+]) test(`reject corrected same-host census ${label}`, () => {
+  const index = read96Index();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.bolt_geometry_review.path)));
+  assert.equal(report.schema, 'eoere_current96_bolt_geometry_review/v2');
+  mutate(report);
+  assert.throws(() => validateBoltGeometryReview(report, index));
+});
+
+for (const [label, mutate] of [
+  ['missing second center pin', scene => {scene.replacements = scene.replacements.filter(r => r.name !== 'eoere_bolt_068_shaft');}],
+  ['tabbed cleat perimeter', scene => {scene.flat_cleat_outline_yz_mm.push([0, 0]);}],
+  ['old strength transferred', scene => {scene.complete_conditional_frame_evaluation = true;}],
+]) test(`reject center-pair revision ${label}`, () => {
+  const index = ownRevision('eoere-flat-cleats-principal-upper-pairs-v6');
+  const scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validatePrincipalPairs(scene, index.geometry.receipt.sha256));
+});
+
+for (const [label, mutate] of [
+  ['unreversed outside stack', scene => {scene.transforms.pop();}],
+  ['second spacer left outside', scene => {scene.transforms.find(r => r.axis_id === 'eoere_bolt_070').roles.pop();}],
+  ['unchanged bolt direction', scene => {scene.transforms[0].rotation_matrix_row_major = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];}],
+  ['rotation around the wrong clamped faces', scene => {scene.transforms[0].translation_xyz_mm[0] += 1;}],
+  ['strength transferred from exterior nuts', scene => {scene.current_response_computed = true;}],
+]) test(`reject inward bolt revision ${label}`, () => {
+  const index = ownRevision('eoere-inward-exterior-bolts-v7'), scene = JSON.parse(readFileSync(path.join(ROOT, index.geometry.scene.path)));
+  mutate(scene);
+  assert.throws(() => validateInwardBolts(scene, index.geometry.receipt.sha256));
+});
+
+test('reversed hardware cannot inherit the exterior-nut strength report', () => {
+  const index = readCurrentIndex();
+  index.engineering_review = read96Index().engineering_review;
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+for (const [label, mutate] of [
+  ['nut left in its old position', scene => {scene.translations = scene.translations.filter(r => r.name !== 'eoere_bolt_070_nut');}],
+  ['second spacer left in its old position', scene => {scene.translations.find(r => r.name === 'eoere_bolt_070_spacer_2').translation_xyz_mm = [0, 0, 0];}],
+  ['old receiver bores retained', scene => {scene.replacements.pop();}],
+  ['inward hardware parent discarded', scene => {scene.parent_scene.sha256 = '0'.repeat(64);}],
+  ['old frame strength transferred', scene => {scene.current_response_computed = true;}],
+]) test(`reject cumulative inset-angle revision ${label}`, () => {
+  const index = ownRevision('eoere-inward-bolts-and-angles-v8'), scene = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, index.geometry.scene.path))));
+  mutate(scene);
+  assert.throws(() => validateInwardAngles(scene, index.geometry.receipt.sha256));
+});
+
+for (const [label, mutate] of [
+  ['unsupported seven-inch substitute', scene => {scene.stack_updates[0].selected_underhead_length_mm = 177.8;}],
+  ['weaker bolt grade', scene => {scene.stack_updates[0].selected_bolt_grade = 'SAE J429 Grade 5';}],
+  ['extra spacer retained', scene => {scene.stack_updates[0].spacer_piece_count = 2;}],
+  ['nut not moved with shorter spacer', scene => {scene.part_transforms.find(r => r.role === 'nut').translation_xyz_mm = [0, 0, 0];}],
+  ['wrong shaft length', scene => {scene.part_transforms.find(r => r.role === 'shaft').scale_xyz[0] = .875;}],
+  ['receiver removed instead of spacer', scene => {scene.removals[0] = 'base_side_left';}],
+  ['old force acceptance transferred', scene => {scene.current_response_computed = true;}],
+]) test(`reject single-spacer revision ${label}`, () => {
+  const index = ownRevision('eoere-single-spacer-cleat-stacks-v9'), scene = JSON.parse(readFileSync(path.join(ROOT, index.geometry.scene.path)));
+  mutate(scene);
+  assert.throws(() => validateSingleSpacers(scene, index.geometry.receipt.sha256));
 });
 
 for (const [label, mutate] of [
@@ -229,7 +741,8 @@ for (const [label, mutate] of [
 
 test('incoming descriptions reject a stale revision even when its link resolves', () => {
   const index = readCurrentIndex(), root = readFileSync(path.join(ROOT, 'README.md'), 'utf8');
-  assert.throws(() => validateEntry(root.replaceAll(index.geometry.revision, index.preceding_revision.geometry.revision), index));
+  const revision = index.development_selection?.revision ?? index.geometry.revision;
+  assert.throws(() => validateEntry(root.replaceAll(revision, index.preceding_revision.geometry.revision), index));
   const html = readFileSync(path.join(ROOT, 'site/index.html'), 'utf8');
   assert.equal(viewerModel(html, index.preceding_revision.geometry.revision), index.selected_baseline.candidate);
 });

@@ -1,0 +1,68 @@
+POST-PACKAGE PAPER AUDIT — 24 OCTOBER 2026
+
+The development package is complete. The goal of resolving every applicable connection criterion is NOT complete. This audit supplies a more accurate interpretation of the saved numerical flags; it does not clear them or establish a whole-connection pass. No global force case or candidate geometry was changed.
+
+1. What the current group penalty actually is
+
+The reference implementation groups shafts by identical sorted (surface kind, host) lists and assigns 1/n. Candidate 13 has 52 such signatures, 24 shared wood hosts and 24 steel hosts. They are not established NDS load-aligned rows. For example, the continuous left cleat's 7 pins are split into 3 signatures, the left side's 15 pins into 7, the header's 12 pins into 4, and the top rail's 16 pins into 4. Different shear planes can justify different partitions, but matching receiver lists alone does not establish complete physical group ownership.
+
+NDS 2024 sections 11.3.1/11.3.6 apply Cg to lateral connection design value Z. Section 11.2.3 excludes NDS wood adjustment factors from independent metal strength. Therefore the existing pressure/Cg and N/M/Cg rows are provisional diagnostic screens, not demonstrated complete NDS connection checks. The independent elastic steel reference remains 0.422766. The legacy N/M number 0.997005 is not proof of a 0.3 percent physical safety margin.
+
+2. Does unequal FE loading plus 1/n double-count?
+
+There is a demonstrable potential overlap, but not an established actual Cg waiver. In the restricted case of n equal-capacity parallel fasteners, with known load fractions a_i and the SAME qualified elastic distribution model, define C=1/(n*max(a_i)). Then P/(n*C*Z)=max(a_i*P/Z): group reduction and individually resolved forces express the same concentration. Applying C again to those individual forces repeats it. An illustrative 80/20 two-bolt example gives direct/aggregate index 0.8 but repeated-reduction index 1.28 for P/Z=1. These are mathematical controls, not candidate 13 factors.
+
+Actual candidate 13 does not meet those restricted assumptions. It has nonparallel actions, local couples, mixed media, finite shaft stiffness, uncalibrated embedment/slip assumptions and shared fitting/wood paths. The top trial group can place about 46 percent of summed force magnitude on one bolt instead of 25 percent, with 45 degrees direction spread; the 067 side group can place about 88 percent instead of 50 percent, with 77 degrees spread. Net force alone also discards local bending. Thus neither automatic removal of 1/n nor choosing Cg=1 is justified. The 1/n screen is severe relative to its local formula, but is NOT proven to be a universal whole-joint capacity bound.
+
+3. What the local bearing/shaft references do and do not check
+
+The pressure formula already contains 4*Ktheta and Hankinson interpolation. Its before-Cg maximum 0.980079 is a reduced Mode-I-like local material reference, not raw Fe used as an allowable. It is not the complete minimum of all applicable connection yield modes required by NDS 12.3.1. The legacy shaft N/M formula similarly lacks an established complete code derivation for its combined criterion and group penalty. Preserve both historical tables and independent steel checks; do not convert this scope correction into acceptance.
+
+Primary AWC TR 12 AppendixA supports plywood Fe=5600 psi for bolts above 1/4 inch across grades and face-grain directions. The inherited 3150 psi transverse assumption is lower and therefore conservative relative to that table, but it is a separate material hypothesis. The half-inch APA net/perimeter and stiffness audit did not itself qualify dowel bearing or the shop-made bond. No Fe value or factor was favorably changed in this audit.
+
+4. Per-component engineering disposition
+
+All 26 case flags and 13 component maxima remain recorded. The detailed audit gives exact receiver ownership and saved actions for every component:
+- 067/070: plywood 25.4 mm, sawn side 88.9 mm and steel 6.35 mm are three unequal media. Do not assume symmetric double shear. Local before-Cg references are 0.558538/0.511812; complete compatible yield/interaction, axial/washer and local splitting checks remain open.
+- 068: one center-principal wood receiver and one steel fitting, with actual companion 072 on the left; right-side counterparts are 069/073. Local before-Cg 0.500736 does not settle the near-edge reversal or complete single-shear/group interaction.
+-Rear left 1/2 and right 1/2: nominal wood-to-wood single-shear topology, but recorded through-thickness pressures reverse directions and carry substantial free couples. Rear-left 2 has before-Cg 0.980079 and a local free couple around 69, 068 Nmm. A scalar resultant P/Z check alone would discard part of the saved wrench. It may be a useful declared subcheck, not a full replacement criterion without equivalence or a conservative wrench envelope.
+-Header 001/004: actual wood and two coupled steel-port actions must be mapped to their shear planes; nominally matching plates do not establish symmetric actions or a qualified group factor.
+-Top 001-004: one wood/steel interface per bolt is coupled through a formed fitting and the shared top rail. Actual row directions, main/side bearing length, flange action and the additional between-row check below remain open.
+
+The complete force atlas has all 144 wood interfaces across 6 cases. Independent reconstruction checks 180 surface wrenches, 78 flagged shaft states and 3096 saved cuts. Maximum shaft closure residual is 3.21e-6 N and 3.44e-5 Nmm. This validates extraction/equilibrium, not material strength or code applicability.
+
+5. Corrected end/edge inventory and a new top-grid check
+
+The 54 short 7 D entries comprise 42 nearest-square sawn-member occurrences, 8 plywood occurrences and 4 true-nearest-sloped foot occurrences. They include NEW packers as well as retained members. Under a principal softwood-tension trial, 40 of the square-end ratios are 0.976190476 and 2 front-post ratios are 0.899887514. All 42 meet the full 4 D principal compression/perpendicular end reference. Actual signed load, group and end geometry still determine whether those rules apply. No Cdelta was adopted. Plywood and sloped ends remain distinct unresolved categories.
+
+For 068/069, actual near-edge distance is 33.704295 mm versus the principal 4 D marker 38.1 mm. Their affine pressure endpoints reverse toward that edge in major cases even when the net force points away. However, no verified provision establishes that ANY nonzero perpendicular component of these oblique/couple actions automatically triggers 4 D, nor a valid favorable interpolation. This is a concrete deficiency under the conservative loaded-edge envelope and an unresolved actual applicability check, not a newly declared blanket normative failure. A net-away argument cannot clear it.
+
+Newly relevant NDS Table 12.5.1D between-row spacing also needs disposition. The top grid is 41.275 mm along grain and 50.8 mm across grain. Under a principal perpendicular-to-grain interpretation with wood bearing length l=50.8 mm and D=9.525 mm, the table expression(5*l+10*D)/8 gives 43.65625 mm between rows versus available 41.275 mm: a conditional 2.38125 mm shortfall. Actual load-row and main/side/l applicability are not yet qualified. The thicker rail and extra holes therefore cannot be declared fully geometry-qualified just because net rail stress is below one.
+
+6. Geometry options identified BEFORE expensive reruns
+
+For 068/069, adding 9.525 mm at the BACK of each center principal would increase depth 139.7 to 149.225 mm and near edge to 43.229295 mm, leaving 3.129295 mm beyond the separate 4 D+2 mm screen. A 6.35 mm addition would miss that screen by 0.045705 mm. Front faces, nominal X grips and bolt axes could remain fixed; the upper rail seat, LED machining, contact, clearance and actual solid stock would need checking. Such a trial requires larger 2 x 8-category stock. It has NOT been modeled or adopted.
+
+For the conditional top-grid interpretation, retaining D 9.525 mm and 41.275 mm row separation would require l<=46.99 mm under that same table branch, or a qualified pattern with separation>=43.65625 mm at l 50.8. Neither is an adopted remedy: changing rail thickness/pattern may undo the solved rail reference and needs a source-supported joint choice, geometry and a new matched bank. Do not redrill or presume a new steel pattern is allowed. These are conditional geometry bounds, not a recommendation to cut.
+
+7. New numerical washer-face subcheck
+
+Across 106 actual modeled sawn-wood seats and 636 case demands, maximum mean pressure is 0.652638845 MPa against the declared dryDFLNo.2 Fc-perpendicular baseline 4.309223308 MPa: index 0.151451619. Actual frozen-solid annular footprints account for bores/edges; 126 steel/plywood seats were excluded. Primary NDS 3.10 net bearing area and round-washer scope were used with Cb=1, no duration increase, no group factor and no plywood Fc assignment. This is a conditional average-pressure result for saved load-only axial reactions. It does not qualify real preload, local pressure peaks, washer rigidity/fit, plate load spreading or full connection strength.
+
+8. What remains a real engineering blocker
+
+The audit did not produce a complete NDS/TR 12 Z/interaction solution for the actual free couples, oblique/reversing actions and unequal media. The atlas now exists; the missing step is a defensible capacity/load-mapping or conservative wrench envelope, not another convergence run or an arbitrary favorable factor. A simple scalar result cannot silently omit modeled moments. More conditional engineering work is possible, but no passing complete-connection result has been established.
+
+Splitting, eccentric tension perpendicular to grain, fitting/plate local strength, axial/head/nut transfer and applicable geometry must also be covered. Physical hardware, screws, bond and supports independently remain unqualified. These gaps do not excuse skipping numerical work; this audit completed the feasible classification, source/mechanics checks and average washer subcheck while clearly identifying the next method/design work.
+
+No trial flag was erased, no actual Cg/Cdelta was selected, no global case was rerun, no repository write or promotion occurred, and no build release was granted.
+
+9. Denial limitations and permitted-work distinction
+
+Known denied repository targets were scripts/eoere_v10_geometry.py, scripts/eoere_v10_analysis.py, scripts/eoere_v10_fitting.py, and the three viewer files site/eoere-v10-overlay.mjs, tests/test_eoere_v10_viewer.mjs and scripts/publish_eoere_v10.py. The full analysis-related command/path list is not retained, so additional exact targets are not asserted.
+
+The viewer worker confirms that implementation authorization was supplied before the first attempt and the explicit supersession was supplied again before its one retry. Its second reviewer said the supersession appeared only in untrusted assistant/delegation context. Geometry/mechanics confirm authorization was in their task context but cannot establish exactly what their reviewers considered. The geometry denial expressly permitted run/copy only within the separate task workspace; the viewer's own denial did not separately grant that allowance. No denied isolated action is known to have been performed afterward. Subsequent isolated operations were separately permitted different targets/actions, not indirect promotion of the denied writes.
+
+Some early repository drafts/planning/status operations had succeeded before the final pivot, including a goal-status update after initial viewer denials. They are not the final isolated implementation and do not prove a denied operation executed. All denied target updates remain known not executed. Authoritative v 9 remains selected; direct authorization recognized by the approval layer is still pending. Even that authorization would not clear engineering release holds.
+
+Audit entry points: paper-audit/group-paper-final-binding-13.json; candidate13-group-factor-method-audit-v2.json; geometry-applicability-13.json; mechanics-audit-source-binding-v2.json; independent-bearing-method-review-viewer.txt; washer-face-audit-binding-13-v1.json; washer-conditional-mean-comparison-13-v1.json. Source hashes, exact primary clauses and all13component rows are retained. Initial new-audit provenance validation verified74distinct files with zero failures; it is source validation, not connection acceptance.
