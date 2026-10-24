@@ -8,7 +8,7 @@ Lengths around 2539.8 mm remain provisional; custom packers are **not approved**
 No purchase, fabrication, climbing or structural release. Failed probes and older evidence remain preserved.
 
 [Preserved C13 viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) ·
-[Selected 4×6 local viewer](http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
+[Selected 4×6 local viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
 [preserved C13 layout](owner-frame-v10/layout.md) ·
 [4×6 geometry receipt](owner-frame-v10/standard-side-stock/geometry-receipt.json).
 
@@ -35,7 +35,7 @@ does not publish the local changes to the hosted site.
 | Receiver coordinates | [Preserved C13 158-row drill plan](owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv); not updated 4×6 drilling instructions |
 | Own forces and references | [4×6 six-case response bank](owner-frame-v10/standard-side-stock/response-bank.json) · [component review](owner-frame-v10/standard-side-stock/reference-review.json) |
 | All current trial flags | [15 case rows / eight component maxima](owner-frame-v10/standard-side-stock/diagnostic-inventory.json); preserved C13 retains 26/13 below |
-| Applicable methods and remaining work | [Fresh physical-row/full-wrench assessment](owner-frame-v10/standard-side-stock/connection-review.json) · [historical deeper-side comparison](owner-frame-v10/standard-top-stock/group-row-comparison-v1.json) · [read-first edge correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) · [corrected C13 completion](owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) · [preserved audit](owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt) · [joint inventory](owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json) · [task ledger](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) |
+| Applicable methods and remaining work | [Current connection methods and remaining work](owner-frame-v10/standard-side-stock/connection-method-evaluation.json) · [initial physical-row mapping](owner-frame-v10/standard-side-stock/connection-review.json) · [historical deeper-side comparison](owner-frame-v10/standard-top-stock/group-row-comparison-v1.json) · [read-first edge correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) · [corrected C13 completion](owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) · [preserved audit](owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt) · [joint inventory](owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json) · [task ledger](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) |
 | Provenance and preservation | [Revision index](development-revisions.json) · [portable source mapping](../../site/eoere-v10-candidate13-provenance.json) · [frozen delivery manifest](owner-frame-v10/candidate13/delivery-bundle-13.json) |
 
 The [frozen builder plan](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md)
@@ -116,9 +116,9 @@ The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group
 calls for a justified physical-group replacement for 1/n, preserving forces
 and couples. Cross-standard efficiencies are comparisons only. Translating
 an angle cannot fix its internal top-grid pitch; no relocation is adopted.
-Continue from the force/receiver atlas with actual couples, shear planes,
-unequal media, group ownership and unresolved oblique/eccentric/splitting
-checks, plus the conditional top-grid between-row check. Verify product
+All 116 axes now have six-case signed-wrench coverage and conditional same-field material references; complete capacity remains unresolved.
+The current washer mean-pressure index is 0.152000. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
+The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
 body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw
 connections, and finite-motion/contact/support applicability. Numerical
 convergence alone cannot close those checks. No floor test or blanket new

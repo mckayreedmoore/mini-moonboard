@@ -38,6 +38,15 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-standard-4x6-top-and-sides-preview')
+    return [
+      {label: 'Current standard-stock development', path: 'docs/bolted-frame-development/README.md'},
+      {label: 'Current completion and remaining work', path: 'docs/wood-joints-mvp/completion-ledger.md#current-v10-standard-top-and-sides'},
+      {label: 'Current geometry receipt', path: 'docs/bolted-frame-development/owner-frame-v10/standard-side-stock/geometry-receipt.json'},
+      {label: 'Current connection methods', path: 'docs/bolted-frame-development/owner-frame-v10/standard-side-stock/connection-method-evaluation.json'},
+      {label: 'Provisional wood procurement', path: 'docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md'},
+      {label: 'Builder scope and holds', path: 'docs/bolted-frame-development/builder-plan.md'},
+    ];
   if (['eoere-current-frame-development', 'eoere-owner-frame-v10-development'].includes(model))
     return [
       {"label": "Read first: corrected center-principal edge classification", "path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt"},

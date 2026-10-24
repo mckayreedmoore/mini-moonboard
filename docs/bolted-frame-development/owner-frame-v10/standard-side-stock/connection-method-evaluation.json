@@ -1,0 +1,314 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "cleat_input_interpretation": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/cleat-input-interpretation.json",
+    "sha256": "a1438edcc05d0a04fb4f212efaccc02a1d4bdee2c6322f33ac2615696e3f2949"
+  },
+  "climbing_released": false,
+  "complete_connection_acceptance": null,
+  "coverage": {
+    "analysis_media": 256,
+    "axes": 116,
+    "axis_case_wrenches": 696,
+    "cases": 6,
+    "complete_qualified_connection_rows": 0,
+    "merged_leaf_aliases": 14,
+    "physical_media": 270,
+    "receiver_actions": 1536,
+    "same_field_material_reference_attempts": 696,
+    "shaft_reference_rows": 696,
+    "signed_plane_wrenches": 840,
+    "steel_not_applicable_rows": 96,
+    "steel_reference_rows": 600,
+    "wood_intervals": 144,
+    "wood_receiver_actions": 864,
+    "wood_reference_rows": 696
+  },
+  "diagnostic_inventory": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/diagnostic-inventory.json",
+    "sha256": "6282b51057b903d3cc0be8846d899363be04e6bb6094015027b7babc7032ef8f"
+  },
+  "diagnostics": {
+    "additional_scalar_peak_sum_screen": 1.0149317282191357,
+    "declared_vector_side_maximum": 0.9985001243183798,
+    "interpretation": "Both section methods and historical trial flags remain preserved. No physical margin or whole-joint pass follows.",
+    "legacy_bearing_case_rows": 15,
+    "legacy_bearing_components": 8,
+    "legacy_signature_1_over_n_used_for_acceptance": false
+  },
+  "diameter_roles": {
+    "geometry": "Edge/end/row markers use nominal major D. Never reduce geometry distances using Dr.",
+    "stiffness": "Issued nominal-diameter shaft and foundation assumptions remain unchanged; physical stiffness is uncalibrated.",
+    "wood_pressure": "54 of the 88 new two-media axes use conditional Dr; 34 satisfy the quarter-thread exception. This is not the count of all force-only yield-mode diameter selections.",
+    "yield_modes": "Existing frozen TR12 helper already selects body D or thread-root Dr using recorded thread overlap. No nominal-D bug was established."
+  },
+  "fabrication_released": false,
+  "flagged_axis_material_reference_thresholds_not_capacities": [
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 3973.7867160752617,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 2235.2550277923347,
+      "actual_Fyb_MPa": null,
+      "axis": "lumber_leg_bolt_left_1",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 602.9623641876926,
+      "pure_bending_Fyb_MPa_sufficient_bound": 342.71939474383953
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 4599.344869305641,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 2587.131488984423,
+      "actual_Fyb_MPa": null,
+      "axis": "lumber_leg_bolt_left_2",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 676.464384370611,
+      "pure_bending_Fyb_MPa_sufficient_bound": 383.2533365990788
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 3923.9796271362316,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 2207.2385402641303,
+      "actual_Fyb_MPa": null,
+      "axis": "lumber_leg_bolt_right_1",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 592.475022535729,
+      "pure_bending_Fyb_MPa_sufficient_bound": 336.6890275540425
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 4538.8566007932395,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 2553.106837946197,
+      "actual_Fyb_MPa": null,
+      "axis": "lumber_leg_bolt_right_2",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 665.1215740811647,
+      "pure_bending_Fyb_MPa_sufficient_bound": 376.8408055207105
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 1826.4936873434046,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 1027.4026991306653,
+      "actual_Fyb_MPa": null,
+      "angle_Fu_MPa_local_pressure_only": 36.77378617169883,
+      "axis": "eoere_bolt_067",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 1108.1580326279402,
+      "pure_bending_Fyb_MPa_sufficient_bound": 642.55899734739
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 1738.7442405843121,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 978.0436353286756,
+      "actual_Fyb_MPa": null,
+      "angle_Fu_MPa_local_pressure_only": 35.427434481286795,
+      "axis": "eoere_bolt_070",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 1032.92236216852,
+      "pure_bending_Fyb_MPa_sufficient_bound": 596.82309392571
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 1046.737697465542,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 681.5073525711812,
+      "actual_Fyb_MPa": null,
+      "angle_Fu_MPa_local_pressure_only": 14.538973538456862,
+      "axis": "v10_header_bolt_001",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 72.3526795246982,
+      "pure_bending_Fyb_MPa_sufficient_bound": 31.63715004606653
+    },
+    {
+      "Fe_parallel_psi_sufficient_for_this_field": 1045.7419339230673,
+      "Fe_perpendicular_psi_sufficient_for_this_field": 680.8590333434875,
+      "actual_Fyb_MPa": null,
+      "angle_Fu_MPa_local_pressure_only": 14.60623611662635,
+      "axis": "v10_header_bolt_004",
+      "extra_VM_divisor_5_parameter_MPa_not_full_NDS_interaction": 72.38441552137043,
+      "pure_bending_Fyb_MPa_sufficient_bound": 31.81151339519413
+    }
+  ],
+  "force_only_coverage": "The retained v1/v2 partial census and runnable six wood-only-axis extension remain conditional subchecks. No claim that all 92 two-media force-only rows have been consolidated is made here. Force-only P/Z omits free couples and cannot replace the same-field wrench assessment.",
+  "frozen_matched_evaluation": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json",
+    "sha256": "cd7f55bc1e85e352cc2fa2ee360edcf26acaa5f80bd16104804cf184f39d2023"
+  },
+  "geometry": {
+    "below_4D_edge_axes": [
+      "eoere_bolt_067",
+      "eoere_bolt_068",
+      "eoere_bolt_069",
+      "eoere_bolt_070"
+    ],
+    "below_4D_end_category": "All plywood; sawn-member rules are not automatically applicable.",
+    "below_4D_end_intervals": 4,
+    "below_7D_marker_intervals": 50,
+    "below_7D_merged_plywood": 4,
+    "below_7D_sawn": 46,
+    "center_principal_correction": "068/069 act net away in all six cases. Their 33.704295 mm near-edge distance versus 38.1 mm both-edge marker is optional conservatism, not an established NDS violation. Oblique/eccentric/splitting checks remain open.",
+    "classifications": "Signed actions, actual end shapes, plywood rules and row ownership remain necessary. Marker counts are not counts of established code violations.",
+    "header_known_answers": "All 12 full-profile controls match; nearest edge 38.45 mm, nominal marker margin 0.35 mm. Entry/exit faces are not wood edges.",
+    "side_correction": "067 is net away in five cases, but toward by about 2.548 N in a1-rear; do not extend the 068/069 conclusion to all cleat axes."
+  },
+  "material_threshold_interpretation": "Each pressure field is statically admissible for its signed forces and couples; it is not a qualified observed embedment distribution. Different valid field choices can give different sufficient material thresholds. These thresholds are not necessary physical capacities. The extra VM/divisor-5 parameter is a declared reference, not a derived complete NDS group interaction or interchangeable Fy. Existing affine-pressure diagnostics remain preserved.",
+  "purchase_authorized": false,
+  "rear_strength_option_only": {
+    "declared_reference": "Additional conservative elastic Fy/5 sensitivity, not an adopted code design value and not Fyb.",
+    "grade_5_indices": [
+      0.95057,
+      1.06644,
+      0.93404,
+      1.04856
+    ],
+    "grade_8_indices": [
+      0.67271,
+      0.75471,
+      0.66101,
+      0.74206
+    ],
+    "interpretation": "Same-diameter higher grade is an unadopted strength-only scenario. It does not establish Fyb, product identity, fit, group/splitting or full connection acceptance."
+  },
+  "reference_review": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/reference-review.json",
+    "sha256": "ff06a91e51028061737743e3f4b873f7ec7a3e4789d1b331dd62cfb66c25419e"
+  },
+  "remaining": [
+    "Qualify a simultaneous force-and-moment capacity or conservative wrench envelope for actual oblique actions, unequal media and shared fitting paths. Sufficient material-reference thresholds are not a complete NDS interaction solution.",
+    "Establish physical row/group ownership, effective member/fitting EA and compatible slip redistribution; actual Cg and Cdelta remain null.",
+    "Resolve loaded edge/end/spacing and top-grid applicability, local splitting and eccentric tension perpendicular to grain without treating every conservative marker as a violation.",
+    "Complete formed-fitting/plate local resistance, loaded-hole behavior, axial head/nut transfer and delivered body/thread/grip/washer/spacer/access checks.",
+    "Record delivered timber species/grade/moisture/dimensions; plywood grade/axis/minimum thickness, adhesive/bond evidence and real support/contact assumptions. Custom solid packers remain unapproved.",
+    "Panel screw resistance remains deferred by owner. No floor-friction test or blanket new external sign-off prerequisite is added."
+  ],
+  "reproduce": "uv run python fea/generated/v10-standard-side-stock-v1/method-summary/consolidate.py",
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/response-bank.json",
+    "sha256": "41f76a1ab0c66a1e5c7056e572f32f5627a11290ce2ed2f3b7e611a72a4a2393"
+  },
+  "retention": "Large raw reports, current force fields and their source-bound producers stay active in the existing ignored packet. Public compact evidence is additive; original inputs, historical probes and frozen reports are unchanged.",
+  "revision": "v10-standard-4x6-top-and-sides-development-v1",
+  "same_field_counts": {
+    "all_116_axes_have_a_material_reference_attempt_source": true,
+    "case_count": 6,
+    "existing_and_new_three_media_case_rows": 144,
+    "existing_rear_two_wood_axes": 4,
+    "existing_rear_two_wood_case_rows": 24,
+    "expected_source_attempt_partition": {
+      "existing_rear_two_wood_same_field_reference": 24,
+      "existing_three_media_same_field_reference": 24,
+      "new_three_media_same_field_reference": 120,
+      "new_two_media_same_field_reference": 528
+    },
+    "force_and_couple_statics_newly_constructed_this_run": 528,
+    "new_two_media_axes": 88,
+    "new_two_media_case_rows": 528,
+    "source_attempt_partition": {
+      "existing_rear_two_wood_same_field_reference": 24,
+      "existing_three_media_same_field_reference": 24,
+      "new_three_media_same_field_reference": 120,
+      "new_two_media_same_field_reference": 528
+    },
+    "total_axes": 116,
+    "total_material_reference_attempts": 696,
+    "total_three_media_axes": 24
+  },
+  "same_field_criterion_scope": {
+    "actual_Cdelta_values_or_group_capacity_claims": 0,
+    "actual_Cg_values_or_group_capacity_claims": 0,
+    "actual_Fe_or_wood_grade_claims": 0,
+    "actual_angle_Fu_claims": 0,
+    "actual_material_strength_or_complete_group_criterion_resolved": false,
+    "actual_product_Fyb_claims": 0,
+    "all_three_media_same_field_cut_replay_rows_reused_by_pointer": 144,
+    "attempted_rows": 696,
+    "complete_simultaneous_six_wrench_interaction_passes": 0,
+    "existing_rear_same_field_cut_replay_rows_reused_by_pointer": 24,
+    "full_696_axis_case_criterion_coverage": {
+      "actual_Cg_or_Cdelta_group_capacity_rows": 0,
+      "actual_angle_Fu_values_rows": 0,
+      "actual_product_Fyb_values_rows": 0,
+      "actual_wood_Fe_values_or_qualified_grade_rows": 0,
+      "complete_joint_capacity_or_acceptance_rows": 0,
+      "complete_simultaneous_six_wrench_interaction_pass_rows": 0,
+      "conditional_same_field_ideal_shaft_section_threshold_rows": 696,
+      "conditional_steel_local_pressure_threshold_rows_with_source_field_and_q_or_threshold_reference": 600,
+      "conditional_wood_bearing_threshold_rows_with_source_field_and_q_or_threshold_reference": 696,
+      "criterion_status": "conditional per-axis material/section thresholds are available for every applicable medium; actual material strengths and complete group/wrench criteria remain unresolved",
+      "steel_criterion_not_applicable_rows_with_no_steel_media": 96
+    },
+    "new_two_media_ideal_shaft_threshold_rows_constructed": 528,
+    "new_two_media_no_steel_rows_explicitly_not_applicable": 72,
+    "new_two_media_same_field_cut_replay_rows": 528,
+    "new_two_media_steel_Fu_threshold_rows_supported": 456,
+    "new_two_media_wood_FE_threshold_rows_supported": 528,
+    "new_two_media_wood_FE_threshold_rows_unresolved": 0,
+    "reason_remaining": "Current selected body/root dimensions are analytical scenarios; delivered material strengths are absent, the group factors remain unresolved, and the calculated per-axis material/section thresholds do not define complete simultaneous wrench capacities.",
+    "source_bound_signed_force_and_free_couple_records": 696
+  },
+  "same_field_replay_residuals": {
+    "continuous_integrator_force_residual_N": 5.887835221941101e-06,
+    "continuous_integrator_moment_residual_Nmm": 0.00032882540555946165,
+    "cut_force_residual_N": 3.560620446201619e-08,
+    "cut_moment_residual_Nmm": 3.1894629672429695e-11,
+    "global_force_residual_N": 5.887835221854599e-06,
+    "global_moment_residual_Nmm": 7.889109174005272e-06
+  },
+  "schema": "eoere_standard_stock_connection_method_evaluation/v1",
+  "scope": "Current-bank postprocessing only. No geometry, stiffness, global force case, external load, or adopted factor changed. Required reference properties and conditional scenarios are not measured capacities or full connection acceptance.",
+  "slip_coupon": {
+    "interpretation": "20 rigid-host, zero-gap, free-shaft translation coupons. Variational series-foundation upper bounds and known-answer controls do not demonstrate NDS-equivalent calibrated serial-row redistribution. These are not actual stiffnesses, capacity factors or force amplification factors. Neither complete double counting nor no overlap is established.",
+    "rear_FE_to_NDS_gamma_ratio": 0.02571391406,
+    "rear_variational_upper_to_gamma": 0.10468069,
+    "top_FE_to_NDS_gamma_ratio": 0.04444763655,
+    "top_variational_upper_to_gamma": 0.17845422
+  },
+  "source_bindings": {
+    "atlas": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/wrench-coverage/current-wrench-coverage-final-v4.json",
+      "sha256": "bf07bc0fe209825091574c7cfbeb60537cb08cd01f694e559cf651e98b0c3696"
+    },
+    "cleat_header": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/cleat-header/cleat-header-current-three-media-wrench-reference-v1.json",
+      "sha256": "184a69031b4aec7ed7ae7cf43688f96fe7f847699b439bd13e3cf6fdba6434b0"
+    },
+    "elastic_sensitivity": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/rear-wrench/elastic-fy-over-five-v1.json",
+      "sha256": "40e3f8f5a086a8665b4f09696a4829a38fcf73811f19fc40743cd853ecf3e1e8"
+    },
+    "force_only_partial": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/coverage/current-116-axis-coverage-v2.json",
+      "sha256": "09407cf0add47abd92900268125e3a27beae413a43502de278da2bc46d8484a5"
+    },
+    "rear": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/rear-wrench/reference-result.json",
+      "sha256": "d6279210cdc61ea27f6e8a8591d92812b96a213726caedaa58e3140532ec5f46"
+    },
+    "same_field": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/wrench-coverage/two-media-same-field-88x6-v2.json",
+      "sha256": "d36a2f7eb0d58696150524aadfe19b0c0d5ae65cb46c0028ef771a4ada395df0"
+    },
+    "slip_coupon": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/group-slip-coupon/coupon-result-v1.json",
+      "sha256": "60f95a050fc96911e6d7fe4cb771b4caac1e3ec79c345c29790a6348ee13539d"
+    },
+    "top_grid": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/top-grid/top-grid-applicability-v1.json",
+      "sha256": "1af082b0de4bcfa728b2449a3d0e06268e0c3d8d4fa9cbfab0e4af6ef13231b3"
+    },
+    "washer": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/washer-face/current-washer-mean-review.json",
+      "sha256": "d0a9c6b85054f23b1ef36e180149fa27d1f25b0cf35d2593be72b6b714048b81"
+    },
+    "wood_geometry": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/top-grid/all-wood-host-distance-inventory-v1.json",
+      "sha256": "74a3c1d1feadcb96e88cdca843a166f933c1c44f38172b5bf61b1de3a797f2fb"
+    }
+  },
+  "structural_acceptance": false,
+  "top_grid": {
+    "applicability": "Actual oblique/nonuniform moment actions and steel-only-side interpretation of the wood-length footnote remain unresolved. No verified angular interpolation or Cdelta waiver adopted.",
+    "conditional_shortfall_mm": 6.35,
+    "conservative_perpendicular_endpoint_mm": 47.625,
+    "crossgrain_pitch_mm": 50.8,
+    "grain_pitch_mm": 41.275,
+    "nominal_D_mm": 9.525,
+    "option_only": "An alternative qualified factory pattern with grain pitch at least 47.625 mm could address this endpoint; 50.8 mm provides 3.175 mm nominal margin. Translation does not change internal pitch. No redrilling, pattern selection or redesign is adopted.",
+    "wood_length_mm": 88.9
+  },
+  "washer": {
+    "Fc_perp_MPa": 4.30922330823,
+    "axis_end": "eoere_bolt_002/nut",
+    "case": "a1-rear",
+    "case_rows": 636,
+    "index": 0.15199974648823716,
+    "maximum_mean_MPa": 0.6550008504121627,
+    "sawn_seats": 106,
+    "scope": "Exact modeled annular footprints and saved load-only axial reactions; Cb=1, no CD or Cg. Excludes steel and plywood. Real preload, pressure peaks, washer rigidity/fit and pull-through remain unqualified."
+  }
+}

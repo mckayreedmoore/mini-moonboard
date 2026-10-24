@@ -72,12 +72,17 @@ test('standard 4x6 top and sides use a fresh matched bank with unresolved comple
   const result = checkCurrentDevelopment();
   assert.equal(result.revision, 'v10-standard-4x6-top-and-sides-development-v1');
   assert.equal(result.reference_case_exceedances, 15);
+  assert.equal(result.repository_viewer_integrated, true);
   assert.equal(result.reference_component_exceedances, 8);
   assert.equal(result.actual_Cg_adopted, null);
   assert.equal(result.custom_packers_approved, false);
 });
 for (const [name, mutate] of [
   ['deeper side substitution', r => {r.development_selection.actual_sections_mm.base_side_left = [88.9, 152.4];}],
+  ['ignored viewer runtime dependency', r => {r.repository_viewer.ignored_runtime_dependencies = true;}],
+  ['historical viewer substituted', r => {r.repository_viewer.scene = r.preceding_revision.geometry.scene;}],
+  ['baseline viewer promotion', r => {r.repository_viewer.selected_baseline_changed = true;}],
+  ['unrequested viewer deployment', r => {r.repository_viewer.published_or_deployed = true;}],
   ['approved custom packers', r => {r.development_selection.custom_packers_approved = true;}],
   ['purchasing through selection', r => {r.development_selection.purchase_authorized = true;}],
   ['build selection', r => {r.hardware_model.selected_for_build = true;}],
@@ -86,6 +91,8 @@ for (const [name, mutate] of [
   ['complete joint qualification', r => {r.complete_joint_qualified = true;}],
   ['older force bank', r => {r.response_bank = r.preceding_revision.development_selection.response_bank;}],
   ['foreign connection review', r => {r.connection_review = r.preceding_revision.engineering_review;}],
+  ['missing current method evaluation', r => {delete r.connection_method_evaluation;}],
+  ['foreign current method evaluation', r => {r.connection_method_evaluation = r.connection_review;}],
   ['fabrication release', r => {r.fabrication_released = true;}],
 ]) test(`reject standard-side candidate ${name}`, () => {
   const index = readCurrentIndex(); mutate(index);

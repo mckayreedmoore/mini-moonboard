@@ -5,7 +5,7 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
 The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**:
-[standard 4×6 top-and-sides local viewer](http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)
+[standard 4×6 top-and-sides local viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)
 ([serving instructions](../CONTRIBUTING.md#software-walkthrough)).
 The [owner's constraint](bolted-frame-development/owner-frame-v10/owner-standard-side-4x6-v1.json)
 is implemented: both sides and top are actual **88.9 × 139.7 mm**.

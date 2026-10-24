@@ -1,0 +1,590 @@
+{
+  "bound_inputs": {
+    "analysis_geometry": {
+      "path": "fea/generated/v10-standard-side-stock-v1/mechanics/analysis-v1/geometry/geometry.json",
+      "sha256": "1e4bc5a2fa974452dee1d1fdacbec1bd9b303312dd5f43efa7bc31b9d9f3e4c3"
+    },
+    "archived_v4_material": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/analysis/material.json",
+      "sha256": "07c749f8f18ccbd121679b9e7768ce70f0dc0e474176bf570d5ad689503401ae"
+    },
+    "checked_geometry_receipt": {
+      "path": "fea/generated/v10-standard-side-stock-v1/geometry-v1/analysis-receipt.json",
+      "sha256": "d9df40fe76e08f008391cb276b8c2136abae09820273b541d10d49b5648d9ef2"
+    },
+    "half_inch_stiffness_profile": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/thin-stiffness-input.json",
+      "sha256": "6ae76d0164f79ef958445775b32f40b602904898c67aa7af824bf0ade916173f"
+    },
+    "material": {
+      "path": "fea/generated/v10-standard-side-stock-v1/mechanics/analysis-v1/material.json",
+      "sha256": "0a9829f9d5403639665049f33a2af46377409b5d4c2cad7c9b368c1c493ea51a"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-standard-side-stock-v1/geometry-v1/geometry.json",
+      "sha256": "c06d790aaed7d915cc729afaf3f5e58c456429c18a79555f1faf182775129a37"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v10-standard-side-stock-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json",
+      "sha256": "cbd76f94b5a7325d4d76ea31249f74f00b016467586924c3737c6343bbc32ae5"
+    }
+  },
+  "consumer_trace": {
+    "active_effect_findings": [
+      {
+        "effect": "Fuses current physical cleat BReps and transforms physical leaf vertices into the merged profile, then assigns a hard-coded nominal blank_mm tuple. That tuple is assigned, not consumed.",
+        "source": "scripts/eoere_v6_analysis.py:110-125"
+      },
+      {
+        "effect": "Builds gross cleat rows from datum, basis and raw profile vertices; passes no blank_mm.",
+        "source": "scripts/eoere_leg_header_mechanics.py:89-99"
+      },
+      {
+        "effect": "gross_row maps raw profile vertices and derives beam dimensions, centerline and width/depth; does not read blank_mm.",
+        "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/extract.py:127-147"
+      },
+      {
+        "effect": "replace_plywood uses material.properties and the element end-to-end length; it replaces cleat element stiffness without reading blank_mm.",
+        "source": "scripts/eoere_leg_header_mechanics.py:265-276"
+      },
+      {
+        "effect": "Active execution context loads only material.json properties for the explicit cleat operator.",
+        "source": "scripts/eoere_v10_analysis.py:233-256"
+      },
+      {
+        "effect": "Owner gravity rows use finished-body volume/COM; cleat mass is current observed volume times nominal 500 kg/m3.",
+        "source": "scripts/eoere_leg_header_mechanics.py:187-192"
+      },
+      {
+        "effect": "Only current blank_mm reader in active side adapter; it scopes to base_side ids and the top rail, not cleat profiles.",
+        "source": "scripts/side_stock_adapter.py:93-150"
+      },
+      {
+        "effect": "Cleat reference rows derive the perimeter from current finished cleat BREP face/wire edges and row wall thickness. No blank_mm access.",
+        "source": "scripts/eoere_v10_reference.py:339-371, 387-421; scripts/eoere_requested_cleat_screen.py:43-52"
+      },
+      {
+        "effect": "Generic timber stock-width reference checks blank_mm on its raw stock rows; this bank\u2019s prepared net/shear output has 22 components and none is a cleat. Separate cleat perimeter rows use current BRep geometry.",
+        "source": "scripts/thin_bolted_timber_resistance.py:645-670"
+      }
+    ],
+    "hash_verified_pinned_python_sources": 340,
+    "literal_blank_mm_occurrences": [
+      {
+        "lines": [
+          46,
+          47
+        ],
+        "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_thin_cleat.py"
+      },
+      {
+        "lines": [
+          114,
+          141,
+          163
+        ],
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py"
+      },
+      {
+        "lines": [
+          153,
+          311,
+          393,
+          467,
+          468
+        ],
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/export.py"
+      },
+      {
+        "lines": [
+          172
+        ],
+        "path": "fea/generated/thin-bolted-build-planning-v4/prepare.py"
+      },
+      {
+        "lines": [
+          57
+        ],
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner_laminated_mechanics.py"
+      },
+      {
+        "lines": [
+          541
+        ],
+        "path": "fea/generated/thin-bolted-v4-geometry/timber-geometry-query-producer.py"
+      },
+      {
+        "lines": [
+          102,
+          117,
+          125,
+          126,
+          150
+        ],
+        "path": "fea/generated/v10-standard-side-stock-v1/mechanics/side_stock_adapter.py"
+      },
+      {
+        "lines": [
+          232
+        ],
+        "path": "mini_moonboard/leg_mvp_frame.py"
+      },
+      {
+        "lines": [
+          499
+        ],
+        "path": "scripts/clear_space_construction.py"
+      },
+      {
+        "lines": [
+          118
+        ],
+        "path": "scripts/eoere_v6_analysis.py"
+      },
+      {
+        "lines": [
+          110
+        ],
+        "path": "scripts/leg_mvp_geometry.py"
+      },
+      {
+        "lines": [
+          50
+        ],
+        "path": "scripts/thin_bolted_candidate.py"
+      },
+      {
+        "lines": [
+          655
+        ],
+        "path": "scripts/thin_bolted_timber_resistance.py"
+      }
+    ],
+    "missing_pinned_python_sources": [],
+    "pinned_python_hash_mismatches": [],
+    "prepared_source_pin_count": 1508,
+    "references": {
+      "cleat_actual_perimeter_components": [
+        "eoere_cleat_left",
+        "eoere_cleat_right"
+      ],
+      "cleat_actual_perimeter_rows_have_both_cleats": true,
+      "cleat_in_net_shear_reference": false,
+      "net_shear_scope": "22 non-cleat timber bodies; generic stock blank-width guard does not process the cleat bodies.",
+      "timber_net_shear_torsion_components": [
+        "base_floor_left",
+        "base_floor_right",
+        "base_header",
+        "base_post_center_left",
+        "base_post_center_right",
+        "base_post_outer_left",
+        "base_post_outer_right",
+        "base_principal_center_left",
+        "base_principal_center_right",
+        "base_rail_bottom_left",
+        "base_rail_bottom_right",
+        "base_rail_service_lower_left",
+        "base_rail_service_lower_right",
+        "base_rail_service_upper_left",
+        "base_rail_service_upper_right",
+        "base_rail_top",
+        "base_side_left",
+        "base_side_right",
+        "lumber_leg_left",
+        "lumber_leg_right",
+        "top_packer_left",
+        "top_packer_right"
+      ]
+    }
+  },
+  "gravity_rows": [
+    {
+      "center_xyz_mm": [
+        -1231.9000000000005,
+        -63.87040086945476,
+        320.8038104049845
+      ],
+      "id": "eoere_cleat_left",
+      "mass_abs_difference_kg": 0.0,
+      "mass_from_volume_times_500kg_m3": 0.9772571807219594,
+      "mass_kg": 0.9772571807219594,
+      "volume_mm3": 1954514.3614439187
+    },
+    {
+      "center_xyz_mm": [
+        1228.725,
+        -63.87040086945474,
+        320.8038104049844
+      ],
+      "id": "eoere_cleat_right",
+      "mass_abs_difference_kg": 0.0,
+      "mass_from_volume_times_500kg_m3": 0.9772571807219599,
+      "mass_kg": 0.9772571807219599,
+      "volume_mm3": 1954514.3614439196
+    }
+  ],
+  "limits": [
+    "This is a geometry/provenance/consumer audit, not physical plywood stiffness, adhesive bond, strength, or capacity validation.",
+    "The 139.7 mm full-width beam remains a declared conditional approximation, not a measured variable-width plate model.",
+    "Do not use blank_mm as a fabrication or stock-cut instruction."
+  ],
+  "material_metadata_conflicts": {
+    "bound_half_inch_profile_values": {
+      "EA_lbf_per_ft": 3500000,
+      "Gvtv_lbf_per_in": 38500,
+      "flatwise_EI_lbf_in2_per_ft": 140000
+    },
+    "current_material_published_inputs": {
+      "EA_parallel_lbf_per_foot_width": 5850000,
+      "EI_parallel_lbf_in2_per_foot_width": 330000,
+      "Gvtv_lbf_per_inch_depth": 45000
+    },
+    "effect": "These explanatory/provenance fields are stale. Current active stiffness code consumes only material.properties; preparation verify_prepared exactly compares those numeric properties with the bound half-inch profile. No stiffness, gravity, or current cleat-reference equation reads the stale fields. Frozen hashes were preserved; this audit does not repair metadata.",
+    "stale_fields": {
+      "pair_properties_derivation.flatwise_EI": "Uses 19.05/2 mm offset; current code uses 12.7/2 mm per leaf.",
+      "pair_properties_derivation.torsion": "Calls a 38.1 mm rectangle; current code calls rectangle_torsion(width=139.7, height=25.4).",
+      "published_inputs": "Copied v4 values 5.85M / 330k / 45k instead of active half-inch profile values 3.5M / 140k / 38.5k.",
+      "reference": "Copied text cites APA D510F2020 Table 9; the bound half-inch profile cites APA2020 D510C Table 10."
+    }
+  },
+  "operator_numeric_reproduction": {
+    "archived_v4_current_property_ratio": {
+      "EA_N": 0.41132478632478625,
+      "EI_y_Nmm2": 0.19441523103632474,
+      "EI_z_Nmm2": 0.21397587095025075,
+      "GA_u_N": 0.6875,
+      "GA_v_N": 0.5881944444444445,
+      "GJ_Nmm2": 0.26248033130484805,
+      "shear_factor": 1.0
+    },
+    "interpretation": "Current numbers exactly reproduce the pinned 12.7 mm leaf inputs at the declared 139.7 mm width; EI_z includes the 12.7/2 mm layer-centroid offset. Differences from archived v4 numeric properties reflect the changed input material values and section assumptions, not blank_mm.",
+    "prepared_material_properties": {
+      "EA_N": 14271377.6822941,
+      "EI_y_Nmm2": 23210124272.636917,
+      "EI_z_Nmm2": 943750507.6146584,
+      "GA_u_N": 1375000000000.0,
+      "GA_v_N": 1883821.8540628215,
+      "GJ_Nmm2": 358721492.1369118,
+      "shear_factor": 0.8333333333333334
+    },
+    "profile_constants": {
+      "EA_lbf_per_ft": 3500000,
+      "Gvtv_lbf_per_in": 38500,
+      "flatwise_EI_lbf_in2_per_ft": 140000,
+      "leaf_thickness_mm": 12.7,
+      "width_mm": 139.7
+    },
+    "profile_source": "6ae76d0164f79ef958445775b32f40b602904898c67aa7af824bf0ade916173f",
+    "relative_error_by_property": {
+      "EA_N": 0.0,
+      "EI_y_Nmm2": 0.0,
+      "EI_z_Nmm2": 0.0,
+      "GA_u_N": 0.0,
+      "GA_v_N": 0.0,
+      "GJ_Nmm2": 0.0,
+      "shear_factor": 0.0
+    },
+    "reproduced_pair_properties": {
+      "EA_N": 14271377.6822941,
+      "EI_y_Nmm2": 23210124272.636917,
+      "EI_z_Nmm2": 943750507.6146584,
+      "GA_u_N": 1375000000000.0,
+      "GA_v_N": 1883821.8540628215,
+      "GJ_Nmm2": 358721492.1369118,
+      "shear_factor": 0.8333333333333334
+    },
+    "single_leaf_intermediates": {
+      "EA_N": 7135688.84114705,
+      "Gvtv_N_per_mm": 6742.38315698934,
+      "apparent_flatwise_EI_Nmm2": 184146440.51017722
+    }
+  },
+  "physical_to_analysis_proof": {
+    "all_transformed_physical_vertex_sets_exact": true,
+    "analysis_revision": "eoere-v10-perfect-bond-four-host-analysis-v1",
+    "interpretation": "The analysis outline vertices exactly equal the transformed union of each pair of current physical leaf profile vertices. Read-only BREP imports are valid single solids; analysis BREP volume matches the two physical leaves summed to floating-point roundoff; bounds and centers of mass agree with that union.",
+    "per_side": {
+      "left": {
+        "analysis_brep": {
+          "abs_volume_difference_vs_sum_mm3": 1.234002411365509e-08,
+          "bounds_xyz_mm": [
+            -1244.6000000000004,
+            -1219.1999999999998,
+            -175.70000000000002,
+            40.200000000000145,
+            139.7,
+            550.0
+          ],
+          "center_of_mass_xyz_mm": [
+            -1231.9000000000005,
+            -63.87040086945476,
+            320.8038104049845
+          ],
+          "id": "eoere_cleat_left",
+          "metadata_volume_mm3": 1954514.3614439168,
+          "path": "fea/generated/v10-standard-side-stock-v1/mechanics/analysis-v1/geometry/eoere_cleat_left.brep",
+          "physical_leaf_volume_sum_mm3": 1954514.361443931,
+          "sha256": "8f2afebe98238f6c90971f25142c62e04f905abf2221e0028bd3f321dab560d0",
+          "solid_count": 1,
+          "valid": true,
+          "volume_mm3": 1954514.3614439187
+        },
+        "analysis_profile": "eoere_cleat_left",
+        "analysis_profile_basis_grain_u_v_xyz": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "analysis_profile_blank_mm": [
+          361.1860828293809,
+          139.7,
+          25.4
+        ],
+        "analysis_profile_datum_xyz_mm": [
+          -1244.6000000000004,
+          -175.7,
+          139.7
+        ],
+        "analysis_profile_extents_luv_mm": [
+          410.3,
+          25.4,
+          215.9
+        ],
+        "physical_leaf_breps": [
+          {
+            "bounds_xyz_mm": [
+              -1231.9000000000005,
+              -1219.1999999999998,
+              -175.70000000000002,
+              40.200000000000145,
+              139.7,
+              550.0
+            ],
+            "center_of_mass_xyz_mm": [
+              -1225.5499999999997,
+              -63.87040086945472,
+              320.8038104049843
+            ],
+            "id": "eoere_cleat_left",
+            "metadata_volume_mm3": 977257.1807219649,
+            "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-11b/geometry/eoere_cleat_left.brep",
+            "sha256": "dae25f9676a23c7e6bf68936e717ec35c57aafea8d81bad0121d42b0eef1699a",
+            "solid_count": 1,
+            "valid": true,
+            "volume_mm3": 977257.180721965
+          },
+          {
+            "bounds_xyz_mm": [
+              -1244.6000000000004,
+              -1231.8999999999999,
+              -175.70000000000002,
+              40.200000000000145,
+              139.7,
+              550.0
+            ],
+            "center_of_mass_xyz_mm": [
+              -1238.25,
+              -63.87040086945469,
+              320.80381040498435
+            ],
+            "id": "eoere_cleat_left_outer",
+            "metadata_volume_mm3": 977257.1807219655,
+            "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-11b/geometry/eoere_cleat_left_outer.brep",
+            "sha256": "2f01a5f2905362974003fb46b0d56aa49c83fcacd43f3b3723dab3ce28f3f692",
+            "solid_count": 1,
+            "valid": true,
+            "volume_mm3": 977257.180721966
+          }
+        ],
+        "physical_leaf_profiles": [
+          "eoere_cleat_left",
+          "eoere_cleat_left_outer"
+        ],
+        "transformed_physical_outline_vertex_set_equals_analysis_profile_vertices": true,
+        "vertex_count": 15
+      },
+      "right": {
+        "analysis_brep": {
+          "abs_volume_difference_vs_sum_mm3": 1.0710209608078003e-08,
+          "bounds_xyz_mm": [
+            1216.025,
+            1241.4250000000002,
+            -175.70000000000002,
+            40.200000000000145,
+            139.7,
+            550.0
+          ],
+          "center_of_mass_xyz_mm": [
+            1228.725,
+            -63.87040086945474,
+            320.8038104049844
+          ],
+          "id": "eoere_cleat_right",
+          "metadata_volume_mm3": 1954514.3614439177,
+          "path": "fea/generated/v10-standard-side-stock-v1/mechanics/analysis-v1/geometry/eoere_cleat_right.brep",
+          "physical_leaf_volume_sum_mm3": 1954514.3614439303,
+          "sha256": "9afc526d24b89e1221c9ea8b2dce9160af1bedffcff2d84916cb4aca03098b7c",
+          "solid_count": 1,
+          "valid": true,
+          "volume_mm3": 1954514.3614439196
+        },
+        "analysis_profile": "eoere_cleat_right",
+        "analysis_profile_basis_grain_u_v_xyz": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ]
+        ],
+        "analysis_profile_blank_mm": [
+          361.1860828293809,
+          139.7,
+          25.4
+        ],
+        "analysis_profile_datum_xyz_mm": [
+          1216.025,
+          -175.7,
+          139.7
+        ],
+        "analysis_profile_extents_luv_mm": [
+          410.3,
+          25.4,
+          215.9
+        ],
+        "physical_leaf_breps": [
+          {
+            "bounds_xyz_mm": [
+              1216.0249999999996,
+              1228.7250000000004,
+              -175.70000000000002,
+              40.200000000000145,
+              139.7,
+              550.0
+            ],
+            "center_of_mass_xyz_mm": [
+              1222.3750000000002,
+              -63.87040086945472,
+              320.80381040498435
+            ],
+            "id": "eoere_cleat_right",
+            "metadata_volume_mm3": 977257.1807219657,
+            "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-11b/geometry/eoere_cleat_right.brep",
+            "sha256": "9b7d578457eca3b68c099957dcc7d45a9a15ca26124bd04cd03b4d2916ebe5e8",
+            "solid_count": 1,
+            "valid": true,
+            "volume_mm3": 977257.1807219649
+          },
+          {
+            "bounds_xyz_mm": [
+              1228.725,
+              1241.4250000000002,
+              -175.70000000000002,
+              40.200000000000145,
+              139.7,
+              550.0
+            ],
+            "center_of_mass_xyz_mm": [
+              1235.074999999999,
+              -63.870400869454706,
+              320.8038104049844
+            ],
+            "id": "eoere_cleat_right_outer",
+            "metadata_volume_mm3": 977257.1807219657,
+            "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/attempt-11b/geometry/eoere_cleat_right_outer.brep",
+            "sha256": "ae31c724bfcc364fd1fefe1ae3f247567521ccbea901a92f42828018f03a8531",
+            "solid_count": 1,
+            "valid": true,
+            "volume_mm3": 977257.1807219655
+          }
+        ],
+        "physical_leaf_profiles": [
+          "eoere_cleat_right",
+          "eoere_cleat_right_outer"
+        ],
+        "transformed_physical_outline_vertex_set_equals_analysis_profile_vertices": true,
+        "vertex_count": 15
+      }
+    },
+    "physical_revision": "v10-standard-4x6-top-and-sides-development-v1"
+  },
+  "schema": "v10_cleat_profile_dimension_use_audit/v1",
+  "scope": "Read-only audit of the checked v10 standard-side geometry and already prepared analysis inputs. No preparation, CAD rebuild, case execution, field, or solve performed.",
+  "source_bindings_used": {
+    "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_analysis.py": "2024a00601f68efcca2f6cf2242e2fe9f28180b31e5b6ebc7966b6668f2eec2a",
+    "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_thin_cleat.py": "3d3efd191ae53a20e36bc75dc5485b532ed4ee27d4d0f12c881eae000b2e9190",
+    "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/thin-stiffness-input.json": "6ae76d0164f79ef958445775b32f40b602904898c67aa7af824bf0ade916173f",
+    "scripts/eoere_leg_header_mechanics.py": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114",
+    "scripts/eoere_requested_cleat_screen.py": "a2f2ef716af7384400abb2ea4804070a00150d2d8a38901ef448981db81acbec",
+    "scripts/eoere_v10_checks.py": "d3cfb82f2bdf417bba8a06edbe64e990214a1238ed882856ace731b67c315a2c",
+    "scripts/eoere_v10_reference.py": null,
+    "scripts/eoere_v6_analysis.py": "90cde1884f4e9d85c40107c88be00d6affda626663e12e1692a81a91d92158be",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+  },
+  "stale_blank_metadata": {
+    "actual_union_profile_extents_luv_mm": [
+      410.3,
+      25.4,
+      215.9
+    ],
+    "current_cleat_rows": {
+      "eoere_cleat_left": {
+        "depth_mm": 215.9,
+        "end_xyz_mm": [
+          -1231.9000000000003,
+          -67.74999999999999,
+          550.0
+        ],
+        "start_xyz_mm": [
+          -1231.9000000000003,
+          -67.74999999999999,
+          139.7
+        ],
+        "width_mm": 25.40000000000009
+      },
+      "eoere_cleat_right": {
+        "depth_mm": 215.9,
+        "end_xyz_mm": [
+          1228.7250000000001,
+          -67.74999999999999,
+          550.0
+        ],
+        "start_xyz_mm": [
+          1228.7250000000001,
+          -67.74999999999999,
+          139.7
+        ],
+        "width_mm": 25.40000000000009
+      }
+    },
+    "distinct_operator_envelope": "139.7 mm is the deliberately declared full-width beam approximation in material.json and thin-stiffness-input.json. The cleat\u2019s actual outline is a trapezoidal 410.3 \u00d7 215.9 mm perimeter made from two 12.7 mm leaves (25.4 mm combined thickness).",
+    "source": "Inherited nominal tuple assignment in eoere_v6_analysis.py; half-inch adapter changed only the third number to 25.4. It is not recalculated from the current trapezoidal perimeter and must not be treated as actual stock dimensions.",
+    "tuple_mm": [
+      361.1860828293809,
+      139.7,
+      25.4
+    ]
+  },
+  "status": "CLEAT_BLANK_TUPLE_IS_NOT_A_CURRENT_NUMERICAL_INPUT; physical leaf and merged analysis BReps/profiles conform; current material numeric properties match the bound half-inch operator profile, while copied material prose/provenance fields are stale."
+}

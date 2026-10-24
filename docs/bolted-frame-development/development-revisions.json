@@ -6,6 +6,10 @@
   "climbing_released": false,
   "complete_connection_acceptance": null,
   "complete_joint_qualified": false,
+  "connection_method_evaluation": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/connection-method-evaluation.json",
+    "sha256": "4ff43ad402302b76b175f515648923acb7203648aad9a632f4dd268dfdc94052"
+  },
   "connection_review": {
     "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/connection-review.json",
     "sha256": "508d5f1654e8fcd420038b0c7de234e9e2175b4caaf1d02c9ba30a15c88d8ce6"
@@ -39,7 +43,7 @@
     "revision": "v10-standard-4x6-top-and-sides-development-v1",
     "viewer": {
       "model": "eoere-standard-4x6-top-and-sides-preview",
-      "url": "http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off"
+      "url": "http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off"
     }
   },
   "engineering_review": {
@@ -65,9 +69,13 @@
       "sha256": "d9df40fe76e08f008391cb276b8c2136abae09820273b541d10d49b5648d9ef2"
     },
     "revision": "v10-standard-4x6-top-and-sides-development-v1",
+    "scene": {
+      "path": "site/eoere-standard-stock-scene.json.gz",
+      "sha256": "0d4549a1baa16c3bf5ce5d4c9ce8a02db7687bf94e966965797c987e544abb62"
+    },
     "viewer": "eoere-standard-4x6-top-and-sides-preview",
-    "viewer_scope": "desktop_local_preview",
-    "viewer_url": "http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off"
+    "viewer_scope": "repository_local_site",
+    "viewer_url": "http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off"
   },
   "hardware_model": {
     "actual_parts_verified": false,
@@ -1444,6 +1452,38 @@
     "structural_acceptance": false
   },
   "purchase_authorized": false,
+  "repository_viewer": {
+    "browser_validation": {
+      "path": "fea/generated/v10-standard-side-stock-v1/viewer/portable-browser-v1/result.json",
+      "sha256": "6fdc31a356d1b2595c2927f0501909a08310d36b28b4849a07cd53223b9b5c04"
+    },
+    "historical_aliases_preserved": true,
+    "ignored_runtime_dependencies": false,
+    "model": "eoere-standard-4x6-top-and-sides-preview",
+    "overlay": {
+      "path": "site/eoere-standard-stock-overlay.mjs",
+      "sha256": "d0fb6f40c1977c513b5f2ba25c3f634aa1586dfc46d1ebea84c4c355a6105b5f"
+    },
+    "provenance": {
+      "path": "site/eoere-standard-stock-provenance.json",
+      "sha256": "5364ab82cf3ae1afc90b5b099376211b06b592c20a3640e73fad44c9291e30ea"
+    },
+    "published_or_deployed": false,
+    "publisher": {
+      "path": "scripts/publish_standard_stock_viewer.py",
+      "sha256": "f4853c459fb1bfffcb7a0d0206982ccf87997431e8344b8ef3284a8a2fe88067"
+    },
+    "scene": {
+      "path": "site/eoere-standard-stock-scene.json.gz",
+      "sha256": "0d4549a1baa16c3bf5ce5d4c9ce8a02db7687bf94e966965797c987e544abb62"
+    },
+    "selected_baseline_changed": false,
+    "status": {
+      "path": "site/eoere-standard-stock-status.json",
+      "sha256": "7d69296b0216a1dd51657dde6316f9609a064c7ec43bacd50dce215c75eda717"
+    },
+    "url": "http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off"
+  },
   "response_bank": {
     "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/response-bank.json",
     "sha256": "41f76a1ab0c66a1e5c7056e572f32f5627a11290ce2ed2f3b7e611a72a4a2393"

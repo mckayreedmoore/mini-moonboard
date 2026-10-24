@@ -22,6 +22,7 @@ import {validatePrincipalPairs} from '../site/eoere-principal-pair-overlay.mjs';
 import {validateInwardBolts} from '../site/eoere-inward-bolts-overlay.mjs';
 import {validateInwardAngles} from '../site/eoere-inward-angles-overlay.mjs';
 import {validateSingleSpacers} from '../site/eoere-single-spacer-overlay.mjs';
+import {validateStandardStockProvenance, validateStandardStockScene} from '../site/eoere-standard-stock-overlay.mjs';
 import {validateV10Provenance, resolveV10SourceRef, validateV10SceneProvenance, V10_PROVENANCE_SHA256,
   V10_SCENE, V10_REVISION as V10_CANDIDATE13_REVISION, V10_COUNTS as V10_CANDIDATE13_COUNTS} from '../site/eoere-v10-provenance.mjs';
 
@@ -1996,13 +1997,48 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(index.purchase_authorized, false);
     assert.equal(report.purchase_authorized, false);
     assert.equal(index.other_nonstandard_member_stock_approved, false);
-    assert.equal(index.geometry.viewer_scope, 'desktop_local_preview');
+    assert.equal(index.geometry.viewer_scope, 'repository_local_site');
+    const repositoryViewer = index.repository_viewer;
+    assert.equal(repositoryViewer.model, index.geometry.viewer);
+    assert.equal(repositoryViewer.url, index.geometry.viewer_url);
+    assert.deepEqual(repositoryViewer.scene, index.geometry.scene);
+    assert.equal(repositoryViewer.ignored_runtime_dependencies, false);
+    assert.equal(repositoryViewer.historical_aliases_preserved, true);
+    assert.equal(repositoryViewer.selected_baseline_changed, false);
+    assert.equal(repositoryViewer.published_or_deployed, false);
+    const methods = JSON.parse(bound(index.connection_method_evaluation));
+    assert.equal(methods.schema, 'eoere_standard_stock_connection_method_evaluation/v1');
+    assert.equal(methods.revision, revision);
+    assert.deepEqual(methods.response_bank, index.response_bank);
+    assert.deepEqual(methods.reference_review, index.engineering_review);
+    assert.deepEqual(methods.diagnostic_inventory, index.exceedance_inventory);
+    bound(methods.cleat_input_interpretation);
+    assert.deepEqual(methods.frozen_matched_evaluation, index.standard_side_stock_evaluation);
+    assert.equal(methods.coverage.axis_case_wrenches, 696);
+    assert.equal(methods.coverage.complete_qualified_connection_rows, 0);
+    assert.equal(methods.actual_Cg, null);
+    assert.equal(methods.actual_Cdelta, null);
+    assert.equal(methods.complete_connection_acceptance, null);
+    for (const key of ['purchase_authorized', 'fabrication_released', 'climbing_released', 'structural_acceptance'])
+      assert.equal(methods[key], false);
+    bound(repositoryViewer.overlay); bound(repositoryViewer.publisher);
+    const viewerProvenance = JSON.parse(bound(repositoryViewer.provenance));
+    const viewerStatus = JSON.parse(bound(repositoryViewer.status));
+    validateStandardStockProvenance(viewerProvenance, viewerStatus);
+    validateStandardStockScene(JSON.parse(gunzipSync(bound(repositoryViewer.scene))));
+    assert.equal(viewerProvenance.geometry_sha256, report.geometry.sha256);
+    for (const [key, ref] of Object.entries({geometry_receipt: index.geometry.receipt,
+      response_bank: index.response_bank, reference_review: index.engineering_review,
+      diagnostic_inventory: index.exceedance_inventory})) assert.deepEqual(viewerProvenance.result_sources[key], ref);
+
     const html = read('site/index.html').toString();
     assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+    assert.equal(viewerModel(html, repositoryViewer.model), repositoryViewer.model);
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);
     return {passed: true, revision, bolt_axes: 116, screw_axes: 66, angles: 24,
       occupied_parts: 1151, spacer_pieces: 44, current_response_revision: revision,
+      repository_viewer_integrated: true, repository_viewer_model: repositoryViewer.model,
       reference_case_exceedances: report.reference_case_exceedances,
       reference_component_exceedances: report.reference_component_exceedances,
       bearing_diagnostic_case_rows: report.bearing_diagnostic_case_rows,

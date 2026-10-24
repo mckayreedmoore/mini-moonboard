@@ -6,7 +6,7 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[Owner-selected 4×6 development viewer · desktop local](http://127.0.0.1:8780/fea/generated/v10-standard-side-stock-v1/viewer/preview-v2.html?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)**
+**[Owner-selected 4×6 development viewer · desktop local](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off)**
 
 The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The top and both side rails
 are standard nominal **4×6, actual 88.9 × 139.7 mm**, following the
@@ -36,9 +36,9 @@ This serves committed visualization assets. It does **not** regenerate CAD or
 replay an engineering study. Browser rendering also needs access to the pinned
 Three.js modules on unpkg.com.
 
-The selected 4×6 viewer above uses retained development outputs and a repository-root
-server on port 8780 (`uv run python -m http.server 8780 --bind 127.0.0.1 --directory .`).
-It is a local preview; Candidate 13's integrated site assets remain preserved.
+The current 4×6 viewer is included in the repository's site assets and uses the
+normal port 8767 server above. Its runtime needs no ignored development outputs.
+Candidate 13 and the earlier port 8780 preview remain preserved; no site deployment is performed.
 
 The [published demo](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear)
 shows the preserved 102-bolt revision. The published site checked at commit

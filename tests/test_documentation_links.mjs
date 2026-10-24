@@ -9,7 +9,7 @@ import {documentsForModel, resolveDocumentPath} from '../site/documentation-link
 const root = fileURLToPath(new URL('../', import.meta.url));
 const html = readFileSync(path.join(root, 'site/index.html'), 'utf8');
 const currentIndex = JSON.parse(readFileSync(path.join(root, 'docs/bolted-frame-development/development-revisions.json')));
-// Hosted site contracts retain Candidate13; the current stock preview is local only.
+// Preserve Candidate13's own document contract beside the new stock choice.
 const index = currentIndex.schema === 'bolted_frame_development_revisions/v16' ? currentIndex.preceding_revision : currentIndex;
 let responseIndex = index;
 while (responseIndex.preceding_revision) responseIndex = responseIndex.preceding_revision;
