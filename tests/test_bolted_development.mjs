@@ -93,6 +93,9 @@ for (const [name, mutate] of [
   ['foreign connection review', r => {r.connection_review = r.preceding_revision.engineering_review;}],
   ['missing current method evaluation', r => {delete r.connection_method_evaluation;}],
   ['foreign current method evaluation', r => {r.connection_method_evaluation = r.connection_review;}],
+  ['next candidate permits wood packers', r => {r.next_candidate_constraint.wood_packers_permitted = true;}],
+  ['packer bank silently reused', r => {r.next_candidate_constraint.current_packer_bank_transferred_to_new_design = true;}],
+  ['old packer machining allowed', r => {r.next_candidate_constraint.old_packer_machining_and_allocation_on_hold = false;}],
   ['fabrication release', r => {r.fabrication_released = true;}],
 ]) test(`reject standard-side candidate ${name}`, () => {
   const index = readCurrentIndex(); mutate(index);

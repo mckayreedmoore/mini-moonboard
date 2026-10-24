@@ -1,5 +1,7 @@
 # Owner-selected 4×6 development planning and preserved instructions
 
+**Latest owner direction: [no wood packers in the next candidate](owner-frame-v10/owner-no-wood-packers-v1.json).** Top and both sides stay standard 4×6. The solved geometry/viewer below still contains packers; packer-free options and matching analyses are pending. Do not machine packers or use the old packer offcut allocation. Stock counts remain provisional until the replacement layout is confirmed.
+
 The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**. The [owner constraint](owner-frame-v10/owner-standard-side-4x6-v1.json)
 is implemented: top and both sides are standard nominal **4×6, actual 88.9 × 139.7 mm**.
 The [matched evaluation](owner-frame-v10/standard-side-stock-evaluation.json) contains new
@@ -17,8 +19,8 @@ No purchase, cutting, drilling, assembly, climbing or structural release.
 For current wood planning use the [provisional owner stock plan](owner-frame-v10/standard-stock-planning.md)
 and [current planning CSV](owner-frame-v10/buying-list-current.csv): five 2×6×8′,
 three 2×6×10′, two 4×6×8′ and three 4×6×10′ before owned-stock credit.
-All 22 sawn members are allocated; no 4×8 side stock is intended. The two solid
-packers need milling from the top-board offcut, not glued buildup. Measure and
+The old 22-member allocation remains historical; no 4×8 side stock is intended.
+The former packer milling/offcut allocation is superseded and on hold. Measure and
 reuse existing face/kicker plywood before replacement purchasing. Material,
 milling and complete-connection qualifications remain open; keep stock uncut.
 

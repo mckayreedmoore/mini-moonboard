@@ -1,32 +1,46 @@
 # Provisional standard-stock planning
 
-The current development revision is
+**Latest owner constraint: [do not use wood packers](owner-no-wood-packers-v1.json).**
+The next candidate must assess a packer-free outer-top connection while
+retaining the standard 4×6 top and both sides, actual **88.9 × 139.7 mm**.
+The solved model still contains two wood packers; a packer-free geometry and
+matched analysis are not complete. **Packer machining and the old packer
+offcut allocation are on HOLD.**
+
+The **13-board counts below remain provisional** until the new layout confirms
+the stock requirements. They describe the prior packer-containing allocation,
+not an adopted packer-free cut plan.
+
+The retained solved development revision is
 `v10-standard-4x6-top-and-sides-development-v1`, with a standard nominal
 **4×6 top and both sides, modeled actual 88.9 × 139.7 mm**.
 Its [matched evaluation](standard-side-stock-evaluation.json) has its own six
 admitted cases and two independent replays per case. The declared vector
 shear/torsion reference reaches **0.998500**; **15 bearing diagnostic case rows
-across eight components remain**. Complete connection and material
+across eight components remain**. These results apply to that solved
+packer-containing layout. Complete connection and material
 qualification remain unresolved. This stock list grants no purchase, cutting,
 drilling, assembly, fabrication, structural or climbing release. The selected
 screw-and-bracket baseline retains separate authority.
 
 The [owner's preserved instruction](standard-stock-planning/owner-standard-stock-wood-list-v1.txt)
 and [independent dimensional recheck](standard-stock-planning/wood-allocation-independent-recheck-v1.json)
-confirm the following **13-board full requirement before credit for usable
-owned stock**. All 22 sawn members are assigned exactly once against the
-current geometry. No nominal 4×8 solid timber is required by this intent.
+confirmed the following **13-board allocation before credit for usable owned
+stock**. All 22 sawn members, including the two packers, were assigned exactly
+once against that solved geometry. This is preserved dimensional evidence;
+it does not establish the next candidate's member count or allocation.
+The prior list has no nominal 4×8 solid timber row.
 
 | Nominal stock | Modeled actual section | Boards | Allocation |
 | --- | --- | ---: | --- |
 | 2×6 × 8 ft | 38.1 × 139.7 mm | 5 | Two runners with center posts; three boards for paired cross rails |
 | 2×6 × 10 ft | 38.1 × 139.7 mm | 3 | Header and two center principals |
 | 4×6 × 8 ft | 88.9 × 139.7 mm | 2 | Rear legs, each sharing its board with an outer post |
-| 4×6 × 10 ft | 88.9 × 139.7 mm | 3 | Top rail with two packer lengths; one board for each side |
+| 4×6 × 10 ft | 88.9 × 139.7 mm | 3 | Prior top/side allocation; packer lengths and machining are on HOLD pending the new layout |
 
 The [13-board allocation CSV](standard-stock-planning/board-allocation.csv)
 allows **25.4 mm trim at each board end plus 3.175 mm kerf per assigned
-member**. All length and section budgets fit dimensionally. The tightest
+member**. Its prior length and section budgets fit dimensionally. The tightest
 remaining length allowance is about **63.087 mm** on each rear-leg/post board.
 Side lengths remain provisional at about 2,539.8 mm. These blank envelopes
 are not a cutting sequence or a guarantee of clear grade yield; retain full
@@ -39,17 +53,17 @@ moisture reading; the indoor dry-service assumption remains at or below
 unverified. STUD, SPF, Hem-Fir, DF-L(N), green, treated, finger-jointed or
 built-up stock is not an automatic substitute.
 
-## Packers and plywood
+## Packer hold and plywood
 
-The two **custom solid packers remain unapproved**. Each modeled finished
-blank is **177.8 × 139.6 × 50.8 mm**. Both lengths fit the top-board offcut
-with grain parallel to the 177.8 mm length. Making them requires milling
-88.9 × 139.7 mm stock to a **50.8 × 139.6 mm section**; a normal crosscut
-alone does not produce that section. The owner's tools or supplier service,
-actual usable stock width and finished-member grade are unknown. No separate
-packer blank is needed if that machining is feasible; otherwise procurement
-remains unresolved. Do not substitute bonded 2× pieces. Dimensional fit does
-not qualify the packer material, contact or joint.
+**Do not machine wood packers or act on the old packer offcut allocation.**
+The preserved solved model contains two custom **177.8 × 139.6 × 50.8 mm**
+packers. The earlier recheck found their lengths and milled section would fit
+the top-board remainder, subject to unverified tools/service and finished
+grade. That finding remains historical dimensional evidence; it is not a
+current procurement or machining instruction. The latest owner direction
+requires a packer-free connection assessment. Retain full stock lengths
+until its layout and allocation are confirmed; no replacement member or new
+cut plan is assumed here.
 
 The cleats require **four 410.3 × 215.9 mm leaves**, modeled nominal 12.7 mm
 thick, forming two bonded pairs. Each actual leaf must be at least **11.9 mm**
@@ -77,7 +91,9 @@ differs from the model. Measure the actual lot.
 ## Current list and preserved evidence
 
 Use the [current 33-line planning CSV](buying-list-current.csv). Its four solid
-timber rows follow the allocation above; face-plywood purchase quantity stays
+timber rows retain the prior **5 / 3 / 2 / 3 board counts provisionally**, with
+the packer machining/offcut hold stated explicitly. They do not constitute a
+confirmed packer-free allocation; face-plywood purchase quantity stays
 unresolved. Other hardware/equipment rows retain the earlier catalog and
 inventory observations. Their prices, availability, catalog fit and delivered
 properties were not re-researched or accepted by this stock update. Actual
@@ -88,6 +104,10 @@ and [catalog check](catalog-check.json) remain byte-exact historical records
 for the earlier standard-top/deeper-side scope. Their two nominal 4×8
 starting boards are superseded for current stock intent. The imported owner
 instruction also retains earlier pending-analysis and deeper-side wording;
-the current matched evaluation linked above controls that status. The
+the matched evaluation linked above records completed analysis for the solved
+packer-containing layout. The latest no-wood-packers direction controls the
+next candidate. The
 [source bindings](standard-stock-planning/source-bindings.json) preserve the
-exact source hashes and dimensional validation. No frozen record was rewritten.
+prior source hashes, document/CSV snapshot and 22-member dimensional validation;
+they do not validate the new packer-free requirement. No frozen source record
+was rewritten.

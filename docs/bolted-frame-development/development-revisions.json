@@ -14,6 +14,16 @@
     "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock/connection-review.json",
     "sha256": "508d5f1654e8fcd420038b0c7de234e9e2175b4caaf1d02c9ba30a15c88d8ce6"
   },
+  "current_stock_documents": {
+    "buying-list-current.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/buying-list-current.csv",
+      "sha256": "84e03711dc5710df215261ba72821d581a1cb3ed06f93d905e0b681682787c89"
+    },
+    "standard-stock-planning.md": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md",
+      "sha256": "921a5cf3a01c0356ee4e18b6cb0b3ea1ccbeb3d92b9ecad0a05c4f2b860f2916"
+    }
+  },
   "development_selection": {
     "actual_sections_mm": {
       "base_rail_top": [
@@ -85,6 +95,24 @@
     },
     "revision": "v10-standard-4x6-top-and-sides-development-v1",
     "selected_for_build": false
+  },
+  "next_candidate_constraint": {
+    "climbing_released": false,
+    "current_packer_bank_transferred_to_new_design": false,
+    "fabrication_released": false,
+    "new_geometry_and_matched_bank_complete": false,
+    "old_packer_machining_and_allocation_on_hold": true,
+    "owner_record": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/owner-no-wood-packers-v1.json",
+      "sha256": "4e6dd44cbad9f3102d3f01dca1fe70cb205fd5252add226a0bc25823af6b1424"
+    },
+    "purchase_authorized": false,
+    "status": "packer-free geometry options in progress; current solved geometry and viewer retain packers",
+    "top_and_both_sides_actual_mm": [
+      88.9,
+      139.7
+    ],
+    "wood_packers_permitted": false
   },
   "other_nonstandard_member_stock_approved": false,
   "owner_side_constraint": {
@@ -1506,6 +1534,16 @@
   "stock_planning": {
     "path": "docs/bolted-frame-development/owner-frame-v10/standard-stock-planning/source-bindings.json",
     "sha256": "1307003c7583e9f12ea60df20a85486797554de20bccc47e608dc406bd255ea1"
+  },
+  "stock_planning_frozen_output_snapshots": {
+    "docs/bolted-frame-development/owner-frame-v10/buying-list-current.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-stock-planning/packer-containing-snapshot/buying-list-current.csv",
+      "sha256": "38fe304bba4223523f9ee838d50b3dd35700a7018ee6d70c2575e28ccc5216c3"
+    },
+    "docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-stock-planning/packer-containing-snapshot/standard-stock-planning.md",
+      "sha256": "9c08d255fe521f9d0ea6bb7bb2855317705b4ef01e3f347a24fedb087b153344"
+    }
   },
   "structural_acceptance": false
 }

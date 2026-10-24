@@ -1889,7 +1889,16 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     const stock = JSON.parse(bound(index.stock_planning));
     assert.equal(stock.schema, 'eoere_v10_standard_stock_planning_sources/v1');
     assert.equal(stock.revision, revision);
-    for (const ref of Object.values(stock.outputs)) bound(ref);
+    for (const ref of Object.values(stock.outputs)) {
+      const snapshot = index.stock_planning_frozen_output_snapshots?.[ref.path];
+      if (snapshot) {
+        assert.equal(index.next_candidate_constraint.wood_packers_permitted, false);
+        assert.ok(['docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md',
+          'docs/bolted-frame-development/owner-frame-v10/buying-list-current.csv'].includes(ref.path));
+        assert.equal(snapshot.sha256, ref.sha256);
+        bound(snapshot);
+      } else bound(ref);
+    }
     for (const [key, ref] of Object.entries(stock.source_bindings))
       if (key !== 'allocation_physical_geometry') bound(ref);
     assert.deepEqual(stock.source_bindings.allocation_physical_geometry, report.geometry);
@@ -2006,6 +2015,24 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(repositoryViewer.historical_aliases_preserved, true);
     assert.equal(repositoryViewer.selected_baseline_changed, false);
     assert.equal(repositoryViewer.published_or_deployed, false);
+    const nextConstraint = index.next_candidate_constraint;
+    if (nextConstraint) {
+      const ownerDirection = JSON.parse(bound(nextConstraint.owner_record));
+      assert.equal(ownerDirection.schema, 'owner-no-wood-packers-v1');
+      assert.equal(nextConstraint.wood_packers_permitted, false);
+      assert.deepEqual(nextConstraint.top_and_both_sides_actual_mm, [88.9, 139.7]);
+      assert.equal(nextConstraint.current_packer_bank_transferred_to_new_design, false);
+      assert.equal(nextConstraint.new_geometry_and_matched_bank_complete, false);
+      assert.equal(nextConstraint.old_packer_machining_and_allocation_on_hold, true);
+      for (const [key, ref] of Object.entries(index.current_stock_documents)) {
+        assert.equal(ref.path, `docs/bolted-frame-development/owner-frame-v10/${key}`);
+        bound(ref);
+      }
+      assert.deepEqual(Object.keys(index.current_stock_documents).sort(),
+        ['buying-list-current.csv', 'standard-stock-planning.md']);
+      for (const key of ['purchase_authorized', 'fabrication_released', 'climbing_released'])
+        assert.equal(nextConstraint[key], false);
+    }
     const methods = JSON.parse(bound(index.connection_method_evaluation));
     assert.equal(methods.schema, 'eoere_standard_stock_connection_method_evaluation/v1');
     assert.equal(methods.revision, revision);

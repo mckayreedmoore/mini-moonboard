@@ -4,8 +4,8 @@ This is the main entry for `compact-bolted-frame-development`.
 The current geometry is **`v10-standard-4x6-top-and-sides-development-v1`**.
 The [owner constraint](owner-frame-v10/owner-standard-side-4x6-v1.json) is implemented: top and both sides are **standard nominal 4×6, actual 88.9 × 139.7 mm**.
 Fresh geometry, all six cases and both replays, net sections, grips, rear-joint geometry and clearance are complete. The old deeper-side results and bound group scenarios remain history.
-Lengths around 2539.8 mm remain provisional; custom packers are **not approved**.
-No purchase, fabrication, climbing or structural release. Failed probes and older evidence remain preserved.
+**Latest owner direction: [NO WOOD PACKERS in the next candidate](owner-frame-v10/owner-no-wood-packers-v1.json).** Packer-free outer-top geometry is being assessed; top and both sides stay standard 4×6.
+The current solved model/viewer still contains packers; its results cannot transfer to their removal. Old packer machining/allocation is on hold. Lengths remain provisional; no purchase, fabrication, climbing or structural release.
 
 [Preserved C13 viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear) ·
 [Selected 4×6 local viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
