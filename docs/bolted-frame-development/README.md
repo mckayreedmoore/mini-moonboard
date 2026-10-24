@@ -116,7 +116,7 @@ The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group
 calls for a justified physical-group replacement for 1/n, preserving forces
 and couples. Cross-standard efficiencies are comparisons only. Translating
 an angle cannot fix its internal top-grid pitch; no relocation is adopted.
-All 116 axes now have six-case signed-wrench coverage and conditional same-field material references; complete capacity remains unresolved.
+All 116 axes have six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.641384; these omit local couples and do not establish complete capacity.
 The current washer mean-pressure index is 0.152000. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
 The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
 body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw

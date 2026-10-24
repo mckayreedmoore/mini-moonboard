@@ -114,7 +114,30 @@
       "pure_bending_Fyb_MPa_sufficient_bound": 31.81151339519413
     }
   ],
-  "force_only_coverage": "The retained v1/v2 partial census and runnable six wood-only-axis extension remain conditional subchecks. No claim that all 92 two-media force-only rows have been consolidated is made here. Force-only P/Z omits free couples and cannot replace the same-field wrench assessment.",
+  "force_only_coverage": {
+    "case_rows_above_one": 0,
+    "diameter_selection": {
+      "axis_counts_by_selection_basis": {
+        "NDS full-body one-quarter thread-bearing exception": 10,
+        "NDS thread-root diameter": 82
+      },
+      "case_row_counts_by_selection_basis": {
+        "NDS full-body one-quarter thread-bearing exception": 60,
+        "NDS thread-root diameter": 492
+      },
+      "new_diameter_equation_or_manual_Dr_override_added": false,
+      "selected_root_or_body_dimensions_are_delivered_measurements": false,
+      "thread_root_selector_was_reused_from_frozen_helper": true
+    },
+    "eligible_axes": 92,
+    "eligible_case_rows": 552,
+    "governing_mode": "IV",
+    "interpretation": "Conditional G=0.50, generic Fyb=45 ksi and mixed-steel Fu=370 MPa/Fes scenarios. All six yield modes recomputed through the existing D/Dr selector. P/Z is force-only and omits local free couples, splitting and full group interaction. These are not full connection passes or adopted actual properties/factors.",
+    "maximum_axis": "lumber_leg_bolt_left_2",
+    "maximum_case": "a12-rear",
+    "maximum_conditional_demand_over_Z": 0.6413842818856554,
+    "three_media_not_applicable_axes": 24
+  },
   "frozen_matched_evaluation": {
     "path": "docs/bolted-frame-development/owner-frame-v10/standard-side-stock-evaluation.json",
     "sha256": "cd7f55bc1e85e352cc2fa2ee360edcf26acaa5f80bd16104804cf184f39d2023"
@@ -249,6 +272,10 @@
     "top_variational_upper_to_gamma": 0.17845422
   },
   "source_bindings": {
+    "all92_force_only": {
+      "path": "fea/generated/v10-standard-side-stock-v1/connections/coverage/current-116-axis-coverage-all92-v4.json",
+      "sha256": "f3c0d8dab39408664d67f15413375b0c530a4b184755dcff9e10a7ec6e0e1250"
+    },
     "atlas": {
       "path": "fea/generated/v10-standard-side-stock-v1/connections/wrench-coverage/current-wrench-coverage-final-v4.json",
       "sha256": "bf07bc0fe209825091574c7cfbeb60537cb08cd01f694e559cf651e98b0c3696"
