@@ -100,7 +100,7 @@ no Hillman resistance or force-slip index is qualified.
 The [continuation](owner-frame-v10/continuation-evaluation.json) preserves C13 work.
 The active criteria use physical rows/shear planes and complete force/moment transfer.
 Signature 1/n remains diagnostic only. Historical row and equal-EA benchmarks are not transferred as current force/capacity results;
-actual Cg, the cleat three-media factor and complete connection acceptance remain null.
+actual Cg, the cleat three-media factor and complete connection acceptance remain null. Current descriptor arithmetic also finds no demonstrated NDS-equivalent joint-slip calibration; the local foundation coefficients are a separate model.
 Panel-screw work is deferred and the agent review loop is suspended.
 
 The [center-principal correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt)
@@ -117,7 +117,7 @@ The [current criterion dispositions](owner-frame-v10/packer-free/connection-crit
 The [contact-law evaluation](owner-frame-v10/packer-free/contact-law-evaluation.json) confirms separate member faces carry compression only; each glued cleat remains one perfect-composite body. Eligible sawn-face mean-pressure indices peak at 0.106579 for angle contacts and 0.073159 for timber contacts; physical peaks, stiffness and finite-motion validity remain unqualified. Panels and plywood resistance are excluded.
 The [sawn connection shear evaluation](owner-frame-v10/packer-free/sawn-connection-shear-evaluation.json) supports 54 additional group screens / 324 case rows with finished-BRep geometry or contained cores; maximum optional envelope index is 0.964303. Actual member depth is retained in the reference denominator. Corrected principal-profile ordering reproduces the 33.704 mm near edge and removes two erroneous method exclusions; the 068/069 net-away correction and separate oblique/eccentric/splitting checks remain unchanged.
 The [fitting gross-strip reference](owner-frame-v10/packer-free/fitting-gross-strip-reference.json) recovers all 144 saved fitting states and gives an ideal unperforated, free-warping strip stress bound of 80.57 MPa. Actual steel yield, holes, formed heel and complete fitting strength remain unqualified.
-The current washer mean-pressure index is 0.181365. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open.
+The current washer mean-pressure index is 0.181365. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open. A separate unselected trial is screening omission of the four center near-row beam axes while retaining two far-row beam bolts per angle; the current 112-bolt geometry remains unchanged.
 The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
 body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw
 connections, and finite-motion/contact/support applicability. Numerical
