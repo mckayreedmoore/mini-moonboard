@@ -38,6 +38,12 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-packer-free-center-far-row-preview')
+    return [
+      {label: 'Current development and trial status', path: current + 'README.md'},
+      {label: 'Builder scope and holds', path: current + 'builder-plan.md'},
+      {label: 'Owner direction: no wood packers', path: current + 'owner-frame-v10/owner-no-wood-packers-v1.json'},
+    ];
   if (model === 'eoere-packer-free-standard-stock-preview')
     return [
       {label: 'Own six-case response bank', path: 'docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json'},

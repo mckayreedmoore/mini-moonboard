@@ -10,6 +10,8 @@ import {gunzipSync} from 'node:zlib';
 import {validatePackerFreeProvenance, validatePackerFreeDelta, PACKER_FREE_MODEL,
   PACKER_FREE_REVISION} from '../site/eoere-packer-free-overlay.mjs';
 import {validatePackerFreeResults, PACKER_FREE_RESULTS_ASSET} from '../site/eoere-packer-free-results.mjs';
+import {validateCenterFarRowScene, validateCenterFarRowProvenance, CENTER_FAR_ROW_MODEL,
+  CENTER_FAR_ROW_REVISION, CENTER_FAR_ROW_ASSETS} from '../site/eoere-center-far-row-overlay.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateSelectedHardware} from '../site/eoere-selected-hardware-overlay.mjs';
@@ -1906,6 +1908,64 @@ export function validatePackerFreeMethodEvaluation(methods, index) {
   return methods;
 }
 
+export function validateUnselectedCenterFarRowTrial(entry, report, provenance) {
+  validateCenterFarRowProvenance(provenance);
+  assert.equal(entry.revision, CENTER_FAR_ROW_REVISION);
+  referenceBinding(entry.evaluation, 'docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/evaluation.json');
+  assert.equal(entry.viewer.model, CENTER_FAR_ROW_MODEL);
+  referenceBinding(entry.viewer.provenance, 'site/eoere-center-far-row-provenance.json');
+  assert.equal(entry.viewer.provenance.sha256, CENTER_FAR_ROW_ASSETS.sha256);
+  assert.deepEqual(entry.viewer.scene, {path: provenance.scene.path, sha256: provenance.scene.sha256});
+  referenceBinding(entry.viewer.adapter, 'site/eoere-center-far-row-overlay.mjs');
+  assert.equal(report.schema, 'v10_center_far_row_unselected_evaluation/v1');
+  assert.equal(report.revision, entry.revision);
+  for (const row of [entry, report.qualifications])
+    for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized'])
+      assert.equal(row[key], false);
+  assert.equal(entry.selected, false); assert.equal(report.selected, false);
+  referenceBinding(report.bindings.response_bank,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/response-bank.json');
+  referenceBinding(report.bindings.checked_receipt,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/geometry-receipt.json');
+  assert.equal(report.bindings.response_bank.sha256, provenance.sources.response_bank.sha256);
+  assert.equal(report.bindings.checked_receipt.sha256, provenance.sources.geometry_receipt.sha256);
+  referenceBinding(report.bindings.physical_geometry,
+    'fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json');
+  assert.equal(report.bindings.physical_geometry.sha256, provenance.geometry_sha256);
+  assert.deepEqual(report.geometry.counts, {...provenance.counts, wood_packers: 0});
+  assert.deepEqual(report.geometry.top_and_sides_actual_mm, [88.9, 139.7]);
+  assert.deepEqual([...report.geometry.removed_axis_ids].sort(), [5, 6, 7, 8].map(n => `v10_top_bolt_00${n}`));
+  assert.deepEqual(report.load_contract, provenance.load_contract);
+  const vectors = {left_side: 'base_side_left', right_side: 'base_side_right', top: 'base_rail_top', header: 'base_header'};
+  referenceKeys(report.vector_references, Object.keys(vectors), 'own unselected vector references');
+  for (const [key, component] of Object.entries(vectors))
+    referenceClose(report.vector_references[key], provenance.declared_vector_references[component].index, `unselected ${key}`);
+  const diagnostics = report.bearing_diagnostics;
+  assert.equal(diagnostics.case_rows, 15); assert.equal(diagnostics.component_count, 8);
+  assert.equal(diagnostics.flags.length, 15);
+  assert.equal(new Set(diagnostics.flags.map(row => `${row.case}/${row.axis}`)).size, 15);
+  assert.equal(new Set(diagnostics.flags.map(row => row.axis)).size, 8);
+  assert.equal(diagnostics.actual_Cg, null); assert.equal(diagnostics.actual_Cdelta, null);
+  for (const row of diagnostics.flags) {
+    assert.ok(CURRENT_CASES.includes(row.case) && typeof row.axis === 'string' && row.axis.length > 0);
+    assert.ok(Number.isFinite(row.trial_index) && row.trial_index > 1);
+    assert.ok(Number.isFinite(row.trial_Cg) && row.trial_Cg > 0 && row.trial_Cg <= 1);
+    referenceIndex(row.individual_before_Cg, 'unselected individual bearing reference');
+    referenceClose(row.trial_index * row.trial_Cg, row.individual_before_Cg, 'unselected diagnostic factor arithmetic');
+  }
+  const maximum = provenance.declared_family_maxima.wood_bearing_whole_affine;
+  assert.ok(diagnostics.flags.some(row => row.case === maximum.case_id && row.axis === maximum.component && row.trial_index === maximum.index));
+  assert.equal(Math.max(...diagnostics.flags.map(row => row.trial_index)), maximum.index);
+  assert.equal(report.qualifications.complete_joint_qualified, false);
+  assert.equal(report.qualifications.complete_connection_acceptance, null);
+  assert.equal(report.qualifications.panel_screw_resolution_deferred, true);
+  assert.equal(report.qualifications.physical_force_bounds_established, false);
+  return {revision: report.revision, viewer_model: entry.viewer.model, selected: false, bolt_axes: 108, occupied_parts: 1105,
+    bearing_diagnostic_case_rows: 15, bearing_diagnostic_components: 8, actual_Cg: null, actual_Cdelta: null,
+    complete_connection_acceptance: null, complete_joint_qualified: false, structural_acceptance: false,
+    fabrication_released: false, climbing_released: false, purchase_authorized: false};
+}
+
 const PACKER_FREE_FOLLOWUP_SCHEMAS = {
   primary_method_closure: 'v10_packer_free_primary_method_closure_summary/v1',
   geometry_method_followup: 'v10_geometry_method_followup/v1',
@@ -2232,9 +2292,29 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
     assert.equal(viewerModel(html, viewer.model), viewer.model);
     assert.ok(html.includes("import {loadPackerFreeResultsScene} from './eoere-packer-free-results.mjs'"));
+    const unselectedTrials = {};
+    const trial = index.unselected_trials?.center_far_row_only;
+    if (trial !== undefined) {
+      assert.ok(trial && typeof trial === 'object' && !Array.isArray(trial), 'unselected trial record required');
+      const provenance = validateCenterFarRowProvenance(JSON.parse(bound(trial.viewer.provenance)));
+      const report = JSON.parse(bound(trial.evaluation));
+      const metadata = validateUnselectedCenterFarRowTrial(trial, report, provenance);
+      bound(trial.viewer.adapter);
+      const decoded = gunzipSync(bound(trial.viewer.scene));
+      assert.equal(sha(decoded), provenance.scene.decoded_sha256);
+      const scene = validateCenterFarRowScene(JSON.parse(decoded));
+      assert.deepEqual(report.bindings.physical_geometry, scene.geometry_source);
+      assert.deepEqual(scene.geometry_receipt, provenance.sources.geometry_receipt);
+      assert.deepEqual(provenance.parent_results, viewer.results_json);
+      assert.deepEqual(scene.parent_results, viewer.results_json);
+      bound(report.bindings.response_bank); bound(report.bindings.checked_receipt);
+      assert.equal(viewerModel(html, trial.viewer.model), trial.viewer.model);
+      unselectedTrials.center_far_row_only = metadata;
+    }
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);
-    return {passed: true, ...optionalRearFoot, revision: index.geometry.revision, bolt_axes: 112, screw_axes: 66, angles: 24,
+    return {passed: true, ...optionalRearFoot, unselected_trials: unselectedTrials,
+      revision: index.geometry.revision, bolt_axes: 112, screw_axes: 66, angles: 24,
       occupied_parts: 1125, spacer_pieces: 40, wood_packers: 0, current_response_revision: index.geometry.revision,
       repository_viewer_integrated: true, repository_viewer_model: viewer.model, geometry_only: false,
       reference_case_exceedances: 15, reference_component_exceedances: 8, bearing_diagnostic_case_rows: 15,

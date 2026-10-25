@@ -1,0 +1,419 @@
+{
+  "analysis": {
+    "admission_gate": 1e-05,
+    "cases": 6,
+    "climber_load_lowered": false,
+    "deadweight_change_N": 3.822982074574611,
+    "independent_replays_per_case": 2,
+    "maximum_gradient": 3.2589200018499127e-06
+  },
+  "bearing_diagnostics": {
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "case_rows": 15,
+    "component_count": 8,
+    "flags": [
+      {
+        "axis": "lumber_leg_bolt_left_1",
+        "case": "a12-forward",
+        "individual_before_Cg": 0.629903721818759,
+        "trial_Cg": 0.5,
+        "trial_index": 1.259807443637518
+      },
+      {
+        "axis": "eoere_bolt_067",
+        "case": "a12-forward",
+        "individual_before_Cg": 0.5574104725639473,
+        "trial_Cg": 0.5,
+        "trial_index": 1.1148209451278945
+      },
+      {
+        "axis": "lumber_leg_bolt_left_2",
+        "case": "a12-forward",
+        "individual_before_Cg": 0.7811433381687962,
+        "trial_Cg": 0.5,
+        "trial_index": 1.5622866763375924
+      },
+      {
+        "axis": "lumber_leg_bolt_left_1",
+        "case": "a12-left",
+        "individual_before_Cg": 0.6880114352936026,
+        "trial_Cg": 0.5,
+        "trial_index": 1.3760228705872053
+      },
+      {
+        "axis": "eoere_bolt_067",
+        "case": "a12-left",
+        "individual_before_Cg": 0.518345399695723,
+        "trial_Cg": 0.5,
+        "trial_index": 1.036690799391446
+      },
+      {
+        "axis": "v10_header_bolt_001",
+        "case": "a12-left",
+        "individual_before_Cg": 0.2672990597697848,
+        "trial_Cg": 0.25,
+        "trial_index": 1.0691962390791392
+      },
+      {
+        "axis": "lumber_leg_bolt_left_2",
+        "case": "a12-left",
+        "individual_before_Cg": 0.8384245568954014,
+        "trial_Cg": 0.5,
+        "trial_index": 1.6768491137908028
+      },
+      {
+        "axis": "lumber_leg_bolt_left_1",
+        "case": "a12-rear",
+        "individual_before_Cg": 0.8312477263664949,
+        "trial_Cg": 0.5,
+        "trial_index": 1.6624954527329898
+      },
+      {
+        "axis": "lumber_leg_bolt_left_2",
+        "case": "a12-rear",
+        "individual_before_Cg": 0.9850212739846134,
+        "trial_Cg": 0.5,
+        "trial_index": 1.9700425479692267
+      },
+      {
+        "axis": "lumber_leg_bolt_right_1",
+        "case": "k12-right",
+        "individual_before_Cg": 0.6787184811624306,
+        "trial_Cg": 0.5,
+        "trial_index": 1.3574369623248612
+      },
+      {
+        "axis": "eoere_bolt_070",
+        "case": "k12-right",
+        "individual_before_Cg": 0.5147932711209895,
+        "trial_Cg": 0.5,
+        "trial_index": 1.029586542241979
+      },
+      {
+        "axis": "v10_header_bolt_004",
+        "case": "k12-right",
+        "individual_before_Cg": 0.2674714166081894,
+        "trial_Cg": 0.25,
+        "trial_index": 1.0698856664327576
+      },
+      {
+        "axis": "lumber_leg_bolt_right_2",
+        "case": "k12-right",
+        "individual_before_Cg": 0.8276417041421839,
+        "trial_Cg": 0.5,
+        "trial_index": 1.6552834082843677
+      },
+      {
+        "axis": "lumber_leg_bolt_right_1",
+        "case": "k12-rear",
+        "individual_before_Cg": 0.8203805281211277,
+        "trial_Cg": 0.5,
+        "trial_index": 1.6407610562422554
+      },
+      {
+        "axis": "lumber_leg_bolt_right_2",
+        "case": "k12-rear",
+        "individual_before_Cg": 0.9715547057234978,
+        "trial_Cg": 0.5,
+        "trial_index": 1.9431094114469956
+      }
+    ],
+    "interpretation": "Historical receiver-signature 1/n diagnostics retained. The raw universal lower-bound wording is unsupported: these are neither qualified NDS factors nor established whole-joint conservative bounds. Before-Cg values are local references, not complete connection capacities."
+  },
+  "bindings": {
+    "axial_net_section": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/splitting/net-section/current-family-axis-coverage-v2.json",
+      "sha256": "c98aff7ab69607ba1fbec3089c6e6be50fad7e38b2a1ef24e6cbf7f65c8db578"
+    },
+    "checked_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/geometry-receipt.json",
+      "sha256": "608451425411001f14c768d5ee881fdf686d1d2296749b921390f0a1b7689a79"
+    },
+    "contact": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/contact-law/contact-mean-review.json",
+      "sha256": "8c5838c6c617407db88062cf22684ba91108324a2e6efb587beba7badc16c1b9"
+    },
+    "fitting": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/fitting/gross-strip-current-v1/current-six-case-gross-strip-recovery-v2.json",
+      "sha256": "9d7e131e52ffa45f286b41e32a0d57a1160f7d298ff1131d3490141307b1325d"
+    },
+    "force_only": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/force-only/force-only-tr12-v1.json",
+      "sha256": "5fbb5ae16ab78d0dce255034d7e789289478de16561c5e6341f05a17da1dacd5"
+    },
+    "geometry_media_proof": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/retained-axis-geometry-media-proof-v1.json",
+      "sha256": "f3761bff916ecb818839f8ba676861a3b3fd2299b6b3f64eac92a445f8b6a8a4"
+    },
+    "hardware": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/hardware-reuse-audit.json",
+      "sha256": "55d7b51d54553ad7164e464b0c732965a8356b9c1dab5edd2b5b88961de1bf7c"
+    },
+    "local_shear": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/local-connection-shear-v1/current-center-far-shear-summary-attempt07.json",
+      "sha256": "5df696fb621d3641abcad18eb9c3bc80ada2038493dc6eb465774d014997325a"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json",
+      "sha256": "ef95c7e8c6727e3fd4051c2de0ff70e8947466ec15d2809d5df5a67c309330bd"
+    },
+    "reference_provenance": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/reference-readiness/runs/analysis-v2-center-far-row-v4/authoritative-reference-provenance-v1.json",
+      "sha256": "9b8608dc66ec0e41aa12077ced0a6d92ab8487acc1337a69bd12f343097c96ac"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/response-bank.json",
+      "sha256": "0175c7882231a24a35fd44b15b21919143f6c6a2abc9e91e623a9b6215c70bdd"
+    },
+    "same_field": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/same-field-material-reference-v1.json",
+      "sha256": "f6c24075f7983d9ea4377f3179240d826ce513697ddc80969af0296b20a72e2e"
+    },
+    "top_actions": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/top-grid/fresh-top-wrenches-v1.json",
+      "sha256": "4b41aeef29a752ba6a50a3a0680810acaaa87ba70f200ca4e98cf0f98c23ed04"
+    },
+    "viewer_validation": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/viewer/validation-v1.json",
+      "sha256": "c07a3240d9700be7b6962d5fd51658a1c95907c6d00028798e9ec0f5924a90a8"
+    },
+    "washer": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/washer-face/current-washer-mean-review.json",
+      "sha256": "ffdfa41b6094e204e52416a823fc363bfcf7490a8d3d7f73eb41b21848ae7207"
+    }
+  },
+  "conditional_subchecks": {
+    "axial_net_section": {
+      "case_rows": 72,
+      "complete_E2_qualified": false,
+      "maximum_positive_tension_reference": 0.02552342594,
+      "sawn_planes": 12
+    },
+    "contact_mean": {
+      "flange_reference": 0.106417062,
+      "physical_contact_qualified": false,
+      "timber_reference": 0.074378539
+    },
+    "fitting_gross_strip": {
+      "actual_Fy_MPa": null,
+      "hole_and_formed_heel_strength_qualified": false,
+      "maximum_required_Fy_MPa": 79.9330213248,
+      "states": 144
+    },
+    "force_only_TR12": {
+      "maximum_reference": 0.638095,
+      "moments_and_axial_included": false,
+      "rows": 528,
+      "three_media_rows_not_applicable": 120
+    },
+    "hardware": {
+      "delivered_thread_body_fit_access_qualified": false,
+      "nominal_spacers": {
+        "13731": 20,
+        "13733": 20
+      },
+      "retained_stack_recipes": 108
+    },
+    "local_shear": {
+      "actual_loaded_edge_classification": null,
+      "coverage": {
+        "current_sawn_group_count": 58,
+        "current_top_groups_recomputed": [
+          [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ]
+        ],
+        "event_sided_cut_records": 3768,
+        "full_cut_records_including_two_band_ends_per_row": 4464,
+        "group_count_by_host": {
+          "base_floor_left": 2,
+          "base_floor_right": 2,
+          "base_header": 4,
+          "base_post_center_left": 1,
+          "base_post_center_right": 1,
+          "base_post_outer_left": 2,
+          "base_post_outer_right": 2,
+          "base_principal_center_left": 5,
+          "base_principal_center_right": 5,
+          "base_rail_bottom_left": 2,
+          "base_rail_bottom_right": 2,
+          "base_rail_service_lower_left": 2,
+          "base_rail_service_lower_right": 2,
+          "base_rail_service_upper_left": 2,
+          "base_rail_service_upper_right": 2,
+          "base_rail_top": 4,
+          "base_side_left": 7,
+          "base_side_right": 7,
+          "lumber_leg_left": 2,
+          "lumber_leg_right": 2
+        },
+        "optional_component_exceedance_row_count": 2,
+        "per_group_current_member_force_and_moment_closure": true,
+        "prior112_axis_forces_or_cut_wrenches_reused": false,
+        "prior_outer_top_forces_reused": false,
+        "six_case_group_rows": 348
+      },
+      "established_NDS_violation": false,
+      "optional_both_edge_rows": [
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "b_d_actual_mm": [
+            50.8,
+            139.70000002065376
+          ],
+          "duty": "rear-foot",
+          "geometry_status": "rectangular_sawn_bearing_band",
+          "host": "lumber_leg_left",
+          "max_optional_two_edge_ratio": 1.094730691212432,
+          "nearest_end_mm": 72.53985929504597,
+          "worst_case": "a12-left",
+          "worst_case_end_branch": "3.4-6"
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "b_d_actual_mm": [
+            50.800000000000004,
+            139.70000002065376
+          ],
+          "duty": "rear-foot",
+          "geometry_status": "rectangular_sawn_bearing_band",
+          "host": "lumber_leg_right",
+          "max_optional_two_edge_ratio": 1.0962072241131822,
+          "nearest_end_mm": 72.53985929504597,
+          "worst_case": "k12-right",
+          "worst_case_end_branch": "3.4-6"
+        }
+      ]
+    },
+    "principal_068_069": {
+      "both_edge_4D_screen_optional": true,
+      "established_near_edge_NDS_violation": false,
+      "near_edge_mm": 33.70429493057847,
+      "net_force_away_from_near_edge_cases": 12,
+      "oblique_eccentric_splitting_qualified": false
+    },
+    "top_geometry": {
+      "actual_Cdelta": null,
+      "complete_row_oblique_applicability": null,
+      "conditional_parallel_tension_7D_mm": 66.675,
+      "far_pair_spacing_mm": 50.8,
+      "former_41_275_mm_center_pitch_removed": true,
+      "near_end_mm": 65.0875
+    },
+    "washer_mean": {
+      "maximum_reference": 0.180177655,
+      "preload_qualified": false,
+      "rows": 588
+    }
+  },
+  "family_references": {
+    "cleat_actual_perimeter_rows": {
+      "case_id": "a12-forward",
+      "component": "eoere_cleat_left",
+      "index": 0.6619898841298951
+    },
+    "direct_elastic_steel": {
+      "case_id": "a12-forward",
+      "component": "eoere_bolt_067",
+      "index": 0.42016545959924495
+    },
+    "reduced_connection_axial_bending": {
+      "case_id": "a12-forward",
+      "component": "eoere_bolt_067",
+      "index": 0.9911027229384809
+    },
+    "timber_net_shear_torsion": {
+      "case_id": "a12-rear",
+      "component": "base_side_left",
+      "index": 0.9244934112235215
+    },
+    "timber_normal_and_stability": {
+      "case_id": "a12-left",
+      "component": "lumber_leg_left",
+      "index": 0.8010883727737207
+    },
+    "wood_bearing_whole_affine": {
+      "case_id": "a12-rear",
+      "component": "lumber_leg_bolt_left_2",
+      "index": 1.9700425479692267
+    }
+  },
+  "geometry": {
+    "counts": {
+      "Hillman_axes": 66,
+      "angles": 24,
+      "bolt_stacks": 108,
+      "occupied_parts": 1105,
+      "panels": 6,
+      "plywood_cleats": 4,
+      "sawn_members": 20,
+      "spacer_pieces": 40,
+      "washers": 216,
+      "wood_packers": 0
+    },
+    "fresh_stock_only": true,
+    "removed_axis_ids": [
+      "v10_top_bolt_005",
+      "v10_top_bolt_006",
+      "v10_top_bolt_007",
+      "v10_top_bolt_008"
+    ],
+    "retained_top_bolts_per_angle": 2,
+    "top_and_sides_actual_mm": [
+      88.9,
+      139.7
+    ]
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "qualifications": {
+    "climbing_released": false,
+    "complete_connection_acceptance": null,
+    "complete_joint_qualified": false,
+    "fabrication_released": false,
+    "panel_screw_resolution_deferred": true,
+    "physical_force_bounds_established": false,
+    "purchase_authorized": false,
+    "structural_acceptance": false
+  },
+  "remaining": [
+    "Establish compatible capacity mapping for signed lateral forces, local moments, axial actions and unequal media; force-only and same-field references are incomplete.",
+    "Qualify actual physical rows, oblique end/edge applicability, group redistribution and splitting; neither adopt 1/n nor automatically replace it with 1.",
+    "Resolve the conditional near-end top tension branch and the two rear-foot optional both-edge envelopes using actual action classification.",
+    "Qualify formed-angle holes/heel/local strength, delivered body/thread/grip/washer/spacer/access, actual wood grade/moisture/sections, cleat plywood and bond, supports and finite-motion/contact assumptions.",
+    "Owner selection of this 108-bolt trial remains pending; existing 112-bolt development selection and baseline remain unchanged. Panel screw resistance remains owner-deferred."
+  ],
+  "revision": "v10-packer-free-center-far-row-only-development-v1",
+  "schema": "v10_center_far_row_unselected_evaluation/v1",
+  "selected": false,
+  "status": "Unselected conditional development trial; selected 112-bolt development authority unchanged.",
+  "vector_references": {
+    "header": 0.5885520338229137,
+    "left_side": 0.9244934112235215,
+    "right_side": 0.881708949145358,
+    "top": 0.5910460749211319
+  }
+}

@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -328,6 +328,53 @@ for (const [name, mutate] of [
     'docs/bolted-frame-development/owner-frame-v10/packer-free/sawn-connection-shear-evaluation.json')));
   mutate(report, index);
   assert.throws(() => validatePackerFreeSawnReference(report, index));
+});
+
+test('optional center-far-row metadata can be absent without changing current112 or selected baseline', () => {
+  const index = readPackerFreeIndex(); delete index.unselected_trials;
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.deepEqual(result.unselected_trials, {});
+});
+
+test('unselected center-far-row trial reports108 separately from current112 without a release', () => {
+  const index = readPackerFreeIndex(), result = checkCurrentDevelopment(index, {entryChecks: false});
+  const trial = result.unselected_trials.center_far_row_only;
+  assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
+  assert.equal(result.bearing_diagnostic_case_rows, 15);
+  assert.equal(trial.revision, 'v10-packer-free-center-far-row-only-development-v1');
+  assert.equal(trial.bolt_axes, 108); assert.equal(trial.occupied_parts, 1105); assert.equal(trial.selected, false);
+  assert.equal(trial.bearing_diagnostic_case_rows, 15); assert.equal(trial.bearing_diagnostic_components, 8);
+  assert.equal(trial.actual_Cg, null); assert.equal(trial.complete_connection_acceptance, null);
+  assert.equal(trial.complete_joint_qualified, false); assert.equal(trial.fabrication_released, false);
+  assert.equal(result.full_ignored_input_closure_checked, false);
+});
+
+for (const [name, mutate] of [
+  ['current112 bank substituted', (e, r, i) => {r.bindings.response_bank = i.response_bank;}],
+  ['current112 bank relabeled', (e, r, i) => {r.bindings.response_bank.sha256 = i.response_bank.sha256;}],
+  ['erased bearing flag', (e, r) => {r.bearing_diagnostics.flags.pop();}],
+  ['duplicate bearing flag', (e, r) => {r.bearing_diagnostics.flags[1] = r.bearing_diagnostics.flags[0];}],
+  ['actual Cg adopted', (e, r) => {r.bearing_diagnostics.actual_Cg = 1;}],
+  ['actual Cdelta adopted', (e, r) => {r.bearing_diagnostics.actual_Cdelta = 1;}],
+  ['trial entry selected', e => {e.selected = true;}],
+  ['assessment selected', (e, r) => {r.selected = true;}],
+  ['entry fabrication release', e => {e.fabrication_released = true;}],
+  ['complete joint qualified', (e, r) => {r.qualifications.complete_joint_qualified = true;}],
+  ['assessment purchase authority', (e, r) => {r.qualifications.purchase_authorized = true;}],
+  ['nonstandard side stock', (e, r) => {r.geometry.top_and_sides_actual_mm = [88.9, 152.4];}],
+  ['wrong bolt count', (e, r) => {r.geometry.counts.bolt_stacks = 112;}],
+  ['prior outer removals conflated', (e, r) => {r.geometry.removed_axis_ids.push('v10_top_bolt_001');}],
+  ['load multiplier changed', (e, r) => {r.load_contract.downward_multiplier = 1;}],
+  ['wrong trial viewer', (e, r, i) => {e.viewer.model = i.geometry.viewer;}],
+  ['wrong schema', (e, r) => {r.schema = 'unbound-trial-summary/v1';}],
+]) test(`reject unselected center-far-row trial ${name}`, () => {
+  const index = readPackerFreeIndex(), entry = index.unselected_trials.center_far_row_only;
+  const report = JSON.parse(readFileSync(path.join(ROOT, entry.evaluation.path)));
+  const provenance = JSON.parse(readFileSync(path.join(ROOT, entry.viewer.provenance.path)));
+  mutate(entry, report, index);
+  assert.throws(() => validateUnselectedCenterFarRowTrial(entry, report, provenance));
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],

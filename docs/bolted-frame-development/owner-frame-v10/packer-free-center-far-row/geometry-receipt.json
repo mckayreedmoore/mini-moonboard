@@ -1,0 +1,386 @@
+{
+  "actual_parts_verified": false,
+  "applicability_screen": {
+    "actual_Cdelta_adopted": null,
+    "actual_loaded_end_and_edge_classification": null,
+    "center_far_pair_separation_mm": 50.8,
+    "conditional_perpendicular_5D_row_marker_mm": 47.625,
+    "conditional_softwood_parallel_tension_7D_marker_mm": 66.675,
+    "far_outer_end_distance_mm": 65.0875,
+    "note": "This trial removes the current center two-station grid; it does not qualify oblique Table-D applicability, loaded-edge/end classification, group action, splitting, or capacity. The conditional 7D outer-end marker remains 1.5875 mm short where that branch applies.",
+    "oblique_row_classification": null,
+    "parallel_between_row_spacing_marker_mm": 14.2875,
+    "parallel_compression_full_value_end_Cdelta1p0_mm": 38.1,
+    "parallel_compression_minimum_end_Cdelta0p5_mm": 19.05,
+    "parallel_in_row_full_value_spacing_mm": 38.1,
+    "parallel_in_row_minimum_spacing_mm": 28.575
+  },
+  "build_manifest": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/build-manifest.json",
+    "sha256": "fb214bb4597c3607ac8948c7917bdcc770fcf3be61d16c331770425c36150c59"
+  },
+  "checked_clearance": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/clearance.json",
+    "sha256": "3b6d284bf7b51f2967cf335ae4cf2214cc871e7e72a7763542632ffc4f131bb4"
+  },
+  "checked_geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json",
+    "sha256": "ef95c7e8c6727e3fd4051c2de0ff70e8947466ec15d2809d5df5a67c309330bd"
+  },
+  "clearance_command_executed": "PYTHONPATH=/home/mckay-linux/repos/mini-moonboard uv run python scripts/eoere_leg_header_clearance.py fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/clearance.json",
+  "clearance_required": false,
+  "clearance_summary": {
+    "actual_tools_or_hardware_verified": false,
+    "changed_parts": 614,
+    "collisions": 0,
+    "exact_queries": 1194,
+    "intentional_screw_engagements": 78,
+    "missing_candidates": 0,
+    "nominal_geometry_clear": true,
+    "occupied_part_count": 1105,
+    "release": false,
+    "strength_qualified": false
+  },
+  "climbing_released": false,
+  "command": "uv run python fea/generated/v10-packer-free-center-far-row-v1/geometry-proposal/build_center_far_row_v1.py --build",
+  "counts": {
+    "angles": 24,
+    "bolts": 108,
+    "changed_finished_solid_descriptors": 614,
+    "expected_occupied_parts_before_clearance": 1105,
+    "occupied_parts_checked": 1105,
+    "panel_screw_axes": 66,
+    "removed_axes": 4,
+    "removed_hardware_parts": 20,
+    "spacer_pieces": 40
+  },
+  "exact_source_delta_audit": {
+    "fitting_pose_rows_equal_source": true,
+    "nonrail_finished_solid_descriptors_equal_source_except_removed_parts": true,
+    "nonrail_profile_records_equal_source": true,
+    "removed_axis_ids": [
+      "v10_top_bolt_005",
+      "v10_top_bolt_006",
+      "v10_top_bolt_007",
+      "v10_top_bolt_008"
+    ],
+    "retained_axis_count": 108,
+    "retained_axis_rows_canonical_sha256": "c8016380dba70d311fe71bf3803a8d6be0fbb2deef2df722898c75c5bf25844f",
+    "retained_axis_rows_equal_source": true,
+    "screw_axis_rows_equal_source": true,
+    "source_axis_count": 112,
+    "source_geometry": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "stack_rows_equal_source_minus_removed_axes": true,
+    "target_geometry": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json",
+      "sha256": "ef95c7e8c6727e3fd4051c2de0ff70e8947466ec15d2809d5df5a67c309330bd"
+    }
+  },
+  "export_helper": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-options/build_packer_free_flush_return_v1.py",
+    "sha256": "2c87e85fc2edde5444c32ed90e4b1a7e6702adc3fcf868bc17abb6c2973aef62"
+  },
+  "fabrication_released": false,
+  "fresh_matched_mechanics_required": true,
+  "fresh_stock_rail": {
+    "descriptor": {
+      "bounds_xyz_mm": [
+        -1130.3,
+        1127.1250000000002,
+        1371.4242802786132,
+        1535.584507484,
+        2088.3915960821605,
+        2246.2903761492603
+      ],
+      "bytes": 17110,
+      "center_of_mass_xyz_mm": [
+        -1.5683534466626925,
+        1453.5043938813112,
+        2167.340986115711
+      ],
+      "id": "base_rail_top",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/breps/base_rail_top.brep",
+      "sha256": "43a36738d4f50f02a1ddfcc322940ed413e135c6c136a93a2d3a15ccc63e4bd0",
+      "volume_mm3": 27976230.839272518
+    },
+    "finished_rail_volume_mm3": 27976230.839272518,
+    "fresh_stock_volume_mm3": 28035706.02549731,
+    "outer_stock_profile_unchanged": true,
+    "removed_stock_mm3": 59475.18622479215,
+    "restored_bores": [
+      {
+        "axis_id": "v10_top_bolt_005",
+        "finished_rail_cylinder_volume_mm3": 7434.398278097236,
+        "fresh_stock_cylinder_volume_mm3": 7434.398278097236,
+        "restoration_fraction": 1.0
+      },
+      {
+        "axis_id": "v10_top_bolt_006",
+        "finished_rail_cylinder_volume_mm3": 7434.398278097135,
+        "fresh_stock_cylinder_volume_mm3": 7434.398278097135,
+        "restoration_fraction": 1.0
+      },
+      {
+        "axis_id": "v10_top_bolt_007",
+        "finished_rail_cylinder_volume_mm3": 7434.398278097135,
+        "fresh_stock_cylinder_volume_mm3": 7434.398278097135,
+        "restoration_fraction": 1.0
+      },
+      {
+        "axis_id": "v10_top_bolt_008",
+        "finished_rail_cylinder_volume_mm3": 7434.398278097236,
+        "fresh_stock_cylinder_volume_mm3": 7434.398278097236,
+        "restoration_fraction": 1.0
+      }
+    ],
+    "retained_bore_count": 8,
+    "retained_bores": [
+      {
+        "axis_id": "eoere_bolt_001",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          -1065.2125,
+          1462.618774289,
+          2217.7184668933
+        ],
+        "removed_stock_mm3": 7434.398278097123
+      },
+      {
+        "axis_id": "eoere_bolt_005",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          -1065.2125,
+          1501.5338319989999,
+          2185.0648563213003
+        ],
+        "removed_stock_mm3": 7434.398278097224
+      },
+      {
+        "axis_id": "eoere_bolt_017",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          1062.0375,
+          1501.5338319989999,
+          2185.0648563213003
+        ],
+        "removed_stock_mm3": 7434.398278097224
+      },
+      {
+        "axis_id": "eoere_bolt_018",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          1062.0375,
+          1462.618774289,
+          2217.7184668933
+        ],
+        "removed_stock_mm3": 7434.398278097123
+      },
+      {
+        "axis_id": "eoere_bolt_022",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          -154.1375,
+          1501.5338319989999,
+          2185.0648563213003
+        ],
+        "removed_stock_mm3": 7434.398278097234
+      },
+      {
+        "axis_id": "eoere_bolt_023",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          -154.1375,
+          1462.618774289,
+          2217.7184668933
+        ],
+        "removed_stock_mm3": 7434.398278097133
+      },
+      {
+        "axis_id": "eoere_bolt_024",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          114.93749999999999,
+          1462.618774289,
+          2217.7184668933
+        ],
+        "removed_stock_mm3": 7434.398278097134
+      },
+      {
+        "axis_id": "eoere_bolt_028",
+        "diameter_mm": 10.31875,
+        "direction_xyz": [
+          0.0,
+          -0.64278761,
+          -0.766044443
+        ],
+        "point_xyz_mm": [
+          114.93749999999999,
+          1501.5338319989999,
+          2185.0648563213003
+        ],
+        "removed_stock_mm3": 7434.398278097236
+      }
+    ]
+  },
+  "geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json",
+    "sha256": "ef95c7e8c6727e3fd4051c2de0ff70e8947466ec15d2809d5df5a67c309330bd"
+  },
+  "geometry_adopted": false,
+  "limits": [
+    "The source response bank belongs to the 112-axis geometry; no forces or capacities transfer to this four-axis omission trial.",
+    "Factory-angle poses and hardware geometry remain modeled only; supplied parts, actual stock, contact, and access were not inspected.",
+    "No global mechanics, strength classification, installation access, physical drilling, fabrication, or climbing release was executed."
+  ],
+  "nominal_geometry_clear": true,
+  "owner_direction": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/docs/bolted-frame-development/owner-frame-v10/owner-no-wood-packers-v1.json",
+    "sha256": "4e6dd44cbad9f3102d3f01dca1fe70cb205fd5252add226a0bc25823af6b1424"
+  },
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-proposal/build_center_far_row_v1.py",
+    "sha256": "aad476b34be52fdccb5031ccbb4349637f41b0a6e254f9803f7cf2bc5f73b13a"
+  },
+  "raw_geometry_receipt": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/analysis-receipt.json",
+    "sha256": "879f161809428a25d0175c00a71cf6d3d660b9133c19604321566470c718effb"
+  },
+  "receipt_binding_producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-proposal/bind_checked_receipt_v1.py",
+    "sha256": "282570315f81976da32a0fb1135b306bf742c6b3532a723816c0f3a47f15d6b7"
+  },
+  "receipt_correction": {
+    "basis": "Exact source-to-target axis inventory diff: source112 minus only four v10_top_bolt_005\u2013008 leaves108 byte-identical retained axis rows.",
+    "correct_retained_axis_count": 108,
+    "field": "unchanged_invariants.all_other_104_bolt_axes",
+    "geometry_or_hardware_input_changed": false,
+    "raw_descriptive_count_is_erroneous": true,
+    "raw_geometry_receipt_sha256": "879f161809428a25d0175c00a71cf6d3d660b9133c19604321566470c718effb"
+  },
+  "receipt_metadata_correction_v2": {
+    "clauses": [
+      "12.5.1.2(a)/Table12.5.1A",
+      "12.5.1.2(c)/Table12.5.1B",
+      "12.5.1.3/Table12.5.1D"
+    ],
+    "geometry_or_mechanics_inputs_changed": false,
+    "interpretation": "2D is the minimum end distance for the conditional parallel-compression Cdelta0.5 branch, not row spacing. Parallel in-row minimum is3D and full-value spacing4D; parallel between-row spacing1.5D. No factor or loaded-end/row applicability is adopted.",
+    "printed_pages": [
+      98,
+      99
+    ],
+    "producer": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-center-far-row-v1/geometry-proposal/correct_checked_receipt_v2.py",
+      "sha256": "9299693cceb62db0de994f780b9dfce9793bb9a0436b4f80b7a975b45934c755"
+    },
+    "removed_mislabeled_field": "conditional_parallel_2D_row_marker_mm",
+    "source": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    }
+  },
+  "removed_axis_ids": [
+    "v10_top_bolt_005",
+    "v10_top_bolt_006",
+    "v10_top_bolt_007",
+    "v10_top_bolt_008"
+  ],
+  "removed_part_ids": [
+    "v10_top_bolt_005_head",
+    "v10_top_bolt_005_head_washer",
+    "v10_top_bolt_005_nut",
+    "v10_top_bolt_005_nut_washer",
+    "v10_top_bolt_005_shaft",
+    "v10_top_bolt_006_head",
+    "v10_top_bolt_006_head_washer",
+    "v10_top_bolt_006_nut",
+    "v10_top_bolt_006_nut_washer",
+    "v10_top_bolt_006_shaft",
+    "v10_top_bolt_007_head",
+    "v10_top_bolt_007_head_washer",
+    "v10_top_bolt_007_nut",
+    "v10_top_bolt_007_nut_washer",
+    "v10_top_bolt_007_shaft",
+    "v10_top_bolt_008_head",
+    "v10_top_bolt_008_head_washer",
+    "v10_top_bolt_008_nut",
+    "v10_top_bolt_008_nut_washer",
+    "v10_top_bolt_008_shaft"
+  ],
+  "revision": "v10-packer-free-center-far-row-only-development-v1",
+  "schema": "v10-packer-free-center-far-row-checked-receipt/v1",
+  "source_geometry": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+    "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+  },
+  "source_receipt": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/geometry-v1/analysis-receipt.json",
+    "sha256": "ecdbede40b87bbabe484740b55e9edf4ec9b253c9b578774e19ba04c38e1b950"
+  },
+  "status": "nominal occupied geometry clearance checked; unselected trial awaits fresh matched mechanics and connection qualification",
+  "stock_helper": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-standard-top-stock-v1/geometry-proposal/build_4x6_geometry.py",
+    "sha256": "6aff110b092df289dd9282d2c72caa0eb4cb32a91a178db40a2b592dee1ebe14"
+  },
+  "structural_acceptance": false,
+  "superseded_checked_receipt": {
+    "path": "fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "9446abefda5e2bcd6f86076cbc69482e0e08342118df63a795056aa300dd24c0"
+  },
+  "table_d_applicability_json": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/connections/method-closure/geometry/table-d-steel-side-oblique-applicability-v1.json",
+    "sha256": "be601e8e549cf2fc0e7b7a35e7cd3c320066723b7695d010f546cb3e3e25b599"
+  },
+  "table_d_applicability_note": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/connections/method-closure/geometry/table-d-steel-side-oblique-applicability-v1.md",
+    "sha256": "ee28c279890f3140d3d7494bd3190becfc9100692216ace71d6fc700c9d49dd1"
+  },
+  "unchanged_invariants": {
+    "all_nonrail_finished_solids_unchanged_except_removed_parts": true,
+    "fitting_poses": 24,
+    "fitting_poses_unchanged_from_source": true,
+    "retained_bolt_axis_rows": 108,
+    "retained_bolt_axis_rows_unchanged_from_source": true,
+    "screw_axes": 66,
+    "screw_axes_unchanged_from_source": true
+  }
+}
