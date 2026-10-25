@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -242,9 +242,92 @@ for (const [name, mutate] of [
   ['changed report bytes', r => {r.method_followups.contact_law_evaluation.sha256 = '0'.repeat(64);}],
   ['foreign public source', r => {r.method_followups.rear_foot_shear_evaluation = r.method_followups.primary_method_closure;}],
   ['omitted report', r => {delete r.method_followups.rear_foot_centering_screen;}],
+  ['changed fitting report', r => {r.method_followups.fitting_gross_strip_reference.sha256 = '0'.repeat(64);}],
+  ['changed sawn report', r => {r.method_followups.sawn_connection_shear_evaluation.sha256 = '0'.repeat(64);}],
 ]) test(`reject method followup reference ${name}`, () => {
   const index = readPackerFreeIndex(); mutate(index);
   assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+test('gross-strip fitting reference reports a required nominal Fy without adopting actual material or strength', () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/fitting-gross-strip-reference.json')));
+  const result = validatePackerFreeFittingReference(report, index);
+  assert.equal(result.fitting_gross_strip_case_states, 144); assert.equal(result.fitting_gross_strip_section_ends, 2304);
+  assert.equal(result.fitting_gross_strip_required_nominal_Fy_MPa, 80.57272595573455);
+  assert.equal(result.fitting_gross_strip_actual_Fy_MPa, null); assert.equal(result.fitting_gross_strip_strength_qualified, false);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {r.source_bindings.analysis_v2_response_bank = i.preceding_revision.response_bank;}],
+  ['foreign preparation', r => {r.source_bindings.analysis_v2_prepared_inputs.sha256 = '0'.repeat(64);}],
+  ['changed operator snapshot', r => {r.source_bindings.current_fitting_operator_snapshot.sha256 = '0'.repeat(64);}],
+  ['incomplete case coverage', r => {r.six_case_result.per_case_maximum_mpa.pop();}],
+  ['failed known coupon', r => {r.known_answer_control.passed = false;}],
+  ['actual Fy adopted', r => {r.six_case_result.actual_steel_fy = 80.57272595573455;}],
+  ['product strength claimed', r => {r.release.physical_fitting_strength = true;}],
+  ['fabrication release', r => {r.release.fabrication = true;}],
+]) test(`reject gross-strip fitting reference ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/fitting-gross-strip-reference.json')));
+  mutate(report, index);
+  assert.throws(() => validatePackerFreeFittingReference(report, index));
+});
+
+test('additional sawn model references integrate eight reports without changing bearing or optional foot flags', () => {
+  const index = readPackerFreeIndex(), result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(Object.keys(index.method_followups).length, 8);
+  assert.equal(result.additional_sawn_group_count, 54); assert.equal(result.additional_sawn_case_rows, 324);
+  assert.equal(result.additional_sawn_maximum_optional_envelope_ratio, 0.9643026546447111);
+  assert.equal(result.additional_sawn_component_acceptance, null);
+  assert.equal(result.additional_sawn_complete_joint_qualified, false);
+  assert.equal(result.additional_sawn_principal_common_core_exclusions, 0);
+  assert.equal(result.additional_sawn_principal_common_core_groups, 2);
+  assert.equal(result.additional_sawn_exclusions_are_NDS_violations, false);
+  assert.equal(result.additional_sawn_historical_producer_mismatch_disclosed, true);
+  assert.equal(result.fitting_gross_strip_case_states, 144); assert.equal(result.fitting_gross_strip_actual_Fy_MPa, null);
+  assert.equal(result.reference_case_exceedances, 15); assert.equal(result.optional_rear_foot_envelope_case_rows, 3);
+  assert.equal(result.full_ignored_input_closure_checked, false); assert.equal(result.structural_acceptance, false);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {Object.assign(r.current_bindings.six_case_response_bank, i.preceding_revision.response_bank);}],
+  ['foreign prepared inputs', r => {r.current_bindings.prepared_inputs.sha256 = '0'.repeat(64);}],
+  ['missing replay row', r => {r.fresh_six_case_replay.rows = 299;}],
+  ['missing complete cut', r => {r.fresh_six_case_replay.saved_full_cut_wrenches_replayed = 4031;}],
+  ['missing event side', r => {r.fresh_six_case_replay.missing_event_sides = 1;}],
+  ['post reference count made whole-frame', r => {r.prior_current_receiver_core_qualification.coverage.outer_post_component_references_recalculated = 300;}],
+  ['post-only maximum mislabeled', r => {
+    const coverage = r.prior_current_receiver_core_qualification.coverage;
+    coverage.max_optional_two_edge_envelope_ratio = coverage.max_outer_post_core_optional_two_edge_envelope_ratio;
+    delete coverage.max_outer_post_core_optional_two_edge_envelope_ratio;
+  }],
+  ['beveled post gross width substituted', r => {r.prior_current_receiver_core_qualification.outer_post_core_proof.core_bounds_mm.left_U = [0, 88.9];}],
+  ['inscribed depth used as denominator', r => {const core = r.additional_nonrectangular_current_groups.groups[0];
+    core.actual_profile_d_mm = core.inscribed_core_d_mm + 0.001;}],
+  ['loaded side edge adopted', r => {r.additional_nonrectangular_current_groups.group_maxima[0].loaded_edge = 'positive_v';}],
+  ['principal exclusion made violation', r => {r.additional_nonrectangular_current_groups.references.signed_edge_classification = 'NDS violation proven';}],
+  ['old false principal exclusions restored', r => {r.additional_nonrectangular_current_groups.principal_center_exclusions =
+    [{group: 'base_principal_center_left'}, {group: 'base_principal_center_right'}];}],
+  ['principal core witness omitted', r => {r.additional_nonrectangular_current_groups.groups.shift();}],
+  ['principal bore fit denied', r => {r.additional_nonrectangular_current_groups.groups[0].all_current_bore_circles_fit = false;}],
+  ['incorrect principal near edge', r => {r.additional_nonrectangular_current_groups.groups[0].near_edge_check.center_to_near_q_edge_mm = -8.47671697;}],
+  ['ordered-polygon assumption restored', r => {r.additional_nonrectangular_current_groups.current_profile_boundary_proof.vertex_ordering = 'vertices_luv_mm is an ordered boundary';}],
+  ['uncorrected source selected', r => {r.additional_nonrectangular_current_groups.source_result.path =
+    r.additional_nonrectangular_current_groups.source_result.path.replace('-v5.json', '-v4.json');}],
+  ['historical producer discrepancy hidden', r => {r.producer_identity_discrepancy.preserved_raw_claimed_V2_source.sha256 =
+    r.producer_identity_discrepancy.currently_available_V2_profile_helper.sha256;}],
+  ['separate foot flags erased', r => {r.separate_prior_screens.rear_foot_optional_envelope_flags.flags = [];}],
+  ['structural acceptance', r => {r.release.structural_acceptance = true;}],
+  ['invalid source digest', r => {r.additional_nonrectangular_current_groups.producer.sha256 = 'invalid';}],
+]) test(`reject sawn connection reference ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/sawn-connection-shear-evaluation.json')));
+  mutate(report, index);
+  assert.throws(() => validatePackerFreeSawnReference(report, index));
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],

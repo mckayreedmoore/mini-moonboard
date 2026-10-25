@@ -1913,7 +1913,126 @@ const PACKER_FREE_FOLLOWUP_SCHEMAS = {
   contact_law_evaluation: 'v10_packer_free_contact_law_evaluation/v1',
   rear_foot_shear_evaluation: 'v10_packer_free_rear_foot_shear_evaluation/v1',
   rear_foot_centering_screen: 'rear_foot_centering_screen_summary/v1',
+  fitting_gross_strip_reference: 'v10-packer-free-fitting-gross-strip-reference/v1',
+  sawn_connection_shear_evaluation: 'v10_packer_free_sawn_connection_shear_evaluation/v1',
 };
+
+export function validatePackerFreeFittingReference(report, index) {
+  assert.equal(report.schema, 'v10-packer-free-fitting-gross-strip-reference/v1');
+  assert.equal(report.candidate, index.geometry.revision);
+  assert.equal(report.status, 'CONDITIONAL_GROSS_STRIP_ELASTIC_REFERENCE_ONLY');
+  const sources = report.source_bindings;
+  for (const [key, ref] of Object.entries(sources)) {
+    if (key === 'current_fitting_operator') assert.match(ref.sha256, /^[a-f0-9]{64}$/);
+    else referenceBinding({path: ref.path, sha256: ref.sha256});
+  }
+  referenceBinding(sources.section_and_torsion_bound.controls);
+  assert.deepEqual(sources.analysis_v2_response_bank, {
+    path: 'fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json', sha256: index.response_bank.sha256});
+  const geometry = JSON.parse(bound(index.method_followups.geometry_method_followup));
+  assert.deepEqual(sources.analysis_v2_prepared_inputs, geometry.current_model_bindings.prepared_inputs);
+  assert.deepEqual(sources.prior_current_method_report, index.connection_method_evaluation);
+  const methods = JSON.parse(bound(index.connection_method_evaluation));
+  assert.deepEqual(sources.current_same_field_material_reference, methods.source_bindings.same_field);
+  referenceBinding(sources.current_fitting_operator_snapshot,
+    'fea/generated/v10-packer-free-v1/mechanics/analysis-v2/eoere_v10_fitting-method-snapshot.py');
+  assert.equal(sources.current_fitting_operator_snapshot.sha256, sources.current_fitting_operator.sha256);
+  assert.ok(sources.raw_recovery.path.startsWith('fea/generated/v10-packer-free-v1/connections/method-closure/fitting/'));
+  assert.equal(report.known_answer_control.passed, true);
+  assert.equal(report.known_answer_control.actual_fy_adopted, false);
+  referenceClose(report.known_answer_control.required_fy_reference_mpa, 2.7322405932977976, 'gross-strip known coupon');
+  const result = report.six_case_result;
+  assert.equal(result.fittings, 24); assert.equal(result.signed_port_wrenches_per_case, 192);
+  assert.equal(result.section_endpoint_wrenches_per_case, 384);
+  assert.deepEqual(result.per_case_maximum_mpa.map(row => row.case_id).sort(), [...CURRENT_CASES].sort());
+  for (const row of result.per_case_maximum_mpa) referenceIndex(row.value, 'conditional fitting reference');
+  const maximum = result.largest_gross_rectangle_vm_upper_bound_required_fy_reference_mpa;
+  referenceClose(maximum, 80.57272595573455, 'nominal required fitting Fy reference');
+  assert.equal(maximum, Math.max(...result.per_case_maximum_mpa.map(row => row.value)));
+  assert.equal(result.actual_steel_fy, null);
+  assert.equal(report.applicability_and_gaps.capacity_and_release, null);
+  assert.deepEqual(report.release, {physical_fitting_strength: false, complete_connection_acceptance: false,
+    fabrication: false, climbing: false});
+  return {fitting_gross_strip_case_states: 144, fitting_gross_strip_section_ends: 2304,
+    fitting_gross_strip_required_nominal_Fy_MPa: maximum, fitting_gross_strip_actual_Fy_MPa: null,
+    fitting_gross_strip_strength_qualified: false};
+}
+
+export function validatePackerFreeSawnReference(report, index) {
+  assert.equal(report.schema, 'v10_packer_free_sawn_connection_shear_evaluation/v1');
+  assert.equal(report.revision, index.geometry.revision);
+  assert.equal(report.status, 'bounded conditional reduced-depth shear component evaluations; corrected unordered-profile hulls; other connection checks and acceptance remain open');
+  const bindings = report.current_bindings;
+  const geometry = JSON.parse(bound(index.method_followups.geometry_method_followup));
+  for (const ref of [bindings.physical_geometry, bindings.prepared_inputs, bindings.geometry_action_atlas]) referenceBinding(ref);
+  assert.deepEqual(bindings.physical_geometry, geometry.current_model_bindings.physical_geometry);
+  assert.deepEqual(bindings.prepared_inputs, geometry.current_model_bindings.prepared_inputs);
+  assert.deepEqual(bindings.geometry_action_atlas, geometry.current_model_bindings.current_geometry_action_inventory);
+  assert.deepEqual({path: bindings.six_case_response_bank.path, sha256: bindings.six_case_response_bank.sha256},
+    geometry.current_model_bindings.six_case_bank);
+  assert.equal(bindings.six_case_response_bank.all_six_cases_admitted, true);
+  assert.deepEqual([...bindings.cases].sort(), [...CURRENT_CASES].sort());
+  const prior = report.prior_current_receiver_core_qualification, coverage = prior.coverage;
+  for (const [key, count] of Object.entries({profile_groups: 50, group_case_rows: 300, finished_BRep_exact_rectangles: 44,
+    outer_post_inscribed_cores: 4, side_profile_sliver_cores_within_operative_tolerance: 2,
+    outer_post_component_references_recalculated: 24})) assert.equal(coverage[key], count);
+  referenceClose(coverage.max_outer_post_core_optional_two_edge_envelope_ratio, 0.738382, 'outer-post-only reference');
+  referenceClose(coverage.max_all_50_groups_optional_two_edge_envelope_ratio, 0.7728831052664072, 'prior 50-group reference');
+  assert.deepEqual(prior.outer_post_core_proof.core_bounds_mm,
+    {V: [0, 139.7], left_U: [0, 79.375], right_U: [9.525, 88.9]});
+  const replay = report.fresh_six_case_replay;
+  for (const [key, count] of Object.entries({rows: 300, saved_full_cut_wrenches_replayed: 4032,
+    complete_left_right_event_pairs: 1716, current_point_action_events_in_bands: 1716,
+    current_prepared_centroid_intervals_joined_to_atlas: 136, field_shaft_descriptors_compared_to_preparation: 816,
+    current_profile_grain_bands_rejoined_to_axes_and_bore_radii: 54, missing_band_boundaries: 0,
+    missing_event_sides: 0, max_saved_closure_record_delta: 0, additional_current_group_case_rows: 24,
+    additional_current_group_cut_wrenches: 408, total_group_scopes: 54, total_group_case_scopes: 324}))
+    assert.equal(replay[key], count);
+  const additional = report.additional_nonrectangular_current_groups;
+  const groupNames = ['base_principal_center_left', 'base_principal_center_right', 'base_side_left', 'base_side_right'];
+  assert.equal(additional.group_case_rows, 24);
+  assert.deepEqual(additional.groups.map(row => row.group).sort(), groupNames);
+  assert.deepEqual(additional.group_maxima.map(row => row.group).sort(), groupNames);
+  assert.equal(additional.principal_center_exclusions?.length ?? 0, 0, 'the old unordered-polygon exclusions are not current');
+  referenceClose(report.method.geometry_tolerances.separate_NDS_geometry_guard_mm, 0.001, 'NDS geometry guard');
+  for (const core of additional.groups) {
+    const principal = core.group.startsWith('base_principal_');
+    assert.equal(core.all_current_bore_circles_fit, true);
+    assert.equal(core.BRep_core_boolean_missing_volume_mm3, 0); assert.equal(core.BRep_core_boolean_unmodeled_volume_mm3, 0);
+    referenceClose(core.actual_profile_d_mm, principal ? 139.70000076447488 : 139.7, 'full profile depth for denominator');
+    referenceClose(core.inscribed_core_d_mm, principal ? 128.81257403 : 125.164287373, 'inscribed core depth');
+    if (principal) referenceClose(core.near_edge_check.center_to_near_q_edge_mm, 33.7042949305785, '068/069 BRep near edge');
+  }
+  for (const row of additional.group_maxima) {assert.equal(row.loaded_edge, null); referenceIndex(row.ratio, 'conditional receiver reference');}
+  assert.match(additional.current_profile_boundary_proof.vertex_ordering, /vertices_luv_mm is unordered/);
+  assert.match(additional.current_profile_boundary_proof.vertex_ordering, /ordered convex hull/);
+  assert.match(additional.references.signed_edge_classification, /068\/069 signed-net correction remains/);
+  assert.match(additional.references.signed_edge_classification, /net force is away from the near edge in all six cases/);
+  assert.match(additional.references.signed_edge_classification, /not an established NDS violation/);
+  const discrepancy = report.producer_identity_discrepancy;
+  referenceBinding(discrepancy.preserved_raw_claimed_V2_source);
+  referenceBinding(discrepancy.currently_available_V2_profile_helper);
+  assert.equal(discrepancy.preserved_raw_claimed_V2_source.path, discrepancy.currently_available_V2_profile_helper.path);
+  assert.notEqual(discrepancy.preserved_raw_claimed_V2_source.sha256, discrepancy.currently_available_V2_profile_helper.sha256);
+  assert.match(discrepancy.handling, /missing historical producer bytes were not fabricated or edited/);
+  for (const ref of [prior.producer, prior.result]) referenceBinding(ref);
+  referenceBinding(additional.producer, 'fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v5.py');
+  referenceBinding(additional.source_result, 'fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v5.json');
+  const foot = JSON.parse(bound(index.method_followups.rear_foot_shear_evaluation));
+  assert.deepEqual(report.separate_prior_screens.outer_top_result.raw_result, geometry.result_binding.result);
+  assert.deepEqual(report.separate_prior_screens.rear_foot_optional_envelope_flags.flags,
+    foot.optional_envelope_exceedances.map(row => ({case: row.case_id, member: row.member, ratio: row.ratio})));
+  assert.deepEqual(report.release, {climbing_released: false, fabrication_released: false, structural_acceptance: false});
+  assert.match(report.scope, /Not a complete joint\/member qualification or physical demand bound/);
+  const maximum = Math.max(coverage.max_all_50_groups_optional_two_edge_envelope_ratio,
+    ...additional.group_maxima.map(row => row.ratio));
+  referenceClose(maximum, 0.9643026546447111, 'additional conditional sawn reference');
+  return {additional_sawn_group_count: 54, additional_sawn_case_rows: 324,
+    additional_sawn_maximum_optional_envelope_ratio: maximum, additional_sawn_component_acceptance: null,
+    additional_sawn_complete_joint_qualified: false, additional_sawn_principal_common_core_exclusions: 0,
+    additional_sawn_principal_common_core_groups: 2,
+    additional_sawn_exclusions_are_NDS_violations: false, additional_sawn_historical_producer_mismatch_disclosed: true};
+}
 
 export function validatePackerFreeMethodFollowups(reports, index) {
   referenceKeys(reports, Object.keys(PACKER_FREE_FOLLOWUP_SCHEMAS), 'current method followups');
@@ -2016,7 +2135,9 @@ export function validatePackerFreeMethodFollowups(reports, index) {
     for (const key of ['structural_acceptance', 'physical_failure_claim', 'fabrication_released', 'climbing_released',
       'complete_joint_qualified', 'physical_demand_bounds_established', 'adopted', 'actual_new_pass', 'actual_pass'])
       if (Object.hasOwn(row, key)) assert.ok(row[key] === false || row[key] === null, `followup claim boundary: ${key}`);
-  return {optional_rear_foot_case_group_rows: 12, optional_rear_foot_full_cut_wrenches: 48,
+  const fitting = validatePackerFreeFittingReference(reports.fitting_gross_strip_reference, index);
+  const sawn = validatePackerFreeSawnReference(reports.sawn_connection_shear_evaluation, index);
+  return {...fitting, ...sawn, optional_rear_foot_case_group_rows: 12, optional_rear_foot_full_cut_wrenches: 48,
     optional_rear_foot_envelope_case_rows: flags.length, optional_rear_foot_envelope_axes: members.length,
     optional_rear_foot_maximum_envelope_ratio: maximum, optional_rear_foot_actual_loaded_edge: null,
     optional_rear_foot_NDS_loaded_edge_violation_found: false, optional_rear_foot_centering_adopted: false};

@@ -1,0 +1,112 @@
+{
+  "schema": "v10-packer-free-fitting-gross-strip-reference/v1",
+  "candidate": "v10-packer-free-flush-return-far-row-only-v1",
+  "status": "CONDITIONAL_GROSS_STRIP_ELASTIC_REFERENCE_ONLY",
+  "question": "Can the current saved eight-port fitting response recover internally equilibrated strip resultants and a nominal steel stress reference?",
+  "answer": "Yes. The frozen operator's saved global q and loaded heel reproduce all saved eight-port and heel actions; the existing gross-rectangle section method then gives a conditional same-state nominal von Mises upper-bound / required-Fy reference. This does not establish product fitting strength.",
+  "source_bindings": {
+    "raw_recovery": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/fitting/gross-strip-current-v1/current-six-case-gross-strip-recovery-v2.json",
+      "sha256": "7f888566a2e1254961c0e307c3e7e27435d3a51d1593fde815df678724db5035"
+    },
+    "recovery_producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/fitting/gross-strip-current-v1/recover_gross_strip_sections.py",
+      "sha256": "cc53355c09ae035a3cc7f7dea7939c8400d5423d1ee0b768b7953db0d61b413b"
+    },
+    "analysis_v2_response_bank": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    },
+    "analysis_v2_prepared_inputs": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/preparation/inputs.json",
+      "sha256": "1327366f48b68fe385de3dca117c043b44d930ea61d3cfae991c12d2cc89bec9"
+    },
+    "current_fitting_operator": {
+      "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_fitting.py",
+      "sha256": "c0d47911d56d109b5ffb265372093122b04049cbe50a1b0cbc6afbf86e6ea76c"
+    },
+    "current_fitting_operator_snapshot": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/eoere_v10_fitting-method-snapshot.py",
+      "sha256": "c0d47911d56d109b5ffb265372093122b04049cbe50a1b0cbc6afbf86e6ea76c"
+    },
+    "current_fitting_method_controls_snapshot": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/test_eoere_v10_fitting-method-snapshot.py",
+      "sha256": "283c95234a5e22ce1e04b141ca68c066c68d0cb64d70681e1255f2c20269a71b"
+    },
+    "section_and_torsion_bound": {
+      "path": "scripts/thin_bolted_flange_torsion.py",
+      "sha256": "48e3181f65772cb2d21be6687a011eaeba6a35491b6299cd179759f66ffc6871",
+      "controls": {
+        "path": "tests/test_thin_bolted_flange_torsion.py",
+        "sha256": "dd8127446e049348f17dde84ec886922e3f17ca51cc5730f0406c3de685f30e6"
+      }
+    },
+    "prior_steel_resistance_method": {
+      "path": "scripts/thin_bolted_steel_resistance.py",
+      "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+    },
+    "prior_current_method_report": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/connection-method-evaluation.json",
+      "sha256": "589fb8e6f7c8bfdddc0c9e084d751e892fb50112c7e9ee56e80e6c667d226037"
+    },
+    "current_same_field_material_reference": {
+      "path": "fea/generated/v10-packer-free-v1/connections/same-field/same-field-material-reference-v1.json",
+      "sha256": "afbfa900f86b2621d1f06c6ca6113c2f5c9a25f48a85ac14cbc7d2926199136f"
+    }
+  },
+  "reproduction": {
+    "command": "V10_ISOLATED_ROOT=/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated uv run python -B fea/generated/v10-packer-free-v1/connections/method-closure/fitting/gross-strip-current-v1/recover_gross_strip_sections.py --out <new ignored JSON path>",
+    "method": "For each of 24 descriptors per case, q is read at the exact 48 owned DOFs and converted from stored rotation scale; the saved heel-load shift is applied to the reconstructed rigid heel. The frozen `recover(full)` then rechecks energy, all eight signed port wrenches, strip-root actions and flange resultants. Each two-node strip span is cut at its ends; section force is constant and moment is linear without distributed span loads, so the existing pointwise gross-section bound is evaluated at endpoints.",
+    "scope": "Offline postprocessing of six saved fields. No candidate/global/native solve or CAD rebuild was run."
+  },
+  "known_answer_control": {
+    "passed": true,
+    "basis": "Single frozen Timoshenko gross-rectangle cantilever with signed tip N,V1,V2,T,M1,M2; direct statics recovers root and tip section resultants, and the existing rectangle stress bound matches the closed-form section envelope.",
+    "tip_wrench_N_and_Nmm": [17.0, -7.0, 11.0, 13.0, -19.0, 23.0],
+    "required_fy_reference_mpa": 2.7322405932977976,
+    "actual_fy_adopted": false
+  },
+  "six_case_result": {
+    "fittings": 24,
+    "signed_port_wrenches_per_case": 192,
+    "section_endpoint_wrenches_per_case": 384,
+    "largest_gross_rectangle_vm_upper_bound_required_fy_reference_mpa": 80.57272595573455,
+    "largest_reference_witness": {
+      "case_id": "a12-left",
+      "fitting_id": "eoere_clip_single_top_left_1",
+      "strip_element_id": "arm-x/far-minus/root-near",
+      "segment_end": "root",
+      "section_force_local_N_V1_V2": [41.259105886023065, -180.4623125832966, -343.57177236961434],
+      "section_moment_local_T_M1_M2_nmm": [831.8357361880276, 22294.078873850714, -11614.843109773385],
+      "location_scope": "Ideal rigid heel section reference, not a measured formed-bend or flat-start section."
+    },
+    "per_case_maximum_mpa": [
+      {"case_id": "a12-forward", "value": 70.25220325897267, "fitting_id": "eoere_clip_single_top_left_1", "strip_element_id": "arm-x/far-minus/root-near", "segment_end": "root"},
+      {"case_id": "a12-left", "value": 80.57272595573455, "fitting_id": "eoere_clip_single_top_left_1", "strip_element_id": "arm-x/far-minus/root-near", "segment_end": "root"},
+      {"case_id": "a12-rear", "value": 77.21742174522049, "fitting_id": "eoere_clip_single_top_left_1", "strip_element_id": "arm-x/far-minus/root-near", "segment_end": "root"},
+      {"case_id": "k12-right", "value": 75.25240180315575, "fitting_id": "eoere_clip_single_top_right_2", "strip_element_id": "arm-x/far-plus/root-near", "segment_end": "root"},
+      {"case_id": "k12-rear", "value": 74.73747270789691, "fitting_id": "eoere_clip_single_top_right_2", "strip_element_id": "arm-x/far-plus/root-near", "segment_end": "root"},
+      {"case_id": "a1-rear", "value": 67.42133918966802, "fitting_id": "eoere_clip_horizontal_bottom_left_1", "strip_element_id": "arm-x/far-plus/root-near", "segment_end": "root"}
+    ],
+    "recovery_closure": "For every fit in every case, the loaded heel, elastic energy, all signed port forces/couples, four strip-root wrenches, flange resultants and scaled gradient reproduce the saved action exactly. Span force equilibrium is exact; the maximum segment moment equilibrium residual is 1.1e-11 N·mm.",
+    "max_normal_stress_envelope_mpa": 80.33210216412944,
+    "max_direct_transverse_shear_norm_bound_mpa": 2.3918168479506696,
+    "max_torsion_shear_norm_bound_mpa": 8.740344862590304,
+    "actual_steel_fy": null
+  },
+  "applicability_and_gaps": {
+    "stress_result": "The reported VM value is an upper-bound required-Fy reference for the declared ideal unperforated 44.45 x 6.35 mm gross half-strip under isotropic von Mises first yield. It is not a comparison against actual material Fy, not an ASD/LRFD capacity, and not a pass/fail acceptance.",
+    "holes_and_net_section": "The elastic operator omits all eight factory holes. This report uses the full gross rectangle through hole planes; it does not model net-section strength, hole-edge concentration, bearing or tearout.",
+    "heel_and_plate": "The four independent half-strips meet a rigid ideal heel. Plate-edge continuity, formed bend/radius compliance, short-connection restrained warping/bimoment, local force introduction and product thickness/tolerance are absent.",
+    "loads": "The fitting body load is routed as a saved point wrench through the rigid heel. It is included in recovered actions but is not distributed along the strips as selfweight.",
+    "material_and_product": "The frozen scenario has `steel_fy_mpa: null`; no actual product-specific yield strength, thickness or resistance is assigned.",
+    "prior_result_scope": "Earlier `thin_bolted_steel_resistance` flange references use B103/B104 two-port layouts, 41.275 x 5.55625 mm legs, 14.2875 mm holes and different fitting/port counts. They do not describe this current eight-port operator. The current same-field report leaves angle/net-section/bend/fitting capacity null.",
+    "capacity_and_release": null
+  },
+  "release": {
+    "physical_fitting_strength": false,
+    "complete_connection_acceptance": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

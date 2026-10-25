@@ -1,0 +1,391 @@
+{
+  "additional_nonrectangular_current_groups": {
+    "current_profile_boundary_proof": {
+      "BRep_face_crosscheck": "Each current profile BRep has two extreme q-normal planar faces. Their projected stations agree with convex-hull q extrema within 3.986e-7 mm maximum; all four common-core rectangle-minus-known-bore Booleans have zero missing and zero unmodeled volume.",
+      "operative_BRep_spatial_tolerance_mm": 1e-06,
+      "principal_left_q_face_stations_mm": [
+        -108.16751937841059,
+        31.53248061295119
+      ],
+      "principal_right_q_face_stations_mm": [
+        -31.53248061295119,
+        108.16751937841059
+      ],
+      "side_left_q_face_stations_mm": [
+        -102.805208264,
+        36.894791347
+      ],
+      "side_right_q_face_stations_mm": [
+        -36.894791347,
+        102.805208264
+      ],
+      "vertex_ordering": "vertices_luv_mm is unordered. The producer constructs an ordered convex hull for each L-q section from unique physical vertices; side outlines are crosschecked against the current owner-ordered outline."
+    },
+    "group_case_rows": 24,
+    "group_maxima": [
+      {
+        "axes": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "group": "base_principal_center_left",
+        "loaded_edge": null,
+        "optional_two_edge_envelope_reference_N": 618.5202872606499,
+        "peak_abs_Vq_N": 342.12743875307154,
+        "ratio": 0.5531386048278414,
+        "worst_case": "a1-rear"
+      },
+      {
+        "axes": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "group": "base_principal_center_right",
+        "loaded_edge": null,
+        "optional_two_edge_envelope_reference_N": 618.5202872606499,
+        "peak_abs_Vq_N": 272.6416622706525,
+        "ratio": 0.4407966527309053,
+        "worst_case": "a12-forward"
+      },
+      {
+        "axes": [
+          "eoere_bolt_067",
+          "eoere_bolt_071"
+        ],
+        "group": "base_side_left",
+        "loaded_edge": null,
+        "optional_two_edge_envelope_reference_N": 1236.4597945619494,
+        "peak_abs_Vq_N": 1192.321452257542,
+        "ratio": 0.9643026546447111,
+        "worst_case": "a1-rear"
+      },
+      {
+        "axes": [
+          "eoere_bolt_070",
+          "eoere_bolt_074"
+        ],
+        "group": "base_side_right",
+        "loaded_edge": null,
+        "optional_two_edge_envelope_reference_N": 1236.4597945619494,
+        "peak_abs_Vq_N": 626.8473560181243,
+        "ratio": 0.5069694694279991,
+        "worst_case": "k12-right"
+      }
+    ],
+    "groups": [
+      {
+        "BRep_core_boolean_missing_volume_mm3": 0,
+        "BRep_core_boolean_unmodeled_volume_mm3": 0,
+        "actual_profile_d_mm": 139.70000076447488,
+        "all_current_bore_circles_fit": true,
+        "axes": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "b_mm": 38.1,
+        "common_full_bore_band_q_interval_mm": [
+          -97.280093785,
+          31.532480245
+        ],
+        "group": "base_principal_center_left",
+        "inscribed_core_d_mm": 128.81257403,
+        "near_edge_check": {
+          "BRep_upper_q_face_interpolated_at_axis_L_mm": 31.5324802463431,
+          "axis": "eoere_bolt_068",
+          "axis_L_mm": 86.78806586868575,
+          "axis_q_mm": -2.1718146842353576,
+          "center_to_near_q_edge_mm": 33.7042949305785
+        }
+      },
+      {
+        "BRep_core_boolean_missing_volume_mm3": 0,
+        "BRep_core_boolean_unmodeled_volume_mm3": 0,
+        "actual_profile_d_mm": 139.70000076447488,
+        "all_current_bore_circles_fit": true,
+        "axes": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "b_mm": 38.1,
+        "common_full_bore_band_q_interval_mm": [
+          -31.532480245,
+          97.280093785
+        ],
+        "group": "base_principal_center_right",
+        "inscribed_core_d_mm": 128.81257403,
+        "near_edge_check": {
+          "axis": "eoere_bolt_069",
+          "center_to_near_q_edge_mm": 33.7042949305785,
+          "mirror_of": "base_principal_center_left/eoere_bolt_068"
+        }
+      },
+      {
+        "BRep_core_boolean_missing_volume_mm3": 0,
+        "BRep_core_boolean_unmodeled_volume_mm3": 0,
+        "actual_profile_d_mm": 139.7,
+        "all_current_bore_circles_fit": true,
+        "axes": [
+          "eoere_bolt_067",
+          "eoere_bolt_071"
+        ],
+        "b_mm": 88.9,
+        "common_full_bore_band_q_interval_mm": [
+          -88.269496026,
+          36.894791347
+        ],
+        "group": "base_side_left",
+        "inscribed_core_d_mm": 125.164287373
+      },
+      {
+        "BRep_core_boolean_missing_volume_mm3": 0,
+        "BRep_core_boolean_unmodeled_volume_mm3": 0,
+        "actual_profile_d_mm": 139.7,
+        "all_current_bore_circles_fit": true,
+        "axes": [
+          "eoere_bolt_070",
+          "eoere_bolt_074"
+        ],
+        "b_mm": 88.9,
+        "common_full_bore_band_q_interval_mm": [
+          -36.894791347,
+          88.269496026
+        ],
+        "group": "base_side_right",
+        "inscribed_core_d_mm": 125.164287373
+      }
+    ],
+    "producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v5.py",
+      "sha256": "076101a15e95d302056150d0d917d744cc4ec9f755fed0d762ef317e4532c335"
+    },
+    "references": {
+      "all_ratios_are_optional_envelopes": "Both candidate unloaded-edge references were retained; their minimum is reported only as a conservative two-edge component envelope. Actual loaded edge, local couple, and splitting classification remain unresolved.",
+      "core_depth_is_not_NDS_d": "For all four groups, the actual full profile depth (139.7000008 mm principal; 139.7 mm side) is used for d and the 5d branch. Proven inscribed-core depths bound the geometric de envelope only. Core-derived de is not asserted as an actual edge-to-fastener measurement.",
+      "principal_correction": "The earlier common-core exclusion for 068/069 was false because an unordered vertices_luv_mm list was treated as an ordered boundary. Current BRep face interpolation gives 068 center-to-near-q-edge 33.7042949306 mm; 069 is the mirrored case. Both circles fit the corrected full-band common cores.",
+      "signed_edge_classification": "The 068/069 signed-net correction remains: net force is away from the near edge in all six cases; ideal perpendicular-resultant screen clears the near unloaded 1.5D and opposite loaded 4D markers. Optional both-edges 4D is not an established NDS violation. Local bending pressure reversal does not automatically reclassify loaded edge."
+    },
+    "source_result": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v5.json",
+      "sha256": "6762941ec32a3af1fa0373a6121551b84b2dd6967067fb74b1cb6bc4c4045f3d"
+    }
+  },
+  "current_bindings": {
+    "cases": [
+      "a12-forward",
+      "a12-rear",
+      "a12-left",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "geometry_action_atlas": {
+      "path": "fea/generated/v10-packer-free-v1/connections/geometry/packer-free-geometry-applicability-v2.json",
+      "sha256": "b2c44a9f4e358d9350f6d5cb6926421cf8770f3052b4954a740e5af2158e1903"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/preparation/inputs.json",
+      "sha256": "1327366f48b68fe385de3dca117c043b44d930ea61d3cfae991c12d2cc89bec9"
+    },
+    "six_case_response_bank": {
+      "all_six_cases_admitted": true,
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    }
+  },
+  "fresh_six_case_replay": {
+    "additional_current_group_case_rows": 24,
+    "additional_current_group_cut_wrenches": 408,
+    "complete_left_right_event_pairs": 1716,
+    "current_point_action_events_in_bands": 1716,
+    "current_prepared_centroid_intervals_joined_to_atlas": 136,
+    "current_profile_grain_bands_rejoined_to_axes_and_bore_radii": 54,
+    "field_shaft_descriptors_compared_to_preparation": 816,
+    "group_centers_and_bands": "Current centroids, bore radii, and profile grain bands were rejoined; 54 recorded bands match current axes/radii. Event stations use the original fsum/exact-set rule; saved stations are paired one-to-one in order with a 1e-6 mm identity tolerance, never coalesced. Strict event-side and boundary-station checks pass.",
+    "max_current_force_closure_component_N": 1.2056715283786934e-07,
+    "max_current_moment_closure_component_Nmm": 0.00020841999889853469,
+    "max_force_vector_component_replay_delta_N": 2.2737367544323206e-13,
+    "max_moment_vector_component_replay_delta_Nmm": 2.3283064365386963e-10,
+    "max_recovered_station_delta_mm": 4.547473508864641e-13,
+    "max_saved_closure_record_delta": 0,
+    "missing_band_boundaries": 0,
+    "missing_event_sides": 0,
+    "rows": 300,
+    "saved_full_cut_wrenches_replayed": 4032,
+    "total_group_case_scopes": 324,
+    "total_group_scopes": 54
+  },
+  "maximum_including_additional_side_cores": {
+    "case": "a1-rear",
+    "group": "base_side_left",
+    "optional_two_edge_envelope_ratio": 0.9643026546447111,
+    "scope": "Maximum across 50 prior finished-BRep-qualified groups and 4 additional current common-core groups (54 groups, 324 group-case rows). Loaded-edge classification remains unresolved; this is not a violation finding."
+  },
+  "method": {
+    "chapter3_source": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+      "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+    },
+    "component_comparison": "The complete signed six-case point-action set, affine self-weight, couples, and full cut force/moment vectors are retained. Reported ratios compare only the absolute crossgrain shear component at the peak cut with the stated branch reference; loaded-edge selection, other components, and interaction are not resolved.",
+    "equations": {
+      "at_or_beyond_5d": "Vr'=(2/3) Fv' b de",
+      "within_5d": "Vr'=(2/3) Fv' b de (de/d)^2; de=d-a"
+    },
+    "geometry_tolerances": {
+      "BRep_spatial_tolerance_mm": 1e-06,
+      "equivalent_micrometres": 0.001,
+      "note": "The frozen qualification v2 labels its operative 1e-6 mm threshold as 1 um; that unit label is wrong. The operative threshold is 1e-6 mm (1 nm). The separate NDS geometry guard is 0.001 mm.",
+      "separate_NDS_geometry_guard_mm": 0.001
+    },
+    "material_scenario": {
+      "CD_CM_Ci_Ct": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "Cvr": "not applied; no transfer from glulam Chapter 5",
+      "Fv_prime_MPa": 1.241056312770305,
+      "Fv_prime_psi": 180,
+      "species_grade_scenario": "Douglas Fir-Larch No. 2 sawn lumber, conditional"
+    },
+    "source_rule": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt01/source-at-first-run/analyze.py",
+      "sha256": "4d6e00da4b2c58f2f9a4fd4f7cb319c3ff8ac2db4400b915e753ccbcca8c1540"
+    },
+    "standard": "AWC NDS 2024 Chapter 3 \u00a73.4.4.1(a), Figure 3E, Eqs. 3.4-6 and 3.4-7"
+  },
+  "prior_current_receiver_core_qualification": {
+    "coverage": {
+      "finished_BRep_exact_rectangles": 44,
+      "group_case_rows": 300,
+      "max_all_50_groups_maximum_source": "upper-rear side group in this 50-group qualification",
+      "max_all_50_groups_optional_two_edge_envelope_ratio": 0.7728831052664072,
+      "max_outer_post_core_optional_two_edge_envelope_ratio": 0.738382,
+      "outer_post_component_references_recalculated": 24,
+      "outer_post_inscribed_cores": 4,
+      "profile_groups": 50,
+      "side_profile_sliver_cores_within_operative_tolerance": 2
+    },
+    "outer_post_core_proof": {
+      "bevel": "9.525 x 9.525 mm; begins V=130.175 mm; core does not establish whole-section rectangularity",
+      "core_bounds_mm": {
+        "V": [
+          0,
+          139.7
+        ],
+        "left_U": [
+          0,
+          79.375
+        ],
+        "right_U": [
+          9.525,
+          88.9
+        ]
+      },
+      "path": "fea/generated/v10-packer-free-v1/connections/current-method-closure/geometry/outer-post-core-proof-v1.json",
+      "sha256": "07ffd5642844a804c08933901e9999be3add368c4de55b255be2b8cfefe62e62"
+    },
+    "producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/profile-brep-core-qualification-v2.py",
+      "sha256": "06f08a8f93958354a45d4b62b8dd171ef34117512f48b95c45d180926c73b4c2"
+    },
+    "result": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/profile-brep-core-qualification-v2.json",
+      "sha256": "697d36a9ef159e5a42a4f8b82ebfb470335251b3edeaac1ef2b7f94414fd4f8b"
+    },
+    "scope_note": "Four outer-post results use the proven 79.375 x 139.7 mm inscribed core, not the full 88.9 mm-wide beveled section. The two sliver checks pass the numeric 1e-6 mm geometry tolerance; they are not 1 um checks. Group loaded-edge classification and other joint checks remain open."
+  },
+  "producer_identity_discrepancy": {
+    "currently_available_V2_profile_helper": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/produce_current_receivers_v2.py",
+      "sha256": "771efcf9ebc30dc9c1724a0886bb1fcd99ce063b205db8ee936a7a786260f8d8"
+    },
+    "handling": "The missing historical producer bytes were not fabricated or edited. The V4 producer freshly replays all saved forces/moments from the six pinned current fields using the pinned unchanged event-cut kernel; profile exact-slice work uses the currently available, hash-bound helper.",
+    "preserved_raw_claimed_V2_source": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/produce_current_receivers_v2.py",
+      "sha256": "c5418a108082906694d2a855092be3d5b0c38a8712e5705308c42342c921a791"
+    }
+  },
+  "release": {
+    "climbing_released": false,
+    "fabrication_released": false,
+    "structural_acceptance": false
+  },
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "schema": "v10_packer_free_sawn_connection_shear_evaluation/v1",
+  "scope": "Current recorded geometry and six admitted response fields only. Applies the source-loaded NDS 2024 sawn-lumber reduced-depth shear kernel to 54 BRep-qualified rectangular core regions across 54 group scopes (50 prior groups plus four corrected nonrectangular-member cores). Not a complete joint/member qualification or physical demand bound.",
+  "separate_prior_screens": {
+    "outer_top_result": {
+      "raw_result": {
+        "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-top-outer-groups-v1.json",
+        "sha256": "f6087e037380d54f29656af41d8732ed1082cefcedf8af56cdd232f39555fdc2"
+      },
+      "status": "separate prior outer-top component result; not folded into the side/center core results; Table 12.5.1D steel-side/oblique row applicability remains unresolved",
+      "summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-method-followup.json"
+      }
+    },
+    "rear_foot_optional_envelope_flags": {
+      "flags": [
+        {
+          "case": "a12-forward",
+          "member": "lumber_leg_left",
+          "ratio": 1.0018819799793268
+        },
+        {
+          "case": "a12-left",
+          "member": "lumber_leg_left",
+          "ratio": 1.0975008915491042
+        },
+        {
+          "case": "k12-right",
+          "member": "lumber_leg_right",
+          "ratio": 1.0977299914214838
+        }
+      ],
+      "status": "separate prior 2-foot result; optional two-edge envelope only, loaded edge unresolved, not a violation finding",
+      "summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/rear-foot-shear-evaluation.json"
+      }
+    }
+  },
+  "status": "bounded conditional reduced-depth shear component evaluations; corrected unordered-profile hulls; other connection checks and acceptance remain open",
+  "unresolved_and_not_established": [
+    "Actual loaded-edge assignment and local-couple/splitting behavior; both-edge ratios are optional conservative envelopes, not automatic NDS violation classifications.",
+    "Table 12.5.1D length/row branch for wood-main/steel-side and the current oblique nonparallel groups; no favorable absent-wood-side zero or unsupported interpolation is used.",
+    "Group ownership/Cg, independent flange couples, other shear/bending/axial/torsion components, net section, bearing, splitting, bolt/hardware transfer, and complete joint interaction.",
+    "Actual species/grade/service, actual cuts/holes/hardware, physical force bounds, and physical workmanship/condition remain unobserved.",
+    "No structural acceptance, fabrication release, or climbing release follows from these conditional component references."
+  ],
+  "unselected_previous_attempts": {
+    "V1": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v1.json",
+      "sha256": "6fffbac71e0003662b9292894ea355eb5937076a77d3baca7c84c0076dd8cdd4",
+      "status": "preserved exploratory attempt; superseded by corrected current V5 geometry"
+    },
+    "V2": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v2.json",
+      "sha256": "ea277b0c607a41bfe18325e534ea14b6f28e707b92bf0a280d76d28495f94643",
+      "status": "preserved replay attempt; superseded by current V5 geometry/event verification"
+    },
+    "V3": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v3.json",
+      "sha256": "21a3d4f52ec050b5bc2c1a2cfcfb197e4dc59bbf4dbb9a5e1485c5e0dc1e69a0",
+      "status": "preserved; carries false principal common-core exclusion from unordered profile vertices"
+    },
+    "V4": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/nonrectangular-common-core-v4.json",
+      "sha256": "68f42d1a04f546c5ac90833c8f251e1a5255d02c3613fef25157f3b7db3ab335",
+      "status": "preserved actual-d denominator sensitivity; principal common-core result superseded due unordered profile vertices"
+    },
+    "previous_public_summary": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/sawn-connection-shear-evaluation-public-v1-unordered-polygon-unselected.json",
+      "sha256": "2ce025a02b494cc1002bb008134670efcfb3e6695f0999f176c14402d6230f24",
+      "status": "exact old public bytes preserved in ignored storage; not current evidence"
+    }
+  }
+}
