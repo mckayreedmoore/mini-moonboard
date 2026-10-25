@@ -7,7 +7,7 @@ The two outer top angles return to direct side/top bearing. Their far factory ro
 Own finished geometry, nominal clearance, all six cases and both independent replays, net sections, signed forces/couples and current connection-method audits are recorded. Old packer/deeper-side forces are history.
 No purchase, cutting, fabrication, climbing or structural release. Far end/edge/row applicability, complete interaction/group/splitting and physical qualifications remain unresolved.
 
-[Current packer-free viewer](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off) ·
+[Public packer-free viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off) · [local preview](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off) ·
 [Preserved 116-bolt packer viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
 [matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json).
 
@@ -19,7 +19,7 @@ The separate [rear-foot shear screen](owner-frame-v10/packer-free/rear-foot-shea
 An [unadopted centering screen](owner-frame-v10/packer-free/rear-foot-centering-screen.json) moves those two axes 5.986 mm within the leg depth, preserving stock and hardware. Its guarded index is 0.839 only with old forces held fixed; fresh geometry, six-case forces/replays and connection checks would be required before selecting that trial. No geometry changed.
 Washer load-only mean-pressure index is **0.181365**; preload, local peaks, fit and rigidity remain unqualified. The [method review](owner-frame-v10/packer-free/connection-method-evaluation.json) separates all current subchecks and exact unresolved inputs.
 
-The [selected screw-and-bracket baseline](../../current-candidate.json) retains separate authority and remains the no-query default. No hosted deployment is performed.
+The [selected screw-and-bracket baseline](../../current-candidate.json) retains separate authority and remains the no-query default. The owner authorized publishing this development viewer through the existing validated Pages workflow; publication does not grant engineering or physical-work release.
 
 ## Active builder reading path
 | Need | Current record |
