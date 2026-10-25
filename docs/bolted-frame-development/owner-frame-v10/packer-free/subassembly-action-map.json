@@ -1,0 +1,262 @@
+{
+  "cleat_components": [
+    {
+      "all_component_axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "eoere_bolt_071",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "v10_cleat_bolt_left_1",
+        "v10_cleat_bolt_left_2",
+        "v10_cleat_bolt_left_3",
+        "v10_header_bolt_001",
+        "v10_header_bolt_002"
+      ],
+      "bonded_cleat_body_id": "eoere_cleat_left",
+      "cleat_axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "eoere_bolt_071",
+        "v10_cleat_bolt_left_1",
+        "v10_cleat_bolt_left_2",
+        "v10_cleat_bolt_left_3"
+      ],
+      "component_id": "cleat-subassembly:eoere_cleat_left",
+      "fitting_body_ids": [
+        "eoere_clip_angle_base_left",
+        "eoere_clip_header_outer_under_left"
+      ],
+      "sawn_wood_boundary_ports": [
+        "base_floor_left",
+        "base_header",
+        "base_post_outer_left",
+        "base_side_left"
+      ]
+    },
+    {
+      "all_component_axis_ids": [
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "eoere_bolt_074",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v10_cleat_bolt_right_1",
+        "v10_cleat_bolt_right_2",
+        "v10_cleat_bolt_right_3",
+        "v10_header_bolt_003",
+        "v10_header_bolt_004"
+      ],
+      "bonded_cleat_body_id": "eoere_cleat_right",
+      "cleat_axis_ids": [
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "eoere_bolt_074",
+        "v10_cleat_bolt_right_1",
+        "v10_cleat_bolt_right_2",
+        "v10_cleat_bolt_right_3"
+      ],
+      "component_id": "cleat-subassembly:eoere_cleat_right",
+      "fitting_body_ids": [
+        "eoere_clip_angle_base_right",
+        "eoere_clip_header_outer_under_right"
+      ],
+      "sawn_wood_boundary_ports": [
+        "base_floor_right",
+        "base_header",
+        "base_post_outer_right",
+        "base_side_right"
+      ]
+    }
+  ],
+  "closure": {
+    "selected112": {
+      "component_comparisons": 120,
+      "max_component_actual_equilibrium_residual_N": 1.6264030439987575e-07,
+      "max_component_actual_equilibrium_residual_Nmm": 0.0002175236443514744,
+      "max_component_reconstruction_difference_N": 1.611793018062132e-13,
+      "max_component_reconstruction_difference_Nmm": 4.838872150739531e-10,
+      "max_wood_scope_reconstruction_difference_N": 5.559996907322784e-13,
+      "max_wood_scope_reconstruction_difference_Nmm": 5.955461311502552e-10,
+      "whole_field_comparisons": 6,
+      "wood_scope_comparisons": 36
+    },
+    "unselected108": {
+      "component_comparisons": 120,
+      "max_component_actual_equilibrium_residual_N": 1.8311855775342525e-06,
+      "max_component_actual_equilibrium_residual_Nmm": 0.0020757957921559277,
+      "max_component_reconstruction_difference_N": 1.5141195651290412e-13,
+      "max_component_reconstruction_difference_Nmm": 5.537214339472101e-10,
+      "max_wood_scope_reconstruction_difference_N": 3.2862601528904634e-13,
+      "max_wood_scope_reconstruction_difference_Nmm": 4.5913492092705253e-10,
+      "whole_field_comparisons": 6,
+      "wood_scope_comparisons": 36
+    }
+  },
+  "connected_hardware_components": 20,
+  "counts": {
+    "current108": {
+      "angles": 24,
+      "bonded_cleats": 2,
+      "components": 30,
+      "shafts": 108,
+      "vertices": 134
+    },
+    "selected112": {
+      "angles": 24,
+      "bonded_cleats": 2,
+      "components": 30,
+      "shafts": 112,
+      "vertices": 138
+    }
+  },
+  "critical_bearing_diagnostic_scopes": [
+    {
+      "NDS_group_assignment": null,
+      "axes": [
+        "eoere_bolt_067",
+        "v10_header_bolt_001"
+      ],
+      "complete_joint_utilization": null,
+      "current_case_rows": 3,
+      "scope_id": "cleat-subassembly:eoere_cleat_left",
+      "unselected_case_rows": 3
+    },
+    {
+      "NDS_group_assignment": null,
+      "axes": [
+        "eoere_bolt_070",
+        "v10_header_bolt_004"
+      ],
+      "complete_joint_utilization": null,
+      "current_case_rows": 2,
+      "scope_id": "cleat-subassembly:eoere_cleat_right",
+      "unselected_case_rows": 2
+    },
+    {
+      "NDS_group_assignment": null,
+      "axes": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2"
+      ],
+      "complete_joint_utilization": null,
+      "current_case_rows": 6,
+      "scope_id": "wood-only-joint:side_left+lumber_leg_left",
+      "unselected_case_rows": 6
+    },
+    {
+      "NDS_group_assignment": null,
+      "axes": [
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "complete_joint_utilization": null,
+      "current_case_rows": 4,
+      "scope_id": "wood-only-joint:side_right+lumber_leg_right",
+      "unselected_case_rows": 4
+    }
+  ],
+  "current_response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json",
+    "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+  },
+  "current_revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "gates": {
+    "force_N": 0.0001,
+    "moment_Nmm": 0.1
+  },
+  "limits": [
+    "These are potential model-coupling components and signed action bookkeeping, not NDS fastener groups or independent joint capacities. Sawn wood and panels remain boundary bodies; their shared-member coupling is not removed.",
+    "Each continuous cleat joins seven cleat pins and four header pins through two angles. Earlier duty clusters must not be mistaken for independent complete physical joints.",
+    "Direct timber contact rows include existing cleat/member boundary contacts and primary-member bypass paths. They remain explicit; no new contact or panel credit is added.",
+    "The graph inventory field named direct_contact_patch_count counts 1624 saved contact-cell rows, not 1624 independent native face patches.",
+    "Apply the origin overlay to V2 reported residuals. Actual boundary forces and their world-point moments were already correct; the overlay changes comparison origins only.",
+    "Complete joint load paths, splitting, group action, material/fit and strength remain unqualified. A missing legacy diagnostic is not a connection pass. Nominal bore consistency is not delivered hardware/hole inspection.",
+    "The portable checker binds this compact record and its public bank references; it does not claim a full ignored-source closure. Detailed force/operator/source arrays remain in the retained local packets."
+  ],
+  "model_constraints": {
+    "top_and_both_sides_actual_mm": [
+      88.9,
+      139.7
+    ],
+    "wood_packers": 0
+  },
+  "new_global_CAD_or_force_solve": false,
+  "nominal_bore_check_unselected108": {
+    "case_bearing_force_replays": 2832,
+    "delivered_holes_or_bolt_body_inspected": false,
+    "maximum_bearing_force_error_N": 0.0,
+    "maximum_nominal_wood_bore_D_error_mm": 1.2683187833317788e-12,
+    "saved_wood_cylinder_wall_surfaces": 132,
+    "steel_surface_nominal_metadata_checks": 104
+  },
+  "primitive_bookkeeping": {
+    "aggregated_wood_bearing_not_added_again": true,
+    "bearing_and_captures_separate": true,
+    "cleat_member_contact_rows_also_boundary_ports": 80,
+    "overlap_not_summed_twice": true,
+    "panel_resistance_recalculated": false,
+    "timber_to_timber_contact_rows_per_case": 298,
+    "unselected108_boundary_rows_per_case": 762,
+    "unselected108_panel_boundary_rows_per_case": 24,
+    "unselected108_timber_boundary_rows_per_case": 738
+  },
+  "qualification": {
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "climbing_released": false,
+    "complete_connection_acceptance": null,
+    "complete_joint_qualified": false,
+    "complete_load_path_established": false,
+    "fabrication_released": false,
+    "nds_fastener_group_classification_established": false,
+    "panel_screw_resolution_deferred": true,
+    "purchase_authorized": false,
+    "structural_acceptance": false
+  },
+  "raw_sources": {
+    "body_graph": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/subassembly-ownership/local-hardware-cleat-component-graph-v1.json",
+      "sha256": "d04161605cdbaef3b495b603a051a37cd28353134d0c4ef77f2a79be9d4b7003"
+    },
+    "selected112_wrenches": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/local-subassemblies/current112-local-subassembly-boundary-wrenches-v1.json",
+      "sha256": "04b437ed42fa18a4bb04b338228eaf5af4dc8f6ec6383a45ed4529a22fd8fc64"
+    },
+    "unselected108_nominal_bore_audit": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/geometry/nominal-bore-gap-binding-v2.json",
+      "sha256": "ee323fcff6584c1c7079d95e722eb8d91bd3ea08b7d08642962e00eb6ba63a18"
+    },
+    "unselected108_residual_origin_overlay": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/local-subassemblies/current108-local-subassembly-boundary-wrench-origin-correction-v1.json",
+      "sha256": "151605594a7c55ab9aaffaa98351e602a1ac9a580850162247057d27dcc76383"
+    },
+    "unselected108_wrenches": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/local-subassemblies/current108-local-subassembly-boundary-wrenches-v2.json",
+      "sha256": "d4c45cdaa4b624b05c1c7ba7a15b5afbf23b8a29d2d2cd9c5513f7612e63086d"
+    }
+  },
+  "residual_origin": {
+    "conversion": "M_origin=M_reference+R cross F_residual",
+    "reference_xyz_mm": [
+      0,
+      750,
+      1100
+    ],
+    "selected112_comparisons_normalized_before_aggregation": true,
+    "source_forces_and_own_point_couples_changed": false,
+    "unselected108_V2_overlay_required": true
+  },
+  "schema": "v10_local_subassembly_action_map/v1",
+  "selected_authority_or_viewer_changed": false,
+  "unselected_response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free-center-far-row/response-bank.json",
+    "sha256": "0175c7882231a24a35fd44b15b21919143f6c6a2abc9e91e623a9b6215c70bdd"
+  },
+  "unselected_revision": "v10-packer-free-center-far-row-only-development-v1",
+  "wood_only_review_scopes": 6
+}

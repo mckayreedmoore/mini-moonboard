@@ -1966,6 +1966,83 @@ export function validateUnselectedCenterFarRowTrial(entry, report, provenance) {
     fabrication_released: false, climbing_released: false, purchase_authorized: false};
 }
 
+export function validateLocalSubassemblyActionMap(report, index) {
+  assert.equal(report.schema, 'v10_local_subassembly_action_map/v1');
+  assert.equal(report.current_revision, index.geometry.revision);
+  assert.deepEqual(report.current_response_bank, index.response_bank);
+  const trial = index.unselected_trials?.center_far_row_only;
+  assert.ok(trial, 'the action map requires its unselected trial authority');
+  const assessment = JSON.parse(bound(trial.evaluation));
+  assert.equal(report.unselected_revision, trial.revision);
+  assert.deepEqual(report.unselected_response_bank, assessment.bindings.response_bank);
+  assert.deepEqual(report.counts, {
+    selected112: {vertices: 138, shafts: 112, angles: 24, bonded_cleats: 2, components: 30},
+    current108: {vertices: 134, shafts: 108, angles: 24, bonded_cleats: 2, components: 30},
+  });
+  assert.equal(report.connected_hardware_components, 20); assert.equal(report.wood_only_review_scopes, 6);
+  assert.deepEqual(report.model_constraints, {top_and_both_sides_actual_mm: [88.9, 139.7], wood_packers: 0});
+  assert.equal(report.cleat_components.length, 2);
+  for (const [side, upper, companion, headerStart] of [['left', 67, 71, 1], ['right', 70, 74, 3]]) {
+    const component = report.cleat_components.find(row => row.bonded_cleat_body_id === `eoere_cleat_${side}`);
+    assert.ok(component); assert.equal(component.component_id, `cleat-subassembly:eoere_cleat_${side}`);
+    const cleatAxes = [`cleat_post_bolt_${side}_1`, `cleat_post_bolt_${side}_2`,
+      `eoere_bolt_0${upper}`, `eoere_bolt_0${companion}`, ...[1, 2, 3].map(n => `v10_cleat_bolt_${side}_${n}`)];
+    const headerAxes = [headerStart, headerStart + 1].flatMap(n => [`eoere_bolt_0${80 + n}`, `v10_header_bolt_00${n}`]);
+    assert.deepEqual([...component.cleat_axis_ids].sort(), cleatAxes.sort());
+    assert.deepEqual([...component.all_component_axis_ids].sort(), [...cleatAxes, ...headerAxes].sort());
+    assert.deepEqual([...component.fitting_body_ids].sort(),
+      [`eoere_clip_angle_base_${side}`, `eoere_clip_header_outer_under_${side}`].sort());
+  }
+  const scopes = report.critical_bearing_diagnostic_scopes;
+  assert.equal(scopes.length, 4); assert.equal(new Set(scopes.map(row => row.scope_id)).size, 4);
+  const scopeAxes = {
+    'cleat-subassembly:eoere_cleat_left': ['eoere_bolt_067', 'v10_header_bolt_001'],
+    'cleat-subassembly:eoere_cleat_right': ['eoere_bolt_070', 'v10_header_bolt_004'],
+    'wood-only-joint:side_left+lumber_leg_left': ['lumber_leg_bolt_left_1', 'lumber_leg_bolt_left_2'],
+    'wood-only-joint:side_right+lumber_leg_right': ['lumber_leg_bolt_right_1', 'lumber_leg_bolt_right_2'],
+  };
+  assert.deepEqual(scopes.map(row => row.scope_id).sort(), Object.keys(scopeAxes).sort());
+  const axes = scopes.flatMap(row => row.axes);
+  assert.equal(axes.length, 8); assert.equal(new Set(axes).size, 8);
+  const currentAssessment = JSON.parse(bound(index.engineering_review));
+  assert.deepEqual([...axes].sort(), Object.keys(currentAssessment.bearing_diagnostic_component_maxima).sort());
+  assert.deepEqual([...axes].sort(), [...new Set(assessment.bearing_diagnostics.flags.map(row => row.axis))].sort());
+  for (const row of scopes) {
+    assert.ok(typeof row.scope_id === 'string' && row.scope_id.length > 0);
+    assert.deepEqual([...row.axes].sort(), scopeAxes[row.scope_id]);
+    assert.ok(Number.isInteger(row.current_case_rows) && row.current_case_rows >= 0);
+    assert.ok(Number.isInteger(row.unselected_case_rows) && row.unselected_case_rows >= 0);
+    assert.equal(row.complete_joint_utilization, null); assert.equal(row.NDS_group_assignment, null);
+  }
+  assert.equal(scopes.reduce((sum, row) => sum + row.current_case_rows, 0), 15);
+  assert.equal(scopes.reduce((sum, row) => sum + row.unselected_case_rows, 0), 15);
+  assert.deepEqual(report.gates, {force_N: 1e-4, moment_Nmm: 0.1});
+  referenceKeys(report.closure, ['selected112', 'unselected108'], 'declared local action comparisons');
+  for (const row of Object.values(report.closure)) {
+    assert.equal(row.whole_field_comparisons, 6); assert.equal(row.component_comparisons, 120);
+    assert.equal(row.wood_scope_comparisons, 36);
+    for (const prefix of ['max_component_actual_equilibrium_residual', 'max_component_reconstruction_difference',
+      'max_wood_scope_reconstruction_difference']) for (const [unit, gate] of [['N', report.gates.force_N], ['Nmm', report.gates.moment_Nmm]]) {
+      referenceIndex(row[`${prefix}_${unit}`], 'declared local residual');
+      assert.ok(row[`${prefix}_${unit}`] <= gate, 'declared local residual exceeds its recorded gate');
+    }
+  }
+  assert.equal(report.residual_origin.selected112_comparisons_normalized_before_aggregation, true);
+  assert.equal(report.residual_origin.unselected108_V2_overlay_required, true);
+  assert.equal(report.residual_origin.source_forces_and_own_point_couples_changed, false);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_connection_acceptance']) assert.equal(report.qualification[key], null);
+  for (const key of ['complete_joint_qualified', 'complete_load_path_established', 'nds_fastener_group_classification_established',
+    'structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized']) assert.equal(report.qualification[key], false);
+  assert.equal(report.qualification.panel_screw_resolution_deferred, true);
+  assert.equal(report.new_global_CAD_or_force_solve, false); assert.equal(report.selected_authority_or_viewer_changed, false);
+  assert.equal(report.nominal_bore_check_unselected108.delivered_holes_or_bolt_body_inspected, false);
+  assert.equal(report.primitive_bookkeeping.panel_resistance_recalculated, false);
+  referenceKeys(report.raw_sources, ['body_graph', 'selected112_wrenches', 'unselected108_wrenches',
+    'unselected108_residual_origin_overlay', 'unselected108_nominal_bore_audit'], 'retained raw action sources');
+  for (const ref of Object.values(report.raw_sources)) referenceBinding(ref);
+  return report;
+}
+
 const PACKER_FREE_FOLLOWUP_SCHEMAS = {
   primary_method_closure: 'v10_packer_free_primary_method_closure_summary/v1',
   geometry_method_followup: 'v10_geometry_method_followup/v1',
@@ -2310,6 +2387,10 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       bound(report.bindings.response_bank); bound(report.bindings.checked_receipt);
       assert.equal(viewerModel(html, trial.viewer.model), trial.viewer.model);
       unselectedTrials.center_far_row_only = metadata;
+    }
+    if (index.subassembly_action_map !== undefined) {
+      referenceBinding(index.subassembly_action_map, 'docs/bolted-frame-development/owner-frame-v10/packer-free/subassembly-action-map.json');
+      validateLocalSubassemblyActionMap(JSON.parse(bound(index.subassembly_action_map)), index);
     }
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);

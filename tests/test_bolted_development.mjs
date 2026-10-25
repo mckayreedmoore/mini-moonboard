@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -330,8 +330,8 @@ for (const [name, mutate] of [
   assert.throws(() => validatePackerFreeSawnReference(report, index));
 });
 
-test('optional center-far-row metadata can be absent without changing current112 or selected baseline', () => {
-  const index = readPackerFreeIndex(); delete index.unselected_trials;
+test('optional center-far-row metadata and dependent action map can be absent without changing current112 or selected baseline', () => {
+  const index = readPackerFreeIndex(); delete index.unselected_trials; delete index.subassembly_action_map;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
   assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
@@ -375,6 +375,72 @@ for (const [name, mutate] of [
   const provenance = JSON.parse(readFileSync(path.join(ROOT, entry.viewer.provenance.path)));
   mutate(entry, report, index);
   assert.throws(() => validateUnselectedCenterFarRowTrial(entry, report, provenance));
+});
+
+test('local subassembly action map validates declared comparisons while holding load-path and group acceptance', () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.subassembly_action_map.path)));
+  assert.equal(validateLocalSubassemblyActionMap(report, index), report);
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
+  assert.equal(result.unselected_trials.center_far_row_only.bolt_axes, 108);
+  assert.equal(result.structural_acceptance, false); assert.equal(result.full_ignored_input_closure_checked, false);
+});
+
+test('local subassembly action map can be omitted without changing current authority', () => {
+  const index = readPackerFreeIndex(); delete index.subassembly_action_map;
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+});
+
+test('portable local subassembly action map checks never open ignored raw sources', () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.subassembly_action_map.path)));
+  report.raw_sources.body_graph = {path: 'fea/generated/not-present-for-portable-action-map-control.json', sha256: '0'.repeat(64)};
+  assert.equal(validateLocalSubassemblyActionMap(report, index), report);
+});
+
+for (const [name, mutate] of [
+  ['foreign current bank', r => {r.current_response_bank = r.unselected_response_bank;}],
+  ['foreign unselected bank', r => {r.unselected_response_bank = r.current_response_bank;}],
+  ['wrong current revision', r => {r.current_revision = r.unselected_revision;}],
+  ['wrong shaft inventory', r => {r.counts.selected112.shafts = 108;}],
+  ['wrong component inventory', r => {r.counts.current108.components = 29;}],
+  ['review scopes substituted for graph components', r => {r.counts.selected112.components = 26;}],
+  ['lower cleat pin omitted', r => {r.cleat_components[0].cleat_axis_ids.shift();}],
+  ['header pin omitted from connected component', r => {r.cleat_components[0].all_component_axis_ids.pop();}],
+  ['header angle detached', r => {r.cleat_components[0].fitting_body_ids.pop();}],
+  ['omitted critical scope', r => {r.critical_bearing_diagnostic_scopes.pop();}],
+  ['duplicated scope identity', r => {r.critical_bearing_diagnostic_scopes[1].scope_id = r.critical_bearing_diagnostic_scopes[0].scope_id;}],
+  ['wrong physical mapping with same aggregate axes', r => {const rows = r.critical_bearing_diagnostic_scopes;
+    [rows[0].axes[1], rows[1].axes[1]] = [rows[1].axes[1], rows[0].axes[1]];}],
+  ['erased current diagnostic rows', r => {r.critical_bearing_diagnostic_scopes[0].current_case_rows = 0;}],
+  ['erased unselected diagnostic rows', r => {r.critical_bearing_diagnostic_scopes[0].unselected_case_rows = 0;}],
+  ['invented joint utilization', r => {r.critical_bearing_diagnostic_scopes[0].complete_joint_utilization = 0.5;}],
+  ['invented NDS group', r => {r.critical_bearing_diagnostic_scopes[0].NDS_group_assignment = 'qualified-group';}],
+  ['actual Cg adopted', r => {r.qualification.actual_Cg = 1;}],
+  ['complete load path claimed', r => {r.qualification.complete_load_path_established = true;}],
+  ['fabrication release', r => {r.qualification.fabrication_released = true;}],
+  ['relaxed force gate', r => {r.gates.force_N = 1e-3;}],
+  ['relaxed moment gate', r => {r.gates.moment_Nmm = 1;}],
+  ['failed declared residual', r => {r.closure.selected112.max_component_actual_equilibrium_residual_N = 1e-3;}],
+  ['failed actual moment hidden by tiny reconstruction error', r => {r.closure.unselected108.max_component_actual_equilibrium_residual_Nmm = 1;}],
+  ['missing origin correction', r => {r.residual_origin.unselected108_V2_overlay_required = false;}],
+  ['malformed raw binding', r => {r.raw_sources.body_graph.sha256 = 'invalid';}],
+  ['authority changed', r => {r.selected_authority_or_viewer_changed = true;}],
+]) test(`reject local subassembly action map ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT, index.subassembly_action_map.path)));
+  mutate(report);
+  assert.throws(() => validateLocalSubassemblyActionMap(report, index));
+});
+
+for (const [name, mutate] of [
+  ['changed public source', r => {r.subassembly_action_map.sha256 = '0'.repeat(64);}],
+  ['missing referenced trial', r => {delete r.unselected_trials;}],
+]) test(`reject local subassembly action map authority ${name}`, () => {
+  const index = readPackerFreeIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],
