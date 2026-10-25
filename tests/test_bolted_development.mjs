@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, validateCurrent112HardwarePlanning, validateCurrent112GroupEffects, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -330,8 +331,9 @@ for (const [name, mutate] of [
   assert.throws(() => validatePackerFreeSawnReference(report, index));
 });
 
-test('optional center-far-row metadata and dependent action map can be absent without changing current112 or selected baseline', () => {
+test('optional center-far-row metadata and dependent action map/group assessment can be absent without changing current112 or selected baseline', () => {
   const index = readPackerFreeIndex(); delete index.unselected_trials; delete index.subassembly_action_map;
+  delete index.group_effects_assessment;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
   assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
@@ -387,8 +389,8 @@ test('local subassembly action map validates declared comparisons while holding 
   assert.equal(result.structural_acceptance, false); assert.equal(result.full_ignored_input_closure_checked, false);
 });
 
-test('local subassembly action map can be omitted without changing current authority', () => {
-  const index = readPackerFreeIndex(); delete index.subassembly_action_map;
+test('local subassembly action map and its dependent group assessment can be omitted without changing current authority', () => {
+  const index = readPackerFreeIndex(); delete index.subassembly_action_map; delete index.group_effects_assessment;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
 });
@@ -441,6 +443,103 @@ for (const [name, mutate] of [
 ]) test(`reject local subassembly action map authority ${name}`, () => {
   const index = readPackerFreeIndex(); mutate(index);
   assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+test('current112 hardware planning binds the issued nominal table and CSV without granting physical fit', () => {
+  const index = readPackerFreeIndex();
+  const plan = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.json')));
+  assert.equal(validateCurrent112HardwarePlanning(plan, index), plan);
+  assert.deepEqual(plan.totals, {bolt: 112, nut: 112, spacer: 40, washer: 224});
+  assert.equal(plan.physical_fit_qualified, false); assert.equal(plan.purchase_authorized, false);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (p, i) => {p.source_bindings.response_bank = i.preceding_revision.response_bank;}],
+  ['fabrication release', p => {p.fabrication_released = true;}],
+  ['physical fit claimed', p => {p.physical_fit_qualified = true;}],
+  ['invented Actual observation', p => {p.rows[0].Actual = 'inspected';}],
+  ['invented Disposition', p => {p.rows[0].Disposition = 'approved';}],
+  ['wrong nominal quantity', p => {p.rows[0].nominal_quantity += 1;}],
+  ['unresolved spacer SKU', p => {p.rows.find(row => row.category === 'spacer').SKU = 'unresolved';}],
+  ['price or availability claim', p => {p.prices_or_availability_claimed = true;}],
+]) test(`reject current112 hardware planning ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const plan = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.json')));
+  mutate(plan, index);
+  assert.throws(() => validateCurrent112HardwarePlanning(plan, index));
+});
+
+for (const rebound of [false, true]) test(`reject current112 hardware planning corrupt CSV ${rebound ? 'with updated hash' : 'with issued hash'}`, () => {
+  const index = readPackerFreeIndex();
+  const plan = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.json')));
+  const issued = readFileSync(path.join(ROOT, plan.CSV.path));
+  const changed = Buffer.from(issued.toString('utf8').replace('bolt,363,48,', 'bolt,363,49,'));
+  assert.notDeepEqual(changed, issued);
+  if (rebound) plan.CSV.sha256 = createHash('sha256').update(changed).digest('hex');
+  assert.throws(() => validateCurrent112HardwarePlanning(plan, index, changed), rebound ? /rows differ/ : /CSV hash differs/);
+});
+
+test('optional current112 hardware planning binds its public JSON and can be absent without changing authority', () => {
+  const index = readPackerFreeIndex();
+  const planPath = 'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.json';
+  index.hardware_planning = {path: planPath, sha256: createHash('sha256').update(readFileSync(path.join(ROOT, planPath))).digest('hex')};
+  assert.equal(checkCurrentDevelopment(index, {entryChecks: false}).bolt_axes, 112);
+  index.hardware_planning.sha256 = '0'.repeat(64);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+  delete index.hardware_planning;
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.purchase_authorized, false); assert.equal(result.full_ignored_input_closure_checked, false);
+});
+
+test('current112 group effects retain unresolved scopes and a synthetic benchmark without opening ignored declarations', () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json')));
+  report.raw_assessment.path = 'fea/generated/portable-guard-does-not-read/assessment.json';
+  report.producer.path = '/unavailable/source-snapshot/publish_summary.py';
+  assert.equal(validateCurrent112GroupEffects(report, index), report);
+  assert.equal(report.active_group_assessment.candidate_Cg, null);
+  assert.equal(report.active_group_assessment.accepted_capacity_exceedance_count, null);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {r.response_bank = i.preceding_revision.response_bank;}],
+  ['invented actual Cg', r => {r.review_scopes[0].actual_Cg = 1;}],
+  ['default candidate Cg', r => {r.active_group_assessment.candidate_Cg = 1;}],
+  ['legacy acceptance criterion', r => {r.legacy_diagnostics.acceptance_criterion = true;}],
+  ['erased legacy flags', r => {r.legacy_diagnostics.rows = 0;}],
+  ['duplicated physical axis', r => {r.review_scopes[0].axis_ids[0] = r.review_scopes[0].axis_ids[1];}],
+  ['promoted scope capacity', r => {r.review_scopes[0].capacity = 1000;}],
+  ['fabrication release', r => {r.qualifications.fabrication_released = true;}],
+  ['missing current operator proof', r => {delete r.current112_operator_reuse_proof;}],
+  ['missing referenced ownership authority', (r, i) => {delete i.subassembly_action_map;}],
+  ['synthetic distribution changed', r => {r.serial_row_benchmark.result.serial_row_distribution.bolt_force_fractions[0] += 0.1;}],
+  ['zero accepted exceedances', r => {r.active_group_assessment.accepted_capacity_exceedance_count = 0;}],
+]) test(`reject current112 group effects ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const report = JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json')));
+  mutate(report, index);
+  assert.throws(() => validateCurrent112GroupEffects(report, index));
+});
+
+test('optional current112 group effects bind the public summary and preserve authority when absent', () => {
+  const index = readPackerFreeIndex();
+  const summaryPath = 'docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json';
+  index.group_effects_assessment = {path: summaryPath, sha256: createHash('sha256').update(readFileSync(path.join(ROOT, summaryPath))).digest('hex')};
+  assert.equal(checkCurrentDevelopment(index, {entryChecks: false}).bolt_axes, 112);
+  index.group_effects_assessment.sha256 = '0'.repeat(64);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+  delete index.group_effects_assessment;
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.reference_case_exceedances, 15); assert.equal(result.optional_rear_foot_envelope_case_rows, 3);
+  assert.equal(result.complete_connection_acceptance, null); assert.equal(result.structural_acceptance, false);
+  assert.equal(result.full_ignored_input_closure_checked, false);
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],

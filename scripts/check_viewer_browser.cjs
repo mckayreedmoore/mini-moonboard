@@ -9,6 +9,8 @@ const output = process.argv[4];
 const ignoreHTTPSErrors = process.env.VIEWER_BROWSER_IGNORE_HTTPS_ERRORS === '1';
 const index = JSON.parse(fs.readFileSync('docs/bolted-frame-development/development-revisions.json'));
 const currentGeometry = JSON.parse(fs.readFileSync(index.geometry.receipt.path));
+const expectedCurrentParts = currentGeometry.counts.occupied_parts_checked ?? currentGeometry.counts.occupied_parts;
+assert.ok(Number.isSafeInteger(expectedCurrentParts) && expectedCurrentParts > 0, 'receipt declares a checked part count');
 const models = [index.geometry.viewer, 'compact-floor-flush-development',
   'compact-floor-flush-kerf-right', 'eoere-retained-2x6-frame-development', 'plywood'];
 
@@ -101,7 +103,7 @@ const models = [index.geometry.viewer, 'compact-floor-flush-development',
           camera: v.camera.position.toArray(), target: v.controls.target.toArray()};
       });
       assert.ok(snapshot.parts.length > 10, 'CAD part metadata loaded');
-      if (model === index.geometry.viewer) assert.equal(snapshot.parts.length, currentGeometry.counts.occupied_parts);
+      if (model === index.geometry.viewer) assert.equal(snapshot.parts.length, expectedCurrentParts);
       console.log(`  Read metadata ${model}`);
       const beforeOrbit = await page.evaluate(() => window.cleanupViewer.camera.position.toArray());
       await page.mouse.move(780, 550); await page.mouse.down();

@@ -1,0 +1,607 @@
+{
+  "active_group_assessment": {
+    "accepted_capacity_exceedance_count": null,
+    "candidate_Cdelta": null,
+    "candidate_Cg": null,
+    "candidate_payloads_routed_to_NDS": 0,
+    "complete_joint_capacity": null,
+    "criterion_disposition": "UNRESOLVED",
+    "legacy_receiver_signature_1_over_n_is_acceptance": false,
+    "strategy": "eligible_source_bound_NDS_row_or_UNRESOLVED"
+  },
+  "admission_gate_N": 1e-05,
+  "coverage": {
+    "attachment_memberships": 108,
+    "attachment_row_roles": 54,
+    "axes": 112,
+    "axes_with_attachment_roles": 96,
+    "cases": 6,
+    "hardware_cleat_scopes": 20,
+    "topology_only_cleat_axes": 6,
+    "wood_geometric_candidate_rows": 6,
+    "wood_only_scopes": 6
+  },
+  "current112_operator_reuse_proof": {
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-slip/rear-coupon-current112-reuse-proof-v1.json",
+    "sha256": "5f4b2ce81c98e6deb8c705ef4bdc4a1911160430806facc866f13ed698eb06ec"
+  },
+  "current_operator_comparison": {
+    "coupon": {
+      "NDS_gamma_N_per_mm": 11145.003549347048,
+      "bearing_intervals_mm": [
+        [
+          88.89999999999986,
+          177.79999999999995
+        ],
+        [
+          0.0,
+          88.89999999999986
+        ]
+      ],
+      "condensed_stiffness_N_per_mm": 286.5816634407049,
+      "coupon_to_NDS_gamma": 0.025713914057703003,
+      "diameter_mm": 12.7,
+      "equilibrium_residual_N": 5.763070021203021e-10,
+      "foundation_sum_N_per_mm_by_host": [
+        2333.3333333328924,
+        2333.3333333328865
+      ],
+      "free_DOFs": 26,
+      "guaranteed_zero_resistance_slip_interval_mm": [
+        -1.5875000000000004,
+        1.5875000000000004
+      ],
+      "media": [
+        "wood",
+        "wood"
+      ],
+      "model_uniform_radial_gap_mm": 0.7937500000000002,
+      "station_count": 13
+    },
+    "limits": {
+      "actual_Cg": null,
+      "actual_physical_slip": null,
+      "candidate_force_distribution": null,
+      "complete_connection_acceptance": null,
+      "complete_group_or_connection_capacity": null,
+      "loads_or_wrenches_reused": false,
+      "new_coupon_or_condensation_run": false,
+      "scope": "local two-wood, 13-station, zero-gap full-active rigid-host scalar transverse tangent coupon only",
+      "structural_acceptance": false
+    },
+    "matched_axis_case_descriptors": 24,
+    "matched_rear_axes": [
+      "lumber_leg_bolt_left_1",
+      "lumber_leg_bolt_left_2",
+      "lumber_leg_bolt_right_1",
+      "lumber_leg_bolt_right_2"
+    ]
+  },
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-receipt.json",
+    "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+  },
+  "legacy_diagnostics": {
+    "acceptance_criterion": false,
+    "components": 8,
+    "preserved": true,
+    "rows": 15,
+    "source": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json",
+      "sha256": "41863a95230b64a67f3b8aeffd6874fcf75cb81891b4872459d0bd7bb87f4017"
+    }
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "ownership_map": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/subassembly-action-map.json",
+    "sha256": "ac8bfa9dc1620297ffa6894ef46ed8e455a8c9551eba9c809085ae66627881eb"
+  },
+  "portable_guard_scope": "Public metadata, hashes and own source joins only; no ignored raw source closure is claimed.",
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/publish_summary_v1.py",
+    "sha256": "ef9daba7eeb1ddd087362d28399f742129237d3f838a566c3d8e8d6f74985535"
+  },
+  "qualifications": {
+    "authority_note": "A review component or attachment role is not automatically an NDS group. The benchmark checks the equation implementation only.",
+    "candidate_factor_assigned": false,
+    "capacity_computed": false,
+    "climbing_released": false,
+    "component_graph_is_a_fastener_group": false,
+    "criterion_acceptance": false,
+    "current_authority_changed": false,
+    "fabrication_released": false,
+    "loads_reduced": false,
+    "new_native_or_CAD_run": false,
+    "physical_hardware_or_bond_verified": false,
+    "purchase_authorized": false,
+    "separate_direct_wood_to_wood_contact_channel_retained": true,
+    "structural_acceptance": false
+  },
+  "raw_assessment": {
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/assessment-v1.json",
+    "sha256": "42c1656438722141ebc784cebf636946dd3a62484f655ef39bf13b2e477c6233"
+  },
+  "remaining_inputs": [
+    "NDS effective group areas/EA are not source-qualified for these multi-member local rows.",
+    "No matched calibration establishes equivalence between FE distributed shaft foundations/interpolated ports and NDS serial row slip.",
+    "Physical row ownership, shear planes, grain/loading applicability, and force-only versus local-moment effects are not established for an NDS Cg input.",
+    "The 150 mm beam segmentation exceeds the 41\u201367 mm row pitch range, so port interpolation is not a discrete serial-bolt-row model."
+  ],
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json",
+    "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+  },
+  "review_scopes": [
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "eoere_bolt_071",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "v10_cleat_bolt_left_1",
+        "v10_cleat_bolt_left_2",
+        "v10_cleat_bolt_left_3",
+        "v10_header_bolt_001",
+        "v10_header_bolt_002"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "cleat-subassembly:eoere_cleat_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "eoere_bolt_074",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v10_cleat_bolt_right_1",
+        "v10_cleat_bolt_right_2",
+        "v10_cleat_bolt_right_3",
+        "v10_header_bolt_003",
+        "v10_header_bolt_004"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "cleat-subassembly:eoere_cleat_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_002",
+        "eoere_bolt_029",
+        "eoere_bolt_032",
+        "eoere_bolt_036"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_019",
+        "eoere_bolt_033",
+        "eoere_bolt_037",
+        "eoere_bolt_040"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_025",
+        "eoere_bolt_034",
+        "eoere_bolt_038",
+        "eoere_bolt_059"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_014",
+        "eoere_bolt_035",
+        "eoere_bolt_039",
+        "eoere_bolt_062"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_003",
+        "eoere_bolt_030",
+        "eoere_bolt_043",
+        "eoere_bolt_047"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_020",
+        "eoere_bolt_041",
+        "eoere_bolt_044",
+        "eoere_bolt_048"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_026",
+        "eoere_bolt_045",
+        "eoere_bolt_049",
+        "eoere_bolt_060"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_015",
+        "eoere_bolt_046",
+        "eoere_bolt_050",
+        "eoere_bolt_063"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_004",
+        "eoere_bolt_031",
+        "eoere_bolt_051",
+        "eoere_bolt_055"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_021",
+        "eoere_bolt_042",
+        "eoere_bolt_052",
+        "eoere_bolt_056"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_027",
+        "eoere_bolt_053",
+        "eoere_bolt_057",
+        "eoere_bolt_061"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_016",
+        "eoere_bolt_054",
+        "eoere_bolt_058",
+        "eoere_bolt_064"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_single_top_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_single_top_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_068",
+        "eoere_bolt_072",
+        "eoere_bolt_075",
+        "eoere_bolt_077"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "shared-fitting-subassembly:eoere_clip_split_base_center_left+eoere_clip_split_header_center_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_069",
+        "eoere_bolt_073",
+        "eoere_bolt_076",
+        "eoere_bolt_078",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "shared-fitting-subassembly:eoere_clip_split_base_center_right+eoere_clip_split_header_center_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_007",
+        "eoere_bolt_011",
+        "eoere_bolt_022",
+        "eoere_bolt_023",
+        "v10_top_bolt_005",
+        "v10_top_bolt_006"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_split_top_center_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_008",
+        "eoere_bolt_012",
+        "eoere_bolt_024",
+        "eoere_bolt_028",
+        "v10_top_bolt_007",
+        "v10_top_bolt_008"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_split_top_center_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_left+post_outer_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_left+lumber_leg_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_right+post_outer_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_right+lumber_leg_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:side_left+lumber_leg_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:side_right+lumber_leg_right"
+    }
+  ],
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "schema": "eoere_v10_group_effects_public_summary/v1",
+  "serial_row_benchmark": {
+    "expected_published_rounded_Cg": 0.98,
+    "inputs": {
+      "diameter_in": 0.625,
+      "fastener_count": 3,
+      "main_A_in2": 144.0,
+      "main_E_psi": 1600000.0,
+      "nominal_gamma_lbf_per_in": 88939.05919223567,
+      "pitch_in": 2.5,
+      "side_A_in2": 10.88,
+      "side_E_psi": 1600000.0
+    },
+    "interpretation": "This checks the existing evaluator against a published example. Its synthetic caller manifest is a software fixture; it is not a MoonBoard source binding or candidate factor.",
+    "result": {
+      "Cg_difference": 7.771561172376096e-16,
+      "NDS_Cg_method_only": 0.9806318451462117,
+      "capacity": null,
+      "criterion_disposition": "pending",
+      "distribution_Cg": 0.9806318451462125,
+      "gamma_lbf_per_in": 88939.05919223567,
+      "matches_within_tolerance": true,
+      "scope": "synthetic two-member wood-to-wood elastic serial row only; no candidate Cg",
+      "serial_row_distribution": {
+        "applied_load": 1.0,
+        "bolt_force_fractions": [
+          0.32826923206889125,
+          0.3318138715104809,
+          0.3399168964206269
+        ],
+        "bolt_forces": [
+          0.32826923206889125,
+          0.3318138715104809,
+          0.3399168964206269
+        ],
+        "boundary_condition": "+P on main at first row station; -P on side at last row station",
+        "cg_from_distribution": 0.9806318451462125,
+        "fastener_count": 3,
+        "force_balance_relative_residual": 8.881784197001252e-16,
+        "force_balance_residual": -8.881784197001252e-16,
+        "max_force_fastener_index": 3,
+        "max_force_fraction": 0.3399168964206269,
+        "total_transferred_force": 0.9999999999999991
+      }
+    },
+    "source": {
+      "citation": "Caltrans Falsework Manual, Appendix D, Example 12, printed D-12-4/5",
+      "edition_note": "Published reference example; benchmark inputs copied from the owner work packet.",
+      "url": "https://dot.ca.gov/-/media/dot-media/programs/engineering/documents/structureconstruction/fw-appendixd-ex12-a11y.pdf"
+    },
+    "status": "PASS_METHOD_BENCHMARK_ONLY"
+  },
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/geometry/geometry.json",
+      "sha256": "f187592684eab07c0c17cbf8e835452cb5ebf431510ce8aa8ffe38940807da21"
+    },
+    "boundary_wrenches": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/local-subassemblies/current112-local-subassembly-boundary-wrenches-v1.json",
+      "sha256": "04b437ed42fa18a4bb04b338228eaf5af4dc8f6ec6383a45ed4529a22fd8fc64"
+    },
+    "checked_receipt": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+    },
+    "component_graph": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/subassembly-ownership/local-hardware-cleat-component-graph-v1.json",
+      "sha256": "d04161605cdbaef3b495b603a051a37cd28353134d0c4ef77f2a79be9d4b7003"
+    },
+    "legacy_evaluation": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json",
+      "sha256": "41863a95230b64a67f3b8aeffd6874fcf75cb81891b4872459d0bd7bb87f4017"
+    },
+    "nds_chapter_11": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+      "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+    },
+    "nds_chapter_12": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    },
+    "nds_evaluator": {
+      "path": "mini_moonboard/nds_2024_group_action.py",
+      "sha256": "121ec9d5399aa3e856b4038232e6d61c628aac42ce2addf8d1ff7e3a0e4c3df9"
+    },
+    "owner_work_packet": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt",
+      "sha256": "0584b2ce59f9e66c20d1c09ce0a1c7d3053eb0923263affbb37d68f8d9202961"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "plywood_material": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/material.json",
+      "sha256": "0a9829f9d5403639665049f33a2af46377409b5d4c2cad7c9b368c1c493ea51a"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/preparation/inputs.json",
+      "sha256": "1327366f48b68fe385de3dca117c043b44d930ea61d3cfae991c12d2cc89bec9"
+    },
+    "primary_method_closure": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/primary-method-closure.json",
+      "sha256": "99ec1cb8685c35611c6b4c4b93d9ea30741977048beb6e0cb140eef01f575ca0"
+    },
+    "response_bank": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    },
+    "serial_row_benchmark": {
+      "path": "mini_moonboard/serial_row_benchmark.py",
+      "sha256": "f6118e2d96fbebcb33b5d6f843edb02c4c7891bf6ec794215c4aa1b15c9c7d2e"
+    }
+  },
+  "work_packet": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt",
+    "sha256": "0584b2ce59f9e66c20d1c09ce0a1c7d3053eb0923263affbb37d68f8d9202961"
+  }
+}

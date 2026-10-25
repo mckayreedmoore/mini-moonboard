@@ -26,7 +26,7 @@ The [selected screw-and-bracket baseline](../../current-candidate.json) retains 
 | --- | --- |
 | Current model and changed members | [Packer-free matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json) |
 | Material, hardware and operation holds | [Preserved C13 readiness](owner-frame-v10/candidate13/packet-13-complete/readiness.json) · [current scope and preserved instructions](builder-plan.md) |
-| Buying list and catalog fit | [Current provisional wood plan](owner-frame-v10/standard-stock-planning.md) · [current planning CSV](owner-frame-v10/buying-list-current.csv) · [resolved nominal spacer mapping](owner-frame-v10/packer-free/hardware-spacer-mapping.json) (20 each of 13731/13733; supersedes eight legacy blanks) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
+| Buying list and catalog fit | [Current planning and holds](builder-plan.md) · [112-stack hardware CSV](owner-frame-v10/packer-free/hardware-planning.csv) · [preserved wood allocation](owner-frame-v10/standard-stock-planning.md) · [wood allocation CSV](owner-frame-v10/buying-list-current.csv) · [resolved nominal spacer mapping](owner-frame-v10/packer-free/hardware-spacer-mapping.json) (20 each of 13731/13733; supersedes eight legacy blanks) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
 | Timber/profile planning | [Preserved C13 32-profile cut plan](owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv); not updated 4×6 cutting instructions |
 | Receiver coordinates | [Preserved C13 158-row drill plan](owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv); not updated 4×6 drilling instructions |
 | Own forces and references | [Own six-case response bank](owner-frame-v10/packer-free/response-bank.json) · [component review](owner-frame-v10/packer-free/evaluation.json) |
@@ -100,7 +100,7 @@ no Hillman resistance or force-slip index is qualified.
 
 The [continuation](owner-frame-v10/continuation-evaluation.json) preserves C13 work.
 The active criteria use physical rows/shear planes and complete force/moment transfer.
-Signature 1/n remains diagnostic only. Historical row and equal-EA benchmarks are not transferred as current force/capacity results;
+The [implemented group assessment](owner-frame-v10/packer-free/group-effects-assessment.json) routes eligible source-bound rows to NDS and leaves current joints unresolved; signature 1/n is retained only as a legacy diagnostic. Historical row and equal-EA benchmarks are not transferred as current force/capacity results;
 actual Cg, the cleat three-media factor and complete connection acceptance remain null. Current descriptor arithmetic also finds no demonstrated NDS-equivalent joint-slip calibration; the local foundation coefficients are a separate model.
 Panel-screw work is deferred and the agent review loop is suspended.
 
@@ -109,8 +109,8 @@ controls earlier summaries: 068/069 act away from the near edge in all six
 cases. The idealized near-unloaded 1.5D/opposite-loaded 4D screen clears.
 Both-edges 4D is optional conservatism, not an established NDS violation;
 local pressure reversal does not automatically change that classification.
-The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt)
-calls for a justified physical-group replacement for 1/n, preserving forces
+The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt) and [selected replacement work packet](owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt)
+call for a justified physical-group replacement for 1/n, preserving forces
 and couples. Cross-standard efficiencies are comparisons only. The outer-angle return removes the packers; an angle translation cannot change its internal top-grid pitch, and no further relocation is adopted as a top-grid remedy.
 All 112 axes have fresh six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.638517; these omit local couples and do not establish complete capacity.
 The additive [primary-method clarification](owner-frame-v10/packer-free/primary-method-closure.json) separates NDS pure-lateral mode reductions, bolt bending yield and a separate tensile-yield shaft comparison; none supplies complete wrench/group capacity. The [geometry-method followup](owner-frame-v10/packer-free/geometry-method-followup.json) records the unresolved Table-D interpretation and a fresh, bounded reduced-depth connection-shear check using the historical method and current forces.

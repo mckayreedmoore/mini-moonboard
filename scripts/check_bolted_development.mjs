@@ -2043,6 +2043,163 @@ export function validateLocalSubassemblyActionMap(report, index) {
   return report;
 }
 
+export function validateCurrent112HardwarePlanning(plan, index, csvBytes) {
+  assert.equal(plan.schema, 'v10_current112_nominal_hardware_planning/v1');
+  assert.equal(plan.revision, index.geometry.revision);
+  referenceKeys(plan.source_bindings, ['geometry_receipt', 'response_bank', 'resolved_spacers',
+    'nominal_inventory', 'physical_geometry'], 'current nominal hardware sources');
+  for (const ref of Object.values(plan.source_bindings)) referenceBinding(ref);
+  assert.deepEqual(plan.source_bindings.geometry_receipt, index.geometry.receipt);
+  assert.deepEqual(plan.source_bindings.response_bank, index.response_bank);
+  assert.deepEqual(plan.source_bindings.resolved_spacers, index.hardware_spacer_mapping);
+  const receipt = JSON.parse(bound(index.geometry.receipt));
+  assert.deepEqual(plan.source_bindings.physical_geometry, {
+    path: 'fea/generated/v10-packer-free-v1/geometry-v1/geometry.json', sha256: receipt.checked_geometry.sha256});
+  const methods = JSON.parse(bound(index.connection_method_evaluation));
+  assert.deepEqual(plan.source_bindings.nominal_inventory, methods.source_bindings.hardware);
+  const spacers = JSON.parse(bound(index.hardware_spacer_mapping));
+  assert.deepEqual(plan.retained_context_not_reselected, {angles: 24, Hillman_panel_kicker_axes: 66});
+  assert.equal(plan.rows.length, 14);
+  assert.equal(new Set(plan.rows.map(row => `${row.category}/${row.SKU}`)).size, 14);
+  const fields = ['category', 'SKU', 'nominal_quantity', 'unit', 'planning_status', 'source_field', 'Actual', 'Disposition'];
+  const sources = {bolt: 'nominal_inventory#/nominal_candidate_bom/bolt_SKU_quantities',
+    nut: 'nominal_inventory#/nominal_candidate_bom/nut_SKU_quantities',
+    washer: 'nominal_inventory#/nominal_candidate_bom/washer_SKU_quantities_two_per_stack',
+    spacer: 'resolved_spacers#/nominal_catalog_SKU_quantities'};
+  for (const row of plan.rows) {
+    referenceKeys(row, fields, 'nominal hardware row');
+    assert.ok(Object.hasOwn(sources, row.category));
+    assert.ok(typeof row.SKU === 'string' && row.SKU.trim().length > 0);
+    assert.ok(Number.isInteger(row.nominal_quantity) && row.nominal_quantity > 0);
+    assert.equal(row.unit, 'pieces'); assert.equal(row.planning_status, 'NOMINAL_PLANNING_PHYSICAL_FIT_UNVERIFIED');
+    assert.equal(row.source_field, sources[row.category]); assert.equal(row.Actual, ''); assert.equal(row.Disposition, '');
+  }
+  const totals = Object.fromEntries(Object.keys(sources).map(category => [category,
+    plan.rows.filter(row => row.category === category).reduce((sum, row) => sum + row.nominal_quantity, 0)]));
+  assert.deepEqual(plan.totals, {bolt: 112, nut: 112, washer: 224, spacer: 40});
+  assert.deepEqual(totals, plan.totals);
+  assert.deepEqual(Object.fromEntries(plan.rows.filter(row => row.category === 'spacer')
+    .map(row => [row.SKU, row.nominal_quantity])), spacers.nominal_catalog_SKU_quantities);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized',
+    'delivered_parts_verified', 'physical_fit_qualified', 'prices_or_availability_claimed',
+    'new_quantity_audit_or_geometry_force_calculation']) assert.equal(plan[key], false);
+  assert.equal(plan.all_six_cases_and_both_replays_recorded, true);
+  assert.equal(plan.publication_raw_inventory_and_geometry_pins_checked, true);
+  assert.equal(plan.producer, 'scripts/publish_current112_hardware_plan.py');
+  referenceBinding(plan.CSV, 'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.csv');
+  const csv = csvBytes ?? bound(plan.CSV);
+  assert.equal(sha(csv), plan.CSV.sha256, 'issued nominal hardware CSV hash differs');
+  const cell = value => /[",\r\n]/.test(String(value)) ? `"${String(value).replaceAll('"', '""')}"` : String(value);
+  const expectedCSV = [fields.join(','), ...plan.rows.map(row => fields.map(key => cell(row[key])).join(','))].join('\n') + '\n';
+  assert.equal(csv.toString('utf8'), expectedCSV, 'nominal hardware JSON/CSV rows differ');
+  return plan;
+}
+
+export function validateCurrent112GroupEffects(report, index) {
+  assert.equal(report.schema, 'eoere_v10_group_effects_public_summary/v1');
+  assert.equal(report.revision, index.geometry.revision);
+  assert.deepEqual(report.response_bank, index.response_bank);
+  assert.deepEqual(report.geometry_receipt, index.geometry.receipt);
+  assert.deepEqual(report.ownership_map, index.subassembly_action_map);
+  const bank = JSON.parse(bound(report.response_bank));
+  const receipt = JSON.parse(bound(report.geometry_receipt));
+  const ownership = JSON.parse(bound(report.ownership_map));
+  referenceBinding(report.work_packet,
+    'docs/bolted-frame-development/owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt');
+  bound(report.work_packet);
+  referenceKeys(report.source_bindings, ['analysis_geometry', 'boundary_wrenches', 'checked_receipt', 'component_graph',
+    'legacy_evaluation', 'nds_chapter_11', 'nds_chapter_12', 'nds_evaluator', 'owner_work_packet', 'physical_geometry',
+    'plywood_material', 'prepared_inputs', 'primary_method_closure', 'response_bank', 'serial_row_benchmark'], 'group-effects source declarations');
+  for (const ref of Object.values(report.source_bindings)) referenceBinding(ref);
+  const sources = report.source_bindings;
+  assert.deepEqual(sources.response_bank, {path: 'fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json',
+    sha256: index.response_bank.sha256});
+  assert.deepEqual(sources.checked_receipt, bank.physical_geometry);
+  assert.deepEqual(sources.analysis_geometry, bank.analysis_geometry);
+  assert.deepEqual(sources.physical_geometry, {path: 'fea/generated/v10-packer-free-v1/geometry-v1/geometry.json',
+    sha256: receipt.checked_geometry.sha256});
+  assert.deepEqual(sources.boundary_wrenches, ownership.raw_sources.selected112_wrenches);
+  assert.deepEqual(sources.component_graph, ownership.raw_sources.body_graph);
+  assert.deepEqual(sources.legacy_evaluation, index.engineering_review);
+  assert.deepEqual(sources.primary_method_closure, index.method_followups.primary_method_closure);
+  assert.deepEqual(sources.owner_work_packet, report.work_packet);
+  referenceBinding(report.raw_assessment); referenceBinding(report.current112_operator_reuse_proof,
+    'fea/generated/v10-packer-free-v1/connections/method-closure/group-slip/rear-coupon-current112-reuse-proof-v1.json');
+  // The frozen producer records its original absolute path; it is a declaration, never a portable read.
+  referenceKeys(report.producer, ['path', 'sha256'], 'group-effects producer declaration');
+  assert.ok(typeof report.producer.path === 'string' && report.producer.path.length > 0 &&
+    !report.producer.path.split(/[\\/]/).includes('..'));
+  assert.match(report.producer.sha256, /^[a-f0-9]{64}$/);
+  assert.deepEqual(report.load_contract, bank.load_contract); assert.equal(report.admission_gate_N, bank.admission_gate_N);
+  assert.deepEqual(report.coverage, {attachment_memberships: 108, attachment_row_roles: 54, axes: 112,
+    axes_with_attachment_roles: 96, cases: 6, hardware_cleat_scopes: 20, topology_only_cleat_axes: 6,
+    wood_geometric_candidate_rows: 6, wood_only_scopes: 6});
+  assert.equal(report.review_scopes.length, 26);
+  assert.equal(new Set(report.review_scopes.map(row => row.scope_id)).size, 26);
+  for (const [kind, count] of [['hardware_cleat', 20], ['wood_only', 6]])
+    assert.equal(report.review_scopes.filter(row => row.kind === kind).length, count);
+  const axes = report.review_scopes.flatMap(row => row.axis_ids);
+  const scene = JSON.parse(gunzipSync(bound(index.repository_viewer.scene)));
+  assert.equal(axes.length, 112); assert.equal(new Set(axes).size, 112);
+  assert.deepEqual([...axes].sort(), scene.stack_updates.map(row => row.axis_id).sort());
+  for (const row of report.review_scopes) {
+    referenceKeys(row, ['actual_Cg', 'applicability_status', 'axis_ids', 'capacity', 'kind', 'scope_id'], 'unresolved group review scope');
+    assert.ok(typeof row.scope_id === 'string' && row.scope_id.length > 0 && row.axis_ids.length > 0);
+    assert.equal(row.actual_Cg, null); assert.equal(row.capacity, null); assert.equal(row.applicability_status, 'UNRESOLVED');
+  }
+  for (const component of ownership.cleat_components)
+    assert.deepEqual([...report.review_scopes.find(row => row.scope_id === component.component_id).axis_ids].sort(),
+      [...component.all_component_axis_ids].sort());
+  for (const scope of ownership.critical_bearing_diagnostic_scopes)
+    assert.ok(scope.axes.every(axis => report.review_scopes.find(row => row.scope_id === scope.scope_id)?.axis_ids.includes(axis)));
+  assert.deepEqual(report.active_group_assessment, {accepted_capacity_exceedance_count: null, candidate_Cdelta: null,
+    candidate_Cg: null, candidate_payloads_routed_to_NDS: 0, complete_joint_capacity: null, criterion_disposition: 'UNRESOLVED',
+    legacy_receiver_signature_1_over_n_is_acceptance: false, strategy: 'eligible_source_bound_NDS_row_or_UNRESOLVED'});
+  assert.deepEqual(report.legacy_diagnostics, {acceptance_criterion: false, components: 8, preserved: true, rows: 15,
+    source: index.engineering_review});
+  const benchmark = report.serial_row_benchmark, result = benchmark.result, distribution = result.serial_row_distribution;
+  assert.equal(benchmark.status, 'PASS_METHOD_BENCHMARK_ONLY'); assert.equal(benchmark.expected_published_rounded_Cg, 0.98);
+  assert.deepEqual(benchmark.inputs, {diameter_in: 0.625, fastener_count: 3, main_A_in2: 144, main_E_psi: 1600000,
+    nominal_gamma_lbf_per_in: 88939.05919223567, pitch_in: 2.5, side_A_in2: 10.88, side_E_psi: 1600000});
+  assert.equal(result.gamma_lbf_per_in, benchmark.inputs.nominal_gamma_lbf_per_in);
+  assert.equal(result.scope, 'synthetic two-member wood-to-wood elastic serial row only; no candidate Cg');
+  assert.equal(result.capacity, null); assert.equal(result.criterion_disposition, 'pending'); assert.equal(result.matches_within_tolerance, true);
+  referenceClose(result.NDS_Cg_method_only, 0.9806318451462117, 'published synthetic Cg benchmark');
+  referenceClose(result.distribution_Cg, result.NDS_Cg_method_only, 'synthetic serial-row comparison');
+  referenceClose(result.Cg_difference, Math.abs(result.distribution_Cg-result.NDS_Cg_method_only), 'synthetic Cg difference');
+  assert.equal(distribution.fastener_count, 3); assert.equal(distribution.applied_load, 1);
+  assert.equal(distribution.bolt_force_fractions.length, 3); assert.deepEqual(distribution.bolt_forces, distribution.bolt_force_fractions);
+  for (const fraction of distribution.bolt_force_fractions) assert.ok(Number.isFinite(fraction) && fraction > 0 && fraction < 1);
+  referenceClose(distribution.bolt_force_fractions.reduce((sum, value) => sum+value, 0), 1, 'synthetic force fractions');
+  referenceClose(distribution.max_force_fraction, Math.max(...distribution.bolt_force_fractions), 'synthetic maximum fraction');
+  referenceClose(distribution.cg_from_distribution, 1/(3*distribution.max_force_fraction), 'synthetic distribution Cg');
+  referenceClose(distribution.cg_from_distribution, result.distribution_Cg, 'synthetic Cg result');
+  referenceClose(distribution.total_transferred_force, 1, 'synthetic transferred force');
+  referenceClose(distribution.force_balance_residual, 0, 'synthetic force balance');
+  referenceClose(distribution.force_balance_relative_residual, 0, 'synthetic relative force balance');
+  const comparison = report.current_operator_comparison, coupon = comparison.coupon;
+  assert.equal(comparison.matched_axis_case_descriptors, 24);
+  assert.deepEqual([...comparison.matched_rear_axes].sort(), ['left', 'right'].flatMap(side =>
+    [1, 2].map(n => `lumber_leg_bolt_${side}_${n}`)));
+  assert.equal(coupon.station_count, 13); assert.equal(coupon.free_DOFs, 26);
+  assert.deepEqual(coupon.media, ['wood', 'wood']); assert.equal(coupon.diameter_mm, 12.7);
+  referenceClose(coupon.condensed_stiffness_N_per_mm, 286.5816634407049, 'conditional local coupon stiffness');
+  referenceClose(coupon.NDS_gamma_N_per_mm, 11145.003549347048, 'nominal NDS gamma comparison');
+  referenceClose(coupon.coupon_to_NDS_gamma, coupon.condensed_stiffness_N_per_mm/coupon.NDS_gamma_N_per_mm, 'local coupon comparison');
+  assert.ok(Number.isFinite(coupon.equilibrium_residual_N) && coupon.equilibrium_residual_N >= 0 &&
+    coupon.equilibrium_residual_N <= report.admission_gate_N);
+  assert.equal(comparison.limits.scope, 'local two-wood, 13-station, zero-gap full-active rigid-host scalar transverse tangent coupon only');
+  for (const key of ['actual_Cg', 'actual_physical_slip', 'candidate_force_distribution',
+    'complete_connection_acceptance', 'complete_group_or_connection_capacity']) assert.equal(comparison.limits[key], null);
+  for (const key of ['loads_or_wrenches_reused', 'new_coupon_or_condensation_run', 'structural_acceptance'])
+    assert.equal(comparison.limits[key], false);
+  for (const key of ['candidate_factor_assigned', 'capacity_computed', 'climbing_released', 'component_graph_is_a_fastener_group',
+    'criterion_acceptance', 'current_authority_changed', 'fabrication_released', 'loads_reduced', 'new_native_or_CAD_run',
+    'physical_hardware_or_bond_verified', 'purchase_authorized', 'structural_acceptance']) assert.equal(report.qualifications[key], false);
+  assert.equal(report.qualifications.separate_direct_wood_to_wood_contact_channel_retained, true);
+  return report;
+}
+
 const PACKER_FREE_FOLLOWUP_SCHEMAS = {
   primary_method_closure: 'v10_packer_free_primary_method_closure_summary/v1',
   geometry_method_followup: 'v10_geometry_method_followup/v1',
@@ -2391,6 +2548,14 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     if (index.subassembly_action_map !== undefined) {
       referenceBinding(index.subassembly_action_map, 'docs/bolted-frame-development/owner-frame-v10/packer-free/subassembly-action-map.json');
       validateLocalSubassemblyActionMap(JSON.parse(bound(index.subassembly_action_map)), index);
+    }
+    if (index.hardware_planning !== undefined) {
+      referenceBinding(index.hardware_planning, 'docs/bolted-frame-development/owner-frame-v10/packer-free/hardware-planning.json');
+      validateCurrent112HardwarePlanning(JSON.parse(bound(index.hardware_planning)), index);
+    }
+    if (index.group_effects_assessment !== undefined) {
+      referenceBinding(index.group_effects_assessment, 'docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json');
+      validateCurrent112GroupEffects(JSON.parse(bound(index.group_effects_assessment)), index);
     }
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);

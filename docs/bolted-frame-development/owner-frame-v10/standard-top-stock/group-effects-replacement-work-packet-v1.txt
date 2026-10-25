@@ -1,0 +1,29 @@
+GROUP EFFECTS REPLACEMENT WORK PACKET — 2026-10-24
+Scope: separate assessment for selected v10-standard-top-4x6-stock-proposal-v2, analysis-v4. No repository producer edits, no changed acceptance flags, no release.
+
+Current ownership check: supported lead read shows the six-case bank completed and the unsupported penalty acknowledged. Existing connection-proposal/4x6-method/current-bank-adapter-v1.py and README explicitly leave full wrench, group capacity and interaction unresolved. No completed physical-row Cg replacement was verified. Preserve that worker's files; do not overwrite its adapter.
+
+Required replacement contract:
+1. Preserve receiver-signature 1/n results as legacy diagnostics. Do not label this factor an NDS requirement, universal conservative bound, or actual failure criterion.
+2. New output must give each physical group and row identity, load direction and basis, member ownership, shear planes, spacing, grain, diameter, effective EA, slip modulus, source and units. Missing applicability yields UNRESOLVED, not 1.0.
+3. Implement NDS 11.3.6 equation only for explicitly eligible row configurations. Validate implementation against Caltrans Falsework Manual Appendix D Example12, printed D-12-4/5: n3,D0.625in,s2.5in,Em=Es1600000psi,Am144in2,As10.88in2, gamma=180000D^1.5 lb/in. Expected Cg rounds0.98. This is a software benchmark, not a MoonBoard factor.
+4. For each eligible case calculate full factor inputs with an edition-consistent source, report Cg and all lateral-capacity adjustments separately. Do not indiscriminately apply a group-capacity factor to each already-resolved local wrench.
+5. Current upper cleat groups have serial plywood/wood/steel and different grains; rear groups have two oblique wood members and local couples; header has coupled steel interfaces and nonuniform force directions. None has been established here as a directly eligible force-only physical row. Simple hypothetical factors cannot dispose of these connections.
+6. Existing FE includes gross member EA and unequal forces through distributed shaft foundations plus interpolation to beam ports. This partially represents member deformation and connector response. It does not establish calibrated NDS-equivalent serial row load-slip behavior, local ligaments or fitting compliance. Do not assert either no overlap or complete double counting without a matched benchmark.
+7. Build an isolated elastic serial-row benchmark with member EA and connector slip gamma, validate its bolt load distribution against the NDS formula under the formula's boundary conditions, then compare the existing FE discretization/ports/foundations to that benchmark. Keep moment-driven sharing separate from axial serial-row redistribution. Investigate actual bore clearance and documented slip ranges, not invented percentage variations.
+8. Actual-joint assessment must retain every individual force and local moment, shared fitting paths, splitting/cross-grain tension, row tear-out, group tear-out, net sections, steel fitting transfer, eccentricity, thread-bearing and hardware uncertainty. A TR12 single-fastener lateral pass does not cover these.
+
+Current actual inputs: Ewood11031.612MPa, gross EA side149460250.756N, leg137005229.860N, header58716527.083N. These are model gross-member values, not justified effective physical row areas. Standard beam segmentation150mm is coarser than bolt pitches41-67mm. Wood foundation default1000/38.1N/mm2 is not NDS gamma and is uncalibrated. Cleat perfect-bond stiffness and effective steel fitting EA remain conditional. Actual bolt Fyb, slip calibration, fitting dimensions, delivery measurements and local brittle checks remain open.
+
+Sources:
+https://dot.ca.gov/-/media/dot-media/programs/engineering/documents/structureconstruction/fw-appendixd-ex12-a11y.pdf
+https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf
+https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf
+https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf
+
+Current force source: fea/generated/v10-standard-top-stock-v1/mechanics-proposal/4x6/analysis-v4/response-bank.json SHA256 9a885d4dbfe5ef54fbb0d598e3c30d7d0d7233af67d75b39695b6ccdea066736.
+Geometry: fea/generated/v10-standard-top-stock-v1/4x6/geometry-v2/geometry.json.
+No new source bank or candidate factor was computed by this packet.
+
+Verified calculation benchmark: Caltrans Example12 reproduced Cg=0.9806318451462117 (published0.98); gamma88939.05919223567lb/in, REA0.07555555555555556,u1.0068688892477664,m0.8894595193702697. No MoonBoard Cg inferred. Edition-specific candidate nominal gamma values only: 3/8 woodwood41335.13940946613lb/in, woodmetal62002.7091141992lb/in; 1/2 woodwood63639.610306789284lb/in. These are formula evaluations, not measured actual connector stiffness or qualified group capacities.
+Top spacing correction: see top-spacing-clarification-v1.json. The NDS perpendicular screen and alternative EC5 oblique-angle comparison are separate. The historical approximately63degree result is not current and is not a perpendicular screen. No acceptance or release changes.

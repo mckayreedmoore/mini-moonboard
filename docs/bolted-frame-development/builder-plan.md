@@ -6,8 +6,10 @@ The model contains 1,125 occupied parts, 112 bolt stacks, 224 washers, 40 spacer
 All 15 bearing diagnostic rows across eight bolts remain. Actual Cg/Cdelta, full force-and-moment interaction, end/edge/row applicability, splitting, fitting and physical checks remain unresolved. See the [current method review](owner-frame-v10/packer-free/connection-method-evaluation.json). Panel screw resistance is deferred; the review loop is suspended.
 No purchase, cutting, drilling, assembly, climbing or structural release. Previous cut/drill files below retain their own geometry and are not current instructions.
 
-The [conditional wood plan](owner-frame-v10/standard-stock-planning.md), [current planning CSV](owner-frame-v10/buying-list-current.csv) and [20-member allocation](owner-frame-v10/packer-free/stock-planning.json) specify five 2×6×8′, three 2×6×10′, three 4×6×8′ and two 4×6×10′ before owned-stock credit. Removing packers allows the unchanged 2,257.425 mm top on an 8-foot board with 127.0 mm trim/kerf allowance left. The allocation was recorded before the fresh force bank; the current evaluation above controls numerical status.
-No old packer machining/offcut allocation applies. All sawn members are allocated once; no 4×8 side stock is intended. These are conditional blank envelopes, not cut instructions. Verify/reuse actual face/kicker plywood before buying replacements; grade, dimensions, moisture, cleat material/bond, hardware and support remain unverified. The non-wood buying rows remain historical catalog observations, not a reconciled 112-bolt order.
+The [preserved conditional wood plan](owner-frame-v10/standard-stock-planning.md), [wood planning CSV](owner-frame-v10/buying-list-current.csv) and [20-member allocation](owner-frame-v10/packer-free/stock-planning.json) specify five 2×6×8′, three 2×6×10′, three 4×6×8′ and two 4×6×10′ before owned-stock credit. Removing packers allows the unchanged 2,257.425 mm top on an 8-foot board with 127.0 mm trim/kerf allowance left. These bound allocation records predate the matched force bank; their pending-force wording is historical. The current [matched evaluation](owner-frame-v10/packer-free/evaluation.json) records all six cases and both independent replays and controls numerical status.
+No old packer machining/offcut allocation applies. All sawn members are allocated once; no 4×8 side stock is intended. These are conditional blank envelopes, not cut instructions. Verify/reuse actual face/kicker plywood before buying replacements; grade, dimensions, moisture, cleat material/bond, hardware and support remain unverified.
+
+Use the [current nominal hardware CSV](owner-frame-v10/packer-free/hardware-planning.csv) and [source-bound plan](owner-frame-v10/packer-free/hardware-planning.json) for the selected 112-stack quantities: 112 bolts, 112 nuts, 224 washers and 40 metal spacers, including 20 each of nominal SKUs 13731 and 13733. This republishes the existing reconciled inventory and resolved spacer mapping. Delivered body/thread/runout, seating, spacer compression and tool access remain unverified. No prices or availability are asserted. Non-wood rows in the wood planning CSV and the earlier catalog basket remain historical observations; none is a current order or purchase approval.
 
 The following top-stock and catalog records describe the preserved deeper-side stage;
 reuse supplier facts within scope, not its 4×8 side-stock buying line or bound forces.
@@ -27,10 +29,10 @@ These describe 116 stacks, 22 sawn members, two glued nominal half-inch
 plywood leaves per cleat and 66 Hillman screws. All 26 trial bearing flags
 remain, with complete joint and physical qualifications unresolved.
 
-The [updated catalog buying list](owner-frame-v10/buying-list.md) follows the
-owner-selected standard 4×6 development candidate and its 116-bolt, **44-spacer** recipe.
-It reconciles the full basket and stock allowances, records current supplier
-links, and identifies catalog head/washer envelope and body-coverage limits.
+The [historical catalog buying list](owner-frame-v10/buying-list.md) describes the
+preserved standard-top/deeper-side stage and its 116-bolt, **44-spacer** recipe.
+It reconciles that earlier basket and stock allowance, records dated supplier
+observations, and identifies catalog head/washer envelope and body-coverage limits.
 It leaves the frozen Candidate 13 packet and physical-operation holds intact.
 
 The separate completed [hardware audit](owner-frame-v10/hardware-audit-dispositions.json)
