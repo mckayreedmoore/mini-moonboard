@@ -38,6 +38,13 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-v9-eight-bolt-preview')
+    return [
+      {label: 'Owner V9-based eight-bolt request', path: current + 'owner-frame-v11/owner-v9-eight-bolt-request.json'},
+      {label: 'Own geometry receipt; analysis pending', path: current + 'owner-frame-v11/geometry-receipt.json'},
+      {label: 'Development status and remaining work', path: current + 'README.md'},
+      {label: 'Builder scope and holds', path: current + 'builder-plan.md'},
+    ];
   if (model === 'eoere-packer-free-center-far-row-preview')
     return [
       {label: 'Current development and trial status', path: current + 'README.md'},

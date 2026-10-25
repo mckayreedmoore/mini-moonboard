@@ -1,0 +1,58 @@
+{
+  "schema": "owner_v9_eight_bolt_geometry_request/v1",
+  "scope": "Development geometry request; matching analysis and physical qualifications remain required.",
+  "baseline_viewer": "eoere-owner-frame-v9-development",
+  "baseline_url": "http://127.0.0.1:8767/?model=eoere-owner-frame-v9-development&view=rear",
+  "baseline_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v9/geometry.json",
+    "sha256": "29db14a7cb6aaf37e5f65ab23f6c9362b1429456a29d4ca02c0e1d5266af00ef"
+  },
+  "baseline_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json",
+    "sha256": "7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109"
+  },
+  "cleats": {
+    "outline": "Preserve V9 straight-sided outline; do not enlarge or add tabs/steps.",
+    "leaves_per_side": 2,
+    "nominal_leaf_thickness_mm": 19.05,
+    "nominal_bonded_pair_thickness_mm": 38.1,
+    "bolts_per_side_receiver": 4,
+    "bolts_per_upright_receiver": 4,
+    "bolts_per_cleat": 8,
+    "owner_explicitly_confirmed_four_plus_four": true,
+    "bond_qualified": false
+  },
+  "top_rail": {
+    "nominal_stock": "4x6",
+    "actual_section_mm": [
+      88.9,
+      139.7
+    ]
+  },
+  "top_connections": {
+    "bolts_per_outer_joint": 8,
+    "bolts_per_outer_flange": 4,
+    "outer_angle_ids": [
+      "eoere_clip_single_top_left_1",
+      "eoere_clip_single_top_right_2"
+    ],
+    "center_top_connections": "Retain V9 four-bolt arrangement; no added near rows.",
+    "owner_explicitly_confirmed_outer_corners_only": true
+  },
+  "preserve": {
+    "other_V9_member_geometry_except_necessary_top_seat_fit": true,
+    "wall_panels": true,
+    "Hillman_screw_axes": 66,
+    "factory_angles": 24,
+    "wood_packers": 0,
+    "rear_leg_and_header_arrangements": "V9; no Candidate 13 additions inherited automatically."
+  },
+  "geometry_changes_other_than_requested": "Report any required derivative top-seat fitting changes; do not silently alter cleat outline, leaf thickness or other joint systems.",
+  "historical_geometry_and_forces_preserved": true,
+  "historical_forces_or_passes_transferred": false,
+  "analysis_complete": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false
+}

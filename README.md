@@ -6,21 +6,13 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[Current packer-free 4×6 development viewer · desktop local](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off)**
+**[V9 cleats, 4×6 top and eight-bolt outer corners · desktop local viewer](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)**
 
-The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**. The top and both side rails
-are standard nominal **4×6, actual 88.9 × 139.7 mm**, following the
-[owner's no-packers direction](docs/bolted-frame-development/owner-frame-v10/owner-no-wood-packers-v1.json).
-Fresh geometry, all six cases and both replays, net sections, grips,
-rear-joint geometry and clearance are complete. The declared vector section
-indices are **0.914625 left side, 0.872071 right side and 0.613288 top**.
-[The matched evaluation](docs/bolted-frame-development/owner-frame-v10/packer-free/evaluation.json)
-preserves **15 bearing diagnostic rows across eight bolts**. Complete connection,
-splitting, fitting/hardware and physical checks remain unresolved. Lengths
-remain provisional; no wood packers remain. No purchase or physical release.
-The deeper-side results and group benchmarks remain history and were not transferred.
-The [current provisional wood list](docs/bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
-replaces the historical 4×8 side-stock allocation and credits usable owned material first.
+The current geometry is **`v11-v9-eight-bolt-v4`**. It restores V9's straight-sided cleats with two glued nominal ¾-inch plywood leaves per side. Each cleat has eight bolts, four into the sloping side and four into the upright. The two outer top corners have eight bolts each; the two center top connections retain four. Top and side stock is standard nominal 4×6, actual 88.9 × 139.7 mm, with no wood packers.
+
+The [checked geometry receipt](docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json) records 1,109 parts, 112 bolt stacks, 24 metal spacers, 24 angles and 66 Hillman axes. Nominal occupied clearance passes. The thicker top requires two 50.8 mm center-principal end trims and two matching upper-panel screw moves; two kicker screw positions move down 6.35 mm to clear the added bolts. Four added lower bolts use a provisional seven-inch Grade 5 / half-inch-spacer recipe. Delivered hardware, glue and complete joint strength remain unqualified.
+
+**Fresh matched engineering is pending.** Earlier V9, Candidate 13 and V10 forces, indices and group comparisons do not qualify this geometry. The [development summary](docs/bolted-frame-development/README.md) and [revision index](docs/bolted-frame-development/development-revisions.json) retain those studies separately. Current cut/drill instructions and physical release have not been established for this preview.
 
 ## Run locally
 
@@ -31,7 +23,7 @@ uv sync --locked
 uv run python -m http.server 8767 --bind 127.0.0.1 --directory site
 ```
 
-Open the [preserved Candidate 13 viewer](http://127.0.0.1:8767/?model=eoere-current-frame-development&view=rear).
+Open the [V9-derived geometry preview](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off); Candidate 13 remains a separate historical viewer.
 This serves committed visualization assets. It does **not** regenerate CAD or
 replay an engineering study. Browser rendering also needs access to the pinned
 Three.js modules on unpkg.com.
@@ -40,7 +32,7 @@ The current 4×6 viewer is included in the repository's site assets and uses the
 normal port 8767 server above. Its runtime needs no ignored development outputs.
 Candidate 13 and the earlier port 8780 preview remain preserved; no site deployment is performed.
 
-The [published demo](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-retained-2x6-frame-development&view=rear)
+The [preserved published V10 viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-packer-free-standard-stock-preview&view=rear)
 shows the preserved 102-bolt revision. The published site checked at commit
 `6ded8620` does not yet recognize the local current-model key; use the local
 demo for the newer geometry. Publication is separate from this cleanup.

@@ -35,6 +35,32 @@ const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index,
 
 const candidate13Index = ownRevision('eoere-candidate13-side-depth-v10');
 const candidate13 = readV10Candidate13Authority(candidate13Index);
+test('V9 restoration selects checked geometry without transferring the previous 112-bolt force bank', () => {
+  const result = checkCurrentDevelopment(readCurrentIndex());
+  assert.equal(result.revision, 'v11-v9-eight-bolt-v4');
+  assert.equal(result.geometry_only, true);
+  assert.equal(result.analysis_pending, true);
+  assert.equal(result.occupied_parts, 1109);
+  assert.equal(result.spacer_pieces, 24);
+  assert.equal(result.current_response_revision, null);
+  assert.equal(result.accepted_connection_exceedance_count, null);
+  assert.equal(result.preserved_evaluated_revision, 'v10-packer-free-flush-return-far-row-only-v1');
+});
+for (const [name, mutate] of [
+  ['old matched force bank', r => {r.response_bank = r.preceding_revision.response_bank;}],
+  ['old engineering review', r => {r.engineering_review = r.preceding_revision.engineering_review;}],
+  ['old geometry receipt', r => {r.geometry.receipt = r.preceding_revision.geometry.receipt;}],
+  ['deeper side stock', r => {r.geometry.actual_sections_mm.base_side_left = [88.9, 152.4];}],
+  ['historical capacity transfer', r => {r.historical_capacity_transferred = true;}],
+  ['zero exceedances without new analysis', r => {r.accepted_connection_exceedance_count = 0;}],
+  ['automatic group factor', r => {r.actual_Cg_adopted = 1;}],
+  ['automatic geometry factor', r => {r.actual_Cdelta_adopted = 1;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+  ['old viewer under new selection', r => {r.repository_viewer.model = r.preceding_revision.repository_viewer.model;}],
+]) test(`V9 restoration rejects ${name}`, () => {
+  const index = readCurrentIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
 test('Candidate13 source resolver reads only mapped repository copies, leaving raw fields unopened', () => {
   const requested = [];
   const resolver = candidate13SourceResolver(candidate13.manifest, ref => {

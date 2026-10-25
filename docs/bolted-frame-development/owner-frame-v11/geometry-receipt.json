@@ -1,0 +1,311 @@
+{
+  "actual_observations": null,
+  "actual_parts_verified": false,
+  "baseline_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json",
+    "sha256": "7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109"
+  },
+  "binder": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-review/bind_checked_v11_v2.py",
+    "sha256": "e1e03d188229c5ed61ac2352844dfeca0828b846ac6b4afb5099af173ddf3f0c"
+  },
+  "build_manifest": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/build-manifest.json",
+    "sha256": "6105e08fc41fd588854cc229d08b6de607c42d439de1de69d86516c3fbf6d158"
+  },
+  "checked_clearance": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/clearance.json",
+    "sha256": "be70fb7409bfb28f55f925ac949e454c8fce705153a993c1e7bfe026d705cc89"
+  },
+  "clearance_method": {
+    "adapter": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-review/check_v11_clearance_v4.py",
+      "sha256": "b54292d7a3b80c2a3e1714d30af507befa47a239b62e8236a8dbdc8297dc1319"
+    },
+    "authoritative_changed_profiles_included": true,
+    "changed_parts_checked_against_occupied_assembly": 191,
+    "collisions": 0,
+    "exact_intersection_queries": 666,
+    "missing_candidates": 0,
+    "unchanged_pair_source": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/clearance.json",
+      "sha256": "f0f158ec397c41d8fbb49f30334ea1b68c1af043711720700e6ecdfa17e34996"
+    }
+  },
+  "cleats": [
+    {
+      "bolt_axis_ids": [
+        "eoere_bolt_071",
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2"
+      ],
+      "leaf_names": [
+        "eoere_cleat_left",
+        "eoere_cleat_left_outer"
+      ],
+      "nominal_bonded_pair_mm": 38.1,
+      "nominal_leaf_thickness_mm": 19.05,
+      "preserved_outline_LV_mm": [
+        361.1860828293809,
+        139.7
+      ],
+      "receiver_counts": {
+        "base_post_outer_left": 4,
+        "base_side_left": 4
+      },
+      "side": "left"
+    },
+    {
+      "bolt_axis_ids": [
+        "eoere_bolt_074",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "v11_cleat_right_side_1",
+        "v11_cleat_right_side_2",
+        "v11_cleat_right_post_1",
+        "v11_cleat_right_post_2"
+      ],
+      "leaf_names": [
+        "eoere_cleat_right",
+        "eoere_cleat_right_outer"
+      ],
+      "nominal_bonded_pair_mm": 38.1,
+      "nominal_leaf_thickness_mm": 19.05,
+      "preserved_outline_LV_mm": [
+        361.1860828293809,
+        139.7
+      ],
+      "receiver_counts": {
+        "base_post_outer_right": 4,
+        "base_side_right": 4
+      },
+      "side": "right"
+    }
+  ],
+  "climbing_released": false,
+  "counts": {
+    "Hillman_axes": 66,
+    "bolts": 112,
+    "cleat_leaves": 4,
+    "factory_angles": 24,
+    "legacy_unselected_spacer_axes": [
+      "eoere_bolt_081",
+      "eoere_bolt_082",
+      "eoere_bolt_083",
+      "eoere_bolt_084"
+    ],
+    "metal_spacers": 24,
+    "nuts": 112,
+    "occupied_parts": 1109,
+    "panels": 6,
+    "sawn_members": 20,
+    "spacer_SKUs": {
+      "13731": 8,
+      "13733": 12,
+      "unselected_legacy": 4
+    },
+    "washers": 224,
+    "wood_packers": 0
+  },
+  "fabrication_released": false,
+  "fresh_matched_mechanics_required": true,
+  "full_joint_qualified": false,
+  "geometry": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/geometry.json",
+    "sha256": "befcf54de15984fcf05c5ede053d622afb249c0c2279f291ae65f06763b542a7"
+  },
+  "historical_forces_or_capacity_transferred": false,
+  "matched_response_bank": null,
+  "model": "eoere-v11-v9-eight-bolt-preview",
+  "necessary_fit_changes": {
+    "center_principal_upper_end_trim_mm": 50.8,
+    "new_lower_stack_note": "Only the four added lower cleat positions use nominal 7-inch Grade 5 hex bolts and one 12.7-mm factory spacer. Existing V9 bolts stay unchanged. Applicable body/thread dimensions and strength remain conditional.",
+    "new_lower_stack_recipe": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/lower-cleat-short-stack-proposal-v2.json",
+      "sha256": "51111b77cdeecd7e9178c72e1cdaa1ec813bf98ce2c97973d6e875b4e67699a3"
+    },
+    "new_outer_near_post_bolts_reversed": [
+      "v11_top_left_post_1",
+      "v11_top_left_post_2",
+      "v11_top_right_post_1",
+      "v11_top_right_post_2"
+    ],
+    "screw_moves": [
+      {
+        "axis_id": "round_panel_upper_left_center_4",
+        "delta_xyz_mm": [
+          0.0,
+          -32.653610572076104,
+          -38.91505771044399
+        ],
+        "new_origin_xyz_mm": [
+          -70.0,
+          1462.2790489529239,
+          2040.729220400556
+        ],
+        "old_origin_xyz_mm": [
+          -70.0,
+          1494.932659525,
+          2079.644278111
+        ],
+        "panel": "main_upper_left",
+        "receiver": "base_principal_center_left"
+      },
+      {
+        "axis_id": "round_kicker_left_rim_2",
+        "delta_xyz_mm": [
+          0.0,
+          0.0,
+          -6.349999999999994
+        ],
+        "new_origin_xyz_mm": [
+          -1200.15,
+          -17.74375,
+          205.65
+        ],
+        "old_origin_xyz_mm": [
+          -1200.15,
+          -17.74375,
+          212.0
+        ],
+        "panel": "kicker_left",
+        "receiver": "base_post_outer_left"
+      },
+      {
+        "axis_id": "round_panel_upper_right_center_4",
+        "delta_xyz_mm": [
+          0.0,
+          -32.653610572076104,
+          -38.91505771044399
+        ],
+        "new_origin_xyz_mm": [
+          30.799999999999997,
+          1462.2790489529239,
+          2040.729220400556
+        ],
+        "old_origin_xyz_mm": [
+          30.799999999999997,
+          1494.932659525,
+          2079.644278111
+        ],
+        "panel": "main_upper_right",
+        "receiver": "base_principal_center_right"
+      },
+      {
+        "axis_id": "round_kicker_right_rim_2",
+        "delta_xyz_mm": [
+          0.0,
+          0.0,
+          -6.349999999999994
+        ],
+        "new_origin_xyz_mm": [
+          1196.975,
+          -17.74375,
+          205.65
+        ],
+        "old_origin_xyz_mm": [
+          1196.975,
+          -17.74375,
+          212.0
+        ],
+        "panel": "kicker_right",
+        "receiver": "base_post_outer_right"
+      }
+    ],
+    "top_fitting_translation_mm": [
+      -0.0,
+      -32.6536105720762,
+      -38.91505771044409
+    ]
+  },
+  "nominal_geometry_clear": true,
+  "owner_request": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-v9-eight-bolt-request.json",
+    "sha256": "8704cdfba23c59ea2a56d87bddf8f1123caedfbaad3c5163d6196eda2234fde0"
+  },
+  "purchase_authorized": false,
+  "raw_geometry_receipt": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/geometry-receipt.json",
+    "sha256": "c60fc34bc74cbe2434723bad42b75c30a6319e1e6f3ac33d52930c44097e2fa3"
+  },
+  "revision": "v11-v9-eight-bolt-v4",
+  "schema": "v11_v9_eight_bolt_checked_geometry/v1",
+  "scope": "Owner-requested geometry preview; fresh matched structural analysis pending.",
+  "structural_acceptance": false,
+  "top_and_side_actual_sections_mm": [
+    88.9,
+    139.7
+  ],
+  "top_connections": [
+    {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "bolt_count": 8,
+      "fitting": "eoere_clip_single_top_left_1",
+      "flange_counts": {
+        "beam": 4,
+        "post": 4
+      }
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "bolt_count": 8,
+      "fitting": "eoere_clip_single_top_right_2",
+      "flange_counts": {
+        "beam": 4,
+        "post": 4
+      }
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_007",
+        "eoere_bolt_011",
+        "eoere_bolt_022",
+        "eoere_bolt_023"
+      ],
+      "bolt_count": 4,
+      "fitting": "eoere_clip_split_top_center_left",
+      "flange_counts": {
+        "beam": 2,
+        "post": 2
+      }
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_008",
+        "eoere_bolt_012",
+        "eoere_bolt_024",
+        "eoere_bolt_028"
+      ],
+      "bolt_count": 4,
+      "fitting": "eoere_clip_split_top_center_right",
+      "flange_counts": {
+        "beam": 2,
+        "post": 2
+      }
+    }
+  ]
+}

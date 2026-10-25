@@ -51,13 +51,26 @@ test('historical routing preserves fragments, queries and unrelated document ide
     assert.equal(resolveDocumentPath(target), target);
 });
 
-test('active packer-free menu binds its own geometry, bank, evaluation and method summary', () => {
-  assert.equal(currentIndex.geometry.revision, 'v10-packer-free-flush-return-far-row-only-v1');
-  const rows = documentsForModel(currentIndex.geometry.viewer);
-  for (const ref of [currentIndex.geometry.receipt, currentIndex.response_bank,
-    currentIndex.engineering_review, currentIndex.connection_method_evaluation]) {
+test('preserved packer-free menu binds its own geometry, bank, evaluation and method summary', () => {
+  let evaluated = currentIndex;
+  while (evaluated.geometry.revision !== 'v10-packer-free-flush-return-far-row-only-v1')
+    evaluated = evaluated.preceding_revision;
+  const rows = documentsForModel(evaluated.geometry.viewer);
+  for (const ref of [evaluated.geometry.receipt, evaluated.response_bank,
+    evaluated.engineering_review, evaluated.connection_method_evaluation]) {
     assert.ok(rows.some(row => row.path === ref.path), `missing current packer-free record: ${ref.path}`);
     checkTarget(ref.path);
+  }
+});
+
+test('current V9 restoration menu exposes its request and geometry-only documentation', () => {
+  assert.equal(currentIndex.geometry.viewer, 'eoere-v11-v9-eight-bolt-preview');
+  assert.equal(currentIndex.response_bank, null);
+  const rows = documentsForModel(currentIndex.geometry.viewer);
+  for (const target of [currentIndex.owner_request.path, 'docs/bolted-frame-development/README.md',
+    'docs/bolted-frame-development/builder-plan.md']) {
+    assert.ok(rows.some(row => row.path === target));
+    checkTarget(target);
   }
 });
 

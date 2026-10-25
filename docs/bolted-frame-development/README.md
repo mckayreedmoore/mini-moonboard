@@ -1,7 +1,18 @@
 # Compact bolted frame development
 
 This is the main entry for `compact-bolted-frame-development`.
-The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**.
+
+The current geometry is **`v11-v9-eight-bolt-v4`**. [Open the V9-derived local viewer](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off) · [checked receipt](owner-frame-v11/geometry-receipt.json) · [owner request](owner-frame-v11/owner-v9-eight-bolt-request.json).
+
+The model restores V9's straight-sided **361.186 × 139.7 mm cleats with two glued nominal 19.05 mm (¾-inch) leaves per side**. Each cleat has four side-member bolts and four upright bolts. Only the two outer top corners receive eight bolts; the two center top connections retain four. Top and both sides are standard actual **88.9 × 139.7 mm**; no wood packers remain. Other V9 outlines and original non-top bolt records are preserved.
+
+Nominal occupied clearance passes: **1,109 parts, 112 bolts/nuts, 224 washers, 24 metal spacers, 24 angles and 66 screws**. The thicker rail needs two 50.8 mm center-principal upper-end trims and two matching upper-panel screw moves. Two kicker screws move down 6.35 mm. Four added outer-top near-post bolts reverse to clear crossing tails. Four added lower cleat bolts use provisional seven-inch Grade 5 hex bolts and half-inch metal spacers; their actual body/thread conformity and strength remain unqualified.
+
+**Fresh matched forces, connection calculations and construction instructions are pending.** V9/C13/V10 indices do not transfer. The new viewer has no historical response or weight results. The prior physical holds, owner-deferred panel-screw resistance and suspended review loop remain.
+
+## Preserved evaluated V10 geometry and evidence
+
+The preserved evaluated geometry is **`v10-packer-free-flush-return-far-row-only-v1`**.
 The [owner no-packers direction](owner-frame-v10/owner-no-wood-packers-v1.json) is implemented: top and both sides remain standard nominal **4×6, actual 88.9 × 139.7 mm**, with **no wood packers**.
 The two outer top angles return to direct side/top bearing. Their far factory rows remain; four near beam axes are omitted. The four side stacks use the existing conditional 4¾-inch bolt recipe.
 Own finished geometry, nominal clearance, all six cases and both independent replays, net sections, signed forces/couples and current connection-method audits are recorded. Old packer/deeper-side forces are history.
@@ -11,9 +22,9 @@ No purchase, cutting, fabrication, climbing or structural release. Far end/edge/
 [Preserved 116-bolt packer viewer](http://127.0.0.1:8767/?model=eoere-standard-4x6-top-and-sides-preview&view=rear&holds=off) ·
 [matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json).
 
-The current model contains **1,125 occupied parts, 112 bolts/nuts, 224 washers, 40 metal spacers, 20 sawn members, 24 angles and 66 Hillman axes**; the six wall panels are retained.
-Each cleat remains two nominal **12.7 mm leaves bonded into a 25.4 mm pair**; perimeter strength credits 23.8 mm. PS 1 APA Group 1 sanded plywood, Other category, local-Z strength axis and perfect composite bond remain conditional hypotheses.
-Current vector indices: **left side 0.914625, right side 0.872071, top 0.613288, header 0.577484**. Additional scalar peak-sum: **0.921669**. These are unchanged reference methods, not physical safety margins.
+That preserved model contains **1,125 occupied parts, 112 bolts/nuts, 224 washers, 40 metal spacers, 20 sawn members, 24 angles and 66 Hillman axes**; the six wall panels are retained.
+Its cleats use two nominal **12.7 mm leaves bonded into a 25.4 mm pair**; perimeter strength credits 23.8 mm. PS 1 APA Group 1 sanded plywood, Other category, local-Z strength axis and perfect composite bond remain conditional hypotheses.
+Preserved V10 vector indices: **left side 0.914625, right side 0.872071, top 0.613288, header 0.577484**. Additional scalar peak-sum: **0.921669**. These are unchanged reference methods, not physical safety margins.
 All **15 legacy bearing diagnostic rows / eight bolts** remain as history. The [physical-row capacity follow-through](owner-frame-v10/packer-free/connection-capacity-followthrough.json) resolves nominal rear lateral rows as singletons and supplies conditional bounds for the two-media hardware groups; largest two-pin partition envelope **0.882120**, four-pin **0.372669**. These are lateral component references; complete connection acceptance remains null.
 The separate [rear-foot shear screen](owner-frame-v10/packer-free/rear-foot-shear-evaluation.json) adds **three optional two-edge-envelope flags across two feet**, maximum **1.097730**. Current BReps prove the local 50.8 × 139.7 mm sections; actual loaded-edge/couple applicability remains unresolved, so these flags are not established NDS violations.
 An [unadopted centering screen](owner-frame-v10/packer-free/rear-foot-centering-screen.json) moves those two axes 5.986 mm within the leg depth, preserving stock and hardware. Its guarded index is 0.839 only with old forces held fixed; fresh geometry, six-case forces/replays and connection checks would be required before selecting that trial. No geometry changed.
@@ -22,23 +33,22 @@ Washer load-only mean-pressure index is **0.181365**; preload, local peaks, fit 
 The [selected screw-and-bracket baseline](../../current-candidate.json) retains separate authority and remains the no-query default. The owner authorized publishing this development viewer through the existing validated Pages workflow; publication does not grant engineering or physical-work release.
 
 ## Active builder reading path
+
+V11 currently has a checked geometry preview, not a current shop packet. The table below preserves V10 planning and evidence.
 | Need | Current record |
 | --- | --- |
-| Current model and changed members | [Packer-free matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json) |
+| Preserved V10 model and changed members | [Packer-free matched evaluation](owner-frame-v10/packer-free/evaluation.json) · [geometry receipt](owner-frame-v10/packer-free/geometry-receipt.json) |
 | Material, hardware and operation holds | [Preserved C13 readiness](owner-frame-v10/candidate13/packet-13-complete/readiness.json) · [current scope and preserved instructions](builder-plan.md) |
-| Buying list and catalog fit | [Current planning and holds](builder-plan.md) · [112-stack hardware CSV](owner-frame-v10/packer-free/hardware-planning.csv) · [preserved wood allocation](owner-frame-v10/standard-stock-planning.md) · [wood allocation CSV](owner-frame-v10/buying-list-current.csv) · [resolved nominal spacer mapping](owner-frame-v10/packer-free/hardware-spacer-mapping.json) (20 each of 13731/13733; supersedes eight legacy blanks) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
+| Preserved V10 buying list and catalog fit | [Current planning and holds](builder-plan.md) · [112-stack hardware CSV](owner-frame-v10/packer-free/hardware-planning.csv) · [preserved wood allocation](owner-frame-v10/standard-stock-planning.md) · [wood allocation CSV](owner-frame-v10/buying-list-current.csv) · [resolved nominal spacer mapping](owner-frame-v10/packer-free/hardware-spacer-mapping.json) (20 each of 13731/13733; supersedes eight legacy blanks) · [historical catalog basket](owner-frame-v10/buying-list.md) · [historical source check](owner-frame-v10/catalog-check.json); old 4×8 side allocation is superseded |
 | Timber/profile planning | [Preserved C13 32-profile cut plan](owner-frame-v10/candidate13/packet-13-complete/cut-plan.csv); not updated 4×6 cutting instructions |
 | Receiver coordinates | [Preserved C13 158-row drill plan](owner-frame-v10/candidate13/packet-13-complete/drill-plan.csv); not updated 4×6 drilling instructions |
-| Own forces and references | [Own six-case response bank](owner-frame-v10/packer-free/response-bank.json) · [component review](owner-frame-v10/packer-free/evaluation.json) |
+| V10 forces and references | [Own six-case response bank](owner-frame-v10/packer-free/response-bank.json) · [component review](owner-frame-v10/packer-free/evaluation.json) |
 | Joint ownership and signed loads | [Selected 112 / unselected 108 assembly map](owner-frame-v10/packer-free/subassembly-action-map.json); all pins and contact paths retained as bookkeeping, with capacity and NDS groups unqualified |
-| All current trial flags | [15 case rows / eight component maxima](owner-frame-v10/packer-free/evaluation.json); preserved C13 retains 26/13 below |
+| V10 trial flags | [15 case rows / eight component maxima](owner-frame-v10/packer-free/evaluation.json); preserved C13 retains 26/13 below |
 | Applicable methods and remaining work | [Current connection methods and remaining work](owner-frame-v10/packer-free/connection-method-evaluation.json) · [initial physical-row mapping](owner-frame-v10/standard-side-stock/connection-review.json) · [historical deeper-side comparison](owner-frame-v10/standard-top-stock/group-row-comparison-v1.json) · [read-first edge correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) · [corrected C13 completion](owner-frame-v10/candidate13/paper-audit/completion-index-v3.json) · [preserved audit](owner-frame-v10/candidate13/paper-audit/candidate13-paper-audit-summary-v1.txt) · [joint inventory](owner-frame-v10/candidate13/joint-applicability-13-canonical-wsl.json) · [task ledger](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) |
 | Provenance and preservation | [Revision index](development-revisions.json) · [portable source mapping](../../site/eoere-v10-candidate13-provenance.json) · [frozen delivery manifest](owner-frame-v10/candidate13/delivery-bundle-13.json) |
 
-The [frozen builder plan](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md)
-is a conditional planning packet. Buying structural stock/hardware, cutting,
-drilling, structural assembly and climbing remain on hold. Actual/Disposition
-cells remain blank. Availability and non-structural layout do not clear those holds.
+The [frozen builder plan](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md) is a conditional planning packet. Buying structural stock/hardware, cutting, drilling, structural assembly and climbing remain on hold. Actual/Disposition cells remain blank. Availability and non-structural layout do not clear those holds.
 
 ## Preserved Candidate 13 changes
 
@@ -104,14 +114,8 @@ The [preserved group inventory](owner-frame-v10/packer-free/group-effects-assess
 The wood/wood and wood/metal equation engines, strict-quarter row rules, positive-EA bounds and all 15 four-pin partition alternatives are implemented. Exact partitions and a connection-wide Cg are not selected by a bounding calculation; mixed-media yield, axial transfer, fitting, splitting and applicable geometry remain open.
 Ordinary induced bearing moments are included in EYM and do not alone disqualify P/Z; independent coupled duties still need their own mapping. The current local pressure reference uses equal-half constant densities and retains every source force and moment. Panel-screw work is deferred and the agent review loop remains suspended.
 
-The [center-principal correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt)
-controls earlier summaries: 068/069 act away from the near edge in all six
-cases. The idealized near-unloaded 1.5D/opposite-loaded 4D screen clears.
-Both-edges 4D is optional conservatism, not an established NDS violation;
-local pressure reversal does not automatically change that classification.
-The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt) and [selected replacement work packet](owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt)
-call for a justified physical-group replacement for 1/n, preserving forces
-and couples. Cross-standard efficiencies are comparisons only. The outer-angle return removes the packers; an angle translation cannot change its internal top-grid pitch, and no further relocation is adopted as a top-grid remedy.
+The [center-principal correction](owner-frame-v10/candidate13/paper-audit/center-principal-correction-13-v1.txt) controls earlier summaries: 068/069 act away from the near edge in all six cases. The idealized near-unloaded 1.5D/opposite-loaded 4D screen clears. Both-edges 4D is optional conservatism, not an established NDS violation; local pressure reversal does not automatically change that classification.
+The [group/relocation handoff](owner-frame-v10/candidate13/paper-audit/wsl-group-and-relocation-handoff-v1.txt) and [selected replacement work packet](owner-frame-v10/standard-top-stock/group-effects-replacement-work-packet-v1.txt) call for a justified physical-group replacement for 1/n, preserving forces and couples. Cross-standard efficiencies are comparisons only. The outer-angle return removes the packers; an angle translation cannot change its internal top-grid pitch, and no further relocation is adopted as a top-grid remedy.
 All 112 axes have fresh six-case signed-wrench/material-reference coverage. The 92 two-media force-only references peak at 0.638517; these omit local couples and do not establish complete capacity.
 The additive [primary-method clarification](owner-frame-v10/packer-free/primary-method-closure.json) separates NDS pure-lateral mode reductions, bolt bending yield and a separate tensile-yield shaft comparison; none supplies complete wrench/group capacity. The [geometry-method followup](owner-frame-v10/packer-free/geometry-method-followup.json) records the unresolved Table-D interpretation and a fresh, bounded reduced-depth connection-shear check using the historical method and current forces.
 The [current criterion dispositions](owner-frame-v10/packer-free/connection-criterion-dispositions.json) map the eight flagged axes to six duty/receiver clusters and explain the unresolved oblique/coupled tear-out assessment. They correct the earlier blanket lot-testing prerequisite: an applicable NDS table or documented method-derived Fyb can support conditional calculations; delivered conformity remains separate. The later pure axial net-section screen covers all twelve flagged sawn bore planes, maximum tension reference 0.025131; bending and complete E.2/joint qualification remain open.
@@ -119,17 +123,9 @@ The [contact-law evaluation](owner-frame-v10/packer-free/contact-law-evaluation.
 The [sawn connection shear evaluation](owner-frame-v10/packer-free/sawn-connection-shear-evaluation.json) supports 54 additional group screens / 324 case rows with finished-BRep geometry or contained cores; maximum optional envelope index is 0.964303. Actual member depth is retained in the reference denominator. Corrected principal-profile ordering reproduces the 33.704 mm near edge and removes two erroneous method exclusions; the 068/069 net-away correction and separate oblique/eccentric/splitting checks remain unchanged.
 The [fitting gross-strip reference](owner-frame-v10/packer-free/fitting-gross-strip-reference.json) recovers all 144 saved fitting states and gives an ideal unperforated, free-warping strip stress bound of 80.57 MPa. Actual steel yield, holes, formed heel and complete fitting strength remain unqualified. The [header support audit](../wood-joints-mvp/completion-ledger.md#current-v10-candidate13) finds 6.675–164.862 N positive timber-cut normal force across six cases, unchanged by spreading within nominal separated supports. This rules out zero perpendicular tension for that timber force allocation; it is not a fracture failure. Existing steel bridges the plane, but its anchorage and compatible redistribution remain unqualified and cannot be counted twice.
 The current washer mean-pressure index is 0.181365. The top-grid perpendicular endpoint has a conditional 6.35 mm shortfall; actual applicability remains open. The [unselected 108-bolt trial](owner-frame-v10/packer-free-center-far-row/evaluation.json) removes four center near-row beam axes and retains two far-row bolts per angle. Its own six cases/replays and conditional section checks pass; 15 bearing diagnostics and two optional rear-foot envelopes remain. [Trial viewer](../../site/index.html?model=eoere-packer-free-center-far-row-preview&view=rear&holds=off). Its method/input dispositions reuse the Grade 5/F606 basis and evaluate an unselected Grade 8 hex-cap alternative for the 18 A574 positions, with head/tool fit still open. Reused isolated stiffness evidence also rules out treating the current rear operator as the NDS row-slip model. Actual group and full-wrench capacity remain unresolved. Complete connection qualification remains open; the current 112-bolt geometry stays selected.
-The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product
-body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw connections, and finite-motion/contact/support applicability. Numerical
-convergence alone cannot close those checks. No floor test or blanket new
-external sign-off prerequisite is introduced.
+The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw connections, and finite-motion/contact/support applicability. Numerical convergence alone cannot close those checks. No floor test or blanket new external sign-off prerequisite is introduced.
 
-The 57 imported artifact roots retain their original bytes or decoded hashes;
-six large JSON files use lossless gzip. The unique compressed scene is about
-1.19 MB and shares the unchanged V9 mesh chain. Raw case/operator banks and CAD
-remain in the retained isolated source package; portable checks do not claim
-they were copied or re-solved. Historical stage/status fields remain frozen;
-the current revision index and additive provenance map identify this integration.
+The 57 imported artifact roots retain their original bytes or decoded hashes; six large JSON files use lossless gzip. The unique compressed scene is about 1.19 MB and shares the unchanged V9 mesh chain. Raw case/operator banks and CAD remain in the retained isolated source package; portable checks do not claim they were copied or re-solved. Historical stage/status fields remain frozen; the current revision index and additive provenance map identify this integration.
 
 <a id="current-96-bolt-results-at-250-lb"></a>
 ## Preserved V9 and earlier results

@@ -4,21 +4,10 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 **[main development summary and revision map](bolted-frame-development/README.md)**.
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
-The current geometry is **`v10-packer-free-flush-return-far-row-only-v1`**:
-[standard 4×6 top-and-sides local viewer](http://127.0.0.1:8767/?model=eoere-packer-free-standard-stock-preview&view=rear&holds=off)
-([serving instructions](../CONTRIBUTING.md#software-walkthrough)).
-The [owner's no-packers constraint](bolted-frame-development/owner-frame-v10/owner-no-wood-packers-v1.json)
-is implemented: both sides and top are actual **88.9 × 139.7 mm**.
-The [fresh matched evaluation](bolted-frame-development/owner-frame-v10/packer-free/evaluation.json)
-contains six cases and both replays, net sections, grip, rear-joint geometry and clearance checks.
-Declared vector indices are **0.914625 left side, 0.872071 right side and 0.613288 top**.
-All **15 bearing diagnostic rows across eight bolts** remain; complete connection,
-splitting, fitting/hardware and physical qualifications remain unresolved.
-There are 116 stacks, 44 spacers, 24 angles and 66 Hillman axes.
-The [current provisional wood plan](bolted-frame-development/owner-frame-v10/standard-stock-planning.md)
-and [planning CSV](bolted-frame-development/owner-frame-v10/buying-list-current.csv) supersede the old 4×8 side-stock basket.
-Lengths remain provisional; no wood packers remain. No purchase, fabrication,
-climbing or structural release. Failed probes and deeper-side evidence remain history.
+The current geometry is **`v11-v9-eight-bolt-v4`**:
+[V9-derived local viewer](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off) ([serving instructions](../CONTRIBUTING.md#software-walkthrough)).
+It uses V9's original straight-sided two-leaf nominal ¾-inch cleats, eight bolts per cleat, eight at each outer top corner, four at each center top connection and standard actual 88.9 × 139.7 mm top/side stock. The [checked receipt](bolted-frame-development/owner-frame-v11/geometry-receipt.json) records 1,109 parts, 112 bolt stacks, 24 metal spacers, 24 angles, 66 screws and no wood packers. Nominal geometry checks pass; **fresh matched analysis is pending**.
+The [owner request](bolted-frame-development/owner-frame-v11/owner-v9-eight-bolt-request.json) and main summary record the necessary end trims, four screw moves and provisional added-bolt recipes. Prior numerical passes and diagnostics remain history; the older wood, hardware and cut/drill packets do not describe a released V11 build. No purchase, fabrication, climbing or structural release is established.
 
 The [portable source map](../site/eoere-v10-candidate13-provenance.json)
 preserves the isolated package's original hashes and status snapshots. The

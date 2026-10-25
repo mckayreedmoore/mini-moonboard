@@ -27,6 +27,7 @@ import {validatePrincipalPairs} from '../site/eoere-principal-pair-overlay.mjs';
 import {validateInwardBolts} from '../site/eoere-inward-bolts-overlay.mjs';
 import {validateInwardAngles} from '../site/eoere-inward-angles-overlay.mjs';
 import {validateSingleSpacers} from '../site/eoere-single-spacer-overlay.mjs';
+import {validateV11GeometryOnly, V11_MODEL} from '../site/eoere-v11-v9-eight-bolt-overlay.mjs';
 import {validateStandardStockProvenance, validateStandardStockScene} from '../site/eoere-standard-stock-overlay.mjs';
 import {validateV10Provenance, resolveV10SourceRef, validateV10SceneProvenance, V10_PROVENANCE_SHA256,
   V10_SCENE, V10_REVISION as V10_CANDIDATE13_REVISION, V10_COUNTS as V10_CANDIDATE13_COUNTS} from '../site/eoere-v10-provenance.mjs';
@@ -2569,6 +2570,62 @@ export function validatePackerFreeMethodFollowups(reports, index) {
 }
 
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
+  if (index.schema === 'bolted_frame_development_revisions/v18') {
+    assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v17');
+    const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
+    const receipt = JSON.parse(bound(index.geometry.receipt));
+    const owner = JSON.parse(bound(index.owner_request));
+    const viewer = index.repository_viewer;
+    const provenance = JSON.parse(bound(viewer.provenance));
+    const decoded = gunzipSync(bound(viewer.scene));
+    assert.equal(sha(decoded), provenance.scene.decoded_sha256);
+    const scene = validateV11GeometryOnly(JSON.parse(decoded));
+    bound(viewer.overlay); bound(viewer.publisher);
+    assert.equal(index.geometry.revision, receipt.revision);
+    assert.equal(index.geometry.revision, provenance.revision);
+    assert.equal(index.development_selection.revision, index.geometry.revision);
+    assert.equal(viewer.model, V11_MODEL);
+    assert.equal(index.geometry.viewer, viewer.model);
+    assert.equal(index.development_selection.viewer.model, viewer.model);
+    assert.deepEqual(viewer.scene, provenance.scene);
+    assert.deepEqual(provenance.geometry_receipt, index.geometry.receipt);
+    assert.deepEqual(provenance.owner_request, index.owner_request);
+    assert.deepEqual(receipt.owner_request, index.owner_request);
+    assert.equal(scene.geometry_source.sha256, receipt.geometry.sha256);
+    assert.equal(owner.top_connections.owner_explicitly_confirmed_outer_corners_only, true);
+    assert.equal(receipt.nominal_geometry_clear, true);
+    assert.equal(receipt.counts.occupied_parts, 1109);
+    assert.equal(receipt.counts.bolts, 112);
+    assert.equal(receipt.counts.metal_spacers, 24);
+    for (const name of ['base_rail_top', 'base_side_left', 'base_side_right'])
+      assert.deepEqual(index.geometry.actual_sections_mm[name], receipt.top_and_side_actual_sections_mm);
+    for (const item of [index, provenance]) {
+      assert.equal(item.geometry_only, true);
+      assert.equal(item.analysis_pending, true);
+      for (const flag of ['current_response_computed', 'historical_capacity_transferred', 'structural_acceptance',
+        'fabrication_released', 'climbing_released', 'purchase_authorized']) assert.equal(item[flag], false);
+    }
+    assert.equal(index.response_bank, null);
+    assert.equal(index.engineering_review, null);
+    assert.equal(index.conditional_frame_evaluation, undefined);
+    assert.equal(index.accepted_connection_exceedance_count, null);
+    assert.equal(index.actual_Cg_adopted, null);
+    assert.equal(index.actual_Cdelta_adopted, null);
+    assert.equal(index.complete_connection_acceptance, null);
+    assert.equal(index.complete_joint_qualified, false);
+    assert.deepEqual(index.selected_baseline, index.preceding_revision.selected_baseline);
+    const html = read('site/index.html').toString();
+    assert.equal(viewerModel(html, viewer.model), viewer.model);
+    assert.equal(viewerModel(html, null), index.selected_baseline.candidate);
+    if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
+      validateEntry(read(name).toString(), index);
+    return {passed: true, revision: index.geometry.revision, geometry_only: true, analysis_pending: true,
+      bolt_axes: 112, screw_axes: 66, angles: 24, occupied_parts: 1109, spacer_pieces: 24, wood_packers: 0,
+      current_response_revision: null, accepted_connection_exceedance_count: null,
+      preserved_evaluated_revision: prior.revision, selected_baseline_candidate: index.selected_baseline.candidate,
+      structural_acceptance: false, fabrication_released: false, climbing_released: false,
+      purchase_authorized: false, mechanics_executed: false, full_ignored_input_closure_checked: false};
+  }
   if (index.schema === 'bolted_frame_development_revisions/v17') {
     assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v16');
     const prior = checkDevelopment(index.preceding_revision, {entryChecks: false});
