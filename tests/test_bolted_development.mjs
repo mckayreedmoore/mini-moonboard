@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
-import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -195,6 +195,56 @@ test('portable packer-free method checks retain raw references without opening i
   methods.source_bindings[Object.keys(methods.source_bindings)[0]] = {
     path: 'fea/generated/v10-packer-free-v1/not-materialized-for-this-control.json', sha256: '0'.repeat(64)};
   assert.equal(validatePackerFreeMethodEvaluation(methods, index), methods);
+});
+
+test('optional rear-foot diagnostics remain separate from bearing flags and normative acceptance', () => {
+  const result = checkCurrentDevelopment(readPackerFreeIndex(), {entryChecks: false});
+  assert.equal(result.reference_case_exceedances, 15); assert.equal(result.bearing_diagnostic_case_rows, 15);
+  assert.equal(result.optional_rear_foot_case_group_rows, 12); assert.equal(result.optional_rear_foot_full_cut_wrenches, 48);
+  assert.equal(result.optional_rear_foot_envelope_case_rows, 3); assert.equal(result.optional_rear_foot_envelope_axes, 2);
+  assert.equal(result.optional_rear_foot_maximum_envelope_ratio, 1.0977299914214838);
+  assert.equal(result.optional_rear_foot_actual_loaded_edge, null);
+  assert.equal(result.optional_rear_foot_NDS_loaded_edge_violation_found, false);
+  assert.equal(result.optional_rear_foot_centering_adopted, false);
+  assert.equal(result.structural_acceptance, false); assert.equal(result.full_ignored_input_closure_checked, false);
+});
+
+for (const [name, mutate] of [
+  ['foreign primary bank', (r, i) => {r.primary_method_closure.source_bindings.current_response_bank = i.preceding_revision.response_bank;}],
+  ['foreign geometry', (r, i) => {r.geometry_method_followup.current_model_bindings.checked_receipt = i.preceding_revision.geometry.receipt;}],
+  ['foreign contact bank', (r, i) => {r.contact_law_evaluation.evidence_bindings.current_response_bank = i.preceding_revision.response_bank;}],
+  ['foreign foot bank', (r, i) => {r.rear_foot_shear_evaluation.source_bindings.response_bank = i.preceding_revision.response_bank;}],
+  ['foreign centering bank', (r, i) => {r.rear_foot_centering_screen.source_refs.six_case_bank = i.preceding_revision.response_bank;}],
+  ['wrong schema', r => {r.contact_law_evaluation.schema = 'unbound-contact-summary/v1';}],
+  ['malformed source', r => {r.rear_foot_shear_evaluation.source_bindings.event_cut_kernel.sha256 = 'invalid';}],
+  ['erased criterion axis', r => {r.connection_criterion_dispositions.current_flagged_action_envelopes.pop();}],
+  ['qualified group capacity', r => {r.primary_method_closure.qualification.complete_group_capacity = 1;}],
+  ['adopted criterion Cg', r => {r.connection_criterion_dispositions.disposition.actual_Cg = 1;}],
+  ['panel contact comparison enabled', r => {r.contact_law_evaluation.conditional_sawn_wood_mean_pressure_screen.panel_contact_rows_skipped = 0;}],
+  ['actual contact pass', r => {r.contact_law_evaluation.actual_pass = true;}],
+  ['missing full foot cuts', r => {r.rear_foot_shear_evaluation.cut_inventory.total_full_cut_wrenches = 47;}],
+  ['erased optional flag', r => {r.rear_foot_shear_evaluation.optional_envelope_exceedances.pop();}],
+  ['missing other edge reference', r => {r.rear_foot_shear_evaluation.geometry.members[0].edge_branches.pop();}],
+  ['invented loaded edge', r => {r.rear_foot_shear_evaluation.geometry.members[0].actual_loaded_edge_classification = 'positive_q';}],
+  ['optional flag made normative', r => {r.rear_foot_shear_evaluation.interpretation.NDS_loaded_edge_violation_found = true;}],
+  ['centering adopted', r => {r.rear_foot_centering_screen.screen.adopted = true;}],
+  ['centering claimed new force pass', r => {r.rear_foot_centering_screen.screen.actual_new_pass = true;}],
+  ['centering released', r => {r.rear_foot_centering_screen.qualification.fabrication_released = true;}],
+]) test(`reject method followup ${name}`, () => {
+  const index = readPackerFreeIndex();
+  const reports = Object.fromEntries(Object.entries(index.method_followups).map(([key, ref]) =>
+    [key, JSON.parse(readFileSync(path.join(ROOT, ref.path)))]));
+  mutate(reports, index);
+  assert.throws(() => validatePackerFreeMethodFollowups(reports, index));
+});
+
+for (const [name, mutate] of [
+  ['changed report bytes', r => {r.method_followups.contact_law_evaluation.sha256 = '0'.repeat(64);}],
+  ['foreign public source', r => {r.method_followups.rear_foot_shear_evaluation = r.method_followups.primary_method_closure;}],
+  ['omitted report', r => {delete r.method_followups.rear_foot_centering_screen;}],
+]) test(`reject method followup reference ${name}`, () => {
+  const index = readPackerFreeIndex(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
 });
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],

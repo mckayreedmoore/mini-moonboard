@@ -1,0 +1,97 @@
+{
+  "next_evidence_if_pursued": "Build matched fresh-stock geometry with the new bore only, then obtain its own six-case response/replay and reevaluate the affected foot wrenches, edge/splitting method, and complete joint.",
+  "qualification": {
+    "actual_physical_observations": null,
+    "climbing_released": false,
+    "complete_joint_qualified": false,
+    "fabrication_released": false,
+    "physical_demand_bounds_established": false,
+    "structural_acceptance": false
+  },
+  "raw_screen": {
+    "path": "fea/generated/v10-packer-free-v1/connections/current-method-closure/geometry/rear-foot-centering-screen-v1.json",
+    "sha256": "b79d1c397a075c0c0249bcf19dd767d44eb2427324f94239c877afebbb1bb93b"
+  },
+  "schema": "rear_foot_centering_screen_summary/v1",
+  "screen": {
+    "candidate": "Center the two existing rear-foot bolt axes in the 139.7 mm leg depth by moving each \u22125.986 mm along the current local v direction; hold L/U, x station, axis direction, stock, and hardware fixed.",
+    "conditional_reference": {
+      "current_optional_two_edge_maxima": {
+        "left": 1.0975008915491042,
+        "right": 1.0977299914214838
+      },
+      "guarded_design_bound": {
+        "b_mm": 50.799,
+        "d_mm": 139.70100002065377,
+        "de_mm": 69.849,
+        "force_addition_N": 1e-05,
+        "held_max_abs_Vq_plus_force_guard_N": 615.7427516333157,
+        "ratio": 0.8390007853139716,
+        "reference_N": 733.9000897393581,
+        "status": "guarded design-bound comparison only; no new demand calculation"
+      },
+      "interpretation": "Centering lowers the optional minimum-of-both-edges reference index below 1 with old forces held fixed. It is not an established violation or required repair: edge/wrench applicability remains unresolved, and candidate forces are not recomputed.",
+      "method": "NDS 2024 Ch. 3 Eq. 3.4-6 and pinned Table 4A Fv\u2032=1.2411 MPa; CD=CM=Ci=Ct=1.",
+      "sign_selected_branch_sensitivity_maxima": {
+        "left": 0.6554548319571648,
+        "right": 0.6555916561018627
+      },
+      "unguarded_design_bound": {
+        "b_mm": 50.8,
+        "d_mm": 139.700000020651,
+        "de_mm": 69.8500000103255,
+        "held_existing_max_abs_Vq_N": 615.7427416333157,
+        "ratio": 0.8389362118026751,
+        "status": "unguarded design-bound comparison only",
+        "two_edge_reference_N": 733.9565666264787
+      }
+    },
+    "existing_bore_caveat": "The screened centerline shift (5.986 mm) is smaller than the old planned bore radius (7.144 mm), so it overlaps the existing generated hole. Any future model must use fresh stock with only the proposed bore; this screen does not credit hole repair.",
+    "global_axis_point_delta_xyz_mm": [
+      0,
+      -5.812324664677981,
+      -1.4315691004857045
+    ],
+    "outer_profile_and_grip": {
+      "floor": "At each floor entry the screened point is inside the current gross trapezoidal profile: L=1726.714 mm, V=70.697 mm; 71.937 mm to the sloped far end and 69.003/70.697 mm to depth edges.",
+      "leg": "Pinned BREP proof shows the entire 50.8 \u00d7 139.700 mm gross section through the bore band; screened center is 69.85 mm from each depth edge.",
+      "toe": "Projected leg toe distance is 71.066 mm; fastener D=12.7 mm, so the projection is 5.5957D. The 14.2875 mm value is the bore diameter. Actual NDS 7D end-spacing applicability remains unresolved.",
+      "unchanged": "Two existing axis stacks; 50.8 mm leg plus 38.1 mm floor receiver, 88.9 mm modeled grip; same stock size and no packers or hardware change. A new bore would require fresh stock."
+    },
+    "screened_axis_points_xyz_mm": {
+      "rail_rear_bolt_left_1": [
+        -1308.1000000000001,
+        1551.0135684381733,
+        69.00334189123136
+      ],
+      "rail_rear_bolt_right_1": [
+        1304.9250000000002,
+        1551.0135684381733,
+        69.00334189123136
+      ]
+    }
+  },
+  "source_refs": {
+    "checked_geometry_receipt": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+    },
+    "current_BREP_section_proof": {
+      "path": "fea/generated/v10-packer-free-v1/connections/current-method-closure/geometry/rear-foot-core-proof-v1.json",
+      "sha256": "cb0dd61b2c74440c02c69a0f093cefb12e1b2390ed85f73a6e058039657f4bb7"
+    },
+    "current_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "prior_force_and_cut_result": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-rear-foot-v6.json",
+      "sha256": "3d2f512884cdced962b818db22fa896e009a641ed625d5ae54d24c0dfba7eea9"
+    },
+    "six_case_bank": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    }
+  },
+  "status": "conditional_geometry_screen_only"
+}

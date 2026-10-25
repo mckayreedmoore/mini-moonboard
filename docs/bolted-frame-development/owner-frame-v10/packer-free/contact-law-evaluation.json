@@ -1,0 +1,125 @@
+{
+  "schema": "v10_packer_free_contact_law_evaluation/v1",
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "scope": "Source-bound contact-law and saved-response summary for the six current packer-free analysis-v2 cases. This is a conditional analytical evaluation, not structural acceptance.",
+  "law": {
+    "separate_member_faces": {
+      "timber_face_contact": "Unilateral normal penalty, force = stiffness * max(Bq, 0), stiffness = trimmed reference cell area * 1.0 N/mm^3 bedding.",
+      "flange_contact": "Unilateral normal-only angle-to-wood penalty, area-weighted from the declared 40000 N/mm flange prior; no tangential force, friction, tensile adhesion, or point couple.",
+      "panel_contact": "Unilateral normal penalty with 2.0 N/mm^3 declared panel bedding. Panel rows are excluded from the sawn-wood comparison below.",
+      "wood_to_wood_and_side_cleat": "Contact between separate timber analysis bodies is normal-compression only. Tangential transfer is assigned to modeled bolt/shaft bearing, end capture, member operators, and other declared connection springs; the face itself supplies no shear or friction."
+    },
+    "other_transfer": {
+      "bolts": "Timoshenko shaft elements with radial-clearance bearing springs at wood/steel receivers and separate one-sided head/nut axial captures. These are analytical springs; delivered bearing, preload, washer pressure/prying, shaft bending qualification, and rotational restraint remain unresolved.",
+      "floor": "Four declared hosts use assumed XY no-slip penalties; floor friction and capacity are not verified."
+    },
+    "paired_plywood_cleats": "Each paired two-leaf cleat remains one perfect-composite analysis body under the existing perfect-bond assumption. The separate-member face-contact finding neither removes nor qualifies that internal adhesive bond.",
+    "finite_motion": "The saved normal displacement is a fixed-reference first-order Bq projection. It is not a finite-kinematic gap, surface recontact, or physical penetration result; fitting body-load heel offsets are not added to contact gaps.",
+    "contact_tension_tangential_and_friction": "Contact compression scalars are nonnegative by construction; saved action vectors have at most 1.61e-13 N tangential numerical residual from their declared normals. This does not establish zero physical tension or shear. A friction ratio is undefined because no face tangential/friction law is present."
+  },
+  "contact_footprint": {
+    "basis": "Cells partition trimmed shared-face patches extracted from the current prepared finished-body BReps; they are not gross rectangular member-face areas. This is the nominal model-geometry footprint, not a measurement of actual lumber fit, flatness, or bearing strength.",
+    "side_cleat_left_and_right": "Each trimmed patch is 32816.5151 mm^2 with 18 cells; each direct-cell area sum is 32816.5151 mm^2 and closes to the patch within 2.2e-6 mm^2. Cell centroids are on the trimmed patch and have occupied inward-material probes."
+  },
+  "saved_six_case_contact_actions": {
+    "single_cell_peak_compression_N": {
+      "timber_face_contact": {"value": 573.5675, "case": "a12-forward"},
+      "flange_contact": {"value": 389.7400, "case": "a12-left"},
+      "panel_contact": {"value": 932.8698, "case": "k12-right"},
+      "side_cleat_left": {"value": 75.5699, "case": "k12-right"},
+      "side_cleat_right": {"value": 79.7794, "case": "a12-forward"}
+    },
+    "meaning": "Values are maximum single-cell compression actions under the declared penalties. They are not total pair forces, patch resultants, or physical demand bounds.",
+    "first_order_signed_Bq_mm_ranges_across_six_cases": {
+      "timber_face_contact": [-4.810626, 0.315257],
+      "flange_contact": [-1.020819, 0.080654],
+      "panel_contact": [-5.520455, 0.284560]
+    }
+  },
+  "conditional_sawn_wood_mean_pressure_screen": {
+    "method": "For non-panel face-contact cells only, divide saved single-cell compression by the current trimmed BRep reference cell area. Evaluate a sawn member only when the prepared contact normal is perpendicular to that member's current grain axis (absolute dot <= 1e-8). Exclude plywood without assigning it Fc and skip oblique/parallel grain directions.",
+    "reference": {
+      "Fc_perp_MPa": 4.30922330823,
+      "basis": "Conditional dry DF-L No. 2 reference; CD = 1, Cb = 1, no Cg; no plywood value assigned.",
+      "scope": "NDS 3.10 mean-pressure comparison only; no pressure peak or complete bearing/joint pass is claimed."
+    },
+    "maximum_per_cell_mean_pressure": {
+      "timber_face_contact": {
+        "pressure_MPa": 0.3152568,
+        "Fc_perp_index": 0.0731586,
+        "case": "a12-forward",
+        "member": "base_header",
+        "cell_force_N": 268.6577,
+        "cell_area_mm2": 852.1869
+      },
+      "flange_contact": {
+        "pressure_MPa": 0.4592724,
+        "Fc_perp_index": 0.1065789,
+        "case": "a12-left",
+        "member": "base_side_left",
+        "cell_force_N": 389.7400,
+        "cell_area_mm2": 848.6031
+      }
+    },
+    "eligible_sawn_member_cell_incidences": 744,
+    "excluded_plywood_member_cell_incidences": 80,
+    "excluded_sawn_nonperpendicular_incidences": 156,
+    "panel_contact_rows_skipped": 942,
+    "limitations": [
+      "Penalty stiffness and contact force distribution are unmeasured; these conditional mean cell pressures are not physical peaks or bounded demands.",
+      "This does not establish the delivered wood species, grade, service condition, actual contact, or bearing resistance. No bearing-strength pass, force interaction, complete joint acceptance, or design release follows.",
+      "The current perfect-bond plywood-cleat operator remains an independent unqualified analytical assumption."
+    ]
+  },
+  "evidence_bindings": {
+    "ignored_source_audit": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/contact/packer-free-contact-law-audit-v1.json",
+      "sha256": "10ae1932c177dffe73230581909bcbaf1d65c0ee520c9b42e0b46d88dd5299cf"
+    },
+    "saved_output_extractor": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/contact/extract_saved_contact_metrics.py",
+      "sha256": "b59d151d3b9f341ccfcf81bb75b574242b29ff157f06c44d2eb7929205bdcd40",
+      "command_from_repository_root": ".venv/bin/python3 fea/generated/v10-packer-free-v1/connections/method-closure/contact/extract_saved_contact_metrics.py"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "checked_geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-receipt.json",
+      "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+    },
+    "prepared_analysis_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/geometry/geometry.json",
+      "sha256": "f187592684eab07c0c17cbf8e835452cb5ebf431510ce8aa8ffe38940807da21"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/four-hosts/preparation/inputs.json",
+      "sha256": "b127cff89d184b52a1585524f5e3d378c9cb3937c3fa5a318c00d78f6f339b2a"
+    },
+    "material": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/material.json",
+      "sha256": "0a9829f9d5403639665049f33a2af46377409b5d4c2cad7c9b368c1c493ea51a"
+    },
+    "current_response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    },
+    "six_saved_fields": "SHA256s and contact-action extraction are bound by ignored_source_audit.output_pins.field_sha256.",
+    "frozen_law_sources": [
+      {"path": "scripts/thin_bolted_frame_mechanics.py", "sha256": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448", "locations": "spring/contact law and unilateral max(Bq,0), lines 305-430"},
+      {"path": "scripts/thin_bolted_common_shaft.py", "sha256": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb", "locations": "radial bearing groups and one-sided end captures, lines 143-237"},
+      {"path": "scripts/eoere_leg_header_mechanics.py", "sha256": "903dd7836811d30c20a1149e079863077fb336bcc1086c1cceb16e076487a114", "locations": "current finished-body contact extraction, lines 140-160 and input assembly at 237"},
+      {"path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_analysis.py", "sha256": "2024a00601f68efcca2f6cf2242e2fe9f28180b31e5b6ebc7966b6668f2eec2a"},
+      {"path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_fitting.py", "sha256": "c0d47911d56d109b5ffb265372093122b04049cbe50a1b0cbc6afbf86e6ea76c", "locations": "heel offset omitted from contact gaps and finite-motion disclaimer, lines 281-282"}
+    ],
+    "NDS_reference_only": [
+      {"path": "docs/bolted-frame-development/owner-frame-v10/candidate13/paper-audit/washer-bearing-primary-scope-v2.json", "sha256": "723abffd08e1d41c9cdaa22e8acbb5619d29104918adc613f645b3a93cda50ab", "use": "Reference provisions only; no prior force or area result transferred."},
+      {"path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf", "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"},
+      {"path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf", "sha256": "1f65975633f111c308944c470b6cc10e9207b6c45e8a0804b8bdec3378bbc71b"}
+    ]
+  },
+  "structural_acceptance": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}

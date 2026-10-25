@@ -1906,6 +1906,122 @@ export function validatePackerFreeMethodEvaluation(methods, index) {
   return methods;
 }
 
+const PACKER_FREE_FOLLOWUP_SCHEMAS = {
+  primary_method_closure: 'v10_packer_free_primary_method_closure_summary/v1',
+  geometry_method_followup: 'v10_geometry_method_followup/v1',
+  connection_criterion_dispositions: 'v10_connection_criterion_dispositions/v1',
+  contact_law_evaluation: 'v10_packer_free_contact_law_evaluation/v1',
+  rear_foot_shear_evaluation: 'v10_packer_free_rear_foot_shear_evaluation/v1',
+  rear_foot_centering_screen: 'rear_foot_centering_screen_summary/v1',
+};
+
+export function validatePackerFreeMethodFollowups(reports, index) {
+  referenceKeys(reports, Object.keys(PACKER_FREE_FOLLOWUP_SCHEMAS), 'current method followups');
+  for (const [key, schema] of Object.entries(PACKER_FREE_FOLLOWUP_SCHEMAS)) assert.equal(reports[key].schema, schema);
+  const primary = reports.primary_method_closure, geometry = reports.geometry_method_followup;
+  const criteria = reports.connection_criterion_dispositions, contact = reports.contact_law_evaluation;
+  const foot = reports.rear_foot_shear_evaluation, center = reports.rear_foot_centering_screen;
+  const bank = JSON.parse(bound(index.response_bank)), receipt = JSON.parse(bound(index.geometry.receipt));
+  const evaluation = JSON.parse(bound(index.engineering_review));
+  const physicalGeometry = {path: 'fea/generated/v10-packer-free-v1/geometry-v1/geometry.json',
+    sha256: receipt.checked_geometry.sha256};
+  const rawBank = {path: 'fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json',
+    sha256: index.response_bank.sha256};
+  for (const report of [primary, criteria]) assert.equal(report.candidate, index.geometry.revision);
+  for (const report of [geometry, contact, foot]) assert.equal(report.revision, index.geometry.revision);
+  const criterionSources = Object.fromEntries(Object.entries(criteria.source_bindings).map(([key, row]) => {
+    assert.ok(Array.isArray(row) && row.length === 2);
+    const ref = {path: row[0], sha256: row[1]}; referenceBinding(ref); return [key, ref];
+  }));
+  for (const refs of [primary.source_bindings, geometry.current_model_bindings, contact.evidence_bindings,
+    foot.source_bindings, center.source_refs]) for (const ref of Object.values(refs))
+    if (ref && typeof ref === 'object' && !Array.isArray(ref)) referenceBinding({path: ref.path, sha256: ref.sha256});
+  for (const ref of [primary.source_bindings.current_response_bank, geometry.current_model_bindings.six_case_bank,
+    criterionSources.current_response_bank, foot.source_bindings.response_bank, center.source_refs.six_case_bank])
+    assert.deepEqual(ref, rawBank, 'current followup bank required');
+  assert.deepEqual(contact.evidence_bindings.current_response_bank, index.response_bank);
+  assert.deepEqual(primary.source_bindings.current_method_report, index.connection_method_evaluation);
+  assert.deepEqual(primary.source_bindings.current_evaluation, index.engineering_review);
+  for (const ref of [geometry.current_model_bindings.physical_geometry, criterionSources.current_physical_geometry,
+    contact.evidence_bindings.physical_geometry, foot.source_bindings.current_geometry, center.source_refs.current_geometry])
+    assert.deepEqual(ref, physicalGeometry, 'current followup physical geometry required');
+  for (const ref of [geometry.current_model_bindings.checked_receipt, foot.source_bindings.checked_geometry_receipt,
+    center.source_refs.checked_geometry_receipt]) assert.deepEqual(ref, bank.physical_geometry);
+  assert.deepEqual(contact.evidence_bindings.checked_geometry_receipt, index.geometry.receipt);
+  for (const ref of [geometry.current_model_bindings.analysis_geometry, contact.evidence_bindings.prepared_analysis_geometry,
+    foot.source_bindings.analysis_geometry]) assert.deepEqual(ref, bank.analysis_geometry);
+  assert.deepEqual(criterionSources.current_wrench_atlas, index.method_source_joins.current_wrench_atlas);
+  assert.deepEqual(criterionSources.current_primary_method_closure, primary.source_bindings.raw_method_closure);
+  const flaggedAxes = Object.keys(evaluation.bearing_diagnostic_component_maxima).sort();
+  assert.equal(flaggedAxes.length, 8);
+  assert.deepEqual([...criteria.coverage.flagged_axes].sort(), flaggedAxes);
+  assert.deepEqual([...criteria.coverage.cases].sort(), [...CURRENT_CASES].sort());
+  assert.equal(criteria.coverage.flagged_case_rows, 48); assert.equal(criteria.coverage.current_atlas_rows, 672);
+  assert.deepEqual(criteria.current_flagged_action_envelopes.map(row => row.axis).sort(), flaggedAxes);
+  assert.ok(criteria.current_flagged_action_envelopes.every(row => row.atlas_rows.length === 6));
+  assert.equal(new Set(criteria.current_flagged_action_envelopes.flatMap(row => row.atlas_rows)).size, 48);
+  assert.deepEqual(primary.flagged_component_thresholds_not_capacities.map(row => row.axis_id).sort(), flaggedAxes);
+  for (const key of ['actual_Fe_Fyb_Fy_Fu', 'actual_Cg_Cdelta', 'complete_group_capacity',
+    'complete_connection_capacity', 'complete_simultaneous_six_wrench_interaction_pass']) assert.equal(primary.qualification[key], null);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'NDS_group_capacity', 'complete_connection_capacity',
+    'complete_NDS_acceptance', 'splitting_capacity']) assert.equal(criteria.disposition[key], null);
+  assert.equal(criteria.disposition.no_automatic_Cg_or_1_over_n_acceptance, true);
+  assert.equal(geometry.status, 'bounded_conditional_component_complete_TableD_and_other_joint_checks_open');
+  assert.equal(geometry.conditional_outcome.group_case_comparisons, 12);
+  assert.equal(geometry.conditional_outcome.all_case_rows.length, 12);
+  assert.equal(contact.conditional_sawn_wood_mean_pressure_screen.panel_contact_rows_skipped, 942);
+  assert.match(contact.scope, /conditional analytical evaluation, not structural acceptance/);
+  assert.equal(foot.cut_inventory.case_group_rows, 12); assert.equal(foot.cut_inventory.total_full_cut_wrenches, 48);
+  assert.equal(foot.cut_inventory.cuts_per_case_group_row, 4);
+  assert.equal(foot.cut_inventory.all_full_force_and_moment_vectors_retained, true);
+  const rearCutReference = {path: foot.case_results_reference.path, sha256: foot.case_results_reference.sha256};
+  referenceBinding(rearCutReference);
+  assert.deepEqual(foot.cut_inventory.raw_detail_reference, rearCutReference);
+  assert.deepEqual(foot.source_bindings.raw_complete_source_inventory, rearCutReference);
+  assert.deepEqual(foot.source_bindings.outer_top_component_result_separate, geometry.result_binding.result);
+  assert.equal(foot.current_bank.all_six_cases_admitted, true);
+  assert.deepEqual([...foot.current_bank.case_ids].sort(), [...CURRENT_CASES].sort());
+  assert.equal(foot.current_bank.physical_force_bounds_established, false);
+  assert.equal(foot.geometry.physical_geometry_sha256, receipt.checked_geometry.sha256);
+  assert.equal(foot.geometry.physical_stock_or_drilling_observed, false); assert.equal(foot.actual_observations, null);
+  const members = foot.geometry.members;
+  assert.deepEqual(members.map(row => row.axis_id).sort(), ['rail_rear_bolt_left_1', 'rail_rear_bolt_right_1']);
+  for (const member of members) {
+    assert.equal(member.actual_loaded_edge_classification, null); assert.equal(member.local_couple_and_splitting_qualification, null);
+    assert.deepEqual(member.edge_branches.map(row => row.branch).sort(), ['q_max_unloaded', 'q_min_unloaded']);
+    for (const row of member.edge_branches) assert.ok(Number.isFinite(row.optional_component_reference_N) && row.optional_component_reference_N > 0);
+  }
+  const flags = foot.optional_envelope_exceedances;
+  assert.deepEqual(flags.map(row => `${row.member}/${row.case_id}`).sort(),
+    ['lumber_leg_left/a12-forward', 'lumber_leg_left/a12-left', 'lumber_leg_right/k12-right']);
+  for (const row of flags) {
+    assert.equal(row.actual_loaded_edge_classification, null);
+    assert.equal(row.classification, 'optional conservative two-edge envelope exceedance; not a loaded-edge violation finding');
+    assert.ok(Number.isFinite(row.ratio) && row.ratio > 1);
+    const member = members.find(member => member.member === row.member);
+    const branch = member.edge_branches.find(branch => branch.branch === row.optional_reference_branch);
+    assert.equal(row.optional_lower_of_two_edge_reference_N, branch.optional_component_reference_N);
+    assert.equal(row.optional_lower_of_two_edge_reference_N, Math.min(...member.edge_branches.map(branch => branch.optional_component_reference_N)));
+  }
+  const maximum = Math.max(...flags.map(row => row.ratio));
+  referenceClose(maximum, 1.0977299914214838, 'optional rear-foot envelope maximum');
+  for (const key of ['NDS_loaded_edge_violation_found', 'local_couples_and_splitting_resolved', 'other_modes_or_complete_joint_qualified'])
+    assert.equal(foot.interpretation[key], false);
+  assert.equal(foot.interpretation.three_optional_reference_exceedances, true);
+  assert.equal(center.status, 'conditional_geometry_screen_only');
+  assert.deepEqual(center.source_refs.prior_force_and_cut_result, rearCutReference);
+  assert.deepEqual(center.source_refs.current_BREP_section_proof, foot.source_bindings.current_rear_foot_brep_proof);
+  assert.equal(center.qualification.actual_physical_observations, null);
+  for (const row of [primary.qualification, criteria.disposition, contact, foot, center.qualification, center.screen])
+    for (const key of ['structural_acceptance', 'physical_failure_claim', 'fabrication_released', 'climbing_released',
+      'complete_joint_qualified', 'physical_demand_bounds_established', 'adopted', 'actual_new_pass', 'actual_pass'])
+      if (Object.hasOwn(row, key)) assert.ok(row[key] === false || row[key] === null, `followup claim boundary: ${key}`);
+  return {optional_rear_foot_case_group_rows: 12, optional_rear_foot_full_cut_wrenches: 48,
+    optional_rear_foot_envelope_case_rows: flags.length, optional_rear_foot_envelope_axes: members.length,
+    optional_rear_foot_maximum_envelope_ratio: maximum, optional_rear_foot_actual_loaded_edge: null,
+    optional_rear_foot_NDS_loaded_edge_violation_found: false, optional_rear_foot_centering_adopted: false};
+}
+
 export function checkDevelopment(index = readIndex(), {entryChecks = true} = {}) {
   if (index.schema === 'bolted_frame_development_revisions/v17') {
     assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v16');
@@ -1958,6 +2074,12 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       referenceBinding(ref);
       assert.ok(ref.path.startsWith('fea/generated/v10-packer-free-v1/'), 'own current method evidence required');
     }
+    referenceKeys(index.method_followups, Object.keys(PACKER_FREE_FOLLOWUP_SCHEMAS), 'current public method followups');
+    const followups = Object.fromEntries(Object.entries(index.method_followups).map(([key, ref]) => {
+      referenceBinding(ref, `docs/bolted-frame-development/owner-frame-v10/packer-free/${key.replaceAll('_', '-')}.json`);
+      return [key, JSON.parse(bound(ref))];
+    }));
+    const optionalRearFoot = validatePackerFreeMethodFollowups(followups, index);
     const stock = JSON.parse(bound(index.stock_planning));
     assert.ok(stock.scope.startsWith('Wood allocation only.'), 'non-wood purchases remain outside stock planning');
     const spacers = JSON.parse(bound(index.hardware_spacer_mapping));
@@ -1991,7 +2113,7 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.ok(html.includes("import {loadPackerFreeResultsScene} from './eoere-packer-free-results.mjs'"));
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);
-    return {passed: true, revision: index.geometry.revision, bolt_axes: 112, screw_axes: 66, angles: 24,
+    return {passed: true, ...optionalRearFoot, revision: index.geometry.revision, bolt_axes: 112, screw_axes: 66, angles: 24,
       occupied_parts: 1125, spacer_pieces: 40, wood_packers: 0, current_response_revision: index.geometry.revision,
       repository_viewer_integrated: true, repository_viewer_model: viewer.model, geometry_only: false,
       reference_case_exceedances: 15, reference_component_exceedances: 8, bearing_diagnostic_case_rows: 15,

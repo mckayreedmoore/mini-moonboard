@@ -1,0 +1,349 @@
+{
+  "actual_observations": null,
+  "case_results_reference": {
+    "description": "The complete 12 case-group rows, all 48 complete cut wrenches, and both edge branches are preserved in this exact raw source; this public summary lists only the three optional-envelope exceedance rows.",
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-rear-foot-v6.json",
+    "sha256": "3d2f512884cdced962b818db22fa896e009a641ed625d5ae54d24c0dfba7eea9"
+  },
+  "climbing_released": false,
+  "current_bank": {
+    "all_six_cases_admitted": true,
+    "case_ids": [
+      "a12-forward",
+      "a12-rear",
+      "a12-left",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "model": "recorded perfect-bond host-response model; do not interpret as measured or bounded physical forces",
+    "physical_force_bounds_established": false
+  },
+  "cut_inventory": {
+    "all_full_force_and_moment_vectors_retained": true,
+    "bore_band_boundary_cuts": 24,
+    "case_group_rows": 12,
+    "cuts_per_case_group_row": 4,
+    "event_side_cuts": 24,
+    "raw_detail_reference": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-rear-foot-v6.json",
+      "sha256": "3d2f512884cdced962b818db22fa896e009a641ed625d5ae54d24c0dfba7eea9"
+    },
+    "total_full_cut_wrenches": 48
+  },
+  "exclusions_and_open_checks": {
+    "other_50_profile_envelope_screens": {
+      "outer_post_bevel_mm": 9.525,
+      "post_core_or_other_finished_stock_cores_proven": false,
+      "reference": {
+        "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-receivers-v2.json",
+        "sha256": "ff05b64c9ebf1d2fbc72266e9f651d1d1c76042f1098450310674435c079c303"
+      },
+      "status": "diagnostic profile-envelope calculations only; finished-BRep gross cores are not established and no ratios/pass results are adopted from them"
+    },
+    "outer_top_component_result": {
+      "reference": {
+        "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-top-outer-groups-v1.json",
+        "sha256": "f6087e037380d54f29656af41d8732ed1082cefcedf8af56cdd232f39555fdc2"
+      },
+      "status": "separate prior bounded result; not duplicated or merged into this result"
+    },
+    "remaining_limitations": [
+      "Actual wood, cuts, holes, species/grade, service conditions, delivered hardware, and physical demands are unobserved.",
+      "Actual loaded-edge classification, force reversal under local couples, splitting, group ownership/Cg, bearing, bolt, orthogonal components, torsion, and complete NDS interaction remain unresolved.",
+      "No structural acceptance, fabrication release, or climbing release is established."
+    ]
+  },
+  "fabrication_released": false,
+  "geometry": {
+    "members": [
+      {
+        "5d_mm": 698.5000001032688,
+        "actual_loaded_edge_classification": null,
+        "axis_id": "rail_rear_bolt_left_1",
+        "bore": {
+          "analyzed_band_with_geometry_guard_mm": [
+            81.12473504804596,
+            95.41423504804597
+          ],
+          "diameter_mm": 14.2875,
+          "exact_projected_grain_band_mm": [
+            81.125735048046,
+            95.413235048046
+          ],
+          "local_grain_station_mm": 88.269485048046,
+          "radius_mm": 7.14375
+        },
+        "current_modeled_gross_section": {
+          "b_mm": 50.8,
+          "d_mm": 139.700000020651,
+          "four_boundary_plane_faces_span_band": true,
+          "other_planar_or_cylindrical_cuts_intersect_guarded_band": false,
+          "section_over_full_bore_band": "exact rectangle minus the matching bore void",
+          "u_bounds_mm": [
+            0,
+            50.8
+          ],
+          "v_bounds_mm": [
+            -139.700000020651,
+            0
+          ]
+        },
+        "edge_branches": [
+          {
+            "a_mm": 63.863973941464025,
+            "branch": "q_min_unloaded",
+            "de_mm": 75.83602607918974,
+            "optional_component_reference_N": 939.2168675460454
+          },
+          {
+            "a_mm": 75.83602607918974,
+            "branch": "q_max_unloaded",
+            "de_mm": 63.863973941464025,
+            "optional_component_reference_N": 560.9236847359629
+          }
+        ],
+        "end_equation": "NDS 2024 Eq. 3.4-6 (<5d), conditional on the stated model scenario",
+        "finished_brep_sha256": "0b54051872eb99326353890c111ba2dd922f7f9f7ebf560c7be678d67967d4a8",
+        "local_couple_and_splitting_qualification": null,
+        "member": "lumber_leg_left",
+        "nearest_finished_grain_end_mm": 72.53985929504597,
+        "worst_case_id": "a12-left",
+        "worst_optional_two_edge_envelope_ratio": 1.0975008915491042
+      },
+      {
+        "5d_mm": 698.5000001032688,
+        "actual_loaded_edge_classification": null,
+        "axis_id": "rail_rear_bolt_right_1",
+        "bore": {
+          "analyzed_band_with_geometry_guard_mm": [
+            81.12473504804596,
+            95.41423504804597
+          ],
+          "diameter_mm": 14.2875,
+          "exact_projected_grain_band_mm": [
+            81.125735048046,
+            95.413235048046
+          ],
+          "local_grain_station_mm": 88.269485048046,
+          "radius_mm": 7.14375
+        },
+        "current_modeled_gross_section": {
+          "b_mm": 50.8,
+          "d_mm": 139.700000020651,
+          "four_boundary_plane_faces_span_band": true,
+          "other_planar_or_cylindrical_cuts_intersect_guarded_band": false,
+          "section_over_full_bore_band": "exact rectangle minus the matching bore void",
+          "u_bounds_mm": [
+            38.1,
+            88.9
+          ],
+          "v_bounds_mm": [
+            -139.700000020651,
+            0
+          ]
+        },
+        "edge_branches": [
+          {
+            "a_mm": 75.83602607918974,
+            "branch": "q_min_unloaded",
+            "de_mm": 63.863973941464025,
+            "optional_component_reference_N": 560.923684735963
+          },
+          {
+            "a_mm": 63.863973941464025,
+            "branch": "q_max_unloaded",
+            "de_mm": 75.83602607918974,
+            "optional_component_reference_N": 939.2168675460455
+          }
+        ],
+        "end_equation": "NDS 2024 Eq. 3.4-6 (<5d), conditional on the stated model scenario",
+        "finished_brep_sha256": "5bffbab3cb5504fbdc49e23bb05a1d960131f7c7d279c58c30b3bda88b906324",
+        "local_couple_and_splitting_qualification": null,
+        "member": "lumber_leg_right",
+        "nearest_finished_grain_end_mm": 72.53985929504597,
+        "worst_case_id": "k12-right",
+        "worst_optional_two_edge_envelope_ratio": 1.0977299914214838
+      }
+    ],
+    "method": "The entire current BREP cross-section throughout each complete projected bore band is exactly the reported gross rectangle minus the one explicit cylindrical bore void. This is not merely an inscribed sub-core. Exactly four plane patches bound the section across the band; no other planar cut patch intersects it.",
+    "physical_geometry_sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde",
+    "physical_stock_or_drilling_observed": false,
+    "read_only_brep_proof_sha256": "cb0dd61b2c74440c02c69a0f093cefb12e1b2390ed85f73a6e058039657f4bb7"
+  },
+  "interpretation": {
+    "NDS_loaded_edge_violation_found": false,
+    "because": "The actual loaded edge is unresolved; the ratios use the lower of both possible unloaded-edge branch references as a conservative envelope. This is not a blanket code-violation finding.",
+    "local_couples_and_splitting_resolved": false,
+    "net_q_sign_is_only_a_resultant_tendency": true,
+    "other_modes_or_complete_joint_qualified": false,
+    "three_optional_reference_exceedances": true
+  },
+  "method": {
+    "both_unloaded_edge_branches": "Both branch references are calculated. Their minimum is reported only as an optional conservative two-edge component envelope; neither resultant sign nor local cut couples identifies the code loaded edge.",
+    "definitions": "de=d\u2212a, where a is from the unloaded edge to center of nearest bolt; Eq. 3.4-6: Vr'=(2/3)Fv' b de(de/d)^2 for end<5d; Eq. 3.4-7: Vr'=(2/3)Fv' b de for end>=5d.",
+    "known_answer_controls": {
+      "at_5d_boundary": {
+        "Fv_prime_mpa": 2.0,
+        "b_mm": 3.0,
+        "connection_within_5d_of_end": false,
+        "d_mm": 10.0,
+        "de_mm": 5.0,
+        "equation": "3.4-7",
+        "nearest_grain_end_mm": 50.0,
+        "reference_n": 20.0
+      },
+      "near_end_at_5d_minus_0.001_mm": {
+        "Fv_prime_mpa": 2.0,
+        "b_mm": 3.0,
+        "connection_within_5d_of_end": true,
+        "d_mm": 10.0,
+        "de_mm": 5.0,
+        "equation": "3.4-6",
+        "nearest_grain_end_mm": 49.999,
+        "reference_n": 5.0
+      }
+    },
+    "material_scenario": {
+      "Cvr": "not applied; this is a conditional sawn-lumber Chapter 4/Table 4A scenario",
+      "Fv_prime_MPa": 1.241056312770305,
+      "adjustments": {
+        "CD": 1.0,
+        "CM": 1.0,
+        "Ci": 1.0,
+        "Ct": 1.0
+      },
+      "reference": "AWC NDS Supplement 2024 Table 4A, DF-L No. 2, Fv = 180 psi",
+      "species_grade_service_actuals_observed": false
+    },
+    "standard_locator": "AWC NDS 2024 Chapter 3 \u00a73.4.4.1(a), Figure 3E, Eqs. 3.4-6 and 3.4-7"
+  },
+  "optional_envelope_exceedances": [
+    {
+      "actual_loaded_edge_classification": null,
+      "case_id": "a12-forward",
+      "classification": "optional conservative two-edge envelope exceedance; not a loaded-edge violation finding",
+      "end_equation": "3.4-6",
+      "member": "lumber_leg_left",
+      "optional_lower_of_two_edge_reference_N": 560.9236847359629,
+      "optional_reference_branch": "q_max_unloaded",
+      "peak_signed_Vq_N": 561.9793218805662,
+      "ratio": 1.0018819799793268,
+      "resultant_tendency_only": "positive_q",
+      "signed_host_q_resultant_N": 471.2147187545251
+    },
+    {
+      "actual_loaded_edge_classification": null,
+      "case_id": "a12-left",
+      "classification": "optional conservative two-edge envelope exceedance; not a loaded-edge violation finding",
+      "end_equation": "3.4-6",
+      "member": "lumber_leg_left",
+      "optional_lower_of_two_edge_reference_N": 560.9236847359629,
+      "optional_reference_branch": "q_max_unloaded",
+      "peak_signed_Vq_N": 615.6142340887279,
+      "ratio": 1.0975008915491042,
+      "resultant_tendency_only": "positive_q",
+      "signed_host_q_resultant_N": 514.2733647783067
+    },
+    {
+      "actual_loaded_edge_classification": null,
+      "case_id": "k12-right",
+      "classification": "optional conservative two-edge envelope exceedance; not a loaded-edge violation finding",
+      "end_equation": "3.4-6",
+      "member": "lumber_leg_right",
+      "optional_lower_of_two_edge_reference_N": 560.923684735963,
+      "optional_reference_branch": "q_min_unloaded",
+      "peak_signed_Vq_N": -615.7427416333157,
+      "ratio": 1.0977299914214838,
+      "resultant_tendency_only": "negative_q",
+      "signed_host_q_resultant_N": -515.9580294598354
+    }
+  ],
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "schema": "v10_packer_free_rear_foot_shear_evaluation/v1",
+  "scope": "Only the two current lumber-leg rear-foot receiver intervals are evaluated here. This result does not cover the remainder of the frame or a complete connection check.",
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/geometry/geometry.json",
+      "sha256": "f187592684eab07c0c17cbf8e835452cb5ebf431510ce8aa8ffe38940807da21"
+    },
+    "checked_geometry_receipt": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+    },
+    "clearance_receipt": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/clearance.json",
+      "sha256": "94c383b75d1223cc87813bd70a011d26da4e384064dec348b34bc1cf3eae0057"
+    },
+    "current_geometry": {
+      "path": "fea/generated/v10-packer-free-v1/geometry-v1/geometry.json",
+      "sha256": "9510653b41d2c0c710f4eea02c9867c44367cd2909d6b3af56716c74cfd68bde"
+    },
+    "current_rear_foot_brep_proof": {
+      "path": "fea/generated/v10-packer-free-v1/connections/current-method-closure/geometry/rear-foot-core-proof-v1.json",
+      "sha256": "cb0dd61b2c74440c02c69a0f093cefb12e1b2390ed85f73a6e058039657f4bb7"
+    },
+    "event_cut_kernel": {
+      "path": "scripts/thin_bolted_timber_demand_checks.py",
+      "sha256": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20"
+    },
+    "geometry_action_atlas": {
+      "path": "fea/generated/v10-packer-free-v1/connections/geometry/packer-free-geometry-applicability-v2.json",
+      "sha256": "b2c44a9f4e358d9350f6d5cb6926421cf8770f3052b4954a740e5af2158e1903"
+    },
+    "other_profile_envelope_screen_not_qualified": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-receivers-v2.json",
+      "sha256": "ff05b64c9ebf1d2fbc72266e9f651d1d1c76042f1098450310674435c079c303"
+    },
+    "outer_top_component_result_separate": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-top-outer-groups-v1.json",
+      "sha256": "f6087e037380d54f29656af41d8732ed1082cefcedf8af56cdd232f39555fdc2"
+    },
+    "pinned_nds2024_chapter3": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+      "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+    },
+    "pinned_nds2024_chapter4": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter4.pdf",
+      "sha256": "52feedd07d3b672f0dd2666903cf8b481687d3da975cd3fccac545f66dfeb9ec"
+    },
+    "pinned_nds_supplement_table4a": {
+      "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf",
+      "sha256": "1f65975633f111c308944c470b6cc10e9207b6c45e8a0804b8bdec3378bbc71b"
+    },
+    "point_action_builder": {
+      "path": "scripts/thin_bolted_timber_common_shaft_checks.py",
+      "sha256": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/preparation/inputs.json",
+      "sha256": "1327366f48b68fe385de3dca117c043b44d930ea61d3cfae991c12d2cc89bec9"
+    },
+    "raw_complete_source_inventory": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/raw-current-rear-foot-v6.json",
+      "sha256": "3d2f512884cdced962b818db22fa896e009a641ed625d5ae54d24c0dfba7eea9"
+    },
+    "reduced_depth_kernel": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt01/source-at-first-run/analyze.py",
+      "sha256": "4d6e00da4b2c58f2f9a4fd4f7cb319c3ff8ac2db4400b915e753ccbcca8c1540"
+    },
+    "response_bank": {
+      "path": "fea/generated/v10-packer-free-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+    },
+    "v1_producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/produce_current_receivers_v1.py",
+      "sha256": "433ee28ab85c1e54d3e054d5d1e387bf5cf2c9b05148195dcd6004187f948d7c"
+    },
+    "v2_centroid_wrapper": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/produce_current_receivers_v2.py",
+      "sha256": "771efcf9ebc30dc9c1724a0886bb1fcd99ce063b205db8ee936a7a786260f8d8"
+    },
+    "v3_bounded_rear_foot_producer": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/reduced-depth-current-receivers-v1/produce_current_rear_foot_v1.py",
+      "sha256": "d604865c69c6afaab27bcb3c54752ffceffc4e7ef0330463b1f5aa3ddfb6ea0c"
+    }
+  },
+  "status": "bounded current-BRep geometry and recorded-bank reduced-depth component screen; no structural acceptance",
+  "structural_acceptance": false
+}
