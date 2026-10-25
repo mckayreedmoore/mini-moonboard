@@ -138,6 +138,10 @@
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/contact-law/contact-mean-review.json",
       "sha256": "8c5838c6c617407db88062cf22684ba91108324a2e6efb587beba7badc16c1b9"
     },
+    "current_property_method_mapping": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/property-method-mapping.json",
+      "sha256": "e71d75ed66eca28d3b834d87e2cacd487f25b93fcb07aab84de82a0a37130ff7"
+    },
     "fitting": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/fitting/gross-strip-current-v1/current-six-case-gross-strip-recovery-v2.json",
       "sha256": "9d7e131e52ffa45f286b41e32a0d57a1160f7d298ff1131d3490141307b1325d"
@@ -162,9 +166,21 @@
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/physical-observation-requirements.json",
       "sha256": "d0a117348d9bf89c8019aca4ad11162acd637db847930cd2ab66d549616aaa1a"
     },
+    "historical_splitting_source_pins": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-outer-load-path-2026-10-01/splitting-source-cache/source-pins.json",
+      "sha256": "d5bc52263f6d04e733ebbda784e653fbd74038c22b85be48b8ebfb3bd15eb056"
+    },
+    "historical_splitting_source_route": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-outer-load-path-2026-10-01/splitting.md",
+      "sha256": "9f811768bcf5d5ba4fb5d70cc1b22e70e3cc3cdc1039236a4ee89952985209d0"
+    },
     "local_shear": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/local-connection-shear-v1/current-center-far-shear-summary-attempt07.json",
       "sha256": "5df696fb621d3641abcad18eb9c3bc80ada2038493dc6eb465774d014997325a"
+    },
+    "local_wrench_method_disposition": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/local-full-wrench-lower-bound-method-disposition-v1.json",
+      "sha256": "9c7c5669414ea4a4971d05a345ce83ea89f08395b807d32cd1b234a4f7f0c434"
     },
     "physical_geometry": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/geometry-v1/geometry.json",
@@ -201,6 +217,10 @@
     "washer": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/washer-face/current-washer-mean-review.json",
       "sha256": "ffdfa41b6094e204e52416a823fc363bfcf7490a8d3d7f73eb41b21848ae7207"
+    },
+    "wrench_point_mapping": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/source-wrench-point-mapping-v1.json",
+      "sha256": "7c1da2229f61f4284cf74c13facea8a21223b3d0e381de6164ddc0f5047f8cc8"
     }
   },
   "conditional_subchecks": {
@@ -430,7 +450,7 @@
     {
       "complete_connection_pass": null,
       "criterion": "Full signed connection wrench and group",
-      "evidence_scope": "All 108 axes have fresh per-receiver signed actions, local couples and conditional same-field material thresholds. Force-only TR 12 covers 88 two-media axes;20 three-media axes are explicitly outside that subcheck. Historical 1/n acceptance is withdrawn; all 15 diagnostic rows remain.",
+      "evidence_scope": "All 108 axes have fresh per-receiver signed actions, local couples and conditional same-field material thresholds. Force-only TR 12 covers 88 two-media axes;20 three-media axes are explicitly outside that subcheck. Historical 1/n acceptance is withdrawn; all 15 diagnostic rows remain. A source-bound point-of-application check covers all 792 wood actions; all 48 rear receiver actions retain an irreducible moment above 1e-4 Nmm even for an unrestricted force point. This is a load-mapping result, not a strength flag.",
       "missing_method": "Define compatible simultaneous force/moment/axial/torsional resistance for actual unequal media and physical rows, including local splitting. Existing FE foundation coefficients are not demonstrated equivalent to NDS serial-row gamma; neither automatic Cg=1 nor multiplying receiver-signature 1/n is qualified.",
       "missing_physical_input": "Actual material and hardware conformity support a chosen method but do not themselves supply the missing wrench/row mapping.",
       "next_action": "Resolve the 8 flagged axes by physical receiver cluster, preserving all seven cleat pins and shared header fittings. Choose applicable NDS mode/row branches or a supported mechanics wrench envelope before changing bolt count/diameter.",
@@ -440,7 +460,7 @@
       "complete_connection_pass": null,
       "criterion": "Sawn member net sections and local connection shear",
       "evidence_scope": "Fresh vector sections cover 20 sawn members across 6 cases;12 flagged sawn bore planes have pure-axial net-section references. All 58 receiver groups have reduced-depth local shear screens and full cut wrenches.",
-      "missing_method": "Complete Appendix E group/row tear-out and eccentric bending/perpendicular splitting remain distinct from the pure-axial and optional both-edge shear screens.",
+      "missing_method": "Complete Appendix E group/row tear-out and eccentric bending/perpendicular splitting remain distinct from the pure-axial and optional both-edge shear screens. An existing 2004/AC:2006 EC5 characteristic source route is available; the remaining issue is mapping the current full actions, geometry and design basis, rather than finding the scalar formula again.",
       "missing_physical_input": "Species/grade stamp, moisture/service condition and actual finished cross-sections; current calculations assume dry DF-L No.2.",
       "next_action": "Retain present stock; interpret the 2 optional rear-foot envelopes using signed actions and actual fracture paths. Do not enlarge members or adopt the unselected centering probe solely to erase optional markers.",
       "status": "CONDITIONAL_COMPONENT_REFERENCES_COMPLETE"
@@ -466,7 +486,7 @@
     {
       "complete_connection_pass": null,
       "criterion": "Bolt shaft metal",
-      "evidence_scope": "Legacy direct elastic family (Fy/2) and continuous same-field N/V/M/T bounds are distinct. The legacy formula omits torsion; fresh saved cuts and continuous bounds have |T| below 1e-8 Nmm, so no material torsion effect is found. Full continuous nominal envelope is 220.599 MPa; arbitrary Fy/5 requires 1102.997 MPa. These constructions and denominators cannot be conflated.",
+      "evidence_scope": "Legacy direct elastic family (Fy/2) and continuous same-field N/V/M/T bounds are distinct. The legacy formula omits torsion; fresh saved cuts and continuous bounds have |T| below 1e-8 Nmm, so no material torsion effect is found. Full continuous nominal envelope is 220.599 MPa; arbitrary Fy/5 requires 1102.997 MPa. These constructions and denominators cannot be conflated. The existing conditional Grade 5/F606 92 ksi design specification covers 90 labeled current bolts; actual conformity is unobserved. A574 153 ksi remains a source-limited historical design input because current-size yield-offset/test applicability is unresolved.",
       "missing_method": "Declare the strength criterion, appropriate material property and complete axial/shear/bending/torsion interaction; arbitrary Fy/5 and Fyb/5 screens are not NDS connection design values.",
       "missing_physical_input": "Applicable table or documented ASTM-method Fyb, conditional tensile Fy where used, and delivered grade/body/root/runout geometry. No blanket new lot test is required merely to perform conditional calculations.",
       "next_action": "Use the fresh full shaft sensitivity to isolate strength-only changes. A higher grade cannot repair wood bearing, spacing, splitting or poor grip, and does not select hardware.",
@@ -591,6 +611,139 @@
     "duration_factor_CD": 1,
     "horizontal_force_N": 300,
     "weight_lb": 250
+  },
+  "method_input_dispositions": {
+    "conditional_material_inputs": {
+      "A574": {
+        "Fyb_psi": null,
+        "SKU_quantities": {
+          "8092": 4,
+          "8095": 14
+        },
+        "computed_as_0_9_Fu": false,
+        "current_band_0_9_times_published_Fu_psi": 162000,
+        "current_bolts": 18,
+        "current_calculation_input_changed": false,
+        "diameter_in": 0.375,
+        "exact_missing_link": "A primary, edition-qualified A574 clause or original-manufacturer requirement applicable to3/8in that establishes the minimum tensile-yield statistic/offset and its F606 test/compliance basis, plus an explicit NDS12.3.6.2 design-input choice using that basis. This is a documentation/design-hypothesis gap, not an automatic requirement for a new lot test.",
+        "frozen153_origin": "Direct numerical transcription from Baden primary technical table into A574_historical_source_facts, then explicit scalar assignment in A574_historical_assignment_source.",
+        "limits": "The published153ksi input is a source-limited named tensile-yield/design scenario, not a guaranteed current-size0.2%-yield or Fyb. An A574 label alone does not resolve the conflicting current-size tables or prove an F606-derived yield datum. Do not transfer proprietary Unbrako yield or use0.9Fu/averaged minima as a normative conversion.",
+        "published_historical_ultimate_psi": 180000,
+        "published_historical_yield_input_psi": 153000,
+        "status": "CURRENT_SIZE_PROPERTY_AND_METHOD_LINK_PROVISIONAL"
+      },
+      "Grade5": {
+        "Fyb_psi": 92000,
+        "actual_delivery_or_lot_conformance": null,
+        "actual_or_product_measured_bending_yield": null,
+        "basis": "Reuse the exact qualified v2 design-input choice and its primary property/test linkage under NDS2024 \u00a712.3.6.2; not a general physical identity Fy=Fyb.",
+        "current_bolts_covered": 90,
+        "current_calculation_input_changed": false,
+        "diameter_in": [
+          0.375,
+          0.5
+        ],
+        "limits": "Conditional on the specified material/test-route hypothesis. The present J429 labels and nominal sizes match its family/band; actual manufacturer/edition/lot conformity is unobserved. No new capacities or automatic adoption of92ksi is made.",
+        "new_lot_coupon_prerequisite": false,
+        "new_manufacturer_signoff_prerequisite": false,
+        "scenario_id": "eoere-J429-201405-Grade5-F606-tensile-yield-spec-v2",
+        "specified_product_standard": "SAE J429_201405 Grade5,1/4\u20131in property band",
+        "specified_test_method": "ASTM F606/F606M-21, explicitly chosen project edition",
+        "status": "EXISTING_QUALIFIED_CONDITIONAL_DESIGN_SPEC_REUSABLE"
+      },
+      "actual_Fyb_or_delivery_conformity": null,
+      "existing_45ksi_reference": "Retain the existing generic 45 ksi reference where its stated topology/material assumptions apply. The stronger conditional Grade5 design specification does not justify repeating already-below-one force-only arithmetic merely to improve its number; no source force, adopted input or capacity has changed."
+    },
+    "local_full_wrench_lower_bound": {
+      "current_lower_bound_claim_supported": false,
+      "distinct_affine_pressure_reference": "The retained 4*Ktheta/Hankinson local pressure reference is a separate reduced Mode-I-like screen; neither it nor the common-divisor-five reference is a complete minimum of all applicable connection modes.",
+      "next_method": "A justified mapping to appropriate component/mode checks with a supported interaction can be used; a complete 3D numerical model is not declared mandatory. Any alternative must preserve the recorded forces, moments and transfer interfaces, and address group and splitting separately.",
+      "no_new_3D_FEA_or_blanket_external_signoff_prerequisite": true,
+      "reason": "TR12 defines a minimum of mode-specific connection P/Rd values. It does not establish that the separate common FeD/5 and pure bending screens are a complete admissible full-wrench yield field. Current line-pressure and shaft equilibrium residuals do not establish that broader claim."
+    },
+    "moment_reference_point_check": {
+      "all_48_rear_wood_receiver_actions_have_nonzero_unrestricted_residual": true,
+      "all_current_wood_actions": {
+        "equivalent_single_force_inside_interval": 233,
+        "irreducible_even_with_unrestricted_force_point": 549,
+        "maximum_physical_interval_residual_Nmm": 6264.881798797094,
+        "optimum_along_bore_outside_interval": 224,
+        "rows": 792
+      },
+      "classes_overlap_and_are_not_failure_counts": true,
+      "flagged_axis_actions": {
+        "eoere_bolt_067": {
+          "equivalent_single_force_inside_interval": 2,
+          "irreducible_even_with_unrestricted_force_point": 10,
+          "maximum_physical_interval_residual_Nmm": 5564.089108826589,
+          "optimum_along_bore_outside_interval": 0,
+          "rows": 12
+        },
+        "eoere_bolt_070": {
+          "equivalent_single_force_inside_interval": 2,
+          "irreducible_even_with_unrestricted_force_point": 10,
+          "maximum_physical_interval_residual_Nmm": 4530.781613454457,
+          "optimum_along_bore_outside_interval": 0,
+          "rows": 12
+        },
+        "lumber_leg_bolt_left_1": {
+          "equivalent_single_force_inside_interval": 0,
+          "irreducible_even_with_unrestricted_force_point": 12,
+          "maximum_physical_interval_residual_Nmm": 5726.145483598299,
+          "optimum_along_bore_outside_interval": 6,
+          "rows": 12
+        },
+        "lumber_leg_bolt_left_2": {
+          "equivalent_single_force_inside_interval": 0,
+          "irreducible_even_with_unrestricted_force_point": 12,
+          "maximum_physical_interval_residual_Nmm": 6264.881798797094,
+          "optimum_along_bore_outside_interval": 6,
+          "rows": 12
+        },
+        "lumber_leg_bolt_right_1": {
+          "equivalent_single_force_inside_interval": 0,
+          "irreducible_even_with_unrestricted_force_point": 12,
+          "maximum_physical_interval_residual_Nmm": 5596.105693371853,
+          "optimum_along_bore_outside_interval": 6,
+          "rows": 12
+        },
+        "lumber_leg_bolt_right_2": {
+          "equivalent_single_force_inside_interval": 0,
+          "irreducible_even_with_unrestricted_force_point": 12,
+          "maximum_physical_interval_residual_Nmm": 6131.993240989247,
+          "optimum_along_bore_outside_interval": 6,
+          "rows": 12
+        },
+        "v10_header_bolt_001": {
+          "equivalent_single_force_inside_interval": 1,
+          "irreducible_even_with_unrestricted_force_point": 4,
+          "maximum_physical_interval_residual_Nmm": 1883.908609869553,
+          "optimum_along_bore_outside_interval": 3,
+          "rows": 6
+        },
+        "v10_header_bolt_004": {
+          "equivalent_single_force_inside_interval": 0,
+          "irreducible_even_with_unrestricted_force_point": 5,
+          "maximum_physical_interval_residual_Nmm": 1910.0539577089728,
+          "optimum_along_bore_outside_interval": 2,
+          "rows": 6
+        }
+      },
+      "formula": "M_shifted=M_source-t*(e cross F); minimize the residual over the actual media interval. For an unrestricted point, the invariant residual is |F dot M|/|F|.",
+      "interpretation": "The recorded moments cannot generally be eliminated by relabeling their application point. Zero residual establishes geometric wrench equivalence only; it does not qualify a force-only capacity check or clear any diagnostic.",
+      "moment_zero_tolerance_Nmm": 0.0001,
+      "six_known_answer_controls_and_byte_identical_replay": true
+    },
+    "splitting_source_reuse": {
+      "current_complete_splitting_mapping_established": false,
+      "current_source_formula_gap": false,
+      "demand_mapping": "The source uses member section shears on the two sides of the connection, not a sum of bolt cross-grain force magnitudes. The loaded edge, host plane, actual finished he/h/b, concurrent groups and off-plane/couple effects need an applicable mapping.",
+      "equation": "F90,Rk=14*b*w*sqrt(he/(1-he/h)); ordinary-fastener w=1 within the stated source arrangement.",
+      "historical_geometry_or_forces_transferred": false,
+      "named_historical_scenario": "EN1995-1-1:2004 corrected by AC:2006; non-regulatory characteristic host-plane scenario only.",
+      "new_numerical_splitting_screen_run": false,
+      "source_available": "The existing CEN corrigendum and JRC figure reproductions establish the corrected characteristic equation and definitions. The cached corrigendum is not the full standard or a complete design-conversion source."
+    }
   },
   "qualifications": {
     "climbing_released": false,
