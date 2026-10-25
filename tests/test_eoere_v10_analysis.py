@@ -39,7 +39,24 @@ def test_unknown_factory_row_is_rejected():
 
 def test_load_helper_is_explicitly_frozen():
     assert method.FROZEN_METHODS['scripts/eoere_load_parameters.py']=='83edcc05b778fc677204d1cc39597cd3e2a739f32de4b0f67ce0c2a051bf2772'
+    # The load helper is tracked; other frozen replay inputs live in ignored
+    # evidence storage and are checked when the full local replay runs.
+    method.verify_frozen_methods({
+        'scripts/eoere_load_parameters.py': method.FROZEN_METHODS['scripts/eoere_load_parameters.py'],
+    })
+
+
+def test_default_freeze_verification_checks_every_dependency(monkeypatch):
+    checked = []
+
+    def frozen_digest(path):
+        relative = path.relative_to(method.ROOT).as_posix()
+        checked.append(relative)
+        return method.FROZEN_METHODS[relative]
+
+    monkeypatch.setattr(method, 'sha', frozen_digest)
     method.verify_frozen_methods()
+    assert checked == list(method.FROZEN_METHODS)
 
 
 def test_changed_frozen_dependency_is_rejected(monkeypatch):
