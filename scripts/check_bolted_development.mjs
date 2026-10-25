@@ -2200,6 +2200,137 @@ export function validateCurrent112GroupEffects(report, index) {
   return report;
 }
 
+export function validateCurrent112CapacityFollowthrough(report, index) {
+  assert.equal(report.schema, 'eoere_v10_connection_capacity_followthrough/v1');
+  assert.equal(report.revision, index.geometry.revision);
+  assert.equal(report.implementation_status, 'physical_row_method_and_conditional_subchecks_implemented');
+  assert.equal(report.full_model_qualified, false);
+  assert.deepEqual(report.response_bank, index.response_bank);
+  assert.deepEqual(report.geometry_receipt, index.geometry.receipt);
+  assert.deepEqual(report.previous_inventory, index.group_effects_assessment);
+  assert.deepEqual(report.ownership_map, index.subassembly_action_map);
+  const prior = JSON.parse(bound(report.previous_inventory));
+  assert.deepEqual(report.review_scopes, prior.review_scopes);
+  assert.deepEqual(report.load_contract, JSON.parse(bound(report.response_bank)).load_contract);
+  assert.deepEqual(report.coverage, {axes: 112, cases: 6, axis_case_rows: 672, review_scopes: 26,
+    base_axes: 6, rear_axes: 4, cleat_axes: 22, other_hardware_axes: 80});
+  const roster = [];
+  for (const [key, count] of [['base', 6], ['rear', 4], ['cleat', 22], ['other_hardware', 80]]) {
+    assert.equal(report.axis_ownership[key].length, count);
+    roster.push(...report.axis_ownership[key]);
+  }
+  assert.equal(roster.length, 112); assert.equal(new Set(roster).size, 112);
+  assert.deepEqual([...roster].sort(), prior.review_scopes.flatMap(row => row.axis_ids).sort());
+  assert.equal(report.review_scope_status_is_full_joint_qualification_not_row_factor_status, true);
+  for (const [key, file] of [['method_helper', 'mini_moonboard/physical_row_group_capacity.py'],
+    ['method_tests', 'tests/test_physical_row_group_capacity.py']]) {
+    referenceBinding(report[key], file); bound(report[key]);
+  }
+  // Ignored calculations are declarations here; current public joins and claims are checked.
+  for (const ref of Object.values(report.raw_evidence)) referenceBinding(ref);
+  for (const key of ['producer', 'previous_summary_draft', 'previous_summary_producer']) referenceBinding(report[key]);
+  assert.ok(report.explicit_file_pins_checked_by_publisher >= 100);
+  const rear = report.rear_rows;
+  assert.equal(rear.group_case_rows, 12); assert.equal(rear.direction_checks, 36);
+  assert.equal(rear.all_nominal_directions_give_singleton_rows, true);
+  assert.equal(rear.nominal_singleton_lateral_row_Cg, 1);
+  referenceClose(rear.minimum_unmerged_margin_mm, 8.192447036191496, 'rear stagger margin');
+  assert.equal(rear.conditional_lateral_reference_and_moment_maxima.length, 2);
+  for (const row of rear.conditional_lateral_reference_and_moment_maxima) {
+    assert.ok(row.maximum_individual_scenario_force_only_TR12_demand_over_Z > 0 &&
+      row.maximum_individual_scenario_force_only_TR12_demand_over_Z < 1);
+    assert.ok(row.maximum_group_moment_about_shear_plane_centroid_Nmm > 0);
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_group_capacity', 'complete_group_pass']) assert.equal(row[key], null);
+  }
+  const base = report.base_rows, front = base.ambiguous_front_case_partition_envelope;
+  assert.equal(base.group_case_rows, 24); assert.equal(base.front_direction_checks, 72);
+  assert.equal(base.group_case_rows_with_robust_singleton_factor, 23);
+  assert.equal(base.nominal_singleton_lateral_row_Cg, 1); assert.equal(base.unresolved_group_cases.length, 1);
+  assert.equal(front.case_id, 'k12-right'); assert.equal(front.rows.length, 2);
+  const demands = front.rows.map(row => {
+    referenceIndex(row.direction_independent_Z_lower_lbf, 'front Z lower bound');
+    assert.ok(row.direction_independent_Z_lower_lbf > 0);
+    const worst = Math.max(...Object.values(row.raw_port_lateral_demand_by_host_lbf));
+    referenceClose(row.conservative_demand_lbf, worst, 'front raw lateral demand');
+    return worst;
+  });
+  referenceClose(front.aggregate_demand_lbf, demands.reduce((a, b) => a+b, 0), 'front group demand');
+  referenceClose(front.capacity_lower_lbf, Math.min(...front.rows.map(row => row.direction_independent_Z_lower_lbf)), 'front capacity floor');
+  referenceClose(front.conditional_partition_envelope_index, front.aggregate_demand_lbf/front.capacity_lower_lbf, 'front envelope');
+  assert.ok(front.conditional_partition_envelope_index < 1);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_connection_capacity']) assert.equal(front[key], null);
+  const hardware = report.noncleat_rows;
+  assert.equal(hardware.physical_receiver_groups, 38); assert.equal(hardware.pair_groups, 36);
+  assert.equal(hardware.four_axis_groups, 2); assert.equal(hardware.group_case_rows, 228);
+  assert.deepEqual(hardware.pair_case_partition_counts, {
+    direction_sensitive_or_zero_resultant_unresolved: 28,
+    robust_one_two_fastener_row_across_group_and_individual_resultants_requires_EA: 77,
+    robust_two_single_fastener_rows_across_group_and_individual_resultants: 111});
+  assert.equal(hardware.geometry_tolerance_envelope_qualified, false);
+  assert.deepEqual(hardware.two_media_receiver_group_case_coverage, {singleton_reference: 106,
+    positive_EA_merged_bound: 77, two_pin_partition_envelope: 21, four_pin_partition_envelope: 12,
+    total: 216, complete_joint_pass: null});
+  assert.equal(hardware.two_media_singleton_lateral_references.axis_case_rows, 212);
+  assert.equal(hardware.two_media_singleton_lateral_references.conditional_references_above_one, 0);
+  for (const [section, countKey, count, maximumKey] of [
+    ['merged_row_capacity_bound', 'conditional_upper_bound_below_1', 77, 'maximum_conditional_utilization_upper_bound'],
+    ['partition_envelope', 'below_one_for_both_partitions_under_scenario', 21, 'maximum_envelope_utilization_upper_bound'],
+    ['four_pin_partition_envelope', 'group_cases_below_one_for_all_15_hypothetical_partitions', 12, 'maximum_partition_envelope_upper_bound'],
+  ]) {
+    const record = report[section];
+    assert.equal(record.result_counts[countKey], count);
+    assert.ok(record.result_counts[maximumKey].value > 0 && record.result_counts[maximumKey].value < 1);
+    for (const key of ['actual_Cg', 'actual_group_capacity', 'complete_Cdelta']) assert.equal(record.qualification[key], null);
+    for (const key of ['complete_joint_qualified', 'structural_acceptance', 'fabrication_released', 'climbing_released'])
+      assert.equal(record.qualification[key], false);
+  }
+  const four = report.four_pin_partition_envelope;
+  assert.equal(four.scope.actual_row_partition_selected, false);
+  assert.equal(four.scope.set_partitions_per_group_case, 15);
+  assert.equal(four.scope.total_hypothetical_partition_case_count, 180);
+  assert.equal(four.scope.hypothetical_row_segment_evaluation_count, 444);
+  assert.equal(four.qualification.actual_row_partition, null);
+  const controls = four.NDS_positive_EA_algebra.controls;
+  assert.equal(controls.status, 'passed'); assert.equal(controls.identity_controls.length, 80);
+  for (const row of controls.identity_controls) {
+    const {n, m, R_EA: r} = row;
+    assert.ok(Number.isInteger(n) && n >= 1 && m > 0 && m < 1 && r > 0 && r <= 1);
+    const powers = Array.from({length: 2*n}, (_, j) => m**(j+1));
+    const numerator = (1+r)*powers.reduce((a, b) => a+b, 0);
+    const denominator = m + m**(2*n) + r*m**n*(1+m);
+    const rhs = powers.slice(1, -1).reduce((a, b) => a+b, 0) +
+      r*powers.reduce((sum, value, i) => sum + (i+1 === n || i+1 === n+1 ? 0 : value), 0);
+    referenceClose(row.N_minus_D, numerator-denominator, 'positive-EA difference');
+    referenceClose(row.identity_rhs, rhs, 'positive-EA identity');
+    referenceClose(row.N_over_D_equals_n_Cg, numerator/denominator, 'positive-EA row bound');
+    assert.ok(numerator/denominator >= 1-1e-12);
+  }
+  assert.equal(report.cleat_local_references.axes, 22); assert.equal(report.cleat_local_references.axis_case_rows, 132);
+  assert.match(report.cleat_local_references.pressure_construction, /piecewise-constant/);
+  assert.ok(report.cleat_local_references.legacy_067_before_Cg > report.cleat_local_references.current_067_different_pressure_reference);
+  assert.match(report.ordinary_EYM_moment_scope.status, /nonzero moment alone does not disqualify/);
+  assert.equal(report.ordinary_EYM_moment_scope.current_action_scope.axis_case_count, 60);
+  assert.equal(report.ordinary_EYM_moment_scope.current_action_scope.body_applied_direct_couple_max_Nmm, 0);
+  assert.equal(report.verification.axis_case_rows, 672); assert.equal(report.verification.replayed_media, 1464);
+  assert.equal(report.verification.changed_or_missing_explicit_files, 0);
+  assert.ok(report.verification.maximum_lateral_force_replay_error_N < 1e-4);
+  assert.ok(report.verification.maximum_lateral_moment_replay_error_Nmm < 0.1);
+  assert.equal(report.verification.actual_pressure_or_strength_qualification, false);
+  const flags = report.remaining_flags;
+  assert.equal(flags.legacy_bearing_diagnostic_rows, 15); assert.equal(flags.legacy_bearing_components, 8);
+  assert.equal(flags.legacy_diagnostic_is_acceptance, false);
+  assert.equal(flags.optional_rear_foot_shear_envelope_rows, 3);
+  assert.equal(flags.top_grid_conditional_shortfall_mm, 6.35);
+  assert.equal(flags.actual_NDS_violation_established_by_optional_geometry_envelopes, false);
+  assert.equal(flags.accepted_connection_exceedance_count, null);
+  for (const key of ['actual_connection_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(report.qualifications[key], null);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released', 'purchase_authorized',
+    'loads_reduced', 'geometry_changed', 'new_global_or_native_solve', 'full_ignored_source_closure_claimed_by_portable_guard'])
+    assert.equal(report.qualifications[key], false);
+  assert.equal(report.qualifications.panel_screw_resistance_deferred, true);
+  return report;
+}
+
 const PACKER_FREE_FOLLOWUP_SCHEMAS = {
   primary_method_closure: 'v10_packer_free_primary_method_closure_summary/v1',
   geometry_method_followup: 'v10_geometry_method_followup/v1',
@@ -2557,6 +2688,11 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       referenceBinding(index.group_effects_assessment, 'docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json');
       validateCurrent112GroupEffects(JSON.parse(bound(index.group_effects_assessment)), index);
     }
+    let capacityFollowthrough = null;
+    if (index.connection_capacity_followthrough !== undefined) {
+      referenceBinding(index.connection_capacity_followthrough, 'docs/bolted-frame-development/owner-frame-v10/packer-free/connection-capacity-followthrough.json');
+      capacityFollowthrough = validateCurrent112CapacityFollowthrough(JSON.parse(bound(index.connection_capacity_followthrough)), index);
+    }
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'])
       validateEntry(read(name).toString(), index);
     return {passed: true, ...optionalRearFoot, unselected_trials: unselectedTrials,
@@ -2564,6 +2700,15 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
       occupied_parts: 1125, spacer_pieces: 40, wood_packers: 0, current_response_revision: index.geometry.revision,
       repository_viewer_integrated: true, repository_viewer_model: viewer.model, geometry_only: false,
       reference_case_exceedances: 15, reference_component_exceedances: 8, bearing_diagnostic_case_rows: 15,
+      reference_exceedance_criterion: 'legacy_receiver_signature_diagnostic_only',
+      accepted_connection_exceedance_count: null,
+      conditional_row_capacity_summary: capacityFollowthrough === null ? null : {
+        scope: 'conditional_lateral_components_only', hardware_receiver_case_rows: 216,
+        merged_row_bound_maximum: capacityFollowthrough.merged_row_capacity_bound.result_counts.maximum_conditional_utilization_upper_bound.value,
+        two_pin_partition_bound_maximum: capacityFollowthrough.partition_envelope.result_counts.maximum_envelope_utilization_upper_bound.value,
+        four_pin_partition_bound_maximum: capacityFollowthrough.four_pin_partition_envelope.result_counts.maximum_partition_envelope_upper_bound.value,
+        complete_joint_pass: null,
+      },
       actual_Cg_adopted: null, actual_Cdelta_adopted: null, complete_connection_acceptance: null,
       complete_joint_qualified: false, structural_acceptance: false, fabrication_released: false,
       climbing_released: false, purchase_authorized: false, stock_planning_scope: 'wood allocation only',

@@ -5,6 +5,7 @@ import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, validateCurrent112HardwarePlanning, validateCurrent112GroupEffects, viewerModel} from '../scripts/check_bolted_development.mjs';
+import {validateCurrent112CapacityFollowthrough} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -334,6 +335,7 @@ for (const [name, mutate] of [
 test('optional center-far-row metadata and dependent action map/group assessment can be absent without changing current112 or selected baseline', () => {
   const index = readPackerFreeIndex(); delete index.unselected_trials; delete index.subassembly_action_map;
   delete index.group_effects_assessment;
+  delete index.connection_capacity_followthrough;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.current_response_revision, index.geometry.revision);
   assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
@@ -391,6 +393,7 @@ test('local subassembly action map validates declared comparisons while holding 
 
 test('local subassembly action map and its dependent group assessment can be omitted without changing current authority', () => {
   const index = readPackerFreeIndex(); delete index.subassembly_action_map; delete index.group_effects_assessment;
+  delete index.connection_capacity_followthrough;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
 });
@@ -535,12 +538,66 @@ test('optional current112 group effects bind the public summary and preserve aut
   index.group_effects_assessment.sha256 = '0'.repeat(64);
   assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
   delete index.group_effects_assessment;
+  delete index.connection_capacity_followthrough;
   const result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(result.bolt_axes, 112); assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
   assert.equal(result.reference_case_exceedances, 15); assert.equal(result.optional_rear_foot_envelope_case_rows, 3);
+  assert.equal(result.reference_exceedance_criterion, 'legacy_receiver_signature_diagnostic_only');
+  assert.equal(result.accepted_connection_exceedance_count, null);
   assert.equal(result.complete_connection_acceptance, null); assert.equal(result.structural_acceptance, false);
   assert.equal(result.full_ignored_input_closure_checked, false);
 });
+
+function capacityFollowthrough() {
+  return JSON.parse(readFileSync(path.join(ROOT,
+    'docs/bolted-frame-development/owner-frame-v10/packer-free/connection-capacity-followthrough.json')));
+}
+
+test('current112 capacity followthrough verifies row bounds while keeping full connection acceptance open', () => {
+  const report = capacityFollowthrough(), index = readPackerFreeIndex();
+  for (const ref of Object.values(report.raw_evidence)) ref.path = 'fea/generated/unavailable-in-portable-check/input.json';
+  assert.equal(validateCurrent112CapacityFollowthrough(report, index), report);
+  assert.equal(report.rear_rows.nominal_singleton_lateral_row_Cg, 1);
+  assert.equal(report.noncleat_rows.two_media_receiver_group_case_coverage.total, 216);
+  assert.equal(report.qualifications.complete_joint_capacity, null);
+});
+
+for (const [name, mutate] of [
+  ['foreign response bank', (r, i) => {r.response_bank = i.preceding_revision.response_bank;}],
+  ['complete model promotion', r => {r.full_model_qualified = true;}],
+  ['blanket connection Cg', r => {r.qualifications.actual_connection_Cg = 1;}],
+  ['zero accepted exceedances', r => {r.remaining_flags.accepted_connection_exceedance_count = 0;}],
+  ['erased history', r => {r.remaining_flags.legacy_bearing_diagnostic_rows = 0;}],
+  ['duplicated axis', r => {r.axis_ownership.rear[0] = r.axis_ownership.rear[1];}],
+  ['invented rear reduction', r => {r.rear_rows.nominal_singleton_lateral_row_Cg = 0.5;}],
+  ['changed front capacity floor', r => {r.base_rows.ambiguous_front_case_partition_envelope.capacity_lower_lbf *= 2;}],
+  ['selected four-pin partition', r => {r.four_pin_partition_envelope.qualification.actual_row_partition = [[1, 2], [3, 4]];}],
+  ['corrupted row-bound algebra', r => {r.four_pin_partition_envelope.NDS_positive_EA_algebra.controls.identity_controls[0].N_minus_D = -1;}],
+  ['omitted conditional cases', r => {r.noncleat_rows.two_media_receiver_group_case_coverage.two_pin_partition_envelope = 0;}],
+  ['actual pressure qualification', r => {r.verification.actual_pressure_or_strength_qualification = true;}],
+  ['climbing release', r => {r.qualifications.climbing_released = true;}],
+]) test(`reject current112 capacity followthrough ${name}`, () => {
+  const report = capacityFollowthrough(), index = readPackerFreeIndex();
+  mutate(report, index);
+  assert.throws(() => validateCurrent112CapacityFollowthrough(report, index));
+});
+
+test('optional current112 capacity followthrough binds exact evidence and preserves the baseline', () => {
+  const index = readPackerFreeIndex();
+  const current = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(current.accepted_connection_exceedance_count, null);
+  assert.equal(current.conditional_row_capacity_summary.hardware_receiver_case_rows, 216);
+  assert.equal(current.conditional_row_capacity_summary.scope, 'conditional_lateral_components_only');
+  assert.equal(current.conditional_row_capacity_summary.complete_joint_pass, null);
+  index.connection_capacity_followthrough.sha256 = '0'.repeat(64);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+  delete index.connection_capacity_followthrough;
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.complete_joint_qualified, false);
+  assert.equal(result.conditional_row_capacity_summary, null);
+});
+
 for (const [name, target, mutate] of [
   ['fabrication release', 'index', (r) => {r.fabrication_released = true;}],
   ['baseline promotion', 'index', (r) => {r.selected_baseline.candidate = r.evidence_candidate;}],

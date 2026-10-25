@@ -1,0 +1,2089 @@
+{
+  "axis_ownership": {
+    "base": [
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2",
+      "rail_front_bolt_right_1",
+      "rail_front_bolt_right_2",
+      "rail_rear_bolt_left_1",
+      "rail_rear_bolt_right_1"
+    ],
+    "cleat": [
+      "cleat_post_bolt_left_1",
+      "cleat_post_bolt_left_2",
+      "cleat_post_bolt_right_1",
+      "cleat_post_bolt_right_2",
+      "eoere_bolt_067",
+      "eoere_bolt_070",
+      "eoere_bolt_071",
+      "eoere_bolt_074",
+      "eoere_bolt_081",
+      "eoere_bolt_082",
+      "eoere_bolt_083",
+      "eoere_bolt_084",
+      "v10_cleat_bolt_left_1",
+      "v10_cleat_bolt_left_2",
+      "v10_cleat_bolt_left_3",
+      "v10_cleat_bolt_right_1",
+      "v10_cleat_bolt_right_2",
+      "v10_cleat_bolt_right_3",
+      "v10_header_bolt_001",
+      "v10_header_bolt_002",
+      "v10_header_bolt_003",
+      "v10_header_bolt_004"
+    ],
+    "other_hardware": [
+      "eoere_bolt_001",
+      "eoere_bolt_002",
+      "eoere_bolt_003",
+      "eoere_bolt_004",
+      "eoere_bolt_005",
+      "eoere_bolt_006",
+      "eoere_bolt_007",
+      "eoere_bolt_008",
+      "eoere_bolt_009",
+      "eoere_bolt_010",
+      "eoere_bolt_011",
+      "eoere_bolt_012",
+      "eoere_bolt_013",
+      "eoere_bolt_014",
+      "eoere_bolt_015",
+      "eoere_bolt_016",
+      "eoere_bolt_017",
+      "eoere_bolt_018",
+      "eoere_bolt_019",
+      "eoere_bolt_020",
+      "eoere_bolt_021",
+      "eoere_bolt_022",
+      "eoere_bolt_023",
+      "eoere_bolt_024",
+      "eoere_bolt_025",
+      "eoere_bolt_026",
+      "eoere_bolt_027",
+      "eoere_bolt_028",
+      "eoere_bolt_029",
+      "eoere_bolt_030",
+      "eoere_bolt_031",
+      "eoere_bolt_032",
+      "eoere_bolt_033",
+      "eoere_bolt_034",
+      "eoere_bolt_035",
+      "eoere_bolt_036",
+      "eoere_bolt_037",
+      "eoere_bolt_038",
+      "eoere_bolt_039",
+      "eoere_bolt_040",
+      "eoere_bolt_041",
+      "eoere_bolt_042",
+      "eoere_bolt_043",
+      "eoere_bolt_044",
+      "eoere_bolt_045",
+      "eoere_bolt_046",
+      "eoere_bolt_047",
+      "eoere_bolt_048",
+      "eoere_bolt_049",
+      "eoere_bolt_050",
+      "eoere_bolt_051",
+      "eoere_bolt_052",
+      "eoere_bolt_053",
+      "eoere_bolt_054",
+      "eoere_bolt_055",
+      "eoere_bolt_056",
+      "eoere_bolt_057",
+      "eoere_bolt_058",
+      "eoere_bolt_059",
+      "eoere_bolt_060",
+      "eoere_bolt_061",
+      "eoere_bolt_062",
+      "eoere_bolt_063",
+      "eoere_bolt_064",
+      "eoere_bolt_065",
+      "eoere_bolt_066",
+      "eoere_bolt_068",
+      "eoere_bolt_069",
+      "eoere_bolt_072",
+      "eoere_bolt_073",
+      "eoere_bolt_075",
+      "eoere_bolt_076",
+      "eoere_bolt_077",
+      "eoere_bolt_078",
+      "eoere_bolt_079",
+      "eoere_bolt_080",
+      "v10_top_bolt_005",
+      "v10_top_bolt_006",
+      "v10_top_bolt_007",
+      "v10_top_bolt_008"
+    ],
+    "rear": [
+      "lumber_leg_bolt_left_1",
+      "lumber_leg_bolt_left_2",
+      "lumber_leg_bolt_right_1",
+      "lumber_leg_bolt_right_2"
+    ]
+  },
+  "base_rows": {
+    "ambiguous_front_case_partition_envelope": {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "aggregate_demand_lbf": 0.9027888969482301,
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "basis": "For positive EA in the uniform-row formula n*Cg>=1; both partitions have row capacity at least min(Zi). Each demand sums raw lateral port magnitudes before cancellation, using the worse of the two wood receivers. Fe90 and min(raw six-mode P)/5 lower-bound the angle-dependent pure-lateral references.",
+      "capacity_lower_lbf": 130.9743313930418,
+      "case_id": "k12-right",
+      "climbing_released": false,
+      "complete_connection_capacity": null,
+      "conditional_partition_envelope_index": 0.0068928689106191685,
+      "fabrication_released": false,
+      "limits": [
+        "Conditional pure-lateral control only; local moments, axial transfer, splitting, geometry, delivered fit and complete connection qualification remain separate."
+      ],
+      "material_scenario": {
+        "common_mode_divisor": 5.0,
+        "generic_Fyb_psi": 45000,
+        "wood_G": 0.5
+      },
+      "producer": {
+        "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/base-capacity-v1/bound_front_partition.py",
+        "sha256": "dae6f8c0ff3df3e514f122a4e111891feab31b0158ee54b77e32b1e13acc7113"
+      },
+      "revision": "v10-packer-free-flush-return-far-row-only-v1",
+      "rows": [
+        {
+          "axis_id": "rail_front_bolt_left_1",
+          "bearing_lengths_in": [
+            1.4999999999999964,
+            3.500000000000004
+          ],
+          "conservative_demand_lbf": 0.5822932794221616,
+          "direction_independent_Z_lower_lbf": 130.9743313930418,
+          "raw_port_lateral_demand_by_host_lbf": {
+            "base_floor_left": 0.23291000195072167,
+            "base_post_outer_left": 0.5822932794221616
+          },
+          "selected_D_mm": 7.317740000000001,
+          "wood_Fe90_psi": 4150.0
+        },
+        {
+          "axis_id": "rail_front_bolt_left_2",
+          "bearing_lengths_in": [
+            1.4999999999999964,
+            3.500000000000004
+          ],
+          "conservative_demand_lbf": 0.32049561752606853,
+          "direction_independent_Z_lower_lbf": 130.9743313930418,
+          "raw_port_lateral_demand_by_host_lbf": {
+            "base_floor_left": 0.07286502571476774,
+            "base_post_outer_left": 0.32049561752606853
+          },
+          "selected_D_mm": 7.317740000000001,
+          "wood_Fe90_psi": 4150.0
+        }
+      ],
+      "schema": "v10_current112_front_two_partition_lateral_envelope/v1",
+      "scope": "Two possible lateral-row partitions [1,1] or [2]; no row partition or Cg is adopted.",
+      "scope_id": "wood-only-joint:floor_left+post_outer_left",
+      "source_bindings": [
+        {
+          "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/base-capacity-v1/load-aligned-row-classification-v1.json",
+          "sha256": "8db900ceb47b504c289ad181ac0cd78f1807f30df050f63c1383b4f3edc9b7c2"
+        },
+        {
+          "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/assessment-v1.json",
+          "sha256": "42c1656438722141ebc784cebf636946dd3a62484f655ef39bf13b2e477c6233"
+        },
+        {
+          "path": "fea/generated/v10-packer-free-v1/connections/force-only/force-only-tr12-v2.json",
+          "sha256": "1117e7877b50984aa785a282f177587748795ff1e73bcdc82a5645de8eb74035"
+        },
+        {
+          "path": "fea/generated/v10-packer-free-v1/connections/method-closure/local-subassemblies/current112-local-subassembly-boundary-wrenches-v1.json",
+          "sha256": "04b437ed42fa18a4bb04b338228eaf5af4dc8f6ec6383a45ed4529a22fd8fc64"
+        },
+        {
+          "path": "fea/dowel_yield.py",
+          "sha256": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45"
+        },
+        {
+          "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+          "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+        },
+        {
+          "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/primary-method-closure.json",
+          "sha256": "99ec1cb8685c35611c6b4c4b93d9ea30741977048beb6e0cb140eef01f575ca0"
+        },
+        {
+          "path": "scripts/eoere_two_member_group_bound.py",
+          "sha256": "6d68e14bdf4448002d6c1bf66f0f859ccacb3832ebb30e5118cc7924f50218ea"
+        }
+      ],
+      "structural_acceptance": false
+    },
+    "conditional_force_only_maximum": 0.5002001788632678,
+    "conditional_local_bearing_maximum": 0.7336463760617233,
+    "front_direction_checks": 72,
+    "group_case_rows": 24,
+    "group_case_rows_with_robust_singleton_factor": 23,
+    "nominal_singleton_lateral_row_Cg": 1.0,
+    "scope": "Four base joints; one physical rear-foot fastener per side, two front fasteners per side. Full connection and geometry duties remain separate.",
+    "unresolved_group_cases": [
+      {
+        "case_id": "k12-right",
+        "direction_checks": [
+          {
+            "basis": "base_post_outer_left:rail_front_bolt_left_2",
+            "classification": {
+              "between_load_aligned_rows_mm": 9.368297650115037,
+              "complete_joint_resistance": null,
+              "component_Cg": null,
+              "fasteners_per_Cg_row": [
+                2
+              ],
+              "load_direction_xyz": [
+                0.0,
+                -0.23420744125287593,
+                -0.9721866458976798
+              ],
+              "parallel_to_load_offset_mm": 38.88746583590719,
+              "quarter_parallel_offset_mm": 9.721866458976798,
+              "status": "merged_two_fastener_row_requires_EA",
+              "strict_quarter_rule_merges_rows": true,
+              "unmerged_row_margin_mm": -0.3535688088617608
+            }
+          }
+        ],
+        "scope_id": "wood-only-joint:floor_left+post_outer_left"
+      }
+    ]
+  },
+  "cleat_local_references": {
+    "axes": 22,
+    "axis_case_rows": 132,
+    "comparison_scope": "Both use Fe parallel 5600 psi and perpendicular 3150 psi. Legacy optimized blocks credit 23.8 mm; current equal halves use 25.4 mm. The difference is not a group-factor or material improvement.",
+    "current_067_different_pressure_reference": 0.3320532831988998,
+    "legacy_067_before_Cg": 0.5576877264233839,
+    "numerical_summary_not_capacity": {
+      "A574_SKU8095_yield_comparator_available": false,
+      "grade5_SKU366_axis_case_at_max_ratio": [
+        "v10_header_bolt_004",
+        "k12-right"
+      ],
+      "grade5_SKU366_conditional_exceedance_count": 0,
+      "group_Cg_Cdelta_complete_capacity": null,
+      "max_grade5_SKU366_elastic_ratio_to_conditional_92ksi_tensile_yield": 0.022959514359807875,
+      "max_nominal_elastic_governing_axis_case": [
+        "eoere_bolt_067",
+        "a12-forward"
+      ],
+      "max_nominal_elastic_governing_interval_s_mm": [
+        25.399999999999864,
+        69.84999999999992
+      ],
+      "max_nominal_elastic_required_yield_strength_MPa": 220.52867164118527,
+      "maximum_G0p50_Fe_pressure_reference_axis_case_host_half": [
+        "eoere_bolt_067",
+        "a12-forward",
+        {
+          "half": "upper_half",
+          "host": "eoere_cleat_left",
+          "kind": "wood",
+          "utilization": 0.3320532831988998
+        }
+      ],
+      "maximum_TR12_required_Fyb_threshold_psi_on_six_two_media_axes": 2510.6786482553493,
+      "maximum_TR12_threshold_axis_case": [
+        "v10_cleat_bolt_left_2",
+        "a12-left"
+      ],
+      "maximum_conditional_G0p50_Fe_pressure_reference_utilization": 0.3320532831988998,
+      "maximum_required_Fe_parallel_axis_case": [
+        "eoere_bolt_067",
+        "a12-forward"
+      ],
+      "maximum_required_Fe_parallel_psi_for_affine_pressure_reference": 1859.498385913839,
+      "maximum_required_Fe_perpendicular_axis_case": [
+        "eoere_bolt_067",
+        "a12-forward"
+      ],
+      "maximum_required_Fe_perpendicular_psi_for_affine_pressure_reference": 1045.9678420765345,
+      "maximum_required_Fu_MPa_for_TR12_steel_local_pressure_reference": 36.545020663027415,
+      "maximum_required_Fu_axis_case": [
+        "eoere_bolt_067",
+        "a12-forward"
+      ],
+      "structural_acceptance": false
+    },
+    "pressure_construction": "Force-and-first-moment-preserving, equal-half piecewise-constant pressure reference; not actual contact pressure."
+  },
+  "coverage": {
+    "axes": 112,
+    "axis_case_rows": 672,
+    "base_axes": 6,
+    "cases": 6,
+    "cleat_axes": 22,
+    "other_hardware_axes": 80,
+    "rear_axes": 4,
+    "review_scopes": 26
+  },
+  "explicit_file_pins_checked_by_publisher": 100,
+  "four_pin_partition_envelope": {
+    "NDS_positive_EA_algebra": {
+      "controls": {
+        "domain": "n>=1 integer; 0<m<1; 0<R_EA<=1",
+        "identity_controls": [
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0,
+            "m": 0.05,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.25,
+            "identity_rhs": 0.0,
+            "m": 0.05,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0,
+            "m": 0.05,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.0,
+            "m": 0.05,
+            "n": 1
+          },
+          {
+            "N_minus_D": -2.7755575615628914e-17,
+            "N_over_D_equals_n_Cg": 0.9999999999999999,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0,
+            "m": 0.2,
+            "n": 1
+          },
+          {
+            "N_minus_D": -5.551115123125783e-17,
+            "N_over_D_equals_n_Cg": 0.9999999999999998,
+            "R_EA": 0.25,
+            "identity_rhs": 0.0,
+            "m": 0.2,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0,
+            "m": 0.2,
+            "n": 1
+          },
+          {
+            "N_minus_D": -5.551115123125783e-17,
+            "N_over_D_equals_n_Cg": 0.9999999999999999,
+            "R_EA": 1.0,
+            "identity_rhs": 0.0,
+            "m": 0.2,
+            "n": 1
+          },
+          {
+            "N_minus_D": 1.1102230246251565e-16,
+            "N_over_D_equals_n_Cg": 1.0000000000000002,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0,
+            "m": 0.5,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.25,
+            "identity_rhs": 0.0,
+            "m": 0.5,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0,
+            "m": 0.5,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.0,
+            "m": 0.5,
+            "n": 1
+          },
+          {
+            "N_minus_D": 2.220446049250313e-16,
+            "N_over_D_equals_n_Cg": 1.0000000000000002,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0,
+            "m": 0.9,
+            "n": 1
+          },
+          {
+            "N_minus_D": -4.440892098500626e-16,
+            "N_over_D_equals_n_Cg": 0.9999999999999998,
+            "R_EA": 0.25,
+            "identity_rhs": 0.0,
+            "m": 0.9,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0,
+            "m": 0.9,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.0,
+            "m": 0.9,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0,
+            "m": 0.999,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.25,
+            "identity_rhs": 0.0,
+            "m": 0.999,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0,
+            "m": 0.999,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0,
+            "N_over_D_equals_n_Cg": 1.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.0,
+            "m": 0.999,
+            "n": 1
+          },
+          {
+            "N_minus_D": 0.0031250624999999976,
+            "N_over_D_equals_n_Cg": 1.0624606505771248,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0031250625000000007,
+            "m": 0.05,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.015126562499999996,
+            "N_over_D_equals_n_Cg": 1.2985751295336787,
+            "R_EA": 0.25,
+            "identity_rhs": 0.015126562500000001,
+            "m": 0.05,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.027628124999999996,
+            "N_over_D_equals_n_Cg": 1.5383631713554986,
+            "R_EA": 0.5,
+            "identity_rhs": 0.027628125000000003,
+            "m": 0.05,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.05263124999999999,
+            "N_over_D_equals_n_Cg": 1.9999999999999998,
+            "R_EA": 1.0,
+            "identity_rhs": 0.052631250000000004,
+            "m": 0.05,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.05001600000000003,
+            "N_over_D_equals_n_Cg": 1.2475059382422804,
+            "R_EA": 0.01,
+            "identity_rhs": 0.050016000000000005,
+            "m": 0.2,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.09839999999999999,
+            "N_over_D_equals_n_Cg": 1.4606741573033708,
+            "R_EA": 0.25,
+            "identity_rhs": 0.09840000000000002,
+            "m": 0.2,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.14880000000000007,
+            "N_over_D_equals_n_Cg": 1.6595744680851068,
+            "R_EA": 0.5,
+            "identity_rhs": 0.14880000000000002,
+            "m": 0.2,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.24960000000000002,
+            "N_over_D_equals_n_Cg": 2.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.24960000000000002,
+            "m": 0.2,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.380625,
+            "N_over_D_equals_n_Cg": 1.6721854304635762,
+            "R_EA": 0.01,
+            "identity_rhs": 0.380625,
+            "m": 0.5,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.515625,
+            "N_over_D_equals_n_Cg": 1.7857142857142858,
+            "R_EA": 0.25,
+            "identity_rhs": 0.515625,
+            "m": 0.5,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.65625,
+            "N_over_D_equals_n_Cg": 1.875,
+            "R_EA": 0.5,
+            "identity_rhs": 0.65625,
+            "m": 0.5,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.9375,
+            "N_over_D_equals_n_Cg": 2.0,
+            "R_EA": 1.0,
+            "identity_rhs": 0.9375,
+            "m": 0.5,
+            "n": 2
+          },
+          {
+            "N_minus_D": 1.5545610000000003,
+            "N_over_D_equals_n_Cg": 1.9892274211099021,
+            "R_EA": 0.01,
+            "identity_rhs": 1.554561,
+            "m": 0.9,
+            "n": 2
+          },
+          {
+            "N_minus_D": 1.9280249999999999,
+            "N_over_D_equals_n_Cg": 1.9933920704845813,
+            "R_EA": 0.25,
+            "identity_rhs": 1.928025,
+            "m": 0.9,
+            "n": 2
+          },
+          {
+            "N_minus_D": 2.3170500000000005,
+            "N_over_D_equals_n_Cg": 1.996323529411765,
+            "R_EA": 0.5,
+            "identity_rhs": 2.31705,
+            "m": 0.9,
+            "n": 2
+          },
+          {
+            "N_minus_D": 3.0950999999999995,
+            "N_over_D_equals_n_Cg": 1.9999999999999998,
+            "R_EA": 1.0,
+            "identity_rhs": 3.0951000000000004,
+            "m": 0.9,
+            "n": 2
+          },
+          {
+            "N_minus_D": 2.0149540589600106,
+            "N_over_D_equals_n_Cg": 1.9999990188217736,
+            "R_EA": 0.01,
+            "identity_rhs": 2.01495405896001,
+            "m": 0.999,
+            "n": 2
+          },
+          {
+            "N_minus_D": 2.49375549800025,
+            "N_over_D_equals_n_Cg": 1.9999993993998804,
+            "R_EA": 0.25,
+            "identity_rhs": 2.49375549800025,
+            "m": 0.999,
+            "n": 2
+          },
+          {
+            "N_minus_D": 2.9925069970005,
+            "N_over_D_equals_n_Cg": 1.9999996663332222,
+            "R_EA": 0.5,
+            "identity_rhs": 2.9925069970005,
+            "m": 0.999,
+            "n": 2
+          },
+          {
+            "N_minus_D": 3.9900099950010004,
+            "N_over_D_equals_n_Cg": 2.0,
+            "R_EA": 1.0,
+            "identity_rhs": 3.9900099950010004,
+            "m": 0.999,
+            "n": 2
+          },
+          {
+            "N_minus_D": 0.0031565657812499953,
+            "N_over_D_equals_n_Cg": 1.0631296387439708,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0031565657812500005,
+            "m": 0.05,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.015756644531249996,
+            "N_over_D_equals_n_Cg": 1.3149261219430617,
+            "R_EA": 0.25,
+            "identity_rhs": 0.015756644531250003,
+            "m": 0.05,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.0288817265625,
+            "N_over_D_equals_n_Cg": 1.5768771996513327,
+            "R_EA": 0.5,
+            "identity_rhs": 0.0288817265625,
+            "m": 0.05,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.055131890625,
+            "N_over_D_equals_n_Cg": 2.0997506234413965,
+            "R_EA": 1.0,
+            "identity_rhs": 0.055131890625000006,
+            "m": 0.05,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.05232383999999998,
+            "N_over_D_equals_n_Cg": 1.261410071942446,
+            "R_EA": 0.01,
+            "identity_rhs": 0.05232384000000001,
+            "m": 0.2,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.11001599999999995,
+            "N_over_D_equals_n_Cg": 1.5433854907539115,
+            "R_EA": 0.25,
+            "identity_rhs": 0.11001600000000002,
+            "m": 0.2,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.170112,
+            "N_over_D_equals_n_Cg": 1.830365510777882,
+            "R_EA": 0.5,
+            "identity_rhs": 0.170112,
+            "m": 0.2,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.29030399999999995,
+            "N_over_D_equals_n_Cg": 2.384615384615384,
+            "R_EA": 1.0,
+            "identity_rhs": 0.290304,
+            "m": 0.2,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.4767187500000001,
+            "N_over_D_equals_n_Cg": 1.9211956521739133,
+            "R_EA": 0.01,
+            "identity_rhs": 0.47671875,
+            "m": 0.5,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.66796875,
+            "N_over_D_equals_n_Cg": 2.1875,
+            "R_EA": 0.25,
+            "identity_rhs": 0.66796875,
+            "m": 0.5,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.8671875,
+            "N_over_D_equals_n_Cg": 2.423076923076923,
+            "R_EA": 0.5,
+            "identity_rhs": 0.8671875,
+            "m": 0.5,
+            "n": 3
+          },
+          {
+            "N_minus_D": 1.265625,
+            "N_over_D_equals_n_Cg": 2.8,
+            "R_EA": 1.0,
+            "identity_rhs": 1.265625,
+            "m": 0.5,
+            "n": 3
+          },
+          {
+            "N_minus_D": 2.8139093100000006,
+            "N_over_D_equals_n_Cg": 2.9469486512068155,
+            "R_EA": 0.01,
+            "identity_rhs": 2.81390931,
+            "m": 0.9,
+            "n": 3
+          },
+          {
+            "N_minus_D": 3.4935727500000002,
+            "N_over_D_equals_n_Cg": 2.9652029626779535,
+            "R_EA": 0.25,
+            "identity_rhs": 3.4935727500000002,
+            "m": 0.9,
+            "n": 3
+          },
+          {
+            "N_minus_D": 4.2015555,
+            "N_over_D_equals_n_Cg": 2.9781418565332904,
+            "R_EA": 0.5,
+            "identity_rhs": 4.2015554999999996,
+            "m": 0.9,
+            "n": 3
+          },
+          {
+            "N_minus_D": 5.617521000000001,
+            "N_over_D_equals_n_Cg": 2.994475138121547,
+            "R_EA": 1.0,
+            "identity_rhs": 5.617521,
+            "m": 0.9,
+            "n": 3
+          },
+          {
+            "N_minus_D": 4.025880244706199,
+            "N_over_D_equals_n_Cg": 2.9999950842057452,
+            "R_EA": 0.01,
+            "identity_rhs": 4.025880244706199,
+            "m": 0.999,
+            "n": 3
+          },
+          {
+            "N_minus_D": 4.982526477510998,
+            "N_over_D_equals_n_Cg": 2.999996796803089,
+            "R_EA": 0.25,
+            "identity_rhs": 4.982526477510998,
+            "m": 0.999,
+            "n": 3
+          },
+          {
+            "N_minus_D": 5.979032970015994,
+            "N_over_D_equals_n_Cg": 2.999997998001003,
+            "R_EA": 0.5,
+            "identity_rhs": 5.979032970015996,
+            "m": 0.999,
+            "n": 3
+          },
+          {
+            "N_minus_D": 7.97204595502599,
+            "N_over_D_equals_n_Cg": 2.99999949949975,
+            "R_EA": 1.0,
+            "identity_rhs": 7.972045955025992,
+            "m": 0.999,
+            "n": 3
+          },
+          {
+            "N_minus_D": 0.003157829070703125,
+            "N_over_D_equals_n_Cg": 1.0631564984718171,
+            "R_EA": 0.01,
+            "identity_rhs": 0.0031578290707031257,
+            "m": 0.05,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.015787833017578114,
+            "N_over_D_equals_n_Cg": 1.3157462996794271,
+            "R_EA": 0.25,
+            "identity_rhs": 0.015787833017578128,
+            "m": 0.05,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.028944087128906254,
+            "N_over_D_equals_n_Cg": 1.5788437555044483,
+            "R_EA": 0.5,
+            "identity_rhs": 0.028944087128906254,
+            "m": 0.05,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.05525659535156249,
+            "N_over_D_equals_n_Cg": 2.1049868766404196,
+            "R_EA": 1.0,
+            "identity_rhs": 0.05525659535156251,
+            "m": 0.05,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.05247759360000001,
+            "N_over_D_equals_n_Cg": 1.2623594232947455,
+            "R_EA": 0.01,
+            "identity_rhs": 0.05247759360000001,
+            "m": 0.2,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.11201664,
+            "N_over_D_equals_n_Cg": 1.5587350839893503,
+            "R_EA": 0.25,
+            "identity_rhs": 0.11201664000000001,
+            "m": 0.2,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.1740364800000001,
+            "N_over_D_equals_n_Cg": 1.8660144456758518,
+            "R_EA": 0.5,
+            "identity_rhs": 0.17403648000000002,
+            "m": 0.2,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.29807616000000003,
+            "N_over_D_equals_n_Cg": 2.4761904761904763,
+            "R_EA": 1.0,
+            "identity_rhs": 0.29807616000000003,
+            "m": 0.2,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.5012109375,
+            "N_over_D_equals_n_Cg": 1.9928040854224698,
+            "R_EA": 0.01,
+            "identity_rhs": 0.5012109375,
+            "m": 0.5,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.7177734375,
+            "N_over_D_equals_n_Cg": 2.361111111111111,
+            "R_EA": 0.25,
+            "identity_rhs": 0.7177734375,
+            "m": 0.5,
+            "n": 4
+          },
+          {
+            "N_minus_D": 0.943359375,
+            "N_over_D_equals_n_Cg": 2.7127659574468086,
+            "R_EA": 0.5,
+            "identity_rhs": 0.943359375,
+            "m": 0.5,
+            "n": 4
+          },
+          {
+            "N_minus_D": 1.39453125,
+            "N_over_D_equals_n_Cg": 3.3333333333333335,
+            "R_EA": 1.0,
+            "identity_rhs": 1.39453125,
+            "m": 0.5,
+            "n": 4
+          },
+          {
+            "N_minus_D": 3.8341199511000004,
+            "N_over_D_equals_n_Cg": 3.8550341953368026,
+            "R_EA": 0.01,
+            "identity_rhs": 3.8341199511000004,
+            "m": 0.9,
+            "n": 4
+          },
+          {
+            "N_minus_D": 4.7651291775,
+            "N_over_D_equals_n_Cg": 3.901824792434872,
+            "R_EA": 0.25,
+            "identity_rhs": 4.7651291775,
+            "m": 0.9,
+            "n": 4
+          },
+          {
+            "N_minus_D": 5.734930455000001,
+            "N_over_D_equals_n_Cg": 3.935326738149982,
+            "R_EA": 0.5,
+            "identity_rhs": 5.734930455000001,
+            "m": 0.9,
+            "n": 4
+          },
+          {
+            "N_minus_D": 7.67453301,
+            "N_over_D_equals_n_Cg": 3.9780219780219777,
+            "R_EA": 1.0,
+            "identity_rhs": 7.674533010000001,
+            "m": 0.9,
+            "n": 4
+          },
+          {
+            "N_minus_D": 6.0327866089371724,
+            "N_over_D_equals_n_Cg": 3.999986223915701,
+            "R_EA": 0.01,
+            "identity_rhs": 6.032786608937172,
+            "m": 0.999,
+            "n": 4
+          },
+          {
+            "N_minus_D": 7.466322902085951,
+            "N_over_D_equals_n_Cg": 3.999990790825019,
+            "R_EA": 0.25,
+            "identity_rhs": 7.466322902085952,
+            "m": 0.999,
+            "n": 4
+          },
+          {
+            "N_minus_D": 8.95958987411593,
+            "N_over_D_equals_n_Cg": 3.9999939940106937,
+            "R_EA": 0.5,
+            "identity_rhs": 8.959589874115931,
+            "m": 0.999,
+            "n": 4
+          },
+          {
+            "N_minus_D": 11.94612381817589,
+            "N_over_D_equals_n_Cg": 3.999997998000002,
+            "R_EA": 1.0,
+            "identity_rhs": 11.94612381817589,
+            "m": 0.999,
+            "n": 4
+          }
+        ],
+        "pinned_equation_helper_controls": [
+          {
+            "Cg_source_helper": 1.0,
+            "R_EA": 1.0,
+            "m": 4.032049366083739e-06,
+            "main_EA_control_only": 1.0,
+            "n": 1,
+            "n_Cg": 1.0,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 1.0
+          },
+          {
+            "Cg_source_helper": 1.0,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 5.0,
+            "n": 1,
+            "n_Cg": 1.0,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 500.0
+          },
+          {
+            "Cg_source_helper": 1.0,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 500.0,
+            "n": 1,
+            "n_Cg": 1.0,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 5.0
+          },
+          {
+            "Cg_source_helper": 0.9999999999917095,
+            "R_EA": 1.0,
+            "m": 4.032049366083739e-06,
+            "main_EA_control_only": 1.0,
+            "n": 2,
+            "n_Cg": 1.999999999983419,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 1.0
+          },
+          {
+            "Cg_source_helper": 0.5050199579998614,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 5.0,
+            "n": 2,
+            "n_Cg": 1.0100399159997229,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 500.0
+          },
+          {
+            "Cg_source_helper": 0.5050199579998614,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 500.0,
+            "n": 2,
+            "n_Cg": 1.0100399159997229,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 5.0
+          },
+          {
+            "Cg_source_helper": 0.6666693546969847,
+            "R_EA": 1.0,
+            "m": 4.032049366083739e-06,
+            "main_EA_control_only": 1.0,
+            "n": 3,
+            "n_Cg": 2.000008064090954,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 1.0
+          },
+          {
+            "Cg_source_helper": 0.33668010639732365,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 5.0,
+            "n": 3,
+            "n_Cg": 1.010040319191971,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 500.0
+          },
+          {
+            "Cg_source_helper": 0.33668010639732365,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 500.0,
+            "n": 3,
+            "n_Cg": 1.010040319191971,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 5.0
+          },
+          {
+            "Cg_source_helper": 0.5000020160227386,
+            "R_EA": 1.0,
+            "m": 4.032049366083739e-06,
+            "main_EA_control_only": 1.0,
+            "n": 4,
+            "n_Cg": 2.0000080640909546,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 1.0
+          },
+          {
+            "Cg_source_helper": 0.25251007980220647,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 5.0,
+            "n": 4,
+            "n_Cg": 1.0100403192088259,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 500.0
+          },
+          {
+            "Cg_source_helper": 0.25251007980220647,
+            "R_EA": 0.01,
+            "m": 3.9918415632760617e-05,
+            "main_EA_control_only": 500.0,
+            "n": 4,
+            "n_Cg": 1.0100403192088259,
+            "pitch_in_control_only": 2.0,
+            "side_EA_control_only": 5.0
+          }
+        ],
+        "source_helper_controls_are_not_candidate_EA_or_Cg": true,
+        "status": "passed",
+        "symbolic_identity": {
+          "D": "m + m**(2n) + R*m**n*(1+m)",
+          "N": "m*(1+R)*sum(m**j for j=0..2n-1)",
+          "N_minus_D": "sum(m**j for j=2..2n-1) + R*sum(m**j for j=1..2n, j not in {n,n+1})",
+          "conclusion": "N-D is nonnegative; both sums are empty at n=1, giving equality. Therefore n*Cg=N/D>=1 for every positive-EA uniform-row equation case.",
+          "n_Cg": "N/D"
+        }
+      },
+      "domain": "n>=1 integer, 0<m<1, 0<R_EA<=1 for positive finite member EA and positive uniform row pitch",
+      "equation_implementation": {
+        "path": "fea/reinforced_timber_resistance.py",
+        "sha256": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc"
+      },
+      "identity": "N-D = sum(m^j, j=2..2n-1) + R*sum(m^j, j=1..2n, j not in {n,n+1}) >= 0",
+      "implication": "n*Cg>=1 for every positive-EA uniform-row case; hence row capacity n*Cg*min(Z_i)>=min(Z_i). For n=1, both sums are empty and n*Cg=1.",
+      "primary_source": {
+        "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+        "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+      },
+      "proof_reuse": {
+        "path": "scripts/eoere_two_member_group_bound.py",
+        "sha256": "6d68e14bdf4448002d6c1bf66f0f859ccacb3832ebb30e5118cc7924f50218ea"
+      },
+      "reduction": "n*Cg = N/D, where N=m*(1+R)*sum(m^j, j=0..2n-1), D=m+m^(2n)+R*m^n*(1+m)"
+    },
+    "conditional_TR12_material_scenario": {
+      "Fyb_psi": 45000.0,
+      "actual_steel_grade_Fe_or_product_observed": false,
+      "actual_thread_D_or_Dr_observed": false,
+      "actual_wood_species_grade_moisture_observed": false,
+      "direction_independent_wood_Fe": "existing TR12 helper at 90 degrees to grain, G=0.50",
+      "steel_Fe_psi": 80495.94444026613,
+      "steel_Fu_MPa": 370.0
+    },
+    "limits": [
+      "All 15 set partitions are treated as a superset for a conditional algebraic envelope; no partition is asserted admissible under the geometric NDS row and stagger rules.",
+      "The capacity lower bound applies only if each actual row is within NDS Eq. 11.3-1 uniform-row applicability and has positive member EA. This result does not establish row alignment, pitch, stagger merge, even/odd interpretation, actual EA, or an actual Cg.",
+      "Each hypothetical row demand is the sum of raw per-port lateral force magnitudes for its member axes. This bounds lateral projections without cancellation but excludes axial actions, moments/free couples, splitting/net section, fitting/steel resistance and redistribution.",
+      "A below-one partition envelope is only the conditional pure-lateral screen under the stated unadopted TR12 scenario; it is not universal whole-joint capacity, actual material acceptance, or a climbing/fabrication release. An index at or above one is inconclusive, not a failure."
+    ],
+    "qualification": {
+      "actual_Cg": null,
+      "actual_group_capacity": null,
+      "actual_row_partition": null,
+      "climbing_released": false,
+      "complete_Cdelta": null,
+      "complete_joint_qualified": false,
+      "fabrication_released": false,
+      "structural_acceptance": false
+    },
+    "result_counts": {
+      "group_cases_below_one_for_all_15_hypothetical_partitions": 12,
+      "group_cases_inconclusive_at_or_above_one_not_failure": 0,
+      "maximum_partition_envelope_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_022",
+          "eoere_bolt_023",
+          "v10_top_bolt_005",
+          "v10_top_bolt_006"
+        ],
+        "case_id": "a12-rear",
+        "component_id": "fitting-subassembly:eoere_clip_split_top_center_left",
+        "value": 0.3726689559839654,
+        "witness_partition_id_not_adopted": "P08",
+        "wood_receiver": "base_rail_top"
+      },
+      "minimum_partition_envelope_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_024",
+          "eoere_bolt_028",
+          "v10_top_bolt_007",
+          "v10_top_bolt_008"
+        ],
+        "case_id": "a1-rear",
+        "component_id": "fitting-subassembly:eoere_clip_split_top_center_right",
+        "value": 0.2293210436374973,
+        "wood_receiver": "base_rail_top"
+      }
+    },
+    "scope": {
+      "actual_row_partition_selected": false,
+      "all_current_axes_two_media_wood_steel": true,
+      "center_beam_axis_count": 8,
+      "current_group_case_count": 12,
+      "hypothetical_row_segment_evaluation_count": 444,
+      "physical_four_axis_center_beam_group_count": 2,
+      "set_partitions_per_group_case": 15,
+      "total_hypothetical_partition_case_count": 180
+    }
+  },
+  "full_model_qualified": false,
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/geometry-receipt.json",
+    "sha256": "73b097d9bcc364748ca08f897fca38cc2bdb7869cc04586e6706afb9b9d3d527"
+  },
+  "implementation_status": "physical_row_method_and_conditional_subchecks_implemented",
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "merged_row_capacity_bound": {
+    "limits": [
+      "A below-one upper bound is only a conditional pure-lateral mode screen across the positive-EA Cg domain under the stated scenario. It is not actual capacity, actual Cg, or complete-joint acceptance.",
+      "A bound at or above one is inconclusive and is not called a failure; changing actual EA cannot raise the formula capacity above n*min(Z), but the material scenario itself is unadopted.",
+      "Current selected D/Dr and thread-bearing lengths are analytical piecewise scenarios; delivered bolt identity, thread/root extent, steel grade/Fu, wood species/grade/moisture, and physical contact have not been observed.",
+      "Moments and free couples, axial capture, splitting/net section, fitting/steel strength, row assignment outside the robust-merged subset, multi-media header groups, and all complete-joint interactions remain unresolved."
+    ],
+    "method": {
+      "EA_domain": "positive main and side member EA; the existing exact two-fastener uniform-row bound is 0.5 <= Cg <= 1, hence n*Cg >= 1 for n=2",
+      "TR12_six_mode_helper": "candidate13_tr12_yield_subcheck._single_shear_modes -> existing fea.dowel_yield.single_shear; no new capacity equation implemented",
+      "TR12_source": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/awc-TR12-2015.pdf",
+        "sha256": "95abb7d382aadf6984121f8731a5b91c2b633516e7f134991ad0a34a1b916be2"
+      },
+      "TR12_wood_Fe_helper": "candidate13_tr12_yield_subcheck._fe_theta_psi at 90 degrees; reuses source-pinned NDS 2024 Fe(\u03b8) equation helper",
+      "capacity_bound": "For each row, capacity >= min(Z_i) because n*Cg*min(Z_i) >= min(Z_i); compare sum of all receiver-port lateral-force magnitudes against this lower capacity.",
+      "demand_definition": "Sum over every raw wood receiver boundary-port action of the magnitude of force perpendicular to its own shaft axis; this includes row and transverse lateral components and avoids vector cancellation.",
+      "direction_independent_Z": "Compute each shaft's minimum six-mode Z with wood at Fe perpendicular to grain (G=0.50), selected current analytical D/Dr, current modeled member bearing lengths, Fyb=45 ksi, and the existing unadopted steel Fe derived from Fu=370 MPa.",
+      "group_formula_bound_proof": {
+        "path": "scripts/eoere_two_member_group_bound.py",
+        "sha256": "6d68e14bdf4448002d6c1bf66f0f859ccacb3832ebb30e5118cc7924f50218ea"
+      },
+      "group_formula_source": {
+        "path": "fea/reinforced_timber_resistance.py",
+        "sha256": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc"
+      },
+      "primary_row_source": {
+        "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+        "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+      }
+    },
+    "qualification": {
+      "actual_Cg": null,
+      "actual_group_capacity": null,
+      "climbing_released": false,
+      "complete_Cdelta": null,
+      "complete_joint_qualified": false,
+      "fabrication_released": false,
+      "physical_capacity_established": false,
+      "structural_acceptance": false
+    },
+    "result_counts": {
+      "conditional_upper_bound_at_or_above_1_inconclusive": 0,
+      "conditional_upper_bound_below_1": 77,
+      "maximum_conditional_utilization_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_007",
+          "eoere_bolt_011"
+        ],
+        "case_id": "a1-rear",
+        "component_id": "fitting-subassembly:eoere_clip_split_top_center_left",
+        "value": 0.2701834909968068,
+        "wood_receiver": "base_principal_center_left"
+      },
+      "minimum_conditional_utilization_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_020",
+          "eoere_bolt_041"
+        ],
+        "case_id": "a12-forward",
+        "component_id": "fitting-subassembly:eoere_clip_horizontal_lower_left_2",
+        "value": 0.0006007908968444838,
+        "wood_receiver": "base_rail_service_lower_left"
+      }
+    },
+    "scope": {
+      "all_included_axes_single_shared_angle_body_per_pair": true,
+      "excluded_four_axis_group_case_rows": 12,
+      "excluded_nonmerged_or_direction_sensitive_two_axis_group_case_rows": 139,
+      "excluded_three_media_header_group_case_rows": 12,
+      "excluded_three_media_header_receiver_groups": 2,
+      "robust_merged_two_axis_group_case_rows": 77,
+      "two_media_wood_steel_single_shear_fastener_rows": 154
+    }
+  },
+  "method_helper": {
+    "path": "mini_moonboard/physical_row_group_capacity.py",
+    "sha256": "701a0e584ba5ac8f087c194154080da76e35e77a00294d99037ff341e78b1830"
+  },
+  "method_tests": {
+    "path": "tests/test_physical_row_group_capacity.py",
+    "sha256": "33f9cd9e968e4eaf1130b97d82d21cc17a89173549d056f57ac09348fc578f5e"
+  },
+  "noncleat_rows": {
+    "comparison_status_counts": {
+      "merged_two_fastener_row_requires_EA": 357,
+      "two_unmerged_single_fastener_rows": 649,
+      "undefined_zero_lateral_resultant": 2
+    },
+    "four_axis_case_partition_counts": {
+      "four_axis_partition_unresolved_pairwise_merge_candidates": 12
+    },
+    "four_axis_groups": 2,
+    "geometry_tolerance_envelope_qualified": false,
+    "group_case_rows": 228,
+    "nominal_singleton_lateral_row_Cg": 1.0,
+    "pair_case_partition_counts": {
+      "direction_sensitive_or_zero_resultant_unresolved": 28,
+      "robust_one_two_fastener_row_across_group_and_individual_resultants_requires_EA": 77,
+      "robust_two_single_fastener_rows_across_group_and_individual_resultants": 111
+    },
+    "pair_direction_comparisons": 1008,
+    "pair_groups": 36,
+    "physical_receiver_groups": 38,
+    "prior_factory_role_partial_subcheck": {
+      "actual_capacity_or_pass": null,
+      "all_row_case_count": 240,
+      "conditional_exceedance_at_Cg_1_refs": [],
+      "conditional_over_1_only_when_Cg_is_below_1_refs": [],
+      "formula_bound_capacity_exceedance_even_at_Cg_1_count": 0,
+      "formula_bound_capacity_floor_not_demonstrated_count": 0,
+      "formula_bound_eligible_row_case_count": 33,
+      "ineligible_or_missing_method_row_case_count": 207,
+      "loaded_lateral_support_action_missing_case_count": 0,
+      "maximum_eligible_conservative_row_demand_lbf": {
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "k12-right",
+        "row_candidate_id": "base_rail_bottom_left:eoere_bolt_019+eoere_bolt_040",
+        "value": 0.42564119420605173,
+        "wood_receiver": "base_rail_bottom_left"
+      },
+      "maximum_formula_utilization_lower_bound_if_method_applies": {
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "k12-right",
+        "receiver": "base_rail_bottom_left",
+        "row_candidate_id": "base_rail_bottom_left:eoere_bolt_019+eoere_bolt_040",
+        "value": 0.0010038488565778506
+      },
+      "maximum_formula_utilization_upper_bound_if_method_applies": {
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "k12-right",
+        "receiver": "base_rail_bottom_left",
+        "row_candidate_id": "base_rail_bottom_left:eoere_bolt_019+eoere_bolt_040",
+        "value": 0.0020076977131557013
+      },
+      "maximum_row_candidate_absolute_axial_force_n": {
+        "case_id": "a12-left",
+        "value": 394.8113919699631,
+        "wood_receiver": "base_rail_top"
+      },
+      "maximum_row_candidate_local_moment_norm_nmm": {
+        "case_id": "a12-rear",
+        "value": 45631.09865977846,
+        "wood_receiver": "base_rail_top"
+      },
+      "maximum_transverse_lateral_resultant_n": {
+        "case_id": "k12-rear",
+        "value": 195.38669744831643,
+        "wood_receiver": "base_principal_center_right"
+      },
+      "non_row_parallel_loaded_support_action_case_count": 207,
+      "opposing_row_sign_loaded_support_action_case_count": 181,
+      "row_geometry_ineligible_case_count": 24
+    },
+    "scope": "Nominal frozen axes and current modeled force directions. The initial 40 factory-role pairs were not the complete NDS row partition.",
+    "shared_header_symmetry": {
+      "actual_Cg": null,
+      "actual_group_capacity_lbf": null,
+      "axis_case_count": 24,
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "case_count": 6,
+      "complete_group_capacity": null,
+      "complete_joint_pass": null,
+      "maximum_steel_side_force_difference": {
+        "axis_id": "eoere_bolt_065",
+        "case_id": "a12-forward",
+        "steel_side_forces_xyz_n": {
+          "eoere_clip_split_base_center_left": [
+            -18.65721114630352,
+            -83.59538719986098,
+            0.0
+          ],
+          "eoere_clip_split_header_center_left": [
+            -23.161173883818517,
+            35.53495259324177,
+            0.0
+          ]
+        },
+        "value_n": 119.21545008748255
+      },
+      "schema_scope": "source-bound symmetric NDS double-shear applicability diagnostic only",
+      "symmetric_double_shear_eligible_case_count": 0
+    },
+    "two_media_receiver_group_case_coverage": {
+      "complete_joint_pass": null,
+      "four_pin_partition_envelope": 12,
+      "positive_EA_merged_bound": 77,
+      "singleton_reference": 106,
+      "total": 216,
+      "two_pin_partition_envelope": 21
+    },
+    "two_media_singleton_lateral_references": {
+      "axis_case_rows": 212,
+      "conditional_references_above_one": 0,
+      "limits": "Existing conditional single-fastener lateral references at nominal singleton Cg=1; not adjusted whole-connection capacity.",
+      "maximum": {
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a12-forward",
+        "conditional_demand_over_Z": 0.2283988309773305
+      },
+      "nominal_singleton_row_Cg": 1.0,
+      "receiver_group_case_rows": 106
+    }
+  },
+  "ordinary_EYM_moment_scope": {
+    "applicability_boundary": "A P/Z reference can address a lateral single-shear force when member topology, material inputs, effective diameter, end/edge/spacing, load direction, and group applicability are established. It does not cover independent applied connection couples, axial capture, torsion, or complete-joint/group effects. Current geometry/material conformity, Cg/Cdelta, and whole-joint acceptance remain unresolved. The observation here corrects the blanket inference that every nonzero elastic bearing free couple must be an independent duty beyond EYM; it does not certify P/Z applicability or capacity for these current connections.",
+    "current_action_scope": {
+      "axis_case_count": 60,
+      "axis_count": 10,
+      "body_applied_direct_couple_max_Nmm": 0.0,
+      "body_applied_loads_scope": "The selected shaft-body loads are point forces with no explicit moment_xyz_nmm. Their lever arms can produce a body-load moment about the shaft origin; that is not an applied end couple.",
+      "cleat_plywood_sawn_two_member_axes": [
+        "v10_cleat_bolt_left_1",
+        "v10_cleat_bolt_left_2",
+        "v10_cleat_bolt_left_3",
+        "v10_cleat_bolt_right_1",
+        "v10_cleat_bolt_right_2",
+        "v10_cleat_bolt_right_3"
+      ],
+      "maximum_saved_local_bearing_free_couple_norm_Nmm": {
+        "cleat_plywood_sawn": {
+          "axis_id": "v10_cleat_bolt_left_2",
+          "case_id": "a12-left",
+          "host": "base_side_left",
+          "value": 17317.66033089245
+        },
+        "interpretation": "These local values are pressure-field reaction couples. Their magnitude alone does not identify an independent externally applied couple demand.",
+        "rear_wood_wood": {
+          "axis_id": "lumber_leg_bolt_left_2",
+          "case_id": "a12-rear",
+          "host": "lumber_leg_left",
+          "value": 68692.64458934183
+        }
+      },
+      "rear_solid_wood_two_member_axes": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "separate_axial_capture": "Axial end-capture forces are nonzero and are not covered by lateral P/Z. Maximum absolute captured force is 329.3559929227586 N on the rear wood-wood axes and 53.920612680701836 N on the cleat plywood-sawn axes.",
+      "wood_bearing_couple_scope": "The saved host_lateral_couple_at_interval_center is the first moment of the force-and-couple-preserving wood pressure field about that host interval center. The shaft receives the opposite contact wrench. These are local bearing reactions, not additional independently applied shaft-end couples.",
+      "wood_interface_axial_torsion_couple_max_Nmm": 0.0
+    },
+    "known_answer": {
+      "internal_yield_moment_inputs": "M_s = M_m = F_yb D^3/6, both positive",
+      "loading": "pure single-shear lateral reference P; no independently imposed connection couple input",
+      "meaning": "The pure-P yield reference contains internal bolt-bending moments; it is not a pure-force/no-moment beam model. This fixture does not establish that an independent external couple is covered by Z.",
+      "reference_Z_II_lbf": 414.0,
+      "test": "tests/test_dowel_yield.py::test_published_example_3_1"
+    },
+    "method_basis": "TR12/NDS single-shear yield modes model ordinary induced dowel bending and bearing couples while returning lateral force reference Z. The equations include internal dowel yield moments, e.g. M_s and M_m, in modes IIIm, IIIs, and IV. A P/Z comparison does not require the ultimate bearing-pressure moment distribution to equal the current elastic FE pressure distribution.",
+    "status": "nonzero moment alone does not disqualify EYM P/Z"
+  },
+  "ownership_map": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/subassembly-action-map.json",
+    "sha256": "ac8bfa9dc1620297ffa6894ef46ed8e455a8c9551eba9c809085ae66627881eb"
+  },
+  "partition_envelope": {
+    "algebra_controls": {
+      "controls": [
+        {
+          "Z1": 100.0,
+          "Z2": 200.0,
+          "d1": 20.0,
+          "d2": 70.0,
+          "merged_partition_capacity_lower": 100.0,
+          "partition_envelope_capacity_lower": 100.0,
+          "partition_envelope_index": 0.9,
+          "singleton_partition_capacity_lower": 300.0
+        },
+        {
+          "Z1": 250.0,
+          "Z2": 125.0,
+          "d1": 120.0,
+          "d2": 4.0,
+          "merged_partition_capacity_lower": 125.0,
+          "partition_envelope_capacity_lower": 125.0,
+          "partition_envelope_index": 0.992,
+          "singleton_partition_capacity_lower": 375.0
+        },
+        {
+          "Z1": 10.0,
+          "Z2": 10.0,
+          "d1": 0.0,
+          "d2": 9.0,
+          "merged_partition_capacity_lower": 10.0,
+          "partition_envelope_capacity_lower": 10.0,
+          "partition_envelope_index": 0.9,
+          "singleton_partition_capacity_lower": 20.0
+        }
+      ],
+      "proof": "For positive Z1,Z2, singleton capacity Z1+Z2 >= min(Z1,Z2); merged n=2 row capacity >= min(Z1,Z2) because n*Cg>=1. Also (d1+d2)/min(Zi) >= max(di/Zi).",
+      "status": "passed"
+    },
+    "limits": [
+      "This is a partition-envelope component control, not a selected row partition, actual Cg, actual capacity, or complete-joint pass.",
+      "The envelope is limited to two-pin, two-media wood/steel groups, where the two possible partitions are [1,1] or [2]. It is not extended to three-media shared headers or four-pin groups.",
+      "The positive-EA bound and angle-independent Z are conditional on the model's uniform two-fastener row equation and the stated unadopted material scenario. Actual EA, species/grade/moisture, steel grade/Fe, delivered bolt/root, fit, and contact are unknown.",
+      "Moments/free couples, axial capture, splitting/net section, fitting capacity, force redistribution and all complete-joint interactions remain unresolved. A value at or above one would be inconclusive, not a failure."
+    ],
+    "method": {
+      "capacity_case_1": "Two singleton rows [1,1]: per-fastener lower bounds Z1 and Z2, aggregate lower bound Z1+Z2.",
+      "capacity_case_2": "One merged row [2]: for positive EA, n*Cg>=1, so capacity lower bound is min(Z1,Z2).",
+      "demand": "Sum of every raw receiver-port lateral-force magnitude, which upper-bounds individual and group force projections without cancellation.",
+      "direction_independent_Z": "Existing pinned TR12 helper at wood Fe perpendicular to grain (G=.50), current selected D/Dr and member lengths, Fyb=45 ksi and unadopted Fu=370 MPa steel Fe scenario.",
+      "four_pin_limit": "The two-pin envelope does not resolve multirow assignments for four-pin top-center groups; their existing pairwise merge graph remains unresolved.",
+      "partition_envelope": "Minimum lower capacity across [1,1] and [2] is min(Z1,Z2); no actual partition or Cg is selected.",
+      "reused_positive_EA_report": {
+        "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/positive-ea-pure-lateral-bound-v1.json",
+        "sha256": "3ed8f75472535857a35e16b89ac78ee743d5fe0f63c6a54a7320c7a8d35e18a4"
+      }
+    },
+    "qualification": {
+      "actual_Cg": null,
+      "actual_group_capacity": null,
+      "climbing_released": false,
+      "complete_Cdelta": null,
+      "complete_joint_qualified": false,
+      "fabrication_released": false,
+      "structural_acceptance": false
+    },
+    "result_counts": {
+      "below_one_for_both_partitions_under_scenario": 21,
+      "inconclusive_at_or_above_one_not_failure": 0,
+      "maximum_envelope_utilization_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_006",
+          "eoere_bolt_010"
+        ],
+        "case_id": "a12-left",
+        "component_id": "fitting-subassembly:eoere_clip_single_top_left_1",
+        "value": 0.8821203271630925,
+        "wood_receiver": "base_side_left"
+      },
+      "minimum_envelope_utilization_upper_bound": {
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "a1-rear",
+        "component_id": "fitting-subassembly:eoere_clip_horizontal_bottom_left_2",
+        "value": 0.0007831858181776563,
+        "wood_receiver": "base_rail_bottom_left"
+      }
+    },
+    "scope": {
+      "four_pin_groups_left_unresolved_without_partition_envelope": 12,
+      "no_partition_selected": true,
+      "robust_merged_two_pin_cases_already_in_positive_EA_report": 77,
+      "three_media_shared_header_cases_excluded": 7,
+      "two_media_wood_steel_direction_sensitive_cases_evaluated": 21,
+      "two_pin_direction_sensitive_group_cases_before_media_filter": 28
+    }
+  },
+  "previous_inventory": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/group-effects-assessment.json",
+    "sha256": "0b4da048de93d0f179646823ce13d02b8f93210da7c6d7392953478aea83c22e"
+  },
+  "previous_summary_draft": {
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/capacity-followthrough-draft-v1.json",
+    "sha256": "d71fcb9779632174c9156680ef5d4b5f3f6f7b1ae7f8f3974246ee165e591c5d"
+  },
+  "previous_summary_producer": {
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/publish_capacity_followthrough_v1.py",
+    "sha256": "4da5263b5b5ba953ad58210a790770f4af3a44e68142b177f792ab49a70337f3"
+  },
+  "producer": {
+    "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/publish_capacity_followthrough_v2.py",
+    "sha256": "dd2cc2d174dd168cd38430704a18443842644df733c2aa93e934877e2891009d"
+  },
+  "qualifications": {
+    "actual_Cdelta": null,
+    "actual_connection_Cg": null,
+    "climbing_released": false,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "full_ignored_source_closure_claimed_by_portable_guard": false,
+    "geometry_changed": false,
+    "loads_reduced": false,
+    "new_global_or_native_solve": false,
+    "panel_screw_resistance_deferred": true,
+    "purchase_authorized": false,
+    "structural_acceptance": false
+  },
+  "raw_evidence": {
+    "base_material": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/base-capacity-v1/assessment.json",
+      "sha256": "2582e68bedc687cfa4c3cc2da8906abfffbe844549a7eadd6bbbf47b9052bc03"
+    },
+    "base_rows": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/base-capacity-v1/load-aligned-row-classification-v1.json",
+      "sha256": "8db900ceb47b504c289ad181ac0cd78f1807f30df050f63c1383b4f3edc9b7c2"
+    },
+    "cleat_material": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/cleat-capacity-v1/cleat-local-reference-v3.json",
+      "sha256": "ee5b4a4aa18d890470dc41cdf092ebec655c617f727d7cfae10afa3d046b631b"
+    },
+    "force_only": {
+      "path": "fea/generated/v10-packer-free-v1/connections/force-only/force-only-tr12-v2.json",
+      "sha256": "1117e7877b50984aa785a282f177587748795ff1e73bcdc82a5645de8eb74035"
+    },
+    "four_pin_partition_envelope": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/four-pin-partition-envelope-v1.json",
+      "sha256": "a387f09ae01e7eb1980ced0d33eb9f1001f96c29482e912fde37b9f3685eab62"
+    },
+    "front_partition_envelope": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/base-capacity-v1/front-partition-envelope-v1.json",
+      "sha256": "9f271d52c10415d6ca944e873eeaac61ac019bba51fc1baaea8639e9d3aaef0c"
+    },
+    "merged_row_bound": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/positive-ea-pure-lateral-bound-v1.json",
+      "sha256": "3ed8f75472535857a35e16b89ac78ee743d5fe0f63c6a54a7320c7a8d35e18a4"
+    },
+    "noncleat_partial_rows": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/noncleat-row-capacity-v4.json",
+      "sha256": "9f03be9b9f6374f537dc2b34d64c39ba189a04a2af2834221221bc39892ffe0b"
+    },
+    "noncleat_rows": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/load-aligned-row-census-v1.json",
+      "sha256": "bcb9f4803e04f9d25980b7201b42a3df8889c4d6a7b548bacc706117082cb8d8"
+    },
+    "ordinary_EYM_moments": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/cleat-capacity-v1/two-member-e-yield-moment-scope-v1.json",
+      "sha256": "9d476b9855590837b0a576006da1cd34fcc5a00b9d0e063f176aa25f1ba1f7c8"
+    },
+    "partition_envelope": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/header-top-capacity-v1/partition-envelope-control-v1.json",
+      "sha256": "7585313edd865288ba3d8f4412702f3d4fadd4f1fda043339b8bc3eff5824572"
+    },
+    "pressure_and_source_replay": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/source-and-pressure-verification-v1.json",
+      "sha256": "170d2b73c74236f50c5128a0f3eedeb9f021530d1196150d4c3577071f458aee"
+    },
+    "rear_material": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/rear-capacity-v1/rear-physical-row-capacity-v1.json",
+      "sha256": "b44453c757f8188fc855fa03d465e92df072423a740dd5355a0cef7aaeb6c5b9"
+    },
+    "rear_rows": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/group-effects/rear-capacity-v1/rear-load-aligned-row-classification-v1.json",
+      "sha256": "127af3f1554a3ee023b2f29168cb7780c4a2fe027718ad5e6cb48a54d4be9785"
+    }
+  },
+  "rear_rows": {
+    "all_nominal_directions_give_singleton_rows": true,
+    "conditional_lateral_reference_and_moment_maxima": [
+      {
+        "actual_Cdelta": null,
+        "actual_Cg": null,
+        "complete_group_capacity": null,
+        "complete_group_pass": null,
+        "group_id": "rear_left_wood_wood_row",
+        "maximum_force_only_axis_id": "lumber_leg_bolt_left_2",
+        "maximum_force_only_case_id": "a12-rear",
+        "maximum_group_moment_about_shear_plane_centroid_Nmm": 15975.747050394992,
+        "maximum_group_moment_case_id": "a12-left",
+        "maximum_group_row_projection_case_id": "a12-rear",
+        "maximum_group_row_projection_demand_sum_abs_lbf": 578.3515258069965,
+        "maximum_individual_scenario_force_only_TR12_demand_over_Z": 0.6385171310466009
+      },
+      {
+        "actual_Cdelta": null,
+        "actual_Cg": null,
+        "complete_group_capacity": null,
+        "complete_group_pass": null,
+        "group_id": "rear_right_wood_wood_row",
+        "maximum_force_only_axis_id": "lumber_leg_bolt_right_2",
+        "maximum_force_only_case_id": "k12-rear",
+        "maximum_group_moment_about_shear_plane_centroid_Nmm": 15581.876648675821,
+        "maximum_group_moment_case_id": "k12-right",
+        "maximum_group_row_projection_case_id": "k12-rear",
+        "maximum_group_row_projection_demand_sum_abs_lbf": 572.2402171611159,
+        "maximum_individual_scenario_force_only_TR12_demand_over_Z": 0.6302020754715405
+      }
+    ],
+    "direction_checks": 36,
+    "group_case_rows": 12,
+    "minimum_unmerged_margin_mm": 8.192447036191496,
+    "nominal_singleton_lateral_row_Cg": 1.0,
+    "scope": "Per-row lateral component only; no connection-wide Cg, capacity or pass."
+  },
+  "remaining_flags": {
+    "accepted_connection_exceedance_count": null,
+    "actual_NDS_violation_established_by_optional_geometry_envelopes": false,
+    "legacy_bearing_components": 8,
+    "legacy_bearing_diagnostic_rows": 15,
+    "legacy_bearing_maximum": 1.9725461525158392,
+    "legacy_diagnostic_is_acceptance": false,
+    "optional_rear_foot_maximum": 1.09773,
+    "optional_rear_foot_shear_envelope_rows": 3,
+    "top_grid_conditional_shortfall_mm": 6.35
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v10/packer-free/response-bank.json",
+    "sha256": "976ee8d8ac593f978edf03d9eda028755751fd69b540fb8a01cdd073a242bdc3"
+  },
+  "review_scope_status_is_full_joint_qualification_not_row_factor_status": true,
+  "review_scopes": [
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "eoere_bolt_071",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "v10_cleat_bolt_left_1",
+        "v10_cleat_bolt_left_2",
+        "v10_cleat_bolt_left_3",
+        "v10_header_bolt_001",
+        "v10_header_bolt_002"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "cleat-subassembly:eoere_cleat_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "eoere_bolt_074",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v10_cleat_bolt_right_1",
+        "v10_cleat_bolt_right_2",
+        "v10_cleat_bolt_right_3",
+        "v10_header_bolt_003",
+        "v10_header_bolt_004"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "cleat-subassembly:eoere_cleat_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_002",
+        "eoere_bolt_029",
+        "eoere_bolt_032",
+        "eoere_bolt_036"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_019",
+        "eoere_bolt_033",
+        "eoere_bolt_037",
+        "eoere_bolt_040"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_025",
+        "eoere_bolt_034",
+        "eoere_bolt_038",
+        "eoere_bolt_059"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_014",
+        "eoere_bolt_035",
+        "eoere_bolt_039",
+        "eoere_bolt_062"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_bottom_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_003",
+        "eoere_bolt_030",
+        "eoere_bolt_043",
+        "eoere_bolt_047"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_020",
+        "eoere_bolt_041",
+        "eoere_bolt_044",
+        "eoere_bolt_048"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_026",
+        "eoere_bolt_045",
+        "eoere_bolt_049",
+        "eoere_bolt_060"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_015",
+        "eoere_bolt_046",
+        "eoere_bolt_050",
+        "eoere_bolt_063"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_lower_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_004",
+        "eoere_bolt_031",
+        "eoere_bolt_051",
+        "eoere_bolt_055"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_021",
+        "eoere_bolt_042",
+        "eoere_bolt_052",
+        "eoere_bolt_056"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_left_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_027",
+        "eoere_bolt_053",
+        "eoere_bolt_057",
+        "eoere_bolt_061"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_right_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_016",
+        "eoere_bolt_054",
+        "eoere_bolt_058",
+        "eoere_bolt_064"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_horizontal_upper_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_single_top_left_1"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_single_top_right_2"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_068",
+        "eoere_bolt_072",
+        "eoere_bolt_075",
+        "eoere_bolt_077"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "shared-fitting-subassembly:eoere_clip_split_base_center_left+eoere_clip_split_header_center_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_069",
+        "eoere_bolt_073",
+        "eoere_bolt_076",
+        "eoere_bolt_078",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "shared-fitting-subassembly:eoere_clip_split_base_center_right+eoere_clip_split_header_center_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_007",
+        "eoere_bolt_011",
+        "eoere_bolt_022",
+        "eoere_bolt_023",
+        "v10_top_bolt_005",
+        "v10_top_bolt_006"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_split_top_center_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "eoere_bolt_008",
+        "eoere_bolt_012",
+        "eoere_bolt_024",
+        "eoere_bolt_028",
+        "v10_top_bolt_007",
+        "v10_top_bolt_008"
+      ],
+      "capacity": null,
+      "kind": "hardware_cleat",
+      "scope_id": "fitting-subassembly:eoere_clip_split_top_center_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_left+post_outer_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_left+lumber_leg_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_right+post_outer_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:floor_right+lumber_leg_right"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:side_left+lumber_leg_left"
+    },
+    {
+      "actual_Cg": null,
+      "applicability_status": "UNRESOLVED",
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "capacity": null,
+      "kind": "wood_only",
+      "scope_id": "wood-only-joint:side_right+lumber_leg_right"
+    }
+  ],
+  "revision": "v10-packer-free-flush-return-far-row-only-v1",
+  "schema": "eoere_v10_connection_capacity_followthrough/v1",
+  "unresolved": [
+    "Complete simultaneous connection/group resistance and applicability, including mixed plywood/sawn/steel stacks and unequal steel-side actions.",
+    "Exact direction-sensitive/four-axis row assignments remain unadopted; conservative pure-lateral partition envelopes cover the two-media cases. End/edge/spacing/Cdelta applicability remains open.",
+    "Splitting, local brittle/net/perimeter/tear-out paths, fitting holes/heel strength and axial/head/nut/washer transfer.",
+    "A574 current-size tensile-yield/Fyb design basis and delivered conformity of all specified body/root/grip/steel/material properties.",
+    "Physical screw/panel/bond/support/contact qualification; panel-screw resistance remains owner-deferred."
+  ],
+  "verification": {
+    "actual_pressure_or_strength_qualification": false,
+    "axis_case_rows": 672,
+    "changed_or_missing_explicit_files": 0,
+    "climbing_released": false,
+    "distinct_explicit_file_pins_verified": 85,
+    "fabrication_released": false,
+    "full_transitive_source_closure_claimed": false,
+    "maximum_equal_half_first_moment_error_Nmm": 7.275957614183426e-12,
+    "maximum_lateral_force_replay_error_N": 4.582862941503293e-13,
+    "maximum_lateral_moment_replay_error_Nmm": 1.8189894035458565e-10,
+    "pressure_field": "Two piecewise-constant densities over equal halves; first moment (qU-qL)*L^2/8.",
+    "replayed_media": 1464,
+    "revision": "v10-packer-free-flush-return-far-row-only-v1",
+    "schema": "v10_current112_capacity_source_and_pressure_replay/v1",
+    "structural_acceptance": false
+  }
+}
