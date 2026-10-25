@@ -122,6 +122,10 @@
     "interpretation": "Historical receiver-signature 1/n diagnostics retained. The raw universal lower-bound wording is unsupported: these are neither qualified NDS factors nor established whole-joint conservative bounds. Before-Cg values are local references, not complete connection capacities."
   },
   "bindings": {
+    "appendix_e_disposition": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/splitting/net-section/appendix-e-group-splitting-disposition-v1.json",
+      "sha256": "a5b8a7a0ffad596279c2b89cf69feb46efa38410dceaa5b0493ca48189c1d4bd"
+    },
     "axial_net_section": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/splitting/net-section/current-family-axis-coverage-v2.json",
       "sha256": "c98aff7ab69607ba1fbec3089c6e6be50fad7e38b2a1ef24e6cbf7f65c8db578"
@@ -142,6 +146,10 @@
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/force-only/force-only-tr12-v1.json",
       "sha256": "5fbb5ae16ab78d0dce255034d7e789289478de16561c5e6341f05a17da1dacd5"
     },
+    "full_shaft_elastic_sensitivity": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/rear-wrench/fresh108-elastic-fy-sensitivity-v1.json",
+      "sha256": "b15360bd8416b3d359dad3d309adc028d14de57a33c7e615ba62598d0cd503a5"
+    },
     "geometry_media_proof": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/retained-axis-geometry-media-proof-v1.json",
       "sha256": "f3761bff916ecb818839f8ba676861a3b3fd2299b6b3f64eac92a445f8b6a8a4"
@@ -149,6 +157,10 @@
     "hardware": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/hardware-reuse-audit.json",
       "sha256": "55d7b51d54553ad7164e464b0c732965a8356b9c1dab5edd2b5b88961de1bf7c"
+    },
+    "hardware_observations": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/physical-observation-requirements.json",
+      "sha256": "d0a117348d9bf89c8019aca4ad11162acd637db847930cd2ab66d549616aaa1a"
     },
     "local_shear": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/local-connection-shear-v1/current-center-far-shear-summary-attempt07.json",
@@ -170,9 +182,17 @@
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/same-field/same-field-material-reference-v1.json",
       "sha256": "f6c24075f7983d9ea4377f3179240d826ce513697ddc80969af0296b20a72e2e"
     },
+    "shaft_method_reconciliation": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/rear-wrench/fresh108-elastic-fy-method-reconciliation-v1.json",
+      "sha256": "8a7abde6255021d8d6ba42d90875367d2d6d60f8b9c46c1dc4a315c3911e9fce"
+    },
     "top_actions": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/top-grid/fresh-top-wrenches-v1.json",
       "sha256": "4b41aeef29a752ba6a50a3a0680810acaaa87ba70f200ca4e98cf0f98c23ed04"
+    },
+    "top_end_disposition": {
+      "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/method-closure/top-grid/fresh-top-end-distance-disposition-v2.json",
+      "sha256": "e6d9687ac971f753bc4d00c366ba52bc855a04a60ea86a14dcd15ea78d0b4de1"
     },
     "viewer_validation": {
       "path": "fea/generated/v10-packer-free-center-far-row-v1/viewer/validation-v1.json",
@@ -207,13 +227,95 @@
       "rows": 528,
       "three_media_rows_not_applicable": 120
     },
+    "full_shaft_elastic": {
+      "axis_case_rows": 648,
+      "body_root_intervals": 8172,
+      "continuous_same_field_control": {
+        "M_bound_nmm": 17269.91854323683,
+        "N_bound_n": 184.54329126093342,
+        "T_bound_nmm": 0.0,
+        "V_bound_n": 529.8217900068205,
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "conditional_diameter_mm": 9.3218,
+        "interval_s_mm": [
+          25.399999999999864,
+          69.84999999999992
+        ],
+        "nominal_same_section_VM_envelope_MPa": 220.5993565225271,
+        "required_Fy_at_nominal_first_yield_MPa": 220.5993565225271,
+        "required_Fy_for_arbitrary_Fy_over_5_MPa": 1102.9967826126356
+      },
+      "four_rear_axes": [
+        {
+          "VM_MPa": 121.31773976122578,
+          "axis": "lumber_leg_bolt_left_1",
+          "case": "a12-left",
+          "grade5_arbitrary_Fy5_ratio": 0.9562853544299154,
+          "grade8_arbitrary_Fy5_ratio": 0.6767557892888632
+        },
+        {
+          "VM_MPa": 136.14910651185352,
+          "axis": "lumber_leg_bolt_left_2",
+          "case": "a12-left",
+          "grade5_arbitrary_Fy5_ratio": 1.073193391438507,
+          "grade8_arbitrary_Fy5_ratio": 0.7594907077872511
+        },
+        {
+          "VM_MPa": 119.39182755168704,
+          "axis": "lumber_leg_bolt_right_1",
+          "case": "k12-right",
+          "grade5_arbitrary_Fy5_ratio": 0.94110437888978,
+          "grade8_arbitrary_Fy5_ratio": 0.6660123296758443
+        },
+        {
+          "VM_MPa": 134.08192197748002,
+          "axis": "lumber_leg_bolt_right_2",
+          "case": "k12-right",
+          "grade5_arbitrary_Fy5_ratio": 1.0568988388115286,
+          "grade8_arbitrary_Fy5_ratio": 0.747959178235851
+        }
+      ],
+      "interpretation": "Nominal circular-section material thresholds only. Fy/5 is arbitrary, not an NDS design value. Grade8 is a strength-only scenario on the 90 J429-labeled axes, not a product selection, fit check, A574 substitution or connection pass.",
+      "method_comparison": "These values are not a same-formula three-way pass comparison: the direct-elastic-family index uses Fy/2 and omits T; the same-field envelope uses the pinned circular-section T/V/M/N helper with conservative interval maxima; the signed-cut value evaluates the fresh field's simultaneous six-component vectors at discrete stations. The governing case/axis matches, but neither the 0.420165-to-MPa difference nor the same-field-to-cut difference is attributed to torsion alone.",
+      "signed_saved_cut_records": 39432,
+      "torsion_census": {
+        "absolute_zero_tolerance_Nmm": 1e-08,
+        "continuous_same_field_count_above_tolerance": 0,
+        "continuous_same_field_exact_nonzero_T_bound_count": 1704,
+        "continuous_same_field_intervals": 8172,
+        "continuous_same_field_max_abs_T_bound_Nmm": 1.8201517919332846e-11,
+        "interpretation": "All saved/current T values are zero within 1e-8 Nmm; raw field roundoff reaches only the listed maximum. The continuous same-field envelope explicitly includes T, but it contributes no material stress at this tolerance.",
+        "saved_cut_count_above_tolerance": 0,
+        "saved_cut_exact_nonzero_T_count": 8896,
+        "saved_cut_max_abs_T_Nmm": 1.8590702483515753e-11,
+        "saved_signed_FE_cut_records": 39432
+      }
+    },
     "hardware": {
+      "actual_observation_cells_blank": true,
       "delivered_thread_body_fit_access_qualified": false,
+      "finite_observation_counts": {
+        "bolt_axes": 108,
+        "current_SKUs": 14,
+        "dimension_patterns": 8,
+        "nuts": 108,
+        "resolved_nominal_spacer_quantities": {
+          "13731": 20,
+          "13733": 20
+        },
+        "spacer_pieces": 40,
+        "washers": 216
+      },
       "nominal_spacers": {
         "13731": 20,
         "13733": 20
       },
-      "retained_stack_recipes": 108
+      "retained_stack_recipes": 108,
+      "tight_conditional_projection_margins_mm": {
+        "363": 1.016,
+        "400": 0.867507692
+      }
     },
     "local_shear": {
       "actual_loaded_edge_classification": null,
@@ -324,6 +426,107 @@
       "rows": 588
     }
   },
+  "criterion_dispositions": [
+    {
+      "complete_connection_pass": null,
+      "criterion": "Full signed connection wrench and group",
+      "evidence_scope": "All 108 axes have fresh per-receiver signed actions, local couples and conditional same-field material thresholds. Force-only TR 12 covers 88 two-media axes;20 three-media axes are explicitly outside that subcheck. Historical 1/n acceptance is withdrawn; all 15 diagnostic rows remain.",
+      "missing_method": "Define compatible simultaneous force/moment/axial/torsional resistance for actual unequal media and physical rows, including local splitting. Existing FE foundation coefficients are not demonstrated equivalent to NDS serial-row gamma; neither automatic Cg=1 nor multiplying receiver-signature 1/n is qualified.",
+      "missing_physical_input": "Actual material and hardware conformity support a chosen method but do not themselves supply the missing wrench/row mapping.",
+      "next_action": "Resolve the 8 flagged axes by physical receiver cluster, preserving all seven cleat pins and shared header fittings. Choose applicable NDS mode/row branches or a supported mechanics wrench envelope before changing bolt count/diameter.",
+      "status": "UNRESOLVED_METHOD"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Sawn member net sections and local connection shear",
+      "evidence_scope": "Fresh vector sections cover 20 sawn members across 6 cases;12 flagged sawn bore planes have pure-axial net-section references. All 58 receiver groups have reduced-depth local shear screens and full cut wrenches.",
+      "missing_method": "Complete Appendix E group/row tear-out and eccentric bending/perpendicular splitting remain distinct from the pure-axial and optional both-edge shear screens.",
+      "missing_physical_input": "Species/grade stamp, moisture/service condition and actual finished cross-sections; current calculations assume dry DF-L No.2.",
+      "next_action": "Retain present stock; interpret the 2 optional rear-foot envelopes using signed actions and actual fracture paths. Do not enlarge members or adopt the unselected centering probe solely to erase optional markers.",
+      "status": "CONDITIONAL_COMPONENT_REFERENCES_COMPLETE"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "068/069 near edge",
+      "evidence_scope": "All 12 fresh net resultants point away from the 33.704295 mm near edge. The both-edges 4 D shortfall is not an established NDS violation.",
+      "missing_method": "Oblique/eccentric action and local-couple splitting applicability; pressure reversal alone does not establish a loaded-edge violation.",
+      "missing_physical_input": "Actual grain and edge geometry at delivered members.",
+      "next_action": "Preserve the correction. Do not enlarge center principals or move bolts solely to satisfy the optional near-edge envelope.",
+      "status": "OPTIONAL_ENVELOPE_ONLY"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Top grid and near end",
+      "evidence_scope": "The 108-bolt trial removes the 41.275 mm near/far center pitch and retains two 50.8 mm-spaced far bolts at each angle. All 48 top wood force/couple rows are current. Actual outer end 65.0875 mm is 1.5875 mm below the separate 7D endpoint; a conditional pure-branch distance ratio would be 0.976190476, not an adopted factor.",
+      "missing_method": "Actual row assignment, steel-side wood-penetration operand, oblique end tension/compression classification, and action-point-couple treatment. Of 24 outer axis/case rows, 8 grain-force components point toward the nearest end in 5 cases; all 24 retain nonzero point-specific moments. The pure parallel-tension end branch cannot be excluded by force sign alone; no actual Cdelta is assigned.",
+      "missing_physical_input": "Actual factory hole centers, angle seating and delivered end geometry; no holes assumed drilled.",
+      "next_action": "Interpret end actions before adopting reduced distances or shifting fittings. A shift must retain direct bearing on standard 4\u00d76 stock and cannot silently reintroduce a wood packer.",
+      "status": "UNRESOLVED_APPLICABILITY"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Bolt shaft metal",
+      "evidence_scope": "Legacy direct elastic family (Fy/2) and continuous same-field N/V/M/T bounds are distinct. The legacy formula omits torsion; fresh saved cuts and continuous bounds have |T| below 1e-8 Nmm, so no material torsion effect is found. Full continuous nominal envelope is 220.599 MPa; arbitrary Fy/5 requires 1102.997 MPa. These constructions and denominators cannot be conflated.",
+      "missing_method": "Declare the strength criterion, appropriate material property and complete axial/shear/bending/torsion interaction; arbitrary Fy/5 and Fyb/5 screens are not NDS connection design values.",
+      "missing_physical_input": "Applicable table or documented ASTM-method Fyb, conditional tensile Fy where used, and delivered grade/body/root/runout geometry. No blanket new lot test is required merely to perform conditional calculations.",
+      "next_action": "Use the fresh full shaft sensitivity to isolate strength-only changes. A higher grade cannot repair wood bearing, spacing, splitting or poor grip, and does not select hardware.",
+      "status": "CONDITIONAL_REFERENCES_ONLY"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Formed fitting and hole transfer",
+      "evidence_scope": "144 fresh gross-strip states retain 1152 signed ports/2304 section ends; ideal required Fy 79.933 MPa is a gross-section reference.",
+      "missing_method": "Net-hole/block-shear/tearout, formed heel and flange flexibility, local contact and prying or separation capacity for the actual product.",
+      "missing_physical_input": "Factory product dimensions/material minima/hole layout and matching installed hardware.",
+      "next_action": "Keep gross-strip demand as a property threshold; do not assign a product pass from unperforated strip stiffness or nominal matching plates.",
+      "status": "UNRESOLVED_LOCAL_CAPACITY"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Washer head nut spacer and access",
+      "evidence_scope": "All 108 retained recipes match; mean sawn-seat pressure index 0.180178 is load-only. Nominal spacers are 20 SKU 13731 and 20 SKU 13733. Eight blank legacy ledger cells are superseded.",
+      "missing_method": "Load spreading/washer rigidity, local pressure peaks, spacer compression/local fit and preload effects are outside the mean-pressure subcheck.",
+      "missing_physical_input": "Measure underhead/body/runout/total length, nut full-thread seating, washer/spacer ID OD thickness, actual seating and selected tool insertion/swing/removal envelopes.",
+      "next_action": "Use the consolidated observation limits; keep Actual/Disposition blank until observed. Catalog nominal length is not guaranteed delivered shank length.",
+      "status": "NOMINAL_MAPPING_RESOLVED_PHYSICAL_HOLD"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Plywood cleats and bond",
+      "evidence_scope": "Each cleat is two nominal 12.7 mm leaves, credited 23.8 mm in perimeter strength, with PS 1 APA Group 1, Other/localZ properties and perfect bond.",
+      "missing_method": "Complete plywood loaded-hole/group/net/splitting behavior and the stiffness/resistance effect of an imperfect shop bond.",
+      "missing_physical_input": "Plywood stamp/group/layup/strength axis and measured leaf thickness at least 11.9 mm; actual adhesive and preparation/cure/bond continuity evidence.",
+      "next_action": "Verify the specified plywood and assembly; do not transfer old three-quarter-inch properties or infer shop bond strength from published panel properties. Adhesive research remains subagent-only and off the critical path.",
+      "status": "CONDITIONAL_MATERIAL_MODEL"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Support finite motion and physical contact",
+      "evidence_scope": "Saved model is in equilibrium with unilateral compression-only member faces and no-slip analytical supports.",
+      "missing_method": "Applicability of linearized/contact/fitting idealizations at computed movement; model convergence does not establish physical support or contact behavior.",
+      "missing_physical_input": "Actual support arrangement, contact fit and restraint consistent with recorded assumptions.",
+      "next_action": "Record the actual support/contact arrangement and resolve incompatible conditions. No new floor-friction test or blanket external sign-off prerequisite is introduced.",
+      "status": "UNVERIFIED_MODEL_ASSUMPTIONS"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Panel screws",
+      "evidence_scope": "66 existing Hillman axes and panel geometry are retained. Model demands are available.",
+      "missing_method": "Resistance resolution is excluded from current owner-directed work; it is not passed or waived.",
+      "missing_physical_input": null,
+      "next_action": "Do no further panel-screw resistance work in this scope.",
+      "status": "OWNER_DEFERRED"
+    },
+    {
+      "complete_connection_pass": null,
+      "criterion": "Viewer integration and candidate authority",
+      "evidence_scope": "The 108-bolt trial has its own portable scene/provenance,108 stack controls,1105 parts and browser proof; current 112 routes/default baseline remain unchanged.",
+      "missing_method": null,
+      "missing_physical_input": "Owner selection of the 108 trial remains pending; its evaluation does not select it.",
+      "next_action": "Keep unselected trial and selected development numbers separate; preserve failed 2 x 6, packer and Candidate 13 history. No deployment or physical release.",
+      "status": "VERIFIED_LOCAL_INTEGRATION"
+    }
+  ],
   "family_references": {
     "cleat_actual_perimeter_rows": {
       "case_id": "a12-forward",
@@ -399,6 +602,7 @@
     "purchase_authorized": false,
     "structural_acceptance": false
   },
+  "release_interpretation": "Conditional development evaluation remains incomplete for complete joint/group strength. The missing method entries cannot be closed by buying measurements alone; the physical entries cannot be declared observed from CAD/catalogs. No connection or structural pass is inferred.",
   "remaining": [
     "Establish compatible capacity mapping for signed lateral forces, local moments, axial actions and unequal media; force-only and same-field references are incomplete.",
     "Qualify actual physical rows, oblique end/edge applicability, group redistribution and splitting; neither adopt 1/n nor automatically replace it with 1.",
