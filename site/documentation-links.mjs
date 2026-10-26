@@ -41,7 +41,13 @@ export function documentsForModel(model, recordedDocuments = []) {
   if (model === 'eoere-v11-v9-eight-bolt-preview')
     return [
       {label: 'Owner V9-based eight-bolt request', path: current + 'owner-frame-v11/owner-v9-eight-bolt-request.json'},
-      {label: 'Own geometry receipt; analysis pending', path: current + 'owner-frame-v11/geometry-receipt.json'},
+      {label: 'Frozen geometry-only receipt', path: current + 'owner-frame-v11/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/response-bank.json'},
+      {label: 'Current conditional member and cleat review', path: current + 'owner-frame-v11/reference-review.json'},
+      {label: 'Physical-row connection references and unresolved criteria', path: current + 'owner-frame-v11/connection-capacity-followthrough.json'},
+      {label: 'Conditional Grade 5 property comparison; same force bank', path: current + 'owner-frame-v11/grade5-property-comparison.json'},
+      {label: 'Current signed end, edge and row geometry checks', path: current + 'owner-frame-v11/geometry-applicability.json'},
+      {label: 'Current washer and fitting references', path: current + 'owner-frame-v11/component-reference-summary.json'},
       {label: 'Development status and remaining work', path: current + 'README.md'},
       {label: 'Builder scope and holds', path: current + 'builder-plan.md'},
     ];

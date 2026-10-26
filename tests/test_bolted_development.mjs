@@ -5,7 +5,9 @@ import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, validateCurrent112HardwarePlanning, validateCurrent112GroupEffects, viewerModel} from '../scripts/check_bolted_development.mjs';
-import {validateCurrent112CapacityFollowthrough} from '../scripts/check_bolted_development.mjs';
+import {validateCurrent112CapacityFollowthrough, validateV11EvaluationSelection, validateV11ResponseBank,
+  validateV11ReferenceReview, validateV11CapacityFollowthrough, validateV11GeometryApplicability} from '../scripts/check_bolted_development.mjs';
+import {validateV11Grade5PropertyComparison} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -31,12 +33,18 @@ const readIndex = () => ownRevision('eoere-raised-kicker-screws-v1');
 const read96Index = () => ownRevision('eoere-flat-cleats-principal-upper-pairs-v6');
 const readStandardSideIndex = () => ownRevision('v10-standard-4x6-top-and-sides-development-v1');
 const readPackerFreeIndex = () => ownRevision('v10-packer-free-flush-return-far-row-only-v1');
+const readV11GeometryIndex = () => {
+  let index = readCurrentIndex();
+  while (index && index.schema !== 'bolted_frame_development_revisions/v18') index = index.preceding_revision;
+  assert.ok(index, 'preserved V11 geometry stage missing');
+  return index;
+};
 const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index, {entryChecks: false});
 
 const candidate13Index = ownRevision('eoere-candidate13-side-depth-v10');
 const candidate13 = readV10Candidate13Authority(candidate13Index);
 test('V9 restoration selects checked geometry without transferring the previous 112-bolt force bank', () => {
-  const result = checkCurrentDevelopment(readCurrentIndex());
+  const result = checkCurrentDevelopment(readV11GeometryIndex());
   assert.equal(result.revision, 'v11-v9-eight-bolt-v4');
   assert.equal(result.geometry_only, true);
   assert.equal(result.analysis_pending, true);
@@ -58,8 +66,185 @@ for (const [name, mutate] of [
   ['fabrication release', r => {r.fabrication_released = true;}],
   ['old viewer under new selection', r => {r.repository_viewer.model = r.preceding_revision.repository_viewer.model;}],
 ]) test(`V9 restoration rejects ${name}`, () => {
-  const index = readCurrentIndex(); mutate(index);
+  const index = readV11GeometryIndex(); mutate(index);
   assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+
+// The selection fixture is distinct from admission of its issued public evidence below.
+function v11EvaluationSelectionFixture() {
+  const prior = readV11GeometryIndex(), index = {...structuredClone(prior),
+    schema: 'bolted_frame_development_revisions/v19', preceding_revision: prior,
+    geometry_only: false, analysis_pending: false, current_response_computed: true,
+    current_own_response_bank_recorded: true};
+  for (const [key, filename, sha256] of [
+    ['response_bank', 'response-bank.json', '482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963'],
+    ['engineering_review', 'reference-review.json', '8551209039282dff8f3fdd2329b2d3d4396972ed1b74a19e0e5287fbb74c53aa'],
+    ['connection_capacity_followthrough', 'connection-capacity-followthrough.json', 'c19c4a4e7c195dcc7e294090bb0307dd24c87d41adad6ead09eae4a1c0108dcc'],
+    ['geometry_applicability', 'geometry-applicability.json', '9d1a773d22996e5bdd4a632a952e6d5d32e81e9adb8a0d6178390f56d898bb25'],
+  ]) index[key] = {path: `docs/bolted-frame-development/owner-frame-v11/${filename}`, sha256};
+  return index;
+}
+test('V11 evaluation selection keeps fixed V18 geometry/viewer and separate baseline authority', () => {
+  const index = v11EvaluationSelectionFixture();
+  assert.equal(validateV11EvaluationSelection(index), index);
+  assert.equal(index.repository_viewer.geometry_only, true);
+  assert.equal(index.complete_connection_acceptance, null);
+  assert.equal(index.selected_baseline.candidate, 'compact-floor-flush-development');
+});
+for (const [name, mutate] of [
+  ['changed fixed geometry', r => {r.geometry.receipt.sha256 = '0'.repeat(64);}],
+  ['relabelled geometry-only viewer', r => {r.repository_viewer.geometry_only = false;}],
+  ['old matched bank', r => {r.response_bank = r.preceding_revision.preceding_revision.response_bank;}],
+  ['missing followthrough', r => {delete r.connection_capacity_followthrough;}],
+  ['incomplete response state', r => {r.current_own_response_bank_recorded = false;}],
+  ['invented accepted exceedances', r => {r.accepted_connection_exceedance_count = 0;}],
+  ['automatic actual Cg', r => {r.actual_Cg_adopted = 1;}],
+  ['complete joint acceptance', r => {r.complete_connection_acceptance = true;}],
+  ['physical release', r => {r.fabrication_released = true;}],
+]) test(`V11 evaluation selection rejects ${name}`, () => {
+  const index = v11EvaluationSelectionFixture(); mutate(index);
+  assert.throws(() => validateV11EvaluationSelection(index));
+});
+test('V11 own bank declares six admitted cases and twelve fresh replay bindings on fixed geometry', () => {
+  const index = readV11GeometryIndex();
+  const bank = JSON.parse(readFileSync(path.join(ROOT, 'docs/bolted-frame-development/owner-frame-v11/response-bank.json')));
+  assert.equal(validateV11ResponseBank(bank, index), bank);
+  assert.equal(bank.maximum_gradient_inf_N, 8.019646646761913e-6);
+  assert.equal(bank.physical_geometry.sha256, 'befcf54de15984fcf05c5ede053d622afb249c0c2279f291ae65f06763b542a7');
+  assert.equal(index.geometry_only, true, 'bank intake does not promote the maintained geometry stage');
+});
+for (const [name, mutate] of [
+  ['foreign physical receipt', (b, i) => {b.physical_receipt = i.preceding_revision.geometry.receipt;}],
+  ['foreign physical geometry', (b, i) => {b.physical_geometry = JSON.parse(readFileSync(path.join(ROOT, i.preceding_revision.response_bank.path))).analysis_geometry;}],
+  ['missing plywood replay', b => {delete b.cases[0].independent_plywood_replay;}],
+  ['replay from a different case', b => {b.cases[0].independent_replay = b.cases[1].independent_replay;}],
+  ['duplicate case identity', b => {b.cases[0].case_id = b.cases[1].case_id;}],
+  ['blocked earlier preparation field', b => {b.cases[0].field.path = b.cases[0].field.path.replace('/analysis-v4/', '/analysis-v3/');}],
+  ['gradient at the unchanged gate', b => {b.cases[0].gradient_inf_N = 1e-5;}],
+  ['result/field gradient mismatch', b => {b.cases[0].result_gradient_inf_N *= 2;}],
+  ['old plywood thickness', b => {b.material_source_control.nominal_combined_plywood_thickness_mm = 25.4;}],
+  ['historical force transfer', b => {b.historical_force_pass_transferred = true;}],
+  ['fabrication release', b => {b.fabrication_released = true;}],
+]) test(`V11 own bank rejects ${name}`, () => {
+  const index = readV11GeometryIndex();
+  const bank = JSON.parse(readFileSync(path.join(ROOT, 'docs/bolted-frame-development/owner-frame-v11/response-bank.json')));
+  mutate(bank, index);
+  assert.throws(() => validateV11ResponseBank(bank, index));
+});
+const readV11Report = filename => JSON.parse(readFileSync(path.join(ROOT,
+  `docs/bolted-frame-development/owner-frame-v11/${filename}.json`)));
+test('V11 matched references keep all fresh families and legacy diagnostics on the issued fields', () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('reference-review');
+  assert.equal(validateV11ReferenceReview(report, index, readV11Report('response-bank')), report);
+  assert.equal(report.member_vector_maxima.base_side_left.index, 0.9650288506038316);
+  assert.equal(report.bearing_diagnostic_case_rows, 32); assert.equal(report.bearing_diagnostic_components, 14);
+});
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {r.response_bank = i.preceding_revision.preceding_revision.response_bank;}],
+  ['foreign same-case field', r => {r.fields['a12-forward'].sha256 = '0'.repeat(64);}],
+  ['erased bearing diagnostic', r => {r.reference_exceedance_rows.wood_bearing_whole_affine.pop();}],
+  ['erased NM diagnostics', r => {r.reference_exceedance_rows.reduced_connection_axial_bending = [];}],
+  ['automatic actual Cg', r => {r.actual_Cg_adopted = 1;}],
+  ['zero accepted exceedances', r => {r.accepted_connection_exceedance_count = 0;}],
+  ['reduced plywood wall substituted', r => {r.cleat_strength_scenario.nominal_combined_wall_mm = 25.4;}],
+]) test(`V11 matched references reject ${name}`, () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('reference-review'); mutate(report, index);
+  assert.throws(() => validateV11ReferenceReview(report, index, readV11Report('response-bank')));
+});
+test('V11 force-only scenarios and inconclusive partitions retain the new flags and unsupported mixed axes', () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('connection-capacity-followthrough');
+  assert.equal(validateV11CapacityFollowthrough(report, index, readV11Report('response-bank')), report);
+  assert.equal(report.maximum_conditional_case_direction_force_only.demand_over_Z, 1.189314587548981);
+  assert.equal(report.maximum_conditional_partition_upper_bound.index_upper, 2.665863124575772);
+});
+for (const [name, mutate] of [
+  ['foreign raw bank', r => {r.response_bank.sha256 = '0'.repeat(64);}],
+  ['erased force-only scenario flag', r => {r.conditional_case_direction_force_only_exceedances.pop();}],
+  ['erased inconclusive partition flag', r => {r.conditional_partition_upper_bound_flags_inconclusive_not_failures.pop();}],
+  ['missing mixed topology', r => {r.explicit_unsupported_mixed_axes.pop();}],
+  ['invented witness Cg', r => {r.maximum_conditional_partition_upper_bound.hypothetical_witness_not_adopted.rows[0].actual_Cg = 1;}],
+  ['complete capacity claimed', r => {r.qualifications.complete_joint_capacity = 1000;}],
+  ['structural release', r => {r.qualifications.structural_acceptance = true;}],
+]) test(`V11 force-only followthrough rejects ${name}`, () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('connection-capacity-followthrough'); mutate(report, index);
+  assert.throws(() => validateV11CapacityFollowthrough(report, index, readV11Report('response-bank')));
+});
+test('V11 signed geometry joins retain current actions and the 068/069 away-from-near correction', () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('geometry-applicability');
+  assert.equal(validateV11GeometryApplicability(report, index, readV11Report('response-bank')), report);
+  assert.equal(report.counts.wood_action_interface_rows, 816);
+});
+for (const [name, mutate] of [
+  ['foreign bank', r => {r.source_bindings.bank.sha256 = '0'.repeat(64);}],
+  ['foreign geometry', r => {r.source_bindings.geometry.sha256 = '0'.repeat(64);}],
+  ['missing signed case', r => {r.outer_top_groups.pop();}],
+  ['erased free couple', r => {r.outer_top_groups[0].rows[0][4] = null;}],
+  ['reversed 068 near-edge correction', r => {r['068_069_direction_rows'][0].axes[0][7] = false;}],
+  ['optional geometry marker made NDS failure', r => {r.principal_center_groups[0].rows[0][7][4] = true;}],
+  ['missing new cleat geometry', r => {r.new_cleat_geometry.pop();}],
+]) test(`V11 signed geometry rejects ${name}`, () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('geometry-applicability'); mutate(report, index);
+  assert.throws(() => validateV11GeometryApplicability(report, index, readV11Report('response-bank')));
+});
+test('V11 evaluation admits the four own records while preserving the geometry-only viewer and full-joint holds', () => {
+  const index = v11EvaluationSelectionFixture(), result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.geometry_only, false); assert.equal(result.analysis_pending, false);
+  assert.equal(result.repository_viewer_geometry_only, true); assert.equal(result.current_response_revision, index.geometry.revision);
+  assert.equal(result.bearing_diagnostic_case_rows, 32); assert.equal(result.legacy_NM_diagnostic_case_rows, 19);
+  assert.equal(result.conditional_force_only_case_rows, 4); assert.equal(result.conditional_partition_upper_bound_flags, 21);
+  assert.equal(result.unsupported_mixed_axes, 24); assert.equal(result.accepted_connection_exceedance_count, null);
+  assert.equal(result.complete_connection_acceptance, null); assert.equal(result.structural_acceptance, false);
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.full_ignored_input_closure_checked, false); assert.equal(result.mechanics_executed, false);
+});
+for (const key of ['response_bank', 'engineering_review', 'connection_capacity_followthrough', 'geometry_applicability'])
+  test(`V11 evaluation rejects changed ${key} bytes`, () => {
+    const index = v11EvaluationSelectionFixture(); index[key].sha256 = '0'.repeat(64);
+    assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+  });
+test('V11 Grade5 property comparison preserves generic45 flags and separately evaluates the matched92 scenario', () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('grade5-property-comparison');
+  assert.equal(validateV11Grade5PropertyComparison(report, index, readV11Report('response-bank'),
+    readV11Report('connection-capacity-followthrough')), report);
+  assert.equal(report.counts.generic45_exceedance_case_rows, 4); assert.equal(report.counts.explicit92_exceedance_case_rows, 0);
+  assert.equal(report.explicit92_maximum.demand_over_Z, 0.8420030182968952);
+});
+for (const [name, mutate] of [
+  ['foreign bank', r => {r.source_bindings.response_bank.sha256 = '0'.repeat(64);}],
+  ['foreign same-case field', r => {r.source_bindings.six_cases[0].field.sha256 = '0'.repeat(64);}],
+  ['adopted actual property', r => {r.qualifications.actual_Fyb = 92000;}],
+  ['automatic property adoption', r => {r.property_specification.automatic_actual_property_adoption = true;}],
+  ['wrong design specification', r => {r.property_specification.Fyb_psi = 45000;}],
+  ['erased generic45 flags', r => {r.generic45_exceedances_and_new_six_mode_results.pop();}],
+  ['Grade5 scenario assigned to retained A574 front bolt', r => {
+    r.all_two_media_axis_maxima.find(row => row.axis_id === 'rail_front_bolt_left_1').explicit92_maximum.class_code =
+      'wood_wood_G0p50_Grade5_F606_Fyb92_conditional_spec_only';
+  }],
+  ['inconsistent six-mode minimum', r => {r.all_two_media_axis_maxima[0].explicit92_maximum.mode_P_over_Rd_lbf.IIIs *= 0.5;}],
+  ['partition recomputation claim', r => {r.row_partition_bounds_recalculated = true;}],
+  ['complete capacity claim', r => {r.qualifications.complete_joint_capacity = 1000;}],
+  ['fabrication release', r => {r.qualifications.fabrication_released = true;}],
+]) test(`V11 Grade5 property comparison rejects ${name}`, () => {
+  const index = v11EvaluationSelectionFixture(), report = readV11Report('grade5-property-comparison'); mutate(report);
+  assert.throws(() => validateV11Grade5PropertyComparison(report, index, readV11Report('response-bank'),
+    readV11Report('connection-capacity-followthrough')));
+});
+test('optional V11 Grade5 comparison exposes separate scenarios and preserves authority when absent', () => {
+  const index = v11EvaluationSelectionFixture();
+  index.grade5_property_comparison = {path: 'docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json',
+    sha256: '06e30473a693f1701f65889507590d16d872950137991d5c267d75ba8825d581'};
+  const result = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(result.conditional_force_only_basis, 'wood_wood_G0p50_Fyb45_scenario_only');
+  assert.equal(result.conditional_force_only_case_rows, 4); assert.equal(result.conditional_Grade5_Fyb92_force_only_case_rows, 0);
+  assert.equal(result.conditional_Grade5_Fyb92_force_only_maximum, 0.8420030182968952);
+  assert.equal(result.conditional_Grade5_Fyb92_actual_Fyb_psi, null); assert.equal(result.conditional_Grade5_Fyb92_property_adopted, false);
+  assert.equal(result.accepted_connection_exceedance_count, null); assert.equal(result.complete_connection_acceptance, null);
+  index.grade5_property_comparison.sha256 = '0'.repeat(64);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+  delete index.grade5_property_comparison;
+  const omitted = checkCurrentDevelopment(index, {entryChecks: false});
+  assert.equal(omitted.conditional_force_only_case_rows, 4); assert.equal(omitted.conditional_Grade5_Fyb92_force_only_case_rows, undefined);
+  assert.equal(omitted.selected_baseline_candidate, 'compact-floor-flush-development'); assert.equal(omitted.structural_acceptance, false);
 });
 test('Candidate13 source resolver reads only mapped repository copies, leaving raw fields unopened', () => {
   const requested = [];
@@ -1275,7 +1460,9 @@ for (const [label, mutate] of [
 test('incoming descriptions reject a stale revision even when its link resolves', () => {
   const index = readCurrentIndex(), root = readFileSync(path.join(ROOT, 'README.md'), 'utf8');
   const revision = index.development_selection?.revision ?? index.geometry.revision;
-  assert.throws(() => validateEntry(root.replaceAll(revision, index.preceding_revision.geometry.revision), index));
+  let previousGeometry = index.preceding_revision;
+  while (previousGeometry.geometry.revision === revision) previousGeometry = previousGeometry.preceding_revision;
+  assert.throws(() => validateEntry(root.replaceAll(revision, previousGeometry.geometry.revision), index));
   const html = readFileSync(path.join(ROOT, 'site/index.html'), 'utf8');
   assert.equal(viewerModel(html, index.preceding_revision.geometry.revision), index.selected_baseline.candidate);
 });

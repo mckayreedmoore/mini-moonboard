@@ -63,15 +63,24 @@ test('preserved packer-free menu binds its own geometry, bank, evaluation and me
   }
 });
 
-test('current V9 restoration menu exposes its request and geometry-only documentation', () => {
+test('current V9 restoration menu exposes its fixed geometry and own conditional analysis', () => {
   assert.equal(currentIndex.geometry.viewer, 'eoere-v11-v9-eight-bolt-preview');
-  assert.equal(currentIndex.response_bank, null);
+  assert.equal(currentIndex.response_bank.path,
+    'docs/bolted-frame-development/owner-frame-v11/response-bank.json');
   const rows = documentsForModel(currentIndex.geometry.viewer);
-  for (const target of [currentIndex.owner_request.path, 'docs/bolted-frame-development/README.md',
+  for (const target of [currentIndex.owner_request.path, currentIndex.response_bank.path,
+    'docs/bolted-frame-development/owner-frame-v11/reference-review.json',
+    'docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json',
+    'docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json',
+    'docs/bolted-frame-development/owner-frame-v11/geometry-applicability.json',
+    'docs/bolted-frame-development/owner-frame-v11/component-reference-summary.json',
+    'docs/bolted-frame-development/README.md',
     'docs/bolted-frame-development/builder-plan.md']) {
     assert.ok(rows.some(row => row.path === target));
     checkTarget(target);
   }
+  assert.ok(rows.some(row => /geometry-only/.test(row.label)));
+  assert.ok(rows.every(row => !/analysis pending/i.test(row.label)));
 });
 
 test('rendered historical model menus resolve their actual document paths', () => {

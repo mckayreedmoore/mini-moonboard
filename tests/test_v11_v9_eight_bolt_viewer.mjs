@@ -56,14 +56,15 @@ for(const[name,change]of[
   ['fabrication release',d=>{d.fabrication_released=true;}],
 ])test('the new owner model rejects '+name,()=>{const d=structuredClone(scene);change(d);assert.throws(()=>validateV11GeometryOnly(d));});
 
-test('routing preserves the baseline and historical choices and exposes only own geometry documents',()=>{
+test('routing preserves baseline history and exposes the restored model\'s own geometry and analysis documents',()=>{
   const html=readFileSync(path.join(site,'index.html'),'utf8');
   assert(html.includes("['"+V11_MODEL+"', 'V9 cleats · 4×6 top · eight-bolt outer corners · 112 bolts · geometry only']"));
   assert(html.includes("? requestedModel : 'compact-floor-flush-development'"));
   assert(html.includes("['eoere-owner-frame-v9-development',"));
   assert(html.includes("['eoere-packer-free-standard-stock-preview',"));
   for(const row of documentsForModel(V11_MODEL))assert(readFileSync(path.join(root,row.path)).length);
-  assert(!documentsForModel(V11_MODEL).some(row=>/response-bank|evaluation\.json/.test(row.path)));
+  assert(documentsForModel(V11_MODEL).some(row=>row.path==='docs/bolted-frame-development/owner-frame-v11/response-bank.json'));
+  assert(!documentsForModel(V11_MODEL).some(row=>/owner-frame-v(?:9|10)\//.test(row.path)));
 });
 
 test('the geometry-only route hides mass metadata and never fetches historical prototype weights',()=>{

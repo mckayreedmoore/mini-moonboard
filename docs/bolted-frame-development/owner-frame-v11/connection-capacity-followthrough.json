@@ -1,0 +1,461 @@
+{
+  "conditional_case_direction_force_only_exceedances": [
+    {
+      "actual_candidate_steel_Fe_psi": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-left",
+      "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+      "demand_lbf": 596.6322700239358,
+      "demand_over_Z": 1.0927132168038105,
+      "governing_mode": "IV",
+      "minimum_six_mode_Z_lbf": 546.009932751694,
+      "mode_P_over_Rd_lbf": {
+        "II": 809.3668011019621,
+        "IIIm": 878.4722091475413,
+        "IIIs": 705.4611349638529,
+        "IV": 546.009932751694,
+        "Im": 2106.8133349859695,
+        "Is": 1429.8554290739896
+      },
+      "unadopted_Fu370_steel_scenario": null
+    },
+    {
+      "actual_candidate_steel_Fe_psi": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+      "demand_lbf": 638.5440502817136,
+      "demand_over_Z": 1.189314587548981,
+      "governing_mode": "IV",
+      "minimum_six_mode_Z_lbf": 536.9008813703932,
+      "mode_P_over_Rd_lbf": {
+        "II": 792.6908781056651,
+        "IIIm": 865.5566755617699,
+        "IIIs": 684.806395148725,
+        "IV": 536.9008813703932,
+        "Im": 2087.9150049026443,
+        "Is": 1378.707136867876
+      },
+      "unadopted_Fu370_steel_scenario": null
+    },
+    {
+      "actual_candidate_steel_Fe_psi": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-right",
+      "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+      "demand_lbf": 588.2353621124048,
+      "demand_over_Z": 1.0774028426461104,
+      "governing_mode": "IV",
+      "minimum_six_mode_Z_lbf": 545.9753203060926,
+      "mode_P_over_Rd_lbf": {
+        "II": 809.3053703834004,
+        "IIIm": 878.4281159425896,
+        "IIIs": 705.379842183699,
+        "IV": 545.9753203060926,
+        "Im": 2106.7616371507183,
+        "Is": 1429.6507233324064
+      },
+      "unadopted_Fu370_steel_scenario": null
+    },
+    {
+      "actual_candidate_steel_Fe_psi": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-rear",
+      "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+      "demand_lbf": 631.2159473387378,
+      "demand_over_Z": 1.1745468876403076,
+      "governing_mode": "IV",
+      "minimum_six_mode_Z_lbf": 537.412302549169,
+      "mode_P_over_Rd_lbf": {
+        "II": 793.6543805073503,
+        "IIIm": 866.349808668342,
+        "IIIs": 685.9281919915862,
+        "IV": 537.412302549169,
+        "Im": 2089.2529093635003,
+        "Is": 1381.44015928807
+      },
+      "unadopted_Fu370_steel_scenario": null
+    }
+  ],
+  "conditional_partition_upper_bound_flags_inconclusive_not_failures": [
+    {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2"
+      ],
+      "case_id": "a12-forward",
+      "conditional_index_upper": 1.4198587956512705,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "case_id": "a12-forward",
+      "conditional_index_upper": 1.4568398913085185,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "case_id": "a12-forward",
+      "conditional_index_upper": 1.4677907333504228,
+      "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "case_id": "a12-forward",
+      "conditional_index_upper": 1.560518325183928,
+      "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-forward",
+      "conditional_index_upper": 2.2217275010454194,
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2"
+      ],
+      "case_id": "a12-left",
+      "conditional_index_upper": 1.5475895796453434,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "case_id": "a12-left",
+      "conditional_index_upper": 1.5838608236749765,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "case_id": "a12-left",
+      "conditional_index_upper": 1.6053074299525516,
+      "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "case_id": "a12-left",
+      "conditional_index_upper": 1.679063058852796,
+      "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-left",
+      "conditional_index_upper": 2.5817070746690076,
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2"
+      ],
+      "case_id": "a12-rear",
+      "conditional_index_upper": 1.6046985247169392,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "case_id": "a12-rear",
+      "conditional_index_upper": 1.6323266532818757,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-rear",
+      "conditional_index_upper": 2.665863124575772,
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2"
+      ],
+      "case_id": "k12-right",
+      "conditional_index_upper": 1.4271762281676048,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "case_id": "k12-right",
+      "conditional_index_upper": 1.4787724733568641,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "case_id": "k12-right",
+      "conditional_index_upper": 1.6160964434504816,
+      "group_id": "interface:wood:base_floor_right+wood:base_post_outer_right",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "case_id": "k12-right",
+      "conditional_index_upper": 1.6893070249629758,
+      "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_right_1"
+      ],
+      "case_id": "k12-right",
+      "conditional_index_upper": 2.5450572554576585,
+      "group_id": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "robust_singleton_rows_across_tested_net_directions": true
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2"
+      ],
+      "case_id": "k12-rear",
+      "conditional_index_upper": 1.533091176713596,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "case_id": "k12-rear",
+      "conditional_index_upper": 1.5734877829944731,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+      "robust_singleton_rows_across_tested_net_directions": false
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_right_1"
+      ],
+      "case_id": "k12-rear",
+      "conditional_index_upper": 2.6365077216952177,
+      "group_id": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "robust_singleton_rows_across_tested_net_directions": true
+    }
+  ],
+  "counts": {
+    "axes": 112,
+    "axis_cases": 672,
+    "conditional_partition_upper_bounds_at_or_above_one": 21,
+    "mixed_axes_unsupported": 24,
+    "two_media_axes_calculated": 88,
+    "two_media_axis_cases_calculated": 528,
+    "two_media_interface_case_rows": 252,
+    "two_media_interface_groups": 42,
+    "unresolved_mixed_or_other_axis_cases": 144
+  },
+  "explicit_unsupported_mixed_axes": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2",
+    "eoere_bolt_065",
+    "eoere_bolt_066",
+    "eoere_bolt_067",
+    "eoere_bolt_070",
+    "eoere_bolt_071",
+    "eoere_bolt_074",
+    "eoere_bolt_079",
+    "eoere_bolt_080",
+    "eoere_bolt_081",
+    "eoere_bolt_082",
+    "eoere_bolt_083",
+    "eoere_bolt_084",
+    "v11_cleat_left_post_1",
+    "v11_cleat_left_post_2",
+    "v11_cleat_left_side_1",
+    "v11_cleat_left_side_2",
+    "v11_cleat_right_post_1",
+    "v11_cleat_right_post_2",
+    "v11_cleat_right_side_1",
+    "v11_cleat_right_side_2"
+  ],
+  "force_only_evidence": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/connections/physical-rows-v2/force-only-tr12-v1.json",
+    "sha256": "b1181055d80cea540c6d3761cb547037823841a9b6541401fc8afabaa91382d5"
+  },
+  "geometry_revision": "v11-v9-eight-bolt-v4",
+  "group_evidence": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/connections/physical-rows-v2/physical-row-capacity-followthrough-v1.json",
+    "sha256": "a689a7ec1ed1ef2fd9abd856b7d4fcd32fdd3907db8ccd870667c8c78365d4bf"
+  },
+  "maximum_conditional_case_direction_force_only": {
+    "actual_candidate_steel_Fe_psi": null,
+    "axis_id": "lumber_leg_bolt_left_1",
+    "case_id": "a12-rear",
+    "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+    "demand_lbf": 638.5440502817136,
+    "demand_over_Z": 1.189314587548981,
+    "governing_mode": "IV",
+    "minimum_six_mode_Z_lbf": 536.9008813703932,
+    "mode_P_over_Rd_lbf": {
+      "II": 792.6908781056651,
+      "IIIm": 865.5566755617699,
+      "IIIs": 684.806395148725,
+      "IV": 536.9008813703932,
+      "Im": 2087.9150049026443,
+      "Is": 1378.707136867876
+    },
+    "unadopted_Fu370_steel_scenario": null
+  },
+  "maximum_conditional_partition_upper_bound": {
+    "axis_ids": [
+      "lumber_leg_bolt_left_1"
+    ],
+    "case_id": "a12-rear",
+    "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+    "hypothetical_witness_not_adopted": {
+      "blocks": [
+        [
+          "lumber_leg_bolt_left_1"
+        ]
+      ],
+      "maximum_row_index_upper": 2.665863124575772,
+      "rows": [
+        {
+          "actual_Cg": null,
+          "aggregate_capacity_lower_lbf": 420.97321672880804,
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+          "conditional_lateral_index_upper": 2.665863124575772,
+          "fastener_count": 1,
+          "lateral_demand_upper_lbf": 1122.2569749113738
+        }
+      ]
+    },
+    "index_upper": 2.665863124575772
+  },
+  "maximum_raw_port_force_replay_error_N": 0.0,
+  "maximum_raw_port_moment_replay_error_Nmm": 2.9103830456733704e-11,
+  "new_lower_Grade5_axes": {
+    "v11_cleat_left_post_1": "not_applicable_to_this_mixed_or_non_two_member_topology",
+    "v11_cleat_left_post_2": "not_applicable_to_this_mixed_or_non_two_member_topology",
+    "v11_cleat_right_post_1": "not_applicable_to_this_mixed_or_non_two_member_topology",
+    "v11_cleat_right_post_2": "not_applicable_to_this_mixed_or_non_two_member_topology"
+  },
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/connections/summarize_followthrough_v1.py",
+    "sha256": "c48eb42b64ebb908ffa5ad97e06b77e02aeaf6d2fc4f649d41c0b30043f5efe9"
+  },
+  "qualifications": {
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "climbing_released": false,
+    "complete_group_pass": null,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "panel_screw_resistance_deferred": true,
+    "physical_force_bounds_established": false,
+    "structural_acceptance": false
+  },
+  "response_bank": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/response-bank.json",
+    "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+  },
+  "retained_rear_foot_hardware_input_completions": [
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "body_and_grade_source": {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/hardware-selection.csv",
+        "sha256": "305721fa445c410fdd41f981170178e06f7dfa3b36335b009484b24a6e1b3422"
+      },
+      "geometry_axis_and_override_byte_identical_to_V9": true,
+      "minimum_body_mm": 81.026,
+      "scope": "Existing conditional dimensional/profile input only; no historical force/capacity result or delivered verification.",
+      "selected_bolt_grade": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "selected_product": "368",
+      "unchanged_V9_axis_and_override_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json",
+        "sha256": "7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109"
+      }
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "body_and_grade_source": {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/leg-header-v3/hardware-selection.csv",
+        "sha256": "305721fa445c410fdd41f981170178e06f7dfa3b36335b009484b24a6e1b3422"
+      },
+      "geometry_axis_and_override_byte_identical_to_V9": true,
+      "minimum_body_mm": 81.026,
+      "scope": "Existing conditional dimensional/profile input only; no historical force/capacity result or delivered verification.",
+      "selected_bolt_grade": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "selected_product": "368",
+      "unchanged_V9_axis_and_override_source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/geometry/geometry.json",
+        "sha256": "7c2b913fe5e0efdc36adced6459e5fa79ca873c2a7bc6bcc82721ec02d473109"
+      }
+    }
+  ],
+  "schema": "v11_fresh_force_and_physical_row_summary/v1",
+  "scope": "The case-direction force-only six-mode scenario differs from the direction-independent raw-port partition upper bound. Upper bounds above one are inconclusive; neither supplies full-wrench/group acceptance. All24mixed axes remain outside two-member group capacity."
+}

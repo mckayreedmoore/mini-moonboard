@@ -1,0 +1,424 @@
+{
+  "climbing_released": false,
+  "complete_connection_acceptance": null,
+  "fabrication_released": false,
+  "fitting": {
+    "actual_product_Fy_MPa": null,
+    "case_count": 6,
+    "case_id": "a12-forward",
+    "fitting_case_states": 144,
+    "governing_section": {
+      "component_maxima_need_not_coincide": true,
+      "fitting_id": "eoere_clip_angle_base_left",
+      "frozen_end_couple_action_local_nmm": [
+        -1579.3638875408233,
+        -26750.752996580508,
+        -9744.875855093549
+      ],
+      "frozen_end_force_action_local": [
+        -34.373141971598905,
+        -148.04288272653815,
+        411.9648467043389
+      ],
+      "gross_section_scenario": "gross_rectangle",
+      "hole_openings_filled_by_gross_rectangle": true,
+      "nominal_normal_stress_envelope_mpa": 94.33254741572952,
+      "nominal_torsion_shear_norm_bound_mpa": 2.905091517564383,
+      "nominal_transverse_shear_norm_bound_mpa": 2.3263736958342616,
+      "section_force_local_N_V1_V2": [
+        34.373141971598905,
+        148.04288272653815,
+        -411.9648467043389
+      ],
+      "section_moment_local_T_M1_M2_nmm": [
+        1579.3638875408233,
+        26750.752996580508,
+        9744.875855093549
+      ],
+      "segment_end": "root",
+      "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 94.76673565538627,
+      "station_from_ideal_strip_root_mm": 0.0,
+      "strip_element_id": "arm-x/far-minus/root-near"
+    },
+    "gross_rectangle_reference_is_ASD_or_LRFD_capacity": false,
+    "holes_net_section_formed_heel_plate_continuity_and_full_strength_qualified": false,
+    "known_answer_control": {
+      "control": "single frozen Timoshenko gross rectangle cantilever with signed tip N,V1,V2,T,M1,M2",
+      "material_fy_adopted": false,
+      "nominal_stress_bound_mpa": 2.7322405932977976,
+      "passed": true,
+      "recovered_root_section_force_N": [
+        17.0,
+        -6.999999999999999,
+        11.000000000000007
+      ],
+      "recovered_root_section_moment_Nmm": [
+        13.0,
+        -734.9625000000004,
+        -432.61249999999995
+      ],
+      "recovered_tip_section_force_N": [
+        17.0,
+        -6.999999999999999,
+        11.000000000000007
+      ],
+      "recovered_tip_section_moment_Nmm": [
+        13.0,
+        -18.999999999999886,
+        23.0
+      ],
+      "required_fy_reference_mpa": 2.7322405932977976,
+      "source_scope": "gross rectangle, ideal prismatic free-warping torsion; no holes, heel, or fitting strength",
+      "tip_wrench_N_and_Nmm": [
+        17.0,
+        -7.0,
+        11.0,
+        13.0,
+        -19.0,
+        23.0
+      ]
+    },
+    "largest_gross_strip_required_Fy_reference_MPa": 94.76673565538627,
+    "maximum_recovery_errors": {
+      "loaded_heel_mm_rad_including_saved_body_load_route": 0.0,
+      "saved_elastic_energy_nmm": 0.0,
+      "saved_per_flange_root_wrench_n_nmm": 0.0,
+      "saved_port_force_and_couple_n_nmm": 0.0,
+      "saved_root_force_and_couple_n_nmm": 0.0,
+      "saved_scaled_gradient": 0.0,
+      "unloaded_element_segment_force_equilibrium_n": 0.0,
+      "unloaded_element_segment_moment_equilibrium_nmm": 2.000888343900442e-11
+    },
+    "per_case_maxima": [
+      {
+        "case_id": "a12-forward",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_angle_base_left",
+          "frozen_end_couple_action_local_nmm": [
+            -1579.3638875408233,
+            -26750.752996580508,
+            -9744.875855093549
+          ],
+          "frozen_end_force_action_local": [
+            -34.373141971598905,
+            -148.04288272653815,
+            411.9648467043389
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 94.33254741572952,
+          "nominal_torsion_shear_norm_bound_mpa": 2.905091517564383,
+          "nominal_transverse_shear_norm_bound_mpa": 2.3263736958342616,
+          "section_force_local_N_V1_V2": [
+            34.373141971598905,
+            148.04288272653815,
+            -411.9648467043389
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            1579.3638875408233,
+            26750.752996580508,
+            9744.875855093549
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 94.76673565538627,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-minus/root-near"
+        }
+      },
+      {
+        "case_id": "a12-left",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_angle_base_left",
+          "frozen_end_couple_action_local_nmm": [
+            -1377.9911863294665,
+            -22796.451697338838,
+            -9443.777743423423
+          ],
+          "frozen_end_force_action_local": [
+            -73.97943113385914,
+            -141.48481735631225,
+            352.3266746848585
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 81.09150135020263,
+          "nominal_torsion_shear_norm_bound_mpa": 2.5346853491233445,
+          "nominal_transverse_shear_norm_bound_mpa": 2.017698000871559,
+          "section_force_local_N_V1_V2": [
+            73.97943113385914,
+            141.48481735631225,
+            -352.3266746848585
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            1377.9911863294665,
+            22796.451697338838,
+            9443.777743423423
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 81.47394782214649,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-minus/root-near"
+        }
+      },
+      {
+        "case_id": "a12-rear",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_angle_base_left",
+          "frozen_end_couple_action_local_nmm": [
+            -1321.6309387903564,
+            -22921.3174799832,
+            -7226.31821256365
+          ],
+          "frozen_end_force_action_local": [
+            -32.457465738920796,
+            -109.44137904698609,
+            353.0757033511204
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 80.30194511011528,
+          "nominal_torsion_shear_norm_bound_mpa": 2.4310159678329826,
+          "nominal_transverse_shear_norm_bound_mpa": 1.9644206235895145,
+          "section_force_local_N_V1_V2": [
+            32.457465738920796,
+            109.44137904698609,
+            -353.0757033511204
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            1321.6309387903564,
+            22921.3174799832,
+            7226.31821256365
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 80.66202313948997,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-minus/root-near"
+        }
+      },
+      {
+        "case_id": "k12-right",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_angle_base_right",
+          "frozen_end_couple_action_local_nmm": [
+            1362.3311903065667,
+            -22548.576369697406,
+            9317.070275638489
+          ],
+          "frozen_end_force_action_local": [
+            -77.05731781647958,
+            139.3879514723766,
+            348.6050185566378
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 80.21202643260179,
+          "nominal_torsion_shear_norm_bound_mpa": 2.5058802574214853,
+          "nominal_transverse_shear_norm_bound_mpa": 1.9951942268131735,
+          "section_force_local_N_V1_V2": [
+            77.05731781647958,
+            -139.3879514723766,
+            -348.6050185566378
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            -1362.3311903065667,
+            22548.576369697406,
+            -9317.070275638489
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 80.59000061398618,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-plus/root-near"
+        }
+      },
+      {
+        "case_id": "k12-rear",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_angle_base_right",
+          "frozen_end_couple_action_local_nmm": [
+            1295.9706253202266,
+            -22559.209067239644,
+            6942.386564652084
+          ],
+          "frozen_end_force_action_local": [
+            -34.58417043936664,
+            104.97533049135399,
+            347.5721891928197
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 78.96150611964596,
+          "nominal_torsion_shear_norm_bound_mpa": 2.3838162315415636,
+          "nominal_transverse_shear_norm_bound_mpa": 1.9295085710284314,
+          "section_force_local_N_V1_V2": [
+            34.58417043936664,
+            -104.97533049135399,
+            -347.5721891928197
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            -1295.9706253202266,
+            22559.209067239644,
+            -6942.386564652084
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 79.31414603486746,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-plus/root-near"
+        }
+      },
+      {
+        "case_id": "a1-rear",
+        "section": {
+          "component_maxima_need_not_coincide": true,
+          "fitting_id": "eoere_clip_horizontal_bottom_left_1",
+          "frozen_end_couple_action_local_nmm": [
+            661.6702011389276,
+            -18695.160281451197,
+            -8887.01617458074
+          ],
+          "frozen_end_force_action_local": [
+            -13.529791939764523,
+            -137.1995124101965,
+            287.61223842399204
+          ],
+          "gross_section_scenario": "gross_rectangle",
+          "hole_openings_filled_by_gross_rectangle": true,
+          "nominal_normal_stress_envelope_mpa": 66.88164318761515,
+          "nominal_torsion_shear_norm_bound_mpa": 1.2170801826720459,
+          "nominal_transverse_shear_norm_bound_mpa": 1.6934562600316942,
+          "section_force_local_N_V1_V2": [
+            13.529791939764523,
+            137.1995124101965,
+            -287.61223842399204
+          ],
+          "section_moment_local_T_M1_M2_nmm": [
+            -661.6702011389276,
+            18695.160281451197,
+            8887.01617458074
+          ],
+          "segment_end": "root",
+          "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 67.07136395383941,
+          "station_from_ideal_strip_root_mm": 0.0,
+          "strip_element_id": "arm-x/far-plus/root-near"
+        }
+      }
+    ],
+    "signed_port_wrenches": 1152,
+    "strip_section_endpoints": 2304
+  },
+  "frame_or_native_solve_performed": false,
+  "geometry_changed": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "panel_screw_resistance_or_adhesive_qualified": false,
+  "primary_six_families_group_or_geometry_assessments_recomputed": false,
+  "producer": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/summarize_components_v1.py",
+    "sha256": "47a3c2e5b1c9dd3fb10be820399d165210755e25e9ee6e165e57fc320ebc9118"
+  },
+  "reproduction": [
+    "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/run_component_references_v1.py fitting",
+    "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/run_component_references_v1.py washer",
+    ".venv/bin/python -B fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/run_component_references_v1.py check-washer",
+    ".venv/bin/python -B fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/summarize_components_v1.py"
+  ],
+  "reproduction_requires_unused_output_paths_and_active_frozen_dependencies": true,
+  "revision": "v11-v9-eight-bolt-v4",
+  "schema": "v11_saved_load_component_references/v1",
+  "source_bindings": {
+    "fitting_gross_strip_report": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/fitting-gross-strip-reference-v1.json",
+      "sha256": "b50604a3a9761fe5752a939793c76380a9d95e068ea64b05c994ea04e8abe6a7"
+    },
+    "issued_kernel_caller": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/run_component_references_v1.py",
+      "sha256": "b80f27a0c761179793cb0ca55add814d677e8fd081794342d891f16b977f63e3"
+    },
+    "own_bank": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/response-bank.json",
+      "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+    },
+    "own_physical_geometry": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/geometry.json",
+      "sha256": "befcf54de15984fcf05c5ede053d622afb249c0c2279f291ae65f06763b542a7"
+    },
+    "own_physical_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json",
+      "sha256": "576159eb2dcd791cf1a983165728e173fa594015fd7ab39ed9d69c1cb591a330"
+    },
+    "washer_caller_binding": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/washer/v11-caller-binding.json",
+      "sha256": "468fa58d31c4a72da7bff51dde95b06fc01e521abd2bc5694dd45f710a68c704"
+    },
+    "washer_report": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/washer-fitting-load-references-v1/washer/current-washer-mean-review.json",
+      "sha256": "a24bf04a0f98053ffecc97b1bc7038ed637b0df41fe87dc089343d9f40485096"
+    }
+  },
+  "status": "BOUNDED_REFERENCES_COMPLETE_PHYSICAL_QUALIFICATION_UNRESOLVED",
+  "structural_acceptance": false,
+  "washer": {
+    "above_one_load_only_mean_rows": 0,
+    "basis": {
+      "CD_applied": false,
+      "Cb": 1,
+      "Cg_applied": false,
+      "declared_Fcperp_MPa": 4.30922330823,
+      "material": "conditional dry DF-L No.2 basis"
+    },
+    "end_census": {
+      "case_end_rows": 1344,
+      "ends": 224,
+      "excluded_plywood_or_steel_ends": 128,
+      "sawn_case_rows": 576,
+      "sawn_wood_ends": 96
+    },
+    "footprints": {
+      "exact_unchanged_reused": 28,
+      "gross_annulus_substitution": false,
+      "queried_current_cached_bodies": 11,
+      "queried_current_seats": 68
+    },
+    "load_only_mean_reference_maximum": {
+      "CD_applied": false,
+      "Cb": 1.0,
+      "Cg_applied": false,
+      "actual_contact_or_connection_accepted": false,
+      "axis_id": "eoere_bolt_002",
+      "body_force_already_in_saved_case": true,
+      "case_id": "a1-rear",
+      "conditional_mean_reference_index": 0.15121636485411682,
+      "declared_Fcperp_MPa": 4.30922330823,
+      "end": "nut",
+      "force_on_host_xyz_N": [
+        0.0,
+        184.53938545354532,
+        219.92547544798418
+      ],
+      "full_annulus_lower_mean_pressure_MPa": 0.6516250840151746,
+      "host": "base_rail_bottom_left",
+      "lateral_force_on_host_norm_N": 6.335905986825016e-08,
+      "load_to_grain_angle_deg": 90.0,
+      "mean_pressure_on_modeled_footprint_MPa": 0.651625084015172,
+      "pressure_peaks_or_uniform_pressure_solution": false,
+      "real_preload_N": null,
+      "saved_capture_compression_N": 287.09231883593486,
+      "seat_key": "eoere_bolt_002/nut",
+      "signed_force_into_host_N": 287.0923188676144
+    },
+    "physical_contact_peak_pressure_washer_spacer_strength_or_fit_qualified": false,
+    "preload_N": null,
+    "saved_capture_gravity_counted_once": true,
+    "sawn_Fcperp_not_assigned_to_plywood_or_steel": true,
+    "unsupported_footprint_rows": 0
+  }
+}
