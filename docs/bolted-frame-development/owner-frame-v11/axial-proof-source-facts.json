@@ -1,0 +1,62 @@
+{
+  "schema": "v11_axial_product_proof_reference_facts/v1",
+  "observed_date_UTC": "2026-10-26",
+  "conditional_specification_not_actual_property_adoption": true,
+  "bolt_proof_stress_psi": {"SAE J429 Grade 5": 85000, "ASTM A574": 140000},
+  "nut_proof_stress_psi": {"SAE J995 Grade 5": 120000, "SAE J995 Grade 8": 150000},
+  "tensile_stress_area_in2": {"3/8-16": 0.0775, "1/2-13": 0.1419},
+  "size_scope": "Grade 5 bolts: nominal 3/8 or 1/2 inch, within the quarter-through-one-inch band. A574: nominal 3/8 inch, within the at-most-half-inch full-size band. Standard hex UNC J995 nuts only; no jam/slotted/heavy-nut substitution.",
+  "primary_sources": [
+    {
+      "id": "retained_Grade5_proof_facts",
+      "url": "https://www.portlandbolt.com/technical/specifications/sae-j429/",
+      "authority": "Portland Bolt manufacturer technical table",
+      "locator": "J429 full-size Grade 5, quarter through one inch",
+      "fact": "85 ksi proof stress is distinct from 92 ksi tensile yield and 120 ksi tensile strength.",
+      "existing_local_transcription": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-grade5-axial-proof-facts-v1.json",
+      "local_sha256": "83e588c694cf00df41ef758a39cbe431083a248bfaa45c9346470d6dfc90ec1f"
+    },
+    {
+      "id": "retained_A574_proof_facts",
+      "url": "https://www.badensteel.com/astm-a574",
+      "authority": "Baden Steelbar and Bolt manufacturer technical table",
+      "locator": "Mechanical properties, full-size screws, diameter at most 0.500 inch",
+      "fact": "Full-size proof stress is 140 ksi. Machined-specimen yield is a separate property.",
+      "existing_local_transcription": "docs/bolted-frame-development/paired-frame-v2/A574-hardware-basis.json",
+      "local_sha256": "40ad05ef11f50154953e3764c619e3f8e955d6ba85e51e30c29c146a12713bd2"
+    },
+    {
+      "id": "J995_authored_property_and_test_scope",
+      "url": "https://jl-fasteners.com/pic/3/SAE_J995-1999.pdf",
+      "authority": "SAE-authored J995 Revised JUL1999; fastener supplier hosts the primary document",
+      "locator": "5.1/Table 2 and footnote 1; Table 3; 6.1 and Figure 1",
+      "fact": "Standard hex UNC proof stresses are 120 ksi for Grade 5 and 150 ksi for Grade 8. Load equals stress times thread tensile area. The axial nut proof test addresses stripping/rupture and post-load removability on its prescribed test bolt or mandrel.",
+      "scope": "Explicit historical proof envelope; no claim that the complete 1999 and 2017 editions are equivalent. The required conditional purchase specification must meet this stated proof envelope. No complete manual is copied."
+    },
+    {
+      "id": "manufacturer_J995_corroboration",
+      "url": "https://www.portlandbolt.com/technical/specifications/sae-j995/",
+      "authority": "Portland Bolt manufacturer technical table",
+      "locator": "Standard hex UNC Grade 5 and Grade 8 proof table and stress-area calculation note",
+      "fact": "The manufacturer table independently records the same 120/150 ksi standard-hex UNC proof envelopes."
+    },
+    {
+      "id": "F606_21_method_scope",
+      "url": "https://store.astm.org/f0606_f0606m-21.html",
+      "authority": "ASTM International publisher",
+      "locator": "Abstract; 1.2; 1.3 procedure table",
+      "fact": "F606/F606M-21 provides proof-load length measurement, full-size axial/wedge tension and nut-proof procedures. Product standards supply properties and applicable tests. Public scope does not authenticate complete test details or delivered performance."
+    },
+    {
+      "id": "A574_product_scope",
+      "url": "https://store.astm.org/a0574-17.html",
+      "authority": "ASTM International publisher",
+      "locator": "Abstract and 1.1",
+      "fact": "A574 socket-head cap screw requirements include proof and tensile/wedge testing. No material-test result for an actual bolt is inferred."
+    }
+  ],
+  "comparison_scope": "Load-only N divided by conditional product proof load. Full standard thread engagement and aligned standard head/nut seating are explicit use conditions. This is not an automatic ASD allowable, combined-wrench resistance, physical conformity, preload allowance or proof-test instruction.",
+  "actual_bolt_or_nut_properties": null,
+  "Fyb_derived_from_proof_stress": false,
+  "material_yield_substituted_for_proof_stress": false
+}

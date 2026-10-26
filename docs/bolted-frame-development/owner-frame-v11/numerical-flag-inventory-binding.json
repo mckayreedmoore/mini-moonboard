@@ -1,0 +1,196 @@
+{
+  "accepted_connection_exceedance_count": null,
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "climbing_released": false,
+  "command": "uv run python fea/generated/v11-v9-eight-bolt-v1/connections/build_numerical_flag_inventory_v1.py",
+  "complete_joint_qualified": false,
+  "conditional_N_only_product_proof_reference": {
+    "axis_case_rows": 672,
+    "bolt_and_nut_comparisons": 1344,
+    "front_axes_with_required_window_but_no_catalog_tolerance_guarantee": 4,
+    "maximum_bolt_raw_proof_ratio": 0.014093593731496188,
+    "maximum_nut_raw_proof_ratio": 0.009958428158392268,
+    "proof_ratio_is_a_code_allowable_or_combined_capacity": false,
+    "source": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/axial-proof-component.json",
+      "sha256": "95da08f7598ff3f964a5565b8e233f1eb9c21451ce78bdfdc64f6480f3799314"
+    },
+    "source_bounded_nominal_window_axes": 108,
+    "source_facts": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/axial-proof-source-facts.json",
+      "sha256": "64cdfc9f0d2c1f6346d6a8ff5f5d5c69995cc909cd4b341e202d17bfb45dd8ab"
+    }
+  },
+  "fabrication_released": false,
+  "families": {
+    "Grade5_F60692_raw_port_bound": {
+      "count": 21,
+      "maximum": 2.2080838963062854,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/grade5-row-comparison.json",
+        "sha256": "a61f5592607b972b734b753b53971cb845a174c3b28cf1008232a5f3d1072f88"
+      },
+      "source_array_pointer": "/explicit92_inconclusive_flags",
+      "source_index_key": "conditional_index_upper",
+      "status": "inconclusive_upper_bound"
+    },
+    "generic45_lateral": {
+      "count": 4,
+      "maximum": 1.189314587548981,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json",
+        "sha256": "c19c4a4e7c195dcc7e294090bb0307dd24c87d41adad6ead09eae4a1c0108dcc"
+      },
+      "source_array_pointer": "/conditional_case_direction_force_only_exceedances",
+      "source_index_key": "demand_over_Z",
+      "status": "conditional_scenario_reference_exceeded"
+    },
+    "generic45_raw_port_bound": {
+      "count": 21,
+      "maximum": 2.665863124575772,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/grade5-row-comparison.json",
+        "sha256": "a61f5592607b972b734b753b53971cb845a174c3b28cf1008232a5f3d1072f88"
+      },
+      "source_array_pointer": "/preserved_generic45_inconclusive_flags",
+      "source_index_key": "conditional_index_upper",
+      "status": "inconclusive_upper_bound"
+    },
+    "individual_Cg_equation_floor": {
+      "count": 8,
+      "maximum": 1.1383756486745187,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/individual-cg-floor-comparison.json",
+        "sha256": "d7aca736f40b4a36ee732cd0a47c4bce70d03832498b10e2c79b4f8860c41e57"
+      },
+      "source_array_pointer": "/above_one_axis_case_rows",
+      "source_index_key": "nmax_P_over_Z",
+      "status": "inconclusive_upper_reference"
+    },
+    "legacy_group_reduced_NM": {
+      "count": 19,
+      "maximum": 1.5529222140362693,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/reference-review.json",
+        "sha256": "8551209039282dff8f3fdd2329b2d3d4396972ed1b74a19e0e5287fbb74c53aa"
+      },
+      "source_array_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending",
+      "source_index_key": "index",
+      "status": "provisional_diagnostic"
+    },
+    "legacy_local_wood_pressure": {
+      "count": 32,
+      "maximum": 1.8331589732777946,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/reference-review.json",
+        "sha256": "8551209039282dff8f3fdd2329b2d3d4396972ed1b74a19e0e5287fbb74c53aa"
+      },
+      "source_array_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine",
+      "source_index_key": "index",
+      "status": "provisional_diagnostic"
+    },
+    "standard_Cg_Fe90_net_floor": {
+      "count": 5,
+      "maximum": 1.2563600548088276,
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/standard-cg-comparison.json",
+        "sha256": "f04eeb1c3b4cb166f92befc77f1c7515d2e8b5800f0a289cb9d13702de404801"
+      },
+      "source_array_pointer": "/above_one_case_rows/aggregate_direction_independent_floor_index",
+      "source_index_key": "aggregate_direction_independent_floor_index",
+      "status": "conditional_direction_independent_screen"
+    }
+  },
+  "family_counts": {
+    "Grade5_F60692_raw_port_bound": 21,
+    "generic45_lateral": 4,
+    "generic45_raw_port_bound": 21,
+    "individual_Cg_equation_floor": 8,
+    "legacy_group_reduced_NM": 19,
+    "legacy_local_wood_pressure": 32,
+    "standard_Cg_Fe90_net_floor": 5
+  },
+  "geometry_or_forces_changed": false,
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json",
+    "sha256": "576159eb2dcd791cf1a983165728e173fa594015fd7ab39ed9d69c1cb591a330"
+  },
+  "inventory": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/numerical-flag-inventory.csv",
+    "sha256": "99730af8268de9ce4fd34275948f0170b755a8e6734f60757dd4bc34d0168ccc"
+  },
+  "legacy_pressure_rows_with_trial_Cg_1": 7,
+  "limits": [
+    "The110 rows must not be summed into a structural failure count or deduplicated across distinct criteria.",
+    "Seven retained local-pressure flags have Cg=1; replacing signature penalties alone does not remove those flags. Their local pressure reference is distinct from complete EYM capacity.",
+    "Current conditional92 EYM/standard-Cg results do not erase generic45, local-pressure, legacyNM or conservative bound references.",
+    "Geometry markers, unknown whole-joint/mixed/axial/fitting capacities and deferred panel screws are not fabricated as indexed CSV failures; their separate applicability records remain controlling."
+  ],
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "physical_geometry": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/geometry.json",
+    "sha256": "befcf54de15984fcf05c5ede053d622afb249c0c2279f291ae65f06763b542a7"
+  },
+  "projection_producer": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/build_numerical_flag_inventory_v1.py",
+    "sha256": "1cf7321d4d35dcf78ddd77801faaee0f34a8778bcd18550253e3c8d4139f376b"
+  },
+  "python_version": "3.12.3",
+  "reported_reference_flags": 110,
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/response-bank.json",
+    "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+  },
+  "revision": "v11-v9-eight-bolt-v4",
+  "schema": "v11_reported_numerical_flag_inventory/v1",
+  "scope": "Every reported above-one case row in the seven named current-geometry diagnostic/scenario tables. Different criteria/property scenarios are retained separately; this is not a count of physical failures or every underlying receiver row.",
+  "source_bindings": {
+    "axial-proof-component.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/axial-proof-component.json",
+      "sha256": "95da08f7598ff3f964a5565b8e233f1eb9c21451ce78bdfdc64f6480f3799314"
+    },
+    "axial-proof-source-facts.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/axial-proof-source-facts.json",
+      "sha256": "64cdfc9f0d2c1f6346d6a8ff5f5d5c69995cc909cd4b341e202d17bfb45dd8ab"
+    },
+    "connection-capacity-followthrough.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json",
+      "sha256": "c19c4a4e7c195dcc7e294090bb0307dd24c87d41adad6ead09eae4a1c0108dcc"
+    },
+    "grade5-property-comparison.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json",
+      "sha256": "06e30473a693f1701f65889507590d16d872950137991d5c267d75ba8825d581"
+    },
+    "grade5-row-comparison.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/grade5-row-comparison.json",
+      "sha256": "a61f5592607b972b734b753b53971cb845a174c3b28cf1008232a5f3d1072f88"
+    },
+    "individual-cg-floor-comparison.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/individual-cg-floor-comparison.json",
+      "sha256": "d7aca736f40b4a36ee732cd0a47c4bce70d03832498b10e2c79b4f8860c41e57"
+    },
+    "reference-review.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/reference-review.json",
+      "sha256": "8551209039282dff8f3fdd2329b2d3d4396972ed1b74a19e0e5287fbb74c53aa"
+    },
+    "standard-cg-comparison.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/standard-cg-comparison.json",
+      "sha256": "f04eeb1c3b4cb166f92befc77f1c7515d2e8b5800f0a289cb9d13702de404801"
+    }
+  },
+  "structural_acceptance": false,
+  "zero_flag_families": {
+    "conditional_Grade5_F60692_single_fastener_lateral": 0,
+    "conditional_N_only_product_proof_reference": 0,
+    "reference_timber_shear_normal_stability_cleat_and_elastic_steel": 0,
+    "standard_Cg_fixed_hypothesis_directional_aggregate": 0,
+    "standard_Cg_fixed_hypothesis_individual_over_Cg": 0
+  }
+}
