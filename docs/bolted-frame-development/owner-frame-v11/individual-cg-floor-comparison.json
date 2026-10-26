@@ -1,0 +1,163 @@
+{
+  "above_one_axis_case_rows": [
+    {
+      "axis_id": "v11_top_left_beam_1",
+      "case_id": "a12-left",
+      "demand_lbf": 82.62274798124629,
+      "directional_P_over_Z": 0.2730101944670184,
+      "directional_Z_lbf": 302.63612735248137,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0920407778680736
+    },
+    {
+      "axis_id": "v11_top_left_beam_2",
+      "case_id": "a12-left",
+      "demand_lbf": 82.76437700493729,
+      "directional_P_over_Z": 0.2732861973635942,
+      "directional_Z_lbf": 302.8487270977072,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0931447894543769
+    },
+    {
+      "axis_id": "v11_top_left_beam_1",
+      "case_id": "a12-rear",
+      "demand_lbf": 86.0677193272863,
+      "directional_P_over_Z": 0.28401982799073927,
+      "directional_Z_lbf": 303.034192845482,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.136079311962957
+    },
+    {
+      "axis_id": "v11_top_left_beam_2",
+      "case_id": "a12-rear",
+      "demand_lbf": 86.34821154944375,
+      "directional_P_over_Z": 0.28459391216862967,
+      "directional_Z_lbf": 303.40849841608724,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.1383756486745187
+    },
+    {
+      "axis_id": "v11_top_right_beam_1",
+      "case_id": "k12-right",
+      "demand_lbf": 76.95171287565951,
+      "directional_P_over_Z": 0.2542950302631014,
+      "directional_Z_lbf": 302.608009271919,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0171801210524056
+    },
+    {
+      "axis_id": "v11_top_right_beam_2",
+      "case_id": "k12-right",
+      "demand_lbf": 76.43503490106768,
+      "directional_P_over_Z": 0.2531737301631108,
+      "directional_Z_lbf": 301.9074485011668,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0126949206524432
+    },
+    {
+      "axis_id": "v11_top_right_beam_1",
+      "case_id": "k12-rear",
+      "demand_lbf": 82.74257794288958,
+      "directional_P_over_Z": 0.27284230864331693,
+      "directional_Z_lbf": 303.2615372385587,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0913692345732677
+    },
+    {
+      "axis_id": "v11_top_right_beam_2",
+      "case_id": "k12-rear",
+      "demand_lbf": 82.13747097727776,
+      "directional_P_over_Z": 0.27153866339520244,
+      "directional_Z_lbf": 302.48904502315145,
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.0861546535808098
+    }
+  ],
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "answer_to_all_below_one": false,
+  "complete_joint_capacity": null,
+  "counts": {
+    "axis_case_references": 286,
+    "axis_case_upper_references_above_one": 8,
+    "interface_case_scopes": 119,
+    "interface_case_scopes_with_upper_reference_above_one": 4
+  },
+  "full_arithmetic_record": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/individual-EYM-Cg-equation-lower-bound-v1.json",
+    "sha256": "674998b7e1b8ebfa796d7047b5f30170bb08e5f628d6fe14a5fa9dd60677f463"
+  },
+  "interpretation": "The requested blanket conclusion is false: eight upper-reference rows exceed one. A bound above one is inconclusive and is not a failure of the retained directional EYM or fixed-EA Cg comparisons. For below-one rows, unknown numerical Cg alone cannot break this particular conditional individual reference within the stated equation domain.",
+  "limits": [
+    "No actual row/group/oblique/member-area applicability is established. Nonparallel force fields, independent couples, Cdelta, geometry, material conformance and complete joints retain their earlier disposition.",
+    "No actual Cg=1/n is selected. This is an explicit upper reference using a proved equation lower bound, not a normative individual-force penalty or universal physical-joint bound.",
+    "No raw-port absolute-force or Fe90 bound is recomputed. All119 original row-application dispositions and the earlier21 bounds remain unchanged."
+  ],
+  "maximum": {
+    "axis_id": "v11_top_left_beam_2",
+    "case_id": "a12-rear",
+    "demand_lbf": 86.34821154944375,
+    "directional_P_over_Z": 0.28459391216862967,
+    "directional_Z_lbf": 303.40849841608724,
+    "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+    "maximum_row_fastener_count": 4,
+    "nmax_P_over_Z": 1.1383756486745187
+  },
+  "method": "Within the qualified positive-EA uniform-row Eq11.3-1 domain, n_actual*Cg>=1 and n_actual<=nmax imply Pi/(Cg*Zi)<=nmax*Pi/Zi. Use the complete saved two-media interface count2or4 as nmax; no force is allocated equally.",
+  "new_forces_or_geometry": false,
+  "producer": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/record_individual_Cg_lower_bound_v1.py",
+    "sha256": "e83379d4f74ad36e9433b80c4b5a94d2d02f6f0bc9da2e61448929f4eed158b7"
+  },
+  "publication_method": "Preserve the eight exact above-one rows, maxima, counts and method limits; retain the 119 per-scope references in the pinned full arithmetic record.",
+  "response_bank": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/response-bank.json",
+    "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+  },
+  "schema": "v11_individual_EYM_Cg_floor_summary/v1",
+  "source_bindings": {
+    "directional_EYM": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/Grade5-F606-92ksi-v1/force-only-Grade5-F606-92ksi-v1.json",
+      "sha256": "bfe2b99b6b3668726758145cde4a3987cdfd93c06761ee61e6f3d0f403c331b6"
+    },
+    "physical_interface_inventory_and_existing_proof": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/Grade5-F606-92ksi-rows-v1/physical-row-capacity-Grade5-F606-92ksi-v1.json",
+      "sha256": "4beb6abbbc29327865be0ff78ca706d819d021e79d070a55834ac5ed34f6454b"
+    },
+    "preserved_method_disposition": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/numerical-method-completion-disposition-v1.json",
+      "sha256": "e16cb2e4734d57a0c3b43aa057d3d7752962d72883c5168dcb4c7aec8ad83d6e"
+    }
+  },
+  "structural_acceptance": false,
+  "subset_maxima": {
+    "2": {
+      "axis_id": "eoere_bolt_029",
+      "case_id": "a1-rear",
+      "demand_lbf": 35.04996984886723,
+      "directional_P_over_Z": 0.15534462895239967,
+      "directional_Z_lbf": 225.62717543074604,
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+      "maximum_row_fastener_count": 2,
+      "nmax_P_over_Z": 0.31068925790479934
+    },
+    "4": {
+      "axis_id": "v11_top_left_beam_2",
+      "case_id": "a12-rear",
+      "demand_lbf": 86.34821154944375,
+      "directional_P_over_Z": 0.28459391216862967,
+      "directional_Z_lbf": 303.40849841608724,
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "maximum_row_fastener_count": 4,
+      "nmax_P_over_Z": 1.1383756486745187
+    }
+  }
+}

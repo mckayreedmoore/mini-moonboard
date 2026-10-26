@@ -6,7 +6,7 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[V9 cleats, 4×6 top and eight-bolt outer corners · desktop local viewer](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)**
+**[V9 cleats, 4×6 top and eight-bolt outer corners · public viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)**
 
 The current geometry is **`v11-v9-eight-bolt-v4`**. It restores V9's straight-sided cleats with two glued nominal ¾-inch plywood leaves per side. Each cleat has eight bolts, four into the sloping side and four into the upright. The two outer top corners have eight bolts each; the two center top connections retain four. Top and side stock is standard nominal 4×6, actual 88.9 × 139.7 mm, with no wood packers.
 

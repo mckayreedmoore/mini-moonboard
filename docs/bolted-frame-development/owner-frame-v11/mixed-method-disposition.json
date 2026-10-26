@@ -1,0 +1,90 @@
+{
+  "schema": "v11_asymmetric_three_member_method_disposition/v1",
+  "scope": "V11 current mixed three-member bolt stacks; 24 axes, 144 admitted axis/case states.",
+  "decision": {
+    "whole_mixed_joint_subcheck_available_from_reused_methods": false,
+    "reason": "The admitted forces are available at both actual shear planes, but the reused source-bound methods have no applicable whole-fastener interaction for these asymmetric three-member stacks. The available single-shear references are plane components and cannot be summed or treated as a joint result.",
+    "complete_joint_capacity": null,
+    "structural_acceptance": false
+  },
+  "topology_dispositions": {
+    "steel_wood_steel": {
+      "axis_count": 8,
+      "state_count": 48,
+      "symmetric_double_shear_states": 0,
+      "outer_side_action_magnitude_equal_states_within_1e_9_relative": 0,
+      "relative_side_magnitude_difference_over_max_min": 0.10890462086906408,
+      "relative_side_magnitude_difference_over_max_max": 1.0,
+      "side_action_magnitude_check": "For each saved side pair, compare abs(left_lateral_force_N - right_lateral_force_N) against 1e-9 * max(left_lateral_force_N, right_lateral_force_N, 1 N); all 48 exceed the tolerance.",
+      "relative_side_vector_difference_over_max_min": 0.7320508067607154,
+      "relative_side_vector_difference_over_max_max": 1.8757082572581518,
+      "method_disposition": "NDS symmetric double shear does not apply to the 48 unequal side-action states. The existing kernel requires the symmetric double-shear inputs; NDS 12.3.5.4's shorter-side rule handles side bearing length, not unequal side actions."
+    },
+    "plywood_wood_steel": {
+      "axis_count": 16,
+      "state_count": 96,
+      "symmetric_double_shear_states": 0,
+      "method_disposition": "The two outer members are an analytical paired-plywood cleat and a steel angle, so identical outer side members required by the symmetric double-shear route are absent. The current per-plane plywood/sawn and sawn/steel values remain separate component references."
+    }
+  },
+  "full_wrench_scope": {
+    "saved_six_component_plane_cuts": 288,
+    "maximum_abs_axial_N": 411.79359688153124,
+    "maximum_lateral_shear_N": 431.29945062590747,
+    "maximum_internal_bending_Nmm": 6751.412366422442,
+    "maximum_torsion_Nmm": 0.0,
+    "end_capture_action_records": 288,
+    "end_capture_records_with_nonzero_explicit_moment": 0,
+    "shaft_body_applied_explicit_moment_rows": 0,
+    "interpretation": "The EYM lateral-yield equations include their modeled dowel-bearing and fastener-bending modes. The source records no separate explicit applied shaft/end-capture moment vectors. Actual signed section N/M/V is retained in the plane report; it is not discarded, double-counted as an independent couple, or combined with lateral Z absent a supported interaction rule. EYM lateral Z also does not qualify the recorded axial end-capture force or an N/V interaction."
+  },
+  "precise_missing_method": [
+    "A source-supported asymmetric three-member fastener yield interaction that maps the simultaneous two plane force vectors, each side's actual material/geometry, and shared dowel bending into one joint capacity. Separate two-member plane Z references do not supply this interaction.",
+    "A source-supported interaction for lateral EYM with the nonzero axial end-capture force. No axial capacity or N/V interaction is calculated by this disposition.",
+    "No independent applied couple is identified in the current capture/body-load records. Internal section moments remain reported; no additional free-couple capacity check is asserted."
+  ],
+  "reusable_component_result": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/mixed-media-plane-reference-v1/current-plane-references-v1.json",
+    "sha256": "639d26c93c95913d05b9a4b0f647ffc97b8ad93657e7c7a7d2886443327c31c8",
+    "steel_wood_max_plane_lateral_demand_over_Z": 0.24327762351357893,
+    "plywood_sawn_max_plane_lateral_demand_over_Z": 0.4553824157450979,
+    "ratios_above_1": 0,
+    "qualification": "Conditional two-member plane references only; not additive across planes and not whole-joint demand bounds or pass results."
+  },
+  "source_bindings": {
+    "current_admitted_response_bank": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/response-bank.json",
+      "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+    },
+    "current_two_member_plane_references": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/mixed-media-plane-reference-v1/current-plane-references-v1.json",
+      "sha256": "639d26c93c95913d05b9a4b0f647ffc97b8ad93657e7c7a7d2886443327c31c8"
+    },
+    "NDS_2024_multi_member_kernel": {
+      "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+      "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89",
+      "relevant_scope": "Three-member branch is the symmetric double-shear method; code requires same side properties and equal opposing side actions. Four-or-more-member branch does not apply to these three-member stacks."
+    },
+    "NDS_2024_Chapter_12": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+      "relevant_clauses": ["12.3.1", "12.3.5.4", "12.3.8"]
+    },
+    "AWC_TR12": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/awc-TR12-2015.pdf",
+      "sha256": "95abb7d382aadf6984121f8731a5b91c2b633516e7f134991ad0a34a1b916be2",
+      "relevant_scope": "Existing single-shear equations and symmetric double-shear derivation do not establish the missing unequal-side three-member interaction."
+    },
+    "wood_steel_double_shear_helper": {
+      "path": "mini_moonboard/bolted_steel_wood_double_shear.py",
+      "sha256": "f99c71ed61e3bb19f54fb7abdb3bea8d32300e826e04e3cdf90892d1f4690ef2"
+    },
+    "wood_wood_double_shear_helper": {
+      "path": "mini_moonboard/bolted_wood_wood_double_shear.py",
+      "sha256": "46a7be4202f32bdcb4631c6137574204f64aa44365b582ebe2369319052afcbd"
+    }
+  },
+  "physical_failure_claim": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}
