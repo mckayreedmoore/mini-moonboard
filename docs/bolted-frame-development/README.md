@@ -10,9 +10,13 @@ Nominal occupied clearance passes: **1,109 parts, 112 bolts/nuts, 224 washers, 2
 
 **Six fresh cases and all twelve independent replays are admitted**, maximum gradient 8.019647e-6 against the unchanged 1e-5 gate. [Own bank](owner-frame-v11/response-bank.json) · [conditional component review](owner-frame-v11/reference-review.json). Vector maxima: left/right sides **0.965029 / 0.926023**, top **0.618484**, header **0.552830**. Credited 36.5 mm cleat perimeter **0.438591**, timber normal/stability **0.778397**, separate elastic steel **0.698384**. Geometry, hardware and the load contract remain fixed; no historical forces or capacities transfer.
 
-The [physical-row calculations](owner-frame-v11/connection-capacity-followthrough.json) cover 88 two-media axes / 528 case states. The generic G=0.50 / Fyb=45 ksi scenario retains **four force-only exceedances across the two single upper rear-leg bolts**, maximum **1.189315**. The [existing conditional Grade 5/F606 specification comparison](owner-frame-v11/grade5-property-comparison.json) recalculates all six modes on the same fields: **zero force-only exceedances, maximum 0.842003**. It uses 92 ksi only for the 84 eligible Grade 5 axes; four A574 axes retain their former scenario. Actual property adoption/conformity is not inferred. All **21 conservative generic-property partition flags** remain inconclusive and were not recalculated at 92 ksi; 24 mixed axes / 144 case states lack complete capacity mapping. The legacy **32 bearing rows / 14 bolts** and **19 group-reduced N/M rows / 11 bolts** remain recorded; their signature penalties are not adopted Cg values or independent steel acceptance.
+The [physical-row calculations](owner-frame-v11/connection-capacity-followthrough.json) cover 88 two-media axes / 528 case states. The generic G=0.50 / Fyb=45 ksi scenario retains **four force-only exceedances across the two single upper rear-leg bolts**, maximum **1.189315**. The [existing conditional Grade 5/F606 specification comparison](owner-frame-v11/grade5-property-comparison.json) recalculates all six modes on the same fields: **zero force-only exceedances, maximum 0.842003**. It uses 92 ksi only for the 84 eligible Grade 5 axes; four A574 axes retain their former scenario. Actual property adoption/conformity is not inferred. The [fresh 92 ksi row comparison](owner-frame-v11/grade5-row-comparison.json) retains **21 inconclusive bounds across ten interfaces**, maximum **2.208084**, with 231 of 252 bounded case scopes below one; the earlier generic-property 2.665863 maximum remains history. All 24 mixed axes / 144 case states still need complete capacity mapping. The legacy **32 bearing rows / 14 bolts** and **19 group-reduced N/M rows / 11 bolts** remain recorded; their signature penalties are not adopted Cg values or independent steel acceptance.
 
-The [fresh signed geometry audit](owner-frame-v11/geometry-applicability.json) retains short end/edge/row markers and all couples. Current 068/069 resultants point away from the near 33.704 mm edge in every case; optional both-edge 4D is not an established violation. Full oblique/eccentric/splitting, fitting, hardware and physical qualifications remain open. [Washer/fitting references](owner-frame-v11/component-reference-summary.json): load-only washer mean index **0.151216**; ideal gross-strip required-Fy reference **94.766736 MPa**, with actual fitting Fy unassigned. The viewer remains a geometry-only stage. Panel-screw resistance stays owner-deferred and the review loop suspended. No purchase, cut/drill, fabrication, climbing or structural release.
+The [fresh signed geometry audit](owner-frame-v11/geometry-applicability.json) retains short end/edge/row markers and all couples. Current 068/069 resultants point away from the near 33.704 mm edge in every case; optional both-edge 4D is not an established violation. Full oblique/eccentric/splitting, fitting, hardware and physical qualifications remain open. [Washer/fitting references](owner-frame-v11/component-reference-summary.json): load-only washer mean index **0.151216**; ideal gross-strip required-Fy reference **94.766736 MPa**, with actual fitting Fy unassigned. The local viewer adds fixed-load current results over the frozen geometry; public deployment is tracked separately. Panel-screw resistance stays owner-deferred and the review loop suspended. No purchase, cut/drill, fabrication, climbing or structural release.
+
+The [standard NDS group-equation comparison](owner-frame-v11/standard-cg-comparison.json) uses prescribed gross member areas and slip moduli; it does not require calibrating FE slip merely to use the standard equation. Across explicit fixed row/area hypotheses, aggregate and individual-force/Cg comparisons peak at **0.842003**, with zero exceedances. The separate direction-independent net-lateral floor reaches **1.256360 in five rows**; the older raw-port bounds above remain preserved. Actual oblique row applicability and a continuous-angle envelope are not established. The [criterion follow-through](owner-frame-v11/criterion-followthrough.json) separates 288 mixed-media plane references (maxima **0.243278 steel/sawn**, **0.455382 plywood/sawn**) from complete three-member joint capacity; none of those plane references exceeds one. End/edge/row classifications, splitting, formed-angle strength and axial transfer remain separate unfinished criteria. No cleat or frame geometry changed.
+
+The [owner material decisions](owner-frame-v11/owner-material-purchase-decisions.json) retain kiln-dried Douglas fir No. 2 and the saved Roseburg face-panel purchase. The owner confirms having Eoere ZX128-B-T4 angles; nuts and bolts have **not been purchased**. The current glued ¾-inch cleats remain selected. Continue calculations on these stated requirements without another timber-measurement questionnaire; actual delivered properties and installation remain unobserved.
 
 ## Preserved evaluated V10 geometry and evidence
 
@@ -53,7 +57,6 @@ V11 currently has a checked geometry preview, not a current shop packet. The tab
 | Provenance and preservation | [Revision index](development-revisions.json) · [portable source mapping](../../site/eoere-v10-candidate13-provenance.json) · [frozen delivery manifest](owner-frame-v10/candidate13/delivery-bundle-13.json) |
 
 The [frozen builder plan](owner-frame-v10/candidate13/packet-13-complete/builder-plan.md) is a conditional planning packet. Buying structural stock/hardware, cutting, drilling, structural assembly and climbing remain on hold. Actual/Disposition cells remain blank. Availability and non-structural layout do not clear those holds.
-
 ## Preserved Candidate 13 changes
 
 The top rail is actual **50.8 × 139.7 mm**, with its upper face retained.
@@ -75,7 +78,6 @@ These actual dimensions need appropriate larger solid stock. Earlier nominal
 4×6 stock cannot yield the side depth, and nominal 2×6 stock cannot yield the
 top thickness. The optional 9.525 mm center-principal back-depth envelope and
 alternative top-grid patterns in the paper audit have not been modeled or adopted.
-
 ## Preserved Candidate 13 six-case results at 250 lb
 
 The retained recipe is **250 lb × 2.0 downward**, 300 N horizontal action,
@@ -109,7 +111,6 @@ Computed timber-node movement reaches **25.233992 mm / 2.220044 degrees**;
 these are model diagnostics, not measured displacement or an adopted movement limit.
 Screw withdrawal reaches **1,573.098 N with 573.319 N simultaneous lateral action**;
 no Hillman resistance or force-slip index is qualified.
-
 ## Engineering work and source boundaries
 
 The [continuation](owner-frame-v10/continuation-evaluation.json) preserves C13 work.
@@ -130,7 +131,6 @@ The current washer mean-pressure index is 0.181365. The top-grid perpendicular e
 The [cleat input interpretation](owner-frame-v10/standard-side-stock/cleat-input-interpretation.json) proves stale labels did not affect solved geometry, mass or half-inch stiffness. Verify product body/root/grip/washer/spacer assumptions, actual plywood/bond, the 66 screw connections, and finite-motion/contact/support applicability. Numerical convergence alone cannot close those checks. No floor test or blanket new external sign-off prerequisite is introduced.
 
 The 57 imported artifact roots retain their original bytes or decoded hashes; six large JSON files use lossless gzip. The unique compressed scene is about 1.19 MB and shares the unchanged V9 mesh chain. Raw case/operator banks and CAD remain in the retained isolated source package; portable checks do not claim they were copied or re-solved. Historical stage/status fields remain frozen; the current revision index and additive provenance map identify this integration.
-
 <a id="current-96-bolt-results-at-250-lb"></a>
 ## Preserved V9 and earlier results
 

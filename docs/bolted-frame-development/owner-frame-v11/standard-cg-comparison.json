@@ -1,0 +1,1743 @@
+{
+  "above_one_case_rows": {
+    "aggregate_direction_independent_floor_index": [
+      {
+        "aggregate_direction_independent_floor_index": 1.038645064734379,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      {
+        "aggregate_direction_independent_floor_index": 1.1738970101393702,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      {
+        "aggregate_direction_independent_floor_index": 1.2563600548088276,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      {
+        "aggregate_direction_independent_floor_index": 1.157375769859547,
+        "axis_ids": [
+          "lumber_leg_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_side_right+wood:lumber_leg_right"
+      },
+      {
+        "aggregate_direction_independent_floor_index": 1.2419417295405555,
+        "axis_ids": [
+          "lumber_leg_bolt_right_1"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:wood:base_side_right+wood:lumber_leg_right"
+      }
+    ],
+    "aggregate_directional_index": [],
+    "resolved_individual_extra_conservative_index": []
+  },
+  "above_one_counts": {
+    "aggregate_direction_independent_floor_index": 5,
+    "aggregate_directional_index": 0,
+    "resolved_individual_extra_conservative_index": 0
+  },
+  "counts": {
+    "distinct_row_blocks": 166,
+    "fixed_equation_evaluations": 546,
+    "interface_case_rows": 252,
+    "interfaces_with_numerical_hypotheses": 42,
+    "interfaces_with_unresolved_EA_boundary": 0,
+    "mixed_axes_excluded": 24,
+    "partition_case_evaluations": 792,
+    "physical_interfaces": 42,
+    "two_media_axes": 88,
+    "two_media_axis_cases": 528
+  },
+  "evidence": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/standard-Cg-net-lateral-v2/standard-Cg-net-lateral-v1.json",
+    "sha256": "8f696bcd9b07f697a46eea9d7fa65b41212dd8fbf643dc143116a6b13f6b59fe"
+  },
+  "limits": [
+    "Factors are actual Eq11.3-1 evaluations of stated fixed hypotheses, not actual selected Cg. Minimum over this finite hypothesis list is not a proven continuous interval bound or an oblique-area rule.",
+    "Bell blocks and pair-distance pitches are intentionally over-inclusive counterfactual uniform-row hypotheses. Actual straight/uniform/stagger row assignment, force alignment, and common-mode fitting load-path ownership remain unqualified.",
+    "Parallel gross and perpendicular equivalent-area hypotheses are separate cardinal branches. The 3D/4D single-row width choices reference Table12.5.1B minimum/unreduced parallel spacing; no actual Cdelta or oblique interpolation is adopted.",
+    "The multi-row equivalent-area hypothesis uses the measured overall grainwise center span. Its boundary and applicability are conditional; a zero span is excluded rather than assigned zero EA.",
+    "One full physical gross flat flange is counted for each wood/steel interface, with no hole deduction, extra angle leg, or FE-calibrated effective fitting stiffness.",
+    "Ordinary bearing-induced internal dowel moments are included in TR12 yield mechanisms; a nonzero port moment alone is not treated as an independent applied couple. Genuine imposed couples, N/T, washer/capture, heel coupling, brittle wood, geometry and complete interactions remain separate.",
+    "Raw-port absolute-force sums are preserved in earlier evidence but are not the net lateral demand here. The 21 earlier bounds are not deleted or automatically cleared.",
+    "Actual property conformity, fitting/stock geometry, plywood bond and complete 24-axis mixed-media capacity remain unqualified."
+  ],
+  "maxima": {
+    "aggregate_direction_independent_floor_index": {
+      "aggregate_direction_independent_floor_index": 1.2563600548088276,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-rear",
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+    },
+    "aggregate_directional_index": {
+      "aggregate_directional_index": 0.8420030182968952,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-rear",
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+    },
+    "resolved_individual_extra_conservative_index": {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "case_id": "a12-rear",
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "resolved_individual_extra_conservative_index": 0.8420030182968952
+    }
+  },
+  "minimum_equation_Cg_across_fixed_hypotheses": 0.9346517305692634,
+  "no_actual_partition_or_Cg_selected": true,
+  "per_interface_maxima": [
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.165326442253653,
+        "axis_ids": [
+          "eoere_bolt_002",
+          "eoere_bolt_029"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.15655380561658652,
+        "axis_ids": [
+          "eoere_bolt_002",
+          "eoere_bolt_029"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_002",
+        "eoere_bolt_029"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_002",
+          "eoere_bolt_029"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+        "resolved_individual_extra_conservative_index": 0.1584534924679522
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.19714340870775804,
+        "axis_ids": [
+          "eoere_bolt_032",
+          "eoere_bolt_036"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_side_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.16932976557321566,
+        "axis_ids": [
+          "eoere_bolt_032",
+          "eoere_bolt_036"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_side_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_032",
+        "eoere_bolt_036"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_side_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_032",
+          "eoere_bolt_036"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_side_left",
+        "resolved_individual_extra_conservative_index": 0.17056741214529264
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.04784208383592268,
+        "axis_ids": [
+          "eoere_bolt_033",
+          "eoere_bolt_037"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_principal_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.03140209606569262,
+        "axis_ids": [
+          "eoere_bolt_033",
+          "eoere_bolt_037"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_principal_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_033",
+        "eoere_bolt_037"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_principal_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_033",
+          "eoere_bolt_037"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_principal_center_left",
+        "resolved_individual_extra_conservative_index": 0.03203053640137258
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.0021409168385493186,
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.002130412296689128,
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_019",
+        "eoere_bolt_040"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_019",
+          "eoere_bolt_040"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+        "resolved_individual_extra_conservative_index": 0.0021730475722498348
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.012807820553299376,
+        "axis_ids": [
+          "eoere_bolt_034",
+          "eoere_bolt_038"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_principal_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.008771472961752251,
+        "axis_ids": [
+          "eoere_bolt_034",
+          "eoere_bolt_038"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_principal_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_034",
+        "eoere_bolt_038"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_principal_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_034",
+          "eoere_bolt_038"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_principal_center_right",
+        "resolved_individual_extra_conservative_index": 0.008947013709126553
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.0020128826803050186,
+        "axis_ids": [
+          "eoere_bolt_025",
+          "eoere_bolt_059"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0020025336703200372,
+        "axis_ids": [
+          "eoere_bolt_025",
+          "eoere_bolt_059"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_025",
+        "eoere_bolt_059"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_025",
+          "eoere_bolt_059"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+        "resolved_individual_extra_conservative_index": 0.002042609750892035
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.002951365557295328,
+        "axis_ids": [
+          "eoere_bolt_014",
+          "eoere_bolt_062"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.002902341095467684,
+        "axis_ids": [
+          "eoere_bolt_014",
+          "eoere_bolt_062"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_014",
+        "eoere_bolt_062"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_014",
+          "eoere_bolt_062"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+        "resolved_individual_extra_conservative_index": 0.0029604247408581727
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.005960128751407375,
+        "axis_ids": [
+          "eoere_bolt_035",
+          "eoere_bolt_039"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_side_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.004489945214910946,
+        "axis_ids": [
+          "eoere_bolt_035",
+          "eoere_bolt_039"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_side_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_035",
+        "eoere_bolt_039"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_side_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_035",
+          "eoere_bolt_039"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_side_right",
+        "resolved_individual_extra_conservative_index": 0.004522762630592333
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.00011906152942309112,
+        "axis_ids": [
+          "eoere_bolt_003",
+          "eoere_bolt_030"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.00011906152942309112,
+        "axis_ids": [
+          "eoere_bolt_003",
+          "eoere_bolt_030"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_003",
+        "eoere_bolt_030"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_003",
+          "eoere_bolt_030"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+        "resolved_individual_extra_conservative_index": 0.00011906152942309097
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.006087327219990002,
+        "axis_ids": [
+          "eoere_bolt_043",
+          "eoere_bolt_047"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_side_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.004831097785435634,
+        "axis_ids": [
+          "eoere_bolt_043",
+          "eoere_bolt_047"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_side_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_043",
+        "eoere_bolt_047"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_side_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_043",
+          "eoere_bolt_047"
+        ],
+        "case_id": "a1-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_side_left",
+        "resolved_individual_extra_conservative_index": 0.004866408716111481
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.011549887887598967,
+        "axis_ids": [
+          "eoere_bolt_044",
+          "eoere_bolt_048"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_principal_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.008292140767919384,
+        "axis_ids": [
+          "eoere_bolt_044",
+          "eoere_bolt_048"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_principal_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_044",
+        "eoere_bolt_048"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_principal_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_044",
+          "eoere_bolt_048"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_principal_center_left",
+        "resolved_individual_extra_conservative_index": 0.008458088789885663
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 5.355629928858025e-05,
+        "axis_ids": [
+          "eoere_bolt_020",
+          "eoere_bolt_041"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 5.2969513997163734e-05,
+        "axis_ids": [
+          "eoere_bolt_020",
+          "eoere_bolt_041"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_020",
+        "eoere_bolt_041"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_020",
+          "eoere_bolt_041"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+        "resolved_individual_extra_conservative_index": 5.402957632832088e-05
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.012460877810890421,
+        "axis_ids": [
+          "eoere_bolt_045",
+          "eoere_bolt_049"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_principal_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.008873411922760525,
+        "axis_ids": [
+          "eoere_bolt_045",
+          "eoere_bolt_049"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_principal_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_045",
+        "eoere_bolt_049"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_principal_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_045",
+          "eoere_bolt_049"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_principal_center_right",
+        "resolved_individual_extra_conservative_index": 0.009050992742706444
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 4.6402585647434804e-05,
+        "axis_ids": [
+          "eoere_bolt_026",
+          "eoere_bolt_060"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 4.640258564046328e-05,
+        "axis_ids": [
+          "eoere_bolt_026",
+          "eoere_bolt_060"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_026",
+        "eoere_bolt_060"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_026",
+          "eoere_bolt_060"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+        "resolved_individual_extra_conservative_index": 4.6402593041877495e-05
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.00011906152942309125,
+        "axis_ids": [
+          "eoere_bolt_015",
+          "eoere_bolt_063"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.00011906152942309125,
+        "axis_ids": [
+          "eoere_bolt_015",
+          "eoere_bolt_063"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_015",
+        "eoere_bolt_063"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_015",
+          "eoere_bolt_063"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+        "resolved_individual_extra_conservative_index": 0.00011906152942309123
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.005597655894035177,
+        "axis_ids": [
+          "eoere_bolt_046",
+          "eoere_bolt_050"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_side_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.004506627592031143,
+        "axis_ids": [
+          "eoere_bolt_046",
+          "eoere_bolt_050"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_side_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_046",
+        "eoere_bolt_050"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_side_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_046",
+          "eoere_bolt_050"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_side_right",
+        "resolved_individual_extra_conservative_index": 0.004539566940715785
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.0006711288127759719,
+        "axis_ids": [
+          "eoere_bolt_004",
+          "eoere_bolt_031"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0006711288125376408,
+        "axis_ids": [
+          "eoere_bolt_004",
+          "eoere_bolt_031"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_004",
+        "eoere_bolt_031"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_004",
+          "eoere_bolt_031"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+        "resolved_individual_extra_conservative_index": 0.0006711288173709934
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.01270300735879059,
+        "axis_ids": [
+          "eoere_bolt_051",
+          "eoere_bolt_055"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_side_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.009364695160068784,
+        "axis_ids": [
+          "eoere_bolt_051",
+          "eoere_bolt_055"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_side_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_051",
+        "eoere_bolt_055"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_side_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_051",
+          "eoere_bolt_055"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_side_left",
+        "resolved_individual_extra_conservative_index": 0.009433142564009667
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.013294367757100313,
+        "axis_ids": [
+          "eoere_bolt_052",
+          "eoere_bolt_056"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_principal_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.009052432787962248,
+        "axis_ids": [
+          "eoere_bolt_052",
+          "eoere_bolt_056"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_principal_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_052",
+        "eoere_bolt_056"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_principal_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_052",
+          "eoere_bolt_056"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_principal_center_left",
+        "resolved_individual_extra_conservative_index": 0.009233596296540981
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.001963818157573751,
+        "axis_ids": [
+          "eoere_bolt_021",
+          "eoere_bolt_042"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0019392635254754536,
+        "axis_ids": [
+          "eoere_bolt_021",
+          "eoere_bolt_042"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_021",
+        "eoere_bolt_042"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_021",
+          "eoere_bolt_042"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+        "resolved_individual_extra_conservative_index": 0.001978073400409054
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.013905078613420073,
+        "axis_ids": [
+          "eoere_bolt_053",
+          "eoere_bolt_057"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_principal_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.009429078235840086,
+        "axis_ids": [
+          "eoere_bolt_053",
+          "eoere_bolt_057"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_principal_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_053",
+        "eoere_bolt_057"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_principal_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_053",
+          "eoere_bolt_057"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_principal_center_right",
+        "resolved_individual_extra_conservative_index": 0.009617779432068761
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.0014308349622389833,
+        "axis_ids": [
+          "eoere_bolt_027",
+          "eoere_bolt_061"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0014024067434171043,
+        "axis_ids": [
+          "eoere_bolt_027",
+          "eoere_bolt_061"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_027",
+        "eoere_bolt_061"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_027",
+          "eoere_bolt_061"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+        "resolved_individual_extra_conservative_index": 0.0014304726713341013
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.0006711288122782917,
+        "axis_ids": [
+          "eoere_bolt_016",
+          "eoere_bolt_064"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0006711288122319284,
+        "axis_ids": [
+          "eoere_bolt_016",
+          "eoere_bolt_064"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_016",
+        "eoere_bolt_064"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_016",
+          "eoere_bolt_064"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+        "resolved_individual_extra_conservative_index": 0.0006711288165469597
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.012832847190953248,
+        "axis_ids": [
+          "eoere_bolt_054",
+          "eoere_bolt_058"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_side_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.009455572256621202,
+        "axis_ids": [
+          "eoere_bolt_054",
+          "eoere_bolt_058"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_side_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_054",
+        "eoere_bolt_058"
+      ],
+      "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_side_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_054",
+          "eoere_bolt_058"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_side_right",
+        "resolved_individual_extra_conservative_index": 0.009524683889480419
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.2978883779504586,
+        "axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "v11_top_left_beam_1",
+          "v11_top_left_beam_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.28656194352101266,
+        "axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "v11_top_left_beam_1",
+          "v11_top_left_beam_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top"
+      },
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2"
+      ],
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_001",
+          "eoere_bolt_005",
+          "v11_top_left_beam_1",
+          "v11_top_left_beam_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+        "resolved_individual_extra_conservative_index": 0.30449193304900163
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.235268361571303,
+        "axis_ids": [
+          "eoere_bolt_006",
+          "eoere_bolt_010",
+          "v11_top_left_post_1",
+          "v11_top_left_post_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.21640713270045572,
+        "axis_ids": [
+          "eoere_bolt_006",
+          "eoere_bolt_010",
+          "v11_top_left_post_1",
+          "v11_top_left_post_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_006",
+          "eoere_bolt_010",
+          "v11_top_left_post_1",
+          "v11_top_left_post_2"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+        "resolved_individual_extra_conservative_index": 0.2310828063860221
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.28486839980196854,
+        "axis_ids": [
+          "eoere_bolt_017",
+          "eoere_bolt_018",
+          "v11_top_right_beam_1",
+          "v11_top_right_beam_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.2745308877188303,
+        "axis_ids": [
+          "eoere_bolt_017",
+          "eoere_bolt_018",
+          "v11_top_right_beam_1",
+          "v11_top_right_beam_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top"
+      },
+      "axis_ids": [
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2"
+      ],
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_017",
+          "eoere_bolt_018",
+          "v11_top_right_beam_1",
+          "v11_top_right_beam_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+        "resolved_individual_extra_conservative_index": 0.2919186898387684
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.23338147158662723,
+        "axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "v11_top_right_post_1",
+          "v11_top_right_post_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.21653851224628048,
+        "axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "v11_top_right_post_1",
+          "v11_top_right_post_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_009",
+          "eoere_bolt_013",
+          "v11_top_right_post_1",
+          "v11_top_right_post_2"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+        "resolved_individual_extra_conservative_index": 0.23167828739093702
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.23050318347603016,
+        "axis_ids": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_left+wood:base_principal_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.2125583796750754,
+        "axis_ids": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_left+wood:base_principal_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_068",
+        "eoere_bolt_072"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_base_center_left+wood:base_principal_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_068",
+          "eoere_bolt_072"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_left+wood:base_principal_center_left",
+        "resolved_individual_extra_conservative_index": 0.21681224410488947
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.17672265168513385,
+        "axis_ids": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_right+wood:base_principal_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.15695887311764822,
+        "axis_ids": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_right+wood:base_principal_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_069",
+        "eoere_bolt_073"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_base_center_right+wood:base_principal_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_069",
+          "eoere_bolt_073"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_base_center_right+wood:base_principal_center_right",
+        "resolved_individual_extra_conservative_index": 0.16010004199708505
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.03728566624033979,
+        "axis_ids": [
+          "eoere_bolt_075",
+          "eoere_bolt_077"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.0357355187892946,
+        "axis_ids": [
+          "eoere_bolt_075",
+          "eoere_bolt_077"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_075",
+        "eoere_bolt_077"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_075",
+          "eoere_bolt_077"
+        ],
+        "case_id": "a12-forward",
+        "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left",
+        "resolved_individual_extra_conservative_index": 0.036450682559789595
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.03373753835414782,
+        "axis_ids": [
+          "eoere_bolt_076",
+          "eoere_bolt_078"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.031052540768737247,
+        "axis_ids": [
+          "eoere_bolt_076",
+          "eoere_bolt_078"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_076",
+        "eoere_bolt_078"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_076",
+          "eoere_bolt_078"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right",
+        "resolved_individual_extra_conservative_index": 0.031673985563496244
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.11011038203327436,
+        "axis_ids": [
+          "eoere_bolt_007",
+          "eoere_bolt_011"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.09214099096218663,
+        "axis_ids": [
+          "eoere_bolt_007",
+          "eoere_bolt_011"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left"
+      },
+      "axis_ids": [
+        "eoere_bolt_007",
+        "eoere_bolt_011"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_007",
+          "eoere_bolt_011"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left",
+        "resolved_individual_extra_conservative_index": 0.09398497982105211
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.12840665222272912,
+        "axis_ids": [
+          "eoere_bolt_022",
+          "eoere_bolt_023"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.11117010154817138,
+        "axis_ids": [
+          "eoere_bolt_022",
+          "eoere_bolt_023"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top"
+      },
+      "axis_ids": [
+        "eoere_bolt_022",
+        "eoere_bolt_023"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_022",
+          "eoere_bolt_023"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+        "resolved_individual_extra_conservative_index": 0.11198265387550706
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.1192526347310734,
+        "axis_ids": [
+          "eoere_bolt_008",
+          "eoere_bolt_012"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.09745882231772056,
+        "axis_ids": [
+          "eoere_bolt_008",
+          "eoere_bolt_012"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right"
+      },
+      "axis_ids": [
+        "eoere_bolt_008",
+        "eoere_bolt_012"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_008",
+          "eoere_bolt_012"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right",
+        "resolved_individual_extra_conservative_index": 0.09940923527372815
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.12790161907972908,
+        "axis_ids": [
+          "eoere_bolt_024",
+          "eoere_bolt_028"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.11095955193421257,
+        "axis_ids": [
+          "eoere_bolt_024",
+          "eoere_bolt_028"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top"
+      },
+      "axis_ids": [
+        "eoere_bolt_024",
+        "eoere_bolt_028"
+      ],
+      "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "eoere_bolt_024",
+          "eoere_bolt_028"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+        "resolved_individual_extra_conservative_index": 0.11177056533537602
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.5761260920317708,
+        "axis_ids": [
+          "rail_front_bolt_left_1",
+          "rail_front_bolt_left_2"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.5206704551646684,
+        "axis_ids": [
+          "rail_front_bolt_left_1",
+          "rail_front_bolt_left_2"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left"
+      },
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_front_bolt_left_1",
+          "rail_front_bolt_left_2"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:base_post_outer_left",
+        "resolved_individual_extra_conservative_index": 0.5263226001958555
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.6309637845206486,
+        "axis_ids": [
+          "rail_rear_bolt_left_1"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.5396981984589689,
+        "axis_ids": [
+          "rail_rear_bolt_left_1"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left"
+      },
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_rear_bolt_left_1"
+        ],
+        "case_id": "a12-left",
+        "group_id": "interface:wood:base_floor_left+wood:lumber_leg_left",
+        "resolved_individual_extra_conservative_index": 0.5396981984589689
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.5755810715431519,
+        "axis_ids": [
+          "rail_front_bolt_right_1",
+          "rail_front_bolt_right_2"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:base_post_outer_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.5202078561335068,
+        "axis_ids": [
+          "rail_front_bolt_right_1",
+          "rail_front_bolt_right_2"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:base_post_outer_right"
+      },
+      "axis_ids": [
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "group_id": "interface:wood:base_floor_right+wood:base_post_outer_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_front_bolt_right_1",
+          "rail_front_bolt_right_2"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:base_post_outer_right",
+        "resolved_individual_extra_conservative_index": 0.5258549794147763
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.6353256451391163,
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.543412042812032,
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right"
+      },
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right",
+        "resolved_individual_extra_conservative_index": 0.543412042812032
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 1.2563600548088276,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.8420030182968952,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+        "resolved_individual_extra_conservative_index": 0.8420030182968952
+      }
+    },
+    {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 1.2419417295405555,
+        "axis_ids": [
+          "lumber_leg_bolt_right_1"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:wood:base_side_right+wood:lumber_leg_right"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.8310876727169499,
+        "axis_ids": [
+          "lumber_leg_bolt_right_1"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:wood:base_side_right+wood:lumber_leg_right"
+      },
+      "axis_ids": [
+        "lumber_leg_bolt_right_1"
+      ],
+      "group_id": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1"
+        ],
+        "case_id": "k12-rear",
+        "group_id": "interface:wood:base_side_right+wood:lumber_leg_right",
+        "resolved_individual_extra_conservative_index": 0.8310876727169499
+      }
+    }
+  ],
+  "preserved_raw_port_upper_bound_flag_count": 21,
+  "producer": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/connections/standard_Cg_net_lateral_v2.py",
+    "sha256": "4b88cbf44414c6e6c57915e6af1110be3714647f606c5c685c2fb258df254bb3"
+  },
+  "qualifications": {
+    "FE_equivalent_load_sharing_claimed": false,
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "actual_Fyb": null,
+    "actual_geometry_and_row_eligibility": null,
+    "actual_oblique_area_interpolation_adopted": false,
+    "climbing_released": false,
+    "complete_group_pass": null,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "panel_screw_resistance_deferred": true,
+    "physical_failure_inferred": false,
+    "physical_force_bounds_established": false,
+    "property_scenario_adopted_for_actual_hardware": false,
+    "structural_acceptance": false
+  },
+  "schema": "v11_standard_Cg_net_lateral_summary/v1",
+  "source_bindings": {
+    "NDS11": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+      "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+    },
+    "NDS12": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    },
+    "analysis_geometry": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/geometry/geometry.json",
+      "sha256": "1f18ac349bb483f2179e0a7231d808d11e5f3b484cafa77dc51a2972d5022f60"
+    },
+    "explicit_92ksi_force_reference": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/Grade5-F606-92ksi-v1/force-only-Grade5-F606-92ksi-v1.json",
+      "sha256": "bfe2b99b6b3668726758145cde4a3987cdfd93c06761ee61e6f3d0f403c331b6"
+    },
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json",
+      "sha256": "576159eb2dcd791cf1a983165728e173fa594015fd7ab39ed9d69c1cb591a330"
+    },
+    "inputs": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/preparation/inputs.json",
+      "sha256": "d066d0b73b8a0812cf7633dbdc0fd46cb655009c87e15ebbe4967d37161dd0a2"
+    },
+    "material": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/material.json",
+      "sha256": "99839b8b429609d3959b68b9fdd2a484e1f95fe75e403fe2a704f41ab1c53de2"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v4/geometry.json",
+      "sha256": "befcf54de15984fcf05c5ede053d622afb249c0c2279f291ae65f06763b542a7"
+    },
+    "preserved_21_raw_port_bounds": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/Grade5-F606-92ksi-rows-v1/physical-row-capacity-Grade5-F606-92ksi-v1.json",
+      "sha256": "4beb6abbbc29327865be0ff78ca706d819d021e79d070a55834ac5ed34f6454b"
+    },
+    "producer": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/standard_Cg_net_lateral_v2.py",
+      "sha256": "4b88cbf44414c6e6c57915e6af1110be3714647f606c5c685c2fb258df254bb3"
+    },
+    "readiness": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/adapter-readiness.json",
+      "sha256": "731130875bb31ffbed82fd8e370c68967b635566badce8b825751de56adf6811"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/response-bank.json",
+      "sha256": "482d8e5cf5eec0566a7eb637666137350cbf90f1674f909241c78a103f615963"
+    },
+    "reused_row_producer": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/physical_row_followthrough_v1.py",
+      "sha256": "5552a49077e8fabae6527345fbe0c2db2eea51db4a5cda9a3015d93f4906106a"
+    },
+    "scalar_equation_helper": {
+      "path": "mini_moonboard/physical_row_group_capacity.py",
+      "sha256": "701a0e584ba5ac8f087c194154080da76e35e77a00294d99037ff341e78b1830"
+    },
+    "single_flat_flange_port_join_producer": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/standard_Cg_net_lateral_v2.py",
+      "sha256": "4b88cbf44414c6e6c57915e6af1110be3714647f606c5c685c2fb258df254bb3"
+    },
+    "six_cases": [
+      {
+        "case_id": "a12-forward",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-forward/field.json",
+          "sha256": "3c540183f6fedc055e123fb53aa116057312f539c6a441163cde0179996411b8"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-forward/independent-replay-plywood.json",
+          "sha256": "b78361ee8f0e24a3ff532cb2ff7793a5213bd35c1fa3876e122bfe5f32454547"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-forward/independent-replay.json",
+          "sha256": "24619151eb9a117874ed0fd17aab8e6e085bd855f660600ca65b9b367b8059c8"
+        }
+      },
+      {
+        "case_id": "a12-left",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-left/field.json",
+          "sha256": "05d715ee1a6d796983c832d25f72a361a55ff6fe28bb2790608e9e4bf3489b65"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-left/independent-replay-plywood.json",
+          "sha256": "0ce64f58b49b1c8303a290abab3deb890f7b2a3985e875112c6535259ac87069"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-left/independent-replay.json",
+          "sha256": "e1dbd8c9fb088f8175e75efd568d475c4bddee2618f8328671cb5ee8113aa28c"
+        }
+      },
+      {
+        "case_id": "a12-rear",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-rear/field.json",
+          "sha256": "a3dd8e0d4d70bf9cec74cef8a4aa3a870b82d4d4b294fe7946533a00f8ae07ed"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-rear/independent-replay-plywood.json",
+          "sha256": "a97b765b3a41879bb4785136b145ae8da56d341736ef975540e0337fb80c4b55"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a12-rear/independent-replay.json",
+          "sha256": "fe9751c7019c2d5d4caa8c3fabb388a04cd851b7c6ed2722b580022018ef6c20"
+        }
+      },
+      {
+        "case_id": "k12-right",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-right/field.json",
+          "sha256": "03b280793460c8dc980571abfdeb712dfac5bc50e4950ea82ac841bc20408d01"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-right/independent-replay-plywood.json",
+          "sha256": "4402eda497bd8aad8574e6647a7baf1c8276c93a479de3b86a3850678cab14ad"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-right/independent-replay.json",
+          "sha256": "e27af67346ada0d92d0118888df2020dc5a59260c3984e2a90e0a78584ddf476"
+        }
+      },
+      {
+        "case_id": "k12-rear",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-rear/field.json",
+          "sha256": "32a993deddf8ac623c99a0860c533546bd0dba2b82ef9969e3039baee7a91949"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-rear/independent-replay-plywood.json",
+          "sha256": "006fe1d1c81873386f12bf6dfff08de4f05b993be92abb082f366046c03da43e"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/k12-rear/independent-replay.json",
+          "sha256": "6956755c16cd412ec72114ad71d37909311d204401fc719aee2ab2d43b707bd2"
+        }
+      },
+      {
+        "case_id": "a1-rear",
+        "field": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a1-rear/field.json",
+          "sha256": "02f4524ee6a9cfb2553f0be35b96ab54b37a893b5856db10e72c1b6ee92127c0"
+        },
+        "independent_plywood_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a1-rear/independent-replay-plywood.json",
+          "sha256": "714770768b25d3bfe94a0d98ff1e7644258f23a22718823d6acf7f45ff07d5ef"
+        },
+        "independent_replay": {
+          "path": "fea/generated/v11-v9-eight-bolt-v1/mechanics/analysis-v4/four-hosts/a1-rear/independent-replay.json",
+          "sha256": "05316b1224f9a19392457216f6082c52c30add478b13ce93bc00f3f6d0f033f1"
+        }
+      }
+    ],
+    "steel_flat_flange_reference": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json",
+      "sha256": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e"
+    },
+    "unchanged_standard_Cg_equations_producer": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/connections/standard_Cg_net_lateral_v1.py",
+      "sha256": "283457289fda96e1f3dc4d865cafd2f9404c94906404f411ed51dea621e5591f"
+    },
+    "wood_E_reference": {
+      "path": "docs/bolted-candidate-material-basis.json",
+      "sha256": "d64ccbeb482f5082e6f5b9a059dbc86489a00d681eedda146c728cf03af85ee7"
+    }
+  },
+  "unresolved_EA_or_flat_member_boundaries": []
+}

@@ -7,7 +7,8 @@ import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDevelopment, validateEntry, validateCurrent96Review, validateCurrent96TestingReview, validateBoltGeometryReview, validateCurrentBoltGeometryReview, validateOwnResponseBank, candidate13SourceResolver, readV10Candidate13Authority, validateV10Candidate13Authority, validateCurrentConventionalReferenceReview, validateCurrentPanelBracingSummary, currentFittingProbeGeometry, validateStructuralAssessment, validateCurrentResponse, validateCurrentComponents, validateEngineeringAssessment, validatePackerFreeMethodEvaluation, validatePackerFreeMethodFollowups, validatePackerFreeFittingReference, validatePackerFreeSawnReference, validateUnselectedCenterFarRowTrial, validateLocalSubassemblyActionMap, validateCurrent112HardwarePlanning, validateCurrent112GroupEffects, viewerModel} from '../scripts/check_bolted_development.mjs';
 import {validateCurrent112CapacityFollowthrough, validateV11EvaluationSelection, validateV11ResponseBank,
   validateV11ReferenceReview, validateV11CapacityFollowthrough, validateV11GeometryApplicability} from '../scripts/check_bolted_development.mjs';
-import {validateV11Grade5PropertyComparison} from '../scripts/check_bolted_development.mjs';
+import {validateV11Grade5PropertyComparison, validateV11Grade5RowComparison} from '../scripts/check_bolted_development.mjs';
+import {validateV11StandardCgComparison, validateV11CriterionFollowthrough, validateV11OwnerDecisions, validateV11ThreadAddendum} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -245,6 +246,112 @@ test('optional V11 Grade5 comparison exposes separate scenarios and preserves au
   const omitted = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(omitted.conditional_force_only_case_rows, 4); assert.equal(omitted.conditional_Grade5_Fyb92_force_only_case_rows, undefined);
   assert.equal(omitted.selected_baseline_candidate, 'compact-floor-flush-development'); assert.equal(omitted.structural_acceptance, false);
+});
+test('V11 Grade5 row comparison retains 21 inconclusive bounds with the fresh92 maximum', () => {
+  const report = readV11Report('grade5-row-comparison');
+  assert.equal(validateV11Grade5RowComparison(report, readCurrentIndex(), readV11Report('grade5-property-comparison'),
+    readV11Report('connection-capacity-followthrough')), report);
+  assert.equal(report.explicit92_maximum_inconclusive_partition_bound.conditional_index_upper, 2.2080838963062854);
+  assert.equal(report.counts.explicit92_partition_upper_bounds_below_one, 231);
+  assert.equal(report.qualifications.complete_joint_capacity, null);
+});
+for (const [name, mutate] of [
+  ['foreign source bank', r => {r.source_bindings.response_bank.sha256 = '0'.repeat(64);}],
+  ['foreign property comparison', r => {r.source_bindings.explicit_property_comparison.sha256 = '0'.repeat(64);}],
+  ['erased current inconclusive bound', r => {r.explicit92_inconclusive_flags.pop();}],
+  ['erased preserved generic45 bound', r => {r.preserved_generic45_inconclusive_flags.pop();}],
+  ['old maximum reused as current', r => {r.explicit92_maximum_inconclusive_partition_bound = r.generic45_maximum_inconclusive_partition_bound;}],
+  ['invented actual row Cg', r => {r.explicit92_maximum_inconclusive_partition_bound.hypothetical_witness_not_adopted.rows[0].actual_Cg = 1;}],
+  ['property scenario adopted', r => {r.qualifications.property_scenario_adopted_for_actual_hardware = true;}],
+  ['mixed capacity claimed', r => {r.unsupported_mixed_axes.pop();}],
+  ['changed forces hidden', r => {r.all_raw_forces_couples_and_row_classifications_unchanged = false;}],
+]) test(`V11 Grade5 row comparison rejects ${name}`, () => {
+  const report = readV11Report('grade5-row-comparison'); mutate(report);
+  assert.throws(() => validateV11Grade5RowComparison(report, readCurrentIndex(), readV11Report('grade5-property-comparison'),
+    readV11Report('connection-capacity-followthrough')));
+});
+test('V11 criterion and owner records retain conditional references and fixed-geometry holds', () => {
+  const index = readCurrentIndex(), report = readV11Report('criterion-followthrough');
+  assert.equal(validateV11CriterionFollowthrough(report, index, readV11Report('response-bank')), report);
+  const owner = readV11Report('owner-material-purchase-decisions');
+  assert.equal(validateV11OwnerDecisions(owner, index), owner);
+  assert.equal(owner.nuts_and_bolts.owner_reported_purchased, false);
+  assert.equal(report.mixed_planes.qualification.complete_three_member_capacity, null);
+});
+test('V11 standard Cg separates fixed NDS hypotheses, Fe90 floors and raw-port bounds', () => {
+  const report = readV11Report('standard-cg-comparison');
+  assert.equal(validateV11StandardCgComparison(report, readCurrentIndex(), readV11Report('grade5-property-comparison'),
+    readV11Report('grade5-row-comparison')), report);
+  assert.equal(report.above_one_counts.aggregate_directional_index, 0);
+  assert.equal(report.above_one_counts.aggregate_direction_independent_floor_index, 5);
+  assert.equal(report.preserved_raw_port_upper_bound_flag_count, 21);
+});
+for (const [name, target, mutate] of [
+  ['foreign source bank', 'criterion', r => {r.response_bank.sha256 = '0'.repeat(64);}],
+  ['mixed planes promoted to whole joint', 'criterion', r => {r.mixed_planes.qualification.complete_three_member_capacity = 1;}],
+  ['actual fitting Fy adopted', 'criterion', r => {r.fitting_axial.actual_product_Fy_MPa = 235;}],
+  ['geometry classification selected', 'criterion', r => {r.geometry.group_screens.outer_top_left.edge_geometry_comparison.actual_loaded_edge = 'nearest';}],
+  ['unselected fit screen adopted', 'criterion', r => {r.unselected_fit_screen.adopted = true;}],
+  ['observations fabricated', 'criterion', r => {r.nominal_hardware.source_reconciliations.current_actual_and_disposition_cells_blank = false;}],
+  ['FE calibration required for standard equation', 'criterion', r => {r.standard_Cg_method.FE_calibration_required_for_standard_equation = true;}],
+  ['unverified worksheet bytes', 'criterion', r => {r.nominal_hardware.worksheet.sha256 = '0'.repeat(64);}],
+  ['Fe90 flags erased', 'standard', r => {r.above_one_case_rows.aggregate_direction_independent_floor_index = [];}],
+  ['actual row factor selected', 'standard', r => {r.qualifications.actual_Cg = 0.95;}],
+  ['FE load-sharing equivalence claimed', 'standard', r => {r.qualifications.FE_equivalent_load_sharing_claimed = true;}],
+  ['unbought bolts recorded as purchased', 'owner', r => {r.nuts_and_bolts.owner_reported_purchased = true;}],
+  ['owned bracket identity promoted to material qualification', 'owner', r => {r.brackets.identity_confirmation_does_not_authenticate_dimensions_or_Fy_Fu = false;}],
+]) test(`V11 current criterion intake rejects ${name}`, () => {
+  const index = readCurrentIndex();
+  const report = readV11Report(target === 'criterion' ? 'criterion-followthrough' : target === 'standard' ? 'standard-cg-comparison' : 'owner-material-purchase-decisions');
+  mutate(report);
+  assert.throws(() => target === 'criterion' ? validateV11CriterionFollowthrough(report, index, readV11Report('response-bank')) :
+    target === 'standard' ? validateV11StandardCgComparison(report, index, readV11Report('grade5-property-comparison'),
+      readV11Report('grade5-row-comparison')) : validateV11OwnerDecisions(report, index));
+});
+const readV20Index = () => {
+  let index = readCurrentIndex();
+  while (index && index.schema !== 'bolted_frame_development_revisions/v20') index = index.preceding_revision;
+  assert.ok(index, 'preserved V20 display/criterion stage missing'); return index;
+};
+test('V20 current analysis display separates NDS hypotheses, Fe90 floors and raw bounds without changing geometry', () => {
+  const index = readV20Index(), result = checkCurrentDevelopment(index);
+  assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v19');
+  assert.deepEqual(index.geometry, index.preceding_revision.geometry);
+  assert.equal(result.repository_viewer_geometry_only, false); assert.equal(result.repository_viewer_current_analysis, true);
+  assert.equal(result.standard_Cg_directional_maximum, 0.8420030182968952); assert.equal(result.standard_Cg_directional_flags, 0);
+  assert.equal(result.standard_Cg_Fe90_floor_maximum, 1.2563600548088276); assert.equal(result.standard_Cg_Fe90_floor_flags, 5);
+  assert.equal(result.conditional_Grade5_Fyb92_partition_upper_bound_maximum, 2.2080838963062854);
+  assert.equal(result.conditional_Grade5_Fyb92_partition_upper_bound_flags, 21);
+  assert.equal(result.standard_Cg_requires_FE_calibration, false); assert.equal(result.standard_Cg_actual_selection, null);
+  assert.equal(result.mixed_plane_reference_rows, 288); assert.equal(result.complete_mixed_capacity, null);
+  assert.equal(result.hardware_D_axes, 6); assert.equal(result.hardware_Dr_axes, 82);
+  assert.equal(result.nuts_and_bolts_purchased, false); assert.equal(result.complete_connection_acceptance, null);
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development');
+  assert.equal(result.structural_acceptance, false); assert.equal(result.full_ignored_input_closure_checked, false);
+});
+for (const [name, mutate] of [
+  ['changed current row bytes', r => {r.grade5_row_comparison.sha256 = '0'.repeat(64);}],
+  ['changed standard Cg bytes', r => {r.standard_cg_comparison.sha256 = '0'.repeat(64);}],
+  ['changed criterion bytes', r => {r.criterion_followthrough.sha256 = '0'.repeat(64);}],
+  ['changed owner record bytes', r => {r.owner_material_purchase_decisions.sha256 = '0'.repeat(64);}],
+  ['changed thread selector bytes', r => {r.hardware_thread_diameter_addendum.sha256 = '0'.repeat(64);}],
+  ['old geometry-only current display', r => {r.repository_viewer.geometry_only = true;}],
+  ['old result summary without new criteria', r => {r.repository_viewer.results_json = r.repository_viewer.base_results_json;}],
+  ['unbound base result module', r => {r.repository_viewer.base_results_overlay.sha256 = '0'.repeat(64);}],
+  ['changed fixed geometry', r => {r.geometry.receipt.sha256 = '0'.repeat(64);}],
+  ['actual Cg adopted', r => {r.actual_Cg_adopted = 1;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+]) test(`V20 integration rejects ${name}`, () => {
+  const index = readV20Index(); mutate(index);
+  assert.throws(() => checkCurrentDevelopment(index, {entryChecks: false}));
+});
+for (const [name, mutate] of [
+  ['selector coverage erased', r => {r.axis_counts.thread_root_Dr = 81;}],
+  ['delivered fit inferred', r => {r.acceptance.physical_fit_established = true;}],
+]) test(`V11 quarter-thread clarification rejects ${name}`, () => {
+  const report = readV11Report('hardware-thread-diameter-addendum'); mutate(report);
+  assert.throws(() => validateV11ThreadAddendum(report, readV20Index(), readV11Report('grade5-property-comparison'),
+    readV11Report('criterion-followthrough')));
 });
 test('Candidate13 source resolver reads only mapped repository copies, leaving raw fields unopened', () => {
   const requested = [];

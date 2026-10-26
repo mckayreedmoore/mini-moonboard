@@ -58,7 +58,7 @@ for(const[name,change]of[
 
 test('routing preserves baseline history and exposes the restored model\'s own geometry and analysis documents',()=>{
   const html=readFileSync(path.join(site,'index.html'),'utf8');
-  assert(html.includes("['"+V11_MODEL+"', 'V9 cleats · 4×6 top · eight-bolt outer corners · 112 bolts · geometry only']"));
+  assert(html.includes("['"+V11_MODEL+"', 'V9 cleats · 4×6 top · eight-bolt outer corners · 112 bolts · own conditional references']"));
   assert(html.includes("? requestedModel : 'compact-floor-flush-development'"));
   assert(html.includes("['eoere-owner-frame-v9-development',"));
   assert(html.includes("['eoere-packer-free-standard-stock-preview',"));

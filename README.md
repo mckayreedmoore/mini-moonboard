@@ -12,7 +12,7 @@ The current geometry is **`v11-v9-eight-bolt-v4`**. It restores V9's straight-si
 
 The [checked geometry receipt](docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json) records 1,109 parts, 112 bolt stacks, 24 metal spacers, 24 angles and 66 Hillman axes. Nominal occupied clearance passes. The thicker top requires two 50.8 mm center-principal end trims and two matching upper-panel screw moves; two kicker screw positions move down 6.35 mm to clear the added bolts. Four added lower bolts use a provisional seven-inch Grade 5 / half-inch-spacer recipe. Delivered hardware, glue and complete joint strength remain unqualified.
 
-**Fresh six-case calculations and all twelve independent replays are complete.** The [current conditional review](docs/bolted-frame-development/owner-frame-v11/reference-review.json), [physical-row connection calculations](docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json) and [signed geometry checks](docs/bolted-frame-development/owner-frame-v11/geometry-applicability.json) use this model's own forces. Member and cleat references are below one. The [saved conditional Grade 5 specification](docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json) gives zero force-only exceedances; generic-property flags remain preserved and complete joint/geometry qualifications remain unfinished. The [development summary](docs/bolted-frame-development/README.md) and [revision index](docs/bolted-frame-development/development-revisions.json) retain earlier studies separately. The viewer remains a geometry preview; current cut/drill instructions and physical release are not established.
+**Fresh six-case calculations and all twelve independent replays are complete.** The [current conditional review](docs/bolted-frame-development/owner-frame-v11/reference-review.json), [physical-row connection calculations](docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json) and [signed geometry checks](docs/bolted-frame-development/owner-frame-v11/geometry-applicability.json) use this model's own forces. Member and cleat references are below one. The [saved conditional Grade 5 specification](docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json) gives zero force-only exceedances; generic-property flags remain preserved and complete joint/geometry qualifications remain unfinished. The [development summary](docs/bolted-frame-development/README.md) and [revision index](docs/bolted-frame-development/development-revisions.json) retain earlier studies separately. The viewer presents those fixed-load conditional results over the unchanged geometry; current cut/drill instructions and physical release are not established.
 
 ## Run locally
 
@@ -30,12 +30,12 @@ Three.js modules on unpkg.com.
 
 The current 4×6 viewer is included in the repository's site assets and uses the
 normal port 8767 server above. Its runtime needs no ignored development outputs.
-Candidate 13 and the earlier port 8780 preview remain preserved; no site deployment is performed.
+Candidate 13 and the earlier port 8780 preview remain preserved.
 
-The [preserved published V10 viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-packer-free-standard-stock-preview&view=rear)
-shows the preserved 102-bolt revision. The published site checked at commit
-`6ded8620` does not yet recognize the local current-model key; use the local
-demo for the newer geometry. Publication is separate from this cleanup.
+The [V11 development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)
+is published through the repository's successful-CI Pages workflow. A local
+check or push alone does not establish deployment. Historical viewer choices
+remain available; the selected baseline remains the no-query default.
 
 For a reproducible CAD export, start with the
 [preserved-baseline software walkthrough](CONTRIBUTING.md#software-walkthrough).
