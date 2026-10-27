@@ -3295,6 +3295,87 @@ export function validateShorterRearProjectedBearingWitness(report, entry) {
   return report;
 }
 
+export function validateShorterJointCriterionFollowthrough(report, entry, bank) {
+  assert.equal(report.schema, 'v11_current_joint_criterion_followthrough/v1'); assert.equal(report.revision, entry.revision);
+  for (const key of ['geometry_receipt', 'response_bank', 'rear_projected_bearing_witness']) {
+    referenceBinding(report[key]); assert.deepEqual(report[key], entry[key]);
+  }
+  referenceBinding(report.joint_disposition, 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json');
+  if (entry.joint_disposition !== undefined) assert.deepEqual(report.joint_disposition, entry.joint_disposition);
+  const base = JSON.parse(bound(report.joint_disposition)), clusters = report.joint_clusters;
+  assert.deepEqual(base.response_bank, entry.response_bank); assert.deepEqual(base.geometry_receipt, entry.geometry_receipt);
+  const roster = rows => rows.map(({joint_id, family, axis_ids}) => ({joint_id, family, axis_ids}));
+  assert.equal(clusters.length, 26); assert.deepEqual(roster(clusters), roster(base.joint_clusters));
+  const axes = clusters.flatMap(row => row.axis_ids), axisSet = new Set(axes);
+  assert.equal(axes.length, 112); assert.equal(axisSet.size, 112);
+  for (const [n, row] of clusters.entries()) {
+    assert.equal(row.base_joint_duties_source_pointer, `/joint_clusters/${n}`); assert.equal(row.whole_joint_qualified, false);
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(row[key], null);
+  }
+  assert.deepEqual(report.load_contract, bank.load_contract);
+  assert.deepEqual(report.counts, {E2_case_rows: 336, E3_case_rows: 456, E4_case_rows: 216, axes: 112,
+    continuous_rear_receiver_case_rows: 48, continuous_reference_exceedances: 5, joint_clusters: 26,
+    new_sawn_case_rows: 288, new_sawn_groups: 48, sawn_geometry_excluded_groups: 2, terminal_band_case_rows: 72});
+  const sawn = report.sawn_reduced_depth;
+  assert.equal(sawn.groups.length, 48); assert.equal(sawn.geometry_exclusions.length, 2);
+  assert.equal(sawn.summary.case_rows_computed, 288); assert.equal(sawn.summary.geometry_eligible_groups, 48);
+  assert.equal(sawn.summary.geometry_excluded_groups, 2); assert.equal(sawn.summary.complete_joint_qualified, false);
+  for (const group of sawn.groups) {
+    assert.ok(group.axis_ids.every(axis => axisSet.has(axis))); assert.deepEqual(group.cases.map(row => row.case_id), CURRENT_CASES);
+    for (const row of group.cases) assert.equal(row.field_sha256, bank.cases.find(item => item.case_id === row.case_id).field.sha256);
+  }
+  const terminal = report.terminal_interaction;
+  assert.equal(terminal.case_rows.length, 72); assert.equal(terminal.summary.band_case_count, 72);
+  assert.deepEqual(terminal.case_rows.map(row => `${row.pair_index}/${row.case_id}`).sort(),
+    Array.from({length: 12}, (_, n) => CURRENT_CASES.map(id => `${n}/${id}`)).flat().sort());
+  for (const row of terminal.case_rows) assert.ok(row.axis_ids.every(axis => clusters.find(joint => joint.joint_id === row.joint_id)?.axis_ids.includes(axis)));
+  const appendix = report.appendix_e;
+  assert.deepEqual(appendix.case_ids, CURRENT_CASES);
+  for (const [key, count, column] of [['E2', 336, 1], ['E3', 456, 4], ['E4', 216, 2]]) {
+    assert.equal(appendix[key].length*6, count);
+    for (const row of appendix[key]) {assert.equal(row[column].length, 6); for (const value of row[column]) referenceIndex(value, 'Appendix E case demand');}
+  }
+  assert.equal(appendix.counts.E2_current_case_rows, 336); assert.equal(appendix.counts.E3_case_rows, 456); assert.equal(appendix.counts.E4_case_rows, 216);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(appendix[key], null);
+  assert.equal(appendix.structural_acceptance, false);
+  const continuous = report.continuous_rear_bearing, rows = continuous.case_rows;
+  const rearPairs = ['left', 'right'].flatMap(side => [`lumber_leg_bolt_${side}_1/base_side_${side}`, `lumber_leg_bolt_${side}_1/lumber_leg_${side}`,
+    `rail_rear_bolt_${side}_1/base_floor_${side}`, `rail_rear_bolt_${side}_1/lumber_leg_${side}`]);
+  assert.equal(rows.length, 48);
+  assert.deepEqual(rows.map(row => `${row.axis_id}/${row.host}/${row.case_id}`).sort(), rearPairs.flatMap(pair => CURRENT_CASES.map(id => `${pair}/${id}`)).sort());
+  for (const row of rows) {
+    referenceIndex(row.certified_continuous_lower_bound, 'continuous rear model reference');
+    assert.equal(row.reference_threshold_one_exactly_exceeded, row.certified_continuous_lower_bound > 1);
+  }
+  const flags = rows.filter(row => row.reference_threshold_one_exactly_exceeded), key = row => `${row.axis_id}/${row.host}/${row.case_id}`;
+  assert.equal(flags.length, 5); assert.equal(continuous.exact_exceedance_certificates.length, 5);
+  assert.deepEqual(continuous.exact_exceedance_certificates.map(key).sort(), flags.map(key).sort());
+  assert.equal(continuous.summary.receiver_case_rows, 48); assert.equal(continuous.summary.axis_case_states_above_one, 5);
+  assert.equal(continuous.summary.continuous_reference_exceedances, 5);
+  referenceClose(Math.max(...rows.map(row => row.certified_continuous_lower_bound)), continuous.summary.maximum_lower_bound, 'continuous rear maximum');
+  referenceClose(continuous.summary.maximum_lower_bound, 1.2698697176618237, 'current continuous rear maximum');
+  const contact = report.objective_contact;
+  assert.deepEqual(contact.case_rows.map(row => row.case_id), CURRENT_CASES);
+  assert.equal(contact.active_set_sign_switches, 457); assert.equal(contact.summary.pair_cell_discrepancy_count, 400);
+  assert.equal(contact.case_rows.reduce((sum, row) => sum+row.source_compressed_to_objective_open_pair_cell_count, 0), 400);
+  referenceClose(Math.max(...contact.case_rows.map(row => row.switched_force_fraction_of_source_compression)), contact.summary.reaction_weighted_fraction_max, 'contact switched-force fraction');
+  referenceClose(contact.summary.reaction_weighted_fraction_max, 0.14259669938363378, 'current contact switched-force fraction');
+  assert.equal(contact.contact_assumption_qualified, false); assert.equal(contact.summary.contact_assumption_qualified, false);
+  assert.equal(contact.summary.finite_equilibrium, null); assert.equal(contact.summary.actual_Cg, null);
+  assert.equal(contact.summary.physical_failure_claim, false); assert.equal(contact.summary.structural_acceptance, false);
+  assert.equal(contact.interpretation_correction.zero_robust_switches_is_not_acceptance_evidence, true);
+  assert.equal(report.review_options.adopted, false); assert.equal(report.review_options.prior_three_eighths_option.selected, false);
+  assert.deepEqual(report.review_options.owner_rear_preference, report.source_bindings.owner_rear_preference);
+  if (entry.owner_matching_rear_bolts !== undefined) assert.deepEqual(report.review_options.owner_rear_preference, entry.owner_matching_rear_bolts);
+  for (const ref of Object.values(report.source_bindings)) referenceBinding(ref); // Raw sources remain declarations only.
+  for (const key of ['accepted_connection_exceedance_count', 'actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(report[key], null);
+  for (const key of ['whole_joint_qualified', 'structural_acceptance', 'purchase_authorized', 'drilling_released', 'fabrication_released',
+    'climbing_released', 'geometry_changed', 'new_global_or_native_solve']) assert.equal(report[key], false);
+  assert.equal(report.agent_review_loop_suspended, true); assert.equal(report.panel_screw_resistance_deferred, true);
+  assert.equal(report.reproduction.portable_full_raw_source_closure_checked, false); referenceBinding(report.reproduction.producer);
+  return report;
+}
+
 export function validateV11BuildPackage(manifest, entry, bank, readArtifact = bound) {
   const folder = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/';
   const metadata = manifest.metadata ?? manifest;
@@ -3567,6 +3648,22 @@ export function validateShorterBoltDelivery(entry, index) {
   if (entry.rear_projected_bearing_witness !== undefined) {
     referenceBinding(entry.rear_projected_bearing_witness, prefix+'rear-projected-bearing-witness.json');
     validateShorterRearProjectedBearingWitness(JSON.parse(bound(entry.rear_projected_bearing_witness)), entry);
+  }
+  if (entry.owner_matching_rear_bolts !== undefined) {
+    referenceBinding(entry.owner_matching_rear_bolts, prefix+'review-options/owner-matching-rear-bolts.json');
+    const preference = JSON.parse(bound(entry.owner_matching_rear_bolts));
+    assert.equal(preference.schema, 'v11_owner_matching_upper_rear_bolt_preference/v1'); assert.equal(preference.base_revision, entry.revision);
+    assert.equal(preference.preferred_added_nominal_diameter_mm, 12.7); assert.equal(preference.prefer_matching_current_bolt_specification, true);
+    for (const key of ['current_model_changed', 'new_axis_created', 'trial_selected', 'prior_three_eighths_added_bolt_option_selected',
+      'matching_geometry_feasibility_complete', 'historical_force_or_acceptance_transfer_permitted', 'purchase_authorized', 'drilling_released',
+      'fabrication_released', 'climbing_released', 'structural_acceptance']) assert.equal(preference[key], false);
+  }
+  if (entry.joint_criterion_followthrough !== undefined) {
+    const ref = entry.joint_criterion_followthrough;
+    referenceKeys(ref, ['path', 'sha256', 'encoding', 'decoded_sha256', 'decoded_bytes'], 'compressed criterion binding');
+    referenceBinding({path: ref.path, sha256: ref.sha256}, prefix+'joint-criterion-followthrough.json.gz'); assert.equal(ref.encoding, 'gzip');
+    const decoded = gunzipSync(bound(ref)); assert.equal(sha(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
+    validateShorterJointCriterionFollowthrough(JSON.parse(decoded), entry, bank);
   }
   if (entry.build_package !== undefined) {
     referenceBinding(entry.build_package, prefix+'build-package/manifest.json');

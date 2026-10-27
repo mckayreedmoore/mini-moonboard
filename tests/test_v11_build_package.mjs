@@ -3,8 +3,9 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
+import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
-  validateV11BuildPackage} from '../scripts/check_bolted_development.mjs';
+  validateShorterJointCriterionFollowthrough, validateV11BuildPackage} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -41,7 +42,7 @@ for (const [name, mutate] of [
 test('V20 hash-checks the optional rear record and permits the preserved trial without that supplement', () => {
   const {index, entry} = packet(); entry.rear_wrench_material_references.sha256 = '0'.repeat(64);
   assert.throws(() => checkDevelopment(index, {entryChecks: false}));
-  delete entry.rear_wrench_material_references; delete entry.build_package; delete entry.rear_projected_bearing_witness;
+  delete entry.rear_wrench_material_references; delete entry.build_package; delete entry.rear_projected_bearing_witness; delete entry.joint_criterion_followthrough;
   const result = checkDevelopment(index, {entryChecks: false});
   assert.equal(result.owner_authorized_shorter_bolt_trial.reported_reference_rows, 110);
   assert.equal(result.complete_connection_acceptance, null); assert.equal(result.structural_acceptance, false);
@@ -151,4 +152,38 @@ for (const [name, mutate] of [
   ['fabrication release', r => {r.fabrication_released = true;}],
 ]) test(`rear projected bearing witness rejects ${name}`, () => {
   const {entry, report} = witnessPacket(); mutate(report); assert.throws(() => validateShorterRearProjectedBearingWitness(report, entry));
+});
+
+function criterionPacket() {
+  const {index, entry, bank} = packet();
+  const report = JSON.parse(gunzipSync(readFileSync(path.join(ROOT, entry.joint_criterion_followthrough.path))));
+  return {index, entry, bank, report};
+}
+
+test('current joint criterion supplement matches the26 base clusters while preserving model-reference and contact limits', () => {
+  const {entry, bank, report} = criterionPacket();
+  assert.equal(validateShorterJointCriterionFollowthrough(report, entry, bank), report);
+  delete entry.joint_disposition;
+  assert.equal(validateShorterJointCriterionFollowthrough(report, entry, bank), report);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {r.response_bank = i.response_bank;}],
+  ['swapped axes across clusters despite preserved112 unique axes', r => {
+    const a = r.joint_clusters[0].axis_ids, b = r.joint_clusters[1].axis_ids; [a[0], b[0]] = [b[0], a[0]];
+  }],
+  ['missing Appendix E case rows', r => {r.appendix_e.E3.pop();}],
+  ['erased continuous-reference flags', r => {r.continuous_rear_bearing.summary.continuous_reference_exceedances = 0;}],
+  ['robust-switch construction presented as contact acceptance', r => {r.objective_contact.interpretation_correction.zero_robust_switches_is_not_acceptance_evidence = false;}],
+  ['invented complete-joint capacity', r => {r.complete_joint_capacity = 1000;}],
+]) test(`joint criterion supplement rejects ${name}`, () => {
+  const {index, entry, bank, report} = criterionPacket(); mutate(report, index);
+  assert.throws(() => validateShorterJointCriterionFollowthrough(report, entry, bank));
+});
+
+test('V20 checks the decoded criterion hash and optional owner-preference bytes', () => {
+  const {index, entry} = packet(); entry.joint_criterion_followthrough.decoded_sha256 = '0'.repeat(64);
+  assert.throws(() => checkDevelopment(index, {entryChecks: false}));
+  const clean = readIndex(); clean.owner_authorized_shorter_bolt_trial.owner_matching_rear_bolts.sha256 = '0'.repeat(64);
+  assert.throws(() => checkDevelopment(clean, {entryChecks: false}));
 });

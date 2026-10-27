@@ -44,6 +44,7 @@ export function documentsForModel(model, recordedDocuments = []) {
       {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/shorter-bolts/response-bank.json'},
       {label: 'Current conditional references and unresolved connections', path: current + 'owner-frame-v11/shorter-bolts/reference-review.json'},
       {label: 'Current-pattern connection checks and remaining duties', path: current + 'owner-frame-v11/shorter-bolts/joint-disposition.json'},
+      {label: 'Additional joint criteria and exact bearing bounds (compressed JSON)', path: current + 'owner-frame-v11/shorter-bolts/joint-criterion-followthrough.json.gz'},
       {label: 'Provisional bolt list, member plan and printable marking tools', path: current + 'owner-frame-v11/shorter-bolts/build-package/README.md'},
       {label: 'Separate diagnostic and scenario flag rows', path: current + 'owner-frame-v11/shorter-bolts/numerical-flag-inventory.csv'},
       {label: 'Owner shorter-bolt freeze exception', path: current + 'owner-frame-v11/owner-shorter-bolt-exemption.json'},
