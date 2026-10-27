@@ -1,0 +1,158 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "all_header_required_Fe_and_metal_results_exactly_unchanged": true,
+  "all_sawn_utilizations_nondecreasing": true,
+  "body_and_root_intervals_checked": {
+    "sawn_local_intervals": 264,
+    "sawn_undersize_intervals": 264
+  },
+  "complete_joint_capacity": null,
+  "header_baseline": {
+    "corrected_maximum_sawn_utilization": 0.6036192233535337,
+    "governing": {
+      "Fe_basis": "NDS 2024 solid-sawn scenario perpendicular Fe; conservative for every radial pressure direction; Fe90 evaluated at source-bound nominal bolt diameter, local D(s) retained only for pressure width",
+      "Fe_required_MPa": 15.190599355173902,
+      "axis_id": "eoere_bolt_081",
+      "case_id": "a12-left",
+      "conditional_Fe_reference_MPa": 25.165864120064516,
+      "conditional_utilization": 0.6036192233535337,
+      "diameter_mm": 9.3726,
+      "event": "on-plane-to-high",
+      "host": "base_header",
+      "interval_mm": [
+        0.0,
+        33.934400000000004
+      ],
+      "kind": "wood",
+      "max_q_N_per_mm": 22.364277343572045,
+      "pressure_peak_MPa": 3.0381198710347803,
+      "q_N_per_mm": [
+        9.341275608123912,
+        20.319977143522557,
+        0.0
+      ],
+      "station_mm": 0.0
+    },
+    "original_maximum_sawn_utilization": 0.5954622068217291,
+    "sawn_exceedance_rows": [],
+    "sawn_exceedance_states": 0,
+    "states": 96
+  },
+  "header_redistributed": {
+    "corrected_maximum_sawn_utilization": 0.695149071530021,
+    "governing": {
+      "Fe_basis": "NDS 2024 solid-sawn scenario perpendicular Fe; conservative for every radial pressure direction; Fe90 evaluated at source-bound nominal bolt diameter, local D(s) retained only for pressure width",
+      "Fe_required_MPa": 17.49402707731352,
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "conditional_Fe_reference_MPa": 25.165864120064516,
+      "conditional_utilization": 0.695149071530021,
+      "diameter_mm": 7.31774,
+      "event": "on-plane-to-high",
+      "host": "base_header",
+      "interval_mm": [
+        33.934400000000004,
+        38.099999999999994
+      ],
+      "kind": "wood",
+      "max_q_N_per_mm": 20.108822763805694,
+      "pressure_peak_MPa": 3.4988054154627033,
+      "q_N_per_mm": [
+        2.2349018763126502,
+        -19.98424295662471,
+        0.0
+      ],
+      "station_mm": 38.099999999999994
+    },
+    "original_maximum_sawn_utilization": 0.6113961713456811,
+    "sawn_exceedance_rows": [],
+    "sawn_exceedance_states": 0,
+    "states": 96
+  },
+  "mixed": {
+    "all_nonbearing_actions_and_metal_records_exactly_unchanged": true,
+    "corrected_governing_radial_bearing_case": {
+      "axis_id": "eoere_bolt_081",
+      "case_id": "a12-left",
+      "host": "base_header",
+      "surface_index": 0,
+      "utilization": 0.6036192233535337
+    },
+    "corrected_lateral_model_exceedance_states": 8,
+    "corrected_maximum_radial_bearing_utilization": 0.6036192233535337,
+    "interfaces_replayed": 432,
+    "maximum_lateral_model_utilization": 1.6295970358007588,
+    "original_lateral_model_exceedance_states": 8,
+    "original_maximum_radial_bearing_utilization": 0.5954622068217291,
+    "plywood_steel_interfaces_exact": 288,
+    "sawn_interface_exceedance_rows": [],
+    "sawn_interfaces": 144,
+    "states": 144
+  },
+  "native_or_global_or_CAD_run": false,
+  "physical_failure_claim": false,
+  "schema": "v11_nominal_Fe90_projection_followthrough/v2",
+  "scope": "Only sawn Fe90 uses source-bound nominal D; local body/root width, pressures, signed actions and metal results are unchanged.",
+  "source_bindings": {
+    "all_local_station_controls": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/nominal-fe90-projection-v2-attempt02/local-station-controls-v2.json",
+      "sha256": "983cbca8281f0c74a0e10c33d807d6314f12c645edb38b7e671d9aac3bad7930"
+    },
+    "corrected_header_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/nominal-fe90-projection-v2-attempt02/header-bridge-nominal-Fe90-v2.json",
+      "sha256": "12d657affb2fc7560b5fbee3abec04cb3bcd6cc0daeaee9dab2cc5e539e7a040"
+    },
+    "corrected_mixed_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/nominal-fe90-projection-v2-attempt02/mixed-radial-nominal-Fe90-v2.json",
+      "sha256": "7863cf9500cf7e16ade0f76051d1c0118f0bb998b859e8f85b5714af314c9696"
+    },
+    "focused_controls": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/test_nominal_fe90_projection_v2.py",
+      "sha256": "c3641931e7d9f028ef3ea1b8e84a395bd37a434eb84d2bf0a8ce6910253f0140"
+    },
+    "frozen_sources": [
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_current_1d_radial_certificate_v1.py",
+        "sha256": "41d1eecda6568348b8ee1f96bdcaada73a7b0f17c6f3c36788871bd462356a8a"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_header_bridge_redistribution_1d_followthrough_v1.py",
+        "sha256": "f754fc9d94ef7f453f3bf9aff6d76beac619ab808547e972f8d77095bac44604"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-1d-radial-bearing-yield-reference-v1.json",
+        "sha256": "21eb2e55d1d97632fbc818285f0b5c46e271285522628dcd683807a0b16d89ce"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/header-bridge-redistribution-1d-followthrough-v1.json",
+        "sha256": "a96209bdab1d69606deafeb7618eb97be1f92277d35f35c594b54c62367bd65d"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-1d-metal-interaction-reference-v1.json",
+        "sha256": "21794adee3fdde1a740a768a01570b42d8d97857f9a6e2232cd00b3ad735c592"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_current_1d_metal_interaction_v1.py",
+        "sha256": "e92e6ece228d917cf8f425ae49f1e890573016965fff7f1eb427bbd6ba87b2f9"
+      },
+      {
+        "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+        "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+      },
+      {
+        "path": "scripts/eoere_mixed_stack_yield.py",
+        "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+      },
+      {
+        "path": "scripts/thin_bolted_steel_resistance.py",
+        "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+      }
+    ],
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/project_nominal_fe90_v2.py",
+      "sha256": "dfee8eb16e39bdc47e37109eb5c974311729b2d4f268917c80b9b4109b89bbc9"
+    }
+  },
+  "structural_acceptance": false
+}

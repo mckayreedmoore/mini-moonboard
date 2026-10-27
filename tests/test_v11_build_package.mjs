@@ -7,7 +7,9 @@ import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
   validateShorterJointCriterionFollowthrough, validateV11BuildPackage, validateV11BracketThicknessConfirmation,
   validateShorterFormedAngleReference, validateShorterNearWasherSeat, validateShorterWasherMinimumThickness,
-  validateMatchingRearAffectedComponents, validateShorterContactSensitivity} from '../scripts/check_bolted_development.mjs';
+  validateMatchingRearAffectedComponents, validateShorterContactSensitivity,
+  validateNominalDiameterBearingCorrection, validateGlobalWasherMinimum, validateCleatInterleafDemand,
+  validateTopGeometryReview, validateFarRowFittingExtension, validateCurrentShorterJointDisposition} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -266,4 +268,96 @@ test('one-case contact sensitivity binds its original bank and retains its outst
   }
   delete index.owner_authorized_shorter_bolt_trial.objective_contact_response_sensitivity;
   assert.equal(checkDevelopment(index, {entryChecks: false}).complete_connection_acceptance, null);
+});
+
+test('nominal-D correction preserves the source actions and eight unresolved hinge references', () => {
+  const {index, entry} = packet();
+  const load = ref => JSON.parse(readFileSync(path.join(ROOT, ref.path)));
+  const report = load(entry.nominal_diameter_bearing_followthrough), original = load(entry.joint_disposition);
+  assert.equal(validateNominalDiameterBearingCorrection(report, original), report);
+  for (const mutate of [r => {r.mixed.corrected_lateral_model_exceedance_states = 0;},
+    r => {r.all_sawn_utilizations_nondecreasing = false;}, r => {r.complete_joint_capacity = 1;},
+    r => {r.source_bindings.frozen_sources = [];}]) {
+    const changed = structuredClone(report); mutate(changed);
+    assert.throws(() => validateNominalDiameterBearingCorrection(changed, original));
+  }
+  delete index.owner_authorized_shorter_bolt_trial.nominal_diameter_bearing_followthrough;
+  assert.equal(checkDevelopment(index, {entryChecks: false}).complete_connection_acceptance, null);
+});
+
+for (const [key, validate, mutations] of [
+  ['global_washer_minimum_thickness', validateGlobalWasherMinimum, [r => {r.scope.near_seat_rows_kept_separate = 0;}, r => {r.summary.strength_or_fit_pass = true;}]],
+  ['cleat_interleaf_transfer_demand', validateCleatInterleafDemand, [r => {r.scope.composite_bond_qualified = true;}, r => {r.operator_and_derivation.flow_coefficient_per_mm *= 10;}]],
+  ['outer_top_method_and_review_spec', validateTopGeometryReview, [r => {r.review_option_adopted = true;}, r => {r.hole_scope_clarification.new_blanket_actual_metal_hole_violation_asserted = true;}]],
+  ['far_row_fitting_component_extension', validateFarRowFittingExtension, [r => {r.per_state_results[0] = r.per_state_results[1];}, r => {r.limits.all144_states_or_all24_fittings_strength_qualified = true;}]],
+]) test(`${key} preserves conditional scope and source identity`, () => {
+  const {index, entry, bank} = packet(), ref = entry[key], raw = readFileSync(path.join(ROOT, ref.path));
+  const report = JSON.parse(ref.encoding === 'gzip' ? gunzipSync(raw) : raw);
+  assert.equal(validate(report, entry, bank), report);
+  for (const mutate of mutations) {
+    const changed = structuredClone(report); mutate(changed); assert.throws(() => validate(changed, entry, bank));
+  }
+  delete index.owner_authorized_shorter_bolt_trial[key];
+  assert.equal(checkDevelopment(index, {entryChecks: false}).complete_connection_acceptance, null);
+});
+
+function currentDispositionPacket() {
+  const {index, entry} = packet(), ref = entry.current_joint_disposition;
+  return {index, entry, report: JSON.parse(gunzipSync(readFileSync(path.join(ROOT, ref.path))))};
+}
+
+test('composed V2 resolves all26 current rows while retaining independent physical and engineering holds', () => {
+  const {index, entry, report} = currentDispositionPacket();
+  assert.equal(validateCurrentShorterJointDisposition(report, entry, index), report);
+  assert.equal(report.counts.native_fitting_reference_states, 95); assert.equal(report.counts.native_fitting_geometry_exclusions, 42);
+  assert.equal(report.reproduction.recursive_raw_source_closure_claimed, false);
+});
+
+for (const [name, mutate] of [
+  ['foreign bank', (r, i) => {r.source_bindings.response_bank = i.response_bank;}],
+  ['wrong per-joint ownership preserving112 unique axes', r => {
+    const a = r.joint_clusters[0].axis_ids, b = r.joint_clusters[1].axis_ids; [a[0], b[0]] = [b[0], a[0]];
+  }],
+  ['eight mixed hinge states erased', r => {for (const row of r.joint_clusters) delete row.current_retained_flag_evidence.generic45_mixed_hinge_model_states;}],
+  ['duplicated hinge pointer preserving the eight-state count', r => {
+    const pointers = r.joint_clusters.find(row => row.current_retained_flag_evidence.generic45_mixed_hinge_model_states).current_retained_flag_evidence.generic45_mixed_hinge_model_states[0].pointers;
+    pointers[1] = pointers[0];
+  }],
+  ['completed net components relabeled absent', r => {r.joint_clusters[0].current_duties.member_components.status = 'not_computed';}],
+  ['native cases reassigned despite preserved95 total', r => {
+    const coverage = r.joint_clusters[0].current_duties.fitting.native_case_coverage;
+    const cases = Object.values(coverage)[0].per_state_results; cases[0] = cases[1];
+  }],
+  ['one fine observation promoted to other states', r => {
+    r.joint_clusters.find(row => row.current_duties.fitting?.existing_fine_observation).current_duties.fitting.existing_fine_observation.other_states_fine_envelope_or_convergence_claimed = true;
+  }],
+  ['nonexistent public evidence pointer', r => {r.joint_clusters[0].current_duties.member_components.evidence[0].pointers.push('/unissued_result');}],
+  ['adopted actual group factor', r => {r.actual_Cg = 1;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+  ['recursive raw closure claim', r => {r.reproduction.recursive_raw_source_closure_claimed = true;}],
+  ['fifth automatic header opening duty', r => {r.joint_clusters[2].current_duties.header_opening_bridge = r.joint_clusters[0].current_duties.header_opening_bridge;}],
+]) test(`current composed disposition rejects ${name}`, () => {
+  const {index, entry, report} = currentDispositionPacket(); mutate(report, index);
+  assert.throws(() => validateCurrentShorterJointDisposition(report, entry, index));
+});
+
+test('current composed book retains encoded, decoded and public dependency hash checks', () => {
+  const {index, entry} = packet(); entry.current_joint_disposition.sha256 = '0'.repeat(64);
+  assert.throws(() => checkDevelopment(index, {entryChecks: false}));
+  const decoded = readIndex(); decoded.owner_authorized_shorter_bolt_trial.current_joint_disposition.decoded_sha256 = '0'.repeat(64);
+  assert.throws(() => checkDevelopment(decoded, {entryChecks: false}));
+  const fixture = currentDispositionPacket(); fixture.report.source_bindings.native_fitting_scope_extension.sha256 = '0'.repeat(64);
+  assert.throws(() => validateCurrentShorterJointDisposition(fixture.report, fixture.entry, fixture.index));
+});
+
+test('current entry point composes from embedded public pins when optional addons are omitted', () => {
+  const {index, entry} = packet();
+  for (const key of ['joint_disposition', 'joint_criterion_followthrough', 'rear_wrench_material_references', 'rear_projected_bearing_witness',
+    'formed_angle_component_followthrough', 'near_washer_seat_followthrough', 'washer_catalog_minimum_thickness_sensitivity', 'objective_contact_response_sensitivity',
+    'nominal_diameter_bearing_followthrough', 'global_washer_minimum_thickness', 'cleat_interleaf_transfer_demand', 'outer_top_method_and_review_spec',
+    'far_row_fitting_component_extension', 'build_package']) delete entry[key];
+  delete index.owner_bracket_thickness_confirmation;
+  const result = checkDevelopment(index, {entryChecks: false}); assert.equal(result.complete_connection_acceptance, null);
+  delete entry.current_joint_disposition;
+  assert.equal(checkDevelopment(index, {entryChecks: false}).owner_authorized_shorter_bolt_trial.reported_reference_rows, 110);
 });

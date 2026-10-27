@@ -1,0 +1,174 @@
+{
+  "baseline_replay_controls": {
+    "maximum_absolute_replay_error_MPa": 5.684341886080802e-14,
+    "near_min_rows_exactly_removed_from_full_ring_extension": 96,
+    "near_min_rows_subset_of_supported_global_rows": 96,
+    "replayed_all_1248_rows_maximum_required_Fy_MPa": 45.193637683113124,
+    "saved_global_summary_maximum_required_Fy_MPa": 45.19363768311315,
+    "saved_global_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left"
+    }
+  },
+  "catalog_basis": {
+    "SKU_15023": {
+      "description": "3/8 in USS Grade 5 flat washer",
+      "maximum_scenario_mm": 2.6416,
+      "minimum_scenario_mm": 1.6256,
+      "source_url": "https://boltdepot.com/Product-Details?product=15023",
+      "thickness_range_mm": [
+        1.6256,
+        2.6416
+      ]
+    },
+    "SKU_15025": {
+      "description": "1/2 in USS Grade 5 flat washer",
+      "maximum_scenario_mm": 3.3528,
+      "minimum_scenario_mm": 2.1843999999999997,
+      "source_url": "https://boltdepot.com/Product-Details?product=15025",
+      "thickness_range_mm": [
+        2.1843999999999997,
+        3.3528
+      ]
+    },
+    "actual_observations_performed": false,
+    "catalog_conformance_of_all_envelopes_established": false,
+    "catalog_observation_date": "2026-10-24 18:49:33 UTC",
+    "interpretation": "Saved supplier listing endpoints are catalog scenarios, not a delivered washer measurement or proof that any actual washer conforms. Current axis/SKU mapping comes from the pinned 112-row crosswalk.",
+    "selected_current_SKU_axis_counts": {
+      "15023": 110,
+      "15025": 2
+    },
+    "supplier": "Bolt Depot"
+  },
+  "detailed_row_result": {
+    "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/global-washer-catalog-minimum-sensitivity-v1.json",
+    "row_count": 1152,
+    "sha256": "3a77d146d9a3e16f93dc8d47649e2db5ee5705212845b38b807bd3cc5dc91036",
+    "size_bytes": 1868352
+  },
+  "method": {
+    "changed_input": "washer thickness only, from each axis geometry scenario to its selected SKU catalog minimum",
+    "helper_rerun_for_each_sensitivity_row": true,
+    "limitations": [
+      "linear elastic ideal annular plate with prescribed uniform opposing ring pressures; not solved contact",
+      "saved model end couple is zero, but physical end moment/prying is not established as zero",
+      "no preload, actual bearing lands, material strength, thick-plate correction, yielding redistribution, or complete joint capacity assigned",
+      "the 16-axis near-seat/partial-flat-seat sensitivity remains separate and is not recomputed here",
+      "excluded plywood end rows are unchanged and are not imputed as steel-supported washer cases"
+    ],
+    "radii_saved_axial_demands_and_support_openings_reused": true,
+    "source_function": "scripts.thin_bolted_steel_resistance.washer_axisymmetric_bending",
+    "source_method": "MIT2_080J_Fall2013_plate_equations_as_pinned_in_helper"
+  },
+  "numerical_controls": {
+    "maximum_inverse_square_control_error_MPa_after_helper_rerun": 1.5631940186722204e-13,
+    "maximum_outer_free_shear_residual_N_per_mm": 2.1784241077682506e-15,
+    "maximum_plate_equilibrium_matrix_residual": 2.220446049250313e-16,
+    "minimum_scenario_not_less_than_prior_saved_demand_for_any_row": true,
+    "minimum_sensitivity_rows_in_helper_domain": 1152
+  },
+  "original_thickness_class_counts": {
+    "per_current_thickness_and_SKU": [
+      {
+        "axis_count": 6,
+        "catalog_minimum_thickness_scenario_mm": 1.6256,
+        "prior_geometry_thickness_scenario_mm": 2.032,
+        "supported_rows_after_near_subset_removed": 72,
+        "thickness_class": "inside_range_not_guaranteed_minimum",
+        "washer_SKU": "15023"
+      },
+      {
+        "axis_count": 96,
+        "catalog_minimum_thickness_scenario_mm": 1.6256,
+        "prior_geometry_thickness_scenario_mm": 2.6416,
+        "supported_rows_after_near_subset_removed": 1056,
+        "thickness_class": "catalog_maximum",
+        "washer_SKU": "15023"
+      },
+      {
+        "axis_count": 2,
+        "catalog_minimum_thickness_scenario_mm": 2.1843999999999997,
+        "prior_geometry_thickness_scenario_mm": 3.175,
+        "supported_rows_after_near_subset_removed": 24,
+        "thickness_class": "inside_range_not_guaranteed_minimum",
+        "washer_SKU": "15025"
+      }
+    ],
+    "remaining_sensitivity_rows_at_catalog_maximum_thickness": 1056,
+    "remaining_sensitivity_rows_at_intermediate_catalog_listed_thickness": 96,
+    "supported_rows_at_catalog_maximum_thickness": 1152
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/recompute_global_washer_catalog_minimum_v1.py",
+    "sha256": "cfc977430b326cba1f61ec5a83476f493b91e4ebfcd1dab7081d0a4f04134a08"
+  },
+  "schema": "v11_global_washer_catalog_minimum_summary/v1",
+  "scope": {
+    "excluded_plywood_end_case_rows_preserved": 96,
+    "global_supported_saved_rows": 1248,
+    "near_seat_rows_kept_separate": 96,
+    "no_force_or_global_solve_run": true,
+    "only_saved_axial_capture_and_existing_plate_helper_used": true,
+    "remaining_full_ring_sensitivity_rows": 1152
+  },
+  "source_bindings": {
+    "current_112_axis_hardware_crosswalk": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/axis-crosswalk-v1.csv",
+      "sha256": "9bc09b70875b39769b1b6ee4d79934bc300e351372e0805074e2ce5a9ea37fc5"
+    },
+    "current_component_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/component-reference-summary.json",
+      "sha256": "4d04b557a813ccc6e94e288def310afbe1cb8a2216b5cdce7feed99e39776c9d"
+    },
+    "current_geometry_v3": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "elastic_plate_helper": {
+      "path": "scripts/thin_bolted_steel_resistance.py",
+      "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+    },
+    "global_saved_axial_interface_reference": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/axial-interface-references-v1.json",
+      "sha256": "83b2678632d5410dc6a4f5d31776b4910c154a59f8ebe406957c855c3d786a9e"
+    },
+    "near_seat_catalog_minimum_reference_gzip": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/near-washer-minimum-thickness.json.gz",
+      "sha256": "9b2aa9f2c48bbad18e4bfe7b267ae68417cff0cd46af93e05d337c457cf7b22f"
+    },
+    "saved_catalog_check": {
+      "path": "docs/bolted-frame-development/owner-frame-v10/catalog-check.json",
+      "sha256": "feaf3716870b3c0f3951dab504ad0ee97579c56929e59b645276338bdfd6aa60"
+    }
+  },
+  "status": "LOAD_ONLY_CATALOG_MINIMUM_PLATE_SENSITIVITY",
+  "summary": {
+    "SKU_15023_remaining_rows": 1128,
+    "SKU_15025_remaining_rows": 24,
+    "actual_washer_Fy_MPa": null,
+    "maximum_across_separate_near_and_remaining_results_MPa": 119.3394495069706,
+    "maximum_minimum_scenario_required_Fy_MPa": 119.3394495069706,
+    "maximum_minimum_scenario_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left",
+      "washer_SKU": "15023"
+    },
+    "near_seat_minimum_scenario_maximum_Fy_MPa": 40.259391067221365,
+    "near_seat_minimum_scenario_witness": {
+      "axis_id": "v11_top_left_post_1",
+      "case_id": "a12-rear",
+      "end": "head",
+      "host": "eoere_clip_single_top_left_1"
+    },
+    "physical_contact_or_preload_solved": false,
+    "physical_prying_qualified": false,
+    "remaining_sensitivity_axis_count": 104,
+    "remaining_sensitivity_rows": 1152,
+    "strength_or_fit_pass": null
+  }
+}
