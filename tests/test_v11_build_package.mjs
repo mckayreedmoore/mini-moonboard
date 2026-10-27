@@ -5,7 +5,9 @@ import path from 'node:path';
 import {test} from 'node:test';
 import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
-  validateShorterJointCriterionFollowthrough, validateV11BuildPackage} from '../scripts/check_bolted_development.mjs';
+  validateShorterJointCriterionFollowthrough, validateV11BuildPackage, validateV11BracketThicknessConfirmation,
+  validateShorterFormedAngleReference, validateShorterNearWasherSeat, validateShorterWasherMinimumThickness,
+  validateMatchingRearAffectedComponents} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -186,4 +188,68 @@ test('V20 checks the decoded criterion hash and optional owner-preference bytes'
   assert.throws(() => checkDevelopment(index, {entryChecks: false}));
   const clean = readIndex(); clean.owner_authorized_shorter_bolt_trial.owner_matching_rear_bolts.sha256 = '0'.repeat(64);
   assert.throws(() => checkDevelopment(clean, {entryChecks: false}));
+});
+
+function additionsPacket() {
+  const {index, entry, bank} = packet(), matching = index.owner_authorized_matching_rear_bolt_trial;
+  const load = ref => {const bytes = readFileSync(path.join(ROOT, ref.path)); return JSON.parse(ref.encoding === 'gzip' ? gunzipSync(bytes) : bytes);};
+  const reports = {owner: load(index.owner_bracket_thickness_confirmation), formed: load(entry.formed_angle_component_followthrough),
+    seat: load(entry.near_washer_seat_followthrough), minimum: load(entry.washer_catalog_minimum_thickness_sensitivity),
+    affected: load(matching.affected_connection_component_followthrough)};
+  const validators = {owner: report => validateV11BracketThicknessConfirmation(report, index),
+    formed: report => validateShorterFormedAngleReference(report, entry, bank), seat: report => validateShorterNearWasherSeat(report, entry, bank),
+    minimum: report => validateShorterWasherMinimumThickness(report, entry, bank),
+    affected: report => validateMatchingRearAffectedComponents(report, matching, load(matching.response_bank), load(matching.geometry_receipt))};
+  return {index, entry, reports, validate: key => validators[key](reports[key])};
+}
+
+test('five additive engineering records retain their source identities and explicit unqualified scope', () => {
+  const fixture = additionsPacket();
+  for (const key of Object.keys(fixture.reports)) assert.equal(fixture.validate(key), fixture.reports[key]);
+  delete fixture.entry.near_washer_seat_followthrough; // The independently bound minimum-thickness record remains optional.
+  assert.equal(fixture.validate('minimum'), fixture.reports.minimum);
+});
+
+for (const [name, key, mutate] of [
+  ['owner report relabeled as assistant inspection', 'owner', r => {r.assistant_physical_inspection_performed = true;}],
+  ['formed angle bound to the preserved force bank', 'formed', (r, i) => {r.source_bank.sha256 = i.response_bank.sha256;}],
+  ['withdrawn native interpretation restored', 'formed', r => {r.correction.old_4mm_withdrawals.pop();}],
+  ['elastic angle result promoted to assembly prying acceptance', 'formed', r => {r.remaining_scope.assembly_compatible_prying_or_capture_redistribution_qualified = true;}],
+  ['near-seat construction assigned actual steel strength', 'seat', r => {r.strength_threshold_and_limits.actual_angle_Fy_MPa = 235;}],
+  ['catalog maximum substituted as minimum', 'minimum', r => {r.catalog_basis.minimum_scenario_mm = 2.6416;}],
+  ['duplicate washer state preserving96 rows', 'minimum', r => {r.rows[0].axis_id = r.rows[1].axis_id; r.rows[0].case_id = r.rows[1].case_id;}],
+  ['fresh114 component result bound to112 forces', 'affected', (r, i) => {r.response_bank.sha256 = i.owner_authorized_shorter_bolt_trial.response_bank.sha256;}],
+  ['three optional foot envelopes erased', 'affected', r => {r.reduced_depth.foot_optional_two_edge_flags = [];}],
+  ['interrupted Appendix E paths credited by omission', 'affected', r => {r.AppendixE.material_path_exclusions = [];}],
+  ['component references promoted to complete capacity', 'affected', r => {r.complete_joint_capacity = 1000;}],
+]) test(`additive engineering delivery rejects ${name}`, () => {
+  const fixture = additionsPacket(); mutate(fixture.reports[key], fixture.index); assert.throws(() => fixture.validate(key));
+});
+
+const additiveBindings = index => [index.owner_bracket_thickness_confirmation,
+  index.owner_authorized_shorter_bolt_trial.formed_angle_component_followthrough,
+  index.owner_authorized_shorter_bolt_trial.near_washer_seat_followthrough,
+  index.owner_authorized_shorter_bolt_trial.washer_catalog_minimum_thickness_sensitivity,
+  index.owner_authorized_matching_rear_bolt_trial.affected_connection_component_followthrough];
+
+test('V20 checks all five encoded pins and both decoded pins', () => {
+  for (let n = 0; n < 5; n++) {
+    const index = readIndex(); additiveBindings(index)[n].sha256 = '0'.repeat(64);
+    assert.throws(() => checkDevelopment(index, {entryChecks: false}));
+  }
+  for (const n of [3, 4]) {
+    const index = readIndex(); additiveBindings(index)[n].decoded_sha256 = '0'.repeat(64);
+    assert.throws(() => checkDevelopment(index, {entryChecks: false}));
+  }
+});
+
+test('V20 preserves current authority when all five additive records are omitted', () => {
+  const index = readIndex(), shorter = index.owner_authorized_shorter_bolt_trial;
+  delete index.owner_bracket_thickness_confirmation; delete shorter.formed_angle_component_followthrough;
+  delete shorter.near_washer_seat_followthrough; delete shorter.washer_catalog_minimum_thickness_sensitivity;
+  delete index.owner_authorized_matching_rear_bolt_trial.affected_connection_component_followthrough;
+  const result = checkDevelopment(index, {entryChecks: false});
+  assert.equal(result.revision, 'v11-v9-eight-bolt-v4'); assert.equal(result.occupied_parts, 1109);
+  assert.equal(result.owner_authorized_shorter_bolt_trial.occupied_parts, 1089);
+  assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development'); assert.equal(result.complete_connection_acceptance, null);
 });

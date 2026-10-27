@@ -2435,6 +2435,21 @@
     "top_table_d_primary_method_followup": {
       "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/top-table-d-applicability.json",
       "sha256": "cabbeb6fde6b328452614bf53dd07ba6d4a205de49ce9a213b6542808591c4fa"
+    },
+    "formed_angle_component_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/formed-angle-component-reference.json",
+      "sha256": "74f28b1e746d28f35d8e41cf65652eb682fb5fec2747251b8da330f6750fd43d"
+    },
+    "near_washer_seat_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/near-washer-seat-reference.json",
+      "sha256": "d6d106265a41893399ebda5bacf271a6d78a39e1db6759c943eb3c4afb5a21a9"
+    },
+    "washer_catalog_minimum_thickness_sensitivity": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/near-washer-minimum-thickness.json.gz",
+      "sha256": "9b2aa9f2c48bbad18e4bfe7b267ae68417cff0cd46af93e05d337c457cf7b22f",
+      "encoding": "gzip",
+      "decoded_bytes": 83084,
+      "decoded_sha256": "d5f0ff1cd959f57f4f4f4d6cb91276e056e1325f22592f913506cfc2dd5bc04e"
     }
   },
   "owner_authorized_matching_rear_bolt_trial": {
@@ -2502,12 +2517,38 @@
         "sha256": "f800f5f423d9d12e8d4e55579a229e193a9f9eb83e9e2747b5a5f98334f18e15"
       },
       "ignored_runtime_dependencies": false,
-      "published_or_deployed": false
+      "published_or_deployed": true,
+      "public_url": "https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-matching-rear-bolts-preview&view=rear&holds=off",
+      "publication_verification": {
+        "commit": "1e366c6d2f1b1b0d145066d8c8ff2a4a2d32b6ba",
+        "CI_run": 40450848490,
+        "Pages_run": 40461971018,
+        "both_workflows_success": true,
+        "verified_utc": "2026-10-27T06:40:00.036991+00:00",
+        "public_files_match_committed_bytes": true,
+        "verification_record": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/viewer/public-deployment-verification-v1.json",
+          "sha256": "b816fa564012d3212054e0d4de6b95cbf037e04e5d5951dc662e05856d300467"
+        },
+        "structural_acceptance": false,
+        "trial_selected": false
+      }
     },
     "signed_geometry_applicability": {
       "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/geometry-applicability.json",
       "sha256": "f39bcd1523ad22a032bdf49678ffab533dcab791d15abcf1f354175cadee1f15"
     },
-    "finished_brep_signed_edge_minimum_margin_mm": 0.1446879707809856
+    "finished_brep_signed_edge_minimum_margin_mm": 0.1446879707809856,
+    "affected_connection_component_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/affected-connection-components.json.gz",
+      "sha256": "af52bf685da65fe769a58afdc90de865d64f63b81cb72843f94fcb95debb15f4",
+      "encoding": "gzip",
+      "decoded_bytes": 72217,
+      "decoded_sha256": "1f2f9b2811827fa5efc3dbd1bc81caae494bc5d095f73b2cf784be5cd269b44a"
+    }
+  },
+  "owner_bracket_thickness_confirmation": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-bracket-thickness-confirmation.json",
+    "sha256": "146e46d3386900588716167cc2969a6c63d73a127cdd40ad1bda0ab1d8bdc578"
   }
 }

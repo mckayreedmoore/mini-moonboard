@@ -1,0 +1,362 @@
+{
+  "RF_convention": "RF is external nodal force including CLOAD. Only the six unloaded restrained gauge coordinates are pure reactions; all-nodeRF is not summed again as a reaction field.",
+  "conditional_local_strength_geometry": {
+    "E_MPa": 200000,
+    "actual_material_or_bend_radius_adopted": false,
+    "factory_holes": 8,
+    "hole_diameter_mm": 10,
+    "inside_radius_mm": 6.35,
+    "leg_and_width_mm": 88.9,
+    "nu": 0.3,
+    "thickness_mm": 6.35
+  },
+  "corrected_observations": [
+    {
+      "C3D10": 21716,
+      "actual_Fy_MPa": null,
+      "all_numeric_tokens_checked": 489330,
+      "all_source_coordinates_and_connectivity_match_native_within_explicit_print_bounds": true,
+      "audit": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-4mm-v1/a1-rear-observed-audit-v2.json",
+        "sha256": "af07943d3e583d6da92d34ad5b346887f9427570add56bd8a9a4724fed49a7ea"
+      },
+      "centroid_is_not_IP_coordinate": true,
+      "changed_coordinate_tokens": 15,
+      "conditional_Fy235_sampled_marker_index": 0.3776578090648948,
+      "elastic_work": {
+        "DAT_U_half_last_digit_work_bound_Nmm": 3.741902731160605e-06,
+        "basis": "Linear static dead-load elastic work0.5FdotU; zero prescribed gauge displacements contribute zero constraint work. RF is not substituted for CLOAD.",
+        "direct_sum_vs_resultant_formula_error_Nmm": 4.581542749881538e-15,
+        "half_sum_serialized_CLOAD_dot_printed_U_Nmm": 20.661254109300923,
+        "load_moment_Nmm": [
+          -4.269081526022616e-08,
+          -3.036841747260696e-08,
+          6.398847421329961e-08
+        ],
+        "load_resultant_N": [
+          -9.53605399419975e-11,
+          1.5463164571302441e-09,
+          -1.953173412690979e-09
+        ],
+        "physical_joint_opening_or_assembly_contact_work_inferred": false,
+        "rigid_motion_test_rotation_rad": [
+          0.001,
+          -0.002,
+          0.003
+        ],
+        "rigid_motion_test_translation_mm": [
+          17.0,
+          -13.0,
+          9.0
+        ],
+        "rigid_motion_work_change_due_to_source_residual_Nmm": -1.9545900778343277e-08,
+        "same_quantity_J": 0.020661254109300923
+      },
+      "execution": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-4mm-v1/a1-rear-execution-v1.json",
+        "sha256": "90e3c2955eee9d55da8f2f92a575331fe574c27dd7ca459f4aedd78c7704e614"
+      },
+      "gauge_fixed_U_norm_diagnostic_mm": 0.11115321562383018,
+      "gauge_plus_applied_force_residual_norm_N": 1.497238069329328e-09,
+      "gauge_plus_applied_moment_residual_norm_Nmm": 1.2451284183609034e-07,
+      "input": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-4mm-v1/component-deck-v1/a1-rear.inp",
+        "sha256": "48fcc0cfea0d308819ff79fd4e45a9c82d7fa57167ac4b380b03e65de04dc447"
+      },
+      "maximum_FRD_coordinate_error_mm": 5.319866768616066e-05,
+      "maximum_explicit_print_bound_mm": 5.3814690103354226e-05,
+      "maximum_pure_unloaded_gauge_reaction_N": 3.026892e-09,
+      "mesh_mm": 4,
+      "native_coordinate_gate": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-4mm-v1/a1-rear-observed-audit-v2-coordinate-roundtrip.json",
+        "sha256": "6e916dfb818f66250f5ff30678f82efe10c85883dc6123c5bfce7d0b4f3cbd2c"
+      },
+      "native_integration_points": 86864,
+      "native_returncode": 0,
+      "nearest_hole_inference": {
+        "basis": "Nearest infinite hole axis to element corner centroid; this is not a printed IP location or a hole stress classification.",
+        "element_centroid_to_hole_axis_mm": 5.349825100159183,
+        "hole_id": "arm-z/near-plus"
+      },
+      "nodes": 39531,
+      "observed_wall_seconds": 6.433104113966692,
+      "peak_IP": 2,
+      "peak_element": 32120,
+      "peak_element_corner_centroid_local_mm": [
+        5.950924243131945,
+        30.638980904060844,
+        24.895877906909227
+      ],
+      "peak_native_IP_VM_MPa": 53.143464149850466,
+      "raw_U_max_is_physical_prying_or_cross_mesh_deformation": false,
+      "required_Fy_at_retained1_67_sampled_marker_MPa": 88.74958513025028,
+      "serialized_source_mesh_max_coordinate_error_mm": 4.597017211338539e-17,
+      "serialized_vs_source_force_error_N": 5.147677509522216e-13,
+      "serialized_vs_source_moment_error_Nmm": 8.531738078285728e-08,
+      "simultaneous_tensor_MPa": [
+        1.282687,
+        7.673265,
+        50.31676,
+        0.8624276,
+        -0.8061579,
+        -15.14621
+      ],
+      "tensor_order": [
+        "Sxx",
+        "Syy",
+        "Szz",
+        "Sxy",
+        "Sxz",
+        "Syz"
+      ]
+    },
+    {
+      "C3D10": 39151,
+      "actual_Fy_MPa": null,
+      "all_numeric_tokens_checked": 859386,
+      "all_source_coordinates_and_connectivity_match_native_within_explicit_print_bounds": true,
+      "audit": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-3mm-v1/a1-rear-observed-audit-v2.json",
+        "sha256": "db80f990a71506475efead35d2833be7577f6a40465fbe0073c913be1e6dfdb4"
+      },
+      "centroid_is_not_IP_coordinate": true,
+      "changed_coordinate_tokens": 8,
+      "conditional_Fy235_sampled_marker_index": 0.3881218647240247,
+      "elastic_work": {
+        "DAT_U_half_last_digit_work_bound_Nmm": 8.885631924542984e-06,
+        "basis": "Linear static dead-load elastic work0.5FdotU; zero prescribed gauge displacements contribute zero constraint work. RF is not substituted for CLOAD.",
+        "direct_sum_vs_resultant_formula_error_Nmm": 2.7173701435603346e-15,
+        "half_sum_serialized_CLOAD_dot_printed_U_Nmm": 20.693953166367155,
+        "load_moment_Nmm": [
+          -4.2700338154233464e-08,
+          -3.0333369926530986e-08,
+          6.400995117614625e-08
+        ],
+        "load_resultant_N": [
+          -9.53553587982785e-11,
+          1.5467052990289885e-09,
+          -1.9537487045070323e-09
+        ],
+        "physical_joint_opening_or_assembly_contact_work_inferred": false,
+        "rigid_motion_test_rotation_rad": [
+          0.001,
+          -0.002,
+          0.003
+        ],
+        "rigid_motion_test_translation_mm": [
+          17.0,
+          -13.0,
+          9.0
+        ],
+        "rigid_motion_work_change_due_to_source_residual_Nmm": -1.955097331877166e-08,
+        "same_quantity_J": 0.020693953166367157
+      },
+      "execution": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-3mm-v1/a1-rear-execution-v1.json",
+        "sha256": "b02a57e70b61844f6215fa041159b87a7cf78e0efa7d8900ae6eefa4283bb8ab"
+      },
+      "gauge_fixed_U_norm_diagnostic_mm": 0.2040527921702286,
+      "gauge_plus_applied_force_residual_norm_N": 5.802053627900467e-09,
+      "gauge_plus_applied_moment_residual_norm_Nmm": 3.498914467275008e-07,
+      "input": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-3mm-v1/component-deck-v1/a1-rear.inp",
+        "sha256": "dec5a926d745c03e9a5e1f3d985b6c77f2cf309bb8537036622d1c297ea3137b"
+      },
+      "maximum_FRD_coordinate_error_mm": 5.3524514029845704e-05,
+      "maximum_explicit_print_bound_mm": 5.38146176848386e-05,
+      "maximum_pure_unloaded_gauge_reaction_N": 1.11488e-08,
+      "mesh_mm": 3,
+      "native_coordinate_gate": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/selected-3mm-v1/a1-rear-observed-audit-v2-coordinate-roundtrip.json",
+        "sha256": "6264182b656907943e957b6674d2b51582737bb8e62ae49a6c8579e612d8d024"
+      },
+      "native_integration_points": 156604,
+      "native_returncode": 0,
+      "nearest_hole_inference": {
+        "basis": "Nearest infinite hole axis to element corner centroid; this is not a printed IP location or a hole stress classification.",
+        "element_centroid_to_hole_axis_mm": 5.306633652524021,
+        "hole_id": "arm-z/near-plus"
+      },
+      "nodes": 68578,
+      "observed_wall_seconds": 15.328746914980002,
+      "peak_IP": 3,
+      "peak_element": 54748,
+      "peak_element_corner_centroid_local_mm": [
+        6.044217170782413,
+        30.578999943571542,
+        24.969357945724703
+      ],
+      "peak_native_IP_VM_MPa": 54.615951024039404,
+      "raw_U_max_is_physical_prying_or_cross_mesh_deformation": false,
+      "required_Fy_at_retained1_67_sampled_marker_MPa": 91.2086382101458,
+      "serialized_source_mesh_max_coordinate_error_mm": 4.195862407518902e-17,
+      "serialized_vs_source_force_error_N": 5.199488946712199e-13,
+      "serialized_vs_source_moment_error_Nmm": 8.530785788884998e-08,
+      "simultaneous_tensor_MPa": [
+        0.8026239,
+        7.165457,
+        51.22273,
+        0.8073924,
+        -0.5325915,
+        -15.47296
+      ],
+      "tensor_order": [
+        "Sxx",
+        "Syy",
+        "Szz",
+        "Sxy",
+        "Sxz",
+        "Syz"
+      ]
+    }
+  ],
+  "correction": {
+    "FRD_print_source": {
+      "image": "sha256:31336f517557f5dd5f97d85b1e6e15947fd1c10b44edc1364dbba4c1a5ab6c38",
+      "locator": "lines220-247: explicit(float)coordinate cast followed by%12.5E ASCII output",
+      "path": "/opt/ccx-upstream-2.23/CalculiX/ccx_2.23/src/frd.c",
+      "sha256": "6439bca2ae53c813ab6887c3c560dd15db5947fd8cf9b9f01ada5753d5ed9915"
+    },
+    "Gmsh_CCX_native_rule_derivative_agreement_error": 4.440892098500626e-16,
+    "cause": "Pinned2.23 nodes.f reads only each numeric coordinate field(1:20). Overlong negative scientific exponents were truncated, silently moving nodes. This was a numerical export failure, not physical bracket failure or a Gmsh connectivity/permutation defect.",
+    "failed_3mm_elements": [
+      18120,
+      19500,
+      23840,
+      34041
+    ],
+    "failed_3mm_execution": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-far-only-3mm-inputs-v1/a1-rear-execution-v1.json",
+      "sha256": "94ee6051108a23a8b6b6c024b2fac62f23abbe29702645e36371b663b51fe06b"
+    },
+    "failed_3mm_interpreted_minimum_Jacobian": -128.24075054421306,
+    "failed_3mm_native_returncode": 201,
+    "failed_3mm_negative_native_IPs": 10,
+    "formatter": {
+      "path": "fea/section_force_coupon.py",
+      "sha256": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127"
+    },
+    "native_coordinate_gate": "Before stress extraction, source/input coordinates must round-trip through F20 within1e-12mm, all coordinates/connectivity must match nativeFRD using exact float32-cast error plus half-last-digit%12.5E decimal bounds. Solver exit0 and positive Gmsh Jacobians alone cannot bypass the gate.",
+    "numeric_fields_covered": "Every scalar numeric solver token, including all NODE coordinates, all CLOAD values, material constants, boundary values, IDs/set entries and numeric keyword values. Identity integers never rounded. Short safe tokens retained; overlong floats use the existing bounded formatter.",
+    "old_3mm_corrupted_y_nodes": [
+      21540,
+      32930,
+      36017
+    ],
+    "old_3mm_maximum_coordinate_shift_mm": 8.217210000962162,
+    "old_4mm_corrupted_y_nodes": [
+      21682,
+      28142,
+      32180
+    ],
+    "old_4mm_maximum_coordinate_shift_mm": 0.22204460492503078,
+    "old_4mm_withdrawals": [
+      {
+        "audit": {
+          "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/a12-forward-4mm-observed-audit-v1.json",
+          "sha256": "40e45696f7f360dda94066638ec5478f9066c2fef6bfc6fbe38a170936700a61"
+        },
+        "body": "eoere_clip_split_base_center_left",
+        "case": "a12-forward",
+        "status": "Source-matched stress interpretation withdrawn; frozen observed bytes preserved."
+      },
+      {
+        "audit": {
+          "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-far-only-4mm-attempt02/a1-rear-observed-audit-v1.json",
+          "sha256": "9396779de70a20dece29e4975941a90a22b78c02a8acfb252ceb1d0705dfe3c0"
+        },
+        "body": "eoere_clip_horizontal_bottom_left_1",
+        "case": "a1-rear",
+        "status": "Source-matched stress interpretation withdrawn; frozen observed bytes preserved."
+      }
+    ],
+    "safe_writer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded_numeric_decks_v1.py",
+      "sha256": "a587cd2322f319a3be6118d3d31ab9a8f13535c4bab833ffda9e738d3ce3be7f"
+    },
+    "same_3mm_requested_geometry_native_rule_minimum_Jacobian": 0.12271612132528344,
+    "source_basis": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/refinement-parser-and-basis-source-v1.json",
+      "sha256": "b5be8b7e35cab2775778b0396046453cb34870c3feee2347095440e08bd3b3d2"
+    }
+  },
+  "mesh_change_observation": {
+    "actual_Fy_MPa": null,
+    "asymptotic_mesh_convergence_or_code_peak_capacity_established": false,
+    "comparison": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/corrected-two-mesh-observation-v1.json",
+      "sha256": "9acc6fcb634a8aad505c4ad6179c1dcf47823d6464969fb919afed2dfc0f2b9a"
+    },
+    "elastic_work_increase_fraction": 0.0015826269254155534,
+    "interpretation": "Two source-matched observations put the sampled fixed-traction hole-neighborhood peak at53.143464/54.615951MPa; work changes0.1583%. These are numerical-change observations, not an invented convergence tolerance or six-case/all-angle strength acceptance. Raw gauge-fixed maximumU differs between meshes and is not compared as physical opening.",
+    "maximum_sampled_VM_MPa": 54.615951024039404,
+    "required_Fy_at_retained1_67_sampled_marker_MPa": 91.2086382101458,
+    "same25_signed_source_load_groups": true,
+    "sampled_VM_increase_fraction": 0.027707769859279807
+  },
+  "method_checks": {
+    "F20_known_answers_and_full_scalar_checks_pass": true,
+    "Ruff_and_byte_compilation": "PASS",
+    "all_six_coupon_inputs_and_native_coordinates_safe": true,
+    "coupon_reruns": 0,
+    "elastic_work_known_answers": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/elastic-work-known-answers-v1.json",
+      "sha256": "433e6caf7e971102425c19589f4393f7cd0b97750f29e7dd174281dc8d0b89e7"
+    },
+    "existing_six_coupon_native_pass": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/native-controls-pass-v1.json",
+      "sha256": "b7281a7ed1e0036f43b603175b46657f8ea6a01a858aea469b8bdba0b45cf836"
+    },
+    "negative_native_FRD_rejection_controls": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/roundtrip-known-answer-rejection-v1.json",
+      "sha256": "18c2935cdca3b6670e458f1a0824e6018720a8b74047a4bb2745aa13fec3589d"
+    },
+    "preparation": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/bounded-numeric-v1/preparation-receipt-v1.json",
+      "sha256": "85424eea8e56b37ffde1c007d382e80de299e9077e4bdbfb80670f75ef3adb9e"
+    }
+  },
+  "physical_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "remaining_scope": {
+    "actual_Eoere_steel_t_radius_or_hole_tolerance_qualified": false,
+    "assembly_compatible_prying_or_capture_redistribution_qualified": false,
+    "current16_near_inner_washer_seats_accepted": false,
+    "needed_for_full_fitting": "Controlled material/geometry plus applicable acceptance and assembly-compatible washer/bolt/unilateral backing/prying behavior; other states/bodies require their own source mapping or a justified envelope. No extra blanket test or sign-off prerequisite is added.",
+    "new114_bank_forces_used": false,
+    "other23_fitting_strength_or_all_six_cases_accepted": false,
+    "structural_or_physical_release": false,
+    "usable_result": "A connected whole-angle elastic field under the preserved signed bore, washer, backing and gravity wrenches for this one far-only source state, with explicit geometry round-trip and two existing mesh observations."
+  },
+  "retention": "Corrected packet stays active. Original/faulty exports, first observations, failed3mm outputs, six controls and all source meshes/maps remain byte-preserved and recoverable; no archive/prune/public/staging write.",
+  "schema": "conditional_angle_coordinate_corrected_reference_summary/v1",
+  "scope": "One actual112-bank0ac9 bottom-left/a1-rear far-row-only fitting source state on the same two existing conditional connected curved eight-hole meshes; source-matched fixed-traction elastic stress/work observations.",
+  "selection_inventory": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-far-only-4mm-attempt02/all-angle-source-inventory-v1.json",
+    "sha256": "7b083054a55f36dbc3e57c7a68da9bc3e8fe2ddd95a8ffa1c448acf4ff7552a4"
+  },
+  "serial_execution": {
+    "authorization": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/parent-bounded-export-slot-v1.json",
+      "sha256": "6b8adb1c35ac3195d2cb17ec259e9ac36f430bdaf810446b34fbcf195d2ceb57"
+    },
+    "both_jobs_native_terminal": true,
+    "closed_slot": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/parent-bounded-export-slot-closed-v1.json",
+      "sha256": "e5e11673b17b8ce376daf47261a2cd44832b170e43854fa0430841c5c3a3b4df"
+    },
+    "image_id": "sha256:31336f517557f5dd5f97d85b1e6e15947fd1c10b44edc1364dbba4c1a5ab6c38",
+    "native_jobs": 2,
+    "new_mesh_jobs_for_correction": 0,
+    "observed_binary_sha256": "c6882d262b44525a563250673420dff1506c41b95e6d82d50392f9af26111863",
+    "one_CPU_memory_2g": true,
+    "same_case_both_jobs": true,
+    "worker_signalled_contact_process": false
+  },
+  "source_bank": {
+    "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  }
+}

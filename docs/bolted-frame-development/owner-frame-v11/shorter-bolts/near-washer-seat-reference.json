@@ -1,0 +1,252 @@
+{
+  "candidate_revision": "v11-shorter-bolts-v1",
+  "conditional_flat_footprint_areas_mm2": {
+    "full_annulus": 440.5789861535299,
+    "method": "The washer annulus is intersected with the symmetric strip |x| <= axis_to_tangent. Its centroid is at the bolt axis; uniform normal compression therefore has zero in-plane first moments. The strip lies on the declared flat flange side of the assumed tangent. This does not model washer flexibility or curved-surface contact.",
+    "one_heel_cap_area_removed_mm2": 18.404450908846016,
+    "one_sided_flat_area_excluding_heel_cap": 422.1745352446839,
+    "selected_centered_symmetric_flat_subset": 403.77008433583785,
+    "symmetric_subset_fraction_of_full_annulus": 0.9164533421372367
+  },
+  "current_wrench_audit": {
+    "all_saved_capture_free_moments_are_zero_in_the_model": true,
+    "all_saved_wrenches_are_axial_parallel_to_shaft": true,
+    "case_ids": [
+      "a12-forward",
+      "a12-left",
+      "a12-rear",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "inner_fitting_face_washer_axis_ids": [
+      "v11_cleat_left_post_1",
+      "v11_cleat_left_post_2",
+      "v11_cleat_left_side_1",
+      "v11_cleat_left_side_2",
+      "v11_cleat_right_post_1",
+      "v11_cleat_right_post_2",
+      "v11_cleat_right_side_1",
+      "v11_cleat_right_side_2",
+      "v11_top_left_beam_1",
+      "v11_top_left_beam_2",
+      "v11_top_left_post_1",
+      "v11_top_left_post_2",
+      "v11_top_right_beam_1",
+      "v11_top_right_beam_2",
+      "v11_top_right_post_1",
+      "v11_top_right_post_2"
+    ],
+    "maximum_force_alignment_residual_N": 0.0,
+    "maximum_force_lever_arm_moment_when_transported_to_support_face_Nmm": 3.242917046009097e-11,
+    "maximum_saved_capture_free_moment_norm_Nmm": 0.0,
+    "per_case_maxima": [
+      {
+        "case_id": "a12-forward",
+        "governing_axis_id": "v11_top_left_post_1",
+        "governing_end": "head",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_top_left_post_1",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 17.914593161106804,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.3723752311012664,
+        "saved_compressive_resultant_N": 164.06070178728234,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.4063220831655869
+      },
+      {
+        "case_id": "a12-left",
+        "governing_axis_id": "v11_top_left_beam_2",
+        "governing_end": "nut",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_top_left_beam_2",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 19.00684226284843,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.39507887321155477,
+        "saved_compressive_resultant_N": 174.0634494102258,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.4310954579424651
+      },
+      {
+        "case_id": "a12-rear",
+        "governing_axis_id": "v11_top_left_post_1",
+        "governing_end": "head",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_top_left_post_1",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 19.12185276103288,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.39746949746159277,
+        "saved_compressive_resultant_N": 175.11670821858155,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.4337040187279633
+      },
+      {
+        "case_id": "k12-right",
+        "governing_axis_id": "v11_top_right_post_1",
+        "governing_end": "head",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_top_right_post_1",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 17.43389497297132,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.36238337154368927,
+        "saved_compressive_resultant_N": 159.65849843361656,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.39541933547711716
+      },
+      {
+        "case_id": "k12-rear",
+        "governing_axis_id": "v11_top_right_post_1",
+        "governing_end": "head",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_top_right_post_1",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 18.39947614015465,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.3824540763061919,
+        "saved_compressive_resultant_N": 168.50122918926678,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.4173197463760466
+      },
+      {
+        "case_id": "a1-rear",
+        "governing_axis_id": "v11_cleat_left_post_1",
+        "governing_end": "nut",
+        "maximum_axisymmetric_plate_requirement_axis_id": "v11_cleat_left_post_1",
+        "maximum_existing_axisymmetric_plate_required_Fy_MPa": 5.704684842571873,
+        "maximum_existing_full_annulus_support_mean_MPa": 0.20501435777438143,
+        "saved_compressive_resultant_N": 90.32501789515402,
+        "saved_free_moment_at_capture_Nmm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "steel_side_washer_captures_checked": 16,
+        "uniform_pressure_on_symmetric_flat_subset_required_MPa": 0.22370408655641194
+      }
+    ],
+    "physical_prying_or_washer_moment_resolved": false,
+    "source_axial_rows_checked": 96,
+    "source_capture_wrenches_checked": 96,
+    "worst_saved_axial_capture": {
+      "axis_id": "v11_top_left_post_1",
+      "case_id": "a12-rear",
+      "compression_N": 175.11670821858155,
+      "end": "head",
+      "host": "eoere_clip_single_top_left_1",
+      "saved_free_moment_xyz_Nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "uniform_pressure_threshold_on_symmetric_subset_MPa": 0.4337040187279633
+    }
+  },
+  "disposition": {
+    "actual_mechanical_interference": "unresolved; the model and source records do not contain the actual angle bend radius/tangent or washer product geometry",
+    "conditional_Ri_equals_t_geometry": "if Ri=t=6.35 mm is assumed, the washer footprint crosses the assumed inner-radius tangent by 1.9685 mm; a rigid flat washer in that plane would need clearance, tilt, or deformation. This conditional overlap is not observed physical interference",
+    "full_flat_annulus_gate": "conservative_sufficient_footprint_assumption_not_a_necessary_statics_condition",
+    "full_joint_or_fabrication_acceptance": false,
+    "partial_flat_seat": "a centered symmetric subset of the conditional flat annulus carries each saved pure axial capture wrench statically by uniform compression; this is a witness, not a fitted contact or strength qualification"
+  },
+  "geometry": {
+    "actual_radius_or_tangent_observed": false,
+    "conditional_inside_radius_mm": 6.35,
+    "conditional_tangent_station_from_outer_heel_mm": 12.7,
+    "conditional_thickness_mm": 6.35,
+    "derived_inner_heel_hole_station_mm": 17.4625,
+    "full_flat_annulus_required_Ri_max_mm": 4.381499999999999,
+    "source_outer_heel_hole_station_mm": 23.8125,
+    "washer_ID_mm": 11.1125,
+    "washer_OD_mm": 26.162,
+    "washer_radius_extent_past_conditional_tangent_mm": 1.9684999999999988
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/near-washer-seat-v1/near_washer_seat_reference_v1.py",
+    "sha256": "2aff8eb7fde36ffe3f48e1bc3722c7c207b0d282ba7113a022d82b488c843e26"
+  },
+  "schema": "v11_near_washer_partial_flat_seat_statics_reference/v1",
+  "source_bindings": {
+    "component_action_and_geometry_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/formed-angle-followthrough-v1/formed-angle-components-v1.json",
+      "sha256": "720189d3ee47eec9b54bafbae382e88a3ad36c5443665e9e595dae6a32035e44"
+    },
+    "current_axial_washer_reference": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/axial-interface-references-v1.json",
+      "sha256": "83b2678632d5410dc6a4f5d31776b4910c154a59f8ebe406957c855c3d786a9e"
+    },
+    "current_case_fields": [
+      {
+        "case_id": "a12-forward",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      {
+        "case_id": "a12-left",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      {
+        "case_id": "a12-rear",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      {
+        "case_id": "k12-right",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      {
+        "case_id": "k12-rear",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      {
+        "case_id": "a1-rear",
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      }
+    ],
+    "current_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "current_response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "heel_and_washer_screen": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/formed-angle-followthrough-v1/formed-angle-requirements-summary-v1.json",
+      "sha256": "57dbabc1f57b830a36662b1818f1a5737db90c01e15be9d6997de25b567264a9"
+    }
+  },
+  "strength_threshold_and_limits": {
+    "actual_angle_Fy_MPa": null,
+    "actual_washer_Fy_or_flexural_properties": null,
+    "existing_axisymmetric_plate_required_Fy_MPa_for_worst_axis": 19.12185276103288,
+    "existing_plate_threshold_scope": "The source plate reference is the prior axisymmetric full-annulus diagnostic; it is not recalculated for partial support and is not a partial-seat capacity.",
+    "quantity": "required compressive pressure for the explicitly constructed symmetric-subset equilibrium field",
+    "required_remaining_evidence": [
+      "actual angle section, inner bend radius/tangent and flange-face clearance at all 16 positions",
+      "actual washer dimensions, thickness, material/yield and nut/head seating geometry",
+      "partial-contact/washer-flexure analysis capable of transferring the full six-component washer wrench, including physical prying moments",
+      "angle and washer resistance basis for the computed pressure, local flange bending, and any eccentric reactions"
+    ],
+    "strength_or_fit_pass": null,
+    "worst_existing_full_annulus_support_mean_MPa": 0.39746949746159277,
+    "worst_required_pressure_MPa": 0.4337040187279633
+  }
+}

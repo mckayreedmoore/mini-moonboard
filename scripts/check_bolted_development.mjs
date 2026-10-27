@@ -50,6 +50,13 @@ function bound(ref) {
   return bytes;
 }
 
+function boundCompressedJson(ref, expectedPath) {
+  referenceKeys(ref, ['path', 'sha256', 'encoding', 'decoded_sha256', 'decoded_bytes'], 'compressed JSON binding');
+  referenceBinding({path: ref.path, sha256: ref.sha256}, expectedPath); assert.equal(ref.encoding, 'gzip');
+  const decoded = gunzipSync(bound(ref)); assert.equal(sha(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
+  return JSON.parse(decoded);
+}
+
 export function viewerModel(html, requestedModel) {
   const start = html.indexOf('const woodJointModels =');
   const end = html.indexOf('const modelLabel =', start);
@@ -3295,6 +3302,123 @@ export function validateShorterRearProjectedBearingWitness(report, entry) {
   return report;
 }
 
+export function validateV11BracketThicknessConfirmation(report, index) {
+  assert.equal(report.schema, 'v11_owner_bracket_thickness_confirmation/v1');
+  assert.deepEqual(report.bracket_identity_record, index.owner_material_purchase_decisions);
+  assert.equal(report.owner_confirmed_thickness_mm, 6.35); assert.equal(report.model, 'ZX128-B-T4'); assert.equal(report.retail_id, 'B0C7V7VS89');
+  assert.equal(report.measurement_method_or_tolerance_provided, null);
+  for (const key of ['assistant_physical_inspection_performed', 'all_parts_or_lots_individually_inspected', 'geometry_force_or_load_change',
+    'structural_acceptance', 'purchase_authorized', 'fabrication_released', 'climbing_released']) assert.equal(report[key], false);
+  return report;
+}
+
+export function validateShorterFormedAngleReference(report, entry, bank) {
+  assert.equal(report.schema, 'conditional_angle_coordinate_corrected_reference_summary/v1');
+  referenceBinding(report.source_bank, 'fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json');
+  assert.equal(report.source_bank.sha256, entry.response_bank.sha256); assert.deepEqual(report.physical_geometry, bank.physical_geometry);
+  assert.equal(report.conditional_local_strength_geometry.thickness_mm, 6.35);
+  assert.equal(report.conditional_local_strength_geometry.actual_material_or_bend_radius_adopted, false);
+  assert.deepEqual(report.corrected_observations.map(row => row.mesh_mm), [4, 3]);
+  for (const row of report.corrected_observations) {
+    assert.equal(row.native_returncode, 0); assert.equal(row.actual_Fy_MPa, null);
+    assert.equal(row.all_source_coordinates_and_connectivity_match_native_within_explicit_print_bounds, true);
+    assert.ok(row.maximum_FRD_coordinate_error_mm <= row.maximum_explicit_print_bound_mm);
+    assert.equal(row.raw_U_max_is_physical_prying_or_cross_mesh_deformation, false);
+    assert.equal(row.elastic_work.physical_joint_opening_or_assembly_contact_work_inferred, false);
+  }
+  const summary = report.mesh_change_observation;
+  referenceClose(summary.maximum_sampled_VM_MPa, 54.615951024039404, 'corrected formed-angle peak');
+  referenceClose(summary.maximum_sampled_VM_MPa, Math.max(...report.corrected_observations.map(row => row.peak_native_IP_VM_MPa)), 'formed-angle observations');
+  referenceClose(summary.required_Fy_at_retained1_67_sampled_marker_MPa, 91.2086382101458, 'formed-angle required Fy');
+  assert.equal(summary.actual_Fy_MPa, null); assert.equal(summary.asymptotic_mesh_convergence_or_code_peak_capacity_established, false);
+  assert.equal(summary.same25_signed_source_load_groups, true); assert.equal(report.correction.old_4mm_withdrawals.length, 2);
+  for (const row of report.correction.old_4mm_withdrawals) {referenceBinding(row.audit); assert.match(row.status, /withdrawn/);}
+  for (const key of ['actual_Eoere_steel_t_radius_or_hole_tolerance_qualified', 'assembly_compatible_prying_or_capture_redistribution_qualified',
+    'current16_near_inner_washer_seats_accepted', 'new114_bank_forces_used', 'other23_fitting_strength_or_all_six_cases_accepted', 'structural_or_physical_release'])
+    assert.equal(report.remaining_scope[key], false);
+  return report;
+}
+
+const V11_NEAR_WASHER_AXES = ['left', 'right'].flatMap(side => ['post', 'side'].flatMap(part => [1, 2].map(n => `v11_cleat_${side}_${part}_${n}`))
+  .concat(['beam', 'post'].flatMap(part => [1, 2].map(n => `v11_top_${side}_${part}_${n}`))));
+
+export function validateShorterNearWasherSeat(report, entry, bank) {
+  assert.equal(report.schema, 'v11_near_washer_partial_flat_seat_statics_reference/v1'); assert.equal(report.candidate_revision, entry.revision);
+  const pins = report.source_bindings, audit = report.current_wrench_audit, limits = report.strength_threshold_and_limits;
+  referenceBinding(pins.current_response_bank, 'fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json');
+  assert.equal(pins.current_response_bank.sha256, entry.response_bank.sha256); assert.deepEqual(pins.current_geometry, bank.physical_geometry);
+  assert.deepEqual(pins.current_case_fields.map(({case_id, path, sha256}) => ({case_id, field: {path, sha256}})), bank.cases.map(({case_id, field}) => ({case_id, field})));
+  assert.deepEqual([...audit.inner_fitting_face_washer_axis_ids].sort(), [...V11_NEAR_WASHER_AXES].sort());
+  assert.equal(audit.source_capture_wrenches_checked, 96); assert.equal(audit.source_axial_rows_checked, 96);
+  assert.deepEqual(audit.case_ids, CURRENT_CASES); assert.deepEqual(audit.per_case_maxima.map(row => row.case_id), CURRENT_CASES);
+  for (const row of audit.per_case_maxima) assert.equal(row.steel_side_washer_captures_checked, 16);
+  referenceClose(limits.worst_required_pressure_MPa, 0.4337040187279633, 'conditional washer-seat pressure');
+  assert.equal(audit.all_saved_wrenches_are_axial_parallel_to_shaft, true); assert.equal(audit.all_saved_capture_free_moments_are_zero_in_the_model, true);
+  assert.equal(audit.physical_prying_or_washer_moment_resolved, false); assert.equal(report.geometry.actual_radius_or_tangent_observed, false);
+  assert.equal(report.disposition.full_joint_or_fabrication_acceptance, false);
+  for (const key of ['actual_angle_Fy_MPa', 'actual_washer_Fy_or_flexural_properties', 'strength_or_fit_pass']) assert.equal(limits[key], null);
+  return report;
+}
+
+export function validateShorterWasherMinimumThickness(report, entry, bank) {
+  assert.equal(report.schema, 'v11_near_washer_catalog_minimum_plate_sensitivity/v1'); assert.equal(report.candidate_revision, entry.revision);
+  const pins = report.source_bindings.prior_current_bank_and_field_pins, summary = report.summary;
+  referenceBinding(pins.response_bank, 'fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json');
+  assert.equal(pins.response_bank.sha256, entry.response_bank.sha256); assert.deepEqual(pins.geometry, bank.physical_geometry);
+  assert.deepEqual(pins.case_fields.map(({case_id, path, sha256}) => ({case_id, field: {path, sha256}})), bank.cases.map(({case_id, field}) => ({case_id, field})));
+  if (entry.near_washer_seat_followthrough !== undefined) assert.equal(pins.v1_statics_wrench_replay.sha256, entry.near_washer_seat_followthrough.sha256);
+  assert.equal(report.rows.length, 96); assert.deepEqual(report.rows.map(row => `${row.axis_id}/${row.case_id}`).sort(),
+    V11_NEAR_WASHER_AXES.flatMap(axis => CURRENT_CASES.map(id => `${axis}/${id}`)).sort());
+  for (const row of report.rows) {
+    assert.equal(row.catalog_minimum_thickness_scenario_mm, 1.6256); assert.equal(row.prior_maximum_thickness_scenario_mm, 2.6416);
+    assert.equal(row.actual_washer_Fy_MPa, null); assert.equal(row.nonlinear_contact_solved, false); assert.equal(row.own_end_moment_included, false);
+  }
+  assert.equal(summary.capture_rows, 96); assert.equal(summary.axis_count, 16); assert.equal(summary.case_count, 6);
+  referenceClose(summary.maximum_min_thickness_required_Fy_MPa, 40.259391067221365, 'catalog-minimum washer required Fy');
+  referenceClose(summary.maximum_min_thickness_required_Fy_MPa, Math.max(...report.rows.map(row => row.required_Fy_MPa_at_sampled_bending_first_yield)), 'minimum-thickness rows');
+  assert.equal(summary.actual_washer_Fy_MPa, null); assert.equal(summary.strength_or_fit_pass, null);
+  assert.equal(report.catalog_basis.minimum_scenario_mm, 1.6256); assert.equal(report.catalog_basis.maximum_scenario_mm, 2.6416);
+  assert.equal(report.catalog_basis.actual_observations_performed, false); assert.equal(report.catalog_basis.catalog_conformance_of_all_envelopes_established, false);
+  assert.equal(report.method.same_geometry_and_96_saved_axial_demands_as_prior_v2, true);
+  return report;
+}
+
+export function validateMatchingRearAffectedComponents(report, entry, bank, receipt) {
+  assert.equal(report.schema, 'current114_affected_connection_component_summary/v1'); assert.equal(report.revision, entry.revision);
+  assert.equal(entry.revision, 'v11-matching-rear-bolts-v1'); assert.equal(entry.trial_selected, false);
+  referenceBinding(report.response_bank, 'fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json');
+  assert.equal(report.response_bank.sha256, entry.response_bank.sha256);
+  assert.equal(bank.schema, 'eoere_v11_matching_rear_bolts_response_bank/v1'); assert.equal(bank.candidate_revision, entry.revision);
+  assert.equal(bank.physical_receipt.sha256, entry.geometry_receipt.sha256); assert.deepEqual(bank.physical_geometry, receipt.geometry);
+  assert.equal(receipt.revision, entry.revision); assert.deepEqual(bank.case_ids, CURRENT_CASES);
+  assert.equal(report.preserved_reference_completion.sha256, entry.reference_completion.sha256);
+  assert.equal(report.scope.host_groups, 16); assert.equal(report.scope.host_axis_interfaces, 38); assert.equal(report.scope.terminal_case_rows, 60);
+  const reduced = report.reduced_depth, appendix = report.AppendixE;
+  assert.equal(reduced.summary.geometry_eligible_groups, 12); assert.equal(reduced.summary.case_rows_computed, 72);
+  assert.equal(reduced.summary.geometry_excluded_groups, 4); assert.equal(reduced.generic_method_geometry_exclusions.length, 4);
+  assert.equal(reduced.summary.complete_joint_qualified, false); assert.equal(reduced.exact_foot_generic_core_exclusions_preserved, true);
+  assert.equal(reduced.exact_foot_method_cases, 12); assert.equal(reduced.foot_planar_flags, 0);
+  referenceClose(reduced.foot_conditional_planar_maximum, 0.6529918712332795, 'fresh114 planar foot reference');
+  assert.equal(reduced.foot_optional_two_edge_flags.length, 3);
+  for (const row of reduced.foot_optional_two_edge_flags) {
+    assert.ok(['rail_rear_bolt_left_1', 'rail_rear_bolt_right_1'].includes(row.axis_id) && CURRENT_CASES.includes(row.case_id));
+    assert.ok(row.optional_both_edge_envelope > 1);
+  }
+  referenceClose(reduced.foot_optional_two_edge_maximum, 1.09337686484293, 'preserved fresh114 optional foot envelopes');
+  assert.equal(appendix.summary.E2_current_case_rows, 96); assert.equal(appendix.summary.E3_case_rows, 72); assert.equal(appendix.summary.E4_case_rows, 36);
+  assert.deepEqual(appendix.case_order, CURRENT_CASES); assert.equal(appendix.E2.length*6, 96); assert.equal(appendix.E3.length*6, 72); assert.equal(appendix.E4.length*6, 36);
+  assert.equal(appendix.common_core_exclusions.length, 2); assert.equal(appendix.material_path_exclusions.length, 14);
+  assert.equal(appendix.summary.geometry_unproven_rows, 14); assert.equal(appendix.summary.directional_material_path_exclusions, 18);
+  assert.equal(report.terminal_net.band_case_count, 60); assert.equal(report.NDS3_9_with_fresh114_physical_member_references.band_case_count, 60);
+  referenceClose(report.NDS3_9_with_fresh114_physical_member_references.maximum_references.NDS_3_9_3_biaxial_compression_upper, 0.11481891041468124, 'fresh114 terminal reference');
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(report[key], null);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released']) assert.equal(report[key], false);
+  for (const key of ['purchase_authorized', 'drilling_released']) if (Object.hasOwn(report, key)) assert.equal(report[key], false);
+  assert.equal(report.execution.CAD_rebuild_or_LP_or_native_global_solve, false); assert.equal(report.validation.frozen112_indices_transferred, false);
+  for (const ref of Object.values(report.source_bindings)) referenceBinding(ref); // No ignored-source reads.
+  return report;
+}
+
 export function validateShorterJointCriterionFollowthrough(report, entry, bank) {
   assert.equal(report.schema, 'v11_current_joint_criterion_followthrough/v1'); assert.equal(report.revision, entry.revision);
   for (const key of ['geometry_receipt', 'response_bank', 'rear_projected_bearing_witness']) {
@@ -3659,11 +3783,14 @@ export function validateShorterBoltDelivery(entry, index) {
       'fabrication_released', 'climbing_released', 'structural_acceptance']) assert.equal(preference[key], false);
   }
   if (entry.joint_criterion_followthrough !== undefined) {
-    const ref = entry.joint_criterion_followthrough;
-    referenceKeys(ref, ['path', 'sha256', 'encoding', 'decoded_sha256', 'decoded_bytes'], 'compressed criterion binding');
-    referenceBinding({path: ref.path, sha256: ref.sha256}, prefix+'joint-criterion-followthrough.json.gz'); assert.equal(ref.encoding, 'gzip');
-    const decoded = gunzipSync(bound(ref)); assert.equal(sha(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
-    validateShorterJointCriterionFollowthrough(JSON.parse(decoded), entry, bank);
+    validateShorterJointCriterionFollowthrough(boundCompressedJson(entry.joint_criterion_followthrough, prefix+'joint-criterion-followthrough.json.gz'), entry, bank);
+  }
+  for (const [key, file, validate] of [['formed_angle_component_followthrough', 'formed-angle-component-reference.json', validateShorterFormedAngleReference],
+    ['near_washer_seat_followthrough', 'near-washer-seat-reference.json', validateShorterNearWasherSeat]]) if (entry[key] !== undefined) {
+    referenceBinding(entry[key], prefix+file); validate(JSON.parse(bound(entry[key])), entry, bank);
+  }
+  if (entry.washer_catalog_minimum_thickness_sensitivity !== undefined) {
+    validateShorterWasherMinimumThickness(boundCompressedJson(entry.washer_catalog_minimum_thickness_sensitivity, prefix+'near-washer-minimum-thickness.json.gz'), entry, bank);
   }
   if (entry.build_package !== undefined) {
     referenceBinding(entry.build_package, prefix+'build-package/manifest.json');
@@ -3727,6 +3854,18 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     assert.ok(read('site/index.html').toString().includes("import {loadV11ResultsSceneV2} from './eoere-v11-results-v2.mjs'"));
     const shorterTrial = index.owner_authorized_shorter_bolt_trial === undefined ? undefined :
       validateShorterBoltDelivery(index.owner_authorized_shorter_bolt_trial, index);
+    if (index.owner_bracket_thickness_confirmation !== undefined) {
+      referenceBinding(index.owner_bracket_thickness_confirmation, 'docs/bolted-frame-development/owner-frame-v11/owner-bracket-thickness-confirmation.json');
+      validateV11BracketThicknessConfirmation(JSON.parse(bound(index.owner_bracket_thickness_confirmation)), index);
+    }
+    const matching = index.owner_authorized_matching_rear_bolt_trial;
+    if (matching?.affected_connection_component_followthrough !== undefined) {
+      referenceBinding(matching.response_bank, 'docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/response-bank.json');
+      referenceBinding(matching.geometry_receipt, 'docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/geometry-receipt.json');
+      validateMatchingRearAffectedComponents(boundCompressedJson(matching.affected_connection_component_followthrough,
+        'docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/affected-connection-components.json.gz'), matching,
+      JSON.parse(bound(matching.response_bank)), JSON.parse(bound(matching.geometry_receipt)));
+    }
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
     return {...prior, ...(shorterTrial === undefined ? {} : {owner_authorized_shorter_bolt_trial: shorterTrial}),
       repository_viewer_geometry_only: false, repository_viewer_current_analysis: true,

@@ -7,7 +7,8 @@ The reviewed timber and glued ¾-inch cleat outlines, all 112 existing axes,
 24 fittings, 66 panel screws and four retained spacers remain unchanged.
 Four modeled timber bores are added; no physical holes are claimed.
 
-[Open the separate local trial viewer](http://127.0.0.1:8767/?model=eoere-v11-matching-rear-bolts-preview&view=rear&holds=off).
+[Open the separate public trial viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-matching-rear-bolts-preview&view=rear&holds=off) · [local viewer](http://127.0.0.1:8767/?model=eoere-v11-matching-rear-bolts-preview&view=rear&holds=off).
+Publication passed [CI](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/40450848490) and [Pages](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/40461971018); five public viewer files match commit `1e366c6d2f1b` byte for byte.
 
 The [geometry receipt](geometry-receipt.json) records 1,099 occupied parts,
 114 stacks and 228 washers. The [fresh response bank](response-bank.json)
@@ -32,6 +33,15 @@ force, moment, axial force and torque retained. The continuous necessary
 bearing bound peaks at 0.676721 across 72 receiver cases. These calculations
 replace the earlier 1.279062 rear witness only for this changed trial; the
 earlier 112-bolt evidence remains preserved.
+
+The [affected connection components](affected-connection-components.json.gz)
+recalculate 16 groups on the four newly bored members. Eligible reduced-depth
+references peak at 0.736173; the separate foot planar reference is 0.652992.
+Terminal interactions stay below 0.115. Supported Appendix E components remain
+below one; 14 rows, 18 directional paths and two cleat cores remain excluded,
+including the upper-rear side groups. Three optional both-edge foot envelopes
+remain above one, maximum 1.093377. These method exclusions and envelopes
+remain separate from full connection capacity.
 
 The 35 bearing and 16 N/M flags remain fresh legacy-method diagnostics
 for the unsupported signature-based group reduction. The 21 raw-port and
