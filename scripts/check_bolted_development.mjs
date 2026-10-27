@@ -3671,6 +3671,7 @@ function currentJointPointerValue(sources, data, source, pointer) {
 }
 
 export function validateCurrentShorterJointDisposition(report, entry, index, readArtifact = bound) {
+  if (report.schema === 'v11_current_joint_disposition_additive_overlay/v4') return validateCurrentShorterJointDispositionV4(report, entry, index, readArtifact);
   if (report.schema === 'v11_current_joint_disposition_composed/v3') return validateCurrentShorterJointDispositionV3(report, entry, index, readArtifact);
   assert.equal(report.schema, 'v11_current_joint_disposition_composed/v2'); assert.equal(report.revision, entry.revision);
   const prefix = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/', sources = report.source_bindings, data = {};
@@ -4068,6 +4069,374 @@ export function validateCurrentShorterJointDispositionV3(report, entry, index, r
   return report;
 }
 
+export function validateShorterContactCaseSet(report, entry, bank) {
+  assert.equal(report.schema, 'v11_objective_contact_case_set_summary/v1'); assert.equal(report.revision, entry.revision);
+  assert.equal(report.status, 'SIX_SAVED_OPERATOR_OBJECTIVE_CONTACT_SENSITIVITY_CASES_NUMERICALLY_ADMITTED_UNSELECTED');
+  assert.deepEqual(report.original_response_bank, entry.response_bank); assert.deepEqual(report.physical_geometry, bank.physical_geometry);
+  assert.deepEqual(report.physical_receipt, entry.geometry_receipt); assert.deepEqual(report.load_contract, bank.load_contract);
+  assert.deepEqual(report.counts, {cases: 6, saved_generalized_DOFs_per_case: 11102, fixed_XY_hosts_per_case: 4, active_tangents_per_case: 8});
+  assert.equal(report.residual_gate_N, 1e-5); assert.deepEqual(report.case_rows.map(row => row.case_id), CURRENT_CASES);
+  const hosts = ['base_post_center_left', 'base_post_center_right', 'lumber_leg_left', 'lumber_leg_right'];
+  const tangents = hosts.flatMap(host => [host+'/no-slip-0', host+'/no-slip-1']);
+  const qHashes = [], rhsHashes = [], exportHashes = []; let invalidLocators = 0;
+  referenceKeys(report.source_bindings.case_export_reports, CURRENT_CASES, 'contact case export bindings');
+  assert.deepEqual(report.source_bindings.original_bank, entry.response_bank); referenceBinding(report.source_bindings.producer);
+  for (const row of report.case_rows) {
+    assert.deepEqual(row.original_field, bank.cases.find(item => item.case_id === row.case_id).field);
+    for (const key of ['original_q_canonical_sha256', 'original_case_applied_vector_sha256', 'new_q_canonical_sha256']) assert.match(row[key], /^[a-f0-9]{64}$/);
+    assert.notEqual(row.new_q_canonical_sha256, row.original_q_canonical_sha256, 'these new sensitivity q vectors are distinct from their original fields');
+    for (const key of ['original_operators', 'original_operator_arrays', 'export_report', 'new_q_export', 'optimizer_result',
+      'actual_result_final_q_numerical_guess', 'direct_contact_action_export']) referenceBinding(row[key]); // Source declarations; no raw vectors are opened.
+    const originalFolder = path.posix.dirname(row.original_field.path);
+    assert.equal(row.original_operators.path, originalFolder+'/operators.json'); assert.equal(row.original_operator_arrays.path, originalFolder+'/operators.npz');
+    assert.equal(path.posix.dirname(row.new_q_export.path), path.posix.dirname(row.export_report.path));
+    assert.equal(path.posix.dirname(row.direct_contact_action_export.path), path.posix.dirname(row.export_report.path));
+    assert.equal(path.posix.dirname(row.actual_result_final_q_numerical_guess.path), path.posix.dirname(row.optimizer_result.path));
+    assert.deepEqual(row.export_report, report.source_bindings.case_export_reports[row.case_id]);
+    assert.equal(row.export_status, 'PASS_RESIDUAL_FIXED_SUPPORT_OBJECTIVE_CONTACT_VARIANT_ONLY');
+    assert.equal(row.actual_result_q_reference_pointer, '/final_q_numerical_guess');
+    assert.equal(row.same_case_result_RHS_digest_present_and_verified, row.case_id !== 'a12-rear', 'the legacy rear result has no fabricated explicit RHS digest');
+    assert.equal(row.direct_contact_rows, 1580); assert.ok(Number.isInteger(row.direct_contact_active_rows) && row.direct_contact_active_rows >= 0 && row.direct_contact_active_rows <= 1580);
+    referenceIndex(row.gradient_inf_N, 'contact case residual'); assert.ok(row.gradient_inf_N < 1e-5); assert.equal(row.residual_gate_N, 1e-5);
+    const replay = row.independent_reassembly;
+    assert.equal(row.independent_reassembly_record_authenticated, true); assert.equal(replay.status, 'PASS');
+    referenceClose(replay.gradient_inf_n, row.gradient_inf_N, 'same contact q reassembly residual');
+    for (const key of ['gradient_inf_difference_n', 'direct_contact_gradient_reassembly_max_difference_n', 'abs_energy_difference_nmm']) {
+      referenceIndex(replay[key], 'independent reassembly difference'); assert.ok(replay[key] < 1e-8);
+    }
+    const support = row.fixed_support;
+    assert.deepEqual(support.active_host_ids, hosts); assert.deepEqual(support.active_tangent_ids, tangents); assert.equal(support.active_tangent_count, 8);
+    assert.equal(support.normal_threshold_N, 1e-7); assert.equal(support.all_four_enabled_hosts_above_threshold, true); assert.equal(support.support_mask_feedback, false);
+    referenceKeys(support.tangent_ids_by_host, hosts, 'fixed-support tangent hosts');
+    for (const host of hosts) {assert.deepEqual(support.tangent_ids_by_host[host], [host+'/no-slip-0', host+'/no-slip-1']);
+      assert.ok(Number.isFinite(support.normal_reactions_N_by_host[host]) && support.normal_reactions_N_by_host[host] > 1e-7);}
+    assert.ok(Object.values(support.normal_reactions_N_by_host).every(Number.isFinite));
+    const warm = row.recorded_warm_start_metadata;
+    referenceBinding(warm.locator_file); referenceBinding(warm.recorded.polish_result);
+    assert.deepEqual(warm.locator_file, row.case_id === 'a12-rear' ? row.actual_result_final_q_numerical_guess : row.optimizer_result);
+    assert.equal(warm.recorded.path.split('#')[0], warm.locator_file.path); assert.equal(warm.recorded.sha256_canonical, row.new_q_canonical_sha256);
+    assert.equal(warm.recorded_path_pointer_is_admission_source, false, 'recorded result#/q metadata is not the final-q admission source');
+    assert.equal(warm.recorded_path_pointer_verified, row.case_id === 'a12-rear');
+    if (warm.recorded_path_pointer_verified) assert.equal(warm.recorded_path_pointer_q_canonical_sha256, row.new_q_canonical_sha256);
+    else {assert.equal(warm.recorded_path_pointer_q_canonical_sha256, null); invalidLocators++;}
+    assert.equal(row.sensitivity_forces_newly_evaluated, true);
+    for (const key of ['original_case_or_field_promoted_or_rewritten', 'physical_contact_or_no_slip_qualified', 'structural_acceptance']) assert.equal(row[key], false);
+    qHashes.push(row.new_q_canonical_sha256); rhsHashes.push(row.original_case_applied_vector_sha256); exportHashes.push(row.export_report.sha256);
+  }
+  for (const values of [qHashes, rhsHashes, exportHashes]) assert.equal(new Set(values).size, 6, 'six own case identities required');
+  assert.equal(invalidLocators, 5); referenceClose(report.maximum_gradient_inf_N, Math.max(...report.case_rows.map(row => row.gradient_inf_N)), 'contact case-set maximum residual');
+  for (const key of ['sensitivity_forces_newly_evaluated_under_modified_contact_kinematics', 'source_casework_is_new_saved_operator_case_evaluation']) assert.equal(report.method_scope[key], true);
+  for (const key of ['source_casework_is_native_FEA_or_CAD', 'summary_operation_performed_objective_evaluations_or_solve',
+    'physical_closest_point_contact_finite_frame_or_no_slip_qualification']) assert.equal(report.method_scope[key], false);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity', 'accepted_connection_exceedance_count']) assert.equal(report[key], null);
+  for (const key of ['original_bank_promoted', 'original_bank_or_geometry_rewritten', 'candidate_selected', 'physical_failure_claim', 'structural_acceptance',
+    'purchase_authorized', 'drilling_released', 'fabrication_released', 'climbing_released']) assert.equal(report[key], false);
+  return report;
+}
+
+// The component seam is reusable for preparation; the full V4 entry point also
+// requires its completed contact-case set and all derived scenario joins.
+export function validateShorterV4ComponentOverlay(report, entry, index, readArtifact = bound) {
+  assert.equal(report.schema, 'v11_current_joint_disposition_additive_overlay/v4'); assert.equal(report.revision, entry.revision);
+  const prefix = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/';
+  const v3 = {path: prefix+'current-joint-disposition-v3.json.gz', sha256: '3b404463c4ccb484df36f95d57469ed74face7e8c8a94c7c8d47055d5ce2170f',
+    encoding: 'gzip', decoded_bytes: 687391, decoded_sha256: '5d8ecddfa45e08e69ac934a835c65613e699fcb5070b1aceb24814e51e35bd9e'};
+  assert.deepEqual(report.preserved_base_v3, v3); assert.deepEqual(report.source_bindings.base_v3, v3);
+  const base = boundCompressedJson(v3, v3.path, readArtifact); validateCurrentShorterJointDispositionV3(base, entry, index, readArtifact);
+  assert.deepEqual(report.response_bank, entry.response_bank); assert.deepEqual(report.geometry_receipt, entry.geometry_receipt);
+  const methodRef = base.source_bindings.lateral_method_followthrough;
+  const methods = boundCompressedJson(methodRef, prefix+'lateral-method-followthrough.json.gz', readArtifact).sections;
+  const criterionRef = base.source_bindings.criteria;
+  const inheritedContinuous = boundCompressedJson(criterionRef, prefix+'joint-criterion-followthrough.json.gz', readArtifact).continuous_rear_bearing;
+  const inheritedCertificates = inheritedContinuous.exact_exceedance_certificates;
+  const mixed = methods.mixed_Mp4_projection.data.rows, savedRear = methods.contracted_saved_fields.data.current112_rear.states;
+  assert.deepEqual(report.inherited_reference_inventories, {retained_separate_reference_inventories: base.counts.retained_separate_reference_inventories,
+    additional_separate_method_reference_inventories: base.additional_separate_method_reference_inventories});
+  assert.equal(report.composition.base_rows, '/joint_clusters'); assert.equal(report.composition.overlay_rows, '/joint_updates');
+  assert.equal(report.composition.join_key, 'joint_id'); assert.equal(report.composition.whole_joint_qualification_or_capacity_inherited, false);
+  for (const [key, ref] of Object.entries(report.source_bindings)) if (key !== 'base_v3') referenceBinding({path: ref.path, sha256: ref.sha256}); // Declarations, never raw reads.
+  const evidence = report.compact_new_evidence, boundRows = evidence.contracted_continuous_bound.data.rows, scenarioRows = evidence.A574_note_TR12_case_references.rows;
+  for (const [key, source] of Object.entries({contracted_continuous_bound: 'contracted_continuous_bound', A574_note_TR12_case_references: 'A574_note_TR12_projection',
+    A574_note_TR12_summary: 'A574_note_TR12_summary', axial_static_composition: 'axial_static_composition'})) {
+    assert.equal(evidence[key].source, source); assert.ok(Object.hasOwn(report.source_bindings, source));
+  }
+  const fraction = value => {
+    assert.match(value.numerator, /^-?\d+$/); assert.match(value.denominator, /^[1-9]\d*$/);
+    return [BigInt(value.numerator), BigInt(value.denominator)];
+  };
+  const bounds = evidence.contracted_continuous_bound.data;
+  assert.equal(bounds.schema, 'v11_contracted_continuous_bearing_necessary_bound/v1'); assert.equal(bounds.revision, entry.revision);
+  assert.equal(boundRows.length, 5); assert.equal(new Set(boundRows.map(row => `${row.axis_id}/${row.case_id}`)).size, 5);
+  assert.deepEqual(boundRows.map(row => `${row.axis_id}/${row.case_id}`).sort(), methods.contracted_common_law_summary.data.current112_rear.bearing_above_one_states.map(row => `${row.axis_id}/${row.case_id}`).sort());
+  for (const row of boundRows) {
+    const saved = savedRear.find(item => item.axis_id === row.axis_id && item.case_id === row.case_id); assert.ok(saved);
+    const originalIndex = inheritedCertificates.findIndex(item => item.axis_id === row.axis_id && item.case_id === row.case_id && item.host === row.host);
+    assert.ok(originalIndex >= 0); const original = inheritedCertificates[originalIndex];
+    const receiverIndex = inheritedContinuous.case_rows.findIndex(item => item.axis_id === row.axis_id && item.case_id === row.case_id && item.host === row.host);
+    assert.ok(receiverIndex >= 0); assert.equal(row.original_certificate_pointer, `/rows/${receiverIndex}`);
+    assert.equal(row.full_signed_actions_and_metal_sha256_unchanged, saved.unchanged_full_signed_actions_and_metal_sha256);
+    assert.equal(row.all_source_receiver_forces_and_first_moments_unchanged, true); assert.equal(row.reference_threshold_one_exactly_exceeded, true);
+    const [L, Ld] = fraction(row.equilibrium_functional_exact), [U, Ud] = fraction(row.contracted_support_integral_upper_exact);
+    const [oldL, oldLd] = fraction(original.equilibrium_functional_exact), [oldU, oldUd] = fraction(original.support_integral_upper_exact);
+    assert.equal(L*oldLd, oldL*Ld, 'same saved receiver functional required');
+    assert.deepEqual(row.regions.map(item => item.region_id), original.regions.map(item => item.id));
+    const lambda = saved.governing.lambda, lambdaDenominator = 2n**53n;
+    assert.ok(lambda > 0 && lambda <= 1 && Number.isInteger(lambda*2**53)); const lambdaNumerator = BigInt(lambda*2**53);
+    for (const region of row.regions) {const [a, b] = fraction(region.lambda_exact); assert.equal(region.lambda, lambda);
+      assert.equal(a*lambdaDenominator, lambdaNumerator*b, 'same declared contraction required');}
+    assert.equal(U*oldUd*lambdaDenominator, oldU*lambdaNumerator*Ud, 'contracted support must reuse the original exact upper bound');
+    assert.ok(U > 0n && L*Ud > U*Ld, 'necessary certificate must strictly exceed its own contracted support bound');
+    referenceClose(row.certified_continuous_lower_bound, Number(L)/Number(Ld)/(Number(U)/Number(Ud)), 'contracted certificate ratio');
+    assert.equal(row.selected_contracted_witness_index, saved.contracted_bearing_maximum);
+    assert.ok(row.certified_continuous_lower_bound <= row.selected_contracted_witness_index+1e-12);
+  }
+  referenceClose(bounds.summary.maximum_continuous_necessary_index, Math.max(...boundRows.map(row => row.certified_continuous_lower_bound)), 'contracted necessary maximum');
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(bounds[key], null);
+  for (const key of ['geometry_or_forces_changed', 'new_global_native_or_pressure_solve', 'physical_failure_claim', 'structural_acceptance', 'unselected114_geometry_or_forces_transferred']) assert.equal(bounds[key], false);
+  const note = evidence.A574_note_TR12_summary.data;
+  assert.equal(note.schema, 'v11_A574_declared_note_TR12_estimate_summary/v1'); assert.equal(scenarioRows.length, 144);
+  assert.deepEqual(note.hypotheses.A574_design_only_Fy_psi_at2percent_offset, 153000); assert.equal(note.hypotheses.A574_full_size_Fu_psi, 180000);
+  assert.equal(note.hypotheses.TR12_approximate_Fyb_psi, (153000+180000)/2);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fy', 'actual_Fyb', 'actual_product_conformity', 'complete_joint_capacity']) assert.equal(note[key], null);
+  for (const key of ['grade_required_F606_minimum_resolved', 'property_adopted', 'physical_or_structural_acceptance', 'new_optimization_FE_CAD_native_or_global_solve']) assert.equal(note[key], false);
+  const classes = {A574_design_note153_TR12_mean166_5: 0, Grade5: 0};
+  for (const [n, row] of scenarioRows.entries()) {
+    const prior = mixed[n]; assert.equal(row.axis_id, prior.axis_id); assert.equal(row.case_id, prior.case_id); assert.equal(row.source_pointer, `/rows/${n}`);
+    assert.match(row.source_row_sha256, /^[a-f0-9]{64}$/); const a574 = prior.Fyb_basis_unchanged.includes('A574');
+    assert.equal(row.declared_material_scenario, a574 ? 'A574_design_note153_TR12_mean166.5' : 'retained_Grade5_F60692');
+    assert.equal(row.conditional_Fy_psi, a574 ? 153000 : 92000); assert.equal(row.conditional_estimated_Fyb_psi, a574 ? 166500 : 92000);
+    referenceClose(row.Mp4_required_Fyb_ksi_unchanged, prior.Mp4_required_Fyb_ksi, 'unchanged Fyb demand');
+    referenceClose(row.contracted_bearing_index_unchanged, prior.contracted_bearing_index_unchanged, 'unchanged bearing demand');
+    referenceClose(row.Mp4_hinge_index, 1000*row.Mp4_required_Fyb_ksi_unchanged/row.conditional_estimated_Fyb_psi, 'declared-note hinge scenario');
+    referenceClose(row.combined_common_work_bearing_Mp4_index, Math.max(row.Mp4_hinge_index, row.contracted_bearing_index_unchanged), 'declared-note combined scenario');
+    referenceIndex(row.independent_full_N_V_T_M_Fy_over2_index, 'separate Fy scenario'); classes[a574 ? 'A574_design_note153_TR12_mean166_5' : 'Grade5']++;
+  }
+  assert.deepEqual(Object.values(classes), [72, 72]);
+  assert.deepEqual(note.summary.preserved_generic45_Mp4_flags, methods.mixed_Mp4_summary.data.summary.new_reference_above_one_rows);
+  assert.equal(note.summary.preserved_uniform_Mp5_flag_count, 8);
+  const axial = evidence.axial_static_composition.data;
+  assert.equal(axial.schema, 'v11_axial_interface_resultant_composition/v1'); assert.equal(axial.revision, entry.revision);
+  assert.deepEqual(evidence.axial_static_composition.omitted_source_arrays, {'/end_resultants': 1344}); assert.equal(Object.hasOwn(axial, 'end_resultants'), false);
+  for (const [key, expected] of Object.entries({axes: 112, cases: 6, all_end_case_states: 1344, end_resultant_rows: 1344, axial_interface_reference_rows: 1248,
+    separate_plywood_head_rows: 96, fitting_root_flange_cut_wrenches_not_added_as_extra_loads: 288})) assert.equal(axial.counts[key], expected);
+  assert.equal(axial.interpretation.load_only_interface_resultant_reconciliation, true);
+  for (const key of ['joint_level_static_equilibrium_certificate', 'physical_prying_or_finite_contact_prediction', 'static_lower_bound_capacity_certificate',
+    'structural_acceptance', 'fabrication_released', 'climbing_released']) assert.equal(axial.interpretation[key], false);
+  let axialRows = 0, noteRows = 0, necessaryRows = 0;
+  assert.equal(report.joint_updates.length, 26);
+  for (const [n, update] of report.joint_updates.entries()) {
+    const prior = base.joint_clusters[n], duties = update.additional_duties;
+    assert.equal(update.joint_id, prior.joint_id); assert.deepEqual(update.axis_ids, prior.axis_ids); assert.equal(update.base_pointer, `/joint_clusters/${n}`);
+    assert.equal(Object.hasOwn(update, 'current_duties'), false, 'sparse overlay cannot replace inherited duties');
+    assert.equal(update.retained_v3_flags_pointer, `/joint_clusters/${n}/current_retained_flag_evidence`);
+    assert.equal(update.retained_v3_method_flags_pointer, prior.current_duties.lateral_common_law ? `/joint_clusters/${n}/current_duties/lateral_common_law/additional_separate_fixed_field_reference_flags` : null);
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(update[key], null); assert.equal(update.whole_joint_qualified, false);
+    const own = duties.axial_interface_resultant_reconciliation;
+    assert.equal(own.axis_count, prior.axis_ids.length); assert.equal(own.case_count, 6); assert.equal(own.end_resultant_rows, 12*prior.axis_ids.length);
+    assert.deepEqual(own.raw_row_selection, {source: 'axial_static_composition', array_pointer: '/end_resultants', axis_ids: prior.axis_ids,
+      case_ids: CURRENT_CASES, ends: ['head', 'nut'], full_rows_omitted_from_overlay: true});
+    for (const key of ['joint_level_static_equilibrium_certificate', 'physical_prying_or_finite_contact_prediction', 'static_lower_bound_capacity_certificate']) assert.equal(own[key], false);
+    axialRows += own.end_resultant_rows;
+    const indices = scenarioRows.flatMap((row, k) => prior.axis_ids.includes(row.axis_id) ? [k] : []), scoped = duties.A574_declared_note_TR12_reference;
+    assert.equal(Boolean(scoped), indices.length > 0);
+    if (scoped) {
+      assert.deepEqual(scoped.compact_case_reference_indices, indices); assert.equal(scoped.case_rows, indices.length);
+      referenceClose(scoped.maximum_combined_common_work_bearing_Mp4_index, Math.max(...indices.map(k => scenarioRows[k].combined_common_work_bearing_Mp4_index)), 'owned note scenario maximum');
+      assert.equal(scoped.above_one_reference_rows, indices.filter(k => scenarioRows[k].combined_common_work_bearing_Mp4_index > 1).length);
+      assert.equal(scoped.grade_required_F606_minimum_resolved, false); assert.equal(scoped.property_adopted, false);
+      assert.equal(scoped.actual_Fy, null); assert.equal(scoped.actual_Fyb, null); noteRows += scoped.case_rows;
+    }
+    const picked = boundRows.filter(row => prior.axis_ids.includes(row.axis_id)), necessary = duties.contracted_continuous_rear_necessary_reference;
+    assert.equal(Boolean(necessary), picked.length > 0);
+    if (necessary) {assert.equal(necessary.case_rows, picked.length); assert.equal(necessary.pressure_search_can_clear_same_reference, false);
+      assert.equal(necessary.same_duals_and_source_receiver_wrenches, true);
+      referenceClose(necessary.maximum_necessary_reference_index, Math.max(...picked.map(row => row.certified_continuous_lower_bound)), 'owned necessary maximum'); necessaryRows += picked.length;}
+    for (const key of ['axial_static_composition', ...(scoped ? ['A574_note_TR12'] : []), ...(necessary ? ['contracted_necessary_bound'] : [])]) assert.ok(update.remaining_limit_ids.includes(key));
+  }
+  assert.deepEqual([axialRows, noteRows, necessaryRows], [1344, 144, 5]);
+  for (const [key, expected] of Object.entries({joint_updates: 26, unique_axes: 112, inherited_fittings: 24, new_continuous_necessary_reference_rows: 5,
+    A574_note_TR12_scenario_rows: 144, A574_note_scenario_rows: 72, unchanged_Grade5_scenario_rows: 72, axial_end_resultant_rows_reconciled: 1344})) assert.equal(report.counts[key], expected);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fyb', 'complete_joint_capacity', 'accepted_connection_exceedance_count', 'physical_failure_count']) assert.equal(report[key], null);
+  for (const key of ['whole_joint_qualified', 'candidate_selected', 'structural_acceptance', 'property_adopted', 'purchase_authorized', 'drilling_released',
+    'fabrication_released', 'climbing_released', 'new_force_geometry_or_native_work', 'recursive_raw_source_closure_claimed']) assert.equal(report[key], false);
+  return report;
+}
+
+export function validateCurrentShorterJointDispositionV4(report, entry, index, readArtifact = bound) {
+  validateShorterV4ComponentOverlay(report, entry, index, readArtifact);
+  assert.equal(report.publication_ready, true); assert.equal(report.status, 'ADDITIVE_CURRENT_COMPONENT_REFERENCES_COMPLETE_JOINTS_UNQUALIFIED');
+  assert.deepEqual(report.pending_extensions.final_contact_case_set_summary, {incorporated: true, source: 'contact_case_set', pointer: '/case_rows'});
+  assert.equal(report.new_force_geometry_or_native_work_scope, 'projection_operation_only'); assert.equal(report.source_contact_casework_newly_evaluated_forces, true);
+  assert.equal(report.source_contact_casework_used_native_FEA_or_CAD, false); assert.equal(report.agent_review_loop_suspended, true);
+  const sources = report.source_bindings, evidence = report.compact_new_evidence;
+  referenceKeys(sources, ['base_v3', 'contracted_continuous_bound', 'A574_note_TR12_summary', 'A574_note_TR12_projection', 'axial_static_composition',
+    'contact_case_set', 'rear_contact_references', 'support_reaction_basis', 'member_contact_references'], 'V4 source declarations');
+  referenceKeys(evidence, ['contracted_continuous_bound', 'A574_note_TR12_summary', 'A574_note_TR12_case_references', 'axial_static_composition',
+    'contact_case_set', 'rear_contact_references', 'support_reaction_basis', 'member_contact_references'], 'V4 compact sections');
+  const base = boundCompressedJson(report.preserved_base_v3, report.preserved_base_v3.path, readArtifact), data = {base_v3: base};
+  for (const section of Object.values(evidence)) {assert.ok(Object.hasOwn(sources, section.source)); data[section.source] = section.data ?? {rows: section.rows};}
+  const readPublicJson = ref => {assert.ok(ref.path.startsWith('docs/')); referenceBinding(ref); const raw = readArtifact(ref); assert.equal(sha(raw), ref.sha256); return JSON.parse(raw);};
+  const bank = readPublicJson(entry.response_bank), contact = data.contact_case_set, rear = data.rear_contact_references, support = data.support_reaction_basis, members = data.member_contact_references;
+  for (const key of ['contact_case_set', 'rear_contact_references', 'support_reaction_basis', 'member_contact_references']) assert.equal(evidence[key].source, key);
+  validateShorterContactCaseSet(contact, entry, bank);
+  const ownCase = id => {const own = contact.case_rows.find(row => row.case_id === id); assert.ok(own); return own;};
+  const caseSet = rows => assert.deepEqual(rows.map(row => row.case_id).sort(), [...CURRENT_CASES].sort());
+  const finiteVector = (value, length) => {assert.equal(value.length, length); assert.ok(value.every(Number.isFinite));};
+  const walk = (value, owner) => {
+    if (!value || typeof value !== 'object') return;
+    if (typeof value.source === 'string' && value.pointers) for (const p of value.pointers) {
+      const target = currentJointPointerValue(sources, data, value.source, p);
+      if (target?.axis_id) assert.ok(owner.axis_ids.includes(target.axis_id), 'V4 evidence must belong to its own joint');
+    }
+    for (const child of Object.values(value)) walk(child, owner);
+  };
+  assert.deepEqual(evidence.rear_contact_references.reference_type, {response_scenario: 'six_own_objective_contact_sensitivity_responses',
+    constitutive_envelope: 'uncontracted_ellipse', certificate_kind: 'continuous_necessary_lower_bound'});
+  assert.equal(rear.schema, 'original112_six_case_rear_contact_necessary_reference_summary/v1'); caseSet(rear.cases);
+  const criteriaRef = base.source_bindings.criteria, originalRear = boundCompressedJson(criteriaRef, criteriaRef.path, readArtifact).continuous_rear_bearing.case_rows;
+  const receiverKey = row => `${row.case_id}/${row.axis_id}/${row.host}`;
+  assert.deepEqual(rear.receiver_rows.map(receiverKey).sort(), originalRear.map(receiverKey).sort()); assert.equal(rear.receiver_rows.length, 48);
+  for (const row of rear.receiver_rows) {
+    const original = originalRear.find(item => receiverKey(item) === receiverKey(row));
+    assert.equal(row.original_continuous_necessary_bound, original.certified_continuous_lower_bound);
+    referenceIndex(row.sensitivity_continuous_necessary_bound, 'own sensitivity necessary reference');
+    assert.equal(row.sensitivity_above_one_exact, row.sensitivity_continuous_necessary_bound > 1);
+  }
+  const rearFlags = rear.receiver_rows.filter(row => row.sensitivity_above_one_exact);
+  assert.equal(rearFlags.length, 5); assert.deepEqual(rear.summary.sensitivity_receiver_above_one_rows, rearFlags);
+  assert.equal(rear.summary.sensitivity_receiver_above_one_count, 5); assert.equal(rear.summary.receiver_case_count, 48);
+  assert.equal(rear.summary.shaft_case_count, 24); assert.equal(rear.summary.sensitivity_case_count, 6);
+  assert.equal(rear.summary.exact_receiver_certificates_passed, 48); assert.equal(rear.summary.all_original_case_action_and_cut_replays_exact, true);
+  assert.equal(rear.summary.six_distinct_own_q_hashes, true);
+  assert.deepEqual(rear.summary.governing_sensitivity_row, rear.receiver_rows.reduce((a, b) => a.sensitivity_continuous_necessary_bound >= b.sensitivity_continuous_necessary_bound ? a : b));
+  for (const row of rear.cases) {
+    const own = ownCase(row.case_id);
+    for (const [key, other] of Object.entries({terminal_report: 'export_report', terminal_q: 'new_q_export', same_case_original_field: 'original_field',
+      same_case_operator_manifest: 'original_operators', same_case_operator_arrays: 'original_operator_arrays'})) assert.deepEqual(row[key], own[other]);
+    assert.equal(row.new_q_canonical_sha256, own.new_q_canonical_sha256); assert.equal(row.same_case_RHS_little_endian_f64_sha256, own.original_case_applied_vector_sha256);
+    assert.equal(row.gradient_inf_n, own.gradient_inf_N); assert.equal(row.independent_gradient_inf_n, own.gradient_inf_N); assert.equal(row.residual_gate_n, 1e-5);
+    assert.equal(row.baseline_maximum_error, 0); assert.equal(row.new_objective_or_pressure_optimization_in_this_consolidation, false);
+    const ownRows = rear.receiver_rows.filter(item => item.case_id === row.case_id);
+    referenceClose(row.maximum_sensitivity_continuous_necessary_bound, Math.max(...ownRows.map(item => item.sensitivity_continuous_necessary_bound)), 'own rear sensitivity maximum');
+    assert.equal(row.sensitivity_receiver_above_one_count, ownRows.filter(item => item.sensitivity_above_one_exact).length);
+    if (row.case_id !== 'a12-rear') {assert.equal(row.sensitivity_pressure_witness_maximum, null); assert.equal(row.pressure_witness_optimized_for_this_sensitivity, false);}
+  }
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fy', 'actual_Fyb', 'complete_joint_capacity']) assert.equal(rear[key], null);
+  for (const key of ['new_native_global_CAD_solve', 'new_pressure_LP_run', 'objective_evaluated', 'original_response_bank_promoted_or_modified', 'physical_failure_claim', 'structural_acceptance']) assert.equal(rear[key], false);
+  const activeHosts = contact.case_rows[0].fixed_support.active_host_ids, tangentIds = contact.case_rows[0].fixed_support.active_tangent_ids;
+  const normalOnly = ['base_floor_left', 'base_floor_right', 'base_post_outer_left', 'base_post_outer_right'], allHosts = [...activeHosts, ...normalOnly].sort();
+  assert.equal(support.schema, 'v11_fixed_floor_support_reaction_basis/v1');
+  for (const [key, expected] of Object.entries({physical_normal_support_host_count: 8, xy_tangent_enabled_host_count: 4, normal_only_host_count: 4,
+    active_tangent_id_count: 8, inactive_tangent_candidate_id_count: 8, normal_corner_row_count: 32, normal_corner_rows_per_host: 4})) assert.equal(support.support_census[key], expected);
+  assert.deepEqual(support.support_census.active_tangent_ids, tangentIds); assert.deepEqual([...support.support_census.physical_hosts].sort(), allHosts);
+  assert.deepEqual([...support.support_census.xy_tangent_enabled_hosts].sort(), [...activeHosts].sort()); assert.deepEqual(support.support_census.normal_only_hosts, normalOnly);
+  for (const category of ['original_admitted_cases', 'saved_q_sensitivities']) {
+    const rows = support[category]; caseSet(rows); const ranked = [];
+    for (const row of rows) {
+      const own = ownCase(row.case_id); assert.equal(row.q_length, 11102); assert.deepEqual(row.normal_only_hosts, normalOnly);
+      if (category === 'original_admitted_cases') {assert.deepEqual(row.field, own.original_field); assert.equal(row.checks.field_q_hash_matches, true);}
+      else {assert.deepEqual(row.response, own.export_report); assert.deepEqual(row.q_export, own.new_q_export);
+        assert.deepEqual(row.q_source, {q: own.new_q_export, response: own.export_report}); assert.equal(row.checks.variant_report_enabled_host_contract_matches, true);}
+      for (const [key, value] of Object.entries(row.checks)) if (key.endsWith('_error_n') || key.endsWith('_error_mm')) {referenceIndex(value, 'support replay error'); assert.ok(value < 1e-8);}
+      assert.deepEqual(row.normal_hosts.map(item => item.host).sort(), allHosts); assert.deepEqual(row.tangent_axis_actions.map(item => item.id), tangentIds);
+      for (const action of row.tangent_axis_actions) {
+        const axis = Number(action.id.slice(-1)); assert.equal(action.host, action.id.split('/')[0]); assert.equal(action.enabled, true);
+        assert.deepEqual(action.direction_xyz, axis === 0 ? [1, 0, 0] : [0, 1, 0]); assert.equal(action.stiffness_n_mm, 100000);
+        assert.ok(Number.isFinite(action.displacement_mm)); finiteVector(action.force_on_host_xyz_n, 3);
+        action.force_on_host_xyz_n.forEach((value, n) => referenceClose(value, -action.stiffness_n_mm*action.displacement_mm*action.direction_xyz[n], 'signed scalar tangent law'));
+      }
+      for (const host of row.normal_hosts) {
+        referenceIndex(host.normal_compression_n, 'support normal'); finiteVector(host.tangential_force_xy_n, 2);
+        const enabled = activeHosts.includes(host.host), actions = row.tangent_axis_actions.filter(item => item.host === host.host);
+        assert.equal(host.support_role, enabled ? 'xy_tangent_enabled' : 'normal_only'); assert.deepEqual(host.tangent_ids, actions.map(item => item.id));
+        host.tangential_force_xy_n.forEach((value, n) => referenceClose(value, actions.reduce((sum, action) => sum+action.force_on_host_xyz_n[n], 0), 'signed host tangent resultant'));
+        referenceClose(host.tangential_resultant_n, Math.hypot(...host.tangential_force_xy_n), 'two-axis host tangent magnitude');
+        if (category === 'saved_q_sensitivities') assert.equal(host.normal_compression_n, own.fixed_support.normal_reactions_N_by_host[host.host]);
+        if (enabled) {assert.ok(host.normal_compression_n > 1e-7); referenceClose(host.necessary_resultant_xy_to_normal_ratio, host.tangential_resultant_n/host.normal_compression_n, 'necessary scalar T/N only');
+          ranked.push({case_id: row.case_id, host: host.host, normal_compression_n: host.normal_compression_n, ratio: host.necessary_resultant_xy_to_normal_ratio,
+            source_kind: category === 'original_admitted_cases' ? 'original' : 'saved_sensitivity', tangential_resultant_n: host.tangential_resultant_n});}
+        else {assert.deepEqual(host.tangential_force_xy_n, [0, 0]); assert.equal(host.necessary_resultant_xy_to_normal_ratio, null);}
+      }
+    }
+    assert.deepEqual(support.summary[category === 'original_admitted_cases' ? 'worst_original_case_host' : 'worst_saved_sensitivity_case_host'], ranked.reduce((a, b) => a.ratio >= b.ratio ? a : b));
+  }
+  assert.equal(support.summary.original_case_count, 6); assert.equal(support.summary.sensitivity_count, 6); assert.equal(support.summary.all_four_normal_only_hosts_have_zero_xy_reaction, true);
+  for (const key of ['actual_floor_friction_capacity_assigned', 'floor_test_or_anchor_established', 'full_patch_moment_transfer_sufficiency_established', 'structural_acceptance']) assert.equal(support.summary[key], false);
+  assert.equal(support.editorial_clarification.actual_source_sensitivity_rows_and_count, 6); assert.equal(support.editorial_clarification.source_bytes_preserved, true);
+  const metricWitnesses = {maximum_normal_reference_upper: 'normal', maximum_declared_restraint_normal_reference_upper: 'declared_restraint_normal', maximum_shear_torsion_reference_upper: 'shear_torsion'};
+  const memberIds = Object.keys(members.cases[0].per_member_references).sort(); assert.equal(memberIds.length, 20);
+  assert.equal(members.schema, 'v11_timber_member_contact_sensitivity_summary/v4'); assert.equal(members.case_count, 6); caseSet(members.cases);
+  for (const [n, row] of members.cases.entries()) {
+    const own = ownCase(row.case_id); assert.equal(row.source_case_pointer, `/cases/${n}`);
+    for (const [key, other] of Object.entries({original_case_field: 'original_field', own_original_operator_manifest: 'original_operators',
+      own_original_operator_arrays: 'original_operator_arrays', sensitivity_q: 'new_q_export', verified_terminal_export_report: 'export_report'})) assert.deepEqual(row[key], own[other]);
+    assert.equal(row.same_case_RHS_little_endian_f64_sha256, own.original_case_applied_vector_sha256); assert.equal(row.terminal_q_canonical_sha256, own.new_q_canonical_sha256);
+    assert.equal(row.terminal_gradient_inf_n, own.gradient_inf_N); assert.equal(row.report_gradient_gate_n, 1e-5); assert.equal(row.terminal_active_direct_contact_rows, own.direct_contact_active_rows);
+    const wrapped = row.case_id === 'a12-rear'; assert.equal(row.terminal_export_resolved_through_public_single_case_wrapper, wrapped);
+    if (wrapped) {assert.deepEqual(row.sensitivity_report, base.source_bindings.contact_response); const wrapper = readPublicJson(row.sensitivity_report);
+      assert.deepEqual(wrapper.source_bindings.terminal_report, own.export_report); assert.deepEqual(wrapper.source_bindings.q_export, own.new_q_export);}
+    else assert.deepEqual(row.sensitivity_report, own.export_report);
+    assert.equal(row.current_geometry_or_signed_geometry_recomputed, false); assert.equal(row.all_N_V1_V2_T_M1_M2_end_action_channels_retained, true);
+    assert.equal(row.strict_seed_operator_action_replay.passed, true);
+    for (const key of ['common_shaft_bearing_actions.force_on_first_xyz_n', 'common_shaft_bearing_actions.force_on_second_xyz_n',
+      'shaft_end_capture_actions.force_on_first_xyz_n', 'shaft_end_capture_actions.force_on_second_xyz_n', 'panel_screw_actions.force_on_first_xyz_n',
+      'panel_screw_actions.force_on_receiver_xyz_n', 'floor_actions.force_on_first_xyz_n', 'member_element_actions.end_actions_local_n_nmm'])
+      assert.ok(Object.hasOwn(row.strict_seed_operator_action_replay.maximum_absolute_errors, key), 'every saved internal replay channel is required');
+    for (const [key, value] of Object.entries(row.strict_seed_operator_action_replay.maximum_absolute_errors)) {
+      referenceIndex(value, 'member seed replay error'); if (!key.startsWith('contact_actions.')) assert.ok(value < 2e-6, 'saved internal channels must replay separately from changed contact actions');
+    }
+    assert.deepEqual(Object.keys(row.per_member_references).sort(), memberIds);
+    for (const [metric, witness] of Object.entries(metricWitnesses)) {
+      for (const member of memberIds) {const ref = row.per_member_references[member];
+        referenceIndex(ref.original_saved_field[metric], 'original member reference'); referenceIndex(ref.terminal_own_contact_q[metric], 'own contact member reference');
+        referenceClose(ref.terminal_minus_original_saved_field[metric], ref.terminal_own_contact_q[metric]-ref.original_saved_field[metric], 'member reference difference');
+        const interval = ref.terminal_witness_intervals_world_grain_mm[witness]; finiteVector(interval, 2); assert.ok(interval[0] <= interval[1]);}
+      const max = row.terminal_metric_maxima[metric]; assert.ok(memberIds.includes(max.member)); assert.equal(max.ratio_over_one_is_not_structural_acceptance, true);
+      assert.equal(max.value, Math.max(...memberIds.map(member => row.per_member_references[member].terminal_own_contact_q[metric])));
+      assert.equal(max.value, row.per_member_references[max.member].terminal_own_contact_q[metric]);
+      assert.deepEqual(max.witness_interval_world_grain_mm, row.per_member_references[max.member].terminal_witness_intervals_world_grain_mm[witness]);
+    }
+  }
+  for (const metric of Object.keys(metricWitnesses)) {const max = members.six_case_terminal_reference_maxima[metric], own = members.cases.find(row => row.case_id === max.case_id);
+    assert.ok(own); assert.equal(max.value, Math.max(...members.cases.map(row => row.terminal_metric_maxima[metric].value)));
+    assert.deepEqual({...max, case_id: undefined}, {...own.terminal_metric_maxima[metric], case_id: undefined});}
+  assert.equal(members.complete_joint_capacity, null);
+  for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released', 'physical_contact_or_no_slip_qualified', 'native_solve_or_geometry_rebuild']) assert.equal(members[key], false);
+  for (const [n, update] of report.joint_updates.entries()) {
+    const duties = update.additional_duties, prior = base.joint_clusters[n];
+    const common = duties.objective_contact_sensitivity_case_set; assert.deepEqual(common.case_ids, CURRENT_CASES); assert.equal(common.new_contact_force_values_evaluated, true);
+    assert.equal(common.original_bank_or_native_component_results_transferred_to_new_sensitivity, false); assert.equal(common.physical_contact_or_finite_frame_qualified, false);
+    const floor = duties.support_reaction_scenario;
+    for (const [key, count] of Object.entries({original_cases: 6, contact_sensitivity_cases: 6, enabled_XY_hosts: 4, normal_only_hosts: 4, active_tangent_rows: 8})) assert.equal(floor[key], count);
+    assert.equal(floor.physical_floor_friction_or_anchor_capacity, null);
+    const member = duties.member_contact_reference_sensitivity, owned = memberIds.filter(id => prior.physical_receiver_ids.includes(id));
+    assert.deepEqual(member.member_ids, owned); assert.equal(member.case_count, 6); assert.equal(member.current_geometry_or_row_direction_eligibility_transferred, false);
+    assert.equal(member.complete_member_or_joint_capacity_adopted, false); assert.deepEqual(member.physical_receiver_ids_outside_sawn_member_summary, prior.physical_receiver_ids.filter(id => !memberIds.includes(id)).sort());
+    for (const [metric, witness] of Object.entries(metricWitnesses)) {const max = member.maximum_terminal_reference_by_metric[metric], own = members.cases.find(row => row.case_id === max.case_id);
+      assert.ok(own && owned.includes(max.member)); assert.equal(max.value, Math.max(...members.cases.flatMap(row => owned.map(id => row.per_member_references[id].terminal_own_contact_q[metric]))));
+      assert.equal(max.value, own.per_member_references[max.member].terminal_own_contact_q[metric]);
+      assert.deepEqual(max.witness_interval_world_grain_mm, own.per_member_references[max.member].terminal_witness_intervals_world_grain_mm[witness]);
+      assert.equal(max.source_pointer, `/cases/${members.cases.indexOf(own)}/per_member_references/${max.member}`);}
+    const picked = rear.receiver_rows.flatMap((row, k) => update.axis_ids.includes(row.axis_id) ? [k] : []), duty = duties.rear_contact_necessary_references;
+    assert.equal(Boolean(duty), picked.length > 0);
+    if (duty) {assert.equal(duty.response_scenario, 'own_objective_contact_sensitivity'); assert.equal(duty.constitutive_envelope, 'uncontracted_ellipse');
+      assert.equal(duty.certificate_kind, 'continuous_necessary_lower_bound'); assert.equal(duty.receiver_case_rows, picked.length);
+      assert.equal(duty.above_one_reference_rows, picked.filter(k => rear.receiver_rows[k].sensitivity_above_one_exact).length);
+      assert.deepEqual(duty.reference_flag_pointers, picked.filter(k => rear.receiver_rows[k].sensitivity_above_one_exact).map(k => `/receiver_rows/${k}`));
+      assert.equal(duty.maximum_sensitivity_necessary_reference, Math.max(...picked.map(k => rear.receiver_rows[k].sensitivity_continuous_necessary_bound)));
+      assert.equal(duty.flagged_larger_envelope_exclusions_imply_contracted_subset_exclusion, true);}
+    for (const limit of ['contact_sensitivity_scope', 'support_reaction_scope', 'member_contact_reference_scope', ...(duty ? ['rear_contact_envelope_scope'] : [])]) assert.ok(update.remaining_limit_ids.includes(limit));
+    walk(duties, update);
+  }
+  for (const [key, count] of Object.entries({contact_sensitivity_cases: 6, saved_generalized_DOFs_per_contact_case: 11102, original_native_reference_states_not_new_contact_states: 132,
+    contact_sensitivity_rear_receiver_case_rows: 48, separate_contact_sensitivity_rear_necessary_reference_flags: 5, support_original_cases: 6,
+    support_contact_sensitivity_cases: 6, physical_floor_hosts: 8, enabled_XY_floor_hosts: 4, normal_only_floor_hosts: 4, active_floor_tangent_rows: 8,
+    member_contact_sensitivity_cases: 6, sawn_members_per_contact_sensitivity_case: 20, member_case_reference_rows: 120})) assert.equal(report.counts[key], count);
+  for (const key of ['producer', 'preserved_draft_overlay', 'preserved_draft_producer']) referenceBinding(report.reproduction[key]);
+  assert.equal(report.reproduction.projection_performed_new_objective_native_CAD_or_force_casework, false);
+  return report;
+}
+
 export function validateV11BuildPackage(manifest, entry, bank, readArtifact = bound) {
   const folder = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/';
   const metadata = manifest.metadata ?? manifest;
@@ -4381,9 +4750,12 @@ export function validateShorterBoltDelivery(entry, index) {
     validateV11BuildPackage(JSON.parse(bound(entry.build_package)), entry, bank);
   }
   if (entry.current_joint_disposition !== undefined) {
-    const ref = entry.current_joint_disposition, version = ref.path === prefix+'current-joint-disposition-v3.json.gz' ? 3 : 2;
-    assert.equal(ref.path, prefix+(version === 3 ? 'current-joint-disposition-v3.json.gz' : 'current-joint-disposition.json.gz'));
-    const report = boundCompressedJson(ref, ref.path); assert.equal(report.schema, `v11_current_joint_disposition_composed/v${version}`);
+    const ref = entry.current_joint_disposition, versions = {
+      [prefix+'current-joint-disposition.json.gz']: 'v11_current_joint_disposition_composed/v2',
+      [prefix+'current-joint-disposition-v3.json.gz']: 'v11_current_joint_disposition_composed/v3',
+      [prefix+'current-joint-disposition-v4.json.gz']: 'v11_current_joint_disposition_additive_overlay/v4'};
+    assert.ok(Object.hasOwn(versions, ref.path));
+    const report = boundCompressedJson(ref, ref.path); assert.equal(report.schema, versions[ref.path]);
     validateCurrentShorterJointDisposition(report, entry, index);
   }
   assert.deepEqual(viewer.results, SHORTER_RESULTS_ASSET);
