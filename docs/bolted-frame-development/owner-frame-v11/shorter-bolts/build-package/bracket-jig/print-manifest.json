@@ -1,0 +1,261 @@
+{
+  "schema": "v11_horizontal_rail_jig_print_local_topology_repair/v1",
+  "status": "print-only corrected derivative of frozen V3; not a change to frame, bracket, bolts, holes, forces, or family placements",
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/export_print_local_topology_repair_v2.py",
+    "sha256": "315b0a80354f8ad8d1da832bc2d3abd5c09ea697fe0af8108d82adc3df4a68ed"
+  },
+  "toolchain": {
+    "command": "uv run python fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/export_print_local_topology_repair_v2.py",
+    "python": "3.12.3",
+    "cadquery": "2.8.0"
+  },
+  "source_sha256": {
+    "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8",
+    "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9",
+    "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c",
+    "scripts/eoere_bolted_candidate.py": "87bc48f28364ff085101d37631635236d51180c5a83efad1ecaa8ddf24bf4848",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/make_horizontal_bottom_left_v3.py": "b1c3587584068641967046b209b48e822c761bfac0d3581cb8c1879de2340063",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/build-manifest.json": "b915ab7d797e86daedfd1bd78c91a91b3a5ea29d06428b2bad4f48b6055735e6",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal_rail_marking_jig.step": "7f4215d096acdec479987355b93dad5c74a5da8daa583b7d2451fcc777ace98c",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal_rail_marking_jig.stl": "2535f3f70abee4a52644c323ba58a8bee5accd64aa8a2c65679477a986e83134",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal-rail-family-use-check-v2.json": "c871105a8818c3a3632b36603dd06cda86e7a3fd71405ac9de4100ed9e4effe8",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/export_print_local_v1.py": "75030ac6fa533bbe09f0bc2e76670fee517bbef14b51050734bdb9164253e8b8",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local/horizontal_rail_marking_jig_print_local.stl": "5cfe930f22fbe9d45c70018cceb261e491d1718c1507e2ea0f15884071df0d7a",
+    "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local/horizontal_rail_marking_jig_print_local.step": "ef882e7d9f71c36ae96c09bce1c6ae23ed48859b0ac2c2097efcbb3671bbb142"
+  },
+  "v3_immutable_sources": {
+    "world_manifest": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/build-manifest.json",
+      "sha256": "b915ab7d797e86daedfd1bd78c91a91b3a5ea29d06428b2bad4f48b6055735e6"
+    },
+    "world_step": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal_rail_marking_jig.step",
+      "sha256": "7f4215d096acdec479987355b93dad5c74a5da8daa583b7d2451fcc777ace98c"
+    },
+    "world_stl": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal_rail_marking_jig.stl",
+      "sha256": "2535f3f70abee4a52644c323ba58a8bee5accd64aa8a2c65679477a986e83134"
+    },
+    "family_use_proof": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal-rail-family-use-check-v2.json",
+      "sha256": "c871105a8818c3a3632b36603dd06cda86e7a3fd71405ac9de4100ed9e4effe8",
+      "passing_beam_flange_poses": 12
+    },
+    "prior_nonmanifold_print_local_attempt": {
+      "exporter": {
+        "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/export_print_local_v1.py",
+        "sha256": "75030ac6fa533bbe09f0bc2e76670fee517bbef14b51050734bdb9164253e8b8"
+      },
+      "stl": {
+        "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local/horizontal_rail_marking_jig_print_local.stl",
+        "sha256": "5cfe930f22fbe9d45c70018cceb261e491d1718c1507e2ea0f15884071df0d7a"
+      },
+      "step": {
+        "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local/horizontal_rail_marking_jig_print_local.step",
+        "sha256": "ef882e7d9f71c36ae96c09bce1c6ae23ed48859b0ac2c2097efcbb3671bbb142"
+      },
+      "known_issue": "two edges have four incident triangles; retained as failed history"
+    }
+  },
+  "print_only_reliefs": {
+    "method": "subtractive boxes from the print-local V3 body only",
+    "features": [
+      {
+        "id": "separate_width_lip_from_free_edge_lip",
+        "box_xyz_mm": [
+          88.9,
+          0.0,
+          2.4,
+          2.4,
+          2.4,
+          6.35
+        ],
+        "description": "remove the upper 2.4 \u00d7 2.4 mm corner of the width-edge lip"
+      },
+      {
+        "id": "separate_end_stop_from_width_stop",
+        "box_xyz_mm": [
+          -25.4,
+          88.9,
+          2.4,
+          1.0,
+          2.4,
+          44.45
+        ],
+        "description": "relieve a 1.0 mm corner strip from the end-stop above the base plate"
+      }
+    ],
+    "added_volume_mm3": 0.0,
+    "removed_volume_mm3": 143.25600000000048,
+    "removed_volume_expected_mm3": 143.256,
+    "original_local_volume_mm3": 31808.448000000015,
+    "corrected_local_volume_mm3": 31665.192,
+    "original_shape_subset_relation": "corrected is a geometric subset; corrected.cut(original)=0; original.cut(corrected)=removed volume",
+    "frame_and_wood_geometry_changed": false,
+    "angle_and_bolt_geometry_changed": false
+  },
+  "print_to_world": {
+    "maps": "print-local STL to the frozen V3 world pose eoere_clip_horizontal_bottom_left_1",
+    "matrix_row_major_4x4": [
+      0.0,
+      -1.0,
+      0.0,
+      -1041.3999999999999,
+      -0.7660444429154699,
+      -0.0,
+      -0.6427876099290708,
+      56.91875618247201,
+      0.6427876099290708,
+      -0.0,
+      -0.7660444429154699,
+      433.8031109141632,
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "rotation_columns_xyz": [
+      [
+        0.0,
+        -0.7660444429154699,
+        0.6427876099290708
+      ],
+      [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      [
+        0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ]
+    ],
+    "translation_xyz_mm": [
+      -1041.3999999999999,
+      56.91875618247201,
+      433.8031109141632
+    ],
+    "determinant": 1.0,
+    "orthogonality_error": 0.0,
+    "axis_norm_error": 0.0,
+    "scale": 1.0,
+    "mirrored": false,
+    "corrected_shape_is_world_v3_subset": true,
+    "world_added_volume_mm3": 0.0,
+    "world_removed_volume_mm3": 143.25600000111615
+  },
+  "registration_and_marking": {
+    "local_axis_window_centers": [
+      {
+        "axis_id": "eoere_bolt_002",
+        "local_center_xyz_mm": [
+          19.04999999952526,
+          23.812500000000227,
+          8.750000000648129
+        ],
+        "expected_xyz_mm": [
+          19.05,
+          23.8125,
+          8.75
+        ],
+        "max_error_mm": 6.48128661850933e-10
+      },
+      {
+        "axis_id": "eoere_bolt_029",
+        "local_center_xyz_mm": [
+          69.8499999998319,
+          23.812500000000227,
+          8.750000000117979
+        ],
+        "expected_xyz_mm": [
+          69.85,
+          23.8125,
+          8.75
+        ],
+        "max_error_mm": 1.681002004261245e-10
+      }
+    ],
+    "registration_contacts_distance_mm": {
+      "width_stop_to_rail_V0": 5.728578676879116e-14,
+      "end_stop_to_rail_L0_after_relief": 0.0,
+      "free_edge_lip_to_angle": 3.375077994860476e-14,
+      "width_edge_lip_to_angle_after_relief": 3.375077994860476e-14,
+      "mask_deck_to_angle": 1.4210854715202004e-14
+    },
+    "registration_contact_intersections_mm3": {
+      "width_stop_to_rail_V0": 0.0,
+      "end_stop_to_rail_L0_after_relief": 0.0,
+      "free_edge_lip_to_angle": 0.0,
+      "width_edge_lip_to_angle_after_relief": 0.0,
+      "mask_deck_to_angle": 0.0
+    },
+    "rail_intersection_mm3": 0.0,
+    "nominal_angle_intersection_mm3": 0.0,
+    "preserved_contact_land_statement": "The broad bed face, V=0 width stop, L=0 end stop, free-edge lip, width-edge lip outside the local corner relief, and mask deck still meet their nominal target faces. End-stop upper contact width is 4.4 mm after relief.",
+    "family_use_proof_path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/horizontal-rail-family-use-check-v2.json",
+    "family_use_proof_sha256": "c871105a8818c3a3632b36603dd06cda86e7a3fd71405ac9de4100ed9e4effe8",
+    "family_passing_horizontal_beam_poses": 12,
+    "post_flanges_claimed": false
+  },
+  "files": {
+    "stl": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local-topology-repair-v2/horizontal_rail_marking_jig_print_local_topology_repair_v2.stl",
+      "sha256": "4dc4758f37ad6fe2b286c796955587daa8ff7b6efcfa17d4fd23b061d82304c9",
+      "bytes": 5984
+    },
+    "step": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local-topology-repair-v2/horizontal_rail_marking_jig_print_local_topology_repair_v2.step",
+      "sha256": "80f687c492770e9b12500cd143fd9d6aff1f977f2f63238dc3688c027ece0e35",
+      "bytes": 103999
+    },
+    "readme": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/bracket-jig/prototype-v3-horizontal-bottom-left-1-final/print-local-topology-repair-v2/PRINTING-ADDENDUM.md",
+      "sha256": "8352592aac7e5c7e48ee33648e3d6df3c4d8788d03364b67c022962bb4677fe4",
+      "bytes": 2310
+    },
+    "stl_validation": {
+      "binary": true,
+      "triangle_count": 118,
+      "edge_count": 177,
+      "non_two_incident_edge_count": 0,
+      "watertight_by_edge_incidence": true,
+      "connected_triangle_components": 1,
+      "signed_volume_mm3": 31665.191699250583,
+      "positive_volume_mm3": 31665.191699250583,
+      "outward_orientation_positive": true,
+      "bounds_xyz_mm": [
+        [
+          -27.799999237060547,
+          91.30000305175781
+        ],
+        [
+          -2.4000000953674316,
+          91.30000305175781
+        ],
+        [
+          0.0,
+          46.849998474121094
+        ]
+      ]
+    },
+    "shape_bounds_xyz_mm": [
+      -27.800000100000016,
+      91.30000010000003,
+      -2.4000001000000157,
+      91.30000010000003,
+      -1.0000001588821857e-07,
+      46.85000010000002
+    ]
+  },
+  "limitations": [
+    "The corner relief applies only to this disposable jig prototype; no frame, wood, bracket, bolt, axis, force, or hole changed.",
+    "Family placement/axis windows are inherited from the bound twelve-pose V3 proof; the corrected body is subtractive and retains stated contact lands.",
+    "Physical print, product, wood, clamping, fit, and marking accuracy were not observed.",
+    "This is a positioning/marking template, not a drill guide or work release."
+  ],
+  "physical_print_or_fit_observed": false,
+  "drill_guide": false,
+  "release": false
+}

@@ -1,0 +1,317 @@
+{
+  "conditional_delta_if_open_reviews_change_current_candidate": [
+    {
+      "current_axes_to_revisit": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_009",
+        "eoere_bolt_010",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "current_count": 16,
+      "possible_schedule_effect": "Revisit only the affected current outer_top bolt rows and their nuts/washers/fitting interfaces under a newly matched geometry. No 5/16-in, larger-angle or washer change is included here.",
+      "trigger": "Outer-top 3/8-in spacing/end/oblique design check requires a changed top connection."
+    },
+    {
+      "current_axes_to_revisit": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074",
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_right_side_1",
+        "v11_cleat_right_side_2"
+      ],
+      "current_count": 16,
+      "possible_schedule_effect": "A separately source-qualified same-diameter/type basis might preserve some companions; any alternative product, length or head style requires a new per-axis fit review. No Holo-Krome/UNBRAKO alternate is selected or transferable.",
+      "trigger": "A574 yield-method/property basis for generic current socket-cap products cannot be closed or is changed by owner choice."
+    },
+    {
+      "current_axes_to_revisit": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_right_post_1",
+        "v11_cleat_right_post_2",
+        "v11_cleat_right_side_1",
+        "v11_cleat_right_side_2"
+      ],
+      "possible_schedule_effect": "Reconcile the full cleat joint and current hardware/analysis. Do not substitute historical half-inch or C13 values automatically.",
+      "trigger": "Cleat leaves, bond or 36.5-mm strength allowance differ from the owner-specified V9 basis."
+    },
+    {
+      "current_axes_to_revisit": [
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2",
+        "v11_cleat_right_post_1",
+        "v11_cleat_right_post_2"
+      ],
+      "current_count": 4,
+      "possible_schedule_effect": "Current SKU 372 7-in bolts, four SKU 13731 sleeves, nut stations and current response would change. This schedule retains all four sleeves.",
+      "trigger": "Four-spacer removal or any other shorter-bolt option is separately selected and checked."
+    }
+  ],
+  "correction_notes": [
+    "The model requires 24 Eoere ZX128-B-T4 angle bodies. The owner reports identity and ownership, but no observed or reported delivered quantity is recorded.",
+    "The 112 structural bolt stacks and their current nuts, washers, and four sleeves are included in this schedule. Only angle bodies and 66 Hillman panel/kicker screws are outside the hardware counts.",
+    "The 80 bolt axes outside the two named hold sets are a planning partition only; this does not show that remaining checks passed or authorize purchase, drilling, fabrication, or climbing."
+  ],
+  "counts": {
+    "bolt_axes_and_bolts_each": 112,
+    "distinct_bolt_skus": 8,
+    "factory_angles_owner_observed_or_reported_quantity": null,
+    "factory_angles_required_by_model": 24,
+    "nuts_each": 112,
+    "panel_and_kicker_Hillman_screw_axes_out_of_scope": 66,
+    "separate_fastener_pieces_in_scope": 452,
+    "spacers_each": 4,
+    "washers_each": 224
+  },
+  "derived_from_v1": {
+    "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/shopping-schedule-v1.json",
+    "sha256": "996a64b0614df23284a76c606ebc7edc3c049652588d4273f9d4265b7fcb45bc"
+  },
+  "earliest_unaffected_quantity_planning": {
+    "bolt_SKU_counts_unaffected_by_named_reviews": {
+      "363": 48,
+      "365": 8,
+      "368": 2,
+      "372": 4,
+      "8092": 0,
+      "8093": 0,
+      "G0340956": 2,
+      "G0341148": 16
+    },
+    "bolt_axes": 80,
+    "component_quantities_unaffected_by_named_reviews": {
+      "nut:2571": 74,
+      "nut:2573": 2,
+      "nut:2584": 4,
+      "spacer:13731": 4,
+      "washer:15023": 156,
+      "washer:15025": 4
+    },
+    "meaning": "The 80 bolt axes lie outside these two named review sets only. This is a planning partition, not evidence that other checks passed or authorization to purchase, drill, fabricate, or climb. Other connection, fit, and whole-joint limits remain open.",
+    "not_a_recommendation_to_order_or_drill": true
+  },
+  "excluded_from_this_schedule": [
+    "24 Eoere ZX128-B-T4 angle bodies required by the model; owner-reported ownership is not a counted delivered quantity.",
+    "66 Hillman panel/kicker screws."
+  ],
+  "generated_outputs": {
+    "axis_crosswalk_csv": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/axis-crosswalk-v1.csv",
+      "sha256": "9bc09b70875b39769b1b6ee4d79934bc300e351372e0805074e2ce5a9ea37fc5"
+    },
+    "shopping_list_csv": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/shopping-list-v1.csv",
+      "sha256": "d709c04c20475fa4567fba9cbdd54c3bd482338c674b0faae308ca73757809db"
+    }
+  },
+  "inherited_v1_producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/build_hardware_schedule_v1.py",
+    "sha256": "fe229bac3eab03731012573d54246496905c42a3575abae0c45b32c0f0537afe"
+  },
+  "limitations": [
+    "This is a nominal current-stack shopping schedule, not an order authorization or a fabrication packet.",
+    "The 16 current outer_top axes retain unresolved spacing/end/oblique design questions.",
+    "The 16 current A574 axes retain an unresolved applicable Fyb source/method basis; the 12 cleat A574 axes are included in the V9 cleat joint scope.",
+    "All whole-joint structural acceptance, actual hardware conformity and physical fit remain unresolved."
+  ],
+  "named_open_reviews": {
+    "current_A574_yield_basis": {
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074",
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_right_side_1",
+        "v11_cleat_right_side_2"
+      ],
+      "bolts_implicated": 16,
+      "cleat_bolts_implicated": 12,
+      "other_A574_bolts_implicated": 4,
+      "reason": "Holo-Krome's 162 ksi table entry and UNBRAKO's 170 ksi table entry are real manufacturer-family-specific published minimum yield figures. Neither reviewed source identifies the required F606/F606M or F1575 derivation for that figure. Holo-Krome's 'based on ASTM A-574' note is not an explicit test-method statement, and neither manufacturer's figures can be assigned to the current generic A574-labeled SKU. The current material gap therefore remains open. A separately specified manufacturer product could have its own dimensional and method basis evaluated; no alternate is selected here.",
+      "status": "OPEN"
+    },
+    "outer_top_spacing_and_end_design": {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_009",
+        "eoere_bolt_010",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "bolts_implicated": 16,
+      "nut_axes_implicated": 16,
+      "reason": "The two outer_top joint dispositions retain the current 3/8-in axis geometry but leave actual row/end-edge/oblique applicability and the Table D/oblique-end design decision unresolved.",
+      "status": "OPEN",
+      "washer_pieces_implicated": 32
+    },
+    "plywood_cleat_assumption": {
+      "bond_and_stiffness_limit": "No saved evidence supports assigning adhesive resistance or interleaf shear stiffness to an identified, owner-selected product for current V11. The existing perfect-bond operator remains a modeling assumption.",
+      "conditional_category": "APA 24oc PS1, Group 1, at least five plies; strength axis world Z.",
+      "face_panel_purchase_is_not_cleat_qualification": true,
+      "historical_half_inch_cleat_basis_used": false,
+      "leaves_per_cleat": 2,
+      "nominal_bonded_pair_mm": 38.1,
+      "nominal_thickness_each_leaf_mm": 19.05,
+      "physical_leaf_count": 4,
+      "status": "CONDITIONAL_ANALYSIS_ASSUMPTION",
+      "strength_allowance_mm": 36.5
+    }
+  },
+  "owner_purchase_and_release_status": {
+    "angle_model": "The model requires 24 Eoere ZX128-B-T4 angle bodies. The owner reports the angle identity and ownership; no observed or reported quantity is recorded. Identity and ownership do not authenticate delivered count, dimensions, material properties, or fit.",
+    "climbing_released": false,
+    "fabrication_released": false,
+    "owner_reported_nuts_and_bolts_purchased": false,
+    "purchase_authorized_in_checked_geometry": false,
+    "structural_acceptance": false
+  },
+  "plywood_and_build_dependencies": {
+    "current_cleat_basis": "V9 baseline: two nominal 19.05-mm leaves at each cleat; nominal 38.1-mm pair; 36.5-mm strength allowance scenario. Not C13 half-inch leaves.",
+    "drilling": "No drill sizes or fabrication instructions are issued here. Geometry bore diameters are analysis occupancy envelopes, not drill-bit sizes. Use the finalized axis/receiver layout only after open geometry decisions are closed.",
+    "face_panel_purchase": "Roseburg AC fir 23/32 CAT PS1-09 is the recorded face panel; it does not qualify the plywood cleat leaves.",
+    "fit_fields": "The 112-row source and crosswalk retain Actual/Disposition blank. Maximum grip gaging inputs are not actual complete-thread-start measurements; delivered identity, length, thread/runout, free seating, washer/fillet contact and physical fit are unobserved.",
+    "numerical_work": "Unobserved delivered parts do not block conditional numerical analysis; this schedule does not convert model assumptions into delivery or fabrication acceptance.",
+    "owner_specified_conditional_plywood": "APA 24oc PS1, Group 1, at least five plies; strength axis world Z.",
+    "perfect_bond_and_no_slip": "Modeling assumption only; no owner-selected current adhesive or cleat-specific process is established. Physical product, grade, thickness, ply count, orientation and bond remain unverified."
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/build-package/hardware/build_hardware_schedule_v2.py",
+    "sha256": "703fb6cff3bcff693c39e8eb253b98ee13f09bc7008b20e591e33e13bda171d4"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_shorter_bolts_current_build_package_hardware/v2",
+  "scope": "Current frozen 112-stack bolt/nut/washer/spacer schedule. Angle bodies and 66 Hillman panel/kicker screws are outside these counts; unadopted options are not included.",
+  "source_inputs": {
+    "a574_manufacturer_source_check": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/A574-property/manufacturer-yield-source-check-v1.json",
+      "sha256": "bd2d0b03291a29aa28960c405110fe6688eb180835f526157b1c49ccce06dcf0"
+    },
+    "a574_property_disposition": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/A574-property/property-disposition-v1.json",
+      "sha256": "8dd3f801c7dc4b4d09a73ce8af3be13b37bb46cba7f2aff2fb09d2cbdb5886e7"
+    },
+    "bolt_source_observations": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/bolts/source-observations.json",
+      "sha256": "7fa861f00888bb3cd2672a27b2f18301d89f90e07bfbb46bbf762ab5390f5cf2"
+    },
+    "catalog_observations": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/catalog-observations.json",
+      "sha256": "4ed1d6ba084de9e4586faf7260ec0e396fa5429e218d26edfc04b4f5b56192da"
+    },
+    "conditional_reference_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/reference-review.json",
+      "sha256": "9a95d840a81205e2ef6c9cb6924f8b0f27811339b4eaceff9359d0833cf70c72"
+    },
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "joint_disposition": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
+      "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
+    },
+    "material_operator": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/material.json",
+      "sha256": "a7ae19a0b29dcacb46b603d88933ef73bd6ed03c2665c0f8b9f4dc88fa646185"
+    },
+    "material_support_reuse": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/material-support-reuse.json",
+      "sha256": "bb6cad804bac10c1884d77ced0f8e76eabfaf3f21c3fb771fde78609f4be0fd5"
+    },
+    "nominal_hardware_fit": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit.csv",
+      "sha256": "16145f54ef63adae16ab86704a867f9cc92711075333233da7b555349dc83302"
+    },
+    "nominal_hardware_fit_binding": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit-binding.json",
+      "sha256": "67205230d5ce8ebc89490ba197f938b20f159f676d1a05a5bed6abb28ae78ecb"
+    },
+    "owner_material_purchase_decisions": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-material-purchase-decisions.json",
+      "sha256": "6f437911a9603ee4310eb284938479050049f6e54afd80792733d77f9d6b1da3"
+    },
+    "owner_v9_eight_bolt_request": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-v9-eight-bolt-request.json",
+      "sha256": "8704cdfba23c59ea2a56d87bddf8f1123caedfbaad3c5163d6196eda2234fde0"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "profile_contract": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+      "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+    },
+    "profile_contract_source_supplement": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-source-supplement-v1.json",
+      "sha256": "2048c4a25c99498ef59bae3acd64427d1277c0fbcd42dfab1d2bd7176e00bed2"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "sku368_historical_link": {
+      "path": "docs/floor-runner-recess-hardware.md",
+      "sha256": "8a41e1d5fcc7273ed54ef981f08eb5eeaa51826ab7a71fec874514dfc0005c95"
+    }
+  },
+  "status": "PROVISIONAL_CURRENT_MODEL_INPUTS_NOT_PURCHASE_OR_FABRICATION_RELEASED"
+}

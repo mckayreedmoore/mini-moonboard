@@ -1,0 +1,11 @@
+# Corrected V3 print-local jig
+
+Print the [current horizontal-rail STL](horizontal_rail_marking_jig.stl). Earlier assembly-position and unsuccessful print exports remain preserved in the source packet; they are not issued here.
+
+Set the broad mask face on the bed at z=0, keep 100% scale, and check the slicer preview. The local bounds are x=-27.80..91.30, y=-2.40..91.30, z=0.00..46.85 mm (119.1 × 93.7 mm footprint). This orientation places the broad mask face flat on the bed. No print, fit, or marking result has been observed.
+
+The print-only body has two subtractive corner reliefs to remove the V3 STL's two four-face seam edges: (1) a 2.4 × 2.4 mm upper corner of the width-edge lip, above the 2.4 mm base; (2) a 1.0 mm strip from the end stop, above the base. They remove 143.256 mm³ in total (0.450% of the original jig). No material was added. The mask-window centers, axis marks, broad bed face, and registration datum planes are unchanged. The width-edge lip retains its long contact land; the end stop retains a 4.4 mm wide upper contact land plus the base contact strip. The original V3 shape and its assembly geometry are unchanged.
+
+Use this only as a positioning/marking template for the two FAR beam-flange marks on the loose horizontal rail before the adjacent post is attached. Use the finished rail end and width edge listed in the [12-position registration table](registration-table.md), and seat the retained free/width lips against the angle edges; clamp without forcing. V=0/L=0 describes the first bottom-left position only. The two current steel factory holes are the marking references. The square windows are clearance windows, not bit sizes or drill guides. Remove the jig before assembly. The original twelve-pose horizontal-beam family proof remains bound; this print body reuses those rigid placements and unchanged target centers. It does not apply to post flanges or authorize other holes.
+
+Steel thickness, inside bend radius, printed mask thickness, clamp fit, physical wood edges, and actual product tolerances have not been measured. The 6.35 mm steel/2.4 mm mask stack and radius relief remain nominal/conditional. This is not a drill guide, purchase instruction, fabrication release, or proof of physical fit.

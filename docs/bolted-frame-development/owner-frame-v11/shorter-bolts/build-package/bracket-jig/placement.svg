@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="170mm" height="155mm" viewBox="0 0 170 155">
+<style>text{font:3px sans-serif;fill:#173044}.title{font-size:4.5px;font-weight:bold}.part{fill:#dce9ef;stroke:#173044;stroke-width:.45}.edge{fill:#a9c0ca;stroke:#173044;stroke-width:.4}.hole{fill:#fff;stroke:#a33;stroke-width:.5}.dim{stroke:#173044;stroke-width:.35;fill:none}.note{fill:#a33;font-weight:bold}</style>
+<rect width="170" height="155" fill="white"/>
+<text x="4" y="7" class="title">Horizontal rail beam marking jig · local mm</text>
+<text x="4" y="12" class="note">ONE pose only · positioning / marking prototype · not a drill guide or release</text>
+<text x="4" y="19">Pose: eoere_clip_horizontal_bottom_left_1 · rail base_rail_bottom_left</text>
+<text x="4" y="24">Use FAR beam holes eoere_bolt_002 / 029 only; outer-top patterns remain held.</text>
+<!-- plan, 1:1 with x offset 36 and y offset 43 -->
+<g transform="translate(36,43)">
+ <rect x="0" y="0" width="88.9" height="74.2" class="part"/>
+ <rect x="-20" y="0" width="20" height="74.2" class="edge"/>
+ <rect x="-25.4" y="0" width="5.4" height="88.9" class="edge"/>
+ <rect x="-27.8" y="0" width="2.4" height="88.9" class="edge"/>
+ <rect x="-25.4" y="88.9" width="5.4" height="2.4" class="edge"/>
+ <rect x="0" y="-2.4" width="88.9" height="2.4" class="edge"/>
+ <rect x="88.9" y="0" width="2.4" height="74.2" class="edge"/>
+ <rect x="7.05" y="11.8125" width="24" height="24" class="hole"/>
+ <rect x="57.85" y="11.8125" width="24" height="24" class="hole"/>
+ <line x1="-25.4" y1="88.9" x2="88.9" y2="88.9" class="dim" stroke-dasharray="2,1"/>
+ <line x1="0" y1="76.2" x2="88.9" y2="76.2" class="dim" stroke-dasharray="2,1"/>
+ <text x="4" y="-5">free edge capture lip</text>
+ <text x="4" y="45">main mask deck; 24×24 access windows</text>
+ <text x="-28" y="95">side stop at rail V=0</text>
+ <text x="-22" y="102">end stop contacts rail L=0; outboard of angle</text>
+ <text x="2" y="80">heel relief starts y=74.2</text>
+ <text x="2" y="86">conditional flat tangent 76.2 (Ri=t=6.35)</text>
+</g>
+<text x="4" y="142" class="title">Fit section</text>
+<text x="4" y="148">Nominal steel 6.35 + mask 2.4 = 8.75 stack. Regenerate from a measured thickness; no fit observed.</text>
+<text x="4" y="153" class="note">Remove jig before attaching base_side_left; its assembled BRep intersects the end stop.</text>
+</svg>

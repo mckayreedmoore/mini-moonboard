@@ -3212,6 +3212,142 @@ export function validateShorterJointDisposition(report, entry, index, bank, scen
   return report;
 }
 
+export function validateShorterRearMaterialReferences(report, entry, bank) {
+  assert.equal(report.schema, 'v11_current_rear_material_references/v1'); assert.equal(report.revision, entry.revision);
+  assert.deepEqual(report.response_bank, entry.response_bank); assert.deepEqual(report.geometry_receipt, entry.geometry_receipt);
+  if (entry.joint_disposition !== undefined) assert.deepEqual(report.joint_disposition, entry.joint_disposition);
+  else {
+    referenceBinding(report.joint_disposition, 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json');
+    const joint = JSON.parse(bound(report.joint_disposition));
+    assert.deepEqual(joint.response_bank, entry.response_bank); assert.deepEqual(joint.geometry_receipt, entry.geometry_receipt);
+  }
+  for (const ref of Object.values(report.source_records)) referenceBinding(ref);
+  assert.deepEqual(report.separate_hinge_reference_summary.source_current_v1, report.source_records.original_uniform_reference);
+  const rows = report.case_rows, axes = ['lumber_leg_bolt_left_1', 'lumber_leg_bolt_right_1', 'rail_rear_bolt_left_1', 'rail_rear_bolt_right_1'];
+  assert.equal(rows.length, 24);
+  assert.deepEqual(rows.map(row => `${row.axis_id}/${row.case_id}`).sort(), axes.flatMap(axis => CURRENT_CASES.map(id => `${axis}/${id}`)).sort());
+  const feFlags = [];
+  for (const row of rows) {
+    assert.equal(row.full_NDS_connection_capacity, null);
+    assert.match(row.source_pointer, /^\/states\/\d+$/); assert.match(row.split_limit_source_pointer, /^\/current_rear_sensitivity\/states\/\d+$/);
+    const bearing = row.affine_radial_bearing_Fe_over_5;
+    referenceIndex(bearing.maximum_utilization_under_NDS_G0p50_scenario, 'rear chosen-field bearing reference');
+    assert.equal(bearing.all_surface_checks_at_or_below_one, bearing.maximum_utilization_under_NDS_G0p50_scenario <= 1);
+    if (!bearing.all_surface_checks_at_or_below_one) feFlags.push([row.axis_id, row.case_id]);
+    for (const [part, value, flag] of [[row.preserved_Fyb_over_5, 'conditional_Grade5_Fyb_92ksi_utilization', 'grade5_92ksi_scenario_within_one'],
+      [row.separate_Fyb_over_4, 'Grade5_92ksi_scenario_utilization', 'Grade5_92ksi_scenario_within_one'],
+      [row.independent_Fy_over_2, 'conditional_J429_minimum_Fy_92ksi_utilization', 'J429_92ksi_scenario_within_one']]) {
+      referenceIndex(part[value], 'rear conditional Grade5 metal scenario'); assert.ok(part[value] <= 1); assert.equal(part[flag], true);
+    }
+  }
+  const original = report.original_reference_summary, separate = report.separate_hinge_reference_summary;
+  assert.equal(original.axis_count, 4); assert.equal(original.case_count, 6); assert.equal(original.state_count, 24);
+  assert.equal(original.Fe_over_5_states_above_one, 8); assert.equal(feFlags.length, 8);
+  assert.equal(original.Grade5_92ksi_Fyb_scenario_exceedances, 0); assert.equal(original.J429_92ksi_Fy_scenario_exceedances, 0);
+  assert.equal(separate.state_count, 24); assert.equal(separate.Grade5_92ksi_scenario_exceedance_count, 0);
+  assert.equal(separate.Fe_over_5_affine_static_field_flags.count, 8);
+  assert.deepEqual(separate.Fe_over_5_affine_static_field_flags.axis_case_rows, feFlags);
+  assert.equal(original.maximum_required_Fyb_MPa_for_Fyb_over_5, Math.max(...rows.map(row => row.preserved_Fyb_over_5.required_Fyb_MPa)));
+  assert.equal(separate.maximum_required_Fyb_MPa_for_Mp_over_4, Math.max(...rows.map(row => row.separate_Fyb_over_4.required_Fyb_MPa)));
+  assert.ok(typeof report.source_boolean_label_note === 'string' && report.source_boolean_label_note.trim().length > 0);
+  assert.equal(report.matched_control_replay.count, 18); assert.equal(report.matched_control_replay.all_at_or_below_one, true);
+  assert.deepEqual(report.mode_input_comparison.map(row => row.mode).sort(), ['Im', 'Is', 'II', 'IIIm', 'IIIs', 'IV'].sort());
+  for (const row of report.mode_input_comparison) {
+    assert.equal(row.bearing_reference_divisor, 5); assert.ok(row.bearing_reference_divisor >= row.maximum_mode_Rd);
+    if (row.plastic_moment_reference_divisor !== null) {
+      assert.equal(row.plastic_moment_reference_divisor, 4); assert.ok(row.plastic_moment_reference_divisor >= row.maximum_mode_Rd);
+    }
+  }
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fe', 'actual_Fy', 'actual_Fyb', 'complete_joint_capacity']) assert.equal(original[key], null);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity', 'accepted_connection_exceedance_count']) assert.equal(report[key], null);
+  for (const key of ['complete_joint_qualified', 'structural_acceptance', 'purchase_authorized', 'drilling_released', 'fabrication_released',
+    'climbing_released', 'frame_geometry_changed', 'new_global_or_native_solve']) assert.equal(report[key], false);
+  assert.equal(original.physical_failure_claim, false); assert.equal(original.native_global_solve_or_CAD_run, false);
+  assert.equal(bank.geometry_revision, report.revision);
+  referenceBinding(report.reproduction.producer);
+  return report;
+}
+
+export function validateV11BuildPackage(manifest, entry, bank, readArtifact = bound) {
+  const folder = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/';
+  const metadata = manifest.metadata ?? manifest;
+  assert.equal(manifest.schema, 'v11_provisional_build_package/v1'); assert.equal(manifest.revision, entry.revision);
+  for (const key of ['geometry_receipt', 'response_bank', 'rear_wrench_material_references']) {
+    referenceBinding(metadata[key]); assert.deepEqual(metadata[key], entry[key]);
+  }
+  if (entry.joint_disposition !== undefined) assert.deepEqual(metadata.joint_disposition, entry.joint_disposition);
+  else {
+    referenceBinding(metadata.joint_disposition, 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json');
+    const joint = JSON.parse(bound(metadata.joint_disposition));
+    assert.deepEqual(joint.response_bank, entry.response_bank); assert.deepEqual(joint.geometry_receipt, entry.geometry_receipt);
+  }
+  assert.deepEqual(metadata.counts, {bolts: 112, nuts: 112, washers: 224, metal_spacers: 4, sawn_members: 20, cleat_leaves: 4, panels: 6});
+  if (Object.hasOwn(metadata, 'angle_bodies_required')) assert.equal(metadata.angle_bodies_required, 24);
+  if (Object.hasOwn(metadata, 'actual_angle_count')) assert.equal(metadata.actual_angle_count, null);
+  for (const key of ['frame_geometry_changed', 'new_global_or_native_solve', 'physical_fit_observed', 'structural_acceptance',
+    'purchase_authorized', 'drilling_released', 'fabrication_released', 'climbing_released']) {
+    assert.equal(metadata[key] ?? manifest[key], false);
+    if (Object.hasOwn(manifest, key)) assert.equal(manifest[key], false);
+  }
+  for (const row of [manifest, metadata]) for (const key of ['complete_connection_acceptance', 'complete_joint_capacity', 'actual_Cg', 'actual_Cdelta'])
+    if (Object.hasOwn(row, key)) assert.equal(row[key], null);
+  for (const row of [manifest, metadata]) for (const key of ['full_ignored_input_closure_checked', 'portable_full_raw_source_closure_checked', 'complete_joint_qualified'])
+    if (Object.hasOwn(row, key)) assert.equal(row[key], false);
+  assert.ok(metadata.source_records && typeof metadata.source_records === 'object');
+  for (const [name, ref] of Object.entries(metadata.source_records))
+    referenceBinding(typeof ref === 'string' ? {path: name, sha256: ref} : ref); // Ignored originals remain declarations only.
+  const artifacts = manifest.artifacts, byPath = new Map(), bytesByPath = new Map();
+  assert.ok(Array.isArray(artifacts) && artifacts.length > 0);
+  for (const artifact of artifacts) {
+    referenceBinding({path: artifact.path, sha256: artifact.sha256});
+    assert.ok(!byPath.has(artifact.path), 'duplicate build artifact');
+    assert.ok(Number.isInteger(artifact.bytes) && artifact.bytes > 0);
+    assert.ok(typeof artifact.use === 'string' && artifact.use.trim().length > 0);
+    assert.equal(typeof artifact.documentation_links_adapted, 'boolean');
+    if (typeof artifact.source === 'string') assert.ok(artifact.source.trim().length > 0);
+    else referenceBinding(artifact.source);
+    const bytes = readArtifact({path: folder+artifact.path, sha256: artifact.sha256});
+    assert.equal(sha(bytes), artifact.sha256, 'build artifact bytes differ'); assert.equal(bytes.length, artifact.bytes);
+    byPath.set(artifact.path, artifact); bytesByPath.set(artifact.path, bytes);
+  }
+  const active = manifest.active_print_files;
+  assert.ok(Array.isArray(active) && active.length === 3 && new Set(active).size === 3);
+  for (const name of active) {
+    assert.ok(byPath.has(name) && name.endsWith('.stl'), 'active print must be an issued STL artifact');
+    assert.ok(!/prototype-v[12](?:\/|-)/.test(name), 'superseded jig cannot be current');
+  }
+  const proofFolder = 'runner-leg-jigs/prototype-v3-verified/', proofPath = proofFolder+'prototype-result-v3.json';
+  assert.ok(byPath.has(proofPath), 'current rear placement proof required');
+  const proof = JSON.parse(bytesByPath.get(proofPath));
+  assert.equal(proof.schema, 'v11_rear_foot_leg_marking_jig_prototype/v3');
+  assert.equal(proof.current_source_bindings.checked_receipt.sha256, entry.geometry_receipt.sha256);
+  assert.equal(proof.current_source_bindings.response_bank.sha256, entry.response_bank.sha256);
+  assert.deepEqual(proof.current_source_bindings.joint_record, metadata.joint_disposition);
+  assert.deepEqual(proof.current_source_bindings.geometry, bank.physical_geometry);
+  referenceKeys(proof.side_placement_proofs, ['left', 'right'], 'current rear handed placement proofs');
+  for (const side of ['left', 'right']) {
+    const row = proof.side_placement_proofs[side], name = `${side}-rear-foot-leg-marking-jig.stl`;
+    assert.equal(row.axis_id, `rail_rear_bolt_${side}_1`); assert.equal(row.proper_rigid_transform, true);
+    const [u, w, z] = row.basis_columns_xyz;
+    for (const column of [u, w, z]) assert.ok(column.length === 3 && column.every(Number.isFinite));
+    const determinant = u[0]*(w[1]*z[2]-w[2]*z[1])+u[1]*(w[2]*z[0]-w[0]*z[2])+u[2]*(w[0]*z[1]-w[1]*z[0]);
+    referenceClose(determinant, 1, 'rear jig transform handedness'); referenceClose(row.determinant, 1, 'issued rear determinant');
+    assert.deepEqual(z, side === 'left' ? [-1, 0, 0] : [1, 0, 0]);
+    for (let k = 0; k < 3; k++) {
+      const mapped = row.origin_xyz_mm_at_rear_foot_outer_face[k]+[u, w, z].reduce((sum, column, n) => sum+column[k]*row.cad_mark_local_u_w_z_mm[n], 0);
+      referenceClose(mapped, row.mapped_mark_xyz_mm[k], 'issued rear mark placement');
+      referenceClose(mapped, row.source_axis_point_xyz_mm[k], 'current rear mark target');
+    }
+    assert.ok(active.includes(proofFolder+name));
+    const output = proof.outputs[name], artifact = byPath.get(proofFolder+name);
+    assert.equal(artifact.sha256, output.sha256); assert.equal(artifact.bytes, output.bytes);
+  }
+  assert.notEqual(byPath.get(proofFolder+'left-rear-foot-leg-marking-jig.stl').sha256,
+    byPath.get(proofFolder+'right-rear-foot-leg-marking-jig.stl').sha256, 'separate handed rear files required');
+  for (const value of Object.values(proof.qualification)) assert.equal(value, false);
+  return manifest;
+}
+
 export function validateShorterBoltDelivery(entry, index) {
   const prefix = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/';
   const documents = {};
@@ -3396,6 +3532,14 @@ export function validateShorterBoltDelivery(entry, index) {
   if (entry.joint_disposition !== undefined) {
     referenceBinding(entry.joint_disposition, prefix+'joint-disposition.json');
     validateShorterJointDisposition(JSON.parse(bound(entry.joint_disposition)), entry, index, bank, scene);
+  }
+  if (entry.rear_wrench_material_references !== undefined) {
+    referenceBinding(entry.rear_wrench_material_references, prefix+'rear-wrench-material-references.json');
+    validateShorterRearMaterialReferences(JSON.parse(bound(entry.rear_wrench_material_references)), entry, bank);
+  }
+  if (entry.build_package !== undefined) {
+    referenceBinding(entry.build_package, prefix+'build-package/manifest.json');
+    validateV11BuildPackage(JSON.parse(bound(entry.build_package)), entry, bank);
   }
   assert.deepEqual(viewer.results, SHORTER_RESULTS_ASSET);
   const results = validateShorterBoltResults(JSON.parse(bound(viewer.results)));

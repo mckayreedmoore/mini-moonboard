@@ -1,0 +1,537 @@
+{
+  "common_mark_physical_local_u_w_mm": [
+    88.26948504804598,
+    63.86397394146403
+  ],
+  "current_source_bindings": {
+    "checked_receipt": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "finished_leg_breps": {
+      "left": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/lumber_leg_left.brep",
+        "sha256": "0ed21c58eac9f3c498ef5d4e21c201206d1c11032cb187b3a0d793ab8c9a121a"
+      },
+      "right": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/lumber_leg_right.brep",
+        "sha256": "3ef8a777f1e268d03c2e8b38423e0bfcbe0f3e2e64c1dd14efdadc40f6adb68f"
+      }
+    },
+    "geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "joint_record": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
+      "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    }
+  },
+  "outputs": {
+    "left-rear-foot-leg-marking-jig.step": {
+      "bytes": 70675,
+      "sha256": "f1ce05311a99388d88144b05cac19cffd1e2d5c8136e59a308105a30349b560c"
+    },
+    "left-rear-foot-leg-marking-jig.stl": {
+      "bytes": 35284,
+      "sha256": "c6bea1d60bba8a91648d3967c3e8e8f6ae8bfa661dfdb8ab2c54903f78a6847b"
+    },
+    "placement-datum-v3.svg": {
+      "bytes": 3315,
+      "sha256": "d6e4a92288e0e2194ebf8604e333d172a9d9f877145a2d6cf81fef710017e362"
+    },
+    "right-rear-foot-leg-marking-jig.step": {
+      "bytes": 71370,
+      "sha256": "28df4f75a1cd52295e018b11d534836d8371007a91a5e4a626ea89fc39cb1744"
+    },
+    "right-rear-foot-leg-marking-jig.stl": {
+      "bytes": 35284,
+      "sha256": "4b4f7713859ee9d40cc08d050288dcab5cdc0a99915c162dd9084c935237d0e6"
+    }
+  },
+  "physical_handling": {
+    "aperture": "2 mm marker/awl pass-through only; not a drill guide",
+    "left_file": "left-rear-foot-leg-marking-jig.stl/.step; do not flip or substitute right model",
+    "ribs_and_key": "z>0 outward of timber plane for both transforms",
+    "right_file": "right-rear-foot-leg-marking-jig.stl/.step; do not flip or substitute left model",
+    "wood_contact_surface": "local z=0 flat skin"
+  },
+  "producers": {
+    "reused_v2_geometry_helper": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/runner-leg-jigs/build_runner_leg_marking_jig.py",
+      "sha256": "90027551bd8358911080b7a5905f016f85a19567af905e1dc2addff51f909780"
+    },
+    "v3": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/runner-leg-jigs/build_runner_leg_marking_jig_v3.py",
+      "sha256": "625ddb0633652cd65bd818f76cd5aff4f5ddcab2ffb9a592d0f9dae0144360d4"
+    }
+  },
+  "qualification": {
+    "climbing_released": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "physical_fit_observed": false,
+    "structural_acceptance": false
+  },
+  "reproduction": {
+    "command": "uv run python fea/generated/v11-shorter-bolts-v1/build-package/runner-leg-jigs/build_runner_leg_marking_jig_v3.py --out-dir fea/generated/v11-shorter-bolts-v1/build-package/runner-leg-jigs/prototype-v3-verified",
+    "note": "uses the pinned V2 BRep intake and current V11 geometry; exports marking templates only"
+  },
+  "schema": "v11_rear_foot_leg_marking_jig_prototype/v3",
+  "side_placement_proofs": {
+    "left": {
+      "axis_id": "rail_rear_bolt_left_1",
+      "axis_mark_finished_brep_distance_mm": 5.556249999999963,
+      "basis_columns_xyz": [
+        [
+          0.0,
+          -0.23915183195284334,
+          0.970982183808539
+        ],
+        [
+          -0.0,
+          0.9709821838085387,
+          0.23915183195284329
+        ],
+        [
+          -1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cad_mark_local_u_w_z_mm": [
+        88.26948504804598,
+        -63.86397394146403,
+        0.0
+      ],
+      "determinant": 1.0000000000000002,
+      "finished_brep_datum_edge_samples": [
+        {
+          "cad_local_u_w_z_mm": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 3.099103196291253e-10,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1639.946483042,
+            0.0
+          ],
+          "label": "rear_edge_start",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1639.946483042,
+            0.0
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            57.5,
+            -0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 9.13724986669244e-10,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1626.1952527047115,
+            55.83147556899099
+          ],
+          "label": "rear_edge_mid",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1626.1952527047115,
+            55.83147556899099
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            115.0,
+            -0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 1.529589589066719e-09,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1612.444022367423,
+            111.66295113798198
+          ],
+          "label": "rear_edge_end",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1612.444022367423,
+            111.66295113798198
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            0.0,
+            -0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 3.099103196291253e-10,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1639.946483042,
+            0.0
+          ],
+          "label": "sloping_foot_start",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1639.946483042,
+            0.0
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            17.154717535938083,
+            -69.64999999999999,
+            0.0
+          ],
+          "finished_brep_distance_mm": 1.4826557430270363e-10,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1568.214991814382,
+            1.482653999573813e-10
+          ],
+          "label": "sloping_foot_mid",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1568.214991814382,
+            1.482653999573813e-10
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            34.309435071876166,
+            -139.29999999999998,
+            0.0
+          ],
+          "finished_brep_distance_mm": 2.965308870874622e-10,
+          "finished_brep_xyz_mm": [
+            -1308.1,
+            1496.4835005867642,
+            2.965307999147626e-10
+          ],
+          "label": "sloping_foot_end_with_front_relief",
+          "mapped_xyz_mm": [
+            -1308.1,
+            1496.4835005867642,
+            2.965307999147626e-10
+          ]
+        }
+      ],
+      "finished_brep_outward_entry_face_count": 1,
+      "finished_brep_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/lumber_leg_left.brep",
+      "finished_brep_sha256": "0ed21c58eac9f3c498ef5d4e21c201206d1c11032cb187b3a0d793ab8c9a121a",
+      "mapped_foot_edge_endpoint_xyz_mm": [
+        -1308.1,
+        1496.0715465811497,
+        2.9737634577031713e-10
+      ],
+      "mapped_mark_xyz_mm": [
+        -1308.1,
+        1556.8258931028513,
+        70.4349109917171
+      ],
+      "mapped_rear_long_edge_witness_xyz_mm": [
+        -1308.1,
+        1630.3804097638863,
+        38.83928735234156
+      ],
+      "modeled_bore_radius_mm": 5.55625,
+      "origin_xyz_mm_at_rear_foot_outer_face": [
+        -1308.1,
+        1639.946483042,
+        0.0
+      ],
+      "outside_face_outward_normal_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "part_surface_rule": "all CAD z>=0 is outside/on the wood outer face; z=0 faceplate contacts timber, ribs are outward",
+      "proper_rigid_transform": true,
+      "side_specific_w_reflection": "left STL/STEP is mirrored in CAD W from the preserved right-handed base; do not physically flip one universal part",
+      "source_axis_point_xyz_mm": [
+        -1308.1000000000001,
+        1556.8258931028513,
+        70.43491099171706
+      ],
+      "source_brep_foot_edge_endpoint_xyz_mm": [
+        -1308.1,
+        1496.071546581,
+        1.4210854715202004e-14
+      ],
+      "source_brep_rear_edge_witness_xyz_mm": [
+        -1308.1,
+        1630.3804097638863,
+        38.83928735234156
+      ]
+    },
+    "right": {
+      "axis_id": "rail_rear_bolt_right_1",
+      "axis_mark_finished_brep_distance_mm": 5.556250000000034,
+      "basis_columns_xyz": [
+        [
+          0.0,
+          -0.23915183195284334,
+          0.970982183808539
+        ],
+        [
+          0.0,
+          -0.9709821838085387,
+          -0.23915183195284329
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "cad_mark_local_u_w_z_mm": [
+        88.26948504804598,
+        63.86397394146403,
+        0.0
+      ],
+      "determinant": 1.0000000000000002,
+      "finished_brep_datum_edge_samples": [
+        {
+          "cad_local_u_w_z_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 3.0991040303838607e-10,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1639.946483042,
+            0.0
+          ],
+          "label": "rear_edge_start",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1639.946483042,
+            0.0
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            57.5,
+            0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 9.137249583791185e-10,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1626.1952527047115,
+            55.83147556899099
+          ],
+          "label": "rear_edge_mid",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1626.1952527047115,
+            55.83147556899099
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            115.0,
+            0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 1.529589572167157e-09,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1612.444022367423,
+            111.66295113798198
+          ],
+          "label": "rear_edge_end",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1612.444022367423,
+            111.66295113798198
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "finished_brep_distance_mm": 3.0991040303838607e-10,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1639.946483042,
+            0.0
+          ],
+          "label": "sloping_foot_start",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1639.946483042,
+            0.0
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            17.154717535938083,
+            69.64999999999999,
+            0.0
+          ],
+          "finished_brep_distance_mm": 1.482653999573813e-10,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1568.214991814382,
+            1.482653999573813e-10
+          ],
+          "label": "sloping_foot_mid",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1568.214991814382,
+            1.482653999573813e-10
+          ]
+        },
+        {
+          "cad_local_u_w_z_mm": [
+            34.309435071876166,
+            139.29999999999998,
+            0.0
+          ],
+          "finished_brep_distance_mm": 2.965307999147626e-10,
+          "finished_brep_xyz_mm": [
+            1304.9250000000002,
+            1496.4835005867642,
+            2.965307999147626e-10
+          ],
+          "label": "sloping_foot_end_with_front_relief",
+          "mapped_xyz_mm": [
+            1304.9250000000002,
+            1496.4835005867642,
+            2.965307999147626e-10
+          ]
+        }
+      ],
+      "finished_brep_outward_entry_face_count": 1,
+      "finished_brep_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-requested-geometry-v3/lumber_leg_right.brep",
+      "finished_brep_sha256": "3ef8a777f1e268d03c2e8b38423e0bfcbe0f3e2e64c1dd14efdadc40f6adb68f",
+      "mapped_foot_edge_endpoint_xyz_mm": [
+        1304.9250000000002,
+        1496.0715465811497,
+        2.9737634577031713e-10
+      ],
+      "mapped_mark_xyz_mm": [
+        1304.9250000000002,
+        1556.8258931028513,
+        70.4349109917171
+      ],
+      "mapped_rear_long_edge_witness_xyz_mm": [
+        1304.9250000000002,
+        1630.3804097638863,
+        38.83928735234156
+      ],
+      "modeled_bore_radius_mm": 5.55625,
+      "origin_xyz_mm_at_rear_foot_outer_face": [
+        1304.9250000000002,
+        1639.946483042,
+        0.0
+      ],
+      "outside_face_outward_normal_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "part_surface_rule": "all CAD z>=0 is outside/on the wood outer face; z=0 faceplate contacts timber, ribs are outward",
+      "proper_rigid_transform": true,
+      "side_specific_w_reflection": "left STL/STEP is mirrored in CAD W from the preserved right-handed base; do not physically flip one universal part",
+      "source_axis_point_xyz_mm": [
+        1304.9250000000002,
+        1556.8258931028513,
+        70.43491099171706
+      ],
+      "source_brep_foot_edge_endpoint_xyz_mm": [
+        1304.925,
+        1496.071546581,
+        1.4210854715202004e-14
+      ],
+      "source_brep_rear_edge_witness_xyz_mm": [
+        1304.9250000000002,
+        1630.3804097638863,
+        38.83928735234156
+      ]
+    }
+  },
+  "source_scope": {
+    "current_rear_axes_only": [
+      "rail_rear_bolt_left_1",
+      "rail_rear_bolt_right_1"
+    ],
+    "front_axes_not_included": [
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2",
+      "rail_front_bolt_right_1",
+      "rail_front_bolt_right_2"
+    ],
+    "front_status": "separate outer-runner datum; no same-carrier placement claimed"
+  },
+  "status": "provisional_side_specific_marking_templates_only",
+  "supersedes_for_printing": {
+    "reason": "V2's asymmetric one-sided ribs cannot be placed on both exterior faces with one proper rigid transform.",
+    "v2_files_preserved": true,
+    "v2_result": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/runner-leg-jigs/prototype-v2/prototype-result.json",
+      "sha256": "0ac9b5a84f3efa4322cc41ff3cd9cb8b20075a47336652628927e50924155c40"
+    }
+  },
+  "template_design": {
+    "foot_edge_width_mm": 139.7,
+    "foot_profile_slope_du_per_dw": 0.24629888780959203,
+    "front_edge_relief_mm": 0.4,
+    "local_axes": {
+      "u_mm": "along current leg grain, from rear-foot vertex at W=0",
+      "w_mm": "across the 139.7-mm face width, from the rear long edge toward front",
+      "z_mm": "outward from the leg exterior face"
+    },
+    "marker_aperture_diameter_mm": 2.0,
+    "marker_aperture_is_drill_guide": false,
+    "outside_stiffener_height_mm": 5.0,
+    "plate_nominal_along_u_from_foot_edge_mm": 115.0,
+    "plate_usable_width_mm": 139.29999999999998,
+    "print_bbox_local_mm": [
+      0.0,
+      149.30943507187618,
+      -2.0,
+      139.29999999999998,
+      0.0,
+      8.2
+    ],
+    "print_dimensions_local_mm": [
+      149.30943507187618,
+      141.29999999999998,
+      8.2
+    ],
+    "releases": {
+      "climbing": false,
+      "drilling": false,
+      "fabrication": false,
+      "structural": false
+    },
+    "skin_thickness_mm": 3.2,
+    "target_local_u_w_mm": [
+      88.26948504804598,
+      63.86397394146403
+    ]
+  },
+  "tool_versions": {
+    "cadquery": "2.8.0"
+  },
+  "wood_contact_skin_and_rib_proof": {
+    "basis_rule": "the CAD basis is orthonormal and maps local +Z to the finished outside-face normal",
+    "contact_skin": "verified planar CAD face at local z=0, facing the wood; it seats on the current outside plane",
+    "ribs": "all body geometry has local z>=0; raised ribs have z>3.2 mm and map outward from the wood on both sides",
+    "side_specific_bodies": "the left body is a separate W-mirrored solid; neither body is physically flipped to place the ribs"
+  }
+}

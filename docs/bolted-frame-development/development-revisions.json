@@ -2403,6 +2403,15 @@
       "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
       "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
     },
-    "additional_defined_1d_material_reference_state_flags": 8
+    "additional_defined_1d_material_reference_state_flags": 8,
+    "rear_wrench_material_references": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-wrench-material-references.json",
+      "sha256": "570824e212d35e75fd32f64e5f237f41eb3b7b9c2f67e24eeed19cdaf16ed0b6"
+    },
+    "conditional_rear_supported_subchecks_scope": "Singleton/end-factor and planar foot-shear scopes in rear-conditional-followthrough.json only; additional full-shaft material references remain separate.",
+    "build_package": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/manifest.json",
+      "sha256": "9836c16ebcb45a8f1a9816b069ba7838735c120e534b398e5cf5df74277256d4"
+    }
   }
 }
