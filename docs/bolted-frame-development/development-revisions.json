@@ -2233,5 +2233,176 @@
         }
       }
     }
+  },
+  "owner_authorized_shorter_bolt_trial": {
+    "revision": "v11-shorter-bolts-v1",
+    "scope": "Owner-authorized twenty shorter header/cleat stacks; frame, cleats, fittings, holes, axes, heads and washer seats fixed.",
+    "owner_confirmation": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-exemption.json",
+      "sha256": "e9b7942904ad9a8f24d0b79d3e07f40814b42f0591ffd1dd9dc4255cb4a599e7"
+    },
+    "status": "current_reference_bank_available; connection_design_active; publication_pending",
+    "selected": false,
+    "preserved_development_selection": "v11-v9-eight-bolt-v4",
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "engineering_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/reference-review.json",
+      "sha256": "9a95d840a81205e2ef6c9cb6924f8b0f27811339b4eaceff9359d0833cf70c72"
+    },
+    "connection_reference_projection": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/connection-reference-summary.json",
+      "sha256": "562fdd28c0dc71c1fa18e28b0ab20bf7c75705afcef4a36f17beb397089f0076"
+    },
+    "component_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/component-reference-summary.json",
+      "sha256": "4d04b557a813ccc6e94e288def310afbe1cb8a2216b5cdce7feed99e39776c9d"
+    },
+    "geometry_applicability": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-applicability.json",
+      "sha256": "3e653a9d569143b531f46177907b5dc08d351fb112d41a072f1b972b3413f6e1"
+    },
+    "numerical_flags": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/numerical-flag-inventory.csv",
+      "sha256": "0a4c26b3793073d632d9f3b9a909adc66b244a34c3d334b78b7cab92c0904407"
+    },
+    "numerical_flag_binding": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/numerical-flag-inventory-binding.json",
+      "sha256": "9c140c87961ed18d10d289e6fc18f1472c2c86d169aae9a49b84e575575c1823"
+    },
+    "nominal_hardware_fit": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit.csv",
+      "sha256": "16145f54ef63adae16ab86704a867f9cc92711075333233da7b555349dc83302"
+    },
+    "nominal_hardware_fit_binding": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit-binding.json",
+      "sha256": "67205230d5ce8ebc89490ba197f938b20f159f676d1a05a5bed6abb28ae78ecb"
+    },
+    "counts": {
+      "occupied_parts": 1089,
+      "bolt_stacks": 112,
+      "washers": 224,
+      "metal_spacers": 4,
+      "changed_stacks": 20
+    },
+    "all_six_cases_and_twelve_replays_admitted": true,
+    "maximum_gradient_inf_N": 4.7353206167333184e-07,
+    "admission_gate_N": 1e-05,
+    "separate_reported_diagnostic_and_scenario_rows": 110,
+    "remaining_row_application_interface_cases": 120,
+    "nominal_singleton_interface_cases": 132,
+    "actual_Cg_adopted": null,
+    "actual_Cdelta_adopted": null,
+    "accepted_connection_exceedance_count": null,
+    "complete_joint_qualified": false,
+    "structural_acceptance": false,
+    "purchase_authorized": false,
+    "fabrication_released": false,
+    "climbing_released": false,
+    "viewer": {
+      "model": "eoere-v11-shorter-bolts-preview",
+      "url": "http://127.0.0.1:8767/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off",
+      "provenance": {
+        "path": "site/eoere-v11-shorter-bolts-provenance.json",
+        "sha256": "92a70022aa149945bac3a548f7b68af1cf03e30c7223f51fd38cd3a28bbc7cbc"
+      },
+      "scene": {
+        "path": "site/eoere-v11-shorter-bolts-scene.json.gz",
+        "sha256": "47d53b5af8f977aba7345c3a5de55681761160d6f1b817c27b6c9ea4f9fd93a9"
+      },
+      "geometry_overlay": {
+        "path": "site/eoere-v11-shorter-bolts-overlay.mjs",
+        "sha256": "57c6031a1208b5d2aeee4a739913238f97b890e2068ada0b2faeeb5b88f53f8e"
+      },
+      "results": {
+        "path": "site/eoere-v11-shorter-bolts-results.json",
+        "sha256": "1997d3a0fb2309e6e1e9f9233c401658db8b1d235228a06d2712f634e55f52b5"
+      },
+      "results_overlay": {
+        "path": "site/eoere-v11-shorter-bolts-results.mjs",
+        "sha256": "593994c3da69eb8de52258e9c855f6d86f40f1aab841259ce773eba349079419"
+      },
+      "publisher": {
+        "path": "scripts/publish_v11_shorter_bolts_viewer.py",
+        "sha256": "2e3962f412f062e3251aa542074acd162c0675949fb4f12790537e17012a0a69"
+      },
+      "results_publisher": {
+        "path": "scripts/publish_v11_shorter_bolts_results.py",
+        "sha256": "bce210af04198f016b651a6dc014ed0119f23005e46d01f225cfb6473a53ca6d"
+      },
+      "geometry_only": false,
+      "published_or_deployed": false
+    },
+    "remaining": [
+      "Top row/end/edge applicability, compatible whole-joint mixed-media interaction and timber splitting/net-section anchorage.",
+      "Fitting, head/nut/washer axial transfer and actual material/contact qualification.",
+      "Recorded delivered hardware, plywood/bond, support and finite-contact assumptions; panel-screw resistance stays deferred."
+    ],
+    "retention": "Active raw packet fea/generated/v11-shorter-bolts-v1; preserve old V11 and failed attempts. No raw pruning or archive operation performed.",
+    "remaining_spacer_decision": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/remaining-spacer-decision.json",
+      "sha256": "e913bac780cd07fc5eb71886b5e7dc3676ff001058bf7c24ef13342854d767c5"
+    },
+    "rear_conditional_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-conditional-followthrough.json",
+      "sha256": "dccee1c21b1f371b4ac32c5dd6922f999a8f09c8e998d75998a8d58fe33fd99f"
+    },
+    "additional_optional_rear_foot_envelope_rows": [
+      {
+        "axis_id": "rail_rear_bolt_left_1",
+        "case_id": "a12-forward",
+        "host": "lumber_leg_left",
+        "original_optional_two_edge_envelope": 1.003824737191482,
+        "status": "optional_conservative_two_edge_envelope",
+        "normative_violation_established": false,
+        "source": {
+          "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-conditional-followthrough.json",
+          "sha256": "dccee1c21b1f371b4ac32c5dd6922f999a8f09c8e998d75998a8d58fe33fd99f"
+        },
+        "source_pointer": "/original_three_two_edge_envelope_rows_preserved/0"
+      },
+      {
+        "axis_id": "rail_rear_bolt_left_1",
+        "case_id": "a12-left",
+        "host": "lumber_leg_left",
+        "original_optional_two_edge_envelope": 1.100485486147833,
+        "status": "optional_conservative_two_edge_envelope",
+        "normative_violation_established": false,
+        "source": {
+          "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-conditional-followthrough.json",
+          "sha256": "dccee1c21b1f371b4ac32c5dd6922f999a8f09c8e998d75998a8d58fe33fd99f"
+        },
+        "source_pointer": "/original_three_two_edge_envelope_rows_preserved/1"
+      },
+      {
+        "axis_id": "rail_rear_bolt_right_1",
+        "case_id": "k12-right",
+        "host": "lumber_leg_right",
+        "original_optional_two_edge_envelope": 1.1045925619070323,
+        "status": "optional_conservative_two_edge_envelope",
+        "normative_violation_established": false,
+        "source": {
+          "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-conditional-followthrough.json",
+          "sha256": "dccee1c21b1f371b4ac32c5dd6922f999a8f09c8e998d75998a8d58fe33fd99f"
+        },
+        "source_pointer": "/original_three_two_edge_envelope_rows_preserved/2"
+      }
+    ],
+    "conditional_rear_supported_subchecks_above_one": 0,
+    "current_engineering_recommendation": "Retain the existing 3/8-inch outer-top layout while completing current-pattern connection checks. Smaller bolts and larger angles are unadopted review options, not model changes.",
+    "current_followthrough_uses_saved_forces": true,
+    "new_global_or_native_solve_in_connection_followthrough": false,
+    "review_options_adopted": false,
+    "joint_disposition": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
+      "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
+    },
+    "additional_defined_1d_material_reference_state_flags": 8
   }
 }

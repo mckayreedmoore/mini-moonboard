@@ -1,0 +1,1029 @@
+{
+  "accepted_connection_exceedance_count": null,
+  "actual_Cdelta_adopted": null,
+  "actual_Cg_adopted": null,
+  "all_six_cases_and_both_replays_admitted": true,
+  "analysis_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/geometry/geometry.json",
+    "sha256": "56b543fdc83ce40bcd2088431bc6caf15f0b491f8297d91b8e0926c38b2f8596"
+  },
+  "bearing_diagnostic_case_rows": 32,
+  "bearing_diagnostic_component_maxima": {
+    "lumber_leg_bolt_left_1": {
+      "Cg": 1.0,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "index": 1.8329501146683729,
+      "individual_reference_before_Cg": 1.8329501146683729
+    },
+    "lumber_leg_bolt_right_1": {
+      "Cg": 1.0,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_right_1",
+      "index": 1.8072355325232419,
+      "individual_reference_before_Cg": 1.8072355325232419
+    },
+    "rail_rear_bolt_left_1": {
+      "Cg": 1.0,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "rail_rear_bolt_left_1",
+      "index": 1.0582506076336557,
+      "individual_reference_before_Cg": 1.0582506076336557
+    },
+    "rail_rear_bolt_right_1": {
+      "Cg": 1.0,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "rail_rear_bolt_right_1",
+      "index": 1.0647782307561966,
+      "individual_reference_before_Cg": 1.0647782307561966
+    },
+    "v11_cleat_left_side_1": {
+      "Cg": 0.25,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "v11_cleat_left_side_1",
+      "index": 1.2383033719797845,
+      "individual_reference_before_Cg": 0.3095758429949461
+    },
+    "v11_cleat_right_side_1": {
+      "Cg": 0.25,
+      "case_id": "k12-right",
+      "complete_Cdelta": null,
+      "component": "v11_cleat_right_side_1",
+      "index": 1.2075086984474852,
+      "individual_reference_before_Cg": 0.3018771746118713
+    },
+    "v11_top_left_beam_1": {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_left_beam_1",
+      "index": 1.6002685827575802,
+      "individual_reference_before_Cg": 0.40006714568939505
+    },
+    "v11_top_left_beam_2": {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_left_beam_2",
+      "index": 1.6027877819390814,
+      "individual_reference_before_Cg": 0.40069694548477036
+    },
+    "v11_top_left_post_1": {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_left_post_1",
+      "index": 1.5117604659332604,
+      "individual_reference_before_Cg": 0.3779401164833151
+    },
+    "v11_top_left_post_2": {
+      "Cg": 0.25,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_left_post_2",
+      "index": 1.485454952078908,
+      "individual_reference_before_Cg": 0.371363738019727
+    },
+    "v11_top_right_beam_1": {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_right_beam_1",
+      "index": 1.5368317198498922,
+      "individual_reference_before_Cg": 0.38420792996247305
+    },
+    "v11_top_right_beam_2": {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_right_beam_2",
+      "index": 1.5309088985115584,
+      "individual_reference_before_Cg": 0.3827272246278896
+    },
+    "v11_top_right_post_1": {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_right_post_1",
+      "index": 1.5089989170608138,
+      "individual_reference_before_Cg": 0.37724972926520345
+    },
+    "v11_top_right_post_2": {
+      "Cg": 0.25,
+      "case_id": "k12-rear",
+      "complete_Cdelta": null,
+      "component": "v11_top_right_post_2",
+      "index": 1.4613644760272824,
+      "individual_reference_before_Cg": 0.3653411190068206
+    }
+  },
+  "bearing_diagnostic_components": 14,
+  "case_count": 6,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cleat_strength_scenario": {
+    "36p5_mm_case_is_fixed_action_wall_allowance": true,
+    "actual_product_grade_stamp_thickness_or_bond_verified": false,
+    "analytical_leaves_per_cleat": 2,
+    "apa_d510f_source": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+      "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+    },
+    "capacity_method": {
+      "path": "scripts/eoere_requested_cleat_screen.py",
+      "sha256": "a2f2ef716af7384400abb2ea4804070a00150d2d8a38901ef448981db81acbec"
+    },
+    "complete_plate_fracture_or_joint_capacity_established": false,
+    "credited_wall_cases_mm": [
+      36.5,
+      38.1
+    ],
+    "fixed_action_field_bindings_identical": true,
+    "full_eight_pin_subsets_per_host": 255,
+    "historical_force_rows_reused": false,
+    "nominal_combined_wall_mm": 38.1,
+    "per_leaf_inputs": {
+      "FtA_across_lbf_per_ft": 2550.0,
+      "FtA_parallel_lbf_per_ft": 4350.0,
+      "Fvtv_lbf_per_in": 110.0,
+      "narrow_width_tension_multiplier": 0.5
+    },
+    "source_basis": "D510F2020 Table9,24ocPS1 plywood >=5plies/Group1; Fvtv110lbf/in, FtA4350/2550lbf/ft. Narrow-width tension multiplier0.5. Actual stamp unobserved."
+  },
+  "climbing_released": false,
+  "command": "uv run python fea/generated/v11-shorter-bolts-v1/delivery/finalize_public_review_v1.py",
+  "comparison_to_preserved_v11": {
+    "governing_timber_reference_from_to": [
+      0.9650288506038316,
+      0.9658789620328713
+    ],
+    "purpose": "Historical comparison only; no forces or capacities transferred.",
+    "source": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/reference-review.json",
+      "sha256": "8551209039282dff8f3fdd2329b2d3d4396972ed1b74a19e0e5287fbb74c53aa"
+    },
+    "spacer_count_from_to": [
+      24,
+      4
+    ]
+  },
+  "complete_connection_acceptance": null,
+  "complete_joint_qualified": false,
+  "component_reference_summary": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/component-reference-summary.json",
+    "sha256": "4d04b557a813ccc6e94e288def310afbe1cb8a2216b5cdce7feed99e39776c9d"
+  },
+  "connection_reference_summary": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/connection-reference-summary.json",
+    "sha256": "562fdd28c0dc71c1fa18e28b0ab20bf7c75705afcef4a36f17beb397089f0076"
+  },
+  "derived_from_frozen_assembler": {
+    "path": "fea/generated/v11-v9-eight-bolt-v1/delivery/assemble_v11_evaluation_v1.py",
+    "sha256": "7904ba8ec3c909e97b572fd505b8d3115e7f13af318ae92c760adc91d851fe26"
+  },
+  "fabrication_released": false,
+  "family_maxima": {
+    "cleat_actual_perimeter_rows": {
+      "axes": [
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2"
+      ],
+      "case_id": "a12-left",
+      "component": "eoere_cleat_left",
+      "index": 0.4392534928595877,
+      "wall_mm": 36.5
+    },
+    "direct_elastic_steel": {
+      "Cg": 1.0,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "index": 0.6982853347659015
+    },
+    "reduced_connection_axial_bending": {
+      "Cg": 0.25,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "v11_cleat_left_side_1",
+      "index": 1.5556959716170566,
+      "individual_reference_before_Cg": 0.38892399290426416
+    },
+    "timber_net_shear_torsion": {
+      "case_id": "a12-rear",
+      "component": "base_side_left",
+      "index": 0.9658789620328713,
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    "timber_normal_and_stability": {
+      "case_id": "a12-rear",
+      "component": "lumber_leg_left",
+      "index": 0.7779644151817979,
+      "metric": "maximum_declared_restraint_normal_reference_upper"
+    },
+    "wood_bearing_whole_affine": {
+      "Cg": 1.0,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "lumber_leg_bolt_left_1",
+      "index": 1.8329501146683729,
+      "individual_reference_before_Cg": 1.8329501146683729
+    }
+  },
+  "family_sources": {
+    "cleat_actual_perimeter_rows": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/cleat_actual_perimeter_rows.json",
+      "sha256": "31dc4c282d58be0c586cb8e44556e50a6e2abbd27634a84ed375acf91e74c638"
+    },
+    "direct_elastic_steel": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/direct_elastic_steel.json",
+      "sha256": "69da779be621786f5dfb021d92f64da0aa3d551a06d1ee59296253ffad37dbee"
+    },
+    "reduced_connection_axial_bending": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reduced_connection_axial_bending.json",
+      "sha256": "6852ffd274f779d49e37b9c2f04588142df69556d60ddada6e10c3a0eb6a854b"
+    },
+    "timber_net_shear_torsion": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/timber_net_shear_torsion.json",
+      "sha256": "2c9d9dce8b1b82455ec8bcc8e8e1b7ea11732f14f2d0442f0effba82984ba3c8"
+    },
+    "timber_normal_and_stability": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/timber_normal_and_stability.json",
+      "sha256": "6f911226183ffdf0eacffd02f49e65c747a3c0cbfbad3400e4820fda915e6f51"
+    },
+    "wood_bearing_whole_affine": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/wood_bearing_whole_affine.json",
+      "sha256": "5bc3ca053c872abf2ad1b2a36afd53eb39427361963c360db3960d6f0e765b05"
+    }
+  },
+  "fields": {
+    "a1-rear": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+      "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+    },
+    "a12-forward": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+      "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+    },
+    "a12-left": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+      "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+    },
+    "a12-rear": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+      "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+    },
+    "k12-rear": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+      "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+    },
+    "k12-right": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+      "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+    }
+  },
+  "geometry_applicability": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-applicability.json",
+    "sha256": "3e653a9d569143b531f46177907b5dc08d351fb112d41a072f1b972b3413f6e1"
+  },
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "historical_force_or_capacity_result_transferred": false,
+  "interpretation": {
+    "cleats": "Two nominal 19.05 mm leaves per cleat, perfect bond, conditional APA24oc strength inputs. Both 38.1 and 36.5 mm fixed-action wall scenarios were freshly evaluated across every nonempty eight-pin subset.",
+    "direct_steel": "The direct elastic steel comparison is separate from group-reduced N/M; its inherited Cg metadata is not a steel penalty.",
+    "legacy_group_rows": "Receiver-signature 1/n bearing and N/M values are diagnostic screens, not adopted Cg or whole-joint capacity.",
+    "reference_indices": "Demand divided by the stated conditional reference. These results do not authenticate physical capacities or establish complete NDS connection acceptance."
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "maximum_gradient_inf_N": 4.7353206167333184e-07,
+  "member_vector_maxima": {
+    "base_header": {
+      "case_id": "a12-rear",
+      "component": "base_header",
+      "index": 0.5557359386951414,
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    "base_rail_top": {
+      "case_id": "k12-rear",
+      "component": "base_rail_top",
+      "index": 0.6185184183331061,
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    "base_side_left": {
+      "case_id": "a12-rear",
+      "component": "base_side_left",
+      "index": 0.9658789620328713,
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    "base_side_right": {
+      "case_id": "k12-rear",
+      "component": "base_side_right",
+      "index": 0.9269089726711552,
+      "metric": "maximum_shear_torsion_reference_upper"
+    }
+  },
+  "numerical_flag_inventory": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/numerical-flag-inventory.csv",
+    "sha256": "0a4c26b3793073d632d9f3b9a909adc66b244a34c3d334b78b7cab92c0904407"
+  },
+  "numerical_flag_inventory_binding": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/numerical-flag-inventory-binding.json",
+    "sha256": "9c140c87961ed18d10d289e6fc18f1472c2c86d169aae9a49b84e575575c1823"
+  },
+  "numerical_reference_assembler": {
+    "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/assemble_v11_shorter_bolt_evaluation_v1.py",
+    "sha256": "a825410b61133da8983f362d09b085b76abe87ce02dd0efe2cb85740ec5f3ef1"
+  },
+  "owner_shorter_bolt_exception": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-exemption.json",
+    "sha256": "e9b7942904ad9a8f24d0b79d3e07f40814b42f0591ffd1dd9dc4255cb4a599e7"
+  },
+  "physical_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "physical_inventory": {
+    "Hillman_axes": 66,
+    "bolts": 112,
+    "cleat_leaves": 4,
+    "factory_angles": 24,
+    "legacy_unselected_spacer_axes": [],
+    "metal_spacers": 4,
+    "nuts": 112,
+    "occupied_parts": 1089,
+    "panels": 6,
+    "sawn_members": 20,
+    "spacer_SKUs": {
+      "13731": 4
+    },
+    "washers": 224,
+    "wood_packers": 0
+  },
+  "prepared_inventory": {
+    "analytical_physical_bodies_per_case": 164,
+    "fittings": 24,
+    "shaft_axes": 112,
+    "steel_port_interfaces_per_case": 112,
+    "timber_operators_per_case": 22,
+    "wood_bearing_interfaces_per_case": 136
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/delivery/finalize_public_review_v1.py",
+    "sha256": "8fef127149aab9dcde78225b9d632369ce293833c619b3430486abdf909b047a"
+  },
+  "provisional_hardware_planning": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit.csv",
+    "sha256": "16145f54ef63adae16ab86704a867f9cc92711075333233da7b555349dc83302"
+  },
+  "provisional_hardware_planning_binding": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/nominal-hardware-fit-binding.json",
+    "sha256": "67205230d5ce8ebc89490ba197f938b20f159f676d1a05a5bed6abb28ae78ecb"
+  },
+  "purchase_authorized": false,
+  "raw_response_bank": {
+    "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "reference_exceedance_rows": {
+    "cleat_actual_perimeter_rows": [],
+    "direct_elastic_steel": [],
+    "reduced_connection_axial_bending": [
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "eoere_bolt_067",
+        "index": 1.054748667712811,
+        "individual_reference_before_Cg": 0.26368716692820277
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.074563850622302,
+        "individual_reference_before_Cg": 0.2686409626555755
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.5556959716170566,
+        "individual_reference_before_Cg": 0.38892399290426416
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_2",
+        "index": 1.0076881725921416,
+        "individual_reference_before_Cg": 0.2519220431480354
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_2",
+        "index": 1.02360788008483,
+        "individual_reference_before_Cg": 0.2559019700212075
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.1515527388821747,
+        "individual_reference_before_Cg": 0.28788818472054367
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_2",
+        "index": 1.0118100584498844,
+        "individual_reference_before_Cg": 0.2529525146124711
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.5363628626083918,
+        "individual_reference_before_Cg": 0.38409071565209796
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_1",
+        "index": 1.0014325220595004,
+        "individual_reference_before_Cg": 0.2503581305148751
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_2",
+        "index": 1.0621615774738817,
+        "individual_reference_before_Cg": 0.26554039436847043
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.1587859401168386,
+        "individual_reference_before_Cg": 0.28969648502920964
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_2",
+        "index": 1.055393373967979,
+        "individual_reference_before_Cg": 0.26384834349199476
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.294386405623969,
+        "individual_reference_before_Cg": 0.3235966014059922
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_1",
+        "index": 1.1221540846512135,
+        "individual_reference_before_Cg": 0.28053852116280337
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_right_side_1",
+        "index": 1.519740222757127,
+        "individual_reference_before_Cg": 0.37993505568928176
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_beam_1",
+        "index": 1.0170264574883277,
+        "individual_reference_before_Cg": 0.2542566143720819
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_1",
+        "index": 1.1682037620386723,
+        "individual_reference_before_Cg": 0.29205094050966807
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_2",
+        "index": 1.036298567568577,
+        "individual_reference_before_Cg": 0.25907464189214424
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_right_side_1",
+        "index": 1.2652391908633167,
+        "individual_reference_before_Cg": 0.3163097977158292
+      }
+    ],
+    "timber_net_shear_torsion": [],
+    "timber_normal_and_stability": [],
+    "wood_bearing_whole_affine": [
+      {
+        "Cg": 1.0,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_1",
+        "index": 1.4356777588751821,
+        "individual_reference_before_Cg": 1.4356777588751821
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_1",
+        "index": 1.3958503655396246,
+        "individual_reference_before_Cg": 0.34896259138490615
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_2",
+        "index": 1.387329345008828,
+        "individual_reference_before_Cg": 0.346832336252207
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.3992829431858336,
+        "individual_reference_before_Cg": 0.3498207357964584
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_2",
+        "index": 1.3700470966138851,
+        "individual_reference_before_Cg": 0.3425117741534713
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.2383033719797845,
+        "individual_reference_before_Cg": 0.3095758429949461
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_1",
+        "index": 1.5742260926568419,
+        "individual_reference_before_Cg": 1.5742260926568419
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "rail_rear_bolt_left_1",
+        "index": 1.0582506076336557,
+        "individual_reference_before_Cg": 1.0582506076336557
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_1",
+        "index": 1.538803479727776,
+        "individual_reference_before_Cg": 0.384700869931944
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_2",
+        "index": 1.5399282537134205,
+        "individual_reference_before_Cg": 0.3849820634283551
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.488734782811614,
+        "individual_reference_before_Cg": 0.3721836957029035
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_2",
+        "index": 1.4370876529096255,
+        "individual_reference_before_Cg": 0.35927191322740637
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-left",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.227523489401823,
+        "individual_reference_before_Cg": 0.30688087235045575
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_left_1",
+        "index": 1.8329501146683729,
+        "individual_reference_before_Cg": 1.8329501146683729
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_1",
+        "index": 1.6002685827575802,
+        "individual_reference_before_Cg": 0.40006714568939505
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_beam_2",
+        "index": 1.6027877819390814,
+        "individual_reference_before_Cg": 0.40069694548477036
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_1",
+        "index": 1.5117604659332604,
+        "individual_reference_before_Cg": 0.3779401164833151
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_left_post_2",
+        "index": 1.485454952078908,
+        "individual_reference_before_Cg": 0.371363738019727
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "a12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_left_side_1",
+        "index": 1.037252272870189,
+        "individual_reference_before_Cg": 0.25931306821754724
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_1",
+        "index": 1.5524227828708193,
+        "individual_reference_before_Cg": 1.5524227828708193
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "rail_rear_bolt_right_1",
+        "index": 1.0647782307561966,
+        "individual_reference_before_Cg": 1.0647782307561966
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_beam_1",
+        "index": 1.433255895724318,
+        "individual_reference_before_Cg": 0.3583139739310795
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_beam_2",
+        "index": 1.4281732090753243,
+        "individual_reference_before_Cg": 0.3570433022688311
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_1",
+        "index": 1.4335466528825973,
+        "individual_reference_before_Cg": 0.3583866632206493
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_2",
+        "index": 1.3549325555869856,
+        "individual_reference_before_Cg": 0.3387331388967464
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-right",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_right_side_1",
+        "index": 1.2075086984474852,
+        "individual_reference_before_Cg": 0.3018771746118713
+      },
+      {
+        "Cg": 1.0,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "lumber_leg_bolt_right_1",
+        "index": 1.8072355325232419,
+        "individual_reference_before_Cg": 1.8072355325232419
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_beam_1",
+        "index": 1.5368317198498922,
+        "individual_reference_before_Cg": 0.38420792996247305
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_beam_2",
+        "index": 1.5309088985115584,
+        "individual_reference_before_Cg": 0.3827272246278896
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_1",
+        "index": 1.5089989170608138,
+        "individual_reference_before_Cg": 0.37724972926520345
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_top_right_post_2",
+        "index": 1.4613644760272824,
+        "individual_reference_before_Cg": 0.3653411190068206
+      },
+      {
+        "Cg": 0.25,
+        "case_id": "k12-rear",
+        "complete_Cdelta": null,
+        "component": "v11_cleat_right_side_1",
+        "index": 1.01455886774456,
+        "individual_reference_before_Cg": 0.25363971693614
+      }
+    ]
+  },
+  "reference_run_binding": {
+    "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/v11-shorter-bolt-reference-run-binding-v1.json",
+    "sha256": "ca692fba57a796d8f3b063b42e48030abc16f03a9e8cb9b100c3b28f0a5ebec2"
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "response_bank_claims": {
+    "legacy_validator_field": "historical_force_pass_transferred",
+    "semantic_mapping": "The frozen V11 validator's transfer gate is evaluated against the admitted bank's equivalent current transfer flag.",
+    "source_field": "historical_force_or_field_transfer",
+    "source_value": false
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "eoere_v11_matched_conditional_reference_review/v1",
+  "scope": "Own shorter-bolt fixed-geometry six-case calculations and conditional reference families; complete connection acceptance remains unresolved.",
+  "shorter_bolt_scope": {
+    "changed_hardware_stacks": 20,
+    "delivered_hardware_conformity_observed": false,
+    "head_mass_source_correction_kg": -0.03439877615266697,
+    "head_shape_changed": false,
+    "nut_positions_and_shaft_lengths_changed": true,
+    "profile_contract": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+      "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+    },
+    "profile_source_limits": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-source-supplement-v1.json",
+      "sha256": "2048c4a25c99498ef59bae3acd64427d1277c0fbcd42dfab1d2bd7176e00bed2"
+    },
+    "remaining_sleeves": 4,
+    "removed_sleeves": 20,
+    "thread_root_profiles_used_for_elastic_shaft_stiffness": false,
+    "thread_root_profiles_used_for_resistance_postprocessing": true,
+    "wood_cleat_fitting_holes_axes_heads_and_washer_seats_changed": false
+  },
+  "source_bindings": {
+    "admitted_response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "apa_d510f_2020": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+      "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+    },
+    "canonical_geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "cleat_capacity_method": {
+      "path": "scripts/eoere_requested_cleat_screen.py",
+      "sha256": "a2f2ef716af7384400abb2ea4804070a00150d2d8a38901ef448981db81acbec"
+    },
+    "family_reference_evaluation": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-evaluation.json",
+      "sha256": "4922bf8180ebd60886b753726301009fe1e56d0766ca9d0bbe308d34168a5efc"
+    },
+    "family_run_binding": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/v11-shorter-bolt-reference-run-binding-v1.json",
+      "sha256": "ca692fba57a796d8f3b063b42e48030abc16f03a9e8cb9b100c3b28f0a5ebec2"
+    },
+    "family_run_sources": {
+      "analysis_geometry": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/geometry/geometry.json",
+        "sha256": "56b543fdc83ce40bcd2088431bc6caf15f0b491f8297d91b8e0926c38b2f8596"
+      },
+      "analysis_readiness": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/adapter-readiness.json",
+        "sha256": "282cb7d8e8f1672371fe8df8033e267a4ac5f08e2584ccded76402cb1d38aa1a"
+      },
+      "apa_d510f_2020": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+        "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+      },
+      "checked_receipt": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+        "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+      },
+      "frozen_v10_reference_helpers": {
+        "scripts/eoere_v10_checks.py": {
+          "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_checks.py",
+          "sha256": "92f6e1bf7f4ebdcd2b6c9016503ebdc450b03f9a39b59049f192b610c9754ea5"
+        },
+        "scripts/eoere_v10_reference.py": {
+          "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_reference.py",
+          "sha256": "fa47b9adec6328b2a3f307076b4443025663428c97e45311b9f891003db8a790"
+        },
+        "scripts/eoere_v10_reference_run.py": {
+          "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_reference_run.py",
+          "sha256": "95cceb6693d49960ca822db1d98a474f017a245eee489ee381a49882cdb78438"
+        },
+        "scripts/eoere_v10_reference_variant_v4.py": {
+          "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_reference_variant_v4.py",
+          "sha256": "8586ed29c82aeddc58f9597e07247936f720acc1b597d132ae976865c60674dc"
+        }
+      },
+      "frozen_v11_reference_runner": {
+        "path": "fea/generated/v11-v9-eight-bolt-v1/reference-readiness/run_v11_reference_families_v1.py",
+        "sha256": "0cbb6b69760bedee88445e893c7e4fec248044296ad96fd0e32e53b166c30b9c"
+      },
+      "hardware_profile_contract": {
+        "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+        "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+      },
+      "material": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/material.json",
+        "sha256": "a7ae19a0b29dcacb46b603d88933ef73bd6ed03c2665c0f8b9f4dc88fa646185"
+      },
+      "physical_geometry": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+        "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+      },
+      "prepared_inputs": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+        "sha256": "70ce0785e18b72bac6fc3ea1cc81685d14e98ec6dfcf10ed0c485fa23c5e2e67"
+      },
+      "profile_contract_binder": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-proposal/bind_profile_contract_v1.py",
+        "sha256": "73c15e6a86b188fb3566ec99741c7279a2e07783031a5aa62d8e7bfa68996124"
+      },
+      "response_bank": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+      },
+      "stiffness_operator_baseline": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/material.json",
+        "sha256": "d84c5fe393164b3b13371ff97874a06fe41ea0388c482c5965f23b4c32b4e32f"
+      },
+      "v9_three_quarter_basis_context_only": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/reference-review-v1/nominal38p1-rows-v1.json",
+        "sha256": "f13fd6e7ea1067ed375ea49d070a1485ca6f22d277a1f99b142bb4f2284a37de"
+      }
+    },
+    "frozen_v11_review_assembler": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/delivery/assemble_v11_evaluation_v1.py",
+      "sha256": "7904ba8ec3c909e97b572fd505b8d3115e7f13af318ae92c760adc91d851fe26"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "public_response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    }
+  },
+  "source_numerical_review": {
+    "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+    "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+  },
+  "structural_acceptance": false,
+  "unchanged_admission_gate_N": 1e-05,
+  "viewer_presentation": {
+    "axis_reference_texts": {},
+    "reference_flags": [
+      {
+        "count": 32,
+        "label": "Local wood-pressure diagnostic",
+        "scope": "Retained local-pressure/group reference; distinct from complete EYM capacity.",
+        "status": "retained_legacy_diagnostic"
+      },
+      {
+        "count": 19,
+        "label": "Legacy group-reduced N/M",
+        "scope": "Unqualified receiver-signature penalty; not independent steel acceptance.",
+        "status": "retained_legacy_diagnostic"
+      },
+      {
+        "count": 4,
+        "label": "Generic 45 ksi lateral scenario",
+        "scope": "Alternative material-property scenario; not actual product qualification.",
+        "status": "conditional_property_scenario"
+      },
+      {
+        "count": 21,
+        "label": "Generic 45 ksi raw-port bounds",
+        "scope": "Inconclusive upper bounds; not demonstrated failures.",
+        "status": "inconclusive_upper_bound"
+      },
+      {
+        "count": 21,
+        "label": "Conditional Grade 5 raw-port bounds",
+        "scope": "Inconclusive upper bounds; actual row/group application remains open.",
+        "status": "inconclusive_upper_bound"
+      },
+      {
+        "count": 5,
+        "label": "Direction-independent row floor",
+        "scope": "Fixed row/area and Fe90 hypothesis; not actual connection acceptance.",
+        "status": "fixed_row_and_area_hypothesis"
+      },
+      {
+        "count": 8,
+        "label": "Individual row-equation upper reference",
+        "scope": "Qualified equation-domain bound; not a universal whole-joint capacity.",
+        "status": "inconclusive_upper_reference"
+      }
+    ],
+    "status": "Shorter bolts \u00b7 112 stacks \u00b7 four spacers. Six current cases and twelve replays admitted. Conditional member references remain below one; connection diagnostics and full joint qualification remain open. No fabrication or climbing release."
+  }
+}

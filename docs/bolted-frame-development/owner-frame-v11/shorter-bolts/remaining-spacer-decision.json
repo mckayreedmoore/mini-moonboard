@@ -1,0 +1,173 @@
+{
+  "available_shorter_alternatives": {
+    "sku371_6in_grade5_hex": {
+      "disposition": "Fails the existing two-thread projection screen at listed minimum length; its saved body/thread limits do not establish the desired replacement. No transfer of current demands.",
+      "minimum_length_mm": 149.86,
+      "minimum_length_tip_projection_no_sleeve_mm": 2.667,
+      "nominal_length_mm": 152.4,
+      "not_exact_6_5in": true,
+      "two_pitch_screen_margin_at_min_length_mm": -0.508
+    },
+    "sku8093_6_5in_A574_socket_cap": {
+      "disposition": "Conditional comparison only. It preserves the nominal outer stack but changes head style, material grade, and thread/body profile; actual complete-thread start, product type/length conformance, fit, strength, and clearance are unverified. It is not a drop-in Grade 5 substitute.",
+      "grade_change": "SAE J429 Grade 5 to ASTM A574",
+      "head_style_change": "external hex to socket cap",
+      "nominal_length_mm": 165.1,
+      "profile_change": "B18.2.1 hex-cap-screw conditional route to a different socket-cap/thread/body profile",
+      "saved_product_bounds": {
+        "conditional_B18_3_2012_minimum_length_mm": 162.052,
+        "listed_minimum_body_mm": 119.126,
+        "listed_minimum_thread_mm": 31.75,
+        "maximum_smooth_body_at_nominal_length_mm": 133.35,
+        "maximum_wood_thread_overlap_from_listed_minimum_body_mm": 10.5156,
+        "sku_specific_length_tolerance_published": false
+      },
+      "zero_sleeve_nominal_tip_projection_mm": 17.907
+    }
+  },
+  "current_stack": {
+    "bolt_description": "3/8-16 SAE J429 Grade 5, zinc plated, external hex head, partially threaded; nominal underhead length 7 in / 177.8 mm",
+    "bolt_sku": "372",
+    "conditional_7in_body_and_gage": {
+      "LB_min_mm": 138.176,
+      "LG_max_mm": 146.05,
+      "condition": "B18.2.1-2012 long, partially threaded, full-size-body hex-cap-screw type and delivery conformance; SKU372 itself is not shown as conforming.",
+      "length_minus_mm": 4.572
+    },
+    "existing_screens": {
+      "body_margin_to_receiver_plus_plate_and_max_head_washer_mm": 2.1844,
+      "conservative_nut_start_with_minimum_washers_and_sleeve_mm": 149.3012,
+      "minimum_length_tip_projection_mm": 13.335,
+      "minimum_projection_margin_over_two_pitch_screen_mm": 10.16,
+      "nut_start_clear_of_LG_max_mm": 3.2512,
+      "two_thread_pitch_screen_mm": 3.175
+    },
+    "head_washer_sku": "15023",
+    "nominal_tip_projection_beyond_nut_mm": 17.907,
+    "nut_side_sleeve_sku": "13731",
+    "nut_sku": "2584",
+    "nut_washer_sku": "15023",
+    "receiver_plus_plate_mm": 133.35,
+    "receiver_steel_flange_mm": 6.35,
+    "receiver_wood_mm": 127.0,
+    "sleeve_length_mm": 12.7
+  },
+  "disposition": {
+    "not_authorized_or_claimed": [
+      "No geometry or hardware was changed.",
+      "No procurement, product selection, strength calculation, solver run, clearance check, or release is claimed.",
+      "No physical fit or delivered standard conformity is claimed."
+    ],
+    "pragmatic_now": "Retain the four existing SKU372 plus 12.7 mm sleeve stacks while the critical connection work proceeds. This preserves the currently analyzed stack and its conditional dimensional window without blocking the remaining connection calculations.",
+    "same_head_future_path": "A same-head, same-grade exact 6.5 in HCS is a plausible conditional alternative under the stated B18.2.1-2012 dimensions and the saved two-pitch screen, but no product-specific 6.5 in Grade 5 listing/profile is in the saved source set. Confirm a source-qualified product and actual thread/nut engagement before adopting.",
+    "simplest_useful_next_step": "If simplification becomes a priority before ordering, obtain the exact 3/8-16 Grade 5 hex-cap-screw dimensional/type record (LB, LG, length tolerance, and thread/runout controls), then run a four-axis stack/fit and clearance check. Any adopted bolt-profile change needs fresh matched six-case mechanics; do not reuse the current bank as candidate forces."
+  },
+  "same_head_grade5_exact_6_5in_conditional_type_route": {
+    "candidate_type_requirement": "3/8-16, SAE J429 Grade 5 specified separately, ASME B18.2.1-2012 long partially-threaded full-size-body hex cap screw. This is a conditional dimensional purchase/type requirement, not a catalog or delivery claim.",
+    "conditional_standard_dimensions": {
+      "LB_min_mm": 125.476,
+      "LG_max_mm": 133.35,
+      "length_minus_tolerance_mm": 4.572,
+      "minimum_length_mm": 160.528,
+      "nominal_underhead_length_mm": 165.1,
+      "source_locator": "B18.2.1-2012 Table 12, 3/8 in row, 6.5 in length; Table 13, longer-than-6-in row for 3/8 in nominal size; section 4.7 thread-length rule. The 7-in row is cross-checked by the saved SKU372 proposal values.",
+      "table_thread_length_band_mm": 31.75
+    },
+    "parts_that_would_change_if_later_approved": [
+      "Replace four 177.8 mm Grade 5 hex bolt/shaft profiles with type-qualified 165.1 mm profiles; do not merely truncate the current BRep.",
+      "Remove four SKU13731 sleeve parts.",
+      "Translate four nuts 12.7 mm toward their fixed nut washers; keep nut washers, head washers, bolt head bearing faces, axes, receiver geometry, and holes fixed.",
+      "Rebuild/verify the four bolt thread/body envelopes and stack clearance; the current response bank does not represent this profile."
+    ],
+    "product_specific_saved_6_5in_grade5_sku_or_delivery_profile_found": false,
+    "screen_classification": {
+      "actual_nut_full_thread_engagement": "UNVERIFIED; LG is a gage limit, not the delivered thread-start coordinate",
+      "conditional_standard_LB_LG_length_gages": "PASS_IF_exact_type_and_delivery_conform",
+      "fit_clearance_and_hardware_contact": "UNVERIFIED; no candidate geometry or clearance check was run",
+      "strength_and_joint_acceptance": "NOT_ASSESSED",
+      "two_thread_projection": "PASS_project_screen_only; not an ASME minimum engagement rule"
+    },
+    "zero_sleeve_stack": {
+      "absolute_nut_plane_preserved": false,
+      "body_minimum_to_wood_exit_mm": -4.1656,
+      "bolt_length_reduction_equals_sleeve_removal_mm": 12.7,
+      "head_face_axis_receiver_and_both_existing_washer_seats_fixed": true,
+      "interpretation": "The standard minimum body could put up to 4.1656 mm of thread at the far end of the wood receiver under this bound; this is below one quarter of the 127 mm nominal wood path, but actual thread start/runout and delivered type conformity remain unobserved. The bolt does not need smooth body through the far 6.35 mm steel flange for this wood-only observation.",
+      "maximum_wood_thread_overlap_fraction_of_127mm_receiver": 0.0328,
+      "maximum_wood_thread_overlap_from_LB_min_mm": 4.1656,
+      "minimum_tip_projection_at_standard_min_length_mm": 13.335,
+      "nominal_tip_projection_preserved_mm": 17.907,
+      "nut_start_clear_of_LG_max_mm": 3.2512,
+      "nut_start_from_minimum_washers_mm": 136.6012,
+      "nut_translation_toward_fixed_nut_washer_mm": 12.7,
+      "two_pitch_screen_margin_at_min_length_mm": 10.16
+    }
+  },
+  "schema": "v11_lower_cleat_post_spacer_decision/v1",
+  "scope": {
+    "axes": [
+      "v11_cleat_left_post_1",
+      "v11_cleat_left_post_2",
+      "v11_cleat_right_post_1",
+      "v11_cleat_right_post_2"
+    ],
+    "bank_use": "Revision identity only. No saved force, response, capacity, or acceptance result is transferred to a different bolt stack.",
+    "count": 4,
+    "current_candidate_revision": "v11-shorter-bolts-v1",
+    "current_geometry_sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8",
+    "current_response_bank_sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c",
+    "question": "Can these four current Grade 5, 7 in lower-post bolts lose their 12.7 mm nut-side sleeve by changing to an exact 6.5 in bolt?"
+  },
+  "sources": {
+    "b18_2_1_2012_pdf": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/method-source-cache/asme-b18-2-1-2012.pdf",
+      "sha256": "c3b36b05e45149816941ae0d3e3e17c808831ce4d93f9f082424d9ecebaaa0a6"
+    },
+    "bolt_source_observations": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/bolts/source-observations.json",
+      "sha256": "7fa861f00888bb3cd2672a27b2f18301d89f90e07bfbb46bbf762ab5390f5cf2"
+    },
+    "catalog_observations": {
+      "path": "fea/generated/v10-catalog-buying-list-v1/catalog-observations.json",
+      "sha256": "4ed1d6ba084de9e4586faf7260ec0e396fa5429e218d26edfc04b4f5b56192da"
+    },
+    "current_checked_receipt": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "current_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "current_response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "owner_purchase_status": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-material-purchase-decisions.json",
+      "sha256": "6f437911a9603ee4310eb284938479050049f6e54afd80792733d77f9d6b1da3"
+    },
+    "prior_lower_cleat_fit": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/lower-cleat-short-stack-proposal-v2.json",
+      "sha256": "51111b77cdeecd7e9178c72e1cdaa1ec813bf98ce2c97973d6e875b4e67699a3"
+    },
+    "prior_nominal_fit_rows": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/nominal-fit-audit-v1/current112-nominal-fit.csv",
+      "sha256": "25b5c256d921c92accc750501ffc4857472d2d3675444c5bc9e05d102f30bcb2"
+    },
+    "prior_shorter_stack_proposal": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/nominal-fit-audit-v1/shorter-bolt-stack-proposal-v2.json",
+      "sha256": "0a893423794ded31d42c22f8d8997a3cfe2dc17702b5822b045fcaac13559512"
+    },
+    "prior_spacer_review": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/nominal-fit-audit-v1/spacer-simplification-review-v1.json",
+      "sha256": "6b972f49d253e4d6d8b79935c461962eab9072e3371eaaa9e71bd564bd81044b"
+    }
+  },
+  "standard_vs_project_screen": {
+    "physical_state": "Owner record says nuts and bolts are not purchased; no delivered bolt, nut, washer, or sleeve measurements are available.",
+    "standard_dimensions": "LB, LG, thread-length, and overall-length bounds apply only when the fastener is the exact named B18.2.1-2012 type and delivered dimensions conform. The Grade 5 property designation is separate. Standard gage limits do not reveal the actual thread-start/runout coordinate.",
+    "two_thread_projection": "The 3.175 mm exposed-thread target is the project worksheet screen. It is not stated here as a general ASME requirement."
+  },
+  "status": "conditional_dimensional_comparison_only"
+}

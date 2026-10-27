@@ -1,0 +1,77 @@
+{
+  "authorized_hardware_changes": {
+    "A574_axes": [
+      "eoere_bolt_067",
+      "eoere_bolt_070",
+      "eoere_bolt_071",
+      "eoere_bolt_074",
+      "cleat_post_bolt_left_1",
+      "cleat_post_bolt_left_2",
+      "cleat_post_bolt_right_1",
+      "cleat_post_bolt_right_2",
+      "v11_cleat_left_side_1",
+      "v11_cleat_left_side_2",
+      "v11_cleat_right_side_1",
+      "v11_cleat_right_side_2"
+    ],
+    "A574_bolt_sku_from_to": [
+      "8095",
+      "8093"
+    ],
+    "A574_sleeve_mm_removed": 25.4,
+    "A574_underhead_length_mm_from_to": [
+      190.5,
+      165.1
+    ],
+    "header_axes": [
+      "eoere_bolt_065",
+      "eoere_bolt_066",
+      "eoere_bolt_079",
+      "eoere_bolt_080",
+      "eoere_bolt_081",
+      "eoere_bolt_082",
+      "eoere_bolt_083",
+      "eoere_bolt_084"
+    ],
+    "header_bolt_sku_from_to": [
+      "366",
+      "365"
+    ],
+    "header_sleeve_mm_removed": 12.7,
+    "header_underhead_length_mm_from_to": [
+      88.9,
+      76.2
+    ]
+  },
+  "candidate_revision": "v11-shorter-bolts-v1",
+  "climbing_released": false,
+  "exception_confirmed": true,
+  "fabrication_released": false,
+  "nut_and_tip_rule": "Both move toward the fixed nut washer/head by the removed sleeve thickness. Relative tip projection is preserved; absolute nut position changes.",
+  "owner_confirmation": "Yeah, those are exempt as well",
+  "physical_purchases_or_changes_authorized": false,
+  "preserved_parent_revision": "v11-v9-eight-bolt-v4",
+  "prior_results_not_transferred": true,
+  "proposal": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolt-proposal.json",
+    "sha256": "01e5273fbe95fb86f57511c670ae0a28aaf70314f81e2c2866a0410f90fe2042"
+  },
+  "question_confirmed": "Are the 20 shorter header/cleat bolt changes exempt from the later side-rail/floor-runner-only model freeze?",
+  "recorded_at_utc": "2026-10-26T15:43:14.233985+00:00",
+  "required_before_candidate_selection": [
+    "Source-bound conditional body/thread contract",
+    "Fresh occupied clearance",
+    "Fresh preparation, six case fields and both replays per case",
+    "Fresh component and connection references using the matched bank"
+  ],
+  "schema": "v11_owner_shorter_bolt_freeze_exemption/v1",
+  "structural_acceptance": false,
+  "unchanged": [
+    "Frame and cleat solid outlines",
+    "Holes and all bolt/screw axes",
+    "Fittings and receiver faces",
+    "Heads, shaft starts and both washer seats",
+    "Four lower cleat-post SKU372 seven-inch bolts with half-inch sleeves",
+    "Six-case load contract and release holds"
+  ]
+}

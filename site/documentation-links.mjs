@@ -38,6 +38,17 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-shorter-bolts-preview')
+    return [
+      {label: 'Own shorter-bolt geometry receipt', path: current + 'owner-frame-v11/shorter-bolts/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/shorter-bolts/response-bank.json'},
+      {label: 'Current conditional references and unresolved connections', path: current + 'owner-frame-v11/shorter-bolts/reference-review.json'},
+      {label: 'Current-pattern connection checks and remaining duties', path: current + 'owner-frame-v11/shorter-bolts/joint-disposition.json'},
+      {label: 'Separate diagnostic and scenario flag rows', path: current + 'owner-frame-v11/shorter-bolts/numerical-flag-inventory.csv'},
+      {label: 'Owner shorter-bolt freeze exception', path: current + 'owner-frame-v11/owner-shorter-bolt-exemption.json'},
+      {label: 'Development status and remaining work', path: current + 'README.md'},
+      {label: 'Builder scope and holds', path: current + 'builder-plan.md'},
+    ];
   if (model === 'eoere-v11-v9-eight-bolt-preview')
     return [
       {label: 'Owner V9-based eight-bolt request', path: current + 'owner-frame-v11/owner-v9-eight-bolt-request.json'},

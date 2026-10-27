@@ -1,0 +1,2060 @@
+{
+  "accepted_connection_exceedance_count": null,
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "fabrication_released": false,
+  "families": {
+    "cleat_actual_perimeter_rows": {
+      "count": 0,
+      "maximum": 0.4392534928595877,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "conditional_material_reference"
+    },
+    "conditional_Grade5_F60692_lateral": {
+      "count": 0,
+      "maximum": 0.8418121010440792,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-Grade5-F606-92ksi-v1.json",
+        "sha256": "44cf52defae331fbe1a4bb2312db4bd3b3179d5db92d2c7a623c2feef3576a89"
+      },
+      "status": "conditional_property_scenario"
+    },
+    "conditional_Grade5_F60692_lateral_raw_port_bound": {
+      "count": 21,
+      "maximum": 2.207064317143005,
+      "rows": [
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.09971683388444,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/0",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.128369862794648,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/1",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_floor_left+wood:base_post_outer_left",
+          "index": 1.4694263063312412,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/2",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_floor_left+wood:lumber_leg_left",
+          "index": 1.3050496617250424,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/3",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 1.840097806846341,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/4",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.198650219631623,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/5",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.226773244692641,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/6",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_floor_left+wood:base_post_outer_left",
+          "index": 1.6063036047665258,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/7",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_floor_left+wood:lumber_leg_left",
+          "index": 1.4035525664949953,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/8",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 2.138164357449191,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/9",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.2427457016099401,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/10",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.2639835621471935,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/11",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 2.207064317143005,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/12",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018",
+            "v11_top_right_beam_1",
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.1053900354498527,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/13",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013",
+            "v11_top_right_post_1",
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+          "index": 1.1454362767775979,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/14",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_floor_right+wood:base_post_outer_right",
+          "index": 1.6170326473788699,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/15",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_floor_right+wood:lumber_leg_right",
+          "index": 1.4120530683657957,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/16",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 2.1077727140886617,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/17",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018",
+            "v11_top_right_beam_1",
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.187237214567038,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/18",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013",
+            "v11_top_right_post_1",
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+          "index": 1.2183527086402797,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/19",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 2.1827165045463,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+            "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/20",
+          "row_fasteners": null,
+          "trial_Cg": null
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+        "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+      },
+      "status": "inconclusive_upper_bound"
+    },
+    "direct_elastic_steel": {
+      "count": 0,
+      "maximum": 0.6982853347659015,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "conditional_material_reference"
+    },
+    "generic45_lateral": {
+      "count": 4,
+      "maximum": 1.1889534043459953,
+      "rows": [
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "lumber_leg_bolt_left_1",
+          "index": 1.0926454274550577,
+          "original_index_key": "demand_over_Z",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+            "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+          },
+          "original_source_pointer": "/axis_rows/88/case_rows/1/force_only_metrics",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "lumber_leg_bolt_left_1",
+          "index": 1.1889534043459953,
+          "original_index_key": "demand_over_Z",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+            "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+          },
+          "original_source_pointer": "/axis_rows/88/case_rows/2/force_only_metrics",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "lumber_leg_bolt_right_1",
+          "index": 1.0773253642548712,
+          "original_index_key": "demand_over_Z",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+            "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+          },
+          "original_source_pointer": "/axis_rows/89/case_rows/3/force_only_metrics",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "lumber_leg_bolt_right_1",
+          "index": 1.1741695643769134,
+          "original_index_key": "demand_over_Z",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+            "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+          },
+          "original_source_pointer": "/axis_rows/89/case_rows/4/force_only_metrics",
+          "row_fasteners": null,
+          "trial_Cg": null
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+        "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+      },
+      "status": "conditional_property_scenario"
+    },
+    "generic45_lateral_raw_port_bound": {
+      "count": 21,
+      "maximum": 2.66463216659518,
+      "rows": [
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.4198495845447483,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/0",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.4568436451434263,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/1",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_floor_left+wood:base_post_outer_left",
+          "index": 1.4694263063312412,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/2",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_floor_left+wood:lumber_leg_left",
+          "index": 1.5618999315606694,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/3",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 2.221586279891954,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/4",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.5475829449176823,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/5",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.5838927150500395,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/6",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_left_1",
+            "rail_front_bolt_left_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_floor_left+wood:base_post_outer_left",
+          "index": 1.6063036047665258,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/7",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_floor_left+wood:lumber_leg_left",
+          "index": 1.679789453109874,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/8",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 2.5814478898837034,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/9",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005",
+            "v11_top_left_beam_1",
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.604514829415681,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/10",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010",
+            "v11_top_left_post_1",
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "index": 1.6319351311982098,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/11",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 2.66463216659518,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/12",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018",
+            "v11_top_right_beam_1",
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.4271742818099864,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/13",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013",
+            "v11_top_right_post_1",
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+          "index": 1.4788781726297142,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/14",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_front_bolt_right_1",
+            "rail_front_bolt_right_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_floor_right+wood:base_post_outer_right",
+          "index": 1.6170326473788699,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/15",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_floor_right+wood:lumber_leg_right",
+          "index": 1.689962961198972,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/16",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 2.5447554610019822,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/17",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018",
+            "v11_top_right_beam_1",
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.5328475603167941,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/18",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013",
+            "v11_top_right_post_1",
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+          "index": 1.573020921287132,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/19",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 2.6352365734865044,
+          "original_index_key": "conditional_index_upper",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+            "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+          },
+          "original_source_pointer": "/above_one_or_equal_bounds/20",
+          "row_fasteners": null,
+          "trial_Cg": null
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+        "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+      },
+      "status": "inconclusive_upper_bound"
+    },
+    "individual_Cg_equation_floor": {
+      "count": 8,
+      "maximum": 1.1384980659097002,
+      "rows": [
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.092006699955515,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/0",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.093085028642789,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/1",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.136169812601632,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/2",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "index": 1.1384980659097002,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/3",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.0170959927976388,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/4",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.0126451848265594,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/5",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.091464978354119,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/6",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "index": 1.0862175068522706,
+          "original_index_key": "nmax_Pi_over_Zi",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+            "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+          },
+          "original_source_pointer": "/above_one_rows/7",
+          "row_fasteners": 4,
+          "trial_Cg": null
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+        "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+      },
+      "status": "inconclusive_upper_reference"
+    },
+    "mixed_media_separate_planes": {
+      "count": 0,
+      "maximum": 0.46045918136956787,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/mixed-media-plane-references-v1.json",
+        "sha256": "dd6a132793acaf28b7b668b6b77375fb48db63007aae6e96a9fb5f4b3183f2f5"
+      },
+      "status": "separate_plane_reference_not_complete_three_member_capacity"
+    },
+    "reduced_connection_axial_bending": {
+      "count": 19,
+      "maximum": 1.5556959716170566,
+      "rows": [
+        {
+          "axis_ids": [
+            "eoere_bolt_067"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "eoere_bolt_067",
+          "index": 1.054748667712811,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/0",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.074563850622302,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/1",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.5556959716170566,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/2",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_cleat_left_side_2",
+          "index": 1.0076881725921416,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/3",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_beam_2",
+          "index": 1.02360788008483,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/4",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.1515527388821747,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/5",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_post_2",
+          "index": 1.0118100584498844,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/6",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.5363628626083918,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/7",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_beam_1",
+          "index": 1.0014325220595004,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/8",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_beam_2",
+          "index": 1.0621615774738817,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/9",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.1587859401168386,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/10",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_post_2",
+          "index": 1.055393373967979,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/11",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.294386405623969,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/12",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_top_right_post_1",
+          "index": 1.1221540846512135,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/13",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_right_side_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_cleat_right_side_1",
+          "index": 1.519740222757127,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/14",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_beam_1",
+          "index": 1.0170264574883277,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/15",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_post_1",
+          "index": 1.1682037620386723,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/16",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_post_2",
+          "index": 1.036298567568577,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/17",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_right_side_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_cleat_right_side_1",
+          "index": 1.2652391908633167,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/reduced_connection_axial_bending/18",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "retained_legacy_diagnostic"
+    },
+    "standard_Cg_aggregate_direction_independent_floor_index": {
+      "count": 5,
+      "maximum": 1.2558114950255193,
+      "rows": [
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 1.0385754891574053,
+          "original_index_key": "aggregate_direction_independent_floor_index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+            "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+          },
+          "original_source_pointer": "/above_one_rows/aggregate_direction_independent_floor_index/0",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 1.1738225063603314,
+          "original_index_key": "aggregate_direction_independent_floor_index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+            "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+          },
+          "original_source_pointer": "/above_one_rows/aggregate_direction_independent_floor_index/1",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "interface:wood:base_side_left+wood:lumber_leg_left",
+          "index": 1.2558114950255193,
+          "original_index_key": "aggregate_direction_independent_floor_index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+            "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+          },
+          "original_source_pointer": "/above_one_rows/aggregate_direction_independent_floor_index/2",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 1.1572909217350278,
+          "original_index_key": "aggregate_direction_independent_floor_index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+            "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+          },
+          "original_source_pointer": "/above_one_rows/aggregate_direction_independent_floor_index/3",
+          "row_fasteners": null,
+          "trial_Cg": null
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "interface:wood:base_side_right+wood:lumber_leg_right",
+          "index": 1.2413699802071052,
+          "original_index_key": "aggregate_direction_independent_floor_index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+            "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+          },
+          "original_source_pointer": "/above_one_rows/aggregate_direction_independent_floor_index/4",
+          "row_fasteners": null,
+          "trial_Cg": null
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+        "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+      },
+      "status": "fixed_row_and_area_hypothesis"
+    },
+    "standard_Cg_aggregate_directional_index": {
+      "count": 0,
+      "maximum": 0.8418121010440792,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+        "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+      },
+      "status": "fixed_row_and_area_hypothesis"
+    },
+    "standard_Cg_resolved_individual_extra_conservative_index": {
+      "count": 0,
+      "maximum": 0.8418121010440792,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+        "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+      },
+      "status": "fixed_row_and_area_hypothesis"
+    },
+    "timber_net_shear_torsion": {
+      "count": 0,
+      "maximum": 0.9658789620328713,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "conditional_material_reference"
+    },
+    "timber_normal_and_stability": {
+      "count": 0,
+      "maximum": 0.7779644151817979,
+      "rows": [],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "conditional_material_reference"
+    },
+    "wood_bearing_whole_affine": {
+      "count": 32,
+      "maximum": 1.8329501146683729,
+      "rows": [
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "lumber_leg_bolt_left_1",
+          "index": 1.4356777588751821,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/0",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_top_left_beam_1",
+          "index": 1.3958503655396246,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/1",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_top_left_beam_2",
+          "index": 1.387329345008828,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/2",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.3992829431858336,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/3",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_top_left_post_2",
+          "index": 1.3700470966138851,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/4",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-forward",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.2383033719797845,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/5",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "lumber_leg_bolt_left_1",
+          "index": 1.5742260926568419,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/6",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_left_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "rail_rear_bolt_left_1",
+          "index": 1.0582506076336557,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/7",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_beam_1",
+          "index": 1.538803479727776,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/8",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_beam_2",
+          "index": 1.5399282537134205,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/9",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.488734782811614,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/10",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_top_left_post_2",
+          "index": 1.4370876529096255,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/11",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-left",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.227523489401823,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/12",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_left_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "lumber_leg_bolt_left_1",
+          "index": 1.8329501146683729,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/13",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_beam_1",
+          "index": 1.6002685827575802,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/14",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_beam_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_beam_2",
+          "index": 1.6027877819390814,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/15",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_post_1",
+          "index": 1.5117604659332604,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/16",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_left_post_2"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_top_left_post_2",
+          "index": 1.485454952078908,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/17",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_left_side_1"
+          ],
+          "case_id": "a12-rear",
+          "component_or_group": "v11_cleat_left_side_1",
+          "index": 1.037252272870189,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/18",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "lumber_leg_bolt_right_1",
+          "index": 1.5524227828708193,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/19",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "rail_rear_bolt_right_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "rail_rear_bolt_right_1",
+          "index": 1.0647782307561966,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/20",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_top_right_beam_1",
+          "index": 1.433255895724318,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/21",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_top_right_beam_2",
+          "index": 1.4281732090753243,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/22",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_top_right_post_1",
+          "index": 1.4335466528825973,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/23",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_top_right_post_2",
+          "index": 1.3549325555869856,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/24",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_right_side_1"
+          ],
+          "case_id": "k12-right",
+          "component_or_group": "v11_cleat_right_side_1",
+          "index": 1.2075086984474852,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/25",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "lumber_leg_bolt_right_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "lumber_leg_bolt_right_1",
+          "index": 1.8072355325232419,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/26",
+          "row_fasteners": null,
+          "trial_Cg": 1.0
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_beam_1",
+          "index": 1.5368317198498922,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/27",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_beam_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_beam_2",
+          "index": 1.5309088985115584,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/28",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_post_1",
+          "index": 1.5089989170608138,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/29",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_top_right_post_2"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_top_right_post_2",
+          "index": 1.4613644760272824,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/30",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        },
+        {
+          "axis_ids": [
+            "v11_cleat_right_side_1"
+          ],
+          "case_id": "k12-rear",
+          "component_or_group": "v11_cleat_right_side_1",
+          "index": 1.01455886774456,
+          "original_index_key": "index",
+          "original_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+            "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+          },
+          "original_source_pointer": "/reference_exceedance_rows/wood_bearing_whole_affine/31",
+          "row_fasteners": null,
+          "trial_Cg": 0.25
+        }
+      ],
+      "source": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+        "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+      },
+      "status": "retained_legacy_diagnostic"
+    }
+  },
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "nominal_singleton_interface_cases": 132,
+  "physical_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/delivery/project_numerical_flags_v1.py",
+    "sha256": "3b2288123cd78dd98513851474197ac376c8dbc82716ec13ba20800e0e7a0d5b"
+  },
+  "remaining_row_application_interface_cases": 120,
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_shorter_named_reference_projection/v1",
+  "scope": "Named numerical diagnostic and scenario rows only. Distinct scenarios are not summed into physical failure counts. Geometry applicability, unknown fitting/whole-joint capacities and deferred panel screws remain separate.",
+  "source_bindings": {
+    "force-only-45ksi-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-45ksi-v1.json",
+      "sha256": "0aa04028a6822ed721f7191db7f748438e90e417094865c383d9b184f046effa"
+    },
+    "force-only-Grade5-F606-92ksi-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-Grade5-F606-92ksi-v1.json",
+      "sha256": "44cf52defae331fbe1a4bb2312db4bd3b3179d5db92d2c7a623c2feef3576a89"
+    },
+    "individual-EYM-Cg-equation-bound-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/individual-EYM-Cg-equation-bound-v1.json",
+      "sha256": "4f1177af68318bf5a79ec1c3cf1ed2e556ecc034e128326b092857903ed30b8d"
+    },
+    "mixed-media-plane-references-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/mixed-media-plane-references-v1.json",
+      "sha256": "dd6a132793acaf28b7b668b6b77375fb48db63007aae6e96a9fb5f4b3183f2f5"
+    },
+    "numerical-method-disposition-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/numerical-method-disposition-v1.json",
+      "sha256": "70266cc77267882bb82a8cdb11dc5b7b713478eae81111a17bfd60d8cc72f2b2"
+    },
+    "physical-row-45ksi-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-45ksi-v1.json",
+      "sha256": "830e9c2fc5995a6c695eeeb10685e05919aa2a4b180ffcc330a6e43d1e03154b"
+    },
+    "physical-row-Grade5-F606-92ksi-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/physical-row-Grade5-F606-92ksi-v1.json",
+      "sha256": "aca84f42c49cd49a193356521778fd5a3d042ea628907fb886fc6a4792a49a1d"
+    },
+    "reference-review.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/reference-review.json",
+      "sha256": "8004640a4a1d1e0a95111d083e3c789d8de9314309e84dd3765e95134fb7867d"
+    },
+    "standard-Cg-net-lateral-v1.json": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/standard-Cg-net-lateral-v1.json",
+      "sha256": "282e566d598e03d0601dd58e0295b4d66ad5656ff3737917653542b020a7e13e"
+    }
+  },
+  "structural_acceptance": false
+}

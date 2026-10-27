@@ -1,0 +1,451 @@
+{
+  "axial_proof": {
+    "above_one_bolt_proof_rows": 0,
+    "above_one_nut_proof_rows": 0,
+    "bolt_axial_upper_N_at_maximum": 414.6288241009292,
+    "bolt_product_proof_reference_N_at_maximum": 29302.659890528543,
+    "bolt_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward"
+    },
+    "counts": {
+      "A574_required_window_axes_without_catalog_minimum_length_guarantee": 16,
+      "all_source_bounded_nominal_window_axes": 96,
+      "axes": 112,
+      "axes_excluded_from_96_source_bounded_window_subset": 16,
+      "axes_excluded_from_conditional_proof_arithmetic": 0,
+      "axis_case_rows": 672,
+      "bolt_and_nut_proof_comparisons": 1344,
+      "cases": 6,
+      "physically_observed_full_engagement_or_seating_axes": 0,
+      "rear_axes_completed_from_existing_sources": 2,
+      "unchanged_or_overlay_source_bounded_axes": 94,
+      "unresolved_hardware_source_join_axes": 0
+    },
+    "legacy_1_67_comparison_maxima": {
+      "bolt": 0.02363028267179134,
+      "is_authenticated_code_allowable": false,
+      "nut": 0.016707905936469092
+    },
+    "limits": "Conforming specified products, full standard engagement and aligned freely seated supports are conditions. Actual conformity/engagement, preload, local bearing and physical prying remain unobserved; complete combined joint capacity is not supplied.",
+    "maximum_bolt_product_proof_ratio": 0.014149869863348109,
+    "maximum_nut_product_proof_ratio": 0.010004734093694066,
+    "nut_axial_upper_N_at_maximum": 413.8804523896836,
+    "nut_product_proof_reference_N_at_maximum": 41368.46102192265,
+    "nut_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward"
+    },
+    "proof_specification_source": {
+      "path": "fea/generated/v11-v9-eight-bolt-v1/component-followup/axial-proof-component-v1/proof-source-facts-v1.json",
+      "sha256": "64cdfc9f0d2c1f6346d6a8ff5f5d5c69995cc909cd4b341e202d17bfb45dd8ab"
+    },
+    "scope": "Conditional N-only standard full-size bolt and standard hex nut product-proof comparisons; no combined N/V/M/T capacity.",
+    "source_controls": {
+      "actual_Fyb_Fy_or_Fu_inferred_from_proof_stress": false,
+      "all_12_existing_replay_hashes_rechecked": true,
+      "every_saved_shaft_cut_axial_action_enclosed": true,
+      "maximum_previous_capture_error_N": 0.0,
+      "maximum_worksheet_geometry_length_decimal_error_mm": 2e-14,
+      "maximum_worksheet_geometry_span_decimal_error_mm": 1.36e-13,
+      "previous_1344_end_demands_reproduced_exactly": true,
+      "rear_axis_and_stack_records_equal_retained_V9": true
+    }
+  },
+  "bank_admission": {
+    "cases": 6,
+    "independent_replays": 12,
+    "maximum_gradient_inf_N": 4.7353206167333184e-07
+  },
+  "climbing_released": false,
+  "complete_connection_acceptance": null,
+  "fabrication_released": false,
+  "fitting": {
+    "actual_product_Fu_MPa": null,
+    "actual_product_Fy_MPa": null,
+    "actual_strength_above_one_flags": null,
+    "case_count": 6,
+    "case_id": "a12-forward",
+    "fitting_case_states": 144,
+    "formed_heel_plate_continuity_and_full_strength_qualified": false,
+    "governing_section": {
+      "component_maxima_need_not_coincide": true,
+      "fitting_id": "eoere_clip_angle_base_left",
+      "frozen_end_couple_action_local_nmm": [
+        -1585.387064563306,
+        -26874.93912213256,
+        -9743.644373036374
+      ],
+      "frozen_end_force_action_local": [
+        -34.643632674700825,
+        -148.01076765264233,
+        413.8804519830337
+      ],
+      "gross_section_scenario": "gross_rectangle",
+      "hole_openings_filled_by_gross_rectangle": true,
+      "nominal_normal_stress_envelope_mpa": 94.74864081412677,
+      "nominal_torsion_shear_norm_bound_mpa": 2.9161705859252836,
+      "nominal_transverse_shear_norm_bound_mpa": 2.335899038364976,
+      "section_force_local_N_V1_V2": [
+        34.643632674700825,
+        148.01076765264233,
+        -413.8804519830337
+      ],
+      "section_moment_local_T_M1_M2_nmm": [
+        1585.387064563306,
+        26874.93912213256,
+        9743.644373036374
+      ],
+      "segment_end": "root",
+      "simultaneous_nominal_vm_bound_mpa_and_required_fy_reference": 95.18433506696145,
+      "station_from_ideal_strip_root_mm": 0.0,
+      "strip_element_id": "arm-x/far-minus/root-near"
+    },
+    "gross_required_Fy_is_capacity_or_index": false,
+    "known_answer_control_passed": true,
+    "largest_gross_strip_required_Fy_reference_MPa": 95.18433506696145,
+    "maximum_recovery_errors": {
+      "loaded_heel_mm_rad_including_saved_body_load_route": 0.0,
+      "saved_elastic_energy_nmm": 0.0,
+      "saved_per_flange_root_wrench_n_nmm": 0.0,
+      "saved_port_force_and_couple_n_nmm": 0.0,
+      "saved_root_force_and_couple_n_nmm": 0.0,
+      "saved_scaled_gradient": 0.0,
+      "unloaded_element_segment_force_equilibrium_n": 0.0,
+      "unloaded_element_segment_moment_equilibrium_nmm": 2.3646862246096134e-11
+    },
+    "per_case_required_Fy_references_MPa": [
+      {
+        "case_id": "a12-forward",
+        "fitting_id": "eoere_clip_angle_base_left",
+        "required_Fy_MPa": 95.18433506696145
+      },
+      {
+        "case_id": "a12-left",
+        "fitting_id": "eoere_clip_angle_base_left",
+        "required_Fy_MPa": 81.86120000525882
+      },
+      {
+        "case_id": "a12-rear",
+        "fitting_id": "eoere_clip_angle_base_left",
+        "required_Fy_MPa": 81.03252217852142
+      },
+      {
+        "case_id": "k12-right",
+        "fitting_id": "eoere_clip_angle_base_right",
+        "required_Fy_MPa": 81.0070110215189
+      },
+      {
+        "case_id": "k12-rear",
+        "fitting_id": "eoere_clip_angle_base_right",
+        "required_Fy_MPa": 79.72403455198896
+      },
+      {
+        "case_id": "a1-rear",
+        "fitting_id": "eoere_clip_horizontal_bottom_left_1",
+        "required_Fy_MPa": 67.07126804424885
+      }
+    ],
+    "signed_port_wrenches": 1152,
+    "strip_section_endpoints": 2304
+  },
+  "frame_or_native_solve_performed": false,
+  "geometry_changed": false,
+  "hardware_input_boundary": {
+    "B18_3_preview_authenticates_numeric_cells": false,
+    "catalog_tolerance_guarantee_or_actual_complete_thread_start": null,
+    "new8093_underhead_window_mm": [
+      162.052,
+      165.1
+    ],
+    "new8093_window_is_explicit_purchase_requirement_only": true,
+    "nominal_or_required_window_axis_split": [
+      96,
+      16
+    ]
+  },
+  "hole_bearing": {
+    "above_one_unadopted_force_component_rows": 0,
+    "actual_product_Fu_MPa": null,
+    "independent_couples_normal_actions_and_complete_interaction_qualified": false,
+    "radial_force_N": 420.1416053414043,
+    "required_Fu_reference_MPa": 7.335827092257611,
+    "rows": 672,
+    "serialization_correction": {
+      "all_radial_demands_world_forces_couples_ligaments_capacity_scalars_indices_and_maximum_identity_unchanged": true,
+      "capacity_or_model_rerun_performed": false,
+      "exact_repeated_maximum_fields_changed": [
+        "maximum.force_local_N[0]",
+        "maximum.force_local_N[1]"
+      ],
+      "exact_row_fields_changed": [
+        "rows[*].force_local_N[0]",
+        "rows[*].force_local_N[1]"
+      ],
+      "future_caller_fix": "Pass local_force[:2].copy() to the in-place-normalizing helper; keep the frozen kernel unchanged.",
+      "maximum_saved_world_force_norm_error_N": 5.684341886080802e-14,
+      "maximum_xy_norm_error_N": 5.684341886080802e-14,
+      "other_top_level_change": "Schema v1 to v2 and this additive correction record only.",
+      "preserved_issued_report": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/hole-bearing-references-v1.json",
+        "sha256": "759a0f14128b2234e1092d13d987bdb425310c329f1b31d0493dfc3b3fa76e06"
+      },
+      "producer": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/correct_local_hole_vector_v1.py",
+        "sha256": "0ee20bc75bfded09238effcbf054c67352d42a4349ac3653ade6c7251983f6b8"
+      },
+      "protected_row_fields_canonical_sha256": "f0239d5e3f7e9cebe7140854bd0d4aebb9defda5b030f8cbcbf0c50b026588eb",
+      "reconstruction": "Saved normalized xy direction multiplied by the same row's already-saved radial force. Original z, world force and all moments are unchanged. No world basis is stored in these rows; world-vector norms, rather than an independent orientation projection, are checked for every row.",
+      "rows_checked": 672,
+      "rows_with_changed_xy_components": 625,
+      "rows_with_stored_world_basis_checked": 0,
+      "source_caller_issue": "direction=local_force[:2] shares its array; the pinned hole_clear_distance helper normalizes that array in place.",
+      "stored_world_basis_available_in_issued_report": false
+    },
+    "unadopted_Fu_scenario_MPa": 370.0,
+    "unadopted_force_component_index": 0.019826559708804356,
+    "witness": {
+      "axis_id": "v11_top_left_post_1",
+      "case_id": "a12-rear",
+      "fitting_id": "eoere_clip_single_top_left_1",
+      "port_id": "arm-z/near-plus"
+    }
+  },
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "net_ligament": {
+    "above_one_unadopted_scenario_rows": 0,
+    "actual_holed_plate_strength_qualified": false,
+    "actual_product_Fy_MPa": null,
+    "required_Fy_reference_MPa": 94.904112899182,
+    "scope": "Contained two-ligament equal-twist/rectangular shear-allocation proxy; actual hole concentration, continuity and restrained warping unresolved.",
+    "section_rows": 1728,
+    "unadopted_Fy_scenario_MPa": 235.0,
+    "unadopted_scenario_index": 0.40384728893268934,
+    "witness": {
+      "case_id": "a12-forward",
+      "fitting_id": "eoere_clip_angle_base_left",
+      "segment_end": "root",
+      "strip_element_id": "arm-x/far-minus/near-far"
+    }
+  },
+  "panel_screw_resistance_or_adhesive_qualified": false,
+  "primary_six_families_group_or_geometry_assessments_recomputed": false,
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/summarize_current_components_v1.py",
+    "sha256": "dd85289436aced97aca8e6dc0f4ab4aaf0c7505b44eab9be2e7235e81d80bd3b"
+  },
+  "reproduction": {
+    "analysis_base": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3",
+    "caller": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/component_adapter_v4.py",
+      "sha256": "dc17ab9f8bb485eaeb9c2ea7842f9db6b91399b89ca94ad44bc7602a1b9452a0"
+    },
+    "family_order": [
+      "washer",
+      "fitting",
+      "fitting-axial",
+      "proof"
+    ],
+    "local_vector_correction_producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/correct_local_hole_vector_v1.py",
+      "sha256": "0ee20bc75bfded09238effcbf054c67352d42a4349ac3653ade6c7251983f6b8"
+    },
+    "parent_gate": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/parent-bank-gate-v1.json",
+      "sha256": "ff9ff716c3625e4cdd61563faee7baee64efe794a3fce82fb7682bf4141ab20d"
+    },
+    "requires_unused_output_paths_and_active_frozen_dependencies": true,
+    "summary_command": "uv run python fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/summarize_current_components_v1.py"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_saved_load_component_references/v1",
+  "schema_extension": "fitting_axial_and_product_proof/v1",
+  "source_bindings": {
+    "all_four_component_runs": {
+      "fitting": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-run-binding-v1.json",
+        "sha256": "2a7a0b42bf09e1561619a5fb67a38c98589f52d16fec4da4d9d03c27612ed752"
+      },
+      "fitting-axial": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial-run-binding-v1.json",
+        "sha256": "04db2c9101747bcb51dd1c124f1a21139b42f4dcd57fd48ff67aab2db8fc90bf"
+      },
+      "proof": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/proof-run-binding-v1.json",
+        "sha256": "457723a7e5d82d22d8799445204039a0ea21eb2183dddf5ca9126029d6b309ab"
+      },
+      "washer": {
+        "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-run-binding-v1.json",
+        "sha256": "b0aea90374df5c657904e2152866a8a998b5b0e4f32336799da100c0c71c30d3"
+      }
+    },
+    "axial_interface_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/axial-interface-references-v1.json",
+      "sha256": "83b2678632d5410dc6a4f5d31776b4910c154a59f8ebe406957c855c3d786a9e"
+    },
+    "corrected_local_vector_hole_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/hole-bearing-references-v2.json",
+      "sha256": "a80fe7ed32dba8ea8c93932c105f74184631f6686f9e6c77f6596317feacdbd3"
+    },
+    "fitting_gross_strip_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/fitting-gross-strip-reference-v1.json",
+      "sha256": "4e3c248a95d5f837dc64f52f34dae90384f9c2efe155d4cab4344058a0c0cc16"
+    },
+    "hardware_profile_contract": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+      "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+    },
+    "hardware_source_supplement": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-source-supplement-v1.json",
+      "sha256": "2048c4a25c99498ef59bae3acd64427d1277c0fbcd42dfab1d2bd7176e00bed2"
+    },
+    "issued_fitting_axial_summary": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/fitting-axial-followthrough-v1.json",
+      "sha256": "5920940bf756fa5bca6af091c588407a74309de68e7308eabd36c641f92b8377"
+    },
+    "net_ligament_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/net-ligament-references-v1.json",
+      "sha256": "068b733c7ff316a78a6a0d065162f0672467b8e5fee34e56bd208c89a1cc1d4b"
+    },
+    "own_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "own_physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "own_physical_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    "parent_bank_gate": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/parent-bank-gate-v1.json",
+      "sha256": "ff9ff716c3625e4cdd61563faee7baee64efe794a3fce82fb7682bf4141ab20d"
+    },
+    "preserved_issued_hole_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/hole-bearing-references-v1.json",
+      "sha256": "759a0f14128b2234e1092d13d987bdb425310c329f1b31d0493dfc3b3fa76e06"
+    },
+    "product_proof_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/proof/axial-proof-component-v1.json",
+      "sha256": "bdd481e934425a748b31bb4ced2f4d80b5ea063f188015fe02a202cebcef4fc8"
+    },
+    "provisional_hardware_csv_binding": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/provisional-nominal-hardware-planning-bindings-v1.json",
+      "sha256": "d00cadf3a93d27700355ba751a0e089b74d7347678adb65a7714540faf0132e0"
+    },
+    "provisional_hardware_csv_raw_CRLF": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/provisional-nominal-hardware-planning-v1.csv",
+      "sha256": "c31643939d940e9c86baeb3e3ba10d9a40981f44eff70814e4090340b2ae98b5"
+    },
+    "washer_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/washer/current-washer-mean-review.json",
+      "sha256": "80fd351d3e582053d85d01d8b2c5a625755c98bd27769236da23dadec043b4c3"
+    }
+  },
+  "status": "BOUNDED_REFERENCES_COMPLETE_PHYSICAL_QUALIFICATION_UNRESOLVED",
+  "structural_acceptance": false,
+  "washer": {
+    "above_one_load_only_mean_rows": 0,
+    "basis": {
+      "CD_applied": false,
+      "Cb": 1,
+      "Cg_applied": false,
+      "declared_Fcperp_MPa": 4.30922330823,
+      "material": "conditional dry DF-L No.2 basis"
+    },
+    "end_census": {
+      "case_end_rows": 1344,
+      "ends": 224,
+      "excluded_plywood_or_steel_ends": 128,
+      "sawn_case_rows": 576,
+      "sawn_wood_ends": 96
+    },
+    "footprints": {
+      "exact_unchanged_reused": 96,
+      "gross_annulus_substitution": false,
+      "queried_current_cached_bodies": 0,
+      "queried_current_seats": 0
+    },
+    "load_only_mean_reference_maximum": {
+      "CD_applied": false,
+      "Cb": 1.0,
+      "Cg_applied": false,
+      "actual_contact_or_connection_accepted": false,
+      "axis_id": "eoere_bolt_002",
+      "body_force_already_in_saved_case": true,
+      "case_id": "a1-rear",
+      "conditional_mean_reference_index": 0.15121617661488843,
+      "declared_Fcperp_MPa": 4.30922330823,
+      "end": "nut",
+      "force_on_host_xyz_N": [
+        0.0,
+        184.53915573269757,
+        219.92520167733878
+      ],
+      "full_annulus_lower_mean_pressure_MPa": 0.651624272850304,
+      "host": "base_rail_bottom_left",
+      "lateral_force_on_host_norm_N": 6.335897628224935e-08,
+      "load_to_grain_angle_deg": 90.0,
+      "mean_pressure_on_modeled_footprint_MPa": 0.6516242728503014,
+      "pressure_peaks_or_uniform_pressure_solution": false,
+      "real_preload_N": null,
+      "saved_capture_compression_N": 287.09196145373863,
+      "seat_key": "eoere_bolt_002/nut",
+      "signed_force_into_host_N": 287.0919614854181
+    },
+    "physical_contact_peaks_washer_strength_or_fit_qualified": false,
+    "preload_N": null,
+    "saved_capture_gravity_counted_once": true,
+    "sawn_Fcperp_not_assigned_to_plywood_or_steel": true,
+    "scope": "Sawn-wood washer-seat load-only average pressure only; separate from the metal bearing-face pressure below.",
+    "unsupported_footprint_rows": 0
+  },
+  "washer_metal_interface": {
+    "actual_strength_above_one_flags": null,
+    "actual_washer_Fy_MPa": null,
+    "changed_20_nuts_direct_on_fixed_washers": {
+      "axis_count": 20,
+      "declared_inscribed_hex_bearing_radius_mm": 7.14375,
+      "excluded_plywood_case_rows": 0,
+      "limits": "Ideal circular lands, opposing prescribed ring pressures and a classical free-edge annular-plate reference. Actual nut chamfer/fillet/land and washer contact, thick-plate effects, preload, physical prying/end moment, washer/spacer material and complete transfer remain unqualified. The 4 lower372 spacer stacks remain separate.",
+      "maximum_metal_face_mean_pressure_MPa": 6.522612707567021,
+      "maximum_prescribed_plate_required_Fy_MPa": 45.11191930338671,
+      "saved_capture_N": 413.13208027257355,
+      "supported_case_rows": 120,
+      "witness": {
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left"
+      }
+    },
+    "direct_unit_scaling_control_max_absolute_error_MPa": 4.618527782440651e-14,
+    "excluded_plywood_end_case_rows": 96,
+    "maximum_metal_face_mean_pressure_MPa": 6.5344281512518885,
+    "maximum_prescribed_plate_required_Fy_MPa": 45.19363768311315,
+    "mean_pressure_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left"
+    },
+    "modeled_zero_capture_moment_is_physical_zero_prying": false,
+    "physical_preload_N": null,
+    "required_Fy_witness": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left"
+    },
+    "scope": "Load-only pressure on declared metal head/nut bearing rings and prescribed annular-plate bending; no wood Fcperp comparison or actual washer steel strength assigned.",
+    "supported_end_case_rows": 1248
+  }
+}
