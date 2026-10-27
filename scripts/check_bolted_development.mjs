@@ -3268,6 +3268,33 @@ export function validateShorterRearMaterialReferences(report, entry, bank) {
   return report;
 }
 
+export function validateShorterRearProjectedBearingWitness(report, entry) {
+  assert.equal(report.schema, 'v11_current_rear_projected_bearing_reference/v1');
+  if (Object.hasOwn(report, 'revision')) assert.equal(report.revision, entry.revision);
+  for (const key of ['geometry_receipt', 'response_bank', 'rear_wrench_material_references']) {
+    referenceBinding(report[key]); assert.deepEqual(report[key], entry[key]);
+  }
+  referenceBinding(report.joint_disposition, 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json');
+  if (entry.joint_disposition !== undefined) assert.deepEqual(report.joint_disposition, entry.joint_disposition);
+  else {
+    const joint = JSON.parse(bound(report.joint_disposition));
+    assert.deepEqual(joint.response_bank, entry.response_bank); assert.deepEqual(joint.geometry_receipt, entry.geometry_receipt);
+  }
+  const rows = report.case_rows, axes = ['lumber_leg_bolt_left_1', 'lumber_leg_bolt_right_1', 'rail_rear_bolt_left_1', 'rail_rear_bolt_right_1'];
+  assert.equal(rows.length, 24);
+  assert.deepEqual(rows.map(row => `${row.axis_id}/${row.case_id}`).sort(), axes.flatMap(axis => CURRENT_CASES.map(id => `${axis}/${id}`)).sort());
+  for (const row of rows) referenceIndex(row.certified_reference_index, 'rear projected bearing model reference');
+  assert.equal(report.summary.state_count, 24); assert.equal(report.summary.reference_index_above_one_count, 5);
+  assert.equal(rows.filter(row => row.certified_reference_index > 1).length, report.summary.reference_index_above_one_count);
+  referenceClose(Math.max(...rows.map(row => row.certified_reference_index)), report.summary.maximum_reference_index, 'rear witness maximum');
+  referenceClose(report.summary.maximum_reference_index, 1.2790619680711501, 'current rear witness maximum');
+  for (const key of ['accepted_connection_exceedance_count', 'complete_joint_capacity', 'actual_Cg', 'actual_Cdelta']) assert.equal(report[key], null);
+  for (const key of ['physical_failure_claim', 'structural_acceptance', 'drilling_released', 'fabrication_released', 'climbing_released'])
+    assert.equal(report[key], false);
+  if (Object.hasOwn(report, 'purchase_authorized')) assert.equal(report.purchase_authorized, false);
+  return report;
+}
+
 export function validateV11BuildPackage(manifest, entry, bank, readArtifact = bound) {
   const folder = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/';
   const metadata = manifest.metadata ?? manifest;
@@ -3536,6 +3563,10 @@ export function validateShorterBoltDelivery(entry, index) {
   if (entry.rear_wrench_material_references !== undefined) {
     referenceBinding(entry.rear_wrench_material_references, prefix+'rear-wrench-material-references.json');
     validateShorterRearMaterialReferences(JSON.parse(bound(entry.rear_wrench_material_references)), entry, bank);
+  }
+  if (entry.rear_projected_bearing_witness !== undefined) {
+    referenceBinding(entry.rear_projected_bearing_witness, prefix+'rear-projected-bearing-witness.json');
+    validateShorterRearProjectedBearingWitness(JSON.parse(bound(entry.rear_projected_bearing_witness)), entry);
   }
   if (entry.build_package !== undefined) {
     referenceBinding(entry.build_package, prefix+'build-package/manifest.json');

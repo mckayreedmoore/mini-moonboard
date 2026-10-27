@@ -3,7 +3,8 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
-import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateV11BuildPackage} from '../scripts/check_bolted_development.mjs';
+import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
+  validateV11BuildPackage} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -40,7 +41,7 @@ for (const [name, mutate] of [
 test('V20 hash-checks the optional rear record and permits the preserved trial without that supplement', () => {
   const {index, entry} = packet(); entry.rear_wrench_material_references.sha256 = '0'.repeat(64);
   assert.throws(() => checkDevelopment(index, {entryChecks: false}));
-  delete entry.rear_wrench_material_references; delete entry.build_package;
+  delete entry.rear_wrench_material_references; delete entry.build_package; delete entry.rear_projected_bearing_witness;
   const result = checkDevelopment(index, {entryChecks: false});
   assert.equal(result.owner_authorized_shorter_bolt_trial.reported_reference_rows, 110);
   assert.equal(result.complete_connection_acceptance, null); assert.equal(result.structural_acceptance, false);
@@ -119,4 +120,35 @@ for (const [name, mutate] of [
   ['STL inconsistent with current placement proof', f => {f.proof.outputs['left-rear-foot-leg-marking-jig.stl'].sha256 = '0'.repeat(64); f.updateProof();}],
 ]) test(`provisional build package rejects ${name}`, () => {
   const fixture = buildPacket(); mutate(fixture); assert.throws(fixture.validate);
+});
+
+function witnessPacket() {
+  const {entry, bank} = packet();
+  const axes = ['lumber_leg_bolt_left_1', 'lumber_leg_bolt_right_1', 'rail_rear_bolt_left_1', 'rail_rear_bolt_right_1'];
+  const report = entry.rear_projected_bearing_witness ? JSON.parse(readFileSync(path.join(ROOT, entry.rear_projected_bearing_witness.path))) : {
+    schema: 'v11_current_rear_projected_bearing_reference/v1', geometry_receipt: structuredClone(entry.geometry_receipt),
+    response_bank: structuredClone(entry.response_bank), joint_disposition: structuredClone(entry.joint_disposition),
+    rear_wrench_material_references: structuredClone(entry.rear_wrench_material_references),
+    case_rows: axes.flatMap(axis_id => bank.case_ids.map(case_id => ({axis_id, case_id}))).map((row, i) =>
+      ({...row, certified_reference_index: i === 0 ? 1.2790619680711501 : i < 5 ? 1.1 : 0.8})),
+    summary: {state_count: 24, reference_index_above_one_count: 5, maximum_reference_index: 1.2790619680711501},
+    accepted_connection_exceedance_count: null, complete_joint_capacity: null, actual_Cg: null, actual_Cdelta: null,
+    physical_failure_claim: false, structural_acceptance: false, drilling_released: false, fabrication_released: false, climbing_released: false,
+  };
+  return {entry, report};
+}
+
+test('rear projected bearing witness retains24 named model references without physical acceptance', () => {
+  const {entry, report} = witnessPacket(); assert.equal(validateShorterRearProjectedBearingWitness(report, entry), report);
+});
+
+for (const [name, mutate] of [
+  ['foreign response bank', r => {r.response_bank = readIndex().response_bank;}],
+  ['duplicate state preserving count', r => {r.case_rows[0].axis_id = r.case_rows[1].axis_id; r.case_rows[0].case_id = r.case_rows[1].case_id;}],
+  ['erased above-one references', r => {r.summary.reference_index_above_one_count = 0;}],
+  ['adopted actual group factor', r => {r.actual_Cg = 1;}],
+  ['physical failure interpretation', r => {r.physical_failure_claim = true;}],
+  ['fabrication release', r => {r.fabrication_released = true;}],
+]) test(`rear projected bearing witness rejects ${name}`, () => {
+  const {entry, report} = witnessPacket(); mutate(report); assert.throws(() => validateShorterRearProjectedBearingWitness(report, entry));
 });

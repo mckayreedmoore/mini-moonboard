@@ -1,0 +1,5447 @@
+{
+  "accepted_connection_exceedance_count": null,
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "case_rows": [
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-forward",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 1.0183102507735624,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 1.0137000093653383,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      "ellipse_bearing_index": 1.0183102507735624,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 552.4490696782316,
+      "independent_Fy_over_2_required_ksi": 80.12596327728944,
+      "independent_witness_replay": {
+        "continuous_bending_index": 1.0137000093653383,
+        "continuous_polygon_bending_index": 1.018310250773655,
+        "end_force_error_n": 6.283038422871812e-09,
+        "end_moment_error_nmm": 3.457916323559069e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 1.0183102507735624,
+        "maximum_ellipse_index": 1.0183102507735624,
+        "maximum_member_first_moment_error_nmm": 7.275957614183426e-11,
+        "maximum_member_force_error_n": 4.092726157978177e-12,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.8709343834487983,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -198.82703928915151,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -198.82703928915151,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 198.82703928822164,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            198.82703928822164,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-forward",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.32252345575501973,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.2907523080178684,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      "ellipse_bearing_index": 0.32252345575501973,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 157.27574072359965,
+      "independent_Fy_over_2_required_ksi": 22.810917634393835,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.2907523080178684,
+        "continuous_polygon_bending_index": 0.2921562756753353,
+        "end_force_error_n": 4.583320389883738e-10,
+        "end_moment_error_nmm": 9.310984454558026e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3225234557550198,
+        "maximum_ellipse_index": 0.32252345575501973,
+        "maximum_member_first_moment_error_nmm": 1.4551915228366852e-11,
+        "maximum_member_force_error_n": 1.7053025658242404e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.24794475689558515,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -20.354334768360125,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            20.354334768360125,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 20.35433477301707,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -20.35433477301707,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-forward",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.6122543051008442,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.3760019769304511,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      "ellipse_bearing_index": 0.6122543051008442,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 209.1113840711119,
+      "independent_Fy_over_2_required_ksi": 30.32904207930698,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.3760019769304511,
+        "continuous_polygon_bending_index": 0.3763445534993884,
+        "end_force_error_n": 1.704279384284746e-09,
+        "end_moment_error_nmm": 1.7038765781762775e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.6122543051008442,
+        "maximum_ellipse_index": 0.6122543051008442,
+        "maximum_member_first_moment_error_nmm": 3.3635316754043743e-12,
+        "maximum_member_force_error_n": 9.239276010930553e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.3296635008620324,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -112.29548410077048,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -112.29548410077048,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 112.29548410077014,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            112.29548410077014,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-forward",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.028804197685762305,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.01789199845461817,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      "ellipse_bearing_index": 0.028804197685762305,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 12.169676856529925,
+      "independent_Fy_over_2_required_ksi": 1.7650624001787845,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.01789199845461817,
+        "continuous_polygon_bending_index": 0.017937240857655527,
+        "end_force_error_n": 1.528444038001453e-10,
+        "end_moment_error_nmm": 1.55004802770975e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.028804197685762305,
+        "maximum_ellipse_index": 0.028804197685762305,
+        "maximum_member_first_moment_error_nmm": 4.813927034774679e-13,
+        "maximum_member_force_error_n": 9.992007221626409e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.019185460871508526,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -43.63360457066633,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            43.63360457066633,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 43.63360457085554,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -43.63360457085554,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-left",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 1.122211518814155,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 1.1169874737972465,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      "ellipse_bearing_index": 1.122211518814155,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 612.9336155960569,
+      "independent_Fy_over_2_required_ksi": 88.8985049848498,
+      "independent_witness_replay": {
+        "continuous_bending_index": 1.1169874737972465,
+        "continuous_polygon_bending_index": 1.122211518814155,
+        "end_force_error_n": 6.29065544099916e-09,
+        "end_moment_error_nmm": 1.6558133921762422e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 1.1222115188141553,
+        "maximum_ellipse_index": 1.1222115188141553,
+        "maximum_member_first_moment_error_nmm": 4.3655745685100555e-11,
+        "maximum_member_force_error_n": 3.410605131648481e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.9662880976614108,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -342.938842475329,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -342.938842475329,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 342.93884247160554,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            342.93884247160554,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-left",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.35305111088534946,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.35207176046501015,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      "ellipse_bearing_index": 0.35305111088534946,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 193.55222937876766,
+      "independent_Fy_over_2_required_ksi": 28.072377481735003,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.35207176046501015,
+        "continuous_polygon_bending_index": 0.35305111088535013,
+        "end_force_error_n": 7.953151026640626e-09,
+        "end_moment_error_nmm": 3.491338667949152e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3530511108853495,
+        "maximum_ellipse_index": 0.3530511108853496,
+        "maximum_member_first_moment_error_nmm": 3.2741809263825417e-11,
+        "maximum_member_force_error_n": 6.821210263296962e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.30513453784494565,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -117.47380497718241,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            117.47380497718241,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 117.47380497345716,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -117.47380497345716,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-left",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.6627647106193398,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.40195820593188775,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      "ellipse_bearing_index": 0.6627647106193398,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 224.81494887835288,
+      "independent_Fy_over_2_required_ksi": 32.60665159324894,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.40195820593188775,
+        "continuous_polygon_bending_index": 0.4030537861929268,
+        "end_force_error_n": 2.067295667984581e-09,
+        "end_moment_error_nmm": 5.6560595339760757e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.6627647106193398,
+        "maximum_ellipse_index": 0.6627647106193398,
+        "maximum_member_first_moment_error_nmm": 7.275957614183426e-12,
+        "maximum_member_force_error_n": 7.993605777301127e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.3544201260135754,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -142.2337303927554,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -142.2337303927554,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 142.23373039287185,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            142.23373039287185,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-left",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.017784199861423055,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.011192615888577957,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      "ellipse_bearing_index": 0.017784199861423055,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 10.507396130352868,
+      "independent_Fy_over_2_required_ksi": 1.5239689641815346,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.011192615888577957,
+        "continuous_polygon_bending_index": 0.011235546872040661,
+        "end_force_error_n": 1.863186938066974e-09,
+        "end_moment_error_nmm": 7.674435612869955e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.017784199861423062,
+        "maximum_ellipse_index": 0.01778419986142306,
+        "maximum_member_first_moment_error_nmm": 1.8307577676068831e-13,
+        "maximum_member_force_error_n": 2.731148640577885e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.016564880045451463,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -77.24180235448416,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            77.24180235448416,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 77.24180235500816,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -77.24180235500816,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 1.2790619680711501,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 1.2789309740672739,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      "ellipse_bearing_index": 1.2790619680711501,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 690.6773044149706,
+      "independent_Fy_over_2_required_ksi": 100.1742737339464,
+      "independent_witness_replay": {
+        "continuous_bending_index": 1.2789309740672739,
+        "continuous_polygon_bending_index": 1.2790619684104179,
+        "end_force_error_n": 2.033303303505818e-09,
+        "end_moment_error_nmm": 5.519007011400847e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 1.2790619680711501,
+        "maximum_ellipse_index": 1.2790619680711501,
+        "maximum_member_first_moment_error_nmm": 5.820766091346741e-11,
+        "maximum_member_force_error_n": 3.069544618483633e-12,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 1.088850801455939,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -52.75210070500537,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -52.75210070500537,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 52.75210070515096,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            52.75210070515096,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.34380611144917095,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.3437982371115871,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      "ellipse_bearing_index": 0.34380611144917095,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 187.98492734666593,
+      "independent_Fy_over_2_required_ksi": 27.26490858973817,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.3437982371115871,
+        "continuous_polygon_bending_index": 0.34380611146912887,
+        "end_force_error_n": 1.9366904746576097e-09,
+        "end_moment_error_nmm": 5.674812770806171e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.34380611144917095,
+        "maximum_ellipse_index": 0.34380611144917095,
+        "maximum_member_first_moment_error_nmm": 7.275957614183426e-12,
+        "maximum_member_force_error_n": 2.2737367544323206e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.2963577020623714,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -85.21427855999568,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            85.21427855999568,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 85.21427855987984,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -85.21427855987984,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.35924311869241793,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.22613164168571384,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      "ellipse_bearing_index": 0.35924311869241793,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 122.5428189793348,
+      "independent_Fy_over_2_required_ksi": 17.773333239845265,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.22613164168571384,
+        "continuous_polygon_bending_index": 0.2269167021720559,
+        "end_force_error_n": 3.20511617246666e-10,
+        "end_moment_error_nmm": 9.259762691726791e-09,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.359243118692418,
+        "maximum_ellipse_index": 0.35924311869241793,
+        "maximum_member_first_moment_error_nmm": 3.410605131648481e-12,
+        "maximum_member_force_error_n": 4.547473508864641e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.1931884047809268,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -11.837351731951124,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -11.837351731951124,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 11.837351731959318,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            11.837351731959318,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.02581936202180277,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.0159819359527116,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      "ellipse_bearing_index": 0.02581936202180277,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 9.67770900858892,
+      "independent_Fy_over_2_required_ksi": 1.403633021017003,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.0159819359527116,
+        "continuous_polygon_bending_index": 0.016045880280963598,
+        "end_force_error_n": 8.365856896119794e-10,
+        "end_moment_error_nmm": 2.4316742196717197e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.02581936202180277,
+        "maximum_ellipse_index": 0.02581936202180277,
+        "maximum_member_first_moment_error_nmm": 8.668621376273222e-13,
+        "maximum_member_force_error_n": 2.1316282072803006e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.015256880663228292,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -18.388316059229858,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            18.388316059229858,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 18.388316059227137,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -18.388316059227137,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "k12-right",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.36774933657025943,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.3660856383968662,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      "ellipse_bearing_index": 0.36774933657025943,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 200.8423564396389,
+      "independent_Fy_over_2_required_ksi": 29.129721018409544,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.3660856383968662,
+        "continuous_polygon_bending_index": 0.36774933860457926,
+        "end_force_error_n": 1.7473702484949172e-09,
+        "end_moment_error_nmm": 5.3763287882158224e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3677493365702595,
+        "maximum_ellipse_index": 0.3677493365702595,
+        "maximum_member_first_moment_error_nmm": 2.1827872842550278e-11,
+        "maximum_member_force_error_n": 1.2505552149377763e-12,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.3166274023740168,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -109.37846048530409,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -109.37846048530409,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 109.37846048716793,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            109.37846048716793,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-right",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 1.1066078597350133,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 1.1060682249065383,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      "ellipse_bearing_index": 1.1066078597350133,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 606.9921130130649,
+      "independent_Fy_over_2_required_ksi": 88.03676289149442,
+      "independent_witness_replay": {
+        "continuous_bending_index": 1.1060682249065383,
+        "continuous_polygon_bending_index": 1.106607859750474,
+        "end_force_error_n": 2.559169209881418e-09,
+        "end_moment_error_nmm": 1.6292844193799282e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 1.1066078597350135,
+        "maximum_ellipse_index": 1.1066078597350133,
+        "maximum_member_first_moment_error_nmm": 1.4551915228366852e-11,
+        "maximum_member_force_error_n": 1.0231815394945443e-12,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.9569213357771134,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -341.0114703044993,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            341.0114703044993,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 341.0114702951912,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -341.0114702951912,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "k12-right",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.010706565585046464,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.00675933627833988,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      "ellipse_bearing_index": 0.010706565585046464,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 8.760371954284635,
+      "independent_Fy_over_2_required_ksi": 1.2705845299246152,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.00675933627833988,
+        "continuous_polygon_bending_index": 0.006789567480418933,
+        "end_force_error_n": 1.3968859402524458e-09,
+        "end_moment_error_nmm": 7.314878225805898e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.010706565585046466,
+        "maximum_ellipse_index": 0.010706565585046464,
+        "maximum_member_first_moment_error_nmm": 1.6342482922482304e-13,
+        "maximum_member_force_error_n": 1.6542323066914832e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.01381070141222408,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -76.51170647167433,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -76.51170647167433,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 76.51170647202355,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            76.51170647202355,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "k12-right",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.6668906307810661,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.40378647309009646,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      "ellipse_bearing_index": 0.6668906307810661,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 225.8710650357026,
+      "independent_Fy_over_2_required_ksi": 32.75982829149127,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.40378647309009646,
+        "continuous_polygon_bending_index": 0.4050535089973822,
+        "end_force_error_n": 2.880867100429896e-09,
+        "end_moment_error_nmm": 1.11475842800246e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.6668906307810663,
+        "maximum_ellipse_index": 0.6668906307810663,
+        "maximum_member_first_moment_error_nmm": 1.3415046851150692e-11,
+        "maximum_member_force_error_n": 4.547473508864641e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.3560850901249051,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -143.38681201074016,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            143.38681201074016,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 143.38681201044935,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -143.38681201044935,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "k12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.3614828069474836,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.3600869870940322,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      "ellipse_bearing_index": 0.3614828069474836,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 196.85942871765775,
+      "independent_Fy_over_2_required_ksi": 28.552046192070463,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.3600869870940322,
+        "continuous_polygon_bending_index": 0.36148280698799484,
+        "end_force_error_n": 6.010019149016443e-10,
+        "end_moment_error_nmm": 1.398474348768275e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3614828069474836,
+        "maximum_ellipse_index": 0.3614828069474836,
+        "maximum_member_first_moment_error_nmm": 1.1823431123048067e-11,
+        "maximum_member_force_error_n": 6.821210263296962e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.31034832817467894,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -88.35500183446565,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -88.35500183446565,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 88.35500183388356,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            88.35500183388356,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "k12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 1.261821886894569,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 1.1829882485944343,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      "ellipse_bearing_index": 1.261821886894569,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 639.2136019743101,
+      "independent_Fy_over_2_required_ksi": 92.71009475673235,
+      "independent_witness_replay": {
+        "continuous_bending_index": 1.1829882485944343,
+        "continuous_polygon_bending_index": 1.185070295897893,
+        "end_force_error_n": 3.950333393731853e-10,
+        "end_moment_error_nmm": 1.1095849240512214e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 1.2618218868945692,
+        "maximum_ellipse_index": 1.261821886894569,
+        "maximum_member_first_moment_error_nmm": 1.0186340659856796e-10,
+        "maximum_member_force_error_n": 2.7284841053187847e-12,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 1.0077184212688297,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -54.457967129265604,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            54.457967129265604,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 54.45796712925141,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -54.45796712925141,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "k12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.020794165504901485,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.012919613262416545,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      "ellipse_bearing_index": 0.020794165504901485,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 7.992787762275925,
+      "independent_Fy_over_2_required_ksi": 1.1592558551982015,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.012919613262416545,
+        "continuous_polygon_bending_index": 0.012953380062206836,
+        "end_force_error_n": 8.748424207283279e-11,
+        "end_moment_error_nmm": 6.623503688185648e-09,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.020794165504901485,
+        "maximum_ellipse_index": 0.020794165504901485,
+        "maximum_member_first_moment_error_nmm": 2.291500322826323e-13,
+        "maximum_member_force_error_n": 1.84297022087776e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.012600607121719582,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -17.789718917008113,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -17.789718917008113,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 17.789718917004937,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            17.789718917004937,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "k12-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.35289032489083855,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.22195494908649308,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      "ellipse_bearing_index": 0.35289032489083855,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 120.22209064780765,
+      "independent_Fy_over_2_required_ksi": 17.436740052754164,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.22195494908649308,
+        "continuous_polygon_bending_index": 0.22268273539050554,
+        "end_force_error_n": 1.1494307727843989e-09,
+        "end_moment_error_nmm": 1.3046629464952274e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3528903248908385,
+        "maximum_ellipse_index": 0.3528903248908385,
+        "maximum_member_first_moment_error_nmm": 1.5575096767861396e-11,
+        "maximum_member_force_error_n": 6.465938895416912e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.1895297831821105,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -10.624467615383049,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            10.624467615383049,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 10.624467615385779,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -10.624467615385779,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a1-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.3781803290295225,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.3429301590405416,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      "ellipse_bearing_index": 0.3781803290295225,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 189.1804454896157,
+      "independent_Fy_over_2_required_ksi": 27.438303836607027,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.3429301590405416,
+        "continuous_polygon_bending_index": 0.34416402693550113,
+        "end_force_error_n": 2.3097964652052383e-09,
+        "end_moment_error_nmm": 2.43229068242745e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.3781803290295225,
+        "maximum_ellipse_index": 0.3781803290295225,
+        "maximum_member_first_moment_error_nmm": 2.1827872842550278e-11,
+        "maximum_member_force_error_n": 4.547473508864641e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.2982424330065981,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1203.3249999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1315.7749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1121.3591999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.6875,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1128.7124999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -136.07643011195947,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -136.07643011195947,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1311.2749999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 136.07643010919102,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            136.07643010919102,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1127.125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.9749999999999,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a1-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.21775560422336637,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.21738306418464867,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      "ellipse_bearing_index": 0.21775560422336637,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 122.26348739697676,
+      "independent_Fy_over_2_required_ksi": 17.732819619063456,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.21738306418464867,
+        "continuous_polygon_bending_index": 0.21775560428532317,
+        "end_force_error_n": 1.8609472851593978e-09,
+        "end_moment_error_nmm": 1.5316860473291173e-07,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.2177556042233664,
+        "maximum_ellipse_index": 0.2177556042233664,
+        "maximum_member_first_moment_error_nmm": 7.275957614183426e-12,
+        "maximum_member_force_error_n": 2.2737367544323206e-13,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.19274803933764625,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -2.1054275328198924
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1200.1499999999999,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 104.77500000000009,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2963787163632221
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head",
+          "point_xyz_mm": [
+            1312.6,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -7.6749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.2672921561910855
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1118.1842,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 186.74080000000004,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1306.5125,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -1.587500000000091,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.19496491170184205
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/lumber_leg_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1125.5375,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 179.38750000000005,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -157.5756367353609,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            157.5756367353609,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1308.1,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": -3.1749999999999545,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        },
+        {
+          "axial_force_N": 157.57563674930353,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -157.57563674930353,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "lumber_leg_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1123.9499999999998,
+            1125.245692062,
+            1749.987315516
+          ],
+          "station_mm": 180.97500000000014,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a1-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.026431872979288434,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.016725736824796455,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      "ellipse_bearing_index": 0.026431872979288434,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 12.198773307876552,
+      "independent_Fy_over_2_required_ksi": 1.7692824836580763,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.016725736824796455,
+        "continuous_polygon_bending_index": 0.016805386759094043,
+        "end_force_error_n": 1.644947733581148e-09,
+        "end_moment_error_nmm": 3.506969435917994e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.02643187297928843,
+        "maximum_ellipse_index": 0.026431872979288434,
+        "maximum_member_first_moment_error_nmm": 8.526512829121202e-14,
+        "maximum_member_force_error_n": 1.7763568394002505e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.019231331344109523,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/shaft",
+          "point_xyz_mm": [
+            -1252.9820000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head",
+          "point_xyz_mm": [
+            -1313.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut",
+          "point_xyz_mm": [
+            -1212.8881000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/head_washer",
+          "point_xyz_mm": [
+            -1309.1160000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_left_1/nut_washer",
+          "point_xyz_mm": [
+            -1218.1840000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -54.98422846995117,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -54.98422846995117,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/head-capture",
+          "point_xyz_mm": [
+            -1310.132,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 54.98422847012663,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            54.98422847012663,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_left_1/nut-capture",
+          "point_xyz_mm": [
+            -1217.1680000000001,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            -0.0
+          ]
+        }
+      ]
+    },
+    {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a1-rear",
+      "cells_per_receiver": 12,
+      "certified_reference_index": 0.07195980630536024,
+      "complete_joint_capacity": null,
+      "continuous_bending_index": 0.04426937214603331,
+      "current_field": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      "ellipse_bearing_index": 0.07195980630536024,
+      "facets": 32,
+      "independent_Fy_over_2_required_MPa": 26.55792002512115,
+      "independent_Fy_over_2_required_ksi": 3.851900639263393,
+      "independent_witness_replay": {
+        "continuous_bending_index": 0.04426937214603331,
+        "continuous_polygon_bending_index": 0.044476329213376235,
+        "end_force_error_n": 4.513123208482739e-10,
+        "end_moment_error_nmm": 3.606896582297736e-08,
+        "independently_replayed_cells": 25,
+        "maximum_cell_polygon_index": 0.07195980630536024,
+        "maximum_ellipse_index": 0.07195980630536024,
+        "maximum_member_first_moment_error_nmm": 1.4779288903810084e-12,
+        "maximum_member_force_error_n": 2.1316282072803006e-14,
+        "physical_compatibility": false
+      },
+      "separate_conditional_Fy_92ksi_utilization": 0.04186848520938471,
+      "source_point_actions_preserving_axial_and_torsion": [
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.6269839344059239
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/shaft",
+          "point_xyz_mm": [
+            1249.8070000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 55.11799999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.08165536063068363
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head",
+          "point_xyz_mm": [
+            1309.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -5.031999999999925,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06953812912224397
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut",
+          "point_xyz_mm": [
+            1209.7131000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 95.21190000000001,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/head_washer",
+          "point_xyz_mm": [
+            1305.9410000000003,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -1.0160000000000764,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 0.0,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            0.0,
+            0.0,
+            -0.06409169107260555
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "physical-bolt-metal/rail_rear_bolt_right_1/nut_washer",
+          "point_xyz_mm": [
+            1215.0090000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 89.91599999999994,
+          "transported_lateral_couple_xyz_Nmm": [
+            -0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": -46.63596481140437,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            46.63596481140437,
+            0.0,
+            0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/head-capture",
+          "point_xyz_mm": [
+            1306.957,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": -2.0319999999999254,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "axial_force_N": 46.63596481117092,
+          "axial_torsion_Nmm": 0.0,
+          "force_xyz_N": [
+            -46.63596481117092,
+            -0.0,
+            -0.0
+          ],
+          "free_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "id": "rail_rear_bolt_right_1/nut-capture",
+          "point_xyz_mm": [
+            1213.9930000000002,
+            1556.8258931028513,
+            70.43491099171706
+          ],
+          "station_mm": 90.93200000000002,
+          "transported_lateral_couple_xyz_Nmm": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ]
+    }
+  ],
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "drilling_released": false,
+  "fabrication_released": false,
+  "frame_geometry_changed": false,
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "interpretation": [
+    "This changes the pressure-distribution calculation only. Frame geometry, bolt axes, original elastic shaft solution and the six-case force bank are unchanged.",
+    "The finite search preserves every physical receiver force and first moment, along with point forces/couples. Full signed source wrenches remain in the bound rear material report and raw witness map.",
+    "An index above one means this constructed finite-grid reference did not clear its declared Fe/5 and Mp/4 comparison. It does not establish that every continuous or compatible pressure field fails.",
+    "The separate Fy/2 comparison is evaluated on the selected redistributed witness. Fy is not part of the bearing/hinge optimization objective, so its required value is not a minimum over all possible fields.",
+    "The earlier affine radial-pressure reference and this projected line-bearing reference use different constructions. Their indices are not a like-for-like physical strength improvement.",
+    "Neither the19 below-one witness states nor the5 flagged states establish whole-joint acceptance or physical failure. Splitting, contact compatibility, group/geometry and complete joint resistance remain open."
+  ],
+  "joint_disposition": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
+    "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
+  },
+  "method_scope": {
+    "Fe90_diameter_basis": "Nominal fastener diameter for each axis: 12.7 mm for the lumber-leg axes and 9.525 mm for the rail-rear axes. The smaller local root diameter does not increase Fe90 absent a source rule supporting that favorable change. Frozen V1 used local-D Fe90 and remains separately bound; V2 recomputes all 24 states on the nominal-D basis.",
+    "bearing": "Local projected width D(s) times NDS Fe_parallel/Fe90 per receiver cell, divided by 5, in the source-rotated conservative ellipse. Fe_parallel and Fe90 use each axis's source-bound nominal diameter; force and first moment stay aggregate over the physical receiver.",
+    "ellipse_relation": "The reciprocal-strength weighted RMS is no smaller than the Hankinson weighted mean, so the ellipse is no stronger than Hankinson at any load direction.",
+    "finite_grid": "A finite-grid witness index above one is not a lower bound over all continuous fields and does not prove physical failure.",
+    "matched_mode_basis": "For D>=1/4 in and theta<=90 degrees, the pinned NDS Table 12.3.1B reductions are at most 5 (Im/Is), 4.5 (II), and 4 (IIIm/IIIs/IV). Thus Fe/5 is no greater than the bearing term in each applicable matched mode, while Mp/4 is no greater than the hinge term in hinge modes; bearing-only modes have no Mp term. The separately pinned 18-control replay, including 12 hinge-governed controls, has maximum ratio 1.0. This is a conditional matched-mode material reference, not an NDS generalized wrench/group capacity formula.",
+    "plastic_hinge": "Piecewise Fyb*D(s)^3/6/4; matched-mode support is bound to the prior 18-row calibration (12 hinge-governed controls).",
+    "separate_metal": "Independent Fy/2 sufficient envelope is recomputed on each selected witness with actual point-action N/T and continuous lateral V/M extrema; Fy and Fyb remain separate inputs.",
+    "unresolved": [
+      "physical contact compatibility",
+      "gap/clearance",
+      "actual Fe/Fy/Fyb",
+      "actual Cg/Cdelta",
+      "group/slip",
+      "splitting/net section",
+      "fitting and seat resistance",
+      "complete NDS connection capacity"
+    ]
+  },
+  "new_global_or_native_solve": false,
+  "physical_failure_claim": false,
+  "raw_source_report": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-projected-bearing-witness-v2.json",
+    "sha256": "70884b23c719e82591b9f92987463d7cf659c2973fd44b33ef5338785d1726da"
+  },
+  "rear_wrench_material_references": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/rear-wrench-material-references.json",
+    "sha256": "570824e212d35e75fd32f64e5f237f41eb3b7b9c2f67e24eeed19cdaf16ed0b6"
+  },
+  "reproduction": {
+    "command": "python3 fea/generated/v11-shorter-bolts-v1/delivery/project_rear_projected_witness_v1.py",
+    "portable_full_raw_source_closure_checked": false,
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/delivery/project_rear_projected_witness_v1.py",
+      "sha256": "448ad86cd37c4400e7fa77a6e628a31f6b2f7659d1f8508eafef08a732a2c519"
+    },
+    "requires_retained_raw_packet": true
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_current_rear_projected_bearing_reference/v1",
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/geometry/geometry.json",
+      "sha256": "56b543fdc83ce40bcd2088431bc6caf15f0b491f8297d91b8e0926c38b2f8596"
+    },
+    "conditional_method_sources": {
+      "Grade5_F606_receipt": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json",
+        "sha256": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6"
+      },
+      "Grade5_source_inputs": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source-inputs.json",
+        "sha256": "064e3351b597c472a1b7ffc1baa4d362a3a2310310f2df1e4fc2927e602f5ef4"
+      },
+      "Mp_over4_calibration": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/rear-fyb-over4-calibration-and-sensitivity-v1.json",
+        "sha256": "c3402abb7e53bf230761b03e2c70221e06781bec15286bc93e4f79878ba15164"
+      },
+      "NDS_yield_helper": {
+        "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+        "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+      },
+      "matched_mode_controls": {
+        "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/nds-yield-calibration-v1.json",
+        "sha256": "b3d08df2b531168de36db71856397062ffe4e9301b8172f81ce0f2a1224c7f50"
+      },
+      "metal_reference_adapter": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_current_1d_metal_interaction_v1.py",
+        "sha256": "e92e6ece228d917cf8f425ae49f1e890573016965fff7f1eb427bbd6ba87b2f9"
+      },
+      "metal_reference_kernel": {
+        "path": "scripts/thin_bolted_steel_resistance.py",
+        "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+      }
+    },
+    "current_fields": [
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+      }
+    ],
+    "current_rear_material_reference": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-1d-radial-and-metal-reference-v1.json",
+      "sha256": "2255b27323cc8a3e5d859f31128e28135be798f3fb01154f3844d7e09320ba05"
+    },
+    "current_response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "governing_case_producer_v1": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_projected_rear_bearing_witness_v1.py",
+      "sha256": "980a58d9538ae9d7e93b35cb6c6fc6c6ed01c9b48365ec390a6fb459e2dff9a9"
+    },
+    "governing_case_v1_local_d_Fe90_historical": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-projected-bearing-witness-v1.json",
+      "sha256": "34cd1986e3a7a94952eedd431a45a465873bb7ec866ac2e820a4afd86886bcab"
+    },
+    "producer_v2": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_projected_rear_bearing_witness_v2.py",
+      "sha256": "195d1078be96684970b82db67becd73d390f795109de5925702ece7086549ed1"
+    },
+    "projected_witness_helper": {
+      "path": "mini_moonboard/projected_bearing_witness.py",
+      "sha256": "caf91afdc94b45d72f22c12675218ba649b0ca5e681c51002996027a7c235d0e"
+    },
+    "projected_witness_tests": {
+      "path": "tests/test_projected_bearing_witness.py",
+      "sha256": "f0a1214c62e8bbdae17381d9b38d17b97cc918db6ae2180aa19961df593ec8ac"
+    }
+  },
+  "status": "CONDITIONAL_FINITE_WITNESS_SEARCH_NOT_COMPLETE_CONNECTION_CAPACITY",
+  "structural_acceptance": false,
+  "summary": {
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "actual_Fe": null,
+    "actual_Fy": null,
+    "actual_Fyb": null,
+    "axis_count": 4,
+    "case_count": 6,
+    "continuous_bending_above_one_count": 5,
+    "ellipse_bearing_above_one_count": 5,
+    "full_NDS_connection_capacity": null,
+    "independent_replay": {
+      "continuous_metal_stationary_extrema_checked_for_all_intervals": true,
+      "maximum_continuous_bending_index": 1.2789309740672739,
+      "maximum_metal_helper_arithmetic_replay_error_MPa": 0.0,
+      "maximum_true_ellipse_index": 1.2790619680711501
+    },
+    "maximum_conditional_Fy_92ksi_scenario_utilization": 1.088850801455939,
+    "maximum_continuous_bending_index_case": [
+      "lumber_leg_bolt_left_1",
+      "a12-rear",
+      1.2789309740672739
+    ],
+    "maximum_ellipse_bearing_index_case": [
+      "lumber_leg_bolt_left_1",
+      "a12-rear",
+      1.2790619680711501
+    ],
+    "maximum_projected_reference_index_case": [
+      "lumber_leg_bolt_left_1",
+      "a12-rear",
+      1.2790619680711501
+    ],
+    "maximum_reference_index": 1.2790619680711501,
+    "maximum_replay_errors": {
+      "member_first_moment_Nmm": 1.0186340659856796e-10,
+      "member_force_N": 4.092726157978177e-12,
+      "shaft_force_N": 7.953151026640626e-09,
+      "shaft_moment_Nmm": 3.491338667949152e-07
+    },
+    "maximum_required_Fy_MPa_case": [
+      "lumber_leg_bolt_left_1",
+      "a12-rear",
+      690.6773044149706
+    ],
+    "maximum_required_Fy_ksi": 100.1742737339464,
+    "physical_failure_claim": false,
+    "reference_index_above_one_count": 5,
+    "state_count": 24,
+    "structural_acceptance": false
+  }
+}
