@@ -50,10 +50,11 @@ function bound(ref) {
   return bytes;
 }
 
-function boundCompressedJson(ref, expectedPath) {
+function boundCompressedJson(ref, expectedPath, readArtifact = bound) {
   referenceKeys(ref, ['path', 'sha256', 'encoding', 'decoded_sha256', 'decoded_bytes'], 'compressed JSON binding');
   referenceBinding({path: ref.path, sha256: ref.sha256}, expectedPath); assert.equal(ref.encoding, 'gzip');
-  const decoded = gunzipSync(bound(ref)); assert.equal(sha(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
+  const bytes = readArtifact(ref); assert.equal(sha(bytes), ref.sha256, `source binding: ${ref.path}`);
+  const decoded = gunzipSync(bytes); assert.equal(sha(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
   return JSON.parse(decoded);
 }
 
@@ -3658,7 +3659,19 @@ export function validateShorterJointCriterionFollowthrough(report, entry, bank) 
   return report;
 }
 
-export function validateCurrentShorterJointDisposition(report, entry, index) {
+function currentJointPointerValue(sources, data, source, pointer) {
+  assert.ok(Object.hasOwn(sources, source) && typeof pointer === 'string' && (pointer === '' || pointer.startsWith('/')));
+  if (!Object.hasOwn(data, source)) {
+    assert.equal(source, 'global_washer_rows'); assert.match(pointer, /^\/rows\/(0|[1-9]\d*)$/); assert.ok(Number(pointer.split('/')[2]) < 1152); return null;
+  }
+  return pointer.split('/').slice(1).reduce((node, token) => {
+    const key = token.replaceAll('~1', '/').replaceAll('~0', '~');
+    assert.ok(node !== null && typeof node === 'object' && Object.hasOwn(node, key), 'current joint evidence pointer missing'); return node[key];
+  }, data[source]);
+}
+
+export function validateCurrentShorterJointDisposition(report, entry, index, readArtifact = bound) {
+  if (report.schema === 'v11_current_joint_disposition_composed/v3') return validateCurrentShorterJointDispositionV3(report, entry, index, readArtifact);
   assert.equal(report.schema, 'v11_current_joint_disposition_composed/v2'); assert.equal(report.revision, entry.revision);
   const prefix = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/', sources = report.source_bindings, data = {};
   const files = {base: 'joint-disposition.json', criteria: 'joint-criterion-followthrough.json.gz', geometry_receipt: 'geometry-receipt.json',
@@ -3699,15 +3712,7 @@ export function validateCurrentShorterJointDisposition(report, entry, index) {
   referenceBinding(sources.preserved_v1_overlay, 'fea/generated/v11-shorter-bolts-v1/delivery/current-joint-disposition-overlay-v1.json');
   assert.equal(sources.preserved_v1_overlay.sha256, 'ea64ff544c7aacd36bfcce1b5ad91966843ccf4879ac61c957536ad9329e9c21');
   // The two ignored source declarations are not opened by this portable check.
-  const pointerValue = (source, pointer) => {
-    assert.ok(Object.hasOwn(sources, source) && typeof pointer === 'string' && (pointer === '' || pointer.startsWith('/')));
-    if (!Object.hasOwn(data, source)) {
-      assert.equal(source, 'global_washer_rows'); assert.match(pointer, /^\/rows\/(0|[1-9]\d*)$/); assert.ok(Number(pointer.split('/')[2]) < 1152); return null;
-    }
-    return pointer.split('/').slice(1).reduce((node, token) => {
-      const key = token.replaceAll('~1', '/').replaceAll('~0', '~'); assert.ok(node !== null && typeof node === 'object' && Object.hasOwn(node, key), 'current joint evidence pointer missing'); return node[key];
-    }, data[source]);
-  };
+  const pointerValue = (source, pointer) => currentJointPointerValue(sources, data, source, pointer);
   const expectedFlags = {named_diagnostic_and_scenario_rows: 110, generic45_mixed_hinge_model_states: 8, affine_Fe_over5_model_states: 8,
     finite_projected_rear_witness_states: 5, continuous_rear_necessary_reference_states: 5, optional_foot_two_edge_envelopes: 3, optional_reverse_edge_component_envelopes: 5};
   const flagSources = {named_diagnostic_and_scenario_rows: 'connection_references', generic45_mixed_hinge_model_states: 'base', affine_Fe_over5_model_states: 'rear_material',
@@ -3792,6 +3797,274 @@ export function validateCurrentShorterJointDisposition(report, entry, index) {
   assert.equal(work.local_native_fitting.fine_envelope_for_other94_or_assembly_prying_qualified, false);
   referenceClose(Math.max(...rows.map(row => row.current_duties.global_washer.maximum_required_Fy_MPa)), data.global_washer_minimum_thickness.summary.maximum_minimum_scenario_required_Fy_MPa, 'composed washer maximum');
   for (const key of ['producer', 'preserved_v1_helper', 'preserved_v1_overlay']) referenceBinding(report.reproduction[key]);
+  return report;
+}
+
+export function validateCurrentShorterJointDispositionV3(report, entry, index, readArtifact = bound) {
+  assert.equal(report.schema, 'v11_current_joint_disposition_composed/v3'); assert.equal(report.revision, entry.revision);
+  const prefix = 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/';
+  const v2 = {path: prefix+'current-joint-disposition.json.gz', sha256: '138645039a5b96e7a9c73b07be1cb93b1187366830426fe65e2b8bb5b74ab379',
+    encoding: 'gzip', decoded_bytes: 485226, decoded_sha256: 'd395a41f3a3531d7ef444e17b2e56e561d51a5511741889e6e588759909ab565'};
+  assert.deepEqual(report.preserved_v2, v2);
+  const prior = boundCompressedJson(v2, v2.path); validateCurrentShorterJointDisposition(prior, entry, index);
+  const sources = report.source_bindings, data = {}, files = {all_fitting_component_reference: 'all-fitting-component-reference.json.gz',
+    header_fitting_variant: 'header-fitting-variant.json.gz', governing_fitting_mesh_comparison: 'governing-fitting-mesh-comparison.json',
+    local_member_followthrough: 'local-member-followthrough.json.gz', plywood_washer_followthrough: 'plywood-washer-followthrough.json.gz',
+    lateral_method_followthrough: 'lateral-method-followthrough.json.gz', adhesive_bond_basis: 'adhesive-bond-basis.json'};
+  referenceKeys(sources, [...Object.keys(prior.source_bindings), ...Object.keys(files), 'preserved_v2_overlay'], 'V3 current joint sources');
+  for (const [key, ref] of Object.entries(prior.source_bindings)) assert.deepEqual(sources[key], ref, `preserved source: ${key}`);
+  referenceBinding(sources.preserved_v2_overlay, 'fea/generated/v11-shorter-bolts-v1/delivery/current-joint-disposition-overlay-v2.json');
+  assert.equal(sources.preserved_v2_overlay.sha256, '1fb56481fbe60ddd148a5622122770c4d3704f84aaf0189607240d6f7c09712b');
+  for (const [key, ref] of Object.entries(sources)) {
+    if (files[key]) {assert.equal(ref.path, prefix+files[key]); if (entry[key] !== undefined) assert.deepEqual(entry[key], ref);}
+    if (!ref.path.startsWith('docs/')) continue; // Ignored declarations never become portable input reads.
+    if (ref.encoding === 'gzip') data[key] = boundCompressedJson(ref, ref.path, readArtifact);
+    else {referenceBinding(ref); const raw = readArtifact(ref); assert.equal(sha(raw), ref.sha256); if (!ref.path.endsWith('.csv')) data[key] = JSON.parse(raw);}
+  }
+  assert.deepEqual(sources.response_bank, entry.response_bank); assert.deepEqual(sources.geometry_receipt, entry.geometry_receipt);
+  const bank = data.response_bank, roster = rows => rows.map(({joint_id, family, axis_ids, fitting_ids}) => ({joint_id, family, axis_ids, fitting_ids}));
+  const rows = report.joint_clusters, fittings = prior.joint_clusters.flatMap(row => row.fitting_ids), state = row => `${row.fitting_id}/${row.case_id}`;
+  assert.deepEqual(roster(rows), roster(prior.joint_clusters)); assert.equal(rows.length, 26);
+  assert.equal(new Set(rows.flatMap(row => row.axis_ids)).size, 112); assert.equal(rows.flatMap(row => row.axis_ids).length, 112);
+  assert.equal(new Set(rows.flatMap(row => row.fitting_ids)).size, 24);
+  const bundleKeys = {local_member_followthrough: ['actual_station_reduced_depth', 'actual_station_full_wrench', 'appendix_path_recheck', 'header_static_atlas', 'header_signed_geometry'],
+    plywood_washer_followthrough: ['plywood_washer_mean', 'plywood_circular_plate', 'plywood_hex_plate'],
+    lateral_method_followthrough: ['generalized_lateral_theorem', 'isotropic_disk_summary', 'contracted_common_law_proof', 'contracted_common_law_summary', 'contracted_saved_fields', 'mixed_Mp4_projection', 'mixed_Mp4_summary']};
+  for (const [name, keys] of Object.entries(bundleKeys)) {
+    const bundle = data[name]; assert.equal(bundle.schema, `v11_${name}/v1`); assert.equal(bundle.revision, entry.revision);
+    assert.deepEqual(bundle.geometry_receipt, entry.geometry_receipt); assert.deepEqual(bundle.response_bank, entry.response_bank);
+    referenceKeys(bundle.sections, keys, `${name} sections`);
+    for (const section of Object.values(bundle.sections)) {
+      referenceBinding({path: section.source.path, sha256: section.source.sha256});
+      assert.equal(section.projection.method, 'copy_existing_recorded_values_without_new_mechanics');
+      assert.equal(section.projection.source_JSON_pointer_prefix, ''); assert.ok(Array.isArray(section.projection.omitted_fields));
+    }
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity', 'accepted_connection_exceedance_count']) assert.equal(bundle[key], null);
+    for (const key of ['whole_joint_qualified', 'physical_failure_claim', 'structural_acceptance', 'purchase_authorized', 'drilling_released', 'fabrication_released',
+      'climbing_released', 'new_force_geometry_or_native_work', 'recursive_raw_source_closure_claimed']) assert.equal(bundle[key], false);
+  }
+  const section = (bundle, key) => data[bundle].sections[key].data;
+  const local = key => section('local_member_followthrough', key), plywood = key => section('plywood_washer_followthrough', key), law = key => section('lateral_method_followthrough', key);
+  const native = data.all_fitting_component_reference, header = data.header_fitting_variant, mesh = data.governing_fitting_mesh_comparison;
+  assert.equal(native.schema, 'conditional_132_state_angle_reference_summary/v1'); assert.equal(header.schema, 'conditional_48_state_header_variant_summary/v1');
+  for (const item of [native, header]) {
+    assert.equal(item.source_bank.sha256, entry.response_bank.sha256); assert.deepEqual(item.source_geometry, bank.physical_geometry);
+    for (const value of Object.values(item.limits)) assert.ok(value === false || value === null);
+    for (const row of item.per_state_results) {assert.equal(row.actual_Fy_MPa, null); referenceIndex(row.maximum_native_IP_VM_MPa, 'fitting stress');
+      referenceClose(row.required_Fy_at1_67_marker_MPa, 1.67*row.maximum_native_IP_VM_MPa, 'fitting sampled marker');}
+  }
+  assert.equal(native.per_state_results.length, 132); assert.equal(native.named_radial_torque_holds.length, 12);
+  assert.equal(native.counts.preserved_far_observations, 95); assert.equal(native.counts.new_clipped_observations, 37);
+  assert.deepEqual([...native.per_state_results, ...native.named_radial_torque_holds].map(state).sort(), fittings.flatMap(id => CURRENT_CASES.map(c => `${id}/${c}`)).sort());
+  assert.equal(native.preserved_95_state_summary.sha256, sources.native_fitting_scope_extension.decoded_sha256);
+  for (const old of data.native_fitting_scope_extension.per_state_results) {
+    const now = native.per_state_results.find(row => state(row) === state(old)); assert.ok(now, 'preserved 95-state observation missing');
+    referenceClose(now.maximum_native_IP_VM_MPa, old.maximum_native_IP_VM_MPa, 'preserved 95-state stress');
+  }
+  assert.equal(header.baseline_132_summary.sha256, sources.all_fitting_component_reference.decoded_sha256);
+  assert.deepEqual([header.counts.states, header.counts.fittings, header.counts.combined_bore_replacements, header.counts.unchanged_source_load_rows], [48, 8, 96, 1200]);
+  assert.equal(header.counts.event_limit_aliases_are_duplicate_inputs, true); assert.equal(header.counts.event_limit_aliases_per_state, 2);
+  assert.equal(header.per_state_results.length, 48); assert.equal(new Set(header.per_state_results.map(state)).size, 48);
+  for (const row of header.per_state_results) {
+    const baseline = currentJointPointerValue({baseline: sources.all_fitting_component_reference}, {baseline: native}, 'baseline', row.baseline_summary_json_pointer);
+    assert.equal(state(baseline), state(row)); assert.equal(row.modified_bores.length, 2); assert.equal(new Set(row.modified_bores).size, 2);
+    assert.deepEqual(row.event_limit_aliases, ['on-plane-to-high', 'on-plane-to-low']);
+  }
+  assert.equal(mesh.schema, 'selected_baseline_header_two_mesh_observation/v1'); assert.equal(mesh.source_bank_sha256, entry.response_bank.sha256);
+  assert.equal(mesh.states.length, 2); assert.deepEqual(mesh.states.map(row => row.state_id[0]).sort(), ['C', 'H']);
+  for (const [key, value] of Object.entries(mesh.method_limits)) assert.equal(value,
+    ['all_source_loads_applied_once', 'all_gauge_CLOADs_zero', 'work_is_half_serialized_CLOAD_dot_same_mesh_U'].includes(key));
+  const reduced = local('actual_station_reduced_depth'), full = local('actual_station_full_wrench'), paths = local('appendix_path_recheck'), atlas = local('header_static_atlas'), signed = local('header_signed_geometry');
+  assert.equal(reduced.geometry_revision, entry.revision); assert.equal(paths.geometry_revision, entry.revision);
+  assert.equal(reduced.source_bindings[sources.geometry_receipt.path], sources.geometry_receipt.sha256); assert.equal(paths.response_bank.sha256, entry.response_bank.sha256);
+  assert.equal(reduced.groups.length, 2); assert.equal(full.groups.length, 2); assert.equal(full.summary.wrench_limit_rows, 96);
+  for (const key of ['actual_Cg', 'actual_Cdelta']) assert.equal(full.limits[key], null);
+  for (const key of ['complete_joint_qualified', 'structural_acceptance', 'physical_material_or_finished_cut_qualification']) assert.equal(full.limits[key], false);
+  for (const group of reduced.groups) {
+    referenceClose(group.actual_member_breadth_mm, 88.9, 'actual local breadth'); assert.equal(group.physical_unloaded_edge_selected, false);
+    assert.equal(group.complete_joint_qualified, false); assert.equal(group.case_results.length, 6); assert.equal(Object.keys(group.actual_axis_station_sections).length, 4);
+    for (const value of Object.values(group.maximum_ratio_by_edge_hypothesis)) assert.ok(value.maximum_ratio < 1);
+  }
+  assert.equal(paths.interrupted_paths.length, 24); assert.equal(paths.counts.source_voids_are_other_prepared_bores, 22); assert.equal(paths.counts.source_voids_are_nonshaft_openings, 2);
+  assert.equal(paths.interpretation.not_a_common_core_exclusion, true); assert.equal(paths.interpretation.not_a_new_load_allocation, true); assert.equal(paths.interpretation.complete_joint_qualified, false);
+  assert.equal(atlas.source_bank.sha256, entry.response_bank.sha256); assert.equal(atlas.rows.length, 48);
+  assert.equal(atlas.summary.unique_changed_combined_bore_wrenches, 96); assert.equal(atlas.summary.unchanged_unilateral_loads_checked, 1008);
+  assert.equal(signed.changed_receiver_cases.length, 48); assert.equal(signed.classification_summary.NDS_loaded_edge_or_end_classifications_assigned, 0);
+  assert.equal(signed.invariants.all_068_069_case_rows_unchanged, true);
+  const mean = plywood('plywood_washer_mean'), circular = plywood('plywood_circular_plate'), hex = plywood('plywood_hex_plate');
+  assert.equal(mean.revision, entry.revision); assert.equal(mean.rows.length, 96); assert.equal(mean.adjustments_used.duration_factor_CD, 1); assert.equal(mean.adjustments_used.Cb, null);
+  assert.equal(mean.panel_material_basis.physical_grade_layup_and_moisture_observed, false);
+  assert.equal(circular.scope.axisymmetric_circular_A574_socket_cap_rows_evaluated, 72); assert.equal(hex.rows.length, 24);
+  for (const plate of [circular, hex]) {assert.equal(plate.summary.actual_washer_Fy_MPa, null); assert.equal(plate.summary.washer_strength_or_fit_pass, null);}
+  const theorem = law('generalized_lateral_theorem'), proof = law('contracted_common_law_proof'), summary = law('contracted_common_law_summary'), disk = law('isotropic_disk_summary'), fields = law('contracted_saved_fields');
+  assert.equal(theorem.theorem.established, true); assert.equal(theorem.theorem.chosen_stress_field_elastic_compatibility_required, false);
+  assert.equal(theorem.theorem.requires_enumerated_three_media_mode_API, false); assert.equal(proof.common_work_bridge.established, true);
+  assert.equal(proof.common_work_bridge.arbitrary_independent_load_angle_and_virtual_velocity_angle_bound, false);
+  for (const record of [theorem, proof, summary, disk]) {
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fe', 'actual_Fy', 'actual_Fyb']) assert.equal(record[key], null);
+    assert.equal(record.structural_acceptance, false); assert.equal(record.physical_failure_claim, false);
+    for (const key of ['complete_NDS_connection_capacity', 'complete_joint_capacity']) if (Object.hasOwn(record, key)) assert.equal(record[key], null);
+  }
+  assert.equal(fields.current112_mixed_states.length, 144); assert.equal(fields.current112_rear.states.length, 24); assert.equal(fields.unselected114_rear.states.length, 36);
+  assert.equal(fields.current112_rear.bank.sha256, entry.response_bank.sha256);
+  assert.equal(fields.current112_rear.bank.path, 'fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json');
+  assert.deepEqual(fields.unselected114_rear.bank, data.matching_completion.source_bindings.response_bank);
+  const mp4 = law('mixed_Mp4_projection'), mp4Summary = law('mixed_Mp4_summary');
+  assert.equal(mp4.rows.length, 144); assert.deepEqual(mp4.summary, mp4Summary.summary);
+  assert.equal(mp4.summary.historical_Mp5_above_one_count_preserved, 8); assert.equal(mp4.summary.new_reference_above_one_count, 5);
+  referenceClose(mp4.summary.maximum_combined_common_work_Mp4_index, 1.303677628640607, 'separate Mp/4 maximum');
+  for (const row of mp4.rows) {assert.deepEqual(row.source_field, bank.cases.find(item => item.case_id === row.case_id).field);
+    const saved = fields.current112_mixed_states.find(item => item.axis_id === row.axis_id && item.case_id === row.case_id); assert.ok(saved);
+    assert.equal(row.full_N_V_T_M_and_capture_demands_sha256_unchanged, saved.unchanged_full_wrench_demands_sha256);
+    referenceClose(row.contracted_bearing_index_unchanged, saved.contracted_bearing_maximum, 'unchanged contracted bearing');
+    referenceClose(row.Mp4_hinge_index, .8*saved.unchanged_Mp_over5_index, 'separate Mp/4 coefficient');
+    referenceClose(row.combined_common_work_Mp4_index, Math.max(row.Mp4_hinge_index, row.contracted_bearing_index_unchanged), 'combined Mp/4 reference');
+    for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fyb', 'complete_joint_capacity']) assert.equal(row[key], null);}
+  const adhesive = data.adhesive_bond_basis;
+  assert.equal(adhesive.selection.product, 'System Three T-88 Structural Epoxy Adhesive'); assert.equal(adhesive.selection.owner_selected_product, false);
+  assert.equal(adhesive.selection.purchased_or_delivered, false); assert.equal(adhesive.decision_and_release.retain_existing_conditional_T88_selection, true);
+  assert.equal(adhesive.decision_and_release.physical_bond_or_perfect_composite_action_qualified, false);
+  assert.equal(adhesive.decision_and_release.purchase_or_fabrication_released, false); assert.equal(adhesive.decision_and_release.structural_or_climbing_acceptance, false);
+  assert.equal(adhesive.manufacturer_process_reference.cure.TDS_full_cure_at_70F, '3 days');
+  const counters = {native: 0, held: 0, header: 0, signed: 0, mesh: 0, reduced: 0, full: 0, paths: 0, mean: 0, circular: 0, hex: 0, mixed: 0, rear: 0};
+  const flagPoints = {contracted_rear_bearing: [], isotropic_disk_rear_bearing: [], unchanged_mixed_Mp5_hinge: [], updated_mixed_Mp4: []};
+  const walk = (value, owner) => {
+    if (!value || typeof value !== 'object') return;
+    if (typeof value.source === 'string' && (value.pointer !== undefined || value.pointers !== undefined)) {
+      for (const p of [...(value.pointers ?? []), ...(value.pointer === undefined ? [] : [value.pointer])]) {
+        const target = currentJointPointerValue(sources, data, value.source, p);
+        if (owner && target) {if (target.fitting_id) assert.ok(owner.fitting_ids.includes(target.fitting_id));
+          if (target.axis_id) assert.ok(owner.axis_ids.includes(target.axis_id)); if (target.axis_ids) assert.ok(target.axis_ids.every(id => owner.axis_ids.includes(id)));}
+      }
+    }
+    for (const [key, child] of Object.entries(value)) if (!['source_bindings', 'reproduction', 'preserved_v2_scope_evidence'].includes(key)) walk(child, owner);
+  };
+  for (const [n, row] of rows.entries()) {
+    const duties = row.current_duties, old = prior.joint_clusters[n];
+    assert.deepEqual(row.current_retained_flag_evidence, old.current_retained_flag_evidence);
+    assert.equal(row.whole_joint_qualified, false); for (const key of ['actual_Cg_adopted', 'actual_Cdelta_adopted', 'complete_joint_capacity']) assert.equal(row[key], null);
+    assert.deepEqual(Object.keys(row.current_engineering_decisions).sort(), [...row.remaining_duties].sort());
+    assert.ok(row.remaining_duties.length && Object.keys(row.current_unverified_physical_inputs).length);
+    for (const [key, duty] of Object.entries(duties)) assert.equal(duty.meaning, report.duty_definitions[key]);
+    for (const [key, [source, sections]] of Object.entries({actual_station_reduced_depth: ['local_member_followthrough', ['actual_station_reduced_depth']],
+      actual_station_full_wrench: ['local_member_followthrough', ['actual_station_full_wrench']], plywood_washer_mean: ['plywood_washer_followthrough', ['plywood_washer_mean']],
+      plywood_washer_plate: ['plywood_washer_followthrough', ['plywood_circular_plate', 'plywood_hex_plate']],
+      lateral_common_law: ['lateral_method_followthrough', ['generalized_lateral_theorem', 'contracted_common_law_proof', 'contracted_common_law_summary', 'isotropic_disk_summary', 'contracted_saved_fields']]})) if (duties[key]) {
+      const evidence = duties[key].evidence; assert.ok(evidence.length && evidence.every(item => item.source === source), 'own component evidence source required');
+      for (const name of sections) assert.ok(evidence.some(item => item.pointers.some(p => p.startsWith(`/sections/${name}/data/`))), 'own component evidence section required');
+    }
+    if (duties.fitting) {
+      const fitting = duties.fitting;
+      assert.equal(fitting.status, 'baseline132_components_computed_raw_torque_and_assembly_scope_open');
+      assert.equal(fitting.selected_mesh_is_all_state_fine_envelope ?? false, false);
+      assert.deepEqual(fitting.preserved_v2_scope_evidence, {source: 'preserved_v2_overlay', pointers: [`/joint_updates/${n}/duties/fitting`]});
+      const coverage = Object.fromEntries(row.fitting_ids.map(id => [id, {per_state_results: CURRENT_CASES.filter(c => native.per_state_results.some(x => x.fitting_id === id && x.case_id === c)),
+        named_radial_torque_holds: CURRENT_CASES.filter(c => native.named_radial_torque_holds.some(x => x.fitting_id === id && x.case_id === c)), named_geometry_exclusions: []}]));
+      assert.deepEqual(fitting.native_case_coverage, coverage); assert.equal(fitting.geometry_excluded_states, 0);
+      assert.equal(fitting.native_reference_states, Object.values(coverage).reduce((sum, item) => sum+item.per_state_results.length, 0));
+      assert.equal(fitting.radial_torque_hold_states, Object.values(coverage).reduce((sum, item) => sum+item.named_radial_torque_holds.length, 0));
+      counters.native += fitting.native_reference_states; counters.held += fitting.radial_torque_hold_states;
+      const coarse = native.per_state_results.filter(x => row.fitting_ids.includes(x.fitting_id)).reduce((a, b) => a.maximum_native_IP_VM_MPa > b.maximum_native_IP_VM_MPa ? a : b);
+      for (const key of ['fitting_id', 'case_id', 'maximum_native_IP_VM_MPa', 'required_Fy_at1_67_marker_MPa', 'actual_Fy_MPa']) assert.equal(fitting.coarse_sampled_reference_maximum[key], coarse[key]);
+      if (fitting.selected_mesh_comparisons) {assert.equal(fitting.selected_mesh_is_all_state_fine_envelope, false);
+        const expected = mesh.states.filter(x => row.fitting_ids.includes(x.fitting_id)).map(x => Object.fromEntries(['state_id', 'fitting_id', 'case_id', 'fine_VM_MPa', 'coarse_VM_MPa',
+          'fine_required_Fy_at1_67_marker_MPa', 'VM_relative_change_percent', 'work_relative_change_percent'].map(key => [key, x[key]])));
+        assert.deepEqual(fitting.selected_mesh_comparisons, expected); counters.mesh += fitting.selected_mesh_comparisons.length;}
+    }
+    assert.equal(Boolean(duties.header_opening_bridge), Boolean(old.current_duties.header_opening_bridge));
+    if (duties.header_opening_bridge) {
+      const duty = duties.header_opening_bridge; assert.equal(duty.NDS_loaded_edge_or_end_classification, null);
+      assert.equal(duty.status, 'static_shaft_interface_native_and_signed_geometry_components_computed_joint_rules_open');
+      assert.equal(duty.prescribed_static_atlas.compatible_contact_slip_prying_or_redistribution_qualified, false);
+      assert.equal(duty.fitting_variant_states, header.per_state_results.filter(x => row.fitting_ids.includes(x.fitting_id)).length);
+      assert.equal(duty.signed_receiver_geometry_rows, signed.changed_receiver_cases.filter(x => row.axis_ids.includes(x.axis_id)).length);
+      assert.equal(duty.prescribed_static_atlas.changed_combined_bore_wrenches, 2*duty.fitting_variant_states);
+      counters.header += duty.fitting_variant_states; counters.signed += duty.signed_receiver_geometry_rows;
+    }
+    const actual = duties.actual_station_reduced_depth;
+    if (actual) {const source = reduced.groups.find(g => g.host === actual.host); assert.ok(source); assert.deepEqual(actual.axis_ids, source.axis_ids);
+      assert.equal(actual.status, 'both_local_edge_component_references_computed_taper_and_full_joint_scope_open');
+      assert.deepEqual(actual.maximum_by_edge_hypothesis, source.maximum_ratio_by_edge_hypothesis); assert.equal(actual.physical_unloaded_edge_selected, false);
+      assert.deepEqual(duties.member_components.unresolved_core_evidence, []);
+      assert.deepEqual(duties.member_components.superseded_reduced_depth_core_exclusion_evidence, old.current_duties.member_components.unresolved_core_evidence);
+      assert.equal(actual.group_case_rows, 6); assert.equal(actual.edge_hypothesis_case_references, 12); counters.reduced += actual.group_case_rows;}
+    if (duties.actual_station_full_wrench) {const duty = duties.actual_station_full_wrench, group = full.groups.find(g => g.host === duty.host);
+      const limits = group.station_sections.flatMap(s => s.case_wrenches_and_references.flatMap(c => c.before_after_limits));
+      for (const limit of limits) assert.ok(Array.isArray(limit.signed_wrench_N_Nmm) && limit.signed_wrench_N_Nmm.length === 6 && limit.signed_wrench_N_Nmm.every(Number.isFinite));
+      assert.equal(duty.wrench_limit_rows, limits.length); assert.equal(duty.complete_joint_qualified, false); counters.full += limits.length;}
+    assert.equal(duties.parallel_anchorage.status, 'supported_components_computed_exclusions_retained');
+    const countPaths = paths.interrupted_paths.filter(x => row.axis_ids.includes(x.axis_id)).length;
+    assert.equal(duties.parallel_anchorage.confirmed_interrupted_directions ?? 0, countPaths); counters.paths += countPaths;
+    if (duties.plywood_washer_mean) {const duty = duties.plywood_washer_mean, picked = mean.rows.filter(x => row.axis_ids.includes(x.axis_id));
+      assert.equal(duty.status, 'conditional_APA_mean_bearing_computed_physical_conformity_and_contact_open'); assert.equal(duty.seat_case_rows, picked.length);
+      assert.equal(duty.actual_panel_or_full_washer_qualified, false); counters.mean += picked.length;}
+    if (duties.plywood_washer_plate) {const duty = duties.plywood_washer_plate;
+      assert.equal(duty.status, 'conditional_prescribed_plate_components_computed_actual_contact_and_material_open');
+      assert.equal(duty.circular_socket_cap_rows, circular.rows.filter(x => row.axis_ids.includes(x.axis_id) && x.result_status === 'conditional_axisymmetric_circular_socket_cap_ring').length);
+      assert.equal(duty.hex_inscribed_circle_rows, hex.rows.filter(x => row.axis_ids.includes(x.axis_id)).length);
+      assert.equal(duty.actual_washer_Fy_MPa, null); assert.equal(duty.strength_or_fit_pass, null); counters.circular += duty.circular_socket_cap_rows; counters.hex += duty.hex_inscribed_circle_rows;}
+    assert.equal(duties.global_washer.actual_washer_Fy_MPa, null); assert.equal(duties.global_washer.strength_or_fit_pass, null);
+    assert.equal(duties.global_washer.case_rows, old.current_duties.global_washer.case_rows);
+    assert.deepEqual(duties.global_washer.evidence, old.current_duties.global_washer.evidence);
+    if (duties.bond_composite) {assert.equal(duties.bond_composite.owner_selected_or_purchased, false); assert.equal(duties.bond_composite.bond_strength_or_physical_demand_bound, null);
+      assert.equal(duties.bond_composite.conditional_assistant_selected_product, adhesive.selection.product);}
+    const common = duties.lateral_common_law;
+    if (common) {
+      const mixed = fields.current112_mixed_states.filter(x => row.axis_ids.includes(x.axis_id)), rear = fields.current112_rear.states.filter(x => row.axis_ids.includes(x.axis_id));
+      assert.equal(common.status, 'declared_common_law_theorem_and_fixed_field_references_computed_NDS_joint_identification_open');
+      assert.equal(common.case_rows, mixed.length+rear.length); counters.mixed += mixed.length; counters.rear += rear.length;
+      for (const key of ['accepted_connection_exceedance_count', 'actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(common[key], null);
+      assert.equal(common.physical_failure_claim, false);
+      const expectedFlagRows = {
+        contracted_rear_bearing: ['contracted_common_law_summary', '/current112_rear/bearing_above_one_states', summary.current112_rear.bearing_above_one_states],
+        isotropic_disk_rear_bearing: ['isotropic_disk_summary', '/rear/disk_bearing_above_one_states', disk.rear.disk_bearing_above_one_states],
+        unchanged_mixed_Mp5_hinge: ['contracted_saved_fields', '/current112_mixed_states', fields.current112_mixed_states],
+        ...(mixed.length ? {updated_mixed_Mp4: ['mixed_Mp4_summary', '/summary/new_reference_above_one_rows', mp4Summary.summary.new_reference_above_one_rows]} : {})};
+      referenceKeys(common.additional_separate_fixed_field_reference_flags, Object.keys(expectedFlagRows), 'separate method flags');
+      for (const [key, [source, prefix, values]] of Object.entries(expectedFlagRows)) {
+        const pointers = values.flatMap((value, k) => row.axis_ids.includes(value.axis_id) && (key !== 'unchanged_mixed_Mp5_hinge' || value.unchanged_Mp_over5_index > 1)
+          ? [`/sections/${source}/data${prefix}/${k}`] : []);
+        assert.deepEqual(common.additional_separate_fixed_field_reference_flags[key], {source: 'lateral_method_followthrough', pointers});
+      }
+      for (const [key, item] of Object.entries(common.additional_separate_fixed_field_reference_flags)) {assert.ok(Object.hasOwn(flagPoints, key)); flagPoints[key].push(...item.pointers);}
+      if (mixed.length) {const duty = common.Mp4_common_work_reference, picked = mp4.rows.filter(x => row.axis_ids.includes(x.axis_id));
+        assert.equal(duty.case_rows, picked.length); assert.equal(duty.actual_Fyb, null); assert.equal(duty.complete_joint_capacity, null);
+        assert.equal(duty.status, 'conditional_generic45_fixed_field_reference_not_actual_capacity');
+        referenceClose(duty.maximum_combined_reference_index, Math.max(...picked.map(x => x.combined_common_work_Mp4_index)), 'per-joint Mp/4 maximum');}
+    }
+    walk(duties, row);
+  }
+  assert.deepEqual(counters, {native: 132, held: 12, header: 48, signed: 48, mesh: 2, reduced: 12, full: 96, paths: 24, mean: 96, circular: 72, hex: 24, mixed: 144, rear: 24});
+  assert.deepEqual(report.counts.retained_separate_reference_inventories, prior.counts.retained_separate_reference_inventories);
+  const expectedCounts = {...prior.counts, joint_clusters: 26, unique_axes: 112, fittings: 24, named_header_opening_clusters: 4,
+    native_fitting_reference_states: 132, native_fitting_torque_holds: 12, native_fitting_geometry_exclusions: 0,
+    header_fitting_variant_states: 48, header_signed_geometry_rows: 48, selected_fitting_two_mesh_states: 2, actual_station_full_wrench_limit_rows: 96,
+    plywood_face_mean_bearing_rows: 96, plywood_circular_plate_rows: 72, plywood_hex_inscribed_circle_plate_rows: 24, all_prescribed_washer_plate_case_rows: 1344,
+    contracted_current112_mixed_case_rows: 144, contracted_current112_rear_case_rows: 24, separate_unselected114_rear_case_rows: 36,
+    actual_station_reduced_depth_group_case_rows: 12, actual_station_reduced_depth_edge_hypothesis_references: 24,
+    header_static_changed_combined_bore_wrenches: 96, header_static_unchanged_backing_capture_rows: 1008, updated_mixed_Mp4_case_rows: 144};
+  delete expectedCounts.excluded_plywood_washer_rows; assert.deepEqual(report.counts, expectedCounts);
+  assert.deepEqual(report.additional_separate_method_reference_inventories, {contracted_current112_rear_bearing_states: 5, isotropic_disk_current112_rear_bearing_states: 7,
+    unchanged_current112_mixed_Mp5_hinge_states: 8, updated_current112_mixed_Mp4_states: 5, accepted_connection_exceedance_count: null, physical_failure_count: null});
+  for (const [key, expected] of Object.entries({contracted_rear_bearing: 5, isotropic_disk_rear_bearing: 7, unchanged_mixed_Mp5_hinge: 8, updated_mixed_Mp4: 5})) {
+    assert.equal(flagPoints[key].length, expected); assert.equal(new Set(flagPoints[key]).size, expected);}
+  const work = report.source_work_recognized;
+  assert.equal(work.local_native_fitting.preserved_far_observations, 95); assert.equal(work.local_native_fitting.raw_radial_torque_holds, 12);
+  assert.equal(work.header_fitting_variant.combined_bore_replacements, 96); assert.equal(work.header_fitting_variant.unchanged_applied_rows_including_other_bores_and_gravity, 1200);
+  assert.equal(work.prescribed_header_static_atlas.diagnostic_totals_are_additional_applied_loads, false);
+  assert.equal(work.confirmed_AppendixE_path_interruptions.new_E3_E4_resistance_or_load_allocation_assigned, false);
+  assert.equal(work.generalized_lateral_common_law.NDS_load_angle_equals_independent_virtual_slip_angle_assumed, false);
+  assert.equal(work.generalized_lateral_common_law.actual_NDS_or_joint_capacity_adopted, false);
+  assert.equal(work.generalized_lateral_common_law.unselected114_forces_transferred_or_geometry_adopted, false);
+  assert.equal(report.unselected_review_option.selected_or_force_results_transferred, false);
+  assert.equal(report.unselected_review_option.separate_common_law_reference.selected_or_force_results_transferred, false);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity', 'accepted_connection_exceedance_count']) assert.equal(report[key], null);
+  for (const key of ['whole_joint_qualified', 'candidate_selected', 'selected_baseline_promoted', 'structural_acceptance', 'purchase_authorized', 'drilling_released',
+    'fabrication_released', 'climbing_released', 'projection_performed_new_force_CAD_or_native_work']) assert.equal(report[key], false);
+  assert.equal(report.panel_screw_resistance_deferred, true); assert.equal(report.agent_review_loop_suspended, true);
+  assert.equal(report.reproduction.recursive_raw_source_closure_claimed, false);
+  for (const ref of Object.values(report.reproduction.raw_input_sources)) referenceBinding({path: ref.path, sha256: ref.sha256});
+  walk(report.source_work_recognized); walk(report.unselected_review_option);
   return report;
 }
 
@@ -4108,7 +4381,10 @@ export function validateShorterBoltDelivery(entry, index) {
     validateV11BuildPackage(JSON.parse(bound(entry.build_package)), entry, bank);
   }
   if (entry.current_joint_disposition !== undefined) {
-    validateCurrentShorterJointDisposition(boundCompressedJson(entry.current_joint_disposition, prefix+'current-joint-disposition.json.gz'), entry, index);
+    const ref = entry.current_joint_disposition, version = ref.path === prefix+'current-joint-disposition-v3.json.gz' ? 3 : 2;
+    assert.equal(ref.path, prefix+(version === 3 ? 'current-joint-disposition-v3.json.gz' : 'current-joint-disposition.json.gz'));
+    const report = boundCompressedJson(ref, ref.path); assert.equal(report.schema, `v11_current_joint_disposition_composed/v${version}`);
+    validateCurrentShorterJointDisposition(report, entry, index);
   }
   assert.deepEqual(viewer.results, SHORTER_RESULTS_ASSET);
   const results = validateShorterBoltResults(JSON.parse(bound(viewer.results)));

@@ -1,0 +1,192 @@
+{
+  "actual_Fu_MPa": null,
+  "actual_Fy_MPa": null,
+  "coarse_mesh_mm": 4,
+  "fine_input_readiness": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/input-readiness-v1.json",
+    "sha256": "4df123d28acc8b02ccdb8beecd79c42e109a8a5eaabcf6ea414493044c45ac18"
+  },
+  "fine_mesh_mm": 3,
+  "fine_native_completion_execution": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/parent-native-completion-v1.json",
+    "sha256": "b7ce5ad0ec54b1adec76d0225a4de101809100859c9700c93025d260dc0e4ef5"
+  },
+  "fine_native_coordinate_and_connectivity_gate": {
+    "FRD": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/component-deck-v1/governing-pair.frd",
+      "sha256": "02dea7cd6e0b13fc6e3dd294803ddd95a6c534f000fbb1608b9ddb7368a310b8"
+    },
+    "connectivity_matches": true,
+    "failures": [],
+    "float32_cast_and_12_5E_decimal_bounds": true,
+    "input": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/component-deck-v1/governing-pair.inp",
+      "sha256": "0e7b12e972bf72f6c03126dd0fe9da6bb63d08405cad8b3488050f86d0d41489"
+    },
+    "maximum_bound_mm": 5.38146176848386e-05,
+    "maximum_observed_coordinate_error_mm": 5.3524514029845704e-05,
+    "node_count": 68578,
+    "within_printed_precision": true
+  },
+  "fine_native_observations": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/batch-observations-v1.json",
+    "sha256": "a3e202bd55b9151cb7a1254bfc88e30668b9943f3783a7a289f482498dd5d50b"
+  },
+  "independent_fine_preflight": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/parent-native-readiness-v1.json",
+    "sha256": "7f00e4a7fd7c62d5f060789afe2696d9abe1fb79db667b1370ed5699916f7788"
+  },
+  "largest_selected_fine_VM_MPa": 65.99318441602416,
+  "largest_selected_fine_conditional_Fy235_marker_index": 0.4689728424457887,
+  "largest_selected_fine_required_Fy_at1_67_marker_MPa": 110.20861797476034,
+  "method_limits": {
+    "actual_material_or_complete_joint_capacity_or_structural_release": false,
+    "all_gauge_CLOADs_zero": true,
+    "all_source_loads_applied_once": true,
+    "all_state_fine_envelope_claimed": false,
+    "arbitrary_contact_traction_stress_upper_bound_proven": false,
+    "baseline_12_radial_torque_holds_cleared": false,
+    "physical_near_washer_seating_or_contact_compatibility_qualified": false,
+    "source_reduced_operator_stiffness_or_physical_prying_ratio_inferred": false,
+    "work_is_half_serialized_CLOAD_dot_same_mesh_U": true
+  },
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/compare_governing_pair_v1.py",
+    "sha256": "c719ddb766b87916a15108c0d6b2e25df7b1e302c9e868f23a670cf9910627f5"
+  },
+  "retention": "All coarse and fine inputs, source controls, native outputs and previous failed exports remain frozen. No additional state, mesh or native job was run by this comparison.",
+  "schema": "selected_baseline_header_two_mesh_observation/v1",
+  "scope": "The two coarse-governing prescribed-traction states on the same existing 4 mm and 3 mm angle meshes. This is a selected-state stress and work sensitivity observation, not a mesh-convergence proof or an all-state fine envelope.",
+  "shared_body": "eoere_clip_angle_base_left",
+  "source_bank_sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c",
+  "states": [
+    {
+      "VM_change_MPa": 1.2462175084223333,
+      "VM_relative_change_percent": 1.9247504059931808,
+      "actual_Fu_MPa": null,
+      "actual_Fy_MPa": null,
+      "case_id": "a12-forward",
+      "centroid_is_not_IP_coordinate": true,
+      "coarse_DAT_U_work_print_bound_Nmm": 2.3137588869284988e-05,
+      "coarse_VM_MPa": 64.74696690760183,
+      "coarse_half_CLOAD_U_work_Nmm": 27.235176196813466,
+      "coarse_json_pointer": "/observations/0",
+      "coarse_observations": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/clipped-support-v1/natural-batch-strict-alias-v1/batch-observations-v1.json",
+        "sha256": "438fb911eb4b786fdb8eaa563c5f2c79cae26d22ef7f498fabefa730178db809"
+      },
+      "coarse_peak_element_IP": [
+        32029,
+        4
+      ],
+      "difference_DAT_U_print_bound_Nmm": 3.515264833883257e-05,
+      "fine_DAT_U_work_print_bound_Nmm": 1.2015059469547584e-05,
+      "fine_VM_MPa": 65.99318441602416,
+      "fine_conditional_Fy235_marker_index": 0.4689728424457887,
+      "fine_element_corner_centroid_mm": [
+        6.028604282179183,
+        -30.67987349489122,
+        23.413084836279367
+      ],
+      "fine_gauge_plus_applied_force_residual_N": 4.46283716213025e-09,
+      "fine_gauge_plus_applied_moment_residual_Nmm": 1.3791845407314927e-07,
+      "fine_half_CLOAD_U_work_Nmm": 27.280901221446985,
+      "fine_json_pointer": "/observations/0",
+      "fine_observations": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/batch-observations-v1.json",
+        "sha256": "a3e202bd55b9151cb7a1254bfc88e30668b9943f3783a7a289f482498dd5d50b"
+      },
+      "fine_peak_element_IP": [
+        54326,
+        1
+      ],
+      "fine_required_Fy_at1_67_marker_MPa": 110.20861797476034,
+      "fine_simultaneous_tensor_MPa": [
+        0.8504068,
+        -3.531618,
+        62.54035,
+        0.233399,
+        -1.186378,
+        -9.229236
+      ],
+      "fitting_id": "eoere_clip_angle_base_left",
+      "source_group_count": 29,
+      "source_wrenches_and_poles_identical_across_meshes": true,
+      "state_id": "C00-a12-forward",
+      "tensor_order": [
+        "Sxx",
+        "Syy",
+        "Szz",
+        "Sxy",
+        "Sxz",
+        "Syz"
+      ],
+      "work_change_Nmm": 0.04572502463351924,
+      "work_relative_change_percent": 0.1678895862581964
+    },
+    {
+      "VM_change_MPa": 1.246333488186707,
+      "VM_relative_change_percent": 1.9250167890005887,
+      "actual_Fu_MPa": null,
+      "actual_Fy_MPa": null,
+      "case_id": "a12-forward",
+      "centroid_is_not_IP_coordinate": true,
+      "coarse_DAT_U_work_print_bound_Nmm": 2.3140231549507523e-05,
+      "coarse_VM_MPa": 64.74403212003982,
+      "coarse_half_CLOAD_U_work_Nmm": 27.23746441546891,
+      "coarse_json_pointer": "/observations/1",
+      "coarse_observations": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/header-redistribution-delta-v1/batch-observations-v1.json",
+        "sha256": "0e6b8c43a38f2df22166aa45880fbd4f65bb5a9164167aeeac929e234cf61784"
+      },
+      "coarse_peak_element_IP": [
+        32029,
+        4
+      ],
+      "difference_DAT_U_print_bound_Nmm": 3.51720173413456e-05,
+      "fine_DAT_U_work_print_bound_Nmm": 1.203178579183808e-05,
+      "fine_VM_MPa": 65.99036560822653,
+      "fine_conditional_Fy235_marker_index": 0.4689528109180353,
+      "fine_element_corner_centroid_mm": [
+        6.028604282179183,
+        -30.67987349489122,
+        23.413084836279367
+      ],
+      "fine_gauge_plus_applied_force_residual_N": 4.462033887714001e-09,
+      "fine_gauge_plus_applied_moment_residual_Nmm": 1.37906813102166e-07,
+      "fine_half_CLOAD_U_work_Nmm": 27.283226467188356,
+      "fine_json_pointer": "/observations/1",
+      "fine_observations": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/governing-baseline-and-header-3mm-v1/batch-observations-v1.json",
+        "sha256": "a3e202bd55b9151cb7a1254bfc88e30668b9943f3783a7a289f482498dd5d50b"
+      },
+      "fine_peak_element_IP": [
+        54326,
+        1
+      ],
+      "fine_required_Fy_at1_67_marker_MPa": 110.2039105657383,
+      "fine_simultaneous_tensor_MPa": [
+        0.8503676,
+        -3.531682,
+        62.5374,
+        0.2333895,
+        -1.186097,
+        -9.229238
+      ],
+      "fitting_id": "eoere_clip_angle_base_left",
+      "source_group_count": 29,
+      "source_wrenches_and_poles_identical_across_meshes": true,
+      "state_id": "H00-a12-forward",
+      "tensor_order": [
+        "Sxx",
+        "Syy",
+        "Szz",
+        "Sxy",
+        "Sxz",
+        "Syz"
+      ],
+      "work_change_Nmm": 0.04576205171944636,
+      "work_relative_change_percent": 0.1680114236090713
+    }
+  ]
+}

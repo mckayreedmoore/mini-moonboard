@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 import path from 'node:path';
 import {test} from 'node:test';
-import {gunzipSync} from 'node:zlib';
+import {gzipSync, gunzipSync} from 'node:zlib';
 import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
   validateShorterJointCriterionFollowthrough, validateV11BuildPackage, validateV11BracketThicknessConfirmation,
   validateShorterFormedAngleReference, validateShorterNearWasherSeat, validateShorterWasherMinimumThickness,
@@ -301,9 +301,16 @@ for (const [key, validate, mutations] of [
   assert.equal(checkDevelopment(index, {entryChecks: false}).complete_connection_acceptance, null);
 });
 
+const preservedV2Disposition = {path: 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition.json.gz',
+  sha256: '138645039a5b96e7a9c73b07be1cb93b1187366830426fe65e2b8bb5b74ab379', encoding: 'gzip', decoded_bytes: 485226,
+  decoded_sha256: 'd395a41f3a3531d7ef444e17b2e56e561d51a5511741889e6e588759909ab565'};
+
 function currentDispositionPacket() {
-  const {index, entry} = packet(), ref = entry.current_joint_disposition;
-  return {index, entry, report: JSON.parse(gunzipSync(readFileSync(path.join(ROOT, ref.path))))};
+  const {index, entry} = packet(), ref = structuredClone(preservedV2Disposition);
+  entry.current_joint_disposition = ref;
+  const raw = readFileSync(path.join(ROOT, ref.path)), decoded = gunzipSync(raw);
+  assert.equal(digest(raw), ref.sha256); assert.equal(digest(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
+  return {index, entry, report: JSON.parse(decoded)};
 }
 
 test('composed V2 resolves all26 current rows while retaining independent physical and engineering holds', () => {
@@ -360,4 +367,127 @@ test('current entry point composes from embedded public pins when optional addon
   const result = checkDevelopment(index, {entryChecks: false}); assert.equal(result.complete_connection_acceptance, null);
   delete entry.current_joint_disposition;
   assert.equal(checkDevelopment(index, {entryChecks: false}).owner_authorized_shorter_bolt_trial.reported_reference_rows, 110);
+});
+
+const currentV3Disposition = {path: 'docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v3.json.gz',
+  sha256: '3b404463c4ccb484df36f95d57469ed74face7e8c8a94c7c8d47055d5ce2170f', encoding: 'gzip', decoded_bytes: 687391,
+  decoded_sha256: '5d8ecddfa45e08e69ac934a835c65613e699fcb5070b1aceb24814e51e35bd9e'};
+
+function currentV3Packet() {
+  const {index, entry} = packet(), ref = structuredClone(currentV3Disposition), files = new Map(), reads = [];
+  entry.current_joint_disposition = ref;
+  const raw = readFileSync(path.join(ROOT, ref.path)), decoded = gunzipSync(raw);
+  assert.equal(digest(raw), ref.sha256); assert.equal(digest(decoded), ref.decoded_sha256); assert.equal(decoded.length, ref.decoded_bytes);
+  const report = JSON.parse(decoded);
+  const readArtifact = binding => {
+    assert.ok(binding.path.startsWith('docs/'), 'V3 opens public artifacts only; raw sources are declarations'); reads.push(binding.path);
+    return files.get(binding.path) ?? readFileSync(path.join(ROOT, binding.path));
+  };
+  const rebind = (name, mutate) => {
+    const binding = report.source_bindings[name], encoded = readArtifact(binding);
+    const record = JSON.parse(binding.encoding === 'gzip' ? gunzipSync(encoded) : encoded); mutate(record);
+    const bytes = Buffer.from(JSON.stringify(record)+'\n'), updated = binding.encoding === 'gzip' ? gzipSync(bytes) : bytes;
+    binding.sha256 = digest(updated);
+    if (binding.encoding === 'gzip') {binding.decoded_sha256 = digest(bytes); binding.decoded_bytes = bytes.length;}
+    if (entry[name] !== undefined) entry[name] = structuredClone(binding);
+    files.set(binding.path, updated);
+  };
+  return {index, entry, report, rebind, reads, validate: () => validateCurrentShorterJointDisposition(report, entry, index, readArtifact)};
+}
+
+test('V3 composes public132/48 fitting, actual sections, washer and method evidence without raw input reads', () => {
+  const f = currentV3Packet(); assert.equal(f.validate(), f.report);
+  assert.deepEqual([f.report.counts.joint_clusters, f.report.counts.unique_axes, f.report.counts.fittings], [26, 112, 24]);
+  assert.deepEqual([f.report.counts.native_fitting_reference_states, f.report.counts.native_fitting_torque_holds], [132, 12]);
+  assert.equal(f.report.counts.header_fitting_variant_states, 48); assert.equal(f.report.counts.plywood_face_mean_bearing_rows, 96);
+  assert.equal(f.report.counts.plywood_circular_plate_rows+f.report.counts.plywood_hex_inscribed_circle_plate_rows, 96);
+  assert.equal(f.report.counts.retained_separate_reference_inventories.finite_projected_rear_witness_states, 5);
+  assert.equal(f.report.counts.retained_separate_reference_inventories.generic45_mixed_hinge_model_states, 8);
+  assert.equal(f.report.additional_separate_method_reference_inventories.updated_current112_mixed_Mp4_states, 5);
+  assert.ok(f.reads.length && f.reads.every(name => name.startsWith('docs/')));
+});
+
+const fittingRow = report => report.joint_clusters.find(row => row.current_duties.fitting);
+const cleatRow = report => report.joint_clusters.find(row => row.current_duties.actual_station_reduced_depth);
+const mixedRow = report => report.joint_clusters.find(row => row.current_duties.lateral_common_law?.Mp4_common_work_reference);
+
+for (const [name, mutate] of [
+  ['foreign revision', r => {r.revision = 'v11-matching-rear-bolts-v1';}],
+  ['foreign force bank', (r, i) => {r.source_bindings.response_bank = i.response_bank;}],
+  ['reassigned joint ownership despite112 axes', r => {
+    const a = r.joint_clusters[0].axis_ids, b = r.joint_clusters[1].axis_ids; [a[0], b[0]] = [b[0], a[0]];
+  }],
+  ['132 observations plus12 mapped holds relabeled144 accepted', r => {
+    r.counts.native_fitting_reference_states = 144; r.counts.native_fitting_torque_holds = 0;
+    for (const row of r.joint_clusters.filter(x => x.current_duties.fitting)) {
+      const f = row.current_duties.fitting; f.native_reference_states += f.radial_torque_hold_states; f.radial_torque_hold_states = 0;
+      for (const coverage of Object.values(f.native_case_coverage)) {coverage.per_state_results.push(...coverage.named_radial_torque_holds); coverage.named_radial_torque_holds = [];}
+    }
+  }],
+  ['95 historical observations erased from the current record', r => {r.source_work_recognized.local_native_fitting.preserved_far_observations = 0;}],
+  ['a selected mesh observation promoted to the remaining states', r => {fittingRow(r).current_duties.fitting.selected_mesh_is_all_state_fine_envelope = true;}],
+  ['header variant observations mixed into baseline counts', r => {r.counts.native_fitting_reference_states += r.counts.header_fitting_variant_states;}],
+  ['header diagnostic event limits treated as additional applied loads', r => {r.source_work_recognized.prescribed_header_static_atlas.diagnostic_totals_are_additional_applied_loads = true;}],
+  ['an old inadequate common core reinstated as current missing shear work', r => {
+    const d = cleatRow(r).current_duties.member_components; d.unresolved_core_evidence = structuredClone(d.superseded_reduced_depth_core_exclusion_evidence);
+  }],
+  ['actual-section evidence replaced with the old joint root', r => {cleatRow(r).current_duties.actual_station_reduced_depth.evidence = [{source: 'base', pointers: ['']}];}],
+  ['24 physical Appendix E interruptions silently accepted', r => {r.source_work_recognized.confirmed_AppendixE_path_interruptions.new_E3_E4_resistance_or_load_allocation_assigned = true;}],
+  ['plywood mean bearing promoted to whole-washer qualification', r => {cleatRow(r).current_duties.plywood_washer_mean.actual_panel_or_full_washer_qualified = true;}],
+  ['a plywood plate pointer substituted for mean-bearing evidence', r => {
+    cleatRow(r).current_duties.plywood_washer_mean.evidence[0].pointers = ['/sections/plywood_circular_plate/data/rows/0'];
+  }],
+  ['prescribed plywood plate arithmetic promoted to material acceptance', r => {cleatRow(r).current_duties.plywood_washer_plate.strength_or_fit_pass = true;}],
+  ['independent virtual-slip angle equated with the NDS load angle', r => {r.source_work_recognized.generalized_lateral_common_law.NDS_load_angle_equals_independent_virtual_slip_angle_assumed = true;}],
+  ['a common-law reference promoted to actual NDS capacity', r => {r.source_work_recognized.generalized_lateral_common_law.actual_NDS_or_joint_capacity_adopted = true;}],
+  ['114 forces silently transferred into112', r => {r.source_work_recognized.generalized_lateral_common_law.unselected114_forces_transferred_or_geometry_adopted = true;}],
+  ['the five current rear flags erased', r => {for (const row of r.joint_clusters) delete row.current_retained_flag_evidence.finite_projected_rear_witness_states;}],
+  ['the eight historical generic45 flags erased', r => {for (const row of r.joint_clusters) delete row.current_retained_flag_evidence.generic45_mixed_hinge_model_states;}],
+  ['new Mp/4 flags recast as physical failures', r => {r.additional_separate_method_reference_inventories.physical_failure_count = 5;}],
+  ['actual Fyb invented from the Mp/4 requirement', r => {mixedRow(r).current_duties.lateral_common_law.Mp4_common_work_reference.actual_Fyb = 92000;}],
+  ['the owner falsely said to have selected or purchased T88', r => {cleatRow(r).current_duties.bond_composite.owner_selected_or_purchased = true;}],
+  ['physical release inferred from computed components', r => {r.fabrication_released = true;}],
+  ['nonexistent evidence pointer', r => {cleatRow(r).current_duties.actual_station_reduced_depth.evidence[0].pointers.push('/sections/actual_station_reduced_depth/data/no_result');}],
+  ['recursive raw-source validation claimed', r => {r.reproduction.recursive_raw_source_closure_claimed = true;}],
+]) test(`V3 disposition rejects ${name}`, () => {
+  const f = currentV3Packet(); mutate(f.report, f.index); assert.throws(f.validate);
+});
+
+test('V3 counterfactual public-bundle fixture rebinds both hashes before semantic tests', () => {
+  const f = currentV3Packet(); f.rebind('local_member_followthrough', data => {data.fixture_note = 'No numerical or claim change';});
+  assert.equal(f.validate(), f.report);
+});
+
+for (const [name, source, mutate] of [
+  ['a baseline artifact with a historical95 source replaced', 'all_fitting_component_reference', d => {d.preserved_95_state_summary.sha256 = '0'.repeat(64);}],
+  ['header native rows joined to another baseline case', 'header_fitting_variant', d => {d.per_state_results[0].baseline_summary_json_pointer = '/per_state_results/0';}],
+  ['header event aliases counted as192 independent replacements', 'header_fitting_variant', d => {d.counts.combined_bore_replacements = 192;}],
+  ['both event aliases applied as separate physical loads', 'header_fitting_variant', d => {d.counts.event_limit_aliases_are_duplicate_inputs = false;}],
+  ['one bore replacement applied twice under two event names', 'header_fitting_variant', d => {d.per_state_results[0].modified_bores[1] = d.per_state_results[0].modified_bores[0];}],
+  ['selected fine observations promoted to arbitrary pressure bounds', 'governing_fitting_mesh_comparison', d => {d.method_limits.arbitrary_contact_traction_stress_upper_bound_proven = true;}],
+  ['actual-station source width substituted with an old thin core', 'local_member_followthrough', d => {d.sections.actual_station_reduced_depth.data.groups[0].actual_member_breadth_mm = 38.1;}],
+  ['the actual24 paths relabeled as mere core artifacts', 'local_member_followthrough', d => {d.sections.appendix_path_recheck.data.interpretation.not_a_common_core_exclusion = false;}],
+  ['a sawn-wood bearing factor applied to plywood means', 'plywood_washer_followthrough', d => {d.sections.plywood_washer_mean.data.adjustments_used.Cb = 1.25;}],
+  ['prescribed plate stress made into actual washer strength', 'plywood_washer_followthrough', d => {d.sections.plywood_hex_plate.data.summary.washer_strength_or_fit_pass = true;}],
+  ['a contracted proof promoted to arbitrary independent angles', 'lateral_method_followthrough', d => {d.sections.contracted_common_law_proof.data.common_work_bridge.arbitrary_independent_load_angle_and_virtual_velocity_angle_bound = true;}],
+  ['an actual NDS capacity inserted into the formal theorem', 'lateral_method_followthrough', d => {d.sections.generalized_lateral_theorem.data.complete_NDS_connection_capacity = 1000;}],
+  ['the separate114 bank substituted for current112 rear fields', 'lateral_method_followthrough', d => {const f = d.sections.contracted_saved_fields.data; f.current112_rear.bank = f.unselected114_rear.bank;}],
+  ['current mixed force reconstruction replaced by another saved field', 'lateral_method_followthrough', d => {d.sections.mixed_Mp4_projection.data.rows[0].full_N_V_T_M_and_capture_demands_sha256_unchanged = '0'.repeat(64);}],
+  ['conditional T88 selection rewritten as an owner purchase', 'adhesive_bond_basis', d => {d.selection.purchased_or_delivered = true;}],
+  ['adhesive process data treated as a fabrication release', 'adhesive_bond_basis', d => {d.decision_and_release.purchase_or_fabrication_released = true;}],
+  ['24hour functional strength substituted for full cure', 'adhesive_bond_basis', d => {d.manufacturer_process_reference.cure.TDS_full_cure_at_70F = '24 hours';}],
+]) test(`V3 rejects ${name} after valid public artifact rebinding`, () => {
+  const f = currentV3Packet(); f.rebind(source, mutate); assert.throws(f.validate);
+});
+
+test('V3 entry point checks encoded/decoded pins and works without optional addon fields', () => {
+  const f = currentV3Packet(); assert.equal(checkDevelopment(f.index, {entryChecks: false}).complete_connection_acceptance, null);
+  f.entry.current_joint_disposition.decoded_sha256 = '0'.repeat(64); assert.throws(() => checkDevelopment(f.index, {entryChecks: false}));
+  f.entry.current_joint_disposition = structuredClone(currentV3Disposition); f.entry.current_joint_disposition.sha256 = '0'.repeat(64);
+  assert.throws(() => checkDevelopment(f.index, {entryChecks: false}));
+  f.entry.current_joint_disposition = structuredClone(currentV3Disposition);
+  for (const key of ['all_fitting_component_reference', 'header_fitting_variant', 'governing_fitting_mesh_comparison', 'local_member_followthrough',
+    'plywood_washer_followthrough', 'lateral_method_followthrough', 'adhesive_bond_basis', 'joint_disposition', 'joint_criterion_followthrough',
+    'formed_angle_component_followthrough', 'far_row_fitting_component_extension', 'global_washer_minimum_thickness', 'build_package']) delete f.entry[key];
+  assert.equal(checkDevelopment(f.index, {entryChecks: false}).complete_connection_acceptance, null);
 });

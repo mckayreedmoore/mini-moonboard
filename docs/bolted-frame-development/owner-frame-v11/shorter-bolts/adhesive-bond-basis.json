@@ -1,0 +1,227 @@
+{
+  "schema": "v11_cleat_adhesive_interleaf_basis/v1",
+  "revision": "v11-shorter-bolts-v1-current-glued-cleats",
+  "status": "CONDITIONAL_PRODUCT_PROCESS_REFERENCE; BOND_AND_PERFECT_COMPOSITE_ACTION_UNQUALIFIED",
+  "selection": {
+    "product": "System Three T-88 Structural Epoxy Adhesive",
+    "selection_record": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.json",
+      "sha256": "27e3411114ae7ceccac82d71cc9f819083561cfc07c5cfab5c90d8e9aad9b6ac"
+    },
+    "selection_authority": "The prior owner instruction authorized the assistant to select a reasonable adhesive. This is that conditional assistant selection; the owner has not named, purchased, or delivered the product.",
+    "history_reconciliation": "The earlier material-support reuse assessment predates this selection and recorded T-88 as not selected. The separate, later T-88 selection record reflects the owner's authorization for an assistant selection; it does not claim the owner chose a specific product.",
+    "owner_selected_product": false,
+    "purchased_or_delivered": false,
+    "retailer_sourcing": {
+      "home_depot_or_lowes_listing_verified": false,
+      "saved_screen_date": "2026-10-26",
+      "saved_finding": "The bounded Home Depot search did not surface T-88; the Lowe's System Three epoxy category screen listed SculpWood, RotFix, and EndRot but not T-88.",
+      "availability_or_price_checked": false,
+      "practical_gap": "No Home Depot/Lowe's SKU or local stock source is bound for the retained T-88 selection. The manufacturer product page remains the product source; no substitute is selected here."
+    }
+  },
+  "current_target": {
+    "two_leaves_per_cleat": true,
+    "physical_leaves_total": 4,
+    "nominal_leaf_thickness_mm": 19.05,
+    "nominal_pair_thickness_mm": 38.1,
+    "conditional_strength_wall_mm": 36.5,
+    "owner_specified_conditional_category": "APA 24oc PS1, Group 1, at least five plies; actual grade stamp, layup, thickness, face condition, moisture, and orientation remain unobserved.",
+    "joint": "Face-to-face bond between the two leaves of each plywood cleat. Bolts remain a separate mechanical load path.",
+    "stiffness_operator": "Two published single-panel operators combined as one perfectly bonded body. Perfect interleaf compatibility/no slip is a model assumption, not a measured or validated property.",
+    "not_carried_forward": "No half-inch/Candidate 13 or other historical plywood stiffness, capacity, or force result is transferred."
+  },
+  "manufacturer_process_reference": {
+    "product_class": "Manufacturer describes T-88 as a structural epoxy for woodworking and marine applications and places structural adhesives among products that may be considered for load-bearing construction and repair. This supports the conditional product-class selection, not this joint's capacity or stiffness.",
+    "mix": {
+      "by_volume": "1:1 resin:hardener",
+      "by_weight": "100:83 resin:hardener",
+      "instruction": "Use one measurement basis accurately; do not interpret the volume ratio as the weight ratio."
+    },
+    "application_conditions": {
+      "minimum_application_temperature_F": 35,
+      "working_time_at_70F_minutes": 45,
+      "surface_guidance": "Manufacturer guidance calls for clean, sanded surfaces (no finer than 150 grit) and solvent wiping. The saved TDS gives a Douglas-fir wood preparation instruction; actual plywood face veneer thickness, finish/overlay, moisture, and sanding allowance are unobserved. Do not sand through veneer or bond through an unverified coating.",
+      "joint_fit_and_contact": "T-88 is described for normally fitted joints. The TDS says clamping is unnecessary if the joint is undisturbed during setup; keep mating faces in contact and avoid squeeze-out/starved bondlines. No numerical clamp pressure is specified for this laminate.",
+      "spread_guidance_limit": "TDS lists 5\u20138 mil coverage data; the general manufacturer usage bulletin estimates 3\u20134 mil glue lines for clamped joints. These are generic product/usage data, not a target spread, gap tolerance, or qualified full-face process for this plywood cleat."
+    },
+    "cure": {
+      "TDS_full_cure_at_70F": "3 days",
+      "minimum_application_temperature_F": 35,
+      "low_temperature_note": "The prior T-88 selection record notes approximately one week cure near 35\u00b0F; colder/slower cure conditions must follow the current product instructions.",
+      "interpretation": "Do not treat the prior record's 24-hour functional-strength statement as full cure. Product cure timing is not design qualification of the actual bond."
+    },
+    "service_temperature_max_F": 160,
+    "water_resistance": "Manufacturer describes T-88 as waterproof; separate outdoor wood moisture cycling can stress adhesive/wood bonds as wood swells and dries."
+  },
+  "published_product_data_and_limits": {
+    "source": "Cached manufacturer T-88 TDS, bound below.",
+    "test_data": {
+      "tensile_strength_psi_astm_d638": 7000,
+      "tensile_elongation_percent_astm_d638": 7.5,
+      "compressive_strength_psi_astm_d695": 12500,
+      "lap_shear_psi_astm_d1002": {
+        "polyester": 2800,
+        "aluminum": 2000,
+        "concrete": 1100,
+        "galvanized_steel": 1800,
+        "maple": 1800,
+        "copper": 1650,
+        "mild_steel": 2054
+      },
+      "reported_substrate_failure_marks": [
+        "polyester",
+        "concrete",
+        "maple"
+      ]
+    },
+    "not_published_for_target": [
+      "Design allowable or resistance factor for two APA plywood faces.",
+      "Cured bondline shear modulus G, bondline thickness t, or force-slip stiffness G/t for this target.",
+      "Creep/slip or relaxation data applicable to this cleat.",
+      "Plywood-to-plywood laminate test matching the current species/grade/layup, face prep, bondline, cure, moisture, and load direction."
+    ],
+    "coupon_data_use": "TDS values are not converted into cleat capacities or stiffness. No strength ratio against the current nominal demand is reported."
+  },
+  "current_beam_demand_reference": {
+    "source_result": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/cleat-interleaf-shear-flow-v1.json",
+      "sha256": "b9f1db0053d2cec4253c21a6fa3c850c13f6dbca3bd040ffb7d554be830b26ff"
+    },
+    "source_producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/cleat_interleaf_shear_flow_v1.py",
+      "sha256": "a9200dc3893c7dd0fff05a722949cc46973a765a009cf34114944258e03cdb6e"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "cases": 6,
+    "governing_member": "eoere_cleat_left",
+    "governing_case_id": "a12-left",
+    "governing_signed_Vu_N": -262.27780152389533,
+    "sampled_abs_interleaf_shear_flow_q_N_per_mm": 9.826189757149777,
+    "operator_full_width_mm": 139.7,
+    "nominal_mean_tau_q_over_width_MPa": 0.07033779353722103,
+    "calculation": "|q|/b = 9.826189757149777 N/mm \u00f7 139.7 mm = 0.07033779353722103 MPa.",
+    "meaning_and_limit": "A nominal mean stress if this represented beam-resultant flow were uniformly spread over the assumed full 139.7 mm width. The physical cleat is trapezoidal; the beam operator is a full-width approximation. This is not a physical bond traction bound, peel result, or adhesive capacity check.",
+    "operator_identity": {
+      "per_leaf_EA_N": 11926794.205917213,
+      "per_leaf_published_flatwise_EI_Nmm2": 434059466.9168463,
+      "pair_flatwise_EI_Nmm2": 3032250650.9901285,
+      "leaf_centroid_offset_mm": 9.525,
+      "flow_coefficient_per_mm": 0.03746481669457849,
+      "derivation": "q = Vu\u00b7EA_leaf\u00b7a/EI_pair, using the paired operator EI=2\u00b7EI_leaf,published+2\u00b7EA_leaf\u00b7a\u00b2. The published leaf EI terms are retained; a homogeneous bt\u00b3/12 replacement is not used."
+    }
+  },
+  "shear_lag_parameterization": {
+    "status": "NO_NUMERICAL_SLIP_OR_PERFECT_BOND_CHECK; REQUIRED_BONDLINE_STIFFNESS_NOT_PUBLISHED",
+    "idealized_relation": "For two identical axial leaves coupled by continuous linear interface shear stiffness k' per unit length, lambda = sqrt(EA_leaf/(2*k')); if k'=(G_a/t_a)*b then G_a/t_a = EA_leaf/(2*b*lambda^2). This is a simple long-wavelength shear-lag parameterization only, not a calibrated plywood/cleat model.",
+    "EA_leaf_N": 11926794.205917213,
+    "width_b_mm": 139.7,
+    "unreported_inputs": [
+      "Cured target bondline G_a/t_a (N/mm^3)",
+      "An owner- or method-supported allowable slip or transfer length"
+    ],
+    "why_no_number": "T-88 viscosity and coupon strength do not determine cured G/t. No permissible slip or transfer-length threshold is specified by the owner or supported by the saved analysis, so the formula cannot be turned into a pass/fail threshold without inventing one."
+  },
+  "unresolved_joint_effects": [
+    "Local peel or normal tension at the glue interface.",
+    "Discrete bolt-hole load introduction between leaves.",
+    "Torsional/warping transfer and finite-width stress variation.",
+    "Creep, cyclic/reversed loading, fatigue, and moisture-driven bond stress.",
+    "Actual plywood grade/layup/face, adhesive, surface prep, spread, bondline, cure, and physical bond quality."
+  ],
+  "alternative_product_scope": {
+    "Loctite_PL_Premium": {
+      "retail_listing": "https://www.homedepot.com/p/202020473",
+      "manufacturer_TDS": "https://datasheets.tdx.henkel.com/LOCTITE-PL-Premium-Construction-Adhesive-en_US.pdf",
+      "status": "Retail-listed comparison only; not selected for current cleats.",
+      "reason": "Its ASTM D3498/APA AFG-01 results concern plywood/OSB bonded to floor-system framing (Douglas-fir lumber-to-plywood), not plywood-to-plywood cleat lamination. No target G/t or laminate stiffness basis is supplied. Its listed availability therefore does not resolve the T-88 sourcing gap or validate perfect composite action."
+    },
+    "Titebond_III": "Not considered as a structural option; manufacturer product page says it is not for structural/load-bearing applications."
+  },
+  "decision_and_release": {
+    "retain_existing_conditional_T88_selection": true,
+    "select_PL_Premium": false,
+    "change_geometry_material_or_operator": false,
+    "physical_bond_or_perfect_composite_action_qualified": false,
+    "purchase_or_fabrication_released": false,
+    "structural_or_climbing_acceptance": false
+  },
+  "source_bindings": {
+    "current_material_support_reuse": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/material-support-reuse.json",
+      "sha256": "bb6cad804bac10c1884d77ced0f8e76eabfaf3f21c3fb771fde78609f4be0fd5"
+    },
+    "owner_material_decisions": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-material-purchase-decisions.json",
+      "sha256": "6f437911a9603ee4310eb284938479050049f6e54afd80792733d77f9d6b1da3"
+    },
+    "current_material_operator": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/material.json",
+      "sha256": "a7ae19a0b29dcacb46b603d88933ef73bd6ed03c2665c0f8b9f4dc88fa646185"
+    },
+    "current_interleaf_flow": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/cleat-interleaf-shear-flow-v1.json",
+      "sha256": "b9f1db0053d2cec4253c21a6fa3c850c13f6dbca3bd040ffb7d554be830b26ff"
+    },
+    "current_six_case_response_bank": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "current_physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "retained_conditional_T88_selection": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.json",
+      "sha256": "27e3411114ae7ceccac82d71cc9f819083561cfc07c5cfab5c90d8e9aad9b6ac"
+    },
+    "cached_T88_TDS": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/source-cache/system-three-t88-tds.pdf",
+      "sha256": "c7016c3e0f5d365863d1070e70dc4f8f22eb77c5b0b4ed9a9a80c7c8137afc2c",
+      "manufacturer_product_url": "https://www.systemthree.com/products/t-88-structural-epoxy-adhesive",
+      "manufacturer_TDS_hub": "https://www.systemthree.com/pages/technical-data-sheets-tds",
+      "TDS_download_url": "https://www.dropbox.com/scl/fi/gjgi6d6f2901yrpkgrv3v/T-88-Epoxy-Adhesive-TDS.pdf?rlkey=4wof7gdtuhauvaijnqgwlg64t&dl=0"
+    },
+    "manufacturer_usage_bulletin": {
+      "url": "https://www.systemthree.com/pages/estimating-usage-technical-bulletin",
+      "scope": "Generic glue-line usage estimate; 3\u20134 mil clamped joints for the listed adhesive family/wood categories, not a target V11 plywood-cleat specification."
+    },
+    "saved_T88_retailer_screen": {
+      "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.json",
+      "sha256": "27e3411114ae7ceccac82d71cc9f819083561cfc07c5cfab5c90d8e9aad9b6ac"
+    },
+    "historical_PL_candidate13_proposal": {
+      "path": "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/cleat-adhesive-basis-v1.md",
+      "sha256": "ef3c76ecd5f6f41c7e92ff2cbe7d8082ec5f08b076f6dc859a275cdc225530ed"
+    },
+    "historical_PL_source_bindings": {
+      "path": "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/source-bindings-v1.json",
+      "sha256": "50263db8d6251a8c8d294ed33cfa60afb877d2af378f090825c4ccf59bd3a951"
+    },
+    "Henkel_PL_TDS": {
+      "url": "https://datasheets.tdx.henkel.com/LOCTITE-PL-Premium-Construction-Adhesive-en_US.pdf",
+      "revision": "2019-12-12",
+      "sha256_from_saved_source_binding": "1479d81cffdefd535c5e649f0e93991303eb9986532fcea7a3c90cc3f976256f"
+    },
+    "ASTM_D3498_scope": {
+      "url": "https://store.astm.org/d3498-19.html",
+      "standard": "ASTM D3498-19",
+      "locators": "Scope 1.1\u20131.2: field-gluing structural panels to wood-based floor-system framing; not an application specification."
+    },
+    "Titebond_III_manufacturer_limit": {
+      "url": "https://www.titebond.com/product/wood-glues/e8d40b45-0ab3-49f7-8a9c-b53970f736af",
+      "locator": "Limitations: not for structural or load-bearing applications."
+    },
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/adhesive/assess_adhesive_interleaf_basis_v1.py",
+      "sha256": "f27a8ba76a89df244988f3f4ead5fd0f77ba03933881123397bb8c2aa1b57797"
+    }
+  }
+}
