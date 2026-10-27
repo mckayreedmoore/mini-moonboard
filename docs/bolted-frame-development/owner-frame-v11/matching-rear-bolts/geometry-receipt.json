@@ -1,0 +1,70 @@
+{
+  "build_manifest": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/build-manifest.json",
+    "sha256": "6025eaa6439502c3935d43dcc99c354de2af7819cfe14fc6903581ccf12e73e3"
+  },
+  "checked_clearance": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/clearance.json",
+    "sha256": "7bd65f2e09252189cdf687f140c8d4348c51fd52af0ec0e5a95e6e1493c236f3"
+  },
+  "climbing_released": false,
+  "counts": {
+    "added_axes": 2,
+    "added_five_role_stack_parts": 10,
+    "changed_finished_solids": 610,
+    "fitting_poses": 24,
+    "fresh_bored_host_profiles": 4,
+    "nuts": 114,
+    "occupied_parts": 1099,
+    "panel_screw_axes": 66,
+    "spacer_parts": 4,
+    "structural_bolt_axes": 114,
+    "unchanged_parent_axes": 112,
+    "washers": 228,
+    "wood_and_panel_profiles": 30
+  },
+  "development_scope": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/development-scope-v1.json",
+    "sha256": "62caed60c67d28015c68dc0348b7fe3921e5350bdd28d8f240714ee832c0bd5c"
+  },
+  "drilling_released": false,
+  "fabrication_released": false,
+  "fresh_matched_mechanics_required": true,
+  "geometry": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/geometry.json",
+    "sha256": "28bf006c24fe2c57bd2b2a942f34954ef23a294789fd9676cdf5c49b48b35a48"
+  },
+  "historical_forces_or_capacity_transferred": false,
+  "limitations": [
+    "This is a separate unselected geometry trial; all original V11 shortened-bolt evidence is preserved and not replaced.",
+    "The only new structural axes are the two source-screened upper-rear half-inch locations; each uses a rigid translation of the exact current same-side five-part G0340956/2573/15025 stack with no spacer.",
+    "Four fresh 14.2875-mm bore cuts are modeled in the current side/leg receiver BRePs. Their stock outlines, basis, datum, and end planes are unchanged.",
+    "The strength screen's 4D edge margin is about 0.145 mm and its optional 2-mm guard fails. Reduced sloped-end applicability, signed oblique row behavior, tool access, splitting, joint strength, and product fit remain open.",
+    "The two direct side/leg contact patches intersect the new bore stations and must be regenerated in fresh mechanics preparation; no old contact cells or forces are transferred.",
+    "Clearance is nominal CAD occupancy only. It is not physical inspection, purchase verification, drilling release, structural acceptance, or fabrication release."
+  ],
+  "mechanics_or_force_run": false,
+  "nominal_geometry_clear": true,
+  "purchase_authorized": false,
+  "revision": "v11-matching-rear-bolts-v1",
+  "schema": "v11_matching_rear_bolts_geometry_receipt/v1",
+  "source_checked_receipt_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "source_clearance_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/clearance.json",
+    "sha256": "7177a80806c585851ea31fea48640ed9ac60c1e93f841ad3c221611e48e1e0f1"
+  },
+  "source_geometry_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "status": "Separate unselected geometry trial; nominal occupied clearance passed; matched mechanics and all physical qualification remain pending.",
+  "strength_geometry_screen": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/current-half-inch-trial-v1/current-half-inch-trial-v1.json",
+    "sha256": "d7eb82c6c068efa1c6a724ee4b443f69911665e4f99525ab24667de7b31f0691"
+  },
+  "structural_acceptance": false,
+  "trial_selected": false
+}

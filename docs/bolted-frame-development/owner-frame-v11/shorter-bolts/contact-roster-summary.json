@@ -1,0 +1,98 @@
+{
+  "case_rows": [
+    {
+      "case_id": "a12-forward",
+      "compressed_to_open": 150,
+      "contact_cells": 1580,
+      "open_to_compressed": 7,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.16856421938123092,
+      "opened_cells_source_scalar_compression_N": 2375.2328719435473,
+      "source_scalar_compression_sum_N": 14090.96711427017
+    },
+    {
+      "case_id": "a12-left",
+      "compressed_to_open": 178,
+      "contact_cells": 1580,
+      "open_to_compressed": 10,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.16636435921908307,
+      "opened_cells_source_scalar_compression_N": 2127.576816587303,
+      "source_scalar_compression_sum_N": 12788.657538033878
+    },
+    {
+      "case_id": "a12-rear",
+      "compressed_to_open": 175,
+      "contact_cells": 1580,
+      "open_to_compressed": 9,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.20091907424025424,
+      "opened_cells_source_scalar_compression_N": 2332.3779132617337,
+      "source_scalar_compression_sum_N": 11608.543997533712
+    },
+    {
+      "case_id": "k12-right",
+      "compressed_to_open": 169,
+      "contact_cells": 1580,
+      "open_to_compressed": 10,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.15729406219110936,
+      "opened_cells_source_scalar_compression_N": 2030.9235546811294,
+      "source_scalar_compression_sum_N": 12911.635228884832
+    },
+    {
+      "case_id": "k12-rear",
+      "compressed_to_open": 168,
+      "contact_cells": 1580,
+      "open_to_compressed": 6,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.17630536853255577,
+      "opened_cells_source_scalar_compression_N": 2074.103511445676,
+      "source_scalar_compression_sum_N": 11764.267467911399
+    },
+    {
+      "case_id": "a1-rear",
+      "compressed_to_open": 77,
+      "contact_cells": 1580,
+      "open_to_compressed": 25,
+      "opened_cells_fraction_of_all_source_scalar_compression": 0.04054358972359256,
+      "opened_cells_source_scalar_compression_N": 502.71973902035904,
+      "source_scalar_compression_sum_N": 12399.48762425009
+    }
+  ],
+  "contact_assumption_qualified": false,
+  "counts": {
+    "case_contact_rows": 9480,
+    "compressed_to_open": 917,
+    "contacts_per_case": 1580,
+    "open_to_compressed": 67
+  },
+  "finite_equilibrium_computed": false,
+  "gap_class_tolerance_mm": 1e-08,
+  "interpretation": "The two selected finite-map probes jointly cover the complete saved direct-contact roster. Their sign markers and source-force weights are kinematic comparisons, not finite-equilibrium reactions, an error bound, or physical-failure findings. Scalar contact sums are not a global force resultant.",
+  "producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/summarize_all_contact_markers_v1.py",
+    "sha256": "f4653d5908fd0c16f01cb515df3b9e2b9144e018355deb029408b68fb88c663b"
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_full_contact_roster_kinematic_marker_summary/v1",
+  "source_bindings": {
+    "coverage": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/objective-contact-roster-coverage-v1.json",
+      "sha256": "3a42255c17eb3ba15ec8ae91359bba7678c21c00ee9c228129825c57abe0d4f3"
+    },
+    "panel_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/objective-panel-contact-kinematics-v1.json",
+      "sha256": "2bb0f1e38adb061d7b0fd169c278b30f02c8142c21dcfae33ff0ec02e3913b17"
+    },
+    "panel_rows": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/objective-panel-contact-kinematic-rows-v1.json.gz",
+      "sha256": "14cca50ff8461b4e1be4db3e771910e6b5ce21116b9f7a723b3b23f890c850cc"
+    },
+    "timber_fitting_rows": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/objective-contact-kinematic-rows-v1.json.gz",
+      "sha256": "849d412e1745cc2f94c83a9104864563a7eed30ef3ef66ae5e1f1e55eb8ee218"
+    }
+  },
+  "source_reactions_changed": false,
+  "structural_acceptance": false
+}

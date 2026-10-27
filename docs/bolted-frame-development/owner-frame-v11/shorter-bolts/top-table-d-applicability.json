@@ -1,0 +1,282 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "climbing_released": false,
+  "current_groups_geometry_only": [
+    {
+      "D_mm": 9.525,
+      "along_grain_pitch_mm": 41.275,
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2"
+      ],
+      "crossgrain_pitch_mm": 50.8,
+      "group_id": "left_beam_flange",
+      "host": "base_rail_top",
+      "physical_angle_id": "eoere_clip_single_top_left_1",
+      "sole_wood_bearing_length_mm": 88.9,
+      "source_coordinate_pitch_error_mm": [
+        9.237055564881302e-14,
+        -3.894058409059653e-10
+      ],
+      "steel_plate_total_thickness_mm": 6.35
+    },
+    {
+      "D_mm": 9.525,
+      "along_grain_pitch_mm": 41.275,
+      "axis_ids": [
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2"
+      ],
+      "crossgrain_pitch_mm": 50.8,
+      "group_id": "right_beam_flange",
+      "host": "base_rail_top",
+      "physical_angle_id": "eoere_clip_single_top_right_2",
+      "sole_wood_bearing_length_mm": 88.9,
+      "source_coordinate_pitch_error_mm": [
+        5.471179065352771e-13,
+        -3.894058409059653e-10
+      ],
+      "steel_plate_total_thickness_mm": 6.35
+    },
+    {
+      "D_mm": 9.525,
+      "along_grain_pitch_mm": 41.275,
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "crossgrain_pitch_mm": 50.8,
+      "group_id": "left_post_flange",
+      "host": "base_side_left",
+      "physical_angle_id": "eoere_clip_single_top_left_1",
+      "sole_wood_bearing_length_mm": 88.9,
+      "source_coordinate_pitch_error_mm": [
+        2.361062456657237e-10,
+        -3.3587355119379936e-10
+      ],
+      "steel_plate_total_thickness_mm": 6.35
+    },
+    {
+      "D_mm": 9.525,
+      "along_grain_pitch_mm": 41.275,
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "crossgrain_pitch_mm": 50.8,
+      "group_id": "right_post_flange",
+      "host": "base_side_right",
+      "physical_angle_id": "eoere_clip_single_top_right_2",
+      "sole_wood_bearing_length_mm": 88.9,
+      "source_coordinate_pitch_error_mm": [
+        2.361062456657237e-10,
+        -3.3587355119379936e-10
+      ],
+      "steel_plate_total_thickness_mm": 6.35
+    }
+  ],
+  "fabrication_released": false,
+  "historical_forces_or_geometry_transferred": false,
+  "interpretation_adoption": {
+    "actual_NDS_violation_newly_asserted": false,
+    "actual_normative_ell_mm": null,
+    "current_3_8_pattern_changed": false,
+    "existing_conditional_criterion_erased": false,
+    "recommended_retained_conditional_ell_mm": 88.9
+  },
+  "new_native_global_or_capacity_solve": false,
+  "outreach_or_purchase_performed": false,
+  "precise_remaining_ambiguity": {
+    "2024_full_Commentary_directly_verified": false,
+    "bounded_primary_search_result": "No such explicit absent-operand rule/worked example found in the reviewed sources. The existing sole-wood reading remains supported conditional engineering interpretation, not a newly proved blanket actual NDS violation.",
+    "explicit_absent_wood_member_TableD_rule_verified": false,
+    "needed_to_remove_this_literal_text_gap": "An applicable explicit AWC rule or authoritative worked perpendicular wood/steel example showing how the missing wood-main/wood-side operand is handled.",
+    "separate_unchanged_scope": "Actual oblique/coupled row/load assignment, Cg/Cdelta applicability and complete joint/splitting transfer are not settled by an EYM label choice."
+  },
+  "primary_online_sources_reviewed": [
+    {
+      "edition_scope": "Current public AWC guidance published2021; single-shear bolted equation labels, not an express TableD exception.",
+      "id": "awc_single_shear_faq",
+      "local_exact_cache": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/geometry/top-table-d-applicability-v1/source-cache/awc-single-shear-main-member-faq.html",
+        "sha256": "972cf2b7343d406021718e6ab1f9fdf0d55a68e4157f39d3722607dc5270da2a"
+      },
+      "official_url": "https://awc.org/faq/which-member-is-the-main-member-in-a-single-shear-connection/"
+    },
+    {
+      "id": "nds2018_commentary",
+      "locator": "C12.5.1.3 printed264/PDF72",
+      "official_url": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf",
+      "retention": "Fetched/read in memory; existing primary-source digest reused; no manual copied.",
+      "sha256": "3402c7703cddef3e6693741ebaef9bfd0c1b0ddf075762c6f411fe1916751f7d"
+    },
+    {
+      "id": "nds2024_errata_march2026",
+      "locator": "Complete nine-page errata; C12.5.1 excerpt PDF2",
+      "official_url": "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+      "result": "Corrects shear cross-references; supplies no absent-wood-operand rule.",
+      "retention": "Fetched/read in memory only.",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    {
+      "id": "awc2018_manual",
+      "locator": "M12 printed82-83/PDF92-93",
+      "official_url": "https://web-media.awc.org/wp-content/uploads/2022/01/17210413/AWC-2018-Manual-1810.pdf",
+      "result": "No explicit perpendicular wood/steel TableD ell calculation in the reviewed M12 text.",
+      "retention": "Viewed primary publisher PDF; no manual copied."
+    },
+    {
+      "id": "awc2015_bolt_worked_example",
+      "locator": "Bolted tension-splice example, Table2",
+      "official_url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210649/StructureMag-NDS2015-PracticalSolutions-1611.pdf",
+      "result": "Wood/wood parallel-grain example; it does not resolve the steel-side perpendicular ell operand."
+    }
+  ],
+  "question": "Determine the Table12.5.1D wood/steel ell operand, and whether complete single-shear EYM main/side relabelling changes placement requirements.",
+  "reproduction": {
+    "FAQ_read_command": "curl -fsSL --max-time 30 'https://awc.org/faq/which-member-is-the-main-member-in-a-single-shear-connection/'",
+    "PDF_reader": "pypdf 6.1.1 + cryptography 46.0.3 from shared uv cache",
+    "read_local_primary_command": "uv run --no-project --with pypdf==6.1.1 --with cryptography==46.0.3 python -B -c 'from pypdf import PdfReader; p=\"docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf\"; r=PdfReader(p); print(r.pages[20].extract_text())'",
+    "read_only_checks": "Authenticate source hashes; verify four current flange groups/16 bolt IDs, single wood receivers,9.525diameter,88.9wood grip,6.35metal thickness and41.275/50.8coordinate pitches; recompute endpoint arithmetic as exact fractions."
+  },
+  "retained_conditional_geometry": {
+    "D_mm": 9.525,
+    "arithmetic": "Exact Fraction arithmetic from decimal dimensional inputs; source coordinates verified within1e-6mm.",
+    "conditional_shortfall_mm": 6.35,
+    "current_parallel_between_rows_crossgrain_mm": 50.8,
+    "current_perpendicular_between_rows_along_grain_mm": 41.275,
+    "ell_over_D": 9.333333333333334,
+    "ell_over_D_exact": "28/3",
+    "parallel_required_between_rows_mm": 14.2875,
+    "perpendicular_TableD_branch": "ell/D>=6;5D",
+    "perpendicular_required_between_rows_mm": 47.625,
+    "sole_wood_ell_mm": 88.9,
+    "zero_or_steel_substitution_adopted": false
+  },
+  "role_swap_demonstration": [
+    {
+      "EYM_main": "wood",
+      "EYM_main_bearing_length_mm": 88.9,
+      "EYM_side": "steel",
+      "EYM_side_bearing_length_mm": 6.35,
+      "absent_wood_side_operand": null,
+      "conditional_ell_mm": 88.9,
+      "existing_TableD_wood_lengths_mm": [
+        88.9
+      ]
+    },
+    {
+      "EYM_main": "steel",
+      "EYM_main_bearing_length_mm": 6.35,
+      "EYM_side": "wood",
+      "EYM_side_bearing_length_mm": 88.9,
+      "absent_wood_main_operand": null,
+      "conditional_ell_mm": 88.9,
+      "existing_TableD_wood_lengths_mm": [
+        88.9
+      ]
+    }
+  ],
+  "schema": "current_v11_outer_top_table_d_wood_steel_applicability/v1",
+  "source_bindings": {
+    "awc_single_shear_main_member_faq": {
+      "bytes": 37751,
+      "official_url": "https://awc.org/faq/which-member-is-the-main-member-in-a-single-shear-connection/",
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/geometry/top-table-d-applicability-v1/source-cache/awc-single-shear-main-member-faq.html",
+      "publication_date": "2021-09-27",
+      "retention": "Exact public primary FAQ response; no manual or dependency installation copied.",
+      "retrieved_at_utc": "2026-10-27T03:15:19+00:00",
+      "sha256": "972cf2b7343d406021718e6ab1f9fdf0d55a68e4157f39d3722607dc5270da2a"
+    },
+    "current_joint_disposition_snapshot": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/joint-disposition.json",
+      "sha256": "e846daf63b6704bb1707468f1867a45f4eda8aaad2e2a01cf12a3fa0aac7740c"
+    },
+    "current_outer_top_group_inventory": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/geometry/current-outer-top-reduced-depth-v1.json",
+      "sha256": "f1231db615f5bcc6c9ffb171a718dc427c8bbbe2312b8a30226cb34b760ad275"
+    },
+    "current_physical_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "historical_rule_review_only": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/top-grid/table-d-current-top-grid-applicability-v1.json",
+      "sha256": "6589ee23b9cb8c4ea2b49f4796931cd5ea1e77080c7731363e65b8c0055afdb9"
+    },
+    "historical_steel_side_rule_review_only": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/geometry/table-d-steel-side-oblique-applicability-v1.json",
+      "sha256": "be601e8e549cf2fc0e7b7a35e7cd3c320066723b7695d010f546cb3e3e25b599"
+    },
+    "nds2024_chapter12": {
+      "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+      "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+    }
+  },
+  "source_fact_vs_inference": [
+    {
+      "finding": "Wood-to-metal connections retain the wood placement provisions; applicable metal placement requirements also apply.",
+      "id": "F1",
+      "locator": "12.1.2.5 printed81/PDF3",
+      "source": "nds2024_chapter12",
+      "status": "explicit_2024_code_fact"
+    },
+    {
+      "finding": "Both lesser-of operands are wood lengths: fastener length in a wood main member and total length in wood side members. Steel thickness is not a wood operand. The footnote does not state an absent-member convention.",
+      "id": "F2",
+      "locator": "Table12.5.1D footnote1 printed99/PDF21",
+      "source": "nds2024_chapter12",
+      "status": "explicit_2024_code_fact"
+    },
+    {
+      "finding": "Yield-equation main/side bearing lengths and bearing strengths are material-specific equation inputs. Their generic steel-bearing length is distinct from TableD wood-qualified ell.",
+      "id": "F3",
+      "locator": "Table12.3.1A printed91/PDF13",
+      "source": "nds2024_chapter12",
+      "status": "explicit_2024_code_fact"
+    },
+    {
+      "finding": "For a single-shear bolted calculation, main/side designation is interchangeable when all corresponding properties remain consistently assigned.",
+      "id": "F4",
+      "source": "awc_single_shear_main_member_faq",
+      "status": "explicit_primary_AWC_guidance"
+    },
+    {
+      "finding": "The row-spacing discussion includes metal side plates. Its wood-only length-ratio instruction occurs under Edge Distance; the row paragraph explains summing wood-side bearing in three-or-more-wood-member joints.",
+      "id": "F5",
+      "locator": "C12.5.1.3 printed264/PDF72",
+      "source": "nds2018_commentary",
+      "status": "historical_commentary_fact_not_2024_adoption"
+    },
+    {
+      "finding": "Use the minimum of the existing wood-member bearing lengths. This gives ell=88.9mm regardless of EYM labels and retains the current5D endpoint. It is coherent with wood-based placement and historical commentary, but the absent-operand convention is inferred rather than an explicit 2024 TableD sentence.",
+      "id": "I1",
+      "status": "conditional_engineering_interpretation"
+    },
+    {
+      "finding": "Relabelling a complete single-shear EYM changes equation labels only; it provides no placement waiver and cannot turn steel thickness or an absent wood member into a favorable TableD wood length.",
+      "id": "I2",
+      "status": "source_supported_inference_from_F1_F2_F3_F4"
+    }
+  ],
+  "source_review_only": true,
+  "status": "Main/side equation-label question resolved by primary AWC guidance; the explicit 2024 absent-wood-operand rule remains unverified. Preserve the sole-wood conditional interpretation and its 6.35-mm shortfall.",
+  "structural_acceptance": false,
+  "verification": {
+    "all_local_source_hashes_match": true,
+    "dimensional_joins_and_exact_fraction_arithmetic_pass": true,
+    "explicit_code_vs_inference_status_preserved": true,
+    "four_current_flange_groups_and16_axes_checked": true,
+    "source_and_criterion_records_rewritten": false
+  },
+  "whole_joint_qualified": false
+}

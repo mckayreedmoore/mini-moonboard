@@ -1,0 +1,569 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fe": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "actual_commands": {
+    "connections-command-v2.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/connections-command-v2.json",
+      "sha256": "9c08c3f482b432abd6c3530dbbd25191385f0a837363e740d5f54b893f655e61"
+    },
+    "continuous-finish-command-v1.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/continuous-finish-command-v1.json",
+      "sha256": "0b65a2a109dafa64c554d79bc4956397c8ebff786b60d027ab0172b5f1a24089"
+    },
+    "families-command-v2.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/families-command-v2.json",
+      "sha256": "ca634838c27fb777c4ae1ec761ce28e83723f44ef5971e005995c5c950e1b220"
+    },
+    "rear-command-v2.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-command-v2.json",
+      "sha256": "c9608bd35726eb4d90c534716d82e75ddbef47d450c8443c2cd1dc68af2d5d0b"
+    },
+    "rear-command-v3.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-command-v3.json",
+      "sha256": "69dd01aea4894e904190a50ae855ef69c5367e850c9929f14d333abbcd5c218c"
+    }
+  },
+  "climbing_released": false,
+  "code": {
+    "run_matching_rear_references_v2.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/run_matching_rear_references_v2.py",
+      "sha256": "7122223b06be7c6dd0b188e1796871c4a3b00f267d989448760e03b81fb6ef50"
+    },
+    "run_matching_rear_wrench_v2.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/run_matching_rear_wrench_v2.py",
+      "sha256": "9e067e50d5e9c0002d9db068614437d74476b9a6f0f1a8e337413ee2ba4cc705"
+    },
+    "run_matching_rear_wrench_v3.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/run_matching_rear_wrench_v3.py",
+      "sha256": "1354866bcfb2bfc6789916defb65885db8ce03a279d55299095df3fefe0804c8"
+    },
+    "test_matching_rear_references_v2.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/test_matching_rear_references_v2.py",
+      "sha256": "2788d2ddb1bdca038c846e4e5ebbce06be24ae3f786709894cb2b21420142f16"
+    },
+    "test_matching_rear_wrench_v2.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/test_matching_rear_wrench_v2.py",
+      "sha256": "14c281cd3447c472b2be4695c19771ebdef36700c780951d418f227ca2505517"
+    },
+    "test_matching_rear_wrench_v3.py": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/test_matching_rear_wrench_v3.py",
+      "sha256": "0a4f8f6e48d76067466d120040514eda4e9c38b41c8be517e7516d225cbcc47d"
+    }
+  },
+  "complete_joint_qualified": false,
+  "connections": {
+    "Grade5_F60692_force": {
+      "above_one_count": 0,
+      "counts": {
+        "axes": 114,
+        "axis_cases": 684,
+        "two_media_axis_cases_calculated": 540,
+        "unresolved_mixed_or_other_axis_cases": 144
+      },
+      "maximum": {
+        "actual_candidate_steel_Fe_psi": null,
+        "axis_id": "rail_rear_bolt_right_1",
+        "case_id": "k12-right",
+        "class_code": "wood_wood_G0p50_Grade5_F606_Fyb92_scenario_only",
+        "demand_lbf": 116.66347933954869,
+        "demand_over_Z": 0.509443076077087,
+        "governing_mode": "II",
+        "minimum_six_mode_Z_lbf": 229.001992210599,
+        "mode_P_over_Rd_lbf": {
+          "II": 229.001992210599,
+          "IIIm": 264.571041650195,
+          "IIIs": 250.96877206013136,
+          "IV": 258.83235313372046,
+          "Im": 497.6060936403564,
+          "Is": 497.5306117888742
+        },
+        "unadopted_Fu370_steel_scenario": null
+      }
+    },
+    "Grade5_F60692_rawport_partition_bounds": {
+      "above_one_inconclusive_bound_count": 21,
+      "counts": {
+        "bounded_cases": 252,
+        "interface_cases": 252,
+        "interface_groups": 42
+      },
+      "maximum": {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+        "index_upper": 2.275060284208657
+      }
+    },
+    "generic45_force": {
+      "above_one_count": 0,
+      "counts": {
+        "axes": 114,
+        "axis_cases": 684,
+        "two_media_axis_cases_calculated": 540,
+        "unresolved_mixed_or_other_axis_cases": 144
+      },
+      "maximum": {
+        "actual_candidate_steel_Fe_psi": null,
+        "axis_id": "rail_rear_bolt_right_1",
+        "case_id": "k12-right",
+        "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+        "demand_lbf": 116.66347933954869,
+        "demand_over_Z": 0.6444719512070445,
+        "governing_mode": "IV",
+        "minimum_six_mode_Z_lbf": 181.0218103690119,
+        "mode_P_over_Rd_lbf": {
+          "II": 229.001992210599,
+          "IIIm": 240.68116323153617,
+          "IIIs": 224.22677274345574,
+          "IV": 181.0218103690119,
+          "Im": 497.6060936403564,
+          "Is": 497.5306117888742
+        },
+        "unadopted_Fu370_steel_scenario": null
+      }
+    },
+    "generic45_rawport_partition_bounds": {
+      "above_one_inconclusive_bound_count": 21,
+      "counts": {
+        "bounded_cases": 252,
+        "interface_cases": 252,
+        "interface_groups": 42
+      },
+      "maximum": {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+        "index_upper": 2.746725035223685
+      }
+    },
+    "individual_Cg_floor_above_one_count": 8,
+    "individual_Cg_floor_maximum": {
+      "Pi_over_Zi": 0.28367306704451656,
+      "axis_id": "v11_top_left_beam_2",
+      "case_id": "a12-rear",
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "nmax": 4,
+      "nmax_Pi_over_Zi": 1.1346922681780662
+    },
+    "mixed_plane_above_one_count": 0,
+    "mixed_plane_maximum": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-forward",
+      "plane_force_over_Z_conditional_reference": 0.4321152898407186,
+      "plane_index": 0,
+      "reference_kind": "conditional_solid_sawn_main_plywood_side_single_shear_plane_reference"
+    },
+    "nominal_singleton_interface_cases": 135,
+    "remaining_row_application_interface_cases": 117,
+    "run_binding": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/connections-v2/reference-run-v1.json",
+      "sha256": "8ced71569cd7ef145a9d2705767ba9312041e05948bb562c7b3b47ade12a331b"
+    },
+    "standard_Cg_above_one_counts": {
+      "aggregate_direction_independent_floor_index": 0,
+      "aggregate_directional_index": 0,
+      "resolved_individual_extra_conservative_index": 0
+    },
+    "standard_Cg_maxima": {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.6685181506917995,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.509443076077087,
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right"
+      },
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right",
+        "resolved_individual_extra_conservative_index": 0.509443076077087
+      }
+    },
+    "summary": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/connections-v2/connections/connection-summary-v1.json",
+      "sha256": "3786d57b55dbed315e1982b8a8fda6f963ad991011e8892d6f40d686565bbf25"
+    }
+  },
+  "execution": {
+    "LP_recomputed_during_recovery": false,
+    "connections_exit": 0,
+    "continuous_finish": "Frozen helper called once with absolute verified SOURCE;72receiver certificates and5known controls completed.",
+    "families_exit": 0,
+    "final_critical_source_files_rehashed": 44,
+    "historical_trial_forces_or_indices_transferred": false,
+    "native_or_global_solve": false,
+    "parallel_connections_and_families": true,
+    "rear_v2": "Completed all36 full1D and projected cases; serialization stopped at NumPy summary count; partial preserved.",
+    "rear_v3": "Reused current114 full1D and recovered all36 completed witnesses, independently replayed every signed source wrench and material-cap constraint without LP; completed witness JSON then stopped before continuous arithmetic because relative SOURCE path hit absolute-path guard.",
+    "source_bank_or_fields_modified": false,
+    "tool_versions": {
+      "numpy": "2.5.2",
+      "python": "3.12.3",
+      "scipy": "1.18.1"
+    }
+  },
+  "fabrication_released": false,
+  "failed_bytes_preserved": {
+    "original112_schema_caller_logs": [
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/connections-v1.log",
+        "sha256": "9a47108f49b27ccd2540155170468f36c040891314b09a947d237851ec535944"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/families-v1.log",
+        "sha256": "9a47108f49b27ccd2540155170468f36c040891314b09a947d237851ec535944"
+      }
+    ],
+    "rear_v2_log": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-v2.log",
+      "sha256": "d5016fc6b2b0a6d63d8dee70a4b04387abf07aa4f2428323de5eda10715475d4"
+    },
+    "rear_v2_partial_projected_file": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v2/rear-projected-bearing-witness-v1.json",
+      "sha256": "f477e69757053491f5c27258fa7e0f421af4c3f830a996de78a1797a069ba926"
+    },
+    "rear_v3_path_guard_log": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-v3.log",
+      "sha256": "20197634b18e07dd307f1178c089931728e3c15497ed5a2f93192316d8bb4488"
+    }
+  },
+  "families": {
+    "binding": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/reference-family-binding-v1.json",
+      "sha256": "74323a61b50a903719f087cc43998153cee009936bdcd915e73af454d7369499"
+    },
+    "cleat_group_rows_per_thickness": 3060,
+    "legacy_signature_Cg_pressure_NM_flags_are_not_adopted_group_failures": true,
+    "outputs": {
+      "cleat_actual_perimeter_rows": {
+        "above_one_count": 0,
+        "maximum": {
+          "axes": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2",
+            "eoere_bolt_067",
+            "v11_cleat_left_side_1",
+            "v11_cleat_left_side_2",
+            "v11_cleat_left_post_1",
+            "v11_cleat_left_post_2"
+          ],
+          "case_id": "a12-forward",
+          "component": "eoere_cleat_left",
+          "index": 0.4108128431888576,
+          "wall_mm": 36.5
+        },
+        "row_count": 6120,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/cleat_actual_perimeter_rows.json",
+          "sha256": "cfc3873046127d15f349bf25d0bc1537dce948ff1964c76bb856dfb7b3169921"
+        }
+      },
+      "direct_elastic_steel": {
+        "above_one_count": 0,
+        "maximum": {
+          "Cg": 0.5,
+          "case_id": "a12-left",
+          "complete_Cdelta": null,
+          "component": "proposal_upper_rear_left_added_half_in",
+          "index": 0.4091678493345166
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/direct_elastic_steel.json",
+          "sha256": "2951c9bf131935fd3aefc430dbddc142f291d974967c36486be4f723f4befe70"
+        }
+      },
+      "reduced_connection_axial_bending": {
+        "above_one_count": 16,
+        "maximum": {
+          "Cg": 0.25,
+          "case_id": "a12-forward",
+          "complete_Cdelta": null,
+          "component": "v11_cleat_left_side_1",
+          "index": 1.4621090207240708,
+          "individual_reference_before_Cg": 0.3655272551810177
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/reduced_connection_axial_bending.json",
+          "sha256": "94ab4e8e5e9e48fc1763cee1cb70dac456a208da6a11f77166cf7dbbcb68cb0e"
+        }
+      },
+      "timber_net_shear_torsion": {
+        "above_one_count": 0,
+        "maximum": {
+          "case_id": "a12-rear",
+          "component": "base_side_left",
+          "index": 0.9461794371027729,
+          "metric": "maximum_shear_torsion_reference_upper"
+        },
+        "row_count": 120,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/timber_net_shear_torsion.json",
+          "sha256": "c5783ac5c27c5941d0b5013c5e0006fd639be8e1f9b8e6dc1a7acf8d3cf24602"
+        }
+      },
+      "timber_normal_and_stability": {
+        "above_one_count": 0,
+        "maximum": {
+          "case_id": "a12-left",
+          "component": "lumber_leg_left",
+          "index": 0.8339159751246361,
+          "metric": "maximum_declared_restraint_normal_reference_upper"
+        },
+        "row_count": 240,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/timber_normal_and_stability.json",
+          "sha256": "a4c4879437a904e049a863a1b8251c1fbb60959c60738881427318cf561876e6"
+        }
+      },
+      "wood_bearing_whole_affine": {
+        "above_one_count": 35,
+        "maximum": {
+          "Cg": 0.5,
+          "case_id": "a12-rear",
+          "complete_Cdelta": null,
+          "component": "proposal_upper_rear_left_added_half_in",
+          "index": 1.9630331694192655,
+          "individual_reference_before_Cg": 0.9815165847096328
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/wood_bearing_whole_affine.json",
+          "sha256": "0bbfd35ab19b4538b170c4e3a6cd50de0dcd1633ea2d31cf6e365de1f1523ce3"
+        }
+      }
+    },
+    "run_binding": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/reference-run-v1.json",
+      "sha256": "b991c049efdf19fdbf15415631f418867d4c1311d621b071ca5e1450ff4871d5"
+    },
+    "shaft_references": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/families-v2/families/shaft-references.json",
+      "sha256": "6366064900279155c8999b09aa010a0b34194cb9787061f0ee0b4b1bbd1e59c1"
+    }
+  },
+  "method_controls": {
+    "rear-adapter-controls-v2.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-adapter-controls-v2.json",
+      "sha256": "5e5a220022cf3e08f0a01caab7de1a4f526c4701bd4977d963739a8064f8829a"
+    },
+    "rear-adapter-controls-v3.json": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/rear-adapter-controls-v3.json",
+      "sha256": "9a909cf9757dd79412f82f6ad7c1ed7922abfc4ba7129883e475f83fa953cbfa"
+    }
+  },
+  "rear": {
+    "affine_Mp_over5_diagnostic_separate": true,
+    "axis_case_states": 36,
+    "axis_count": 6,
+    "continuous_necessary_bound": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v3/rear-continuous-bearing-necessary-bound-v1.json",
+      "sha256": "cb5ae6dbdc4b376ea44b243cf66b8d5d8ead7756e4511c04c370ff50fe7fbf88"
+    },
+    "continuous_summary": {
+      "axis_case_states_above_one": 0,
+      "continuous_reference_exceedances": 0,
+      "governing": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        "base_side_left"
+      ],
+      "maximum_lower_bound": 0.676720794298407,
+      "receiver_case_rows": 72
+    },
+    "full1D_affine_diagnostic": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v2/rear-full-wrench-1d-v1.json",
+      "sha256": "b0fa2f369f3ce2b558c0c9f12f5c0ff949903978e7481148c907c15f4e0d04d4"
+    },
+    "full1D_summary": {
+      "Fe_over_5_states_above_one": 13,
+      "Grade5_92ksi_Fyb_scenario_exceedances": 0,
+      "J429_92ksi_Fy_scenario_exceedances": 0,
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "actual_Fe": null,
+      "actual_Fy": null,
+      "actual_Fyb": null,
+      "axis_count": 6,
+      "case_count": 6,
+      "complete_joint_capacity": null,
+      "generic_45ksi_Fy_sensitivity_exceedances": 0,
+      "generic_45ksi_Fyb_sensitivity_exceedances": 6,
+      "maximum_Fe_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear"
+      ],
+      "maximum_Fe_over_5_utilization": 1.6239329644958285,
+      "maximum_Fy_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-left"
+      ],
+      "maximum_Fyb_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-left"
+      ],
+      "maximum_closure_and_replay_errors": {
+        "cut_N_replay_N": 0.0,
+        "cut_T_replay_Nmm": 0.0,
+        "force_closure_N": 2.4377283662035067e-08,
+        "moment_closure_Nmm": 5.389683376429676e-07,
+        "stress_helper_replay_MPa": 0.0,
+        "surface_force_replay_N": 0.0,
+        "surface_moment_replay_Nmm": 0.0
+      },
+      "maximum_required_Fy_MPa_for_Fy_over_2": 258.746344845284,
+      "maximum_required_Fy_ksi": 37.52798450232058,
+      "maximum_required_Fyb_MPa_for_Fyb_over_5": 354.8903711990969,
+      "maximum_required_Fyb_psi": 51472.496580951214,
+      "native_global_solve_or_CAD_run": false,
+      "physical_failure_claim": false,
+      "state_count": 36,
+      "structural_acceptance": false
+    },
+    "maximum_case_reference_bracket": [
+      0.676720794298407,
+      0.6825712380846458
+    ],
+    "projected_cases_independently_replayed": 36,
+    "projected_summary": {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "actual_Fe": null,
+      "actual_Fy": null,
+      "actual_Fyb": null,
+      "axis_count": 6,
+      "case_count": 6,
+      "continuous_bending_above_one_count": 0,
+      "ellipse_bearing_above_one_count": 0,
+      "full_NDS_connection_capacity": null,
+      "independent_replay": {
+        "continuous_metal_stationary_extrema_checked_for_all_intervals": true,
+        "maximum_continuous_bending_index": 0.6793043833196314,
+        "maximum_metal_helper_arithmetic_replay_error_MPa": 0.0,
+        "maximum_true_ellipse_index": 0.6825712380846458
+      },
+      "maximum_conditional_Fy_92ksi_scenario_utilization": 0.5820622913351926,
+      "maximum_continuous_bending_index_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        0.6793043833196314
+      ],
+      "maximum_ellipse_bearing_index_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        0.6825712380846458
+      ],
+      "maximum_projected_reference_index_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        0.6825712380846458
+      ],
+      "maximum_replay_errors": {
+        "member_first_moment_Nmm": 6.548361852765083e-11,
+        "member_force_N": 1.6076029396572267e-12,
+        "shaft_force_N": 8.152959529716952e-09,
+        "shaft_moment_Nmm": 5.36261445738262e-07
+      },
+      "maximum_required_Fy_MPa_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        369.21239700006777
+      ],
+      "maximum_required_Fy_ksi": 53.549730802837715,
+      "physical_failure_claim": false,
+      "reference_index_above_one_count": 0,
+      "state_count": 36,
+      "structural_acceptance": false
+    },
+    "projected_witness": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v3/rear-projected-bearing-witness-v1.json",
+      "sha256": "fc73da2cc7b726c205d6839c38ca005cbe370c81ae7897e9efe7a2c260a6d05b"
+    },
+    "receiver_case_certificates": 72,
+    "same_declared_nominal_D_Fe90_body_root_Fe_over5_Mp_over4_material_reference_only": true
+  },
+  "revision": "v11-matching-rear-bolts-v1",
+  "schema": "v11_matching_rear_fresh_reference_completion/v1",
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/geometry/geometry.json",
+      "sha256": "1ee6c3693925e7e2026d7a3b1c79b138f35f4c1640cc90f718ea545f7d407ecc"
+    },
+    "material": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/material.json",
+      "sha256": "64f9807ff6f9aa10414495e0e3cb2b806930ee8f3b7ad1bed0d8248f11f6721d"
+    },
+    "mechanics_readiness": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/adapter-readiness.json",
+      "sha256": "73c6dee05001fb080ab15cfbed409e2cc5a293dd3408839987ccd4dac75c5fe8"
+    },
+    "parent_bank_admission": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/parent-bank-admission-v1.json",
+      "sha256": "aba46f591bd371e39ea6426782f8c92b793bd193dfde90ed08f3f98096fd494c"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/geometry.json",
+      "sha256": "28bf006c24fe2c57bd2b2a942f34954ef23a294789fd9676cdf5c49b48b35a48"
+    },
+    "physical_receipt": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "d9e4fc220a5827c45405faa4e8f4e13066e384ecec30dcb259c66d8b70cf677f"
+    },
+    "precalculation_full_source_intake": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/intake-v2.json",
+      "sha256": "bfc8087ef5030c0d4c5724cd6bdefcf340107a7cf1f1bb61b2239550b5596683"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+      "sha256": "fe25d7a350f5306e435b927c2b4cbb9a2166d6dfafcfd09fd0bfbdb3bb3bc09e"
+    },
+    "reference_readiness": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/references/reference-readiness-v2.json",
+      "sha256": "9e3d4d28b0f8a72a1a5f351da6bf4f4cc584612ef18202f49a8ff94795b0f3e9"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "b364c9b572960a23c6566575abf3b791a326ab5ac35e263a770dd6e2fe891a46"
+    }
+  },
+  "status": "Owned fresh references and all36/72rear material subchecks complete; connection acceptance unresolved",
+  "structural_acceptance": false,
+  "tests": {
+    "actual_bank_schema_and_allfield_replay_joins": "7passed in2.68s",
+    "continuous_frozen_known_answers": 5,
+    "rear_v2_source_controls": "2passed in1.58s",
+    "ruff": "All six V2/V3 owned Python files passed",
+    "serialization_recovery_controls": "3passed in1.41s"
+  },
+  "unresolved_scope": [
+    "Actual NDS row/oblique geometry, end/edge/reduced-end and Cdelta eligibility/factor adoption: finite fixed-Cg hypotheses are conditional subchecks, not adopted factors.",
+    "Twenty-one raw-port partition bounds and eight individual nmax upper references remain inconclusive; zero force-only or witness flags does not clear these method/geometry questions.",
+    "Twenty-four asymmetric three-media full-shaft interactions and independent axial/torsion/couples require their separate compatible capacity/load-path mapping; adjacent plane ratios are not summed.",
+    "New114 local brittle-wood/terminal/group-shear and component-specific checks require this exact bank and revised four bored solids; old112 component passes are not transferred by this packet.",
+    "Contact/clearance compatibility, splitting/tie paths, fitting/seat/washer/nut/proof and complete three-dimensional joint duties remain separate.",
+    "Actual wood/hardware/bond properties and delivered body/root profiles remain unobserved; uniform nominal FE shaft stiffness is retained and piecewise body/root is resistance postprocessing only.",
+    "Panel screw resistance remains owner-deferred; no-slip support and physical release remain unqualified."
+  ]
+}

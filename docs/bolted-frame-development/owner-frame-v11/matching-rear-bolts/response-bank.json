@@ -1,0 +1,289 @@
+{
+  "adapter_readiness": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/adapter-readiness.json",
+    "sha256": "73c6dee05001fb080ab15cfbed409e2cc5a293dd3408839987ccd4dac75c5fe8"
+  },
+  "admission_gate_N": 1e-05,
+  "all_six_cases_admitted": true,
+  "analysis_geometry": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/geometry/geometry.json",
+    "sha256": "1ee6c3693925e7e2026d7a3b1c79b138f35f4c1640cc90f718ea545f7d407ecc"
+  },
+  "analysis_revision": "eoere-v11-matching-rear-bolts-analysis-v1",
+  "candidate_revision": "v11-matching-rear-bolts-v1",
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cases": [
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-forward",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/v10-execution.json",
+        "sha256": "51e593bf9c655121683b887b5bf32cc07dca062ebc4830714a9ac6c0bf6bd880"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+        "sha256": "4e0c892d82e6a5803bfae305ea6d0372ce2aa7928731de430044dd007d85fcd2"
+      },
+      "gradient_inf_N": 1.4650765779444797e-06,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/independent-replay-plywood.json",
+        "sha256": "e3b18647fa6445a40785332f8972fda728cc6dafc4a4e60ca04ad6962c97a234"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/independent-replay.json",
+        "sha256": "f8a2463d6a2183ee2e4c870d36ef784224cbbbf2d25ba84853e2f4c5702c10f8"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/v10-replay-binding.json",
+        "sha256": "4da1cc6216b46afd90a60246e0b326771478128741ea834a42a36cdc0909345a"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/result.json",
+        "sha256": "c2e96757ab58055fd2d2c96d3feaae81e5e313d1435e4ba0c072bdedefdc3b14"
+      },
+      "result_gradient_inf_N": 1.4650765779444797e-06
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-left",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/v10-execution.json",
+        "sha256": "deb43c11b8f8086b3f80e62ba78e9d96c71cc76dc3887a47d807f7cc89e4e7e8"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+        "sha256": "ed104e88e6d4b9775d70462bc08106dd2a5184f16d4da6f90f94db791bdbdda6"
+      },
+      "gradient_inf_N": 2.9802322387695312e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/independent-replay-plywood.json",
+        "sha256": "b320ad5b0e6d3a109867bc5ac43c38ee45321594c2a1e7294987bc4b2d4c5ce9"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/independent-replay.json",
+        "sha256": "36c7a5f8c8ab7b27f6fa0daa1660b974a000fa2999885faeb346a2594e60119f"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/v10-replay-binding.json",
+        "sha256": "b3168cdbd5e77dcc5c3072a33169f88d5a21349a58a3a0bc64f93c9f8967e134"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/result.json",
+        "sha256": "6f93a831f9da401f1afa4cbdd5098da315001be1c1e12cc9ece54878e7ae2953"
+      },
+      "result_gradient_inf_N": 2.9802322387695312e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-rear",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/v10-execution.json",
+        "sha256": "bf44449ae01a6409b3f956272bb5b07b8d9c8400cdabf50de6733307f66b35bc"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+        "sha256": "854489463db7d4df655accbea486483319c4024b334f65bac79a7d5aada2e678"
+      },
+      "gradient_inf_N": 1.294867815401779e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/independent-replay-plywood.json",
+        "sha256": "f75aa5d404b7fc213abbfdf4a400928cedd4ac97b78486ad5e1299e8c7bff0cc"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/independent-replay.json",
+        "sha256": "d16415871a4862e8474c2ac984dceabc5319fe4997bae0162675a7c9e383cb7a"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/v10-replay-binding.json",
+        "sha256": "891553c4a38b681221f5755cd2c1b815697aab30e6731301ac12fba96a3cc9f9"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/result.json",
+        "sha256": "41ef0f67294c7fa2d14624820090c1563a3ff376213351866c63850227c08653"
+      },
+      "result_gradient_inf_N": 1.294867815401779e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-right",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/v10-execution.json",
+        "sha256": "205cc557af33ff4ed84b3a22486865f4b4220a89fb3e06dbd4db414133dd5a49"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+        "sha256": "2c24647928585f1d4405605ea1d26900cbe2c03bfede7d6521dd65970e1bb725"
+      },
+      "gradient_inf_N": 2.9802322387695312e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/independent-replay-plywood.json",
+        "sha256": "84886195bfa074477953b534f7e4684e5a75734026de5bac2795fda0046418a5"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/independent-replay.json",
+        "sha256": "ea70dbe3f5b3953abaf44bd297609e9268c8f807f1db8b0c2835a31109bd41e1"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/v10-replay-binding.json",
+        "sha256": "c92af2a64e91735b106825936b988337a21c197de4ee53f0b60f4224d48397a8"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/result.json",
+        "sha256": "ea0790e41599f12af9a0d074057906dd11e6e55fb4e674f615b0bbff89885c64"
+      },
+      "result_gradient_inf_N": 2.9802322387695312e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-rear",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/v10-execution.json",
+        "sha256": "a62fa36212e98082db80da49b45da361c55bd383f7fbf74d5e5423c32d4a98d5"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+        "sha256": "0bde4dfe8fa8fa2bb9bb25fbe822c417c03572fe6f9273fffe5453a16a70844d"
+      },
+      "gradient_inf_N": 1.4312075080624709e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/independent-replay-plywood.json",
+        "sha256": "272dae491bbddb374f0d9e3b4951ded818761255952aaa314466c2ff6c89989f"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/independent-replay.json",
+        "sha256": "8baa4211bfcafe38427c63f755b7f856707a458d46638003dfc2e3f08d7c3ed0"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/v10-replay-binding.json",
+        "sha256": "fb7221957ae75353a703e0e4ba3adfeb433bfc40c9d6a6d04f8d46e98dbcec13"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/result.json",
+        "sha256": "08290725e30c52e415f44b8152431bf0bca35c2a34c1186fb9f843ee97d50b25"
+      },
+      "result_gradient_inf_N": 1.4312075080624709e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a1-rear",
+      "execution": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/v10-execution.json",
+        "sha256": "dd6a1933f7a2b40257bc90b4c6414db37c7105f418b2f7f0b6bb9c4c4ccc0f76"
+      },
+      "field": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+        "sha256": "ad31ea26e657f8ce1d17538aa02f8c1d23ca88de230c47f0367e936e28512d5b"
+      },
+      "gradient_inf_N": 2.246134017003243e-06,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/independent-replay-plywood.json",
+        "sha256": "61f0bb2e2cea8c3ed85f14006eac65adc7433c34a2cad9da4c68c2c5eafdb31d"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/independent-replay.json",
+        "sha256": "c947db7ffeebb245e756844708e5287fedb09ae56f1d2f48dfb42e76b47b345d"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/v10-replay-binding.json",
+        "sha256": "cc8175d9eb6c39bddb7fdfdfd998c06cee844e20aff4be6bbc6ba5f0a31392ee"
+      },
+      "result": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/result.json",
+        "sha256": "30a32cb2e47b080c46604c994ba40ba4a18a509f442c4a0edf884f94005b2f13"
+      },
+      "result_gradient_inf_N": 2.246134017003243e-06
+    }
+  ],
+  "climbing_released": false,
+  "execution_provenance": {
+    "invoked_by_this_driver": false,
+    "path": "/mnt/c/Users/mckay/Documents/Codex/2026-10-23/task-3/v10-isolated/scripts/eoere_v10_execute.py",
+    "sha256": "596b8fcdcd578b110470042bb316cd4daaed6ece3deda81ebb6018d466c6a234"
+  },
+  "fabrication_released": false,
+  "fresh_fields_only": true,
+  "geometry_build_manifest": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/build-manifest.json",
+    "sha256": "6025eaa6439502c3935d43dcc99c354de2af7819cfe14fc6903581ccf12e73e3"
+  },
+  "historical_field_or_force_transfer": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "material": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/material.json",
+    "sha256": "64f9807ff6f9aa10414495e0e3cb2b806930ee8f3b7ad1bed0d8248f11f6721d"
+  },
+  "maximum_gradient_inf_N": 2.246134017003243e-06,
+  "parent_geometry_validation": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/parent-geometry-validation-v1.json",
+    "sha256": "aff427bc6aa907a3cc267e64eeb83408dd0ec44ee2cff544ae3a28c381eeda01"
+  },
+  "parent_preparation_validation": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/parent-preparation-validation-v1.json",
+    "sha256": "7163cdf2ef2f213845b1f507da6d425fdd0dd791525c5ed27d74ef3bbaf5ee67"
+  },
+  "physical_clearance": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/clearance.json",
+    "sha256": "7bd65f2e09252189cdf687f140c8d4348c51fd52af0ec0e5a95e6e1493c236f3"
+  },
+  "physical_force_bounds_established": false,
+  "physical_geometry": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/geometry.json",
+    "sha256": "28bf006c24fe2c57bd2b2a942f34954ef23a294789fd9676cdf5c49b48b35a48"
+  },
+  "physical_inventory": {
+    "fitting_poses": 24,
+    "metal_role_rows": 574,
+    "occupied_parts": 1099,
+    "profiles": 30,
+    "screw_axes": 66,
+    "structural_bolt_axes": 114
+  },
+  "physical_receipt": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "d9e4fc220a5827c45405faa4e8f4e13066e384ecec30dcb259c66d8b70cf677f"
+  },
+  "preparation_adapter": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/prepare_v11_matching_rear_bolts_v3.py",
+    "sha256": "5a6093bef3d1bcbc99fd673562be5fa65f7d725dba7a579816b94aecba051781"
+  },
+  "prepared_inputs": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+    "sha256": "fe25d7a350f5306e435b927c2b4cbb9a2166d6dfafcfd09fd0bfbdb3bb3bc09e"
+  },
+  "producer": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/run_v11_matching_rear_cases_v3.py",
+    "sha256": "2380b15bf45396372c091d607bf2aa5d11f9a88fac382607e717d7cec491ea3b"
+  },
+  "runtime_adapter": {
+    "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/run_v11_matching_rear_case_v2.py",
+    "sha256": "aba1d9592504a8fc3b20e88069299c3dfe80967f3d79208a920bf3d27f3f0625"
+  },
+  "schema": "eoere_v11_matching_rear_bolts_response_bank/v1",
+  "structural_acceptance": false,
+  "two_independent_replays_per_case": true,
+  "unresolved_qualifications": [
+    "The two added G0340956 stacks and four modeled bores are unselected geometry; no physical drilling or delivery is observed.",
+    "The source screen's 4D edge margin is only 0.144688 mm; its separate 2 mm screen misses, and full edge/end applicability remains unresolved.",
+    "Tool-envelope screening is a conditional cylinder only, not a socket, wrench, hand-access, or delivered-part fit qualification.",
+    "The fresh six-case bank does not establish bolt-group, splitting, or complete-joint acceptance.",
+    "Physical hardware, member fit, and no-slip floor support remain unverified."
+  ],
+  "v9_material_source_control": {
+    "nominal_combined_plywood_thickness_mm": 38.1,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-single-spacer-stacks-v9/analysis-v1/material.json",
+    "sha256": "d84c5fe393164b3b13371ff97874a06fe41ea0388c482c5965f23b4c32b4e32f"
+  }
+}

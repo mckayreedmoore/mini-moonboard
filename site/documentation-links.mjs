@@ -38,6 +38,15 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-matching-rear-bolts-preview')
+    return [
+      {label: 'Unselected matching rear-bolt trial and remaining checks', path: current + 'owner-frame-v11/matching-rear-bolts/README.md'},
+      {label: 'Own matching rear-bolt geometry receipt', path: current + 'owner-frame-v11/matching-rear-bolts/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/matching-rear-bolts/response-bank.json'},
+      {label: 'Own conditional references and unresolved connections', path: current + 'owner-frame-v11/matching-rear-bolts/reference-completion.json'},
+      {label: 'Development status and remaining work', path: current + 'README.md'},
+      {label: 'Builder scope and holds', path: current + 'builder-plan.md'},
+    ];
   if (model === 'eoere-v11-shorter-bolts-preview')
     return [
       {label: 'Own shorter-bolt geometry receipt', path: current + 'owner-frame-v11/shorter-bolts/geometry-receipt.json'},
