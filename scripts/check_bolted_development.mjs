@@ -3312,6 +3312,35 @@ export function validateV11BracketThicknessConfirmation(report, index) {
   return report;
 }
 
+export function validateShorterContactSensitivity(report, entry, bank) {
+  assert.equal(report.schema, 'v11_single_case_objective_contact_sensitivity/v1'); assert.equal(report.revision, entry.revision);
+  assert.equal(report.case_id, 'a12-rear'); assert.equal(report.status, 'CONVERGED_FIXED_MATERIAL_POINT_SENSITIVITY_ONLY');
+  assert.deepEqual(report.original_response_bank, entry.response_bank); assert.deepEqual(report.physical_geometry, bank.physical_geometry);
+  assert.deepEqual(report.physical_receipt, bank.physical_receipt); assert.deepEqual(report.load_contract, bank.load_contract);
+  const admission = report.numerical_admission, independent = admission.independent_final_recomputation;
+  assert.equal(admission.residual_gate_n, 1e-5); assert.ok(admission.gradient_inf_n >= 0 && admission.gradient_inf_n < 1e-5);
+  assert.equal(independent.status, 'PASS'); assert.ok(independent.gradient_inf_n >= 0 && independent.gradient_inf_n < 1e-5);
+  assert.ok(independent.gradient_inf_difference_n <= 1e-7); assert.equal(independent.abs_energy_difference_nmm, 0);
+  assert.equal(report.contacts.direct_rows, 1580); assert.equal(report.contacts.positive_rows, 354);
+  const support = report.fixed_support;
+  assert.equal(support.active_floor_mask.host_count, 4); assert.equal(support.active_floor_mask.active_tangent_id_count, 8);
+  assert.equal(support.all_four_enabled_hosts_above_source_normal_threshold, true);
+  for (const host of support.active_floor_mask.active_host_ids) assert.ok(support.pre_export_normals_n_by_host[host] > support.normal_threshold_n);
+  assert.deepEqual(report.rear_comparison.map(row => row.axis_id), ['lumber_leg_bolt_left_1', 'lumber_leg_bolt_right_1', 'rail_rear_bolt_left_1', 'rail_rear_bolt_right_1']);
+  assert.equal(report.rear_summary.case_count, 1); assert.equal(report.rear_summary.receiver_count, 8);
+  assert.equal(report.rear_summary.continuous_receiver_reference_above_one_count, 1);
+  referenceClose(report.rear_summary.maximum_projected_witness, 1.2793248026587787, 'contact sensitivity rear witness');
+  referenceClose(report.rear_summary.maximum_continuous_lower_bound, 1.270555646366139, 'contact sensitivity continuous bound');
+  for (const key of ['geometry_or_owner_loads_changed', 'original_bank_or_flags_rewritten', 'other_five_cases_transferred',
+    'new_six_case_bank', 'matching_114_bolt_candidate_evaluated', 'side_member_sections_recomputed', 'physical_contact_or_no_slip_qualified',
+    'candidate_selection_changed', 'structural_acceptance', 'physical_failure_claim', 'purchase_authorized', 'fabrication_released', 'climbing_released'])
+    assert.equal(report[key], false);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'complete_joint_capacity']) assert.equal(report[key], null);
+  for (const row of report.rear_comparison) assert.equal(row.constructed_witness_Fy92_sufficient_envelope.physical_or_FE_elastic_steel_failure_established, false);
+  for (const ref of Object.values(report.source_bindings)) referenceBinding(ref);
+  return report;
+}
+
 export function validateShorterFormedAngleReference(report, entry, bank) {
   assert.equal(report.schema, 'conditional_angle_coordinate_corrected_reference_summary/v1');
   referenceBinding(report.source_bank, 'fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json');
@@ -3791,6 +3820,10 @@ export function validateShorterBoltDelivery(entry, index) {
   }
   if (entry.washer_catalog_minimum_thickness_sensitivity !== undefined) {
     validateShorterWasherMinimumThickness(boundCompressedJson(entry.washer_catalog_minimum_thickness_sensitivity, prefix+'near-washer-minimum-thickness.json.gz'), entry, bank);
+  }
+  if (entry.objective_contact_response_sensitivity !== undefined) {
+    referenceBinding(entry.objective_contact_response_sensitivity, prefix+'contact-response-sensitivity.json');
+    validateShorterContactSensitivity(JSON.parse(bound(entry.objective_contact_response_sensitivity)), entry, bank);
   }
   if (entry.build_package !== undefined) {
     referenceBinding(entry.build_package, prefix+'build-package/manifest.json');

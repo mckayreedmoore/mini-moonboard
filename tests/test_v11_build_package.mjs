@@ -7,7 +7,7 @@ import {gunzipSync} from 'node:zlib';
 import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences, validateShorterRearProjectedBearingWitness,
   validateShorterJointCriterionFollowthrough, validateV11BuildPackage, validateV11BracketThicknessConfirmation,
   validateShorterFormedAngleReference, validateShorterNearWasherSeat, validateShorterWasherMinimumThickness,
-  validateMatchingRearAffectedComponents} from '../scripts/check_bolted_development.mjs';
+  validateMatchingRearAffectedComponents, validateShorterContactSensitivity} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -252,4 +252,18 @@ test('V20 preserves current authority when all five additive records are omitted
   assert.equal(result.revision, 'v11-v9-eight-bolt-v4'); assert.equal(result.occupied_parts, 1109);
   assert.equal(result.owner_authorized_shorter_bolt_trial.occupied_parts, 1089);
   assert.equal(result.selected_baseline_candidate, 'compact-floor-flush-development'); assert.equal(result.complete_connection_acceptance, null);
+});
+
+test('one-case contact sensitivity binds its original bank and retains its outstanding reference', () => {
+  const {index, entry, bank} = packet();
+  const report = JSON.parse(readFileSync(path.join(ROOT, entry.objective_contact_response_sensitivity.path)));
+  assert.equal(validateShorterContactSensitivity(report, entry, bank), report);
+  for (const mutate of [r => {r.new_six_case_bank = true;}, r => {r.numerical_admission.residual_gate_n = 1e-3;},
+    r => {r.original_response_bank.sha256 = '0'.repeat(64);}, r => {r.complete_joint_capacity = 1;},
+    r => {r.rear_summary.continuous_receiver_reference_above_one_count = 0;}]) {
+    const changed = structuredClone(report); mutate(changed);
+    assert.throws(() => validateShorterContactSensitivity(changed, entry, bank));
+  }
+  delete index.owner_authorized_shorter_bolt_trial.objective_contact_response_sensitivity;
+  assert.equal(checkDevelopment(index, {entryChecks: false}).complete_connection_acceptance, null);
 });

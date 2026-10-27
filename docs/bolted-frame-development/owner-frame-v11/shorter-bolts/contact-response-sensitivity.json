@@ -1,0 +1,417 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "candidate_selection_changed": false,
+  "case_id": "a12-rear",
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "contacts": {
+    "compression_by_kind": [
+      {
+        "cells": 384,
+        "kind": "flange_contact",
+        "maximum_absolute_cell_compression_change_n": 48.927173161406046,
+        "old_compression_fraction_on_now_open_cells": 0.0005398281431234251,
+        "original_open_now_positive_cells": 6,
+        "original_positive_cells": 110,
+        "original_positive_now_open_cells": 2,
+        "original_scalar_compression_sum_n": 3352.4105416090283,
+        "sensitivity_positive_cells": 114,
+        "sensitivity_scalar_compression_sum_n": 3309.383643821561
+      },
+      {
+        "cells": 918,
+        "kind": "panel_contact",
+        "maximum_absolute_cell_compression_change_n": 18.84902918191901,
+        "old_compression_fraction_on_now_open_cells": 0.024864993203410644,
+        "original_open_now_positive_cells": 1,
+        "original_positive_cells": 182,
+        "original_positive_now_open_cells": 23,
+        "original_scalar_compression_sum_n": 3099.2131693688048,
+        "sensitivity_positive_cells": 160,
+        "sensitivity_scalar_compression_sum_n": 2728.8981857153167
+      },
+      {
+        "cells": 278,
+        "kind": "timber_face_contact",
+        "maximum_absolute_cell_compression_change_n": 20.315888241273484,
+        "old_compression_fraction_on_now_open_cells": 0.00045253519234354973,
+        "original_open_now_positive_cells": 0,
+        "original_positive_cells": 83,
+        "original_positive_now_open_cells": 3,
+        "original_scalar_compression_sum_n": 5156.920286555879,
+        "sensitivity_positive_cells": 80,
+        "sensitivity_scalar_compression_sum_n": 5192.769085654107
+      }
+    ],
+    "direct_rows": 1580,
+    "positive_rows": 354,
+    "scalar_compression_sums_are_not_global_force_resultants": true
+  },
+  "fabrication_released": false,
+  "fixed_support": {
+    "active_floor_mask": {
+      "active_host_ids": [
+        "base_post_center_left",
+        "base_post_center_right",
+        "lumber_leg_left",
+        "lumber_leg_right"
+      ],
+      "active_tangent_id_count": 8,
+      "active_tangent_ids": [
+        "base_post_center_left/no-slip-0",
+        "base_post_center_left/no-slip-1",
+        "base_post_center_right/no-slip-0",
+        "base_post_center_right/no-slip-1",
+        "lumber_leg_left/no-slip-0",
+        "lumber_leg_left/no-slip-1",
+        "lumber_leg_right/no-slip-0",
+        "lumber_leg_right/no-slip-1"
+      ],
+      "host_count": 4,
+      "tangent_ids_by_host": {
+        "base_post_center_left": [
+          "base_post_center_left/no-slip-0",
+          "base_post_center_left/no-slip-1"
+        ],
+        "base_post_center_right": [
+          "base_post_center_right/no-slip-0",
+          "base_post_center_right/no-slip-1"
+        ],
+        "lumber_leg_left": [
+          "lumber_leg_left/no-slip-0",
+          "lumber_leg_left/no-slip-1"
+        ],
+        "lumber_leg_right": [
+          "lumber_leg_right/no-slip-0",
+          "lumber_leg_right/no-slip-1"
+        ]
+      }
+    },
+    "all_four_enabled_hosts_above_source_normal_threshold": true,
+    "exact_q_numerical_initial_guess": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-attempt01/final-q-numerical-guess-v1.json",
+      "sha256": "9c52efa1e79261b2db9e093f1d558694e7c3014f71e40b0b79db1cf844c9fbbc"
+    },
+    "full_coupled_saved_DOF_system_was_iterated": true,
+    "native_solver_or_CAD_rebuild_performed": false,
+    "normal_threshold_n": 1e-07,
+    "optimizer_result": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-attempt01/energy-armijo-continuation-result-v1.json",
+      "sha256": "da109858ad2c72d153dee3d1350b4b55a078eece0b29a47f891a8e62b2837204"
+    },
+    "original_bank_fields_unchanged": true,
+    "physical_no_slip_or_contact_qualified": false,
+    "pre_export_normals_n_by_host": {
+      "base_floor_left": 30.536410675954734,
+      "base_floor_right": 33.232908907180416,
+      "base_post_center_left": 330.7594302409678,
+      "base_post_center_right": 185.47376071635924,
+      "base_post_outer_left": 0.0,
+      "base_post_outer_right": 185.13110480938843,
+      "lumber_leg_left": 2833.8341879678546,
+      "lumber_leg_right": 891.578827193186
+    },
+    "single_sensitivity_case_not_new_six_case_bank": true,
+    "structural_acceptance": false
+  },
+  "geometry_or_owner_loads_changed": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "matching_114_bolt_candidate_evaluated": false,
+  "method": {
+    "conclusion": "The left upper rear bearing-wrench reference remains above one and changes by about 0.0205 percent in this case; contact redistribution does not remove this reference exceedance.",
+    "contact": "fixed material-point direct face-contact kinematics with small-strain internal operators and unchanged material pairs; not a closest-point contact model or a full finite-frame reassembly",
+    "material_reference": {
+      "Fe90_diameter_basis": "Nominal fastener diameter for each axis: 12.7 mm for the lumber-leg axes and 9.525 mm for the rail-rear axes. The smaller local root diameter does not increase Fe90 absent a source rule supporting that favorable change. Frozen V1 used local-D Fe90 and remains separately bound; V2 recomputes all 24 states on the nominal-D basis.",
+      "bearing": "Local projected width D(s) times NDS Fe_parallel/Fe90 per receiver cell, divided by 5, in the source-rotated conservative ellipse. Fe_parallel and Fe90 use each axis's source-bound nominal diameter; force and first moment stay aggregate over the physical receiver.",
+      "ellipse_relation": "The reciprocal-strength weighted RMS is no smaller than the Hankinson weighted mean, so the ellipse is no stronger than Hankinson at any load direction.",
+      "finite_grid": "A finite-grid witness index above one is not a lower bound over all continuous fields and does not prove physical failure.",
+      "matched_mode_basis": "For D>=1/4 in and theta<=90 degrees, the pinned NDS Table 12.3.1B reductions are at most 5 (Im/Is), 4.5 (II), and 4 (IIIm/IIIs/IV). Thus Fe/5 is no greater than the bearing term in each applicable matched mode, while Mp/4 is no greater than the hinge term in hinge modes; bearing-only modes have no Mp term. The separately pinned 18-control replay, including 12 hinge-governed controls, has maximum ratio 1.0. This is a conditional matched-mode material reference, not an NDS generalized wrench/group capacity formula.",
+      "plastic_hinge": "Piecewise Fyb*D(s)^3/6/4; matched-mode support is bound to the prior 18-row calibration (12 hinge-governed controls).",
+      "separate_metal": "Independent Fy/2 sufficient envelope is recomputed on each selected witness with actual point-action N/T and continuous lateral V/M extrema; Fy and Fyb remain separate inputs.",
+      "unresolved": [
+        "physical contact compatibility",
+        "gap/clearance",
+        "actual Fe/Fy/Fyb",
+        "actual Cg/Cdelta",
+        "group/slip",
+        "splitting/net section",
+        "fitting and seat resistance",
+        "complete NDS connection capacity"
+      ]
+    },
+    "optimizer": "Stable termwise energy increments and energy-Armijo iteration; actual gradients retained, unchanged final residual and independent checks",
+    "remaining": [
+      "physical contact compatibility",
+      "gap/clearance",
+      "actual Fe/Fy/Fyb",
+      "actual Cg/Cdelta",
+      "group/slip",
+      "splitting/net section",
+      "fitting and seat resistance",
+      "complete NDS connection capacity"
+    ]
+  },
+  "new_six_case_bank": false,
+  "numerical_admission": {
+    "gradient_inf_n": 1.5922321659062044e-08,
+    "independent_final_recomputation": {
+      "abs_energy_difference_nmm": 0.0,
+      "direct_contact_gradient_reassembly_max_difference_n": 5.684341886080802e-14,
+      "energy_nmm": -45193.77882167002,
+      "gradient_inf_difference_n": 5.684341886080802e-14,
+      "gradient_inf_n": 1.5922321659062044e-08,
+      "method": "independent scalar potential and chain-rule assembly from mapped p/n/J, saved K/B rows, and unchanged spring law; separate from optimizer's hybrid assembly",
+      "status": "PASS"
+    },
+    "optimizer_evaluation_counts": {
+      "accepted_steps": 3,
+      "energy_only_candidates": 11,
+      "full_state_candidates": 3,
+      "total_candidate_callbacks": 14
+    },
+    "q_canonical_sha256": "f82539ce08947d781160a69f73483dda46da9a65021eda2214d861e13a41ffe6",
+    "residual_gate_n": 1e-05,
+    "source_validation": {
+      "DOFs": 11102,
+      "active_direct_action_rows": 354,
+      "direct_action_rows": 1580,
+      "distinct_direct_source_bindings_checked": 55,
+      "four_enabled_host_normals_n": {
+        "base_post_center_left": 330.7594302409678,
+        "base_post_center_right": 185.47376071635924,
+        "lumber_leg_left": 2833.8341879678546,
+        "lumber_leg_right": 891.578827193186
+      },
+      "independent_reassembly": {
+        "abs_energy_difference_nmm": 0.0,
+        "direct_contact_gradient_reassembly_max_difference_n": 5.684341886080802e-14,
+        "energy_nmm": -45193.77882167002,
+        "gradient_inf_difference_n": 5.684341886080802e-14,
+        "gradient_inf_n": 1.5922321659062044e-08,
+        "method": "independent scalar potential and chain-rule assembly from mapped p/n/J, saved K/B rows, and unchanged spring law; separate from optimizer's hybrid assembly",
+        "status": "PASS"
+      },
+      "maximum_pair_force_residual_n": 0.0,
+      "maximum_pair_spatial_moment_residual_nmm": 1.1368770508004532e-13,
+      "report_sha256": "5049bd118463ccec2fbb4f23a550778c1dbd65302b85debc2bc3b8c5f4c4ea4c",
+      "source_validation_not_joint_acceptance": true,
+      "status": "PASS_SOURCE_IDENTITY_REASSEMBLY_AND_EXPORTED_PAIR_EQUILIBRIUM"
+    }
+  },
+  "original_bank_or_flags_rewritten": false,
+  "original_response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "other_five_cases_transferred": false,
+  "physical_contact_or_no_slip_qualified": false,
+  "physical_failure_claim": false,
+  "physical_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "physical_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "purchase_authorized": false,
+  "rear_comparison": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "case_id": "a12-rear",
+      "constructed_witness_Fy92_sufficient_envelope": {
+        "basis": "Fy/2 envelope on the selected constructed bearing witness, distinct from the saved FE elastic shaft-stress reference",
+        "original": 1.088850801455939,
+        "physical_or_FE_elastic_steel_failure_established": false,
+        "sensitivity": 1.0845006895797715
+      },
+      "original_maximum_continuous_lower_bound": 1.2698697176618237,
+      "original_projected_witness": 1.2790619680711501,
+      "receiver_bounds": [
+        {
+          "host": "base_side_left",
+          "original": 1.2698697176618237,
+          "sensitivity": 1.270555646366139,
+          "threshold_one_exactly_exceeded": true
+        },
+        {
+          "host": "lumber_leg_left",
+          "original": 0.8074261055125916,
+          "sensitivity": 0.8096033702958317,
+          "threshold_one_exactly_exceeded": false
+        }
+      ],
+      "sensitivity_maximum_continuous_lower_bound": 1.270555646366139,
+      "sensitivity_projected_witness": 1.2793248026587787
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "case_id": "a12-rear",
+      "constructed_witness_Fy92_sufficient_envelope": {
+        "basis": "Fy/2 envelope on the selected constructed bearing witness, distinct from the saved FE elastic shaft-stress reference",
+        "original": 0.2963577020623714,
+        "physical_or_FE_elastic_steel_failure_established": false,
+        "sensitivity": 0.29657796280328574
+      },
+      "original_maximum_continuous_lower_bound": 0.34138221933636,
+      "original_projected_witness": 0.34380611144917095,
+      "receiver_bounds": [
+        {
+          "host": "base_side_right",
+          "original": 0.34138221933636,
+          "sensitivity": 0.3422390764912212,
+          "threshold_one_exactly_exceeded": false
+        },
+        {
+          "host": "lumber_leg_right",
+          "original": 0.2318914757575645,
+          "sensitivity": 0.23310037810623557,
+          "threshold_one_exactly_exceeded": false
+        }
+      ],
+      "sensitivity_maximum_continuous_lower_bound": 0.3422390764912212,
+      "sensitivity_projected_witness": 0.34467681116522497
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "case_id": "a12-rear",
+      "constructed_witness_Fy92_sufficient_envelope": {
+        "basis": "Fy/2 envelope on the selected constructed bearing witness, distinct from the saved FE elastic shaft-stress reference",
+        "original": 0.1931884047809268,
+        "physical_or_FE_elastic_steel_failure_established": false,
+        "sensitivity": 0.1938694429898312
+      },
+      "original_maximum_continuous_lower_bound": 0.3589475141404134,
+      "original_projected_witness": 0.35924311869241793,
+      "receiver_bounds": [
+        {
+          "host": "base_floor_left",
+          "original": 0.19002384896181918,
+          "sensitivity": 0.19051008836406566,
+          "threshold_one_exactly_exceeded": false
+        },
+        {
+          "host": "lumber_leg_left",
+          "original": 0.3589475141404134,
+          "sensitivity": 0.35992390852514494,
+          "threshold_one_exactly_exceeded": false
+        }
+      ],
+      "sensitivity_maximum_continuous_lower_bound": 0.35992390852514494,
+      "sensitivity_projected_witness": 0.3602360194820948
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "case_id": "a12-rear",
+      "constructed_witness_Fy92_sufficient_envelope": {
+        "basis": "Fy/2 envelope on the selected constructed bearing witness, distinct from the saved FE elastic shaft-stress reference",
+        "original": 0.015256880663228292,
+        "physical_or_FE_elastic_steel_failure_established": false,
+        "sensitivity": 0.02329521448538586
+      },
+      "original_maximum_continuous_lower_bound": 0.025702215266541668,
+      "original_projected_witness": 0.02581936202180277,
+      "receiver_bounds": [
+        {
+          "host": "base_floor_right",
+          "original": 0.01341853705599825,
+          "sensitivity": 0.021251233696454815,
+          "threshold_one_exactly_exceeded": false
+        },
+        {
+          "host": "lumber_leg_right",
+          "original": 0.025702215266541668,
+          "sensitivity": 0.04068566469003449,
+          "threshold_one_exactly_exceeded": false
+        }
+      ],
+      "sensitivity_maximum_continuous_lower_bound": 0.04068566469003449,
+      "sensitivity_projected_witness": 0.04086665997935079
+    }
+  ],
+  "rear_summary": {
+    "axes": 4,
+    "case_count": 1,
+    "continuous_receiver_reference_above_one_count": 1,
+    "maximum_continuous_lower_bound": 1.270555646366139,
+    "maximum_independent_Fy92_reference": 1.0845006895797715,
+    "maximum_projected_witness": 1.2793248026587787,
+    "projected_witness_above_one_count": 1,
+    "receiver_count": 8
+  },
+  "retention": "All failed, retired and capped attempts, exact operators, commands and source records remain active in the existing contact-kinematics packet; no archive or prune.",
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_single_case_objective_contact_sensitivity/v1",
+  "side_member_sections_recomputed": false,
+  "source_bindings": {
+    "actual_final_export_execution": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/parent-export-execution-v2.json",
+      "sha256": "0b20c96aa041ec5d6406d7dec2e30523d43d938fa83992f0e115082d7aef9323"
+    },
+    "actual_optimizer_execution": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/parent-execution-v2.json",
+      "sha256": "9b48da1cf011ae5a3850f738a8aa922f1b4bf0f95581a45bb98bfc29fa3b8b23"
+    },
+    "contact_distribution": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/contact-distribution-comparison-v1.json",
+      "sha256": "da1d4985ef1514d9f3637a08c10460c872edfd6620a476e89d2bd36fc64bfe4c"
+    },
+    "direct_action_export": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-final-export02/direct-contact-actions-v1.json.gz",
+      "sha256": "45e7293bb7215fb322e7cf3b188143c634c594b1b71e841fb3db2bf34de6d57b"
+    },
+    "full_signed_rear_actions": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/rear-sensitivity-recovery-v1/terminal-variant-rear-recovery-v2.json",
+      "sha256": "097dba90f249840c90d752fb0f16650a5dd2b998a291d33a4e6a5009310f65ef"
+    },
+    "optimizer_result": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-attempt01/energy-armijo-continuation-result-v1.json",
+      "sha256": "da109858ad2c72d153dee3d1350b4b55a078eece0b29a47f891a8e62b2837204"
+    },
+    "prior_projection": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/delivery-summary-v1.json",
+      "sha256": "d72ccdea01cc09ea2c965b729d692a3a388fe5d716ef27d6410204e6e019d563"
+    },
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/build_delivery_summary_v2.py",
+      "sha256": "6249066509f53ee0866e8d4b884b2b280308897c7059ec6b6567716b40568b4d"
+    },
+    "q_export": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-final-export02/objective-q-v1.json.gz",
+      "sha256": "8c06f6053b891b516d27021229e380cc6aeadb86e592f8905915f4b9970bb711"
+    },
+    "rear_comparison": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/rear-sensitivity-recovery-v1/a12-rear-comparison-v1/comparison-v1.json",
+      "sha256": "586e869360bd9a873d961163c11035689312969fa4e037defbb3a516b751b4fc"
+    },
+    "rear_execution_control": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/rear-sensitivity-recovery-v1/a12-rear-comparison-v1/execution-control-v1.json",
+      "sha256": "94dbf3c00e0942f835cf34f12ef22ec6a6143ecc6a9d7a1730ce0f256bce277c"
+    },
+    "rear_execution_verification": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/rear-sensitivity-recovery-v1/a12-rear-comparison-v1/execution-verification-v1.json",
+      "sha256": "98790f9d30996bdf98ca3d83f9f9a9d645b8636be3663776d9b44bef5220b47b"
+    },
+    "serialization_control": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/parent-export-serialization-control-v1.json",
+      "sha256": "0803b2a894ab41338ad0e4d88b6e2cb217078104ff3b06b2a5eb9b81a25ba49b"
+    },
+    "terminal_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/runs/parent-final-export02/objective-response-v1.json",
+      "sha256": "5049bd118463ccec2fbb4f23a550778c1dbd65302b85debc2bc3b8c5f4c4ea4c"
+    },
+    "terminal_validation": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/contact-kinematics/gradient-consistency-v1/energy-armijo-active-set-v1/parent-terminal-validation-v1.json",
+      "sha256": "66ab67ff714824ee7b5d31d82eff357cff91e8a955b9555948a38e2db0ee1ef4"
+    }
+  },
+  "status": "CONVERGED_FIXED_MATERIAL_POINT_SENSITIVITY_ONLY",
+  "structural_acceptance": false
+}
