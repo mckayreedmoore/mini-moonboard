@@ -1,0 +1,61 @@
+{
+  "schema": "v11_owner_zero_spacer_eight_bolt_evaluation/v1",
+  "candidate_revision": "v11-zero-spacer-eight-bolt-v1",
+  "parent_revision": "v11-relocated-rear-pair-v1",
+  "owner_messages": [
+    "Excellent. Go ahead with tha tapproach",
+    "go ahead and set a goal for what we have there"
+  ],
+  "authorized_approach": "Retain eight bolts at each affected joint; evaluate the saved four same-diameter Grade5 partial-thread7in-to6.5in substitutions and remove their four12.7mm spacers. The102-bolt omission proposal is not selected.",
+  "base_geometry": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+    "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+  },
+  "base_receipt": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "e2fd4bf18df8fa8414ebe65d18865ac2a41deb1e56100dab5cd50a0f27ee63a6"
+  },
+  "base_response_bank": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+    "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+  },
+  "proposal": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/remaining-spacer-decision.json",
+    "sha256": "e913bac780cd07fc5eb71886b5e7dc3676ff001058bf7c24ef13342854d767c5"
+  },
+  "per_member_thread_comparison": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/thread-profile-options.json",
+    "sha256": "46db558992da47afa274c2fc9c3815149790a0a8f00da69a8107c0985adbf47c"
+  },
+  "authorized_axis_ids": [
+    "v11_cleat_left_post_1",
+    "v11_cleat_left_post_2",
+    "v11_cleat_right_post_1",
+    "v11_cleat_right_post_2"
+  ],
+  "nominal_before_underhead_mm": 177.8,
+  "nominal_candidate_underhead_mm": 165.1,
+  "removed_spacer_mm_each": 12.7,
+  "hardware_type": "grade5-hcs-3_8-16x6_5-style1-conditional-v1",
+  "bolt_axes_retained": 114,
+  "spacer_count_candidate": 0,
+  "angles_retained": 24,
+  "Hillman_axes_retained": 66,
+  "preserve": "All axes/directions/heads/washer seats, all timber/plywood profiles and holes, straight two-glued3/4in-leaf cleats, actual88.9x139.7top/sides, matching1/2inupperrear pairs, no woodpackers and unchanged loads.",
+  "changed_design_requires_matching_force_bank": true,
+  "geometry_generation_and_evaluation_authorized": true,
+  "matched_analysis_authorized_after_parent_readiness": true,
+  "local_viewer_and_planning_update_authorized": true,
+  "additional_design_remedies_automatically_authorized": false,
+  "eight_bolt_count_retained": true,
+  "candidate_selected": false,
+  "actual_product_or_delivery_observed": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "drilling_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false,
+  "preserve_known_geometry_and_material_flags": true,
+  "panel_screw_resistance_deferred": true,
+  "agent_review_loop_suspended": true
+}

@@ -1,0 +1,779 @@
+{
+  "base_joint_disposition": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v5.json.gz",
+    "sha256": "89e1e83e92ce01774764dbe188cef257ddd20078d11f8abf242a2485cf5d3e8d"
+  },
+  "changed_or_selected_hardware": false,
+  "comparison_material": {
+    "Omega": 1.67,
+    "actual_washer_Fy_MPa": null,
+    "historical_spacer_or_washer_Fy_hypothesis_transferred": false
+  },
+  "current_spacers": 4,
+  "detailed_result": {
+    "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/full-stress-extension-v1/current-washer-static-lower-bound-1344-v1.json",
+    "sha256": "3f256cfed86462e7b4af30a07d10170fa3820147e23c9f346e5e320f3ab45c07"
+  },
+  "joint_summaries": [
+    {
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_068",
+        "eoere_bolt_072",
+        "eoere_bolt_075",
+        "eoere_bolt_077"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 62.298973231904014,
+        "VM_upper_MPa": 37.304774390361686,
+        "axis_id": "eoere_bolt_068",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "base_principal_center_left"
+      },
+      "joint_id": "center-header-left",
+      "row_count": 72
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_069",
+        "eoere_bolt_073",
+        "eoere_bolt_076",
+        "eoere_bolt_078",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 58.09798353184398,
+        "VM_upper_MPa": 34.78921169571496,
+        "axis_id": "eoere_bolt_069",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "base_principal_center_right"
+      },
+      "joint_id": "center-header-right",
+      "row_count": 72
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_007",
+        "eoere_bolt_011",
+        "eoere_bolt_022",
+        "eoere_bolt_023"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 106.13253761847125,
+        "VM_upper_MPa": 63.55241773561153,
+        "axis_id": "eoere_bolt_023",
+        "case_id": "a12-rear",
+        "end": "head",
+        "host": "base_rail_top"
+      },
+      "joint_id": "center-top-left",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_008",
+        "eoere_bolt_012",
+        "eoere_bolt_024",
+        "eoere_bolt_028"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 112.68096625402133,
+        "VM_upper_MPa": 67.47363248743792,
+        "axis_id": "eoere_bolt_024",
+        "case_id": "k12-rear",
+        "end": "head",
+        "host": "base_rail_top"
+      },
+      "joint_id": "center-top-right",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "eoere_bolt_071",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 182.47565240907034,
+        "VM_upper_MPa": 109.26685772998223,
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left"
+      },
+      "joint_id": "cleat-header-left",
+      "row_count": 120
+    },
+    {
+      "axis_ids": [
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2",
+        "eoere_bolt_070",
+        "eoere_bolt_074",
+        "eoere_bolt_083",
+        "eoere_bolt_084",
+        "v11_cleat_right_post_1",
+        "v11_cleat_right_post_2",
+        "v11_cleat_right_side_1",
+        "v11_cleat_right_side_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 154.48736232047415,
+        "VM_upper_MPa": 92.50740258711028,
+        "axis_id": "eoere_bolt_083",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_right"
+      },
+      "joint_id": "cleat-header-right",
+      "row_count": 120
+    },
+    {
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 48.215543571519355,
+        "VM_upper_MPa": 28.871582976957697,
+        "axis_id": "rail_front_bolt_left_1",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "base_post_outer_left"
+      },
+      "joint_id": "front-foot-left",
+      "row_count": 24
+    },
+    {
+      "axis_ids": [
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 49.178493838046734,
+        "VM_upper_MPa": 29.448199903021997,
+        "axis_id": "rail_front_bolt_right_1",
+        "case_id": "a12-left",
+        "end": "nut",
+        "host": "base_post_outer_right"
+      },
+      "joint_id": "front-foot-right",
+      "row_count": 24
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_002",
+        "eoere_bolt_029",
+        "eoere_bolt_032",
+        "eoere_bolt_036"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 126.8051925018916,
+        "VM_upper_MPa": 75.93125299514467,
+        "axis_id": "eoere_bolt_002",
+        "case_id": "a1-rear",
+        "end": "nut",
+        "host": "base_rail_bottom_left"
+      },
+      "joint_id": "horizontal_bottom_left_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_019",
+        "eoere_bolt_033",
+        "eoere_bolt_037",
+        "eoere_bolt_040"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 16.276133991176646,
+        "VM_upper_MPa": 9.74618801866865,
+        "axis_id": "eoere_bolt_040",
+        "case_id": "a1-rear",
+        "end": "nut",
+        "host": "base_rail_bottom_left"
+      },
+      "joint_id": "horizontal_bottom_left_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_025",
+        "eoere_bolt_034",
+        "eoere_bolt_038",
+        "eoere_bolt_059"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 3.8904817019807294,
+        "VM_upper_MPa": 2.3296297616651076,
+        "axis_id": "eoere_bolt_038",
+        "case_id": "a12-left",
+        "end": "nut",
+        "host": "base_principal_center_right"
+      },
+      "joint_id": "horizontal_bottom_right_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_014",
+        "eoere_bolt_035",
+        "eoere_bolt_039",
+        "eoere_bolt_062"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 1.9515528059584666,
+        "VM_upper_MPa": 1.1685944945859081,
+        "axis_id": "eoere_bolt_039",
+        "case_id": "k12-right",
+        "end": "head",
+        "host": "base_side_right"
+      },
+      "joint_id": "horizontal_bottom_right_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_003",
+        "eoere_bolt_030",
+        "eoere_bolt_043",
+        "eoere_bolt_047"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 2.481054429319792,
+        "VM_upper_MPa": 1.4856613349220313,
+        "axis_id": "eoere_bolt_003",
+        "case_id": "k12-rear",
+        "end": "nut",
+        "host": "base_rail_service_lower_left"
+      },
+      "joint_id": "horizontal_lower_left_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_020",
+        "eoere_bolt_041",
+        "eoere_bolt_044",
+        "eoere_bolt_048"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 2.37329400198133,
+        "VM_upper_MPa": 1.421134132922952,
+        "axis_id": "eoere_bolt_020",
+        "case_id": "a12-left",
+        "end": "nut",
+        "host": "base_rail_service_lower_left"
+      },
+      "joint_id": "horizontal_lower_left_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_026",
+        "eoere_bolt_045",
+        "eoere_bolt_049",
+        "eoere_bolt_060"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 2.475573297119859,
+        "VM_upper_MPa": 1.4823792198322512,
+        "axis_id": "eoere_bolt_026",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "base_rail_service_lower_right"
+      },
+      "joint_id": "horizontal_lower_right_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_015",
+        "eoere_bolt_046",
+        "eoere_bolt_050",
+        "eoere_bolt_063"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 2.4918154501051015,
+        "VM_upper_MPa": 1.4921050599431747,
+        "axis_id": "eoere_bolt_015",
+        "case_id": "a12-rear",
+        "end": "nut",
+        "host": "base_rail_service_lower_right"
+      },
+      "joint_id": "horizontal_lower_right_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_004",
+        "eoere_bolt_031",
+        "eoere_bolt_051",
+        "eoere_bolt_055"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 5.069128641498461,
+        "VM_upper_MPa": 3.035406372154767,
+        "axis_id": "eoere_bolt_051",
+        "case_id": "a12-left",
+        "end": "head",
+        "host": "base_side_left"
+      },
+      "joint_id": "horizontal_upper_left_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_021",
+        "eoere_bolt_042",
+        "eoere_bolt_052",
+        "eoere_bolt_056"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 4.254259851480605,
+        "VM_upper_MPa": 2.5474609889105424,
+        "axis_id": "eoere_bolt_056",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "base_principal_center_left"
+      },
+      "joint_id": "horizontal_upper_left_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_027",
+        "eoere_bolt_053",
+        "eoere_bolt_057",
+        "eoere_bolt_061"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 4.502607845671569,
+        "VM_upper_MPa": 2.696172362677586,
+        "axis_id": "eoere_bolt_057",
+        "case_id": "a12-left",
+        "end": "nut",
+        "host": "base_principal_center_right"
+      },
+      "joint_id": "horizontal_upper_right_1",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_016",
+        "eoere_bolt_054",
+        "eoere_bolt_058",
+        "eoere_bolt_064"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 5.136321172232104,
+        "VM_upper_MPa": 3.075641420498266,
+        "axis_id": "eoere_bolt_054",
+        "case_id": "k12-right",
+        "end": "head",
+        "host": "base_side_right"
+      },
+      "joint_id": "horizontal_upper_right_2",
+      "row_count": 48
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_005",
+        "eoere_bolt_006",
+        "eoere_bolt_010",
+        "v11_top_left_beam_1",
+        "v11_top_left_beam_2",
+        "v11_top_left_post_1",
+        "v11_top_left_post_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 77.41825591702056,
+        "VM_upper_MPa": 46.35823707606021,
+        "axis_id": "v11_top_left_post_1",
+        "case_id": "a12-rear",
+        "end": "head",
+        "host": "eoere_clip_single_top_left_1"
+      },
+      "joint_id": "outer-top-left",
+      "row_count": 96
+    },
+    {
+      "axis_ids": [
+        "eoere_bolt_009",
+        "eoere_bolt_013",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "v11_top_right_beam_1",
+        "v11_top_right_beam_2",
+        "v11_top_right_post_1",
+        "v11_top_right_post_2"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 74.49358440100568,
+        "VM_upper_MPa": 44.60693676706927,
+        "axis_id": "v11_top_right_post_1",
+        "case_id": "k12-rear",
+        "end": "head",
+        "host": "eoere_clip_single_top_right_2"
+      },
+      "joint_id": "outer-top-right",
+      "row_count": 96
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 62.82299048500717,
+        "VM_upper_MPa": 37.618557176651,
+        "axis_id": "rail_rear_bolt_left_1",
+        "case_id": "a12-left",
+        "end": "nut",
+        "host": "base_floor_left"
+      },
+      "joint_id": "rear-foot-left",
+      "row_count": 12
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 63.332293273378234,
+        "VM_upper_MPa": 37.923528906214514,
+        "axis_id": "rail_rear_bolt_right_1",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "base_floor_right"
+      },
+      "joint_id": "rear-foot-right",
+      "row_count": 12
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 83.27138018034263,
+        "VM_upper_MPa": 49.863101904396785,
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-left",
+        "end": "head",
+        "host": "lumber_leg_left"
+      },
+      "joint_id": "rear-upper-left",
+      "row_count": 12
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_right_1"
+      ],
+      "complete_joint_capacity": null,
+      "governing": {
+        "Omega_weighted_required_Fy_reference_MPa": 82.80338145605779,
+        "VM_upper_MPa": 49.58286314734,
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-right",
+        "end": "head",
+        "host": "lumber_leg_right"
+      },
+      "joint_id": "rear-upper-right",
+      "row_count": 12
+    }
+  ],
+  "limits": [
+    "This reuses only the historical unit coefficient kernel, not its old geometry, forces, bearing lands, catalog results, 33-ksi material hypothesis, comparison indices, or acceptance status.",
+    "Each current row uses the pinned corrected pressure-ring radii, saved same-end axial capture, and minimum thickness scenario. The current physical bearing patch, contact/preload and delivered thickness remain unverified.",
+    "The VM_upper field is the historic static-strength construction for the prescribed axial rings, not an elastic peak or a response prediction. Omega-weighted required-Fy values remain references; no actual Fy is compared.",
+    "The 96 near-seat rows preserve the saved 22.225-mm support-ring proxy and remain distinct from actual washer/seat geometry.",
+    "No nonzero own-end moment is present in the joined saved input rows. This does not establish physical end moments or prying as zero.",
+    "Lateral bore loading, shaft bending, spacer/hardware transfer outside the prescribed rings, wood support damage, full fitting/joint response and physical product qualification remain separate."
+  ],
+  "method_reuse": {
+    "Omega_scope": "1.67 is the historical declared comparison factor. Omega*VM is a required-Fy reference for the static field, not elastic first yield, an actual Fy comparison, or a code capacity.",
+    "field_scope": "prescribed same-end axial normal load on top/head ring and opposite washer support ring; ideal 3D statically admissible field only",
+    "kernel": "current-axial-washer-transfer-v1.py::coefficients(a,b,c,s,t), reused unchanged",
+    "loading_exclusions": "saved axial-only subproblem; same-end saved source moments are joined zero; physical prying/end moment, lateral bore load, bolt shaft load, and joint transfer are not asserted zero or included",
+    "near_seat_geometry": "the 96 near-seat rows retain the existing 22.225-mm support-ring proxy with its distinct partial-supported-ring geometry; no ring was enlarged or transferred"
+  },
+  "new_geometry_force_bank_native_or_contact_solve": false,
+  "parent_validation": {
+    "V5_capture_radius_thickness_and_basis_joins": 1344,
+    "independent_decimal_digits": 50,
+    "maximum_VM_arithmetic_difference_MPa": 1.9738828345139213e-14,
+    "rows_checked": 1344
+  },
+  "qualification": {
+    "actual_contact_or_preload_solved": false,
+    "actual_washer_material_Fy": null,
+    "bearing_face_profile_or_delivered_washer_qualified": false,
+    "climbing_released": false,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "structural_acceptance": false
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "schema": "v11_washer_static_axial_summary/v1",
+  "source_bindings": {
+    "corrected_full_stress_preflight_own_moment_gate": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/full-stress-extension-v1/preflight-controls-v3.json",
+      "sha256": "fbdd63b2c4ee1e8b3485f935e1c3c219a3c4a8409c261f48d07a561d05b33744"
+    },
+    "current_corrected_1344_rows": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/product-face-correction-v1.json",
+      "sha256": "0cfc312e06c01ddf16fbbfff6b62f4b9c1eaf3a7718786ea63b48796829c7afb"
+    },
+    "current_product_face_producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/recompute_product_face_correction_v1.py",
+      "sha256": "98c9c93caa1bb93143e47e9c5cc59df0078c05371895f693241f86759717819e"
+    },
+    "historical_80_digit_verification": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-verification-v1.json",
+      "sha256": "245f16b422e11b8634e70350c2d38e39ee5fab6c9bdbd667f8b17420ba6c30fa"
+    },
+    "historical_old_candidate_result_history_only": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-attempt01.json",
+      "sha256": "6c50749099a0089c89d4fa9beeaad2fa6d00312b1a356daab8c576bdbbe02db9"
+    },
+    "historical_pure_kernel": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-v1.py",
+      "sha256": "3e3540512c94df5802dad9163cdb292dd998e9979c4e19e34e165793ba1b4125"
+    },
+    "kernel_import_dependency": {
+      "path": "scripts/eoere_curved_bend_consumer.py",
+      "sha256": "ecde982b7be5de1b7535745a16d5dc8fc71ee2f73bb5bb6cadc8270d016a06f0"
+    },
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/full-stress-extension-v1/recompute_washer_static_lower_bound_1344_v1.py",
+      "sha256": "c4a7a33ba8af573381e21a3ed4a86fa6ba3c534478d310c4b655c18d1cad6348"
+    }
+  },
+  "summary": {
+    "by_source_subset": {
+      "global_full_ring": {
+        "maximum_Omega_weighted_required_Fy_reference_MPa": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "nut",
+          "host": "eoere_clip_header_outer_under_left",
+          "source_subset": "global_full_ring",
+          "value": 182.47565240907034
+        },
+        "maximum_VM_upper_MPa": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "nut",
+          "host": "eoere_clip_header_outer_under_left",
+          "source_subset": "global_full_ring",
+          "value": 109.26685772998223
+        },
+        "maximum_load_ring_pressure_MPa": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "nut",
+          "host": "eoere_clip_header_outer_under_left",
+          "source_subset": "global_full_ring",
+          "value": 12.47847504089278
+        },
+        "maximum_support_ring_pressure_MPa": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "head",
+          "host": "eoere_clip_angle_base_left",
+          "source_subset": "global_full_ring",
+          "value": 0.9394012537830041
+        },
+        "row_count": 1152
+      },
+      "near_seat_partial_supported_ring": {
+        "maximum_Omega_weighted_required_Fy_reference_MPa": {
+          "axis_id": "v11_top_left_post_1",
+          "case_id": "a12-rear",
+          "end": "head",
+          "host": "eoere_clip_single_top_left_1",
+          "source_subset": "near_seat_partial_supported_ring",
+          "value": 77.41825591702056
+        },
+        "maximum_VM_upper_MPa": {
+          "axis_id": "v11_top_left_post_1",
+          "case_id": "a12-rear",
+          "end": "head",
+          "host": "eoere_clip_single_top_left_1",
+          "source_subset": "near_seat_partial_supported_ring",
+          "value": 46.35823707606021
+        },
+        "maximum_load_ring_pressure_MPa": {
+          "axis_id": "v11_top_left_post_1",
+          "case_id": "a12-rear",
+          "end": "head",
+          "host": "eoere_clip_single_top_left_1",
+          "source_subset": "near_seat_partial_supported_ring",
+          "value": 5.364135406672473
+        },
+        "maximum_support_ring_pressure_MPa": {
+          "axis_id": "v11_top_left_post_1",
+          "case_id": "a12-rear",
+          "end": "head",
+          "host": "eoere_clip_single_top_left_1",
+          "source_subset": "near_seat_partial_supported_ring",
+          "value": 0.6018564246787411
+        },
+        "row_count": 96
+      },
+      "plywood_full_annulus_A574_circular_head": {
+        "maximum_Omega_weighted_required_Fy_reference_MPa": {
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-left",
+          "end": "head",
+          "host": "eoere_cleat_left",
+          "source_subset": "plywood_full_annulus_A574_circular_head",
+          "value": 103.03475227580739
+        },
+        "maximum_VM_upper_MPa": {
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-left",
+          "end": "head",
+          "host": "eoere_cleat_left",
+          "source_subset": "plywood_full_annulus_A574_circular_head",
+          "value": 61.69745645257928
+        },
+        "maximum_load_ring_pressure_MPa": {
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-left",
+          "end": "head",
+          "host": "eoere_cleat_left",
+          "source_subset": "plywood_full_annulus_A574_circular_head",
+          "value": 4.698603229732092
+        },
+        "maximum_support_ring_pressure_MPa": {
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-left",
+          "end": "head",
+          "host": "eoere_cleat_left",
+          "source_subset": "plywood_full_annulus_A574_circular_head",
+          "value": 0.5414307777933649
+        },
+        "row_count": 72
+      },
+      "plywood_full_annulus_external_hex_min_AF_sensitivity": {
+        "maximum_Omega_weighted_required_Fy_reference_MPa": {
+          "axis_id": "v11_cleat_right_post_2",
+          "case_id": "k12-right",
+          "end": "head",
+          "host": "eoere_cleat_right",
+          "source_subset": "plywood_full_annulus_external_hex_min_AF_sensitivity",
+          "value": 62.78391123509954
+        },
+        "maximum_VM_upper_MPa": {
+          "axis_id": "v11_cleat_right_post_2",
+          "case_id": "k12-right",
+          "end": "head",
+          "host": "eoere_cleat_right",
+          "source_subset": "plywood_full_annulus_external_hex_min_AF_sensitivity",
+          "value": 37.59515642820332
+        },
+        "maximum_load_ring_pressure_MPa": {
+          "axis_id": "v11_cleat_right_post_2",
+          "case_id": "k12-right",
+          "end": "head",
+          "host": "eoere_cleat_right",
+          "source_subset": "plywood_full_annulus_external_hex_min_AF_sensitivity",
+          "value": 2.749012069845898
+        },
+        "maximum_support_ring_pressure_MPa": {
+          "axis_id": "v11_cleat_right_post_2",
+          "case_id": "k12-right",
+          "end": "head",
+          "host": "eoere_cleat_right",
+          "source_subset": "plywood_full_annulus_external_hex_min_AF_sensitivity",
+          "value": 0.33048373770136275
+        },
+        "row_count": 24
+      }
+    },
+    "maximum_Omega_weighted_required_Fy_reference_MPa": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "nut",
+      "host": "eoere_clip_header_outer_under_left",
+      "source_subset": "global_full_ring",
+      "value": 182.47565240907034
+    },
+    "maximum_VM_upper_MPa": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "nut",
+      "host": "eoere_clip_header_outer_under_left",
+      "source_subset": "global_full_ring",
+      "value": 109.26685772998223
+    },
+    "maximum_load_ring_pressure_MPa": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "nut",
+      "host": "eoere_clip_header_outer_under_left",
+      "source_subset": "global_full_ring",
+      "value": 12.47847504089278
+    },
+    "maximum_support_ring_pressure_MPa": {
+      "axis_id": "eoere_bolt_082",
+      "case_id": "a12-forward",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left",
+      "source_subset": "global_full_ring",
+      "value": 0.9394012537830041
+    },
+    "row_count": 1344,
+    "subset_counts": {
+      "global_full_ring": 1152,
+      "near_seat_partial_supported_ring": 96,
+      "plywood_full_annulus_A574_circular_head": 72,
+      "plywood_full_annulus_external_hex_min_AF_sensitivity": 24
+    }
+  },
+  "summary_producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/delivery/project_washer_static_summary_v1.py",
+    "sha256": "ead24cd8876cef6a8068d191c40751f120626385d93102a1279ba3f1e8609930"
+  }
+}

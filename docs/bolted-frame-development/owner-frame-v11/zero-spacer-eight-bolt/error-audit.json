@@ -1,0 +1,147 @@
+{
+  "candidate_revision": "v11-zero-spacer-eight-bolt-v1",
+  "checks": {
+    "all114_axis_stations_and30_profile_records_match_geometry_only_parent": true,
+    "axes": 114,
+    "bearing_endpoints": 1152,
+    "cold_retry_current_field_used": true,
+    "corrected_direct_nut_cases": 24,
+    "end_comparisons": 429,
+    "fields": 6,
+    "maximum_replay_errors": {
+      "bearing_index": 5.551115123125783e-17,
+      "end_minimum_index": 1.3322676295501878e-15,
+      "mixed_required_Fyb_MPa": 5.684341886080802e-14,
+      "shear_index": 0.0
+    },
+    "mixed_states": 144,
+    "new_numerical_error_found_in_replayed_scope": false,
+    "shear_edge_scenarios": 672
+  },
+  "complete_joint_capacity": null,
+  "findings": [
+    {
+      "flags": [
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-forward",
+          "index": 1.2366219810676662
+        },
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-left",
+          "index": 1.1992681695695138
+        },
+        {
+          "axis_id": "v11_cleat_right_side_1",
+          "case_id": "k12-right",
+          "index": 1.186202648459361
+        }
+      ],
+      "issue": "Cleat bolt bending",
+      "remedy_limit": "Existing same-head60ksi additional specification and12-boltGrade5 option remain unadopted. A Grade5 head/profile substitution needs its own matched geometry/force evaluation; a material-only hypothesis does not clear wood geometry.",
+      "required_Fyb_ksi": 55.64798914804497,
+      "result": "Three generic45 Fyb flags reproduce. They are property/reference flags, not established physical bolt failures.",
+      "same_field_60ksi_strength_sensitivity_only": 0.9274664858007495
+    },
+    {
+      "available_mm": 41.275,
+      "issue": "Top row spacing",
+      "remedy_limit": "Cdelta end/in-row reductions are not an automatic waiver for between-row TableD geometry. The authorized106-bolt/four-per-outer-top study has not been evaluated by this audit.",
+      "required_mm": 47.625,
+      "result": "The 6.35mm shortfall replays under the retained sole-wood-wall TableD interpretation. Both a1-rear groups have nonzero perpendicular actions; this is not a zero-force rounding artifact."
+    },
+    {
+      "issue": "Cleat-post and top-beam near-end flags",
+      "representative_current_case": {
+        "available_mm": 23.8125,
+        "axis_id": "v11_cleat_left_post_1",
+        "case_id": "a12-forward",
+        "direction": "positive",
+        "host": "base_post_outer_left",
+        "minimum_index": 1.1436773248431695,
+        "required_full_mm": 54.46763259565595,
+        "required_minimum_mm": 27.233816297827975
+      },
+      "result": "Twenty net and18 primitive minimum comparisons reproduce at six locations. They already use half the full reference; this is not confusion between full-capacity and minimum distances.",
+      "scope_limit": "Oblique end interpolation is a declared historical AWC commentary component comparison, not a newly verified2024commentary rule or full coupled splitting criterion. Opposed primitive forces and free couples cannot be cleared by choosing the favorable net force alone."
+    },
+    {
+      "flags": [
+        {
+          "alternative": 0.5999130838879426,
+          "case_id": "a12-forward",
+          "envelope": 1.0045086014422708,
+          "group_id": "rear-foot-left/lumber_leg_left"
+        },
+        {
+          "alternative": 0.6508899712730206,
+          "case_id": "a12-left",
+          "envelope": 1.0898655026807003,
+          "group_id": "rear-foot-left/lumber_leg_left"
+        },
+        {
+          "alternative": 0.6525956774106716,
+          "case_id": "k12-right",
+          "envelope": 1.0927215772235304,
+          "group_id": "rear-foot-right/lumber_leg_right"
+        }
+      ],
+      "issue": "Rear-foot weak-edge scenarios",
+      "result": "All672 edge-scenario quotients reproduce. The three above-one values use the worse of two unloaded-edge assumptions; all three alternative branches are below one.",
+      "scope_limit": "These are conditional envelope flags. The correct physical edge/couple load path still needs support; do not label them established rear-foot failures or silently discard the unfavorable branch."
+    },
+    {
+      "issue": "Historical reuse",
+      "result": "Current summaries bind their own zero-spacer bank including the cold k12 retry. Geometry-only distances and historical equations are reused within their stated limits. The older112 dataset label in some helper rows is retained metadata; it does not replace the fresh114 sources.",
+      "scope_limit": "This audit verifies direct source bindings and arithmetic, not every historical dependency, all physical properties or the entire solver."
+    },
+    {
+      "current_all1368_minimum_thickness_required_Fy_1_67_MPa": 170.307896476286,
+      "issue": "Previously identified washer footprint error",
+      "result": "The main agent's completed correction replaces an inherited9.525mm spacer-loaded radius with the6.43509mm direct-nut radius in24 four-nut/case references after spacer removal. All24 corrected radius rows are verified here; the original record remains preserved.",
+      "scope_limit": "This is an existing corrected analytical input error, not a new discovery of this audit or a change to the current global forces. The194 native fitting responses were retained separately; this audit does not rerun or independently qualify those responses."
+    }
+  ],
+  "primary_guidance": {
+    "NDS2024": "https://awc.org/resources/2024-nds",
+    "historical_end_interpolation": {
+      "edition_limit": "2024 normative principal endpoint values and Cdelta limits match; full2024commentary interpolation wording has not been directly verified. Historical primary commentary is a declared supplemental engineering comparison, not a falsely adopted2024rule.",
+      "locator": "C12.5.1.2 End Distance, printed263/PDF71; C12.5.1.3 Edge Distance printed264/PDF72",
+      "sha256": "3402c7703cddef3e6693741ebaef9bfd0c1b0ddf075762c6f411fe1916751f7d",
+      "technical_method": "For tension toward the evaluated end, linearly interpolate full end reference from7D at0degrees to4D at90degrees; minimum is half that reference. Compression away from end retains4D full,2D minimum. No edge/row interpolation follows.",
+      "url": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf"
+    },
+    "interpretation": "2024Table12.5.1A and12.5.1.2 distinguish full-value geometry from the minimum eligible for a reduction. TableD between-row requirements are separate. Historical end-angle interpolation is not extended to edge/row rules."
+  },
+  "producer": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/error-audit-v1/audit_existing_references.py",
+    "sha256": "d84a315eb1d9608c4e673b94d6fd502f2c09267ffae7ac0ff6263c89d5b0cb74"
+  },
+  "reproduction_command": "uv run python fea/generated/v11-zero-spacer-eight-bolt-v1/references/error-audit-v1/audit_existing_references.py",
+  "schema": "v11_zero_spacer_error_audit/v1",
+  "scope": "Saved 114-bolt zero-spacer fields and existing reference calculations only; no new native/CAD/global solve, hardware change or property adoption.",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/current-reference-summary.json": "ad7afe99321856e25b6247155e8495a988d36c6ba6b607888ce2c4a5e75eb3a6",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/mixed-common-work-summary.json": "65a7c1387752945a0c24609f165def4c4d7adfc23d76874233b5b287a5d243b2",
+    "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f",
+    "fea/generated/v11-relocated-rear-pair-v1/references/item3/geometry/geometry-detail-v1.json": "be75afbeaf4aa4d3ada51046802b7bc18d74fd8c62140003f84a5baf62af0445",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/closure-retry-k12-rear-cold-v1/four-hosts/k12-rear/field.json": "010535d05b6a5816e61c35b3847def8e99583dc01fb77f628078f535944c72e6",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json": "0b0919c5b378fd167fa21aa90ebaad0facd93f3a23b43d6928d70c7f8a1e2bb1",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json": "3836580704c574e08312d14c324353869622c813ab1fe2cae56adfa9255114ce",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json": "a8b3cba0ccfb35d7aac94140e70c97000b7e89fd956fdff1f05e792b9020cfdf",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json": "adc28125b28aff6a1fcf2f9d085e70062759612976eaf202bb87030ac268478f",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json": "cbc9076584720f3b17a8918ce8f6ec4d30fb229ea2a3c7ba8e5f7305b032baab",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json": "515ed1c23f8dfae527d3b9ae56e964529682bc543342bd53175bb7ba16145264",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/response-bank.json": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/fitting-reuse/all-end-washers-v1/near96-corrected-plate-v2.json": "f28520606b331f280d929ce3c4b15515228270fa6d00342811c210e40e1ee3e8",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/fitting-reuse/results-v1/component-consolidation-v2.json": "663327069fa3f40fbd49492b5c63aa7ced8a91367cc695e956851bf6bdde2618",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/item3/brittle/current-reduced-depth-shear-v1.json": "7f98773b2e999a9d68350f9934085eff592070f54576293832fbd5a941f95c9e",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/item3/geometry/geometry-detail-v1.json": "d5027b20835f8c28103d3c5fbb456ca8187d2e5ca43fd594c2fb0f84cc6db4ff",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/item3/geometry/geometry-method-closeout-v1.json": "97762d50b6e982a636b02701fa75dc5160fae3977229f1b1682f357ed0345a2c",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/fresh-input-joins-v1.json": "84b2521b59d9266a8f60e7f2e69f9b6d845d9322f5d5937295b58e1b5a221568",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json": "9883ecc2ce52ba9a54e849f88132b54d33305c85b2d8b32ec7135a774ab27ba3"
+  },
+  "structural_acceptance": false
+}

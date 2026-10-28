@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1130" viewBox="0 0 1400 1130">
+<defs>
+ <style>text{font-family:Arial,sans-serif;fill:#1e2933;font-size:16px}.title{font-size:25px;font-weight:bold}.heading{font-size:21px;font-weight:bold}.small{font-size:14px}.dim{font-size:7px}.a{fill:#24669a}.b{fill:#ac5f0b}.c{fill:#7951a3}.hole{fill:white;stroke:#205f92;stroke-width:1.2}.ghost{fill:none;stroke:#bb3c3c;stroke-width:1;stroke-dasharray:2 1}.line{stroke:#637484;stroke-width:.5;fill:none}</style>
+ <g id="top-window"><rect width="139.7" height="110" fill="#e6efe0" stroke="#7a9571" stroke-width=".5"/><rect x="25.4" width="88.9" height="88.9" fill="#c3d9e9" stroke="#6187a5" stroke-width=".5"/><path d="M0 110l7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3 7 -3 7 3" class="line"/><text x="2" y="-5" class="dim">Top-rail end: e = 0; grain ↓</text></g>
+ <g id="post-window"><rect width="139.7" height="110" fill="#e6efe0" stroke="#7a9571" stroke-width=".5"/><rect width="139.7" height="99.2" fill="#e0e0e3" stroke="#6c7177" stroke-width=".5"/><rect x="26.6375" width="88.9" height="88.9" fill="#c3d9e9" stroke="#6187a5" stroke-width=".5"/><path d="M0 99.2h139.7" stroke="#ab6d1f" stroke-width="1"/><text x="2" y="-5" class="dim">Post end: e = 0; grain ↓</text><text x="1" y="108" class="dim">Plywood bottom: e = 99.2</text></g>
+ <g id="top-far"><circle cx="44.45" cy="65.0875" r="5.159375" class="hole"/><circle cx="95.25" cy="65.0875" r="5.159375" class="hole"/></g>
+ <g id="top-near"><circle cx="44.45" cy="23.8125" r="5.159375" class="hole"/><circle cx="95.25" cy="23.8125" r="5.159375" class="hole"/></g>
+ <g id="post-far"><circle cx="45.6875" cy="65.0875" r="5.159375" class="hole"/><circle cx="96.4875" cy="65.0875" r="5.159375" class="hole"/></g>
+ <g id="post-near"><circle cx="45.6875" cy="23.8125" r="5.159375" class="hole"/><circle cx="96.4875" cy="23.8125" r="5.159375" class="hole"/></g>
+ <g id="ghost-top"><circle cx="44.45" cy="23.8125" r="5.159375" class="ghost"/><circle cx="95.25" cy="23.8125" r="5.159375" class="ghost"/><path d="M40 19.4l8.9 8.9m-8.9 0 8.9 -8.9m42.0 0 8.9 8.9m-8.9 0 8.9 -8.9" stroke="#bb3c3c" stroke-width="1"/></g>
+ <g id="ghost-post"><circle cx="45.6875" cy="23.8125" r="5.159375" class="ghost"/><circle cx="96.4875" cy="23.8125" r="5.159375" class="ghost"/><path d="M41.2 19.4l8.9 8.9m-8.9 0 8.9 -8.9m42.0 0 8.9 8.9m-8.9 0 8.9 -8.9" stroke="#bb3c3c" stroke-width="1"/></g>
+</defs>
+<rect width="1400" height="1130" fill="white"/>
+<text x="26" y="35" class="title">Owner constraint review — current reviewed trial remains 114 bolts</text>
+<text x="26" y="63">Options B and C are not implemented. Geometry/forces unchanged; no purchase, drilling or climbing release.</text>
+<path d="M465 84v950M930 84v950" stroke="#d4dce2"/>
+<rect x="20" y="88" width="425" height="52" rx="4" fill="#e4f0f8"/><text x="34" y="120" class="heading a">A · Keep the 114-bolt trial</text>
+<rect x="485" y="88" width="425" height="52" rx="4" fill="#fff0df"/><text x="499" y="120" class="heading b">B · Review 102 bolts / zero spacers</text>
+<rect x="950" y="88" width="425" height="52" rx="4" fill="#f0eafa"/><text x="964" y="120" class="heading c">C · Preserve the eight-bolt intent</text>
+
+<text x="34" y="174" font-weight="bold">Outer-top beam flange — one corner shown</text>
+<g transform="translate(85 205) scale(2)"><use href="#top-window"/><use href="#top-near"/><use href="#top-far"/><path d="M120 23.8125h7v41.275h-7" class="line"/><text x="120" y="47" class="dim">41.275</text><path d="M20 0H13v23.8125h7" class="line"/><text x="-22" y="15" class="dim">23.8125</text><path d="M44.45 80v5h50.8v-5" class="line"/><text x="56" y="94" class="dim">50.8 mm</text></g>
+<text x="34" y="453">Actual a1-rear perpendicular branch:</text><text x="34" y="477" font-weight="bold">41.275 available / 47.625 required.</text><text x="34" y="501" fill="#a51f25">6.35 mm short under the stated method.</text>
+
+<text x="499" y="174" font-weight="bold">Remove all eight added outer-top axes</text>
+<g transform="translate(550 205) scale(2)"><use href="#top-window"/><use href="#ghost-top"/><use href="#top-far"/><path d="M20 0H13v65.0875h7" class="line"/><text x="-26" y="38" class="dim">65.0875</text><path d="M44.45 80v5h50.8v-5" class="line"/><text x="56" y="94" class="dim">50.8 mm</text></g>
+<text x="499" y="453">Outer corners: 4 bolts each (2 per member).</text><text x="499" y="477">Known two-row top pattern removed.</text><text x="499" y="501">End 65.0875 &lt; full tension 7D = 66.675.</text>
+
+<text x="964" y="174">Retain 8 per outer corner and 8 per cleat.</text><text x="964" y="198">Changed compatible factory pattern, or a</text><text x="964" y="222">supported full-connection mechanics route.</text>
+<text x="968" y="258" class="small">Illustrative factory top-pattern envelope only:</text>
+<g transform="translate(980 288) scale(1.5)"><rect width="88.9" height="150" fill="#d7cde4" stroke="#7951a3"/><circle cx="19.05" cy="68.675" r="5.159375" class="hole"/><circle cx="69.85" cy="68.675" r="5.159375" class="hole"/><circle cx="19.05" cy="119.475" r="5.159375" class="hole"/><circle cx="69.85" cy="119.475" r="5.159375" class="hole"/></g>
+<g transform="translate(1190 288) scale(1.5)"><rect width="88.9" height="100" fill="#d7cde4" stroke="#7951a3"/><circle cx="19.05" cy="28.575" r="5.159375" class="hole"/><circle cx="69.85" cy="28.575" r="5.159375" class="hole"/><circle cx="19.05" cy="79.375" r="5.159375" class="hole"/><circle cx="69.85" cy="79.375" r="5.159375" class="hole"/></g>
+<text x="976" y="540" class="small">Beam leg 150</text><text x="1184" y="466" class="small">Post leg 100 mm</text><text x="964" y="566">3/8 bolts; 50.8 mm grainwise pitch.</text><text x="964" y="590">Beam holes: 68.675 / 119.475 from heel.</text><text x="964" y="614">Post holes: 28.575 / 79.375 from heel.</text><text x="964" y="638">No factory SKU, clearance or strength pass.</text><text x="964" y="662">Cleat fitting pattern also needs resolution.</text>
+
+<text x="34" y="557" font-weight="bold">Cleat-to-post flange — side bolts not shown</text>
+<g transform="translate(85 586) scale(2)"><use href="#post-window"/><use href="#post-near"/><use href="#post-far"/><path d="M20 0H13v23.8125h7" class="line"/><text x="-22" y="15" class="dim">23.8125</text></g>
+<text x="34" y="838">Cleats: 8 bolts each (4 side + 4 post).</text><text x="34" y="862">Four upper-post end locations still flag</text><text x="34" y="886">the supplemental angle method:</text><text x="34" y="910" font-weight="bold">minimum-end index up to 1.278 net.</text><text x="34" y="934">All four current 12.7 mm spacers remain.</text>
+
+<text x="499" y="557" font-weight="bold">Remove four added cleat-post near axes</text>
+<g transform="translate(550 586) scale(2)"><use href="#post-window"/><use href="#ghost-post"/><use href="#post-far"/><path d="M20 0H13v65.0875h7" class="line"/><text x="-26" y="38" class="dim">65.0875</text><path d="M121 65.0875h5v34.1125h-5" class="line"/><text x="107" y="86" class="dim">34.1125</text></g>
+<text x="499" y="838">Cleats: 6 bolts each (4 side + 2 post).</text><text x="499" y="862">Remaining post end: 65.0875 mm.</text><text x="499" y="886">Remaining plywood lower end: 34.1125.</text><text x="499" y="910" font-weight="bold">Changed strength UNKNOWN: fresh bank.</text><text x="499" y="934">Owned angles 24; all four spacers omitted.</text>
+
+<text x="964" y="728" font-weight="bold">Owner preference needed before a change:</text><text x="964" y="758">• Permit fewer populated bolts (B), or</text><text x="964" y="788">• Keep eight and resolve the compatible</text><text x="984" y="816">fitting / mechanics approach (C).</text><text x="964" y="860">B is simpler hardware, not a proven</text><text x="964" y="884">stronger or accepted connection.</text><text x="964" y="924">No current model changes are selected.</text>
+
+<rect x="22" y="976" width="1354" height="130" fill="#f4f6f8" stroke="#c7d0d8"/>
+<text x="38" y="1002">Blue circles: retained rows. Red crosses: proposed omissions in B only. Dimensions in mm; nominal face windows, not drill templates.</text>
+<text x="38" y="1028">B removes exactly 8 v11_top_* axes + 4 v11_cleat_*_post_* axes. Timber/cleat outlines, standard 4×6 top/sides and 24 owned angles stay.</text>
+<text x="38" y="1054">Remaining sloping-side end/edge, plywood/bond, row/group, splitting, fitting and hardware criteria still apply; no old force result transfers.</text>
+<text x="38" y="1080">This compares the unselected 114-bolt trial and review-only alternatives. Selected baseline/development authority is unchanged.</text>
+</svg>

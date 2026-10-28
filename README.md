@@ -6,13 +6,15 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[V9 cleats, 4×6 top and eight-bolt outer corners · public viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)**
+**[Current local development · shorter bolts · four spacers](http://127.0.0.1:8767/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off)**
 
-The current geometry is **`v11-v9-eight-bolt-v4`**. It restores V9's straight-sided cleats with two glued nominal ¾-inch plywood leaves per side. Each cleat has eight bolts, four into the sloping side and four into the upright. The two outer top corners have eight bolts each; the two center top connections retain four. Top and side stock is standard nominal 4×6, actual 88.9 × 139.7 mm, with no wood packers.
+The active [114-bolt zero-spacer evaluation](docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/README.md) retains every eight-bolt joint and has its own [viewer route](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-zero-spacer-preview&view=rear&holds=off), six-case bank and provisional hardware/template packet. It remains an unselected development candidate with recorded material and geometry limits.
 
-The [checked geometry receipt](docs/bolted-frame-development/owner-frame-v11/geometry-receipt.json) records 1,109 parts, 112 bolt stacks, 24 metal spacers, 24 angles and 66 Hillman axes. Nominal occupied clearance passes. The thicker top requires two 50.8 mm center-principal end trims and two matching upper-panel screw moves; two kicker screw positions move down 6.35 mm to clear the added bolts. Four added lower bolts use a provisional seven-inch Grade 5 / half-inch-spacer recipe. Delivered hardware, glue and complete joint strength remain unqualified.
+The current geometry is **`v11-shorter-bolts-v1`**, selected by the [owner's spacer-reduction decision](docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json). It retains V9's straight-sided cleats with two glued nominal ¾-inch plywood leaves per side, eight bolts per cleat, eight at each outer top corner and four at each center top connection. Top and side stock remains actual 88.9 × 139.7 mm, with no wood packers.
 
-**Fresh six-case calculations and all twelve independent replays are complete.** The [current conditional review](docs/bolted-frame-development/owner-frame-v11/reference-review.json), [physical-row connection calculations](docs/bolted-frame-development/owner-frame-v11/connection-capacity-followthrough.json) and [signed geometry checks](docs/bolted-frame-development/owner-frame-v11/geometry-applicability.json) use this model's own forces. Member and cleat references are below one. The [saved conditional Grade 5 specification](docs/bolted-frame-development/owner-frame-v11/grade5-property-comparison.json) gives zero force-only exceedances; generic-property flags remain preserved and complete joint/geometry qualifications remain unfinished. The [development summary](docs/bolted-frame-development/README.md) and [revision index](docs/bolted-frame-development/development-revisions.json) retain earlier studies separately. The viewer presents those fixed-load conditional results over the unchanged geometry; current cut/drill instructions and physical release are not established.
+The [checked geometry receipt](docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json) records **1,089 parts, 112 bolt stacks and four metal spacers**, with 24 angles and 66 Hillman axes. Twenty shorter header/cleat bolts replace their longer versions and their twenty sleeves are removed; frame, cleats, holes, axes, heads and washer seats stay fixed. The [original 24-spacer V11 viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off) and all its evidence remain preserved. Fully threaded and zero-spacer alternatives remain unselected.
+
+**Its own six-case calculations and twelve independent replays are complete.** The [matched review](docs/bolted-frame-development/owner-frame-v11/shorter-bolts/reference-review.json), [signed geometry](docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-applicability.json) and [current joint disposition](docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v5.json.gz) retain the conditional references, diagnostics and unresolved connection qualifications. The [development summary](docs/bolted-frame-development/README.md) and [revision index](docs/bolted-frame-development/development-revisions.json) separate current selection from preserved evidence. Delivered hardware, bond, floor and complete joint strength remain unqualified; no purchase, cut/drill, fabrication, climbing or structural release follows from selection.
 
 ## Run locally
 
@@ -23,7 +25,7 @@ uv sync --locked
 uv run python -m http.server 8767 --bind 127.0.0.1 --directory site
 ```
 
-Open the [V9-derived geometry preview](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off); Candidate 13 remains a separate historical viewer.
+Open the [current four-spacer development viewer](http://127.0.0.1:8767/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off); the original V11 and Candidate 13 remain separate historical choices.
 This serves committed visualization assets. It does **not** regenerate CAD or
 replay an engineering study. Browser rendering also needs access to the pinned
 Three.js modules on unpkg.com.
@@ -32,9 +34,9 @@ The current 4×6 viewer is included in the repository's site assets and uses the
 normal port 8767 server above. Its runtime needs no ignored development outputs.
 Candidate 13 and the earlier port 8780 preview remain preserved.
 
-The [V11 development viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off)
-is published through the repository's successful-CI Pages workflow. A local
-check or push alone does not establish deployment. Historical viewer choices
+The [existing four-spacer public viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off)
+retains its own assets. The new selection and labels are local until the normal
+successful-CI Pages workflow runs outside the commit/push blackout. Historical viewer choices
 remain available; the selected baseline remains the no-query default.
 
 For a reproducible CAD export, start with the

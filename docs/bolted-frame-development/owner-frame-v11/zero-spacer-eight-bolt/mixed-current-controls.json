@@ -1,0 +1,798 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "all_saved_signed_forces_couples_and_separate_metal_demands_preserved": true,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "counts": {
+    "endpoints": 1152,
+    "mixed_axes": 24,
+    "new_profile_axes": 4,
+    "new_profile_states": 24,
+    "receivers": 432,
+    "states": 144
+  },
+  "current_bank_and_input_joins_verified": true,
+  "exact_four_body_root_profile_joins_verified": true,
+  "existing_current_embedded_controls": {
+    "affine_endpoint_force_replay_maximum_N": 5.859285502108464e-14,
+    "affine_endpoint_moment_replay_maximum_Nmm": 2.033691978340166e-12,
+    "diameter_body_root_Rd_controls": [
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_left_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_left_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_left_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_left_2",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_right_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_right_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_right_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "cleat_post_bolt_right_2",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_065",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_065",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_066",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_066",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_067",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_067",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_070",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_070",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_071",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_071",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_074",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_074",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_079",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_079",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_080",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_080",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_081",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_081",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_082",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_082",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_083",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_083",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_084",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "eoere_bolt_084",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_post_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_post_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_post_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_post_2",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_side_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_side_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_side_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_left_side_2",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_post_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_post_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3726,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_post_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.31774,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_post_2",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_side_1",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_side_1",
+        "branch": "thread_root_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 9.3218,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_side_2",
+        "branch": "full_body_diameter_mm"
+      },
+      {
+        "Dlocal_mm": 7.3787,
+        "Rd_terms": {
+          "II": 4.5,
+          "IIIm": 4.0,
+          "IIIs": 4.0,
+          "IV": 4.0,
+          "Im": 5.0,
+          "Is": 5.0
+        },
+        "axis_id": "v11_cleat_right_side_2",
+        "branch": "thread_root_diameter_mm"
+      }
+    ],
+    "exact_frozen_mixed_equation_steps": [
+      {
+        "excluded_stop_assignment": "(rear_cells, rear_states, replays)",
+        "first_assignment": "geometry_ref",
+        "producer": {
+          "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/evaluate_saved_isotropic_fields_v1.py",
+          "sha256": "abc1acd9454cf2eee8a87424b58d558dc41a44079976f70b41f41b821284805f"
+        },
+        "unchanged_statement_count": 12
+      },
+      {
+        "excluded_stop_assignment": "(current_report, remedy_report)",
+        "first_assignment": "axes",
+        "producer": {
+          "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/evaluate_contracted_saved_fields_v1.py",
+          "sha256": "bbe9da2d36cd46e26b4845042c2dd6c88888bd1f03f858a731f20e40cde6cd2b"
+        },
+        "unchanged_statement_count": 6
+      }
+    ],
+    "fresh_affine_source_replay": {
+      "current_NDS_2024_Rd_at_minimum_D_theta90": {
+        "II": 4.5,
+        "IIIm": 4.0,
+        "IIIs": 4.0,
+        "IV": 4.0,
+        "Im": 5.0,
+        "Is": 5.0
+      },
+      "current_axis_case_states": 144,
+      "current_cases": 6,
+      "current_mixed_axes": 24,
+      "global_lateral_beam_force_closure_max_error_N": 6.696805490436328e-07,
+      "global_lateral_beam_moment_closure_max_error_Nmm": 4.337200423151127e-05,
+      "lateral_yield_model_exceedance_state_count": 6,
+      "matched_two_media_calibration_controls": 18,
+      "matched_two_media_control_ratio_max": 1.0,
+      "matched_two_media_control_ratio_min": 0.8656679483784695,
+      "matched_two_media_controls_no_larger_than_NDS": true,
+      "maximum_average_shear_demand_MPa": 8.24895963022022,
+      "maximum_axial_Fy_demand_case": {
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "required_Fy_MPa": 9.171790950220323
+      },
+      "maximum_axial_cut_torsion_Nmm": 1.2869967645323136e-14,
+      "maximum_axial_force_in_mixed_cut_N": 386.2505169993959,
+      "maximum_bending_required_Fyb_case": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "conditional_Fyb_reference_ksi": 45.0,
+        "required_Fyb_ksi": 69.55998643505622
+      },
+      "maximum_capture_force_N": 386.3321723600266,
+      "maximum_conditional_Fyb_required_MPa": 479.5992237857961,
+      "maximum_conditional_Fyb_required_psi": 69559.98643505621,
+      "maximum_current_analysis_bore_radial_gap_mm": 0.39687499999999964,
+      "maximum_explicit_capture_free_couple_Nmm": 0.0,
+      "maximum_explicit_cell_free_couple_Nmm": 0.0,
+      "maximum_lateral_cut_shear_N": 409.8036755787697,
+      "maximum_lateral_yield_model_utilization": 1.5457774763345826,
+      "maximum_radial_bearing_case": {
+        "axis_id": "eoere_bolt_081",
+        "case_id": "a12-left",
+        "host": "base_header",
+        "surface_index": 0,
+        "utilization": 0.5708049724545344
+      },
+      "maximum_radial_bearing_utilization": 0.5708049724545344,
+      "maximum_required_uniaxial_Fy_MPa": 9.171790950220323,
+      "minimum_current_effective_D_or_Dr_in": 0.2881,
+      "statically_reconstructed_receiver_surfaces": 432,
+      "surface_force_replay_max_error_N": 5.859285502108464e-14,
+      "surface_moment_replay_max_error_Nmm": 2.033691978340166e-12
+    },
+    "fresh_forces_couples_profiles_and_independent_metal_preserved": true,
+    "fresh_full_wrench_source_replay": {
+      "accepted_connection_exceedance_count": null,
+      "axis_count": 24,
+      "case_count": 6,
+      "max_N_source_cut_replay_error_N": 0.0,
+      "max_T_source_cut_replay_error_Nmm": 0.0,
+      "max_lateral_force_closure_residual_N": 6.696805490436328e-07,
+      "max_lateral_moment_closure_residual_Nmm": 4.337200423151127e-05,
+      "max_stress_helper_replay_error_MPa": 0.0,
+      "maximum_required_Fy_MPa_for_Fy_over_2": 332.3182721225811,
+      "maximum_required_Fy_governing_axis_case": [
+        "v11_cleat_left_side_1",
+        "a12-forward"
+      ],
+      "maximum_required_Fyb_MPa_from_separate_plastic_hinge_reference": 479.5992237857961,
+      "maximum_required_Fyb_governing_axis_case": [
+        "v11_cleat_left_side_1",
+        "a12-forward"
+      ],
+      "native_or_CAD_run": false,
+      "physical_failure_claim": false,
+      "state_count": 144,
+      "structural_acceptance": false
+    },
+    "historical_forces_or_indices_transferred": false,
+    "native_global_CAD_or_pressure_optimization_run": false
+  },
+  "fabrication_released": false,
+  "new_engineering_equations_or_new_tests": false,
+  "producer": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/publish_mixed_controls_v1.py",
+    "sha256": "1c454c1e5599130e8ee163143711101158568cc292bd109b2e0ec2e3144e798b"
+  },
+  "revision": "v11-zero-spacer-eight-bolt-v1",
+  "schema": "v11_zero_spacer_current_mixed_control_publication/v1",
+  "source_bindings": {
+    "admitted_case_path_adapter": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/run_admitted_routes_v1.py",
+      "sha256": "d45940f162fcd2649eae0fc9e6b2558015f0dd48bb3a3fd32a9092e74b334b01"
+    },
+    "conditional_type_mapping_adapter": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/run_admitted_routes_v2.py",
+      "sha256": "e1da64cb2462a02bf6975b96029c8f0ccc59d38b289048b914d5b88113b3ba79"
+    },
+    "detailed_rows": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json",
+      "sha256": "9883ecc2ce52ba9a54e849f88132b54d33305c85b2d8b32ec7135a774ab27ba3"
+    },
+    "four_post_profiles": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/four-post-profile-references-v1.json",
+      "sha256": "377c14ffa8e589aceb3b277d182084c6542f01a30d2a2c4a613600344a4e9265"
+    },
+    "hardware_profile_contract": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/hardware/profile-contract-v1.json",
+      "sha256": "abcc49a6f59e4183b8b522e5fa064157f7107cf290a3043fac76d4927a508f8f"
+    },
+    "input_joins": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/fresh-input-joins-v1.json",
+      "sha256": "84b2521b59d9266a8f60e7f2e69f9b6d845d9322f5d5937295b58e1b5a221568"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+    },
+    "reused_known_answer_controls": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/reuse-adapter-controls-v1.json",
+      "sha256": "ad5652bdb3d6f5ffab7bbebc989fd2d62ce8c186adb56a545dc6eedddb4d102d"
+    },
+    "summary": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-summary-v1.json",
+      "sha256": "65a7c1387752945a0c24609f165def4c4d7adfc23d76874233b5b287a5d243b2"
+    }
+  },
+  "structural_acceptance": false
+}

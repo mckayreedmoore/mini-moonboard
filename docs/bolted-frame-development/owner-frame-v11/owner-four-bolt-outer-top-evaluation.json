@@ -1,0 +1,133 @@
+{
+  "actual_Cdelta_adopted": null,
+  "actual_Cg_adopted": null,
+  "affected_fresh_stock_bore_profiles": [
+    "base_rail_top",
+    "base_side_left",
+    "base_side_right"
+  ],
+  "authorization_source": "Direct owner reply to the four-per-outer-top, eight-per-cleat, separate106-bolt zero-spacer evaluation question.",
+  "base_bolt_count": 114,
+  "candidate_bolt_count": 106,
+  "candidate_revision": "v11-four-bolt-outer-top-v1",
+  "candidate_selected": false,
+  "candidate_spacer_count": 0,
+  "center_top_bolts_each_unchanged": 4,
+  "cleat_bolts_each": 8,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "evaluation_authorized": true,
+  "fabrication_released": false,
+  "fixed_constraints": [
+    "All other106 axes and hardware stacks retain parent stations, sizes, profiles and washer seats.",
+    "Retain all timber/cleat exterior profiles, standard88.9x139.7mm top and side stock,24angleposes,66screwaxes and no woodpackers.",
+    "Retain all eight bolts at each two-glued-three-quarter-inch plywood cleat and both matchinghalf-inch upper-rear pairs.",
+    "Retain the four existing shorter Grade5post stacks and zero spacers. No additional bolt grade/head/size substitution is authorized by this choice.",
+    "Only the eight omitted axes and their planned timber bores/hardware disappear; all factory steel holes remain.",
+    "Recompute mass, occupied solids, net sections, grips, geometry, all six cases/two replays and component references. Do not transfer114bank results."
+  ],
+  "fresh_six_case_and_component_evaluation_authorized_when_parent_ready": true,
+  "fresh_stock_model_only": true,
+  "geometry_generation_authorized": true,
+  "historical_parent_bank_is_current_capacity": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "matching_new_force_bank_required": true,
+  "omitted_near_row_axis_ids": [
+    "v11_top_left_beam_1",
+    "v11_top_left_beam_2",
+    "v11_top_left_post_1",
+    "v11_top_left_post_2",
+    "v11_top_right_beam_1",
+    "v11_top_right_beam_2",
+    "v11_top_right_post_1",
+    "v11_top_right_post_2"
+  ],
+  "outer_angle_ids": [
+    "eoere_clip_single_top_left_1",
+    "eoere_clip_single_top_right_2"
+  ],
+  "outer_top_bolts_each": 4,
+  "owner_answer": "Evaluate four per outer top corner; keep eight per cleat (Recommended)",
+  "parent_bank": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/response-bank.json",
+    "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+  },
+  "parent_geometry": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+    "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+  },
+  "parent_geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/geometry-receipt.json",
+    "sha256": "b52265bcb0d9ff4cdf8215794a00df7b8f13bca285da9a7db532072c18147882"
+  },
+  "parent_revision": "v11-zero-spacer-eight-bolt-v1",
+  "physical_hole_repair_or_drilling_authorized": false,
+  "previous_owner_four_shorter_bolt_scope": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-zero-spacer-eight-bolt-evaluation.json",
+    "sha256": "d497fbbfaee7a0baf148c26d3e89c3f6e113035f7472e19882475e73c85f8976"
+  },
+  "purchase_authorized": false,
+  "retained_far_row_axes_by_angle": {
+    "eoere_clip_single_top_left_1": [
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_001",
+        "flange": "beam",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_005",
+        "flange": "beam",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_006",
+        "flange": "post",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_010",
+        "flange": "post",
+        "row": "far"
+      }
+    ],
+    "eoere_clip_single_top_right_2": [
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_009",
+        "flange": "post",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_013",
+        "flange": "post",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_017",
+        "flange": "beam",
+        "row": "far"
+      },
+      {
+        "along_mm": 65.0875,
+        "axis_id": "eoere_bolt_018",
+        "flange": "beam",
+        "row": "far"
+      }
+    ]
+  },
+  "schema": "v11_owner_four_bolt_outer_top_evaluation/v1",
+  "selected_baseline_promoted": false,
+  "structural_acceptance": false
+}

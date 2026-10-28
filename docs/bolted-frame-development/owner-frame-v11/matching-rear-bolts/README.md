@@ -72,3 +72,28 @@ or automatically select a new development model.
 Raw inputs, commands, all six fields, failed preparation/execution attempts
 and reference recovery evidence remain active under
 `fea/generated/v11-matching-rear-bolts-v1/`. No archive or prune was performed.
+
+The [placement review](placement-review.svg) is a separate, unselected proposal
+over the current 112-axis frame; its [coordinates and source limits](placement-review.json)
+do not revise this solved trial. Moving each existing upper-rear axis 6.509 mm
+and adding a matching ½-inch axis gives a 2.336 mm conditional edge/row margin.
+The corresponding signed principal-end screen has 15.017 mm minimum margin.
+The 48 saved rows from this solved trial supply direction context only: all
+leg-host net grain projections point away from the nearby short positive-grain
+end. Sloped-end, oblique/couple and actual group applicability stay open; no
+Cdelta is adopted. A full 7D envelope at both ends is retained as a stronger
+comparison rather than an actual failure finding.
+
+The owner has now [authorized evaluation of those moved positions](owner-relocated-pair-evaluation.json)
+as separate candidate `v11-relocated-rear-pair-v1`. This lifts the axis/hole
+freeze only for the two specified existing upper-rear holes and their two
+matching added companions. It assumes undrilled locations or suitable fresh
+stock. The relocated trial now has its own
+[checked geometry](../relocated-rear-pair/geometry-receipt.json),
+[six-case bank](../relocated-rear-pair/response-bank.json) and
+[conditional review](../relocated-rear-pair/reference-completion.json).
+Its contracted rear reference is 0.775020 with zero of 36 states above one.
+The [fresh mixed reference](../relocated-rear-pair/mixed-common-work-summary.json)
+retains three generic 45 ksi bending flags, maximum 1.236282. This earlier trial's
+bank and 0.769859 contracted reference do not transfer. Timber/cleat outlines, fittings, all other axes and the four
+spacers remain fixed. Evaluation does not select or release either trial.

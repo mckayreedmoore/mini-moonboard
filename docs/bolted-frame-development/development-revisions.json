@@ -1,12 +1,17 @@
 {
-  "schema": "bolted_frame_development_revisions/v20",
+  "schema": "bolted_frame_development_revisions/v21",
   "candidate": "compact-bolted-frame-development",
   "development_selection": {
-    "revision": "v11-v9-eight-bolt-v4",
-    "purpose": "Current fixed-geometry analysis display and criterion follow-through; actual row selection and complete connection acceptance remain unresolved.",
+    "revision": "v11-shorter-bolts-v1",
+    "record_pointer": "/owner_authorized_shorter_bolt_trial",
+    "purpose": "Owner-selected current development with twenty shorter stacks and four remaining spacers; complete joint and physical qualifications remain unresolved.",
+    "owner_decision": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json",
+      "sha256": "dca44008230af2b201e807ace31ad2d1c98d33bce50a5e37b6875552048cf621"
+    },
     "viewer": {
-      "model": "eoere-v11-v9-eight-bolt-preview",
-      "url": "http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off"
+      "model": "eoere-v11-shorter-bolts-preview",
+      "url": "http://127.0.0.1:8767/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off"
     }
   },
   "geometry": {
@@ -2241,8 +2246,8 @@
       "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-exemption.json",
       "sha256": "e9b7942904ad9a8f24d0b79d3e07f40814b42f0591ffd1dd9dc4255cb4a599e7"
     },
-    "status": "current_reference_bank_available; connection_design_active; publication_pending",
-    "selected": false,
+    "status": "current_development_selected_locally; own_reference_bank_available; complete_joint_unqualified",
+    "selected": true,
     "preserved_development_selection": "v11-v9-eight-bolt-v4",
     "geometry_receipt": {
       "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
@@ -2485,11 +2490,11 @@
       "decoded_sha256": "fb30ef5c1ff737dd3e2cbb2e17aeaea786da063415a426583b0aa5bbad386855"
     },
     "current_joint_disposition": {
-      "decoded_bytes": 818136,
-      "decoded_sha256": "0eca25c7bcff01783f030ef5711a7e5aa25e8149bdd18b748bdb5f973c43613c",
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v5.json.gz",
+      "sha256": "89e1e83e92ce01774764dbe188cef257ddd20078d11f8abf242a2485cf5d3e8d",
       "encoding": "gzip",
-      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v4.json.gz",
-      "sha256": "f9f950b63d71ab0918087cfebeb75892e75988107da16048292da9e5f402792f"
+      "decoded_sha256": "8a88d0c77096efdf964bed5ca23bb2688f0093f68dfc4248715233f09f9ce0b3",
+      "decoded_bytes": 839705
     },
     "all_fitting_component_reference": {
       "decoded_bytes": 130393,
@@ -2527,12 +2532,28 @@
       "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/plywood-washer-followthrough.json.gz",
       "sha256": "6dd0c7e2a3f605064e6576b83305b96699117e5047fd51248371b55326ae0f53"
     },
+    "washer_static_axial_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/washer-axial-static-summary.json",
+      "sha256": "053b91cfb75f37ee19f917821689a6dc48e3e4afd437208ba30e4be40bd5a80c"
+    },
+    "retained_spacer_transfer": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/retained-spacer-transfer.json",
+      "sha256": "402c2c715c1d5053ca100d3e47c0bc7ea2988bf85317e5c0e43249239262ebe6"
+    },
+    "bond_interface_wrench_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/bond-interface-wrenches.json",
+      "sha256": "00c5bbd8dcb5e8c2a2102db03b2b4fce6a4ad5b1f50babd499ee731138a3ae30"
+    },
     "lateral_method_followthrough": {
       "decoded_bytes": 643974,
       "decoded_sha256": "e0eccf0bacbea0f49bf8a3804636f22600d173ce3abba109ebcaa4a7bcc6fbc1",
       "encoding": "gzip",
       "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/lateral-method-followthrough.json.gz",
       "sha256": "e5ca277cd1696beeadc101369f151666b62f533399a185a1f13663b4c58fd2a7"
+    },
+    "owner_selection": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json",
+      "sha256": "dca44008230af2b201e807ace31ad2d1c98d33bce50a5e37b6875552048cf621"
     }
   },
   "owner_authorized_matching_rear_bolt_trial": {
@@ -2633,5 +2654,341 @@
   "owner_bracket_thickness_confirmation": {
     "path": "docs/bolted-frame-development/owner-frame-v11/owner-bracket-thickness-confirmation.json",
     "sha256": "146e46d3386900588716167cc2969a6c63d73a127cdd40ad1bda0ab1d8bdc578"
+  },
+  "owner_relocated_rear_pair_evaluation": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/owner-relocated-pair-evaluation.json",
+    "sha256": "45f2cea7dd3fc516133c9fb7f5241a601f0e9a672253d7f54a0055a4f95f9b9d"
+  },
+  "preserved_development_base": {
+    "schema": "bolted_frame_development_revisions/v20",
+    "revision": "v11-v9-eight-bolt-v4",
+    "root_fields_are_preserved_evidence": true,
+    "effective_selection_pointer": "/development_selection/record_pointer",
+    "scope": "Root geometry, response, viewer and method fields preserve the earlier V11 record with 24 spacers. Resolve current development through development_selection.record_pointer. The selected screw-and-bracket baseline remains separate.",
+    "development_selection": {
+      "revision": "v11-v9-eight-bolt-v4",
+      "purpose": "Current fixed-geometry analysis display and criterion follow-through; actual row selection and complete connection acceptance remain unresolved.",
+      "viewer": {
+        "model": "eoere-v11-v9-eight-bolt-preview",
+        "url": "http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off"
+      }
+    }
+  },
+  "owner_authorized_relocated_rear_pair_trial": {
+    "revision": "v11-relocated-rear-pair-v1",
+    "trial_selected": false,
+    "owner_authorization": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/owner-relocated-pair-evaluation.json",
+      "sha256": "45f2cea7dd3fc516133c9fb7f5241a601f0e9a672253d7f54a0055a4f95f9b9d"
+    },
+    "status": "Conditional numerical trial evaluated; three mixed generic45 bending reference flags and unfinished complete connection qualifications remain.",
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/geometry-receipt.json",
+      "sha256": "e2fd4bf18df8fa8414ebe65d18865ac2a41deb1e56100dab5cd50a0f27ee63a6"
+    },
+    "geometry_source": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+      "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+    },
+    "counts": {
+      "Hillman_axes": 66,
+      "angles": 24,
+      "bolt_stacks": 114,
+      "occupied_parts": 1099,
+      "panels": 6,
+      "plywood_cleats": 4,
+      "sawn_members": 20,
+      "spacer_pieces": 4,
+      "washer_pieces": 228
+    },
+    "geometry_change": "Move two existing upper-rear axes 6.509 mm and add two matching half-inch stacks; four receiver bore patterns change. All outlines, other axes, fittings, screws and four spacers remain fixed.",
+    "historical_field_or_capacity_transfer": false,
+    "complete_joint_qualified": false,
+    "structural_acceptance": false,
+    "purchase_authorized": false,
+    "fabrication_released": false,
+    "climbing_released": false,
+    "viewer": {
+      "model": "eoere-v11-relocated-rear-preview",
+      "url": "http://127.0.0.1:8767/?model=eoere-v11-relocated-rear-preview&view=rear&holds=off",
+      "provenance": {
+        "path": "site/eoere-v11-relocated-rear-provenance.json",
+        "sha256": "aa85ff0be29a73222551a14091d736d62dc08116b94c703c503fabd0754cc0e0"
+      },
+      "scene": {
+        "decoded_sha256": "ffcb26331fae301d5d12362755e783ae97b21181f2663a5e23a81127e0f307c8",
+        "path": "site/eoere-v11-relocated-rear-scene.json.gz",
+        "sha256": "82503878b440ec14a3d23a5251847b6de7a36f4bf3acc5741618e7759d66eb14"
+      },
+      "overlay": {
+        "path": "site/eoere-v11-relocated-rear-overlay.mjs",
+        "sha256": "2928b9b5d3daf2741a7a334537b15c9b7d780bc17e8377bb8358f413930d6bff"
+      },
+      "geometry_only": false,
+      "published_or_deployed": false,
+      "results": {
+        "path": "site/eoere-v11-relocated-rear-results.json",
+        "sha256": "ceffae758ad64905574a9e92d41347fce2736fc8276d22b54c24679ea01f9b88"
+      },
+      "results_overlay": {
+        "path": "site/eoere-v11-relocated-rear-results.mjs",
+        "sha256": "29d9ddb2c534c47bb6f0cf138a7bc3c3753de3b2ecec766b862159452465841e"
+      }
+    },
+    "retention": "Active raw packet fea/generated/v11-relocated-rear-pair-v1. Failed preparation and launcher attempts retained; earlier 112/114 candidates unchanged. No archive or prune.",
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/response-bank.json",
+      "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+    },
+    "analysis_revision": "eoere-v11-relocated-rear-pair-analysis-v2",
+    "all_six_cases_and_twelve_replays_admitted": true,
+    "maximum_gradient_inf_N": 3.4315926837891197e-06,
+    "geometry_applicability": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/geometry-applicability.json",
+      "sha256": "5f166a707976cf44e20fd41e9fc6aa0907435e295a6724ffefe11d05a1cdc32c"
+    },
+    "affected_connection_component_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/affected-connection-components.json.gz",
+      "sha256": "43e82769a1ee0adde91a07f20a6c38a681494ad68a7c1319b9d8d0be5511a5a9",
+      "encoding": "gzip",
+      "decoded_bytes": 216452,
+      "decoded_sha256": "e758109b85d2b04cd2844846c9c80fd87a417eea690bf023b5113a6d00acd3b8"
+    },
+    "reference_completion": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/reference-completion.json",
+      "sha256": "4ace84e17707f7b56367ec36dfe25707c6050505d90ab520cc8c17a48b08e029"
+    },
+    "contracted_rear_common_work": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/contracted-rear-summary.json",
+      "sha256": "0eacfa18918c342104e225302f139b3e14c13cd1a2abd94914f36bca11cbcb8a"
+    },
+    "contracted_rear_control_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/contracted-control-receipt.json",
+      "sha256": "3844fc0268e99ddb3ad9f854a85b959c9f196881e671723769936a8b96010b20"
+    },
+    "contracted_rear_maximum": 0.7750203178041969,
+    "contracted_rear_states_above_one": 0,
+    "all_applicable_criteria_resolved": false,
+    "remaining": [
+      "Principal end/edge/row screens retain flags. Actual oblique physical-row applicability and36 interrupted wood paths lack a complete supported criterion; the948 applicable parallel component references do not clear them.",
+      "All144 baseline and48 distinct header fitting load states have fresh continuous holed-body elastic responses; both actual variant-governing fine comparisons are evaluated. Actual material/radius, compatible contact/prying, seat-pressure composition and complete fracture criteria remain unqualified.",
+      "The3 generic45 mixed-bolt bending flags remain. Actual hardware, plywood/bond, contact and no-slip support remain unverified; panel-screw resistance remains deferred."
+    ],
+    "mixed_common_work_reference": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/mixed-common-work-summary.json",
+      "sha256": "b4c9bafc06af65d62b23d4b18e1ca96137c5599783aa4664e824ef3696494287"
+    },
+    "mixed_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/mixed-control-receipt.json",
+      "sha256": "5d2b0c11461d55147d59601a6360458c26fcc3b25004c0e071b8bb7e8c8977e7"
+    },
+    "mixed_generic45_Mp4_maximum": 1.2362823305360882,
+    "mixed_generic45_Mp4_flag_count": 3,
+    "item3_disposition": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/item3-disposition.json",
+      "sha256": "d3f6ab9fa3a58d0d713b44fa4c2a117980a7d85c3319719631e740ef27964d6d"
+    },
+    "item3_coverage": {
+      "bolt_axes": 114,
+      "signed_wood_actions": 840,
+      "applicable_parallel_components": 948,
+      "interrupted_paths_with_no_qualified_capacity": 36,
+      "coarse_formed_fitting_states": 192,
+      "observed_variant_governing_fine_states": 2
+    },
+    "connection_closeout": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/connection-closeout.json",
+      "sha256": "31c7c27dd50a2a8851f748a0eefefefa4c2fea93a6d3d1f0314d299d9ddfa4c1"
+    },
+    "owner_constraint_options": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/owner-constraint-options-review-v1.json",
+      "sha256": "ce7b826352b79c2fd9c7a7611ec41982655e8cca7841427fde40fcc8b2cf9728"
+    },
+    "owner_constraint_options_diagram": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/owner-constraint-options-review-v1.svg",
+      "sha256": "957c90fd4324cf22a751b8dcea40168af4075939645216967ca8535eeda0f8ab"
+    },
+    "connection_closeout_coverage": {
+      "connected_parallel_directions": 36,
+      "connected_parallel_case_rows": 216,
+      "parallel_extension_maximum": 0.09477250658595694,
+      "optional_rear_foot_envelope_flags": 3,
+      "actual_top_TableD_interpretation_met": false,
+      "new_model_or_hardware_selected": false,
+      "owner_constraint_preference_pending": true
+    },
+    "provisional_planning_packet": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/planning/manifest.json",
+      "sha256": "9d20aba1f99f58bf49558549d44e25ebc044037885e08f62350e31e3d7256480"
+    }
+  },
+  "owner_zero_spacer_eight_bolt_evaluation": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-zero-spacer-eight-bolt-evaluation.json",
+    "sha256": "d497fbbfaee7a0baf148c26d3e89c3f6e113035f7472e19882475e73c85f8976"
+  },
+  "owner_authorized_zero_spacer_trial": {
+    "revision": "v11-zero-spacer-eight-bolt-v1",
+    "owner_authorization": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-zero-spacer-eight-bolt-evaluation.json",
+      "sha256": "d497fbbfaee7a0baf148c26d3e89c3f6e113035f7472e19882475e73c85f8976"
+    },
+    "geometry_source": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+      "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+    },
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/geometry-receipt.json",
+      "sha256": "b52265bcb0d9ff4cdf8215794a00df7b8f13bca285da9a7db532072c18147882"
+    },
+    "hardware_profile_contract": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-profile-contract.json",
+      "sha256": "abcc49a6f59e4183b8b522e5fa064157f7107cf290a3043fac76d4927a508f8f"
+    },
+    "counts": {
+      "Hillman_axes": 66,
+      "angles": 24,
+      "bolt_stacks": 114,
+      "occupied_parts": 1095,
+      "panels": 6,
+      "plywood_cleats": 4,
+      "sawn_members": 20,
+      "spacer_pieces": 0,
+      "washer_pieces": 228
+    },
+    "viewer": {
+      "model": "eoere-v11-zero-spacer-preview",
+      "provenance": {
+        "path": "site/eoere-v11-zero-spacer-provenance.json",
+        "sha256": "50cace54ac07fd7d07b8e62f7d4650da0f65ab26a5e5697556847472e8d8095a"
+      },
+      "overlay": {
+        "path": "site/eoere-v11-zero-spacer-overlay.mjs",
+        "sha256": "34397938ede248db21e163a0f3d814e7d5e391f207eabe03ff885bd9f9ea686d"
+      },
+      "scene": {
+        "decoded_sha256": "5e27d631def077ce5c0b9f136c300b7d0673718f8fb4a8e01ec48c345768c273",
+        "path": "site/eoere-v11-zero-spacer-scene.json.gz",
+        "sha256": "8abc79624314e3bb9bfe92814ee6b7523bc16064ff37ab60ffc30198a29dc7b5"
+      },
+      "results_data": {
+        "path": "site/eoere-v11-zero-spacer-results.json",
+        "sha256": "ddf0835b10ce6074caa7fde8d94accedfb53706f38a7894a786a39b387c19b57"
+      },
+      "results_overlay": {
+        "path": "site/eoere-v11-zero-spacer-results.mjs",
+        "sha256": "4996b740b8660a969e11728281d60a6b48ab94608b509dc43ae922b8254572a6"
+      }
+    },
+    "trial_selected": false,
+    "structural_acceptance": false,
+    "fabrication_released": false,
+    "climbing_released": false,
+    "analysis_status": "six_cases_twelve_replays_and_declared_component_calculations_complete_with_remaining_flags",
+    "physical_tool_access_qualified": false,
+    "retention": "New raw packet fea/generated/v11-zero-spacer-eight-bolt-v1 remains active. Preserve former114/112 candidates and failed preparation. No archive or prune.",
+    "preparation_readiness": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/adapter-readiness.json",
+      "sha256": "570d7ca85f51e01189b3de8709de98bd3e6f5657163142e034b3339f3e119aa7"
+    },
+    "parent_preparation_admission": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/parent-preparation-admission-v3.json",
+      "sha256": "44870733c63e40b9f15e2c7557a2421721fb1b64c2180b173c5bb658a899e11c"
+    },
+    "preparation_controls": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/preparation-controls-v3.json",
+      "sha256": "182bc2a9255b4d232c78982ddf53d09b5b80f062afac64a3e7d26bcb2e05114b"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/response-bank.json",
+      "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+    },
+    "parent_bank_admission": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/parent-bank-admission.json",
+      "sha256": "a907776722558f4288044e55939011aea8d869b5a63c95f11a1cb48fb434828d"
+    },
+    "analysis_intake_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/analysis-intake-receipt.json",
+      "sha256": "097186e62428ebccf2de5d89541281b6261661e6ac7b9f856b6a827baa50d5d8"
+    },
+    "response_case_count": 6,
+    "independent_replay_count": 12,
+    "maximum_gradient_inf_N": 8.35250851372038e-06,
+    "planning_packet": {
+      "readme": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/planning/README.md",
+        "sha256": "4fd6a3b5bae9b971e0ea038fa1d509665394c50dcaf79aed9f60382d1ed7f007"
+      },
+      "source_index": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/planning/source-index.json",
+        "sha256": "7e0769190f25f5fa179c5293a0cf5493c0c7d04da3356df9d38e89a148108da2"
+      },
+      "provisional_only": true,
+      "physical_use_released": false
+    },
+    "reference_completion": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/reference-completion.json",
+      "sha256": "4328fca61c970ddba797f8530afda1398beeae4101b1dc5a14a7c2058c7664f8"
+    },
+    "contracted_rear_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/contracted-rear-summary.json",
+      "sha256": "92975826b4824df5646037cebf58c1ea30fc9565add8c3ba31c111b746f2cc2b"
+    },
+    "mixed_common_work_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/mixed-common-work-summary.json",
+      "sha256": "65a7c1387752945a0c24609f165def4c4d7adfc23d76874233b5b287a5d243b2"
+    },
+    "mixed_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/mixed-current-controls.json",
+      "sha256": "89cb9b3986b23839864384355700f9f966cf3b51c17f8c810f8f4cc8224d6b95"
+    },
+    "current_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/current-reference-summary.json",
+      "sha256": "ad7afe99321856e25b6247155e8495a988d36c6ba6b607888ce2c4a5e75eb3a6"
+    },
+    "current_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/current-reference-controls.json",
+      "sha256": "2460f2382435e831468df280a0ea569e9badc19c5422a9aaf6fdd9e2274e2314"
+    },
+    "readable_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/README.md",
+      "sha256": "233eeebb9084992b250ec57c55be815f0c302dfc98a376a3d85048444bcb745f"
+    },
+    "review_only_twelve_grade5_option": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-option-twelve-grade5.json",
+      "sha256": "cb699292fa1e9a71e197bc7b12c31530ab1b6932a730ac49b0cc40f902373df0"
+    },
+    "review_only_twelve_grade5_option_implemented": false,
+    "component_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/component-reference-summary.json",
+      "sha256": "663327069fa3f40fbd49492b5c63aa7ced8a91367cc695e956851bf6bdde2618"
+    },
+    "component_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/component-reference-controls.json",
+      "sha256": "182070f4d78bc417ddf7d9e3df9c17c9a284d135e4341a45cd88d18279a9ff71"
+    },
+    "independent_error_audit": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/error-audit.json",
+      "sha256": "b79069db91fea439b5c21aac344495f0186cf189364f9d8499e3f75a47bcee47"
+    }
+  },
+  "owner_authorized_four_bolt_outer_top_trial": {
+    "revision": "v11-four-bolt-outer-top-v1",
+    "owner_authorization": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-four-bolt-outer-top-evaluation.json",
+      "sha256": "9f7a52fa675826cd7ec71ef950dfd1e3a549767be8e72740342a952eee435493"
+    },
+    "parent_revision": "v11-zero-spacer-eight-bolt-v1",
+    "outer_top_bolts_each": 4,
+    "cleat_bolts_each": 8,
+    "center_top_bolts_each": 4,
+    "bolt_stacks": 106,
+    "spacer_pieces": 0,
+    "trial_selected": false,
+    "analysis_status": "geometry_checked_fresh_matched_analysis_in_preparation",
+    "current_response_computed": false,
+    "historical_capacity_transferred": false,
+    "structural_acceptance": false,
+    "fabrication_released": false,
+    "climbing_released": false
   }
 }

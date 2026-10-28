@@ -1,0 +1,342 @@
+{
+  "actual_observations": null,
+  "complete_joint_capacity": null,
+  "conclusion": "No new arithmetic or current-bank identity error was found in the replayed families. The decisive issues are reference-law interpretation and unbounded physical modeling assumptions. Reported above-one indices do not establish physical failure; passing force-only or component comparisons do not establish complete joint capacity.",
+  "current_reference_flags": {
+    "counts_mean": "Five case flags in each family, at two physical axes in each family. The 110-row diagnostic inventory is not 110 failed physical joints. Older Mp/5 and alternative pressure laws remain separate.",
+    "mixed_A574_note_TR12_engineering_scenario_Fyb_ksi_unadopted": 166.5,
+    "mixed_A574_scenario_scope": "Only the 12 A574 axes change property basis; the other 12 mixed axes retain their Grade5 basis. All144 scenario comparisons are below one, maximum0.481075, without adopting a product property or complete joint capacity.",
+    "mixed_generic45_Mp4": [
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "index": 1.303677628640607
+      },
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-left",
+        "index": 1.2777162615622288
+      },
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-rear",
+        "index": 1.092709007660864
+      },
+      {
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-right",
+        "index": 1.263317393005289
+      },
+      {
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-rear",
+        "index": 1.0685017885462735
+      }
+    ],
+    "mixed_governing_Fyb_reference_ksi": 45,
+    "mixed_governing_required_Fyb_ksi": 58.66549328882732,
+    "outer_top_Table_D": {
+      "applicability": "Actual oblique/nonuniform group and full geometry interpretation remain open. This is not a declared universal violation or an adopted smaller-bolt remedy.",
+      "available_mm": 41.275,
+      "conditional_5D_requirement_mm": 47.625,
+      "conditional_shortfall_mm": 6.35
+    },
+    "rear_constructed_contracted_bearing": [
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-forward",
+        "index": 1.1485326429306033
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-left",
+        "index": 1.2657208946405811
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "case_id": "a12-rear",
+        "index": 1.442629514477354
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-right",
+        "index": 1.2481218261956344
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "case_id": "k12-rear",
+        "index": 1.4231847568673475
+      }
+    ],
+    "rear_force_only_reference_ratio": 0.8418121010440792,
+    "rear_relaxed_reference": {
+      "finite_witness": 1.2232700459650876,
+      "necessary_reference_bound_strictly_greater_than": 1.04817,
+      "only_axis": "lumber_leg_bolt_left_1",
+      "only_case": "a12-rear",
+      "physical_or_NDS_failure_proven": false,
+      "scope": "Fixed receiver projected forces and invariant sum of first moments, arbitrary individual moment exchange, declared contracted bearing law. Eccentric washer couples, friction, changed forces or external wrenches are outside this certificate."
+    }
+  },
+  "engineering_question": "Do source errors, arithmetic, conservative reference laws or unqualified model assumptions explain the remaining joint flags, and which engineering shortcuts would be invalid?",
+  "engineering_shortcuts_review": [
+    {
+      "disposition": "Would double-count bracing without a compatible complete load path. No such accepted extra multiplier was found in the audited current records.",
+      "shortcut": "Add panel/screw capacity on top of already braced-model bolt results."
+    },
+    {
+      "disposition": "No such extra resistance is adopted here. TR12 excludes this benefit; wood shrinkage and relaxation are reasons it cannot be presumed.",
+      "shortcut": "Claim reliable permanent timber friction or bolt pretension from tightening alone."
+    },
+    {
+      "disposition": "Invalid. Existing unresolved paths remain unresolved; no added capacity is assigned.",
+      "shortcut": "Clear splitting/row/edge duties with a passing steel or dowel-yield calculation."
+    },
+    {
+      "disposition": "Invalid transfer. Current profiles are conditional and delivered observations remain blank.",
+      "shortcut": "Use a nominal or guaranteed smooth-shank length as an observation of the delivered part, or use full diameter everywhere for full-thread stock."
+    },
+    {
+      "disposition": "Not adopted: CD=1 and the six static load cases remain a recorded recipe, not a climber or fall rating.",
+      "shortcut": "Apply a load-duration increase because climbing feels brief or treat 250 lb times two as a universal impact rating."
+    },
+    {
+      "disposition": "Not justified as a blanket rule. NDS 11.1.1.3 permits demonstrated recognized-theory analysis and other stated evidence routes; complete behavior still has to be addressed.",
+      "shortcut": "Require physical whole-joint tests as the only analytical route."
+    }
+  ],
+  "findings": [
+    {
+      "action": "Retain the flags and compare force plus moment under one explicitly justified complete load-path method. Stop pressure-grid refinement as a proposed cure for a law already excluded by the continuous certificate. Do not replace the complete wrench with P/Z alone.",
+      "classification": "Interpretation limit; avoid overstating failure or acceptance.",
+      "evidence": [
+        "current-joint-disposition-v4",
+        "lateral-method-followthrough",
+        "independent-arithmetic-replay",
+        "relaxed-rear-and-wrench-sources"
+      ],
+      "finding": "The 1.442630 rear value evaluates a constructed field in a contracted Fe/5 bearing reference. The narrower law and original per-receiver moments are not the entire admissible physical joint. Failure of that field is not a statement that the joint is 44 percent physically understrength. The separate continuous certificate proves exclusion only within its declared force, moment and constitutive scope.",
+      "id": "REFERENCE_SCOPE"
+    },
+    {
+      "action": "Resolve the exact purchased specification and a documented applicable Fyb route or recognized-theory alternative before calling these actual bolt failures or clearing them. Keep the separate elastic N/V/T/M, geometry and wood checks; stronger steel does not create wood splitting resistance.",
+      "classification": "Unadopted material basis, not a confirmed weak bolt.",
+      "evidence": [
+        "current-joint-disposition-v4",
+        "lateral-method-followthrough",
+        "NDS2024",
+        "TR12-2015"
+      ],
+      "finding": "The generic 45 ksi Fyb reference flags five mixed states. The governing requirement is 58.665493 ksi Fyb for the saved field. The existing 166.5 ksi scenario averages the A574-17 design-note Fy of 153 ksi and Fu of 180 ksi under the TR12 engineering approximation. It does not average proof stress, establish a product tensile-yield minimum, or automatically satisfy the NDS test-derived property route. A574 conformity, tensile yield, dowel bending yield and proof load are distinct claims.",
+      "id": "FASTENER_PROPERTY"
+    },
+    {
+      "action": "Describe panel/screw bracing as already included through a conditional stiffness model. Do not add a second arbitrary bracing multiplier or simply sum standalone screw and bolt capacities. Keep the owner-deferred screw resistance work deferred; do not relabel its absence as a newly required test.",
+      "classification": "Unverified and nonbounding demand assumptions.",
+      "evidence": [
+        "independent-arithmetic-replay",
+        "prepared-inputs",
+        "adhesive-bond-basis",
+        "NDS2024"
+      ],
+      "finding": "All 66 Hillman rows use ka=kl=1,000 N/mm and mark physical stiffness/capacity unqualified. Other declared priors include wood bedding 1 N/mm3, panel bedding 2 N/mm3 and a 40,000 N/mm flange scale. The two plywood cleat leaves act as a perfectly bonded analytical member. These choices can shift reactions between screws, bolts, face contact and fittings; the direction of whole-joint demand error is not established.",
+      "id": "LOAD_SHARING_PRIORS"
+    },
+    {
+      "action": "Preserve this demand-model limit in hardware substitutions and any fixed-force thread sensitivity. Do not infer new coupled forces from a strength-only root-diameter substitution or transfer a partial-thread case pass to full-thread stock.",
+      "classification": "Declared stiffness/resistance model mismatch; not a discovered implementation defect.",
+      "evidence": [
+        "independent-arithmetic-replay",
+        "prepared-inputs",
+        "NDS2024"
+      ],
+      "finding": "Prepared elastic shafts retain uniform nominal diameters while body/root profiles govern strength postprocessing. In the governing 3/8-inch family, the 9.3218 mm body circular-section I is 0.917359 of the 9.525 mm nominal value at equal E; the 7.3787 mm root-cylinder proxy is 0.360130. These local section comparisons are not measured thread stiffness, complete bolt stiffness or global force-error factors. Thread exposure is not ignored in the resistance calculation.",
+      "id": "ELASTIC_SHAFT_PROFILE"
+    },
+    {
+      "action": "Keep original and sensitivity fields distinct, use each field's own geometry/sign/load checks and avoid transferring baseline component stresses to changed contact states. A small equilibrium residual is numerical evidence, not a physical contact or floor-capacity certificate. No floor-friction test or new sign-off gate is imposed.",
+      "classification": "Existing corrected sensitivities, with remaining scope limits.",
+      "evidence": [
+        "independent-arithmetic-replay",
+        "current-joint-disposition-v4",
+        "contact-roster-summary"
+      ],
+      "finding": "The original bank is first order. All six separate fixed-material-point objective-contact sensitivities converge, but retain small-strain member/shaft operators. They do not establish a full finite-frame or closest-point physical contact solution. Original timber/cleat node diagnostics reach 0.0408525 rad and 27.4584 mm; these are computed motions, not failed movement limits or measured model error. Four no-slip XY hosts remain an unverified support assumption.",
+      "id": "KINEMATICS_AND_SUPPORT"
+    },
+    {
+      "action": "Resolve the actual loaded edge, row/end direction and interrupted net/splitting path for the same force-and-couple state before adopting a geometric remedy. Do not treat nominal CAD margin as delivered tolerance, apply glulam-specific factors to solid sawn members, or count overlapping wood paths twice.",
+      "classification": "Open applicability and load paths; cannot be waived by bolt strength.",
+      "evidence": [
+        "local-member-followthrough",
+        "top-geometry-review",
+        "NDS2024",
+        "FPL2021"
+      ],
+      "finding": "The outer-top Table-D shortfall is conditional on the applicable row/loading interpretation. Twenty-four Appendix E directions encounter another opening and do not have invented continuing E3/E4 paths. The separate matching-rear-bolt trial improves the declared reference, but its minimum nominal edge/row margin is approximately 0.145 mm. These are different issues from bolt-yield arithmetic.",
+      "id": "BRITTLE_PATHS_AND_DETAILING"
+    }
+  ],
+  "geometry_revision": "v11-shorter-bolts-v1",
+  "hypotheses_and_results": [
+    {
+      "hypothesis": "The flags use stale frame/case fields or the wrong count of axes.",
+      "result": "Not supported in the audited scope: 112 prepared shafts, 66 screw rows, six authenticated own-case fields, 144 unique mixed axis/case records and 24 rear states reconcile. Each compared field matches its original bank path/hash. This is direct-scope verification, not recursive authentication of every historical dependency."
+    },
+    {
+      "hypothesis": "Arithmetic, a projected-grain coordinate error or the Mp/5-to-Mp/4 conversion creates the current flags.",
+      "result": "Not supported in the replayed rows: 144 hinge comparisons and 1,704 bearing values reproduce. The hinge conversion changes only the hinge term; the bearing maximum remains unchanged. Rear transverse coordinates are resolved through each source shaft basis, rather than interpreting a two-component projected vector as XYZ."
+    },
+    {
+      "hypothesis": "The original receiver moment allocation alone explains the rear exceedance.",
+      "result": "It affects the result, but does not clear the declared contracted law. Existing relaxed evidence admits arbitrary individual receiver first-moment exchange and retains a necessary reference factor strictly greater than 1.04817 for left a12-rear. The 1.223270 finite witness is a different result, not that bound or a proven optimum."
+    },
+    {
+      "hypothesis": "A passing lateral-force comparison establishes the complete rear connection.",
+      "result": "Unsupported: the saved radial wrench after the saved face/capture actions has a nonzero force-parallel couple. Translation of the pole cannot remove it. A different internal face-pressure allocation can change the radial wrench, so the approximately 1.12 kN mm couple is not asserted to be invariant across every possible whole-joint load path."
+    },
+    {
+      "hypothesis": "Full assembly modeling makes the calculated bolt demands physically bounded.",
+      "result": "Unsupported: the assembly includes panels, screw springs, contact and fittings, but their stiffness/contact laws and the cleat bond remain conditional. Numerical equilibrium verifies the declared equations; it does not bound real connection load sharing."
+    }
+  ],
+  "primary_online_guidance": {
+    "FPL2021": {
+      "application": "Wood bearing depends on fastener geometry and material; spacing, hole quality and wood failure paths require separate attention. Its historical strength comparisons are not numerical multipliers for this frame.",
+      "locators": "Wood Handbook chapter8, printed8-14 through8-17",
+      "url": "https://research.fs.usda.gov/download/treesearch/62253.pdf"
+    },
+    "NDS2024": {
+      "application": "Recognized-theory alternatives remain available; mixed-fastener and eccentric cross-grain connections need an applicable analysis. Threaded diameters and reference Fyb require the stated basis.",
+      "locators": "11.1.1.3, 11.1.2-11.1.5, 12.1.3, 12.3.6-12.3.9, Table12.5.1D",
+      "reading_basis": "Official edition page checked online; exact clauses checked in already retained primary-source chapter11/chapter12 PDFs. The scope is the retained 2024 edition, not all later technical-report revisions.",
+      "url": "https://awc.org/resources/2024-nds"
+    },
+    "T88": {
+      "application": "Manufacturer product/process guidance supports the adhesive class. It does not supply this plywood laminate's bond stiffness or joint design capacity.",
+      "url": "https://www.systemthree.com/products/t-88-structural-epoxy-adhesive"
+    },
+    "TR12-2015": {
+      "application": "Yield-model scope excludes premature brittle failure; end fixity and friction are not presumed. The pinned edition supports the existing ideal-plastic and material-estimate discussion, not a new complete multiaxial joint rule.",
+      "edition_limit": "A June2026 report URL was found but its full text could not be retrieved. No claim of a full 2026-TR12 comparison is made.",
+      "locators": "1.1-1.4, 2.1-2.1.2, AppendixA.4",
+      "url": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf"
+    }
+  },
+  "recommended_order": [
+    "Resolve the complete rear force-and-moment method using the existing relaxed certificate and saved face/capture bookkeeping. Do not repeat an already excluded pressure search.",
+    "Resolve the mixed-bolt Fyb basis before proposing larger steel solely from the generic45 flags. Preserve the separate elastic steel and wood/detailing checks.",
+    "Finish the current outer-top row/edge and interrupted brittle-path interpretations. Keep the matching-rear trial separate until its own detailing scope is resolved.",
+    "Treat changes in shaft, bedding, bond or screw stiffness as separate demand sensitivities requiring their own scope and fields. No additional solve or screw qualification is launched by this audit."
+  ],
+  "reproduction": {
+    "arithmetic_command": "uv run python fea/generated/v11-shorter-bolts-v1/connections/method-closure/assumption-audit-v1/replay_arithmetic.py",
+    "overlay_command": "uv run python fea/generated/v11-shorter-bolts-v1/connections/method-closure/assumption-audit-v1/write_audit.py",
+    "python": "3.12.3",
+    "raw_retention": "The audit helpers and calculation record remain under the existing ignored V11 packet. No source, mesh or raw experiment was pruned or archived. The new public overlay contains no duplicated manual, mesh or environment."
+  },
+  "reviewed_on": "2026-10-27",
+  "schema": "v11_joint_method_assumption_audit/v1",
+  "scope": "Independent source/method review and arithmetic replay of existing evidence; no native, CAD, optimization or new global frame run. Review-loop suspension and panel-screw resistance deferral remain in force.",
+  "source_bindings": {
+    "NDS-primary-chapters": [
+      {
+        "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf",
+        "sha256": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33"
+      },
+      {
+        "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+        "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+      }
+    ],
+    "adhesive-bond-basis": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/adhesive-bond-basis.json",
+      "sha256": "4af30196346a6e27eac2f3deb8d94f1121b33ed1134aedf9933f41b61fa5da3f"
+    },
+    "arithmetic-inputs-and-relaxed-rear-and-wrench-sources": {
+      "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/contracted-saved-field-rows-v1.json": "03c9d6b8d90ee5ff6bc3c2cf210f7929150ad30fe29d6cd0c2fb08f1fe95a07a",
+      "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/mixed-Mp4-projection-v1.json": "d44dd0e078d2164fa2bba170b6e28c2be45d21829f897a11dc20f2bbdd65b885",
+      "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-projected-bearing-witness-v2.json": "70884b23c719e82591b9f92987463d7cf659c2973fd44b33ef5338785d1726da",
+      "fea/generated/v11-shorter-bolts-v1/connections/method-closure/joint-static-envelope/relaxed-bearing-first-moment-v1/continuous-joint-necessary-bound-v1.json": "cbdcdd48e45edb09def349bd2bbf4d44abbe31a3d44bbdcd91c3a8402a71c988",
+      "fea/generated/v11-shorter-bolts-v1/connections/method-closure/joint-static-envelope/upper-rear-left-a12-nds-wrench-reduction-v1.json": "eb79792f6eb625ca47f5f9f54cf7b17125f3f5ee3b8bc6e4c4a8d51e5bc4dc87",
+      "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json": "70ce0785e18b72bac6fc3ea1cc81685d14e98ec6dfcf10ed0c485fa23c5e2e67",
+      "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    "contact-roster-summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/contact-roster-summary.json",
+      "sha256": "3659a882b4f242f029d27aa3a416cdb6a049ffa9c92ecfed92f8b46f3cc24418"
+    },
+    "current-joint-disposition-v4": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v4.json.gz",
+      "sha256": "f9f950b63d71ab0918087cfebeb75892e75988107da16048292da9e5f402792f"
+    },
+    "independent-arithmetic-replay": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/assumption-audit-v1/independent-arithmetic-replay-v1.json",
+      "sha256": "2f4e995ec15577f4b6db0b35d7d2365533132780ed3ea4c647a594c3167183a5"
+    },
+    "lateral-method-followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/lateral-method-followthrough.json.gz",
+      "sha256": "e5ca277cd1696beeadc101369f151666b62f533399a185a1f13663b4c58fd2a7"
+    },
+    "local-member-followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/local-member-followthrough.json.gz",
+      "sha256": "dbab7a5d83d943e3ff2b00de1d31233e02113f520233c29830febb62c5e5bccb"
+    },
+    "overlay_producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/assumption-audit-v1/write_audit.py",
+      "sha256": "779663d87ddad63bc9a285495ee6363fb24fa622bd683f50206ccb78c9d52ba9"
+    },
+    "prepared-inputs": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+      "sha256": "70ce0785e18b72bac6fc3ea1cc81685d14e98ec6dfcf10ed0c485fa23c5e2e67"
+    },
+    "relaxed-rear-and-wrench-sources": [
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/joint-static-envelope/relaxed-bearing-first-moment-v1/continuous-joint-necessary-bound-v1.json",
+        "sha256": "cbdcdd48e45edb09def349bd2bbf4d44abbe31a3d44bbdcd91c3a8402a71c988"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/joint-static-envelope/upper-rear-left-a12-nds-wrench-reduction-v1.json",
+        "sha256": "eb79792f6eb625ca47f5f9f54cf7b17125f3f5ee3b8bc6e4c4a8d51e5bc4dc87"
+      }
+    ],
+    "shaft-profile-preparation": {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/prepare_v11_shorter_bolts_v4.py",
+      "sha256": "6be8fc29111af7dd25cbd233db8241e0a9de0f6c122c3854bf2db802ec5d2e90"
+    },
+    "top-geometry-review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/top-geometry-review.json.gz",
+      "sha256": "944d47ac4e58e53398542882539953d3f665667077fec18dc20f53e4101fc6c4"
+    }
+  },
+  "structural_acceptance": false,
+  "validation": {
+    "arithmetic_replay": {
+      "all_66_screws_ka_kl_1000_N_mm_and_unqualified": true,
+      "axes": 112,
+      "body_root_strength_profile_does_not_automatically_change_elastic_shafts": true,
+      "case_fields": 6,
+      "declared_perfect_bond_unqualified": true,
+      "maximum_bearing_index_replay_error": 4.440892098500626e-16,
+      "maximum_hinge_required_Fyb_replay_error_MPa": 5.684341886080802e-14,
+      "maximum_saved_wrench_invariant_replay_error": 0.0,
+      "mixed_bearing_endpoint_rows": 1104,
+      "mixed_hinge_states": 144,
+      "rear_bearing_cells": 600,
+      "screws": 66
+    },
+    "focused_existing_controls": {
+      "command": "uv run pytest -q fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/test_contracted_saved_fields_v1.py fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/test_mixed_mp4_projection_v1.py fea/generated/v11-shorter-bolts-v1/connections/method-closure/joint-static-envelope/relaxed-bearing-first-moment-v1/test_relax_receiver_first_moments_v1.py",
+      "passed": 22
+    },
+    "limits": "Focused checks do not prove global implementation correctness, physical properties, complete NDS compliance or whole-joint capacity.",
+    "new_arithmetic_error_confirmed": false
+  }
+}

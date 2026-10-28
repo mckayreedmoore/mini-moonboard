@@ -8,7 +8,8 @@ import {ROOT, readIndex as readCurrentIndex, checkDevelopment as checkCurrentDev
 import {validateCurrent112CapacityFollowthrough, validateV11EvaluationSelection, validateV11ResponseBank,
   validateV11ReferenceReview, validateV11CapacityFollowthrough, validateV11GeometryApplicability} from '../scripts/check_bolted_development.mjs';
 import {validateV11Grade5PropertyComparison, validateV11Grade5RowComparison} from '../scripts/check_bolted_development.mjs';
-import {validateV11StandardCgComparison, validateV11CriterionFollowthrough, validateV11OwnerDecisions, validateV11ThreadAddendum} from '../scripts/check_bolted_development.mjs';
+import {validateV11StandardCgComparison, validateV11CriterionFollowthrough, validateV11OwnerDecisions, validateV11ThreadAddendum,
+  preservedDevelopmentIndex} from '../scripts/check_bolted_development.mjs';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
 import {validateFrontPosts} from '../site/eoere-front-posts-4x6-overlay.mjs';
@@ -45,7 +46,7 @@ const checkDevelopment = (index = readIndex()) => checkCurrentDevelopment(index,
 const candidate13Index = ownRevision('eoere-candidate13-side-depth-v10');
 const candidate13 = readV10Candidate13Authority(candidate13Index);
 test('V9 restoration selects checked geometry without transferring the previous 112-bolt force bank', () => {
-  const result = checkCurrentDevelopment(readV11GeometryIndex());
+  const result = checkCurrentDevelopment(readV11GeometryIndex(), {entryChecks: false});
   assert.equal(result.revision, 'v11-v9-eight-bolt-v4');
   assert.equal(result.geometry_only, true);
   assert.equal(result.analysis_pending, true);
@@ -309,12 +310,12 @@ for (const [name, target, mutate] of [
       readV11Report('grade5-row-comparison')) : validateV11OwnerDecisions(report, index));
 });
 const readV20Index = () => {
-  let index = readCurrentIndex();
+  let index = preservedDevelopmentIndex(readCurrentIndex());
   while (index && index.schema !== 'bolted_frame_development_revisions/v20') index = index.preceding_revision;
   assert.ok(index, 'preserved V20 display/criterion stage missing'); return index;
 };
 test('V20 current analysis display separates NDS hypotheses, Fe90 floors and raw bounds without changing geometry', () => {
-  const index = readV20Index(), result = checkCurrentDevelopment(index);
+  const index = readV20Index(), result = checkCurrentDevelopment(index, {entryChecks: false});
   assert.equal(index.preceding_revision.schema, 'bolted_frame_development_revisions/v19');
   assert.deepEqual(index.geometry, index.preceding_revision.geometry);
   assert.equal(result.repository_viewer_geometry_only, false); assert.equal(result.repository_viewer_current_analysis, true);

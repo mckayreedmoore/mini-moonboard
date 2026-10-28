@@ -1,0 +1,89 @@
+{
+  "schema": "v11_outer_top_factory_product_review_projection/v1",
+  "observed_date": "2026-10-27",
+  "scope": "Bounded primary-source product screen for one review-only outer-top fitting remedy. It does not change the frozen 24 fittings, 112 axes, hole locations, or hardware; no capacity or product rating is assigned.",
+  "bindings": {
+    "outer_top_pattern_screen": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/outer-top-pattern-screen-v2.json",
+      "sha256": "28650a147b654441937654d8a8a89d785b8da6806b523e9140c1d78fb40303ed"
+    },
+    "earlier_factory_angle_feasibility": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/outer-top-hardware-feasibility-v1.json",
+      "sha256": "79b25ad15144fd4d4b2a648bacf4715ce548f6a860986494ce7fa76d3178469e"
+    },
+    "five_sixteenths_addendum": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/outer-top-hardware-feasibility-v2.json",
+      "sha256": "93567381682cec7e44569a93ce6a1899e0ff70edf16c7a4d80db9b8fb6a5b3c2"
+    }
+  },
+  "question_and_screen": {
+    "current_outer_top_bolt_diameter_mm": 9.525,
+    "current_grain_axis_between_row_pitch_mm": 41.275,
+    "conservative_5D_pitch_mm": 47.625,
+    "current_shortfall_mm": 6.35,
+    "review_pattern_required_holes": 8,
+    "review_pattern_holes_per_flange": 4,
+    "review_pattern_grid": "2 by 2 on each flange",
+    "minimum_pitch_in_both_grid_directions_mm": 47.625,
+    "preferred_pitch_in_both_grid_directions_mm": 50.8,
+    "wood_face_envelope_mm": [
+      88.9,
+      139.7
+    ],
+    "product_screen": "A primary-source manufacturer drawing or dimensional specification must establish 90-degree angle form, both flange envelopes that fit the existing 88.9 by 139.7 mm members without packers, at least four bolt-compatible holes per flange, both grid pitches, thickness, and steel material. A different explicit thickness is reviewable; no rating is transferred."
+  },
+  "screened_products": [
+    {
+      "product": "MiTek KHL37 Heavy Angle",
+      "manufacturer_page": "https://www.mitek-us.com/products/angles-straps/heavy-angles/khl/",
+      "manufacturer_drawing": "https://www.mitek-us.com/wp-content/uploads/files/Drawing%20Library/KHL37_3view.pdf",
+      "source_observation": "The manufacturer 3-view drawing shows three holes on each flange (six total). The product page identifies the 90-degree heavy-angle family and provides drawings, but the drawing does not dimension a four-hole-per-flange grid or specify a compatible 3/8-inch bolt-hole pattern.",
+      "disposition": "Fails the required eight-hole count; pitch and bolt-hole fit are not established."
+    },
+    {
+      "product": "Simpson Strong-Tie ABR10525 Reinforced Angle Bracket",
+      "manufacturer_page": "https://www.strongtie.co.uk/en-UK/products/reinforced-angle-bracket-abr",
+      "source_observation": "Manufacturer data lists 105 by 105 by 90 mm, 2.5 mm thickness, S250GD + Z275 galvanized steel, and mixed small/large hole schedules. The table lists only two 11 mm holes and one 14 mm hole on flange A, and one 14 mm hole on flange B; the remaining holes are 5 mm. It is not an eight-hole 3/8-inch pattern, and its listed thickness is below the modeled 6.35 mm.",
+      "disposition": "Does not provide four bolt-compatible holes on each flange or the required thickness/pattern."
+    },
+    {
+      "product": "Dunnings BAUH200 Structural Angle Heavy",
+      "manufacturer_page": "https://www.dunnings.com.au/products/brackets-fixes/structural-angles-heavy",
+      "source_observation": "Manufacturer listing gives 90 by 140 by 200 mm, 8 mm thickness, hot-dip galvanized finish, and M16 holes. The public manufacturer page supplies no dimensioned hole-pattern drawing or per-flange hole count/coordinates. M16 is the listed fastener size; it does not establish the actual hole diameter or a 3/8-inch fit.",
+      "disposition": "Close nominal size/thickness lead only; required eight-hole pattern, both pitches, and 3/8-inch compatibility are unverified by a manufacturer source."
+    },
+    {
+      "product": "C&C Manufacturing F15-AB-3-8, 8-Hole Angle Bracket",
+      "manufacturer_page": "https://www.ccmfg.net/product/f15-ab-3-8/",
+      "manufacturer_catalog": "https://www.ccmfg.net/wp-content/uploads/2021/07/Catalog-102-pages.pdf",
+      "source_observation": "Manufacturer catalog identifies an eight-hole3x3in bracket made from1/4in aluminum with eight11/32in through-holes. Exact flange-to-frame fit was not evaluated.",
+      "disposition": "Does not meet the specified steel/current3/8in bolt screen; no fit rejection is inferred from flange length alone."
+    }
+  ],
+  "result": {
+    "exact_commercial_product_found": false,
+    "review_only_remedy": null,
+    "bounded_source_gap": "No screened manufacturer source establishes a factory-made steel 90-degree angle with four 3/8-compatible holes per flange, at least 47.625 mm pitch in both grid directions, and a flange envelope that fits the current wood members. BAUH200 is the closest stated heavy-angle envelope, but its manufacturer listing does not establish the hole pattern or 3/8 fit. No 5/16 product is nominated from this screen.",
+    "why_relocating_current_angle_does_not_resolve_pitch": "Rigid translation changes absolute station coordinates but preserves the 41.275 mm difference between the two grain-axis bolt rows. Reaching 47.625 mm requires a different relative hole pattern/fitting, not a translation of the existing one.",
+    "required_source_to_close": [
+      "Manufacturer drawing or controlled specification for an exact catalog SKU showing four holes on each flange and their center-to-center coordinates in both directions.",
+      "Manufacturer confirmation of the hole diameter/bolt compatibility and exact 90-degree fitting envelope on the 88.9 by 139.7 mm members without packers.",
+      "Manufacturer-listed steel thickness and material designation for that same SKU."
+    ],
+    "not_done": [
+      "No supplier contact, purchase, hardware adoption, geometry edit, CAD/native solve, or mechanics recalculation.",
+      "No capacity, rating, fit-at-delivery, or code-compliance claim."
+    ]
+  },
+  "source_screen": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/outer-top-angle-product-screen-v1.json",
+    "sha256": "3ac5667803edbf03c3e6e28a1be868377aee3cc1374d27bb5900dd15d2e4cd26"
+  },
+  "parent_scope_clarification": "A flange shorter than the139.7mm timber depth is not by itself a fit rejection; the existing90mm angle is also shorter. The C&C lead is excluded here by aluminum material and11/32in holes below3/8in. No flange-length impossibility is claimed. Four screened products do not establish market-wide unavailability.",
+  "model_or_hardware_changed": false,
+  "complete_joint_capacity": null,
+  "structural_acceptance": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}

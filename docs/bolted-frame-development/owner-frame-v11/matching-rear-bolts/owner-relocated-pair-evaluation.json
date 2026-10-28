@@ -1,0 +1,97 @@
+{
+  "authorization_recorded_at_utc": "2026-10-27T19:04:59Z",
+  "authorized_axis_changes": [
+    {
+      "current_axis_point_xyz_mm": [
+        -1308.1,
+        1125.245692062,
+        1749.987315516
+      ],
+      "existing_axis_id": "lumber_leg_bolt_left_1",
+      "proposed_additional_half_in_axis_point_xyz_mm": [
+        -1308.1,
+        1137.701154937443,
+        1816.9830092294449
+      ],
+      "proposed_existing_axis_displacement_xyz_mm": [
+        0.0,
+        -4.25674764881046,
+        -4.924478574831028
+      ],
+      "proposed_existing_axis_point_xyz_mm": [
+        -1308.1,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "side": "left"
+    },
+    {
+      "current_axis_point_xyz_mm": [
+        1304.925,
+        1125.245692062,
+        1749.987315516
+      ],
+      "existing_axis_id": "lumber_leg_bolt_right_1",
+      "proposed_additional_half_in_axis_point_xyz_mm": [
+        1304.925,
+        1137.701154937443,
+        1816.9830092294449
+      ],
+      "proposed_existing_axis_displacement_xyz_mm": [
+        0.0,
+        -4.25674764881046,
+        -4.924478574831028
+      ],
+      "proposed_existing_axis_point_xyz_mm": [
+        1304.925,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "side": "right"
+    }
+  ],
+  "base_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "base_receipt": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "base_revision": "v11-shorter-bolts-v1",
+  "candidate_axis_count": 114,
+  "candidate_revision": "v11-relocated-rear-pair-v1",
+  "candidate_selected": false,
+  "candidate_spacers": 4,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "constraints": [
+    "Keep all timber and cleat outer profiles, actual88.9x139.7mm top and side stock,24fittings,66screw axes and allotherbolt axes/profiles/seats fixed.",
+    "Retain four metal spacers and use the existing matching1/2-13x8.5in Grade5 rear hardware recipe for both additional axes.",
+    "Computationally restore superseded bores from fresh-stock source lineage; this is not a repair for physical old holes.",
+    "No old candidate forces, indices, contact or geometry acceptance transfer. Preserve the112-bolt and earlier114-bolt studies.",
+    "Run unchanged250lb*2downward,300Nhorizontal,25kgaccessory,CD1 sixcases and two independentreplays each.",
+    "Remain a separate development evaluation, with no new candidate selection, purchase, cutting, drilling, fabrication, climbing or structural release."
+  ],
+  "evaluation_authorized": true,
+  "existing_axis_count": 112,
+  "fabrication_released": false,
+  "geometry_generation_authorized": true,
+  "interpretation": "Evaluate the just-described relocated matching half-inch rear pair as a separate candidate, with fresh matching geometry and six-case analysis. This lifts the current axis/hole freeze only for the two specified existing upper-rear axes and their two added companions.",
+  "matched_analysis_authorized_after_parent_readiness": true,
+  "new_axis_ids": [
+    "proposal_upper_rear_left_added_half_in",
+    "proposal_upper_rear_right_added_half_in"
+  ],
+  "owner_message": "Go ahead",
+  "physical_observations_recorded": false,
+  "purchase_authorized": false,
+  "quiet_hours_unchanged": "No commits/pushes Mon-Thu07:30-18:17 America/Denver.",
+  "schema": "v11_owner_relocated_rear_pair_evaluation/v1",
+  "selected_baseline_promoted": false,
+  "source_placement_review": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/placement-review.json",
+    "sha256": "253c8701843d488f322c5e67ddebac42382f220919ab591b79b8cd067e5ff205"
+  },
+  "structural_acceptance": false
+}

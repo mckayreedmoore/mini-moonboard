@@ -10,7 +10,7 @@ import {ROOT, readIndex, checkDevelopment, validateShorterRearMaterialReferences
   validateMatchingRearAffectedComponents, validateShorterContactSensitivity,
   validateNominalDiameterBearingCorrection, validateGlobalWasherMinimum, validateCleatInterleafDemand,
   validateTopGeometryReview, validateFarRowFittingExtension, validateCurrentShorterJointDisposition,
-  validateShorterV4ComponentOverlay, validateShorterContactCaseSet} from '../scripts/check_bolted_development.mjs';
+  validateShorterV4ComponentOverlay, validateShorterContactCaseSet, preservedDevelopmentIndex} from '../scripts/check_bolted_development.mjs';
 
 function packet() {
   const index = readIndex(), entry = index.owner_authorized_shorter_bolt_trial;
@@ -247,7 +247,7 @@ test('V20 checks all five encoded pins and both decoded pins', () => {
 });
 
 test('V20 preserves current authority when all five additive records are omitted', () => {
-  const index = readIndex(), shorter = index.owner_authorized_shorter_bolt_trial;
+  const index = preservedDevelopmentIndex(readIndex()), shorter = index.owner_authorized_shorter_bolt_trial;
   delete index.owner_bracket_thickness_confirmation; delete shorter.formed_angle_component_followthrough;
   delete shorter.near_washer_seat_followthrough; delete shorter.washer_catalog_minimum_thickness_sensitivity;
   delete index.owner_authorized_matching_rear_bolt_trial.affected_connection_component_followthrough;

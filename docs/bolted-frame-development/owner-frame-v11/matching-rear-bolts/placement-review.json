@@ -1,0 +1,190 @@
+{
+  "schema": "v11_upper_rear_owner_placement_review/v1",
+  "status": "PROPOSAL_ONLY_OWNER_AXIS_EXCEPTION_AND_FRESH_MATCHED_ANALYSIS_PENDING",
+  "current_geometry_revision": "v11-shorter-bolts-v1",
+  "current_geometry": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "current_geometry_receipt": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "current_axis_count": 112,
+  "current_spacers": 4,
+  "proposed_axis_count_if_built": 114,
+  "proposed_spacers_if_built": 4,
+  "proposed_fasteners": "Add one matching1/2-inch Grade5 upper-rear bolt per side, moving each existing upper-rear axis about6.509mm.",
+  "proposed_axis_changes": [
+    {
+      "side": "left",
+      "existing_axis_id": "lumber_leg_bolt_left_1",
+      "current_axis_point_xyz_mm": [
+        -1308.1,
+        1125.245692062,
+        1749.987315516
+      ],
+      "proposed_existing_axis_point_xyz_mm": [
+        -1308.1,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "proposed_additional_half_in_axis_point_xyz_mm": [
+        -1308.1,
+        1137.701154937443,
+        1816.9830092294449
+      ],
+      "proposed_existing_axis_displacement_xyz_mm": [
+        0.0,
+        -4.25674764881046,
+        -4.924478574831028
+      ]
+    },
+    {
+      "side": "right",
+      "existing_axis_id": "lumber_leg_bolt_right_1",
+      "current_axis_point_xyz_mm": [
+        1304.925,
+        1125.245692062,
+        1749.987315516
+      ],
+      "proposed_existing_axis_point_xyz_mm": [
+        1304.925,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "proposed_additional_half_in_axis_point_xyz_mm": [
+        1304.925,
+        1137.701154937443,
+        1816.9830092294449
+      ],
+      "proposed_existing_axis_displacement_xyz_mm": [
+        0.0,
+        -4.25674764881046,
+        -4.924478574831028
+      ]
+    }
+  ],
+  "changed_timber_profiles": [],
+  "changed_cleat_profiles": [],
+  "changed_fittings": [],
+  "changed_panel_or_screw_axes": [],
+  "changed_existing_spacers": [],
+  "current_model_or_axes_changed": false,
+  "proposal_selected": false,
+  "source_bindings": {
+    "raw_signed_geometry_check": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/margin-optimization-v2/signed-principal-envelope-v1/signed-principal-end-envelope-v1.json",
+      "sha256": "e15acab737be71c8d8f057eb381f9df56501297ccc3d52d7e4599a1d7389f396"
+    },
+    "source_geometry_and_context": {
+      "112_geometry": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+        "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+      },
+      "112_receipt": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+        "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+      },
+      "114_admitted_bank": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "sha256": "b364c9b572960a23c6566575abf3b791a326ab5ac35e263a770dd6e2fe891a46"
+      },
+      "114_full_signed_report": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/signed-geometry-v1/run-v1/signed-geometry-review-v1.json",
+        "sha256": "78cb57bae7436045c869a5f7ab12f01e5e8c8a7422bb8620be0ad17f99fb8b35"
+      },
+      "114_geometry": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/geometry.json",
+        "sha256": "28bf006c24fe2c57bd2b2a942f34954ef23a294789fd9676cdf5c49b48b35a48"
+      },
+      "114_receipt": {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/geometry-v1/checked-receipt-v1.json",
+        "sha256": "d9e4fc220a5827c45405faa4e8f4e13066e384ecec30dcb259c66d8b70cf677f"
+      },
+      "114_signed_geometry_summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/geometry-applicability.json",
+        "sha256": "f39bcd1523ad22a032bdf49678ffab533dcab791d15abcf1f354175cadee1f15"
+      },
+      "NDS_2024_Chapter_12": {
+        "path": "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf",
+        "sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f"
+      },
+      "movable_pair_producer": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/margin-optimization-v2/optimize_movable_rear_pair_v2.py",
+        "sha256": "213b7b88357fdcfb22b5a300262ffd1e7cb1218c8bcd17523bdae0f596d9c4a7"
+      },
+      "movable_pair_result": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/margin-optimization-v2/movable-matching-half-inch-pair-v2.json",
+        "sha256": "b47cba03237568d53692be222994527a566920e1d99c6dcbb88ecf37cb49b249"
+      },
+      "profile_distance_helper": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/margin-optimization-v1/optimize_matching_half_in_margin_v1.py",
+        "sha256": "043bc661d53ed81c02e10d8b8c31fa678e97c80aff39abd792bd4534e496a602"
+      }
+    },
+    "producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-review/upper-rear-extra-bolt-screen-v1/margin-optimization-v2/signed-principal-envelope-v1/deliver_rear_placement_review_v1.py",
+      "sha256": "89c893c0cbb91c1dec8efa46c67f91ef56abe8e1e2e7aabdb694b8a382276edf"
+    }
+  },
+  "diagram": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/placement-review.svg",
+    "sha256": "1f0bd561272cdaf4803efb5bec01c24cbade871ee3cc42e19a0390912f8d104c"
+  },
+  "conditional_geometry_comparisons": {
+    "optional_extra_margin_mm": 2.0,
+    "optional_margin_is_not_a_code_rule": true,
+    "minimum_edge_and_row_margin_mm": 2.336450174473285,
+    "minimum_signed_principal_end_margin_mm": 15.017000361271343,
+    "overall_margin_mm": 2.336450174473285,
+    "basis": "Full4D both-edge and5D along-grain pair screens, with7D at the old context net-loaded end and4D at the old context net-away end. Sloped-end, oblique/couple and actual group applicability remain unresolved.",
+    "stronger_all_ends_7D_envelopes": {
+      "fixed_existing_axis_v1_max_common_margin_mm": -8.349731885551146,
+      "movable_pair_v2_max_common_margin_mm": -3.0714082753461223,
+      "status": "optional stricter both-ends-7D envelopes; not the signed end selection applied above and not NDS failure findings"
+    },
+    "actual_Cdelta_adopted": null,
+    "actual_Cg_adopted": null,
+    "actual_NDS_geometry_acceptance": null
+  },
+  "historical_force_context": {
+    "revision": "eoere-v11-matching-rear-bolts-analysis-v1",
+    "admitted_bank": {
+      "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "b364c9b572960a23c6566575abf3b791a326ab5ac35e263a770dd6e2fe891a46"
+    },
+    "signed_geometry_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/geometry-applicability.json",
+      "sha256": "f39bcd1523ad22a032bdf49678ffab533dcab791d15abcf1f354175cadee1f15"
+    },
+    "direction_counts": {
+      "base_side_positive_grain_end": 24,
+      "lumber_leg_negative_grain_end": 24
+    },
+    "signed_axis_case_host_rows": 48,
+    "meaning": "All24 old side-host grain projections point toward the positive-grain end; all24 old leg-host projections point toward the negative-grain end. The short positive leg end is net-away in those saved cases.",
+    "forces_or_passes_transferred_to_proposed_positions": false
+  },
+  "fresh_stock_required_for_proposal": {
+    "actual_old_bores_restored_or_new_bores_cut": false,
+    "fresh_stock_computational_restoration_required": true,
+    "new_positions_have_matched_force_or_couple_results": false,
+    "required_before_candidate_adoption": "Build and freeze a distinct geometry with computational restoration of the old 1/2-in bores, then run a fresh matched analysis for all six cases and re-evaluate signed end/edge/row actions, couples, group action, clearances, and joint checks."
+  },
+  "required_before_adopting_this_geometry": [
+    "Owner direction allowing the two existing upper-rear axes to move; the active goal currently freezes axes.",
+    "Confirm these locations are undrilled or use suitable fresh stock; moving a bore does not repair an existing physical hole.",
+    "Freeze distinct candidate CAD and verify new bores, net sections, hardware grips, washer seats and clearance.",
+    "Run fresh matching six cases and replays at unchanged250lb,2.0downward,300N horizontal,25kg accessories,CD1.",
+    "Recheck signed end/edge/row directions, complete force-and-moment/axial interaction, splitting, hardware and contact using that candidate bank."
+  ],
+  "response_bank_for_proposed_positions": null,
+  "complete_joint_capacity": null,
+  "structural_acceptance": false,
+  "purchase_authorized": false,
+  "drilling_released": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "publication_state": "Local review only during commit/push blackout."
+}

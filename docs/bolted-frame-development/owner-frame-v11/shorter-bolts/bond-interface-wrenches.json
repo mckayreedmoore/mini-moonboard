@@ -1,0 +1,936 @@
+{
+  "adhesive_strength_or_stiffness_assigned": false,
+  "base_joint_disposition": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v5.json.gz",
+    "sha256": "89e1e83e92ce01774764dbe188cef257ddd20078d11f8abf242a2485cf5d3e8d"
+  },
+  "complete_bond_or_joint_capacity": null,
+  "continuous_bond_traction_field_computed": false,
+  "detailed_result": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/interleaf-leaf-wrench-v1/interleaf-leaf-wrenches-v1.json",
+    "sha256": "c3e93e0b158b4f5a870c23ce240473c7831036bf85e2d353b032b3026941b171"
+  },
+  "hardware_or_geometry_changed": false,
+  "limits": [
+    "This partitions the saved composite-host action field; no separate physical leaf degrees of freedom or independent inner/outer leaf responses were solved.",
+    "The affine split is a unique minimum-degree reconstruction of the saved two-point quadrature force/first moment, not the actual shaft pressure law or a bound on interleaf demand.",
+    "A global six-component bond-plane wrench does not determine a unique local peel/shear traction field; the glue coverage/net footprint including holes, bondline/process, stiffness, strength and local end/bolt-introduction behavior remain unresolved.",
+    "The compression-resultant centroid screen is not a local peel proof: tangential shear and interface-normal torsion remain separate, and a centroid inside the perimeter hull cannot establish contact compatibility or adequate adhesive traction.",
+    "No adhesive capacity, local stress, strength/pass, physical bond qualification, complete joint acceptance, geometry change or release is claimed."
+  ],
+  "normal_resultant_screen_method": {
+    "excluded_actions": [
+      "tangential force",
+      "torsion about the interface normal",
+      "contact holes or glue-free regions",
+      "local pressure/peel concentration",
+      "compatibility and adhesive constitutive response"
+    ],
+    "footprint_limit": "the reference perimeter hull is a necessary geometry screen only; actual glue footprint, bolt-hole exclusions and bonded area are not qualified",
+    "meaning": "centroid inside the saved geometry hull means the normal force and biaxial normal-pressure moment resultants admit a compression-only statics representation on that convex hull; it does not determine the actual pressure field or eliminate local peel",
+    "method": "for the outer leaf, project its equilibrium-implied interface reaction onto the inner-to-outer normal; when C>0, infer the center of pressure from the two moments about in-plane axes and test it against the convex hull of the saved profile perimeter vertices"
+  },
+  "parent_validation": {
+    "host_case_rows": 12,
+    "independent_SciPy_hull_checks": 12,
+    "independent_affine_polynomial_control": true,
+    "maximum_centroid_replay_error_mm": 0.0,
+    "source_files_verified": 12
+  },
+  "partition_method": {
+    "captures": "use each saved host support point and signed force/couple once, assigned to the physical leaf containing that point",
+    "contact": "use each saved face-contact point force/couple once, assigned by its point x-coordinate to a physical leaf",
+    "duplicate_guard": "do not add common_shaft_wood_bearing_actions; it is an aggregate alias that already contains its named raw bearing points and own end captures",
+    "self_weight": "split the merged self-weight resultant by current physical BRep volume fraction at the source-bound leaf COMs, under the same-density material operator",
+    "shaft_bearing": "for each current two-point Gauss bearing interval, reconstruct the unique affine vector force density matching the two weighted Gauss forces, then integrate its force and first moment separately over the two geometry-defined 19.05-mm halves; this preserves the source interval resultant/first moment but is not an actual force-density solution or conservative bound"
+  },
+  "physical_leaf_wrenches_resolved_by_model": false,
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "rows": [
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "a12-forward",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -111.23657388256093,
+          290.2255658818345
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 671.9063658080652,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 161.37530854709976,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          103.62201437574234,
+          -123.71122966564148
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": -11594.932595860524,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -671.9063658080652,
+        103.62201437574234,
+        -123.71122966564148
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        11594.932595860524,
+        20202.528214304213,
+        -3619.2732815881573
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 2.3870195636683287e-10,
+        "moment_error_Nmm": 1.7491601315427394e-08
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "a12-forward",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -106.23638519187264,
+          297.27499349138066
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 327.940511908739,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 57.67422548571607,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          17.12692161035543,
+          -55.07254162947232
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 2211.3691595918817,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        327.940511908739,
+        17.12692161035543,
+        -55.07254162947232
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        2211.3691595918817,
+        -7548.55041911012,
+        126.71135761667043
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 1.1901754311318716e-10,
+        "moment_error_Nmm": 1.3197448617844593e-08
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "a12-left",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -108.44232265356904,
+          277.0288625390866
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 824.3154363713817,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 180.38804171470528,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          111.98395590436962,
+          -141.4193735443431
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": -10674.47835179021,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -824.3154363713817,
+        111.98395590436962,
+        -141.4193735443431
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        10674.47835179021,
+        35663.33048909292,
+        -2136.89157939218
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 3.6515923810620445e-10,
+        "moment_error_Nmm": 2.3082137422505967e-09
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "a12-left",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -110.30901131349108,
+          278.1420153585493
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 267.54053156199404,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 24.398652153249785,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          12.067938726695795,
+          -21.205166393688028
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 910.2035796351997,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        267.54053156199404,
+        12.067938726695795,
+        -21.205166393688028
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        910.2035796351997,
+        -11277.107916943469,
+        1192.9662570523506
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 1.7441415340833467e-10,
+        "moment_error_Nmm": 8.957252802953337e-09
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "a12-rear",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -109.74693787813115,
+          288.03831600395335
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 588.587426322854,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 125.07956925870386,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          69.89626160303729,
+          -103.72758196286401
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": -7901.604843647674,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -588.587426322854,
+        69.89626160303729,
+        -103.72758196286401
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        7901.604843647674,
+        18984.725816256127,
+        -2293.6886362292635
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 2.374854693203407e-10,
+        "moment_error_Nmm": 1.7963220311920327e-08
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "a12-rear",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -106.19783716408669,
+          279.75041263997605
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 356.9880898819209,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 49.88636457969634,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          23.398370014782135,
+          -44.05866148250224
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 1874.0142246703267,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        356.9880898819209,
+        23.398370014782135,
+        -44.05866148250224
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        1874.0142246703267,
+        -14473.235605077109,
+        124.17372479725242
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 2.0067355444920647e-10,
+        "moment_error_Nmm": 4.660757395634201e-09
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "k12-right",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -109.65571466079486,
+          282.4631217958162
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 271.84667386141194,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 32.24778226776382,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          15.505010242906552,
+          -28.275680691301943
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": -1182.8974108447485,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -271.84667386141194,
+        15.505010242906552,
+        -28.275680691301943
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        1182.8974108447485,
+        10283.937820835545,
+        -1034.5708722026968
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 5.87850411653089e-11,
+        "moment_error_Nmm": 6.506355287068262e-09
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "k12-right",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -108.35412412914266,
+          277.05033824177116
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 824.1453032896613,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 180.1374814997403,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          111.56619018008054,
+          -141.43018578002145
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 10550.701537129575,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        824.1453032896613,
+        111.56619018008054,
+        -141.43018578002145
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        10550.701537129575,
+        -35638.27072151042,
+        2063.7621398872416
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 3.5319838560250106e-10,
+        "moment_error_Nmm": 2.358693263751389e-08
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "k12-rear",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -105.59333359148496,
+          280.567012474643
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 359.8768913836881,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 53.46045240139373,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          23.034023696209758,
+          -48.24369102094212
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": -2006.479719440915,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -359.8768913836881,
+        23.034023696209758,
+        -48.24369102094212
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        2006.479719440915,
+        14296.479801962729,
+        92.36830921900327
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 1.3547778502942547e-10,
+        "moment_error_Nmm": 4.3169305478314933e-10
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "k12-rear",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -109.40283650877025,
+          288.11536974389264
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 577.9643985616436,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 123.23169382128347,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          67.92239373236939,
+          -102.82314326904981
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 7684.405679276532,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        577.9643985616436,
+        67.92239373236939,
+        -102.82314326904981
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        7684.405679276532,
+        -18597.548654326718,
+        2053.413015979253
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 7.005802711046576e-10,
+        "moment_error_Nmm": 1.3614730841983668e-08
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_left",
+      "case_id": "a1-rear",
+      "joint_id": "cleat-header-left",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -105.99935988597299,
+          248.48505394565484
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 281.0813915587577,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 8.604687043327607,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          2.5642543644011084e-12,
+          -8.604687043327607
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 522.6006537991257,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        -281.0813915587577,
+        2.5642543644011084e-12,
+        -8.604687043327607
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        -522.6006537991257,
+        20183.88904283038,
+        -41.98228459234587
+      ],
+      "reference_xyz_mm": [
+        -1238.25,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 3.854068537730731e-11,
+        "moment_error_Nmm": 1.5598430209717216e-09
+      }
+    },
+    {
+      "analysis_host": "eoere_cleat_right",
+      "case_id": "a1-rear",
+      "joint_id": "cleat-header-right",
+      "normal_resultant_screen": {
+        "basis": "outer-leaf interface reaction; n is the geometry normal from inner-leaf COM toward outer-leaf COM",
+        "centroid_inside_saved_outline_convex_hull": true,
+        "classification": "NORMAL_FORCE_AND_BENDING_RESULTANT_HAS_COMPRESSION_ONLY_GEOMETRIC_REPRESENTATION",
+        "compression_only_resultant_centroid_yz_mm": [
+          -102.47023774718691,
+          243.1799769879828
+        ],
+        "interface_normal_inner_to_outer_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "normal_compression_resultant_C_N_positive_in_compression": 225.83561766724745,
+        "not_a_traction_or_peel_acceptance_check": true,
+        "remaining_tangential_force_norm_N": 19.124007624364147,
+        "remaining_tangential_force_on_outer_leaf_xyz_N": [
+          0.0,
+          11.303693159925432,
+          -15.425763791883794
+        ],
+        "remaining_torsion_about_interface_normal_Nmm": 1188.605494870727,
+        "saved_outline_convex_hull_yz_mm": [
+          [
+            -175.7,
+            139.7
+          ],
+          [
+            -36.0,
+            139.7
+          ],
+          [
+            -36.0,
+            500.8860828293809
+          ],
+          [
+            -175.7,
+            334.398105944
+          ]
+        ],
+        "scope": "global normal force and two overturning moments only; hull is formed from saved reference perimeter vertices, not net glue coverage or holes"
+      },
+      "outer_leaf_interface_force_xyz_N": [
+        225.83561766724745,
+        11.303693159925432,
+        -15.425763791883794
+      ],
+      "outer_leaf_interface_moment_xyz_Nmm": [
+        1188.605494870727,
+        -17414.87653501978,
+        -763.2706959324892
+      ],
+      "reference_xyz_mm": [
+        1235.0750000000003,
+        -105.85,
+        320.2930414146905
+      ],
+      "whole_host_and_opposite_reaction_errors": {
+        "force_error_N": 2.5410455329272126e-11,
+        "moment_error_Nmm": 3.078059928467509e-09
+      }
+    }
+  ],
+  "schema": "v11_bond_interface_wrench_summary/v1",
+  "source_bindings": [
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/cleat-interleaf-shear-flow-v1.json",
+      "sha256": "b9f1db0053d2cec4253c21a6fa3c850c13f6dbca3bd040ffb7d554be830b26ff"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/interleaf-leaf-wrench-v1/build_interleaf_leaf_wrenches_v1.py",
+      "sha256": "500fa4295e4387dce0b49185c210b81dac35c801f40828da0cf3d99a91224bcc"
+    },
+    {
+      "path": "scripts/thin_bolted_common_shaft.py",
+      "sha256": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb"
+    },
+    {
+      "path": "scripts/thin_bolted_timber_common_shaft_checks.py",
+      "sha256": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+      "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+      "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+      "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+      "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+      "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+      "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+    }
+  ],
+  "source_topology": {
+    "analysis_host_is_single_perfect_bond_body": true,
+    "analysis_host_thickness_mm": 38.1,
+    "independent_leaf_dofs_or_wrenches_saved": false,
+    "physical_bond_strength_stiffness_or_coverage_qualified": false,
+    "physical_leaf_thickness_mm": 19.05,
+    "physical_leaves_per_cleat": 2
+  },
+  "structural_acceptance": null,
+  "summary": {
+    "cases": 6,
+    "cleat_host_case_wrenches": 12,
+    "max_equal_opposite_interface_force_error_N": 7.005802711046576e-10,
+    "max_equal_opposite_interface_moment_error_Nmm": 2.358693263751389e-08,
+    "max_merged_host_force_closure_error_N": 1.214175959108492e-13,
+    "max_merged_host_global_moment_closure_error_Nmm": 5.991580315492175e-07,
+    "maximum_absolute_unresolved_interface_normal_torsion_Nmm": 11594.932595860524,
+    "maximum_unresolved_tangential_force_N": 180.38804171470528,
+    "outer_leaf_normal_compression_resultant_range_N": [
+      225.83561766724745,
+      824.3154363713817
+    ],
+    "outer_leaf_pressure_centroid_count": 12,
+    "outer_leaf_pressure_centroids_inside_saved_outline_hull": 12,
+    "small_known_action_control": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-left",
+      "force_error_N": 0.0,
+      "host": "eoere_cleat_left",
+      "moment_error_Nmm": 0.0,
+      "note": "source point actions were reduced at the same interface-plane reference; no action was duplicated",
+      "raw_two_point_bearing_plus_capture_equals_saved_aggregate_wood_wrench": true
+    }
+  },
+  "summary_producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/delivery/project_bond_wrench_summary_v1.py",
+    "sha256": "23d348d2dc42f2d011f896782dda3486b461f91606adfb298c69b05b0d0991ca"
+  }
+}

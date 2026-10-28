@@ -1,0 +1,31 @@
+{
+  "schema": "v11_owner_shorter_bolt_development_selection/v1",
+  "recorded_at_utc": "2026-10-27T15:01:05.766412+00:00",
+  "owner_request": "Also could you implement the reduced spacer count? Also could you also do an evaluation if we could just do fullly threaded bolts and get rid of the spacers alltogehter? What are some concerns if we do that? Also please have a subagent do this",
+  "interpretation": "Implement the previously evaluated reduction from24 to4 spacers as the current development selection. Evaluate fully threaded/zero-spacer alternatives separately; they are not selected by this request.",
+  "selected_development_revision": "v11-shorter-bolts-v1",
+  "selected_viewer_model": "eoere-v11-shorter-bolts-preview",
+  "bolt_stacks": 112,
+  "previous_spacer_pieces": 24,
+  "selected_spacer_pieces": 4,
+  "geometry_receipt": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "implementation_scope": "Select existing evaluated shorter20bolt geometry and its own evidence; retain frame/cleats/fittings/holes/112axes and four remaining spacers. No new geometry rebuild or force solve is needed solely for selection.",
+  "fully_threaded_or_zero_spacer_candidate_selected": false,
+  "matching114_bolt_trial_selected": false,
+  "selected_baseline_promoted": false,
+  "physical_observations_recorded": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false,
+  "complete_joint_qualified": false,
+  "blackout_commit_push_end_local": "18:17 America/Denver Monday-Thursday",
+  "publication_instruction": "Local implementation during blackout; retain normal CI/Pages and no commits or pushes during blackout."
+}

@@ -1,0 +1,69 @@
+{
+  "build_manifest": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/build-manifest.json",
+    "sha256": "7f7ac63263461b7285f4e0c13e3ff4665658c63b6ac99b58e747bca3168f8d11"
+  },
+  "candidate_selected": false,
+  "checked_clearance": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/clearance.json",
+    "sha256": "6c07f3c40a190b8e596aee71218827479642f1e5037bf16e5a50f4d5c547847a"
+  },
+  "climbing_released": false,
+  "counts": {
+    "added_axes": 2,
+    "added_stack_roles": 10,
+    "fitting_poses": 24,
+    "moved_existing_axes": 2,
+    "moved_stack_roles": 10,
+    "nuts": 114,
+    "occupied_parts": 1099,
+    "panel_screw_axes": 66,
+    "profiles": 30,
+    "spacer_parts": 4,
+    "structural_bolt_axes": 114,
+    "updated_receiver_profiles": 4,
+    "washers": 228
+  },
+  "drilling_released": false,
+  "fabrication_released": false,
+  "fresh_matched_mechanics_required": true,
+  "geometry": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+    "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+  },
+  "historical_forces_or_capacity_transferred": false,
+  "limitations": [
+    "This is a separate unselected owner-authorized geometry evaluation; the frozen 112-axis model and earlier 114-axis trial are unchanged.",
+    "Only the two named upper-rear half-inch axes move and two matching axes are added. The existing G0340956/2573/15025 no-spacer stack is rigidly translated; no product delivery or fit is verified.",
+    "Four receiver solids computationally restore the superseded bore in profile stock and cut the two target bores. This is not physical hole repair, and actual wood/holes were not observed.",
+    "The relocated axes change two side-to-leg contact patches. The matched preparation must rederive those patches and all loads; no historical forces, capacities, or checks transfer.",
+    "Nominal CAD clearance does not qualify hole spacing/end/edge applicability, tool access, splitting, wood strength, product tolerances, joint capacity, fabrication, or climbing use."
+  ],
+  "nominal_geometry_clear": true,
+  "owner_authorization": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/owner-relocated-pair-evaluation.json",
+    "sha256": "45f2cea7dd3fc516133c9fb7f5241a601f0e9a672253d7f54a0055a4f95f9b9d"
+  },
+  "physical_hardware_or_wood_observed": false,
+  "placement_review": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/matching-rear-bolts/placement-review.json",
+    "sha256": "253c8701843d488f322c5e67ddebac42382f220919ab591b79b8cd067e5ff205"
+  },
+  "purchase_authorized": false,
+  "revision": "v11-relocated-rear-pair-v1",
+  "schema": "v11_relocated_rear_pair_geometry_receipt/v1",
+  "source_clearance_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/clearance.json",
+    "sha256": "7177a80806c585851ea31fea48640ed9ac60c1e93f841ad3c221611e48e1e0f1"
+  },
+  "source_geometry_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+    "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+  },
+  "source_receipt_v3": {
+    "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+    "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+  },
+  "status": "Separate unselected geometry evaluation; nominal occupied clearance checked; fresh mechanics and physical fit pending.",
+  "structural_acceptance": false
+}

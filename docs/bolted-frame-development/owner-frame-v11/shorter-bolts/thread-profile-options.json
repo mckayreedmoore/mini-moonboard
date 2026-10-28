@@ -1,0 +1,258 @@
+{
+  "development_selection": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json",
+    "sha256": "dca44008230af2b201e807ace31ad2d1c98d33bce50a5e37b6875552048cf621"
+  },
+  "limitations": [
+    "The current response bank is the existing V11 partially threaded hardware geometry and its source forces; no forces were transferred from an earlier revision.",
+    "Option A applies a conditional 6.5-in B18.2.1/Grade5/2A profile to the four lower posts but retains the old four captures and force history. It does not represent the shorter shaft, removed sleeves, translated nuts, or changed stiffness/load distribution.",
+    "Option B applies a conditional root floor across the four lower bolts' full metal interval while preserving the current 7-in-plus-sleeve force/capture geometry; it is not a physical full-thread replacement analysis.",
+    "Option C applies conditional 2A external-hex and 3A socket-cap family root floors to all112 current axes. SKU8092 3A is only a family extension; SKU372 root is only a 2A family sensitivity. No manufacturer profile, delivered full-thread part, or all112 product mapping is qualified.",
+    "The existing elastic shaft model uses a uniform nominal diameter; no root-dependent EA/EI/GJ or beam stiffness was modeled. A matched six-case analysis is required after any product/profile or sleeve change before using candidate forces or making an adoption decision.",
+    "Fy is left unknown. The separate Grade5 F606 Fyb=92ksi dowel-yield input is not substituted for shaft Fy, and A574 tensile/proof numbers are not substituted for yield. Required Fy is a threshold only, not a pass/fail capacity.",
+    "This solid-circle envelope excludes notch concentration, thread load transfer/runout, fatigue, head/nut/washer/stripping, metal bearing/local 3D contact, wood bearing/splitting, load sharing, Cg/Cdelta, and complete-joint capacity."
+  ],
+  "lower_post_conditional_partial_thread_geometry": {
+    "NDS_12_3_7_2_conditional_fraction_limit": 0.25,
+    "axes": [
+      "v11_cleat_left_post_1",
+      "v11_cleat_left_post_2",
+      "v11_cleat_right_post_1",
+      "v11_cleat_right_post_2"
+    ],
+    "candidate_nominal_length_mm": 165.1,
+    "conservative_vendor_length_shift_only_post_overlap_mm": 4.3561,
+    "each_plywood_leaf_thread_overlap_mm": 0,
+    "exact_product_body_thread_runout_profile_qualified": false,
+    "plywood_leaf_intervals_mm": [
+      [
+        0,
+        19.05
+      ],
+      [
+        19.05,
+        38.1
+      ]
+    ],
+    "post_interval_mm": [
+      38.1,
+      127.0
+    ],
+    "post_thread_fraction": 0.04685714285714286,
+    "post_thread_overlap_mm": 4.1656,
+    "projection_margin_beyond_project_two_pitch_screen_mm": 9.9695,
+    "steel_interval_mm": [
+      127.0,
+      133.35
+    ],
+    "thread_start_station_mm": 122.8344
+  },
+  "method": {
+    "all_signed_actions": "N and T are accumulated from the signed point actions; every non-event source cut N/T is replayed to the admitted field. The source field remains the authority for all signed N,V1,V2,T,M1,M2 actions.",
+    "continuous_extrema": "The existing piecewise receiver/shaft helper reconstructs the saved transverse affine pressure, point gravity and end captures; it splits at receiver, action, and hypothetical root-transition events and searches exact polynomial norm extrema for V and M.",
+    "fixed_force_only": "Only the section diameter/profile map changes in postprocessing. The present force fields, end captures, axes, washer/spacer geometry, head/nut positions and load paths are unchanged. These are not candidate response fields.",
+    "local_stress_helper": "scripts.thin_bolted_steel_resistance.bolt_section_reference via the frozen current-1D metal producer",
+    "sufficient_bound": "Within each constant-D segment: sigma <= |N|/A+32|Mperp|/(pi D^3); tau <= 4|V|/(3A)+16|T|/(pi D^3); VM=sqrt(sigma^2+3 tau^2). Independent continuous V/M extrema are combined conservatively; required Fy=2 VM for the separate Fy/2 screen."
+  },
+  "options": [
+    {
+      "axes": 112,
+      "case_states": 672,
+      "changed_hardware_selected": false,
+      "four_lower_posts_governing_axis": "v11_cleat_right_post_2",
+      "four_lower_posts_governing_case": "k12-right",
+      "four_lower_posts_required_Fy_MPa_for_same_screen": 112.60767927807359,
+      "option_id": "current_piecewise_profile_fixed_force",
+      "whole_candidate_governing_axis": "lumber_leg_bolt_left_1",
+      "whole_candidate_governing_case": "a12-left",
+      "whole_candidate_required_Fy_MPa_for_sufficient_VM_le_Fy_over_2": 416.62845126032977,
+      "whole_candidate_sufficient_VM_bound_MPa": 208.31422563016488
+    },
+    {
+      "axes": 112,
+      "case_states": 672,
+      "changed_hardware_selected": false,
+      "four_lower_posts_governing_axis": "v11_cleat_right_post_2",
+      "four_lower_posts_governing_case": "k12-right",
+      "four_lower_posts_required_Fy_MPa_for_same_screen": 118.03021246373984,
+      "option_id": "A_remove_four_spacers_6_5in_partial_hex_fixed_force",
+      "whole_candidate_governing_axis": "lumber_leg_bolt_left_1",
+      "whole_candidate_governing_case": "a12-left",
+      "whole_candidate_required_Fy_MPa_for_sufficient_VM_le_Fy_over_2": 416.62845126032977,
+      "whole_candidate_sufficient_VM_bound_MPa": 208.31422563016488
+    },
+    {
+      "axes": 112,
+      "case_states": 672,
+      "changed_hardware_selected": false,
+      "four_lower_posts_governing_axis": "v11_cleat_right_post_2",
+      "four_lower_posts_governing_case": "k12-right",
+      "four_lower_posts_required_Fy_MPa_for_same_screen": 243.52126841686052,
+      "option_id": "B_all_root_only_four_lower_posts_fixed_force",
+      "whole_candidate_governing_axis": "lumber_leg_bolt_left_1",
+      "whole_candidate_governing_case": "a12-left",
+      "whole_candidate_required_Fy_MPa_for_sufficient_VM_le_Fy_over_2": 416.62845126032977,
+      "whole_candidate_sufficient_VM_bound_MPa": 208.31422563016488
+    },
+    {
+      "axes": 112,
+      "case_states": 672,
+      "changed_hardware_selected": false,
+      "four_lower_posts_governing_axis": "v11_cleat_right_post_2",
+      "four_lower_posts_governing_case": "k12-right",
+      "four_lower_posts_required_Fy_MPa_for_same_screen": 243.52126841686052,
+      "option_id": "C_all_root_only_all_112_fixed_force",
+      "whole_candidate_governing_axis": "lumber_leg_bolt_left_1",
+      "whole_candidate_governing_case": "a12-left",
+      "whole_candidate_required_Fy_MPa_for_sufficient_VM_le_Fy_over_2": 841.2521796244744,
+      "whole_candidate_sufficient_VM_bound_MPa": 420.6260898122372
+    }
+  ],
+  "parent_validation": {
+    "all112_axes_and6_cases_in_each_of4_scenarios": true,
+    "governing_segment_stress_arithmetic_replays": 2688,
+    "new_global_or_native_solves": 0,
+    "numeric_source_bindings_verified": 19,
+    "unchanged108_axes_in_A_and_B_match_current_profiles": true
+  },
+  "previous_spacers": 24,
+  "primary_method": {
+    "AWC_explanation_url": "https://awc.org/faq/what-is-the-difference-between-full-diameter-and-reduced-diameter-body-lag-screws-also-known-as-lag-bolts/",
+    "NDS_edition": 2024,
+    "clauses": [
+      "12.3.7.1(c)",
+      "12.3.7.2"
+    ],
+    "official_source_sha256": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "official_source_url": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-12-Dowel-Type-Fasteners.pdf"
+  },
+  "publication": "Local only during blackout; no staging, commit, push or manual deployment performed.",
+  "qualification": {
+    "actual_Cdelta": null,
+    "actual_Cg": null,
+    "actual_Fy_established": false,
+    "actual_Fyb_established": false,
+    "actual_root_or_delivered_full_thread_profile": false,
+    "climbing_released": false,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "matched_mechanics_recomputed": false,
+    "structural_acceptance": false
+  },
+  "question": "Implement the evaluated24-to4 spacer reduction and assess shorter partial-thread or full-thread alternatives for zero spacers.",
+  "recommendation": "Evaluate four6.5-inch partially threaded same-head Grade5 bolts first; replacing all112 with fully threaded bolts is a larger change and is not necessary merely to remove the remaining4 spacers.",
+  "schema": "v11_thread_and_spacer_options_summary/v1",
+  "selected_spacers": 4,
+  "sources": {
+    "controlling_audit_addendum": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/thread-profile-change-audit-v1-addendum.md",
+      "sha256": "bd129667631b6caafce5e5689a13db5d13417142e71927fb580161c68dd9b155"
+    },
+    "hardware_audit": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/thread-profile-change-audit-v1.md",
+      "sha256": "2d0014a85642e50b62556f92728ef9c53b266de502016e56741b177104915f49"
+    },
+    "numeric_input_bindings": {
+      "admitted_response_bank": {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+      },
+      "checked_receipt": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/geometry-receipt.json",
+        "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+      },
+      "conditional_2A_root_input": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json",
+        "sha256": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d"
+      },
+      "continuous_extrema_helper": {
+        "path": "scripts/eoere_mixed_stack_yield.py",
+        "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+      },
+      "continuous_piecewise_shaft_references": {
+        "path": "fea/generated/v11-shorter-bolts-v1/reference-readiness/runs/reference-v1/shaft-references.json",
+        "sha256": "e2b8d053928671f90f11a3ec47f27c7f6063d7e0118ee5d3e5da55762b6ae0c1"
+      },
+      "current_force_only_profile_and_property_scope": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/runs/reference-v2/force-only-Grade5-F606-92ksi-v1.json",
+        "sha256": "44cf52defae331fbe1a4bb2312db4bd3b3179d5db92d2c7a623c2feef3576a89"
+      },
+      "current_hardware_axis_crosswalk": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/hardware/axis-crosswalk-v1.csv",
+        "sha256": "9bc09b70875b39769b1b6ee4d79934bc300e351372e0805074e2ce5a9ea37fc5"
+      },
+      "current_profile_contract": {
+        "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+        "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+      },
+      "lower_post_6_5in_stack_decision": {
+        "path": "fea/generated/v11-shorter-bolts-v1/hardware/lower-post-spacer-decision-v1.json",
+        "sha256": "e913bac780cd07fc5eb71886b5e7dc3676ff001058bf7c24ef13342854d767c5"
+      },
+      "physical_geometry": {
+        "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+        "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+      },
+      "producer": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/full-thread-fixed-force-v1/produce_fixed_force_thread_root_v2.py",
+        "sha256": "8f065267a73fa6c012a7b98a6218c871331d742f503c0056d63e98da7c331458"
+      },
+      "same_section_stress_method_producer": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/build_current_1d_metal_interaction_v1.py",
+        "sha256": "e92e6ece228d917cf8f425ae49f1e890573016965fff7f1eb427bbd6ba87b2f9"
+      },
+      "six_admitted_fields": [
+        {
+          "case_id": "a12-forward",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+          "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+        },
+        {
+          "case_id": "a12-left",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+          "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+        },
+        {
+          "case_id": "a12-rear",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+          "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+        },
+        {
+          "case_id": "k12-right",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+          "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+        },
+        {
+          "case_id": "k12-rear",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+          "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+        },
+        {
+          "case_id": "a1-rear",
+          "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+          "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+        }
+      ],
+      "solid_circle_helper": {
+        "path": "scripts/thin_bolted_steel_resistance.py",
+        "sha256": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+      }
+    },
+    "numeric_report": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/full-thread-fixed-force-v1/fixed-force-thread-root-sensitivity-v2.json",
+      "sha256": "c3de101485b4a1705cce09fdf1978cb3f802f4f0fc31a8f3b6f639006eee8a66"
+    },
+    "summary_producer": {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/build_thread_options_summary_v1.py",
+      "sha256": "330f08efcce76e69a22c020f4f87b78405ccfbacb15bacd5176086a52fae3186"
+    }
+  },
+  "specific_concerns": [
+    "NDS12.3.7.1(c)/.2 requires a root-based or detailed threaded-part bearing/moment method when the per-member quarter-thread exception is unavailable; threads in wood are not categorically prohibited.",
+    "A thread-root section has less area and bending section modulus than the smooth body; nominal-shaft stiffness and current force sharing do not qualify a fully threaded variant.",
+    "The solid-circle screen omits thread-notch/cyclic effects and does not establish fatigue life.",
+    "The checked sources do not provide a complete same-head/same-grade all112 full-thread product schedule, including the16 A574 socket-cap axes.",
+    "Spacer deletion retains both washers and requires an appropriate nut position, full-thread engagement, runout/head fit and load path."
+  ],
+  "zero_spacer_candidate_selected": false
+}

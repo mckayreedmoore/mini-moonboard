@@ -1,0 +1,3317 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fe": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "connections": {
+    "Grade5_F60692_force": {
+      "above_one_count": 0,
+      "counts": {
+        "axes": 114,
+        "axis_cases": 684,
+        "two_media_axis_cases_calculated": 540,
+        "unresolved_mixed_or_other_axis_cases": 144
+      },
+      "maximum": {
+        "axis_id": "rail_rear_bolt_right_1",
+        "bearing_media": [
+          {
+            "host": "lumber_leg_right",
+            "interval_mm": [
+              2.2737367544323206e-13,
+              50.80000000000018
+            ],
+            "kind": "wood"
+          },
+          {
+            "host": "base_floor_right",
+            "interval_mm": [
+              50.80000000000018,
+              88.9
+            ],
+            "kind": "wood"
+          }
+        ],
+        "case_id": "k12-right",
+        "complete_joint_capacity": null,
+        "direction_independent_lower_reference": {
+          "Fyb_psi": 92000.0,
+          "Z_lower_lbf": 195.9396692312393,
+          "actual_material_or_joint_capacity": null,
+          "all_mode_assignments": [
+            {
+              "Z_lbf": 195.9396692312393,
+              "governing_mode": "II",
+              "mode_P_over_Rd_lbf": {
+                "II": 195.9396692312393,
+                "IIIm": 242.7320284463741,
+                "IIIs": 205.33778819399373,
+                "IV": 234.09053807847084,
+                "Im": 478.2459999999995,
+                "Is": 358.68449999999837
+              },
+              "reduction_terms_Rd": {
+                "II": 4.5,
+                "IIIm": 4.0,
+                "IIIs": 4.0,
+                "IV": 4.0,
+                "Im": 5.0,
+                "Is": 5.0
+              },
+              "unreduced_mode_P_lbf": {
+                "II": 881.7285115405768,
+                "IIIm": 970.9281137854964,
+                "IIIs": 821.3511527759749,
+                "IV": 936.3621523138834,
+                "Im": 2391.2299999999977,
+                "Is": 1793.4224999999917
+              }
+            },
+            {
+              "Z_lbf": 195.9396692312393,
+              "governing_mode": "II",
+              "mode_P_over_Rd_lbf": {
+                "II": 195.9396692312393,
+                "IIIm": 205.33778819399373,
+                "IIIs": 242.7320284463741,
+                "IV": 234.09053807847084,
+                "Im": 358.68449999999837,
+                "Is": 478.2459999999995
+              },
+              "reduction_terms_Rd": {
+                "II": 4.5,
+                "IIIm": 4.0,
+                "IIIs": 4.0,
+                "IV": 4.0,
+                "Im": 5.0,
+                "Is": 5.0
+              },
+              "unreduced_mode_P_lbf": {
+                "II": 881.7285115405768,
+                "IIIm": 821.3511527759749,
+                "IIIs": 970.9281137854964,
+                "IV": 936.3621523138834,
+                "Im": 1793.4224999999917,
+                "Is": 2391.2299999999977
+              }
+            }
+          ],
+          "selected_effective_diameter_mm": 7.317740000000001,
+          "steel_Fe_scenario_psi": 80495.94444026613,
+          "wood_Fe90_psi_G0p50": 4150.0
+        },
+        "force_only_metrics": {
+          "actual_candidate_steel_Fe_psi": null,
+          "class_code": "wood_wood_G0p50_Grade5_F606_Fyb92_scenario_only",
+          "demand_lbf": 117.76958244391996,
+          "demand_over_Z": 0.5142233551765657,
+          "governing_mode": "II",
+          "minimum_six_mode_Z_lbf": 229.02418036512975,
+          "mode_P_over_Rd_lbf": {
+            "II": 229.02418036512975,
+            "IIIm": 264.5974563086674,
+            "IIIs": 250.98873282517562,
+            "IV": 258.8530486463947,
+            "Im": 497.66368758704834,
+            "Is": 497.56631107788485
+          },
+          "unadopted_Fu370_steel_scenario": null
+        },
+        "group_factor_Cg": null,
+        "receiver_wrenches": [
+          {
+            "actions": [
+              {
+                "force_on_host_xyz_n": [
+                  -104.56394440042962,
+                  -523.6920327867504,
+                  -13.614411470696302
+                ],
+                "grain_axis_xyz": [
+                  0.0,
+                  -0.23915183195284329,
+                  0.9709821838085387
+                ],
+                "moment_on_host_at_point_xyz_nmm": [
+                  0.0,
+                  -444.8912475791744,
+                  17316.606138887615
+                ],
+                "own_bearing_points": [
+                  "rail_rear_bolt_right_1/bearing-1-0",
+                  "rail_rear_bolt_right_1/bearing-1-1"
+                ],
+                "own_end_captures": [
+                  "rail_rear_bolt_right_1/head-capture"
+                ],
+                "point_xyz_mm": [
+                  1279.525,
+                  1556.8258931028513,
+                  70.43491099171706
+                ],
+                "source": {
+                  "axis_id": "rail_rear_bolt_right_1",
+                  "case_id": "k12-right",
+                  "field": {
+                    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                    "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+                  },
+                  "field_family": "common_shaft_wood_bearing_actions",
+                  "row_index": 105
+                },
+                "surface_interval_mm": [
+                  2.2737367544323206e-13,
+                  50.80000000000018
+                ]
+              }
+            ],
+            "host": "lumber_leg_right",
+            "kind": "wood",
+            "surface_index": 1
+          },
+          {
+            "actions": [
+              {
+                "force_on_host_xyz_n": [
+                  104.56394440013872,
+                  523.6920327875648,
+                  12.70805066445516
+                ],
+                "grain_axis_xyz": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "moment_on_host_at_point_xyz_nmm": [
+                  0.0,
+                  -143.42585943300477,
+                  5961.5047185049225
+                ],
+                "own_bearing_points": [
+                  "rail_rear_bolt_right_1/bearing-0-0",
+                  "rail_rear_bolt_right_1/bearing-0-1"
+                ],
+                "own_end_captures": [
+                  "rail_rear_bolt_right_1/nut-capture"
+                ],
+                "point_xyz_mm": [
+                  1235.075,
+                  1556.8258931028513,
+                  70.43491099171706
+                ],
+                "source": {
+                  "axis_id": "rail_rear_bolt_right_1",
+                  "case_id": "k12-right",
+                  "field": {
+                    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                    "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+                  },
+                  "field_family": "common_shaft_wood_bearing_actions",
+                  "row_index": 104
+                },
+                "surface_interval_mm": [
+                  50.80000000000018,
+                  88.9
+                ]
+              }
+            ],
+            "host": "base_floor_right",
+            "kind": "wood",
+            "surface_index": 0
+          }
+        ],
+        "shaft_plane_wrenches": [
+          {
+            "axis_direction_xyz": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "basis_axis_tangent1_tangent2_xyz": [
+              [
+                -1.0,
+                -0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "cut_point_xyz_mm": [
+              1254.125,
+              1556.8258931028513,
+              70.43491099171706
+            ],
+            "cut_wrench_local_N_V1_V2_T_M1_M2_Nmm": {
+              "M1_nmm": -4014.8285061041042,
+              "M2_nmm": 106.96515338283749,
+              "N_n": 104.56394440042962,
+              "T_nmm": 0.0,
+              "V1_n": 13.468664418993013,
+              "V2_n": 523.6920327867504
+            },
+            "left_member": {
+              "grain_axis_xyz": [
+                0.0,
+                -0.23915183195284329,
+                0.9709821838085387
+              ],
+              "host": "lumber_leg_right",
+              "interval_mm": [
+                2.2737367544323206e-13,
+                50.80000000000018
+              ],
+              "kind": "wood",
+              "source_surface_index": 1
+            },
+            "modeled_adjacent_gap_mm": 0.0,
+            "plane_index": 0,
+            "right_member": {
+              "grain_axis_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "host": "base_floor_right",
+              "interval_mm": [
+                50.80000000000018,
+                88.9
+              ],
+              "kind": "wood",
+              "source_surface_index": 0
+            },
+            "sign_convention": "force and couple on the lower-axis-station part from omitted higher-station part",
+            "source": {
+              "axis_id": "rail_rear_bolt_right_1",
+              "cut_index": 26,
+              "cut_row_index": 91,
+              "field": {
+                "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+              },
+              "field_family": "common_shaft_section_cut_actions"
+            },
+            "station_from_axis_point_mm": 50.80000000000018
+          }
+        ],
+        "source_field": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+          "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+        },
+        "two_member_result": {
+          "Fyb_scenario": {
+            "actual_property_adopted": false,
+            "conditional_Grade5_test_route_source": {
+              "base_source_inputs": {
+                "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source-inputs.json",
+                "sha256": "064e3351b597c472a1b7ffc1baa4d362a3a2310310f2df1e4fc2927e602f5ef4"
+              },
+              "later_reuse_mapping": {
+                "path": "fea/generated/v10-packer-free-center-far-row-v1/connections/hardware-final/property-method-mapping.json",
+                "sha256": "e71d75ed66eca28d3b834d87e2cacd487f25b93fcb07aab84de82a0a37130ff7"
+              },
+              "qualified_edition_overlay": {
+                "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/edition-qualification-v2.json",
+                "sha256": "411c2317d89cc9a08885e3353c05efd64af002dbe4eadb6a405e6419707e954c"
+              },
+              "qualified_receipt": {
+                "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json",
+                "sha256": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6"
+              }
+            },
+            "psi": 92000.0,
+            "scenario_id": "eoere-J429-201405-Grade5-F606-tensile-yield-spec-v2"
+          },
+          "action_reference": {
+            "axis_id": "rail_rear_bolt_right_1",
+            "cut_station_mm": 50.80000000000018,
+            "field_family": "common_shaft_section_cut_actions",
+            "full_wrench_is_not_copied_into_this_capacity_artifact": true,
+            "full_wrench_retained_in_source": true,
+            "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+            "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+          },
+          "axis_id": "rail_rear_bolt_right_1",
+          "case_id": "k12-right",
+          "complete_interaction_pass": null,
+          "governing_assignment": {
+            "Z_lbf": 229.02418036512975,
+            "governing_mode": "II",
+            "main_member": "lumber_leg_right",
+            "side_member": "base_floor_right"
+          },
+          "group_factor_Cg": null,
+          "lateral_Z_reference_lbf_conservative_across_main_side_assignment": 229.02418036512975,
+          "lateral_translation_demand_N": 523.8652022472482,
+          "lateral_translation_demand_lbf": 117.76958244391996,
+          "lateral_translation_reference_ratio": 0.5142233551765657,
+          "load_angles_by_wood_member_deg": {
+            "base_floor_right": 1.473246678523457,
+            "lumber_leg_right": 77.63676046230626
+          },
+          "main_side_assignment_used_for_mode_labels": {
+            "designation": "deterministic first surface; both 88.9 mm members are equal bearing length",
+            "main_member": "lumber_leg_right",
+            "side_member": "base_floor_right"
+          },
+          "main_side_swap_Z_invariant": true,
+          "main_side_swap_Z_lbf": 229.02418036512975,
+          "mode_P_over_Rd_lbf": {
+            "II": 229.02418036512975,
+            "IIIm": 264.5974563086674,
+            "IIIs": 250.98873282517562,
+            "IV": 258.8530486463947,
+            "Im": 497.66368758704834,
+            "Is": 497.56631107788485
+          },
+          "modeled_adjacent_face_gap_mm": 0.0,
+          "physical_adjacent_face_gap_or_contact_observed": false,
+          "piecewise_body_root_source": {
+            "derived_body_root_transition_station_mm": 78.994,
+            "fresh_field_head_pressure_face_station_mm": -2.032,
+            "independent_delivered_shank_or_thread_measurement": false,
+            "piecewise_reference_segments": [
+              {
+                "interval_s_mm": [
+                  -2.032,
+                  78.994
+                ],
+                "root": false
+              },
+              {
+                "interval_s_mm": [
+                  78.994,
+                  112.268
+                ],
+                "root": true
+              }
+            ],
+            "selected_stack_override": {
+              "Actual": "",
+              "Disposition": "",
+              "axis_id": "rail_rear_bolt_right_1",
+              "head_faces": "exterior",
+              "head_side_fitting_ids": "",
+              "installation_orientation_revision": "eoere-inward-exterior-bolts-v7",
+              "minimum_body_mm": 81.026,
+              "nut_faces": "interior",
+              "nut_side_fitting_ids": "",
+              "nut_side_spacer_mm": 0.0,
+              "old_thread_window_margins_apply": false,
+              "receiver_member_ids": "base_floor_right;lumber_leg_right",
+              "selected_bolt_grade": "SAE J429 Grade 5; zinc; partially threaded full body",
+              "selected_product": "368",
+              "selected_product_url": "https://boltdepot.com/Product-Details?product=368",
+              "selected_underhead_length_mm": 114.3,
+              "spacer_piece_count": 0,
+              "spacer_piece_length_mm": 0.0,
+              "thread_window_recheck_required": true
+            },
+            "shaft_interval_mm": [
+              -2.032,
+              112.268
+            ]
+          },
+          "reduction_terms_Rd": {
+            "II": 4.376367604623062,
+            "IIIm": 3.8901045374427223,
+            "IIIs": 3.8901045374427223,
+            "IV": 3.8901045374427223,
+            "Im": 4.8626306718034025,
+            "Is": 4.8626306718034025
+          },
+          "selected_effective_diameter_mm": 7.317740000000001,
+          "status": "all_six_lateral_translation_modes_calculated_on_unadopted_G_0p50_and_generic_TR12_Fyb_45ksi_scenario; connection remains incomplete",
+          "thread_body_root_scenario": {
+            "conditional_body_to_root_transition_station_mm": 78.994,
+            "effective_diameter_selector": {
+              "missing_inputs": [],
+              "selected_effective_diameter_mm": 7.317740000000001,
+              "selection_basis": "NDS thread-root diameter"
+            },
+            "full_body_basis": "thread-root-design-v1 declared minimum body profile, not delivered measurement",
+            "full_body_diameter_mm": 9.372599999999998,
+            "head_pressure_face_station_mm": -2.032,
+            "member_thread_exposure": [
+              {
+                "bearing_interval_mm": [
+                  2.2737367544323206e-13,
+                  50.80000000000018
+                ],
+                "bearing_length_mm": 50.799999999999955,
+                "kind": "wood",
+                "member_id": "lumber_leg_right",
+                "physical_thread_extent_observed": false,
+                "thread_bearing_fraction_model_scenario": 0.0,
+                "thread_bearing_length_mm_model_scenario": 0.0
+              },
+              {
+                "bearing_interval_mm": [
+                  50.80000000000018,
+                  88.9
+                ],
+                "bearing_length_mm": 38.099999999999824,
+                "kind": "wood",
+                "member_id": "base_floor_right",
+                "physical_thread_extent_observed": false,
+                "thread_bearing_fraction_model_scenario": 0.26000000000000134,
+                "thread_bearing_length_mm_model_scenario": 9.906000000000006
+              }
+            ],
+            "nominal_diameter_mm": 9.525,
+            "physical_delivered_thread_window_verified": false,
+            "prepared_worksheet_first_root_station_mm": 78.994,
+            "profile_matches_prepared_piecewise_worksheet": true,
+            "root_basis": "thread-root-design-v1 proposed root floor, not product-acceptance minimum or delivered measurement",
+            "selected_minimum_body_length_mm": 81.026,
+            "thread_profile_id": "3/8-16",
+            "thread_root_diameter_mm": 7.317740000000001,
+            "threads_per_inch": 16
+          },
+          "topology": "two-member wood/wood, one shear plane",
+          "unresolved_same_section_wrench_components": {
+            "Fyb_required_from_local_bending_moment_psi": 8919.128527799152,
+            "M1_nmm": -4014.8285061041042,
+            "M2_nmm": 106.96515338283749,
+            "N_n": 104.56394440042962,
+            "T_nmm": 0.0,
+            "interaction_or_whole_connection_check": null,
+            "lateral_yield_hinge_moment_reference_lbin_at_45ksi": 366.6623788953334,
+            "local_M_over_hinge_moment_reference_scenario": 0.09694704921520818
+          },
+          "wood_Fe_psi_by_member": {
+            "base_floor_right": 5598.706943198905,
+            "lumber_leg_right": 4199.851981089152
+          }
+        }
+      }
+    },
+    "Grade5_F60692_rawport_partition_bounds": {
+      "above_one_inconclusive_bound_count": 21,
+      "counts": {
+        "bounded_cases": 252,
+        "interface_cases": 252,
+        "interface_groups": 42
+      },
+      "maximum": {
+        "NDS_complete_group_ownership_qualified": false,
+        "actual_connection_Cg": null,
+        "actual_partition": null,
+        "additional_mixed_axis_ids": [],
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "bound_scope": "Pure lateral aggregate row envelope only, conditional on actual uniform NDS row eligibility and positive member EA; no actual partition or group is selected.",
+        "case_id": "a12-rear",
+        "complete_joint_capacity": null,
+        "conditional_partition_envelope": {
+          "actual_Cg": null,
+          "actual_partition_selected": false,
+          "all_hypothetical_partitions": [
+            {
+              "blocks": [
+                [
+                  "lumber_leg_bolt_left_1"
+                ],
+                [
+                  "proposal_upper_rear_left_added_half_in"
+                ]
+              ],
+              "maximum_row_index_upper": 1.1962657903946288,
+              "rows": [
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 508.24924577761806,
+                  "axis_ids": [
+                    "lumber_leg_bolt_left_1"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 1.0815321371855533,
+                  "fastener_count": 1,
+                  "lateral_demand_upper_lbf": 549.6878930088128
+                },
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 508.24924577761806,
+                  "axis_ids": [
+                    "proposal_upper_rear_left_added_half_in"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 1.1962657903946288,
+                  "fastener_count": 1,
+                  "lateral_demand_upper_lbf": 608.0011857176362
+                }
+              ]
+            },
+            {
+              "blocks": [
+                [
+                  "lumber_leg_bolt_left_1",
+                  "proposal_upper_rear_left_added_half_in"
+                ]
+              ],
+              "maximum_row_index_upper": 2.277797927580182,
+              "rows": [
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 508.24924577761806,
+                  "axis_ids": [
+                    "lumber_leg_bolt_left_1",
+                    "proposal_upper_rear_left_added_half_in"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 2.277797927580182,
+                  "fastener_count": 2,
+                  "lateral_demand_upper_lbf": 1157.689078726449
+                }
+              ]
+            }
+          ],
+          "complete_joint_capacity": null,
+          "maximum_index_upper": 2.277797927580182,
+          "partition_count": 2
+        },
+        "conditional_singleton_index_upper": 1.1962657903946288,
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+        "members": [
+          {
+            "host": "base_side_left",
+            "kind": "wood"
+          },
+          {
+            "host": "lumber_leg_left",
+            "kind": "wood"
+          }
+        ],
+        "nominal_singleton_lateral_row_Cg": 1.0,
+        "pairwise_direction_trials": [
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 34.08419768571136,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "group_resultant",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.24885568399880142,
+              0.9685405766107524
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 65.49867655688622,
+            "quarter_parallel_offset_mm": 16.374669139221556,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 17.709528546489803
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 29.693356316779198,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "lumber_leg_bolt_left_1",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.18448227253269922,
+              0.9828358413901942
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 67.60261646731608,
+            "quarter_parallel_offset_mm": 16.90065411682902,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 12.792702199950178
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 37.9171301495725,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "proposal_upper_rear_left_added_half_in",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.3059850691882361,
+              0.9520363109849699
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 63.35692861718146,
+            "quarter_parallel_offset_mm": 15.839232154295365,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 22.077897995277134
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 34.04965774354626,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "group_resultant",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.24834497119992244,
+              -0.9686716550409173
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 65.51663887997925,
+            "quarter_parallel_offset_mm": 16.379159719994814,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 17.67049802355145
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 29.665550868787033,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "lumber_leg_bolt_left_1",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.1840780459077126,
+              -0.9829116303182083
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 67.61482274053269,
+            "quarter_parallel_offset_mm": 16.903705685133172,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 12.761845183653861
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 37.878134360274515,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "proposal_upper_rear_left_added_half_in",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.30539914679902613,
+              -0.9522244279235998
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 63.38025007813742,
+            "quarter_parallel_offset_mm": 15.845062519534356,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 22.03307184074016
+          }
+        ],
+        "receiver_wrenches_and_raw_ports": [
+          {
+            "host": "base_side_left",
+            "per_axis": [
+              {
+                "absolute_axial_port_force_sum_N": 47.69529785368043,
+                "axis_id": "lumber_leg_bolt_left_1",
+                "force_xyz_N": [
+                  -47.69529785368043,
+                  -252.5881384156574,
+                  1345.6722542320863
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  -252.5881384156574,
+                  1345.6722542320863
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  -20327.67022110107,
+                  -119439.74596436952,
+                  -24041.21805748984
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2304.950914051457,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 1.4551915228366852e-11,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -321.90392133720013,
+                      1808.5183083092531
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -321.90392133720013,
+                      1808.5183083092531
+                    ],
+                    "lateral_magnitude_N": 1836.9432778564583,
+                    "point_xyz_mm": [
+                      -1200.413219465479,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-0-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/364"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      69.31578292154272,
+                      -462.84605407716697
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      69.31578292154272,
+                      -462.84605407716697
+                    ],
+                    "lateral_magnitude_N": 468.0076361949986,
+                    "point_xyz_mm": [
+                      -1149.086780534521,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-0-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/365"
+                  },
+                  {
+                    "axial_force_signed_N": -47.69529785368043,
+                    "force_xyz_N": [
+                      -47.69529785368043,
+                      -0.0,
+                      -0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1130.3,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/nut-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/169"
+                  }
+                ]
+              },
+              {
+                "absolute_axial_port_force_sum_N": 98.07863065865796,
+                "axis_id": "proposal_upper_rear_left_added_half_in",
+                "force_xyz_N": [
+                  -98.07863065865796,
+                  -464.5237304199396,
+                  1445.3105827915947
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  -464.5237304199396,
+                  1445.3105827915947
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  28781.480728169867,
+                  -133444.96642530372,
+                  -41782.6072979777
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2561.148719448797,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 7.275957614183426e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -609.1061816019625,
+                      1946.4712643261332
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -609.1061816019625,
+                      1946.4712643261332
+                    ],
+                    "lateral_magnitude_N": 2039.5491470697878,
+                    "point_xyz_mm": [
+                      -1200.413219465479,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-0-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/496"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      144.58245118202285,
+                      -501.1606815345386
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      144.58245118202285,
+                      -501.1606815345386
+                    ],
+                    "lateral_magnitude_N": 521.5995723790091,
+                    "point_xyz_mm": [
+                      -1149.086780534521,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-0-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/497"
+                  },
+                  {
+                    "axial_force_signed_N": -98.07863065865796,
+                    "force_xyz_N": [
+                      -98.07863065865796,
+                      -0.0,
+                      -0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1130.3,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/nut-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/225"
+                  }
+                ]
+              }
+            ],
+            "summed_force_xyz_N": [
+              -145.7739285123384,
+              -717.1118688355971,
+              2790.982837023681
+            ],
+            "summed_moment_about_group_reference_xyz_Nmm": [
+              8453.810507068796,
+              -252884.71238967322,
+              -65823.82535546755
+            ]
+          },
+          {
+            "host": "lumber_leg_left",
+            "per_axis": [
+              {
+                "absolute_axial_port_force_sum_N": 47.695297851119314,
+                "axis_id": "lumber_leg_bolt_left_1",
+                "force_xyz_N": [
+                  47.695297851119314,
+                  252.5881384161013,
+                  -1348.7312824587582
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  252.5881384161013,
+                  -1348.7312824587582
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  20353.231782978917,
+                  119742.64653937228,
+                  24041.218057554648
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2445.1335589403097,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 3.637978807091713e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -115.59156778903126,
+                      523.977149241892
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -115.59156778903126,
+                      523.977149241892
+                    ],
+                    "lateral_magnitude_N": 536.5756828925312,
+                    "point_xyz_mm": [
+                      -1289.3132194654788,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-1-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/366"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      368.17970620513256,
+                      -1872.7084317006502
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      368.17970620513256,
+                      -1872.7084317006502
+                    ],
+                    "lateral_magnitude_N": 1908.5578760477783,
+                    "point_xyz_mm": [
+                      -1237.9867805345211,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-1-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/367"
+                  },
+                  {
+                    "axial_force_signed_N": 47.695297851119314,
+                    "force_xyz_N": [
+                      47.695297851119314,
+                      0.0,
+                      0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1308.1,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/head-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/168"
+                  }
+                ]
+              },
+              {
+                "absolute_axial_port_force_sum_N": 98.07863065539868,
+                "axis_id": "proposal_upper_rear_left_added_half_in",
+                "force_xyz_N": [
+                  98.07863065539868,
+                  464.52373042052164,
+                  -1448.369611024821
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  464.52373042052164,
+                  -1448.369611024821
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  -28807.042290107456,
+                  133747.86700135295,
+                  41782.607298109884
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2704.5240071348226,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 7.275957614183426e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -195.47252080804998,
+                      558.6028406868348
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -195.47252080804998,
+                      558.6028406868348
+                    ],
+                    "lateral_magnitude_N": 591.8163904577626,
+                    "point_xyz_mm": [
+                      -1289.3132194654788,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-1-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/498"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      659.9962512285716,
+                      -2006.9724517116558
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      659.9962512285716,
+                      -2006.9724517116558
+                    ],
+                    "lateral_magnitude_N": 2112.70761667706,
+                    "point_xyz_mm": [
+                      -1237.9867805345211,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-1-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/499"
+                  },
+                  {
+                    "axial_force_signed_N": 98.07863065539868,
+                    "force_xyz_N": [
+                      98.07863065539868,
+                      0.0,
+                      0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1308.1,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/head-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/224"
+                  }
+                ]
+              }
+            ],
+            "summed_force_xyz_N": [
+              145.773928506518,
+              717.111868836623,
+              -2797.100893483579
+            ],
+            "summed_moment_about_group_reference_xyz_Nmm": [
+              -8453.810507128539,
+              253490.51354072522,
+              65823.82535566454
+            ]
+          }
+        ],
+        "reference_point_xyz_mm": [
+          -1308.1,
+          1129.3450496753162,
+          1781.022923085307
+        ],
+        "robust_singleton_rows_across_tested_net_directions": true,
+        "two_media_axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ]
+      }
+    },
+    "generic45_force": {
+      "above_one_count": 0,
+      "counts": {
+        "axes": 114,
+        "axis_cases": 684,
+        "two_media_axis_cases_calculated": 540,
+        "unresolved_mixed_or_other_axis_cases": 144
+      },
+      "maximum": {
+        "axis_id": "rail_rear_bolt_right_1",
+        "bearing_media": [
+          {
+            "host": "lumber_leg_right",
+            "interval_mm": [
+              2.2737367544323206e-13,
+              50.80000000000018
+            ],
+            "kind": "wood"
+          },
+          {
+            "host": "base_floor_right",
+            "interval_mm": [
+              50.80000000000018,
+              88.9
+            ],
+            "kind": "wood"
+          }
+        ],
+        "case_id": "k12-right",
+        "complete_joint_capacity": null,
+        "direction_independent_lower_reference": {
+          "Fyb_psi": 45000.0,
+          "Z_lower_lbf": 163.71791424130225,
+          "actual_material_or_joint_capacity": null,
+          "all_mode_assignments": [
+            {
+              "Z_lbf": 163.71791424130225,
+              "governing_mode": "IV",
+              "mode_P_over_Rd_lbf": {
+                "II": 195.9396692312393,
+                "IIIm": 221.0900132003362,
+                "IIIs": 177.98130707904707,
+                "IV": 163.71791424130225,
+                "Im": 478.2459999999995,
+                "Is": 358.68449999999837
+              },
+              "reduction_terms_Rd": {
+                "II": 4.5,
+                "IIIm": 4.0,
+                "IIIs": 4.0,
+                "IV": 4.0,
+                "Im": 5.0,
+                "Is": 5.0
+              },
+              "unreduced_mode_P_lbf": {
+                "II": 881.7285115405768,
+                "IIIm": 884.3600528013448,
+                "IIIs": 711.9252283161883,
+                "IV": 654.871656965209,
+                "Im": 2391.2299999999977,
+                "Is": 1793.4224999999917
+              }
+            },
+            {
+              "Z_lbf": 163.71791424130225,
+              "governing_mode": "IV",
+              "mode_P_over_Rd_lbf": {
+                "II": 195.9396692312393,
+                "IIIm": 177.98130707904707,
+                "IIIs": 221.0900132003362,
+                "IV": 163.71791424130225,
+                "Im": 358.68449999999837,
+                "Is": 478.2459999999995
+              },
+              "reduction_terms_Rd": {
+                "II": 4.5,
+                "IIIm": 4.0,
+                "IIIs": 4.0,
+                "IV": 4.0,
+                "Im": 5.0,
+                "Is": 5.0
+              },
+              "unreduced_mode_P_lbf": {
+                "II": 881.7285115405768,
+                "IIIm": 711.9252283161883,
+                "IIIs": 884.3600528013448,
+                "IV": 654.871656965209,
+                "Im": 1793.4224999999917,
+                "Is": 2391.2299999999977
+              }
+            }
+          ],
+          "selected_effective_diameter_mm": 7.317740000000001,
+          "steel_Fe_scenario_psi": 80495.94444026613,
+          "wood_Fe90_psi_G0p50": 4150.0
+        },
+        "force_only_metrics": {
+          "actual_candidate_steel_Fe_psi": null,
+          "class_code": "wood_wood_G0p50_Fyb45_scenario_only",
+          "demand_lbf": 117.76958244391996,
+          "demand_over_Z": 0.650530267206776,
+          "governing_mode": "IV",
+          "minimum_six_mode_Z_lbf": 181.0362843678202,
+          "mode_P_over_Rd_lbf": {
+            "II": 229.02418036512975,
+            "IIIm": 240.70622301640955,
+            "IIIs": 224.2446724929387,
+            "IV": 181.0362843678202,
+            "Im": 497.66368758704834,
+            "Is": 497.56631107788485
+          },
+          "unadopted_Fu370_steel_scenario": null
+        },
+        "group_factor_Cg": null,
+        "receiver_wrenches": [
+          {
+            "actions": [
+              {
+                "force_on_host_xyz_n": [
+                  -104.56394440042962,
+                  -523.6920327867504,
+                  -13.614411470696302
+                ],
+                "grain_axis_xyz": [
+                  0.0,
+                  -0.23915183195284329,
+                  0.9709821838085387
+                ],
+                "moment_on_host_at_point_xyz_nmm": [
+                  0.0,
+                  -444.8912475791744,
+                  17316.606138887615
+                ],
+                "own_bearing_points": [
+                  "rail_rear_bolt_right_1/bearing-1-0",
+                  "rail_rear_bolt_right_1/bearing-1-1"
+                ],
+                "own_end_captures": [
+                  "rail_rear_bolt_right_1/head-capture"
+                ],
+                "point_xyz_mm": [
+                  1279.525,
+                  1556.8258931028513,
+                  70.43491099171706
+                ],
+                "source": {
+                  "axis_id": "rail_rear_bolt_right_1",
+                  "case_id": "k12-right",
+                  "field": {
+                    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                    "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+                  },
+                  "field_family": "common_shaft_wood_bearing_actions",
+                  "row_index": 105
+                },
+                "surface_interval_mm": [
+                  2.2737367544323206e-13,
+                  50.80000000000018
+                ]
+              }
+            ],
+            "host": "lumber_leg_right",
+            "kind": "wood",
+            "surface_index": 1
+          },
+          {
+            "actions": [
+              {
+                "force_on_host_xyz_n": [
+                  104.56394440013872,
+                  523.6920327875648,
+                  12.70805066445516
+                ],
+                "grain_axis_xyz": [
+                  0.0,
+                  1.0,
+                  0.0
+                ],
+                "moment_on_host_at_point_xyz_nmm": [
+                  0.0,
+                  -143.42585943300477,
+                  5961.5047185049225
+                ],
+                "own_bearing_points": [
+                  "rail_rear_bolt_right_1/bearing-0-0",
+                  "rail_rear_bolt_right_1/bearing-0-1"
+                ],
+                "own_end_captures": [
+                  "rail_rear_bolt_right_1/nut-capture"
+                ],
+                "point_xyz_mm": [
+                  1235.075,
+                  1556.8258931028513,
+                  70.43491099171706
+                ],
+                "source": {
+                  "axis_id": "rail_rear_bolt_right_1",
+                  "case_id": "k12-right",
+                  "field": {
+                    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                    "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+                  },
+                  "field_family": "common_shaft_wood_bearing_actions",
+                  "row_index": 104
+                },
+                "surface_interval_mm": [
+                  50.80000000000018,
+                  88.9
+                ]
+              }
+            ],
+            "host": "base_floor_right",
+            "kind": "wood",
+            "surface_index": 0
+          }
+        ],
+        "shaft_plane_wrenches": [
+          {
+            "axis_direction_xyz": [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            "basis_axis_tangent1_tangent2_xyz": [
+              [
+                -1.0,
+                -0.0,
+                -0.0
+              ],
+              [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              [
+                0.0,
+                -1.0,
+                0.0
+              ]
+            ],
+            "cut_point_xyz_mm": [
+              1254.125,
+              1556.8258931028513,
+              70.43491099171706
+            ],
+            "cut_wrench_local_N_V1_V2_T_M1_M2_Nmm": {
+              "M1_nmm": -4014.8285061041042,
+              "M2_nmm": 106.96515338283749,
+              "N_n": 104.56394440042962,
+              "T_nmm": 0.0,
+              "V1_n": 13.468664418993013,
+              "V2_n": 523.6920327867504
+            },
+            "left_member": {
+              "grain_axis_xyz": [
+                0.0,
+                -0.23915183195284329,
+                0.9709821838085387
+              ],
+              "host": "lumber_leg_right",
+              "interval_mm": [
+                2.2737367544323206e-13,
+                50.80000000000018
+              ],
+              "kind": "wood",
+              "source_surface_index": 1
+            },
+            "modeled_adjacent_gap_mm": 0.0,
+            "plane_index": 0,
+            "right_member": {
+              "grain_axis_xyz": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "host": "base_floor_right",
+              "interval_mm": [
+                50.80000000000018,
+                88.9
+              ],
+              "kind": "wood",
+              "source_surface_index": 0
+            },
+            "sign_convention": "force and couple on the lower-axis-station part from omitted higher-station part",
+            "source": {
+              "axis_id": "rail_rear_bolt_right_1",
+              "cut_index": 26,
+              "cut_row_index": 91,
+              "field": {
+                "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+                "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+              },
+              "field_family": "common_shaft_section_cut_actions"
+            },
+            "station_from_axis_point_mm": 50.80000000000018
+          }
+        ],
+        "source_field": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+          "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+        },
+        "two_member_result": {
+          "Fyb_scenario": {
+            "actual_property_adopted": false,
+            "conditional_Grade5_test_route_source": null,
+            "psi": 45000.0,
+            "scenario_id": "generic_TR12_45ksi_conditional_reference"
+          },
+          "action_reference": {
+            "axis_id": "rail_rear_bolt_right_1",
+            "cut_station_mm": 50.80000000000018,
+            "field_family": "common_shaft_section_cut_actions",
+            "full_wrench_is_not_copied_into_this_capacity_artifact": true,
+            "full_wrench_retained_in_source": true,
+            "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+            "sha256": "a5de6b16ea2c5c6e496923ed2f36085a95aed9672187985de53eb46626b88ef0"
+          },
+          "axis_id": "rail_rear_bolt_right_1",
+          "case_id": "k12-right",
+          "complete_interaction_pass": null,
+          "governing_assignment": {
+            "Z_lbf": 181.0362843678202,
+            "governing_mode": "IV",
+            "main_member": "lumber_leg_right",
+            "side_member": "base_floor_right"
+          },
+          "group_factor_Cg": null,
+          "lateral_Z_reference_lbf_conservative_across_main_side_assignment": 181.0362843678202,
+          "lateral_translation_demand_N": 523.8652022472482,
+          "lateral_translation_demand_lbf": 117.76958244391996,
+          "lateral_translation_reference_ratio": 0.650530267206776,
+          "load_angles_by_wood_member_deg": {
+            "base_floor_right": 1.473246678523457,
+            "lumber_leg_right": 77.63676046230626
+          },
+          "main_side_assignment_used_for_mode_labels": {
+            "designation": "deterministic first surface; both 88.9 mm members are equal bearing length",
+            "main_member": "lumber_leg_right",
+            "side_member": "base_floor_right"
+          },
+          "main_side_swap_Z_invariant": true,
+          "main_side_swap_Z_lbf": 181.0362843678202,
+          "mode_P_over_Rd_lbf": {
+            "II": 229.02418036512975,
+            "IIIm": 240.70622301640955,
+            "IIIs": 224.2446724929387,
+            "IV": 181.0362843678202,
+            "Im": 497.66368758704834,
+            "Is": 497.56631107788485
+          },
+          "modeled_adjacent_face_gap_mm": 0.0,
+          "physical_adjacent_face_gap_or_contact_observed": false,
+          "piecewise_body_root_source": {
+            "derived_body_root_transition_station_mm": 78.994,
+            "fresh_field_head_pressure_face_station_mm": -2.032,
+            "independent_delivered_shank_or_thread_measurement": false,
+            "piecewise_reference_segments": [
+              {
+                "interval_s_mm": [
+                  -2.032,
+                  78.994
+                ],
+                "root": false
+              },
+              {
+                "interval_s_mm": [
+                  78.994,
+                  112.268
+                ],
+                "root": true
+              }
+            ],
+            "selected_stack_override": {
+              "Actual": "",
+              "Disposition": "",
+              "axis_id": "rail_rear_bolt_right_1",
+              "head_faces": "exterior",
+              "head_side_fitting_ids": "",
+              "installation_orientation_revision": "eoere-inward-exterior-bolts-v7",
+              "minimum_body_mm": 81.026,
+              "nut_faces": "interior",
+              "nut_side_fitting_ids": "",
+              "nut_side_spacer_mm": 0.0,
+              "old_thread_window_margins_apply": false,
+              "receiver_member_ids": "base_floor_right;lumber_leg_right",
+              "selected_bolt_grade": "SAE J429 Grade 5; zinc; partially threaded full body",
+              "selected_product": "368",
+              "selected_product_url": "https://boltdepot.com/Product-Details?product=368",
+              "selected_underhead_length_mm": 114.3,
+              "spacer_piece_count": 0,
+              "spacer_piece_length_mm": 0.0,
+              "thread_window_recheck_required": true
+            },
+            "shaft_interval_mm": [
+              -2.032,
+              112.268
+            ]
+          },
+          "reduction_terms_Rd": {
+            "II": 4.376367604623062,
+            "IIIm": 3.8901045374427223,
+            "IIIs": 3.8901045374427223,
+            "IV": 3.8901045374427223,
+            "Im": 4.8626306718034025,
+            "Is": 4.8626306718034025
+          },
+          "selected_effective_diameter_mm": 7.317740000000001,
+          "status": "all_six_lateral_translation_modes_calculated_on_unadopted_G_0p50_and_generic_TR12_Fyb_45ksi_scenario; connection remains incomplete",
+          "thread_body_root_scenario": {
+            "conditional_body_to_root_transition_station_mm": 78.994,
+            "effective_diameter_selector": {
+              "missing_inputs": [],
+              "selected_effective_diameter_mm": 7.317740000000001,
+              "selection_basis": "NDS thread-root diameter"
+            },
+            "full_body_basis": "thread-root-design-v1 declared minimum body profile, not delivered measurement",
+            "full_body_diameter_mm": 9.372599999999998,
+            "head_pressure_face_station_mm": -2.032,
+            "member_thread_exposure": [
+              {
+                "bearing_interval_mm": [
+                  2.2737367544323206e-13,
+                  50.80000000000018
+                ],
+                "bearing_length_mm": 50.799999999999955,
+                "kind": "wood",
+                "member_id": "lumber_leg_right",
+                "physical_thread_extent_observed": false,
+                "thread_bearing_fraction_model_scenario": 0.0,
+                "thread_bearing_length_mm_model_scenario": 0.0
+              },
+              {
+                "bearing_interval_mm": [
+                  50.80000000000018,
+                  88.9
+                ],
+                "bearing_length_mm": 38.099999999999824,
+                "kind": "wood",
+                "member_id": "base_floor_right",
+                "physical_thread_extent_observed": false,
+                "thread_bearing_fraction_model_scenario": 0.26000000000000134,
+                "thread_bearing_length_mm_model_scenario": 9.906000000000006
+              }
+            ],
+            "nominal_diameter_mm": 9.525,
+            "physical_delivered_thread_window_verified": false,
+            "prepared_worksheet_first_root_station_mm": 78.994,
+            "profile_matches_prepared_piecewise_worksheet": true,
+            "root_basis": "thread-root-design-v1 proposed root floor, not product-acceptance minimum or delivered measurement",
+            "selected_minimum_body_length_mm": 81.026,
+            "thread_profile_id": "3/8-16",
+            "thread_root_diameter_mm": 7.317740000000001,
+            "threads_per_inch": 16
+          },
+          "topology": "two-member wood/wood, one shear plane",
+          "unresolved_same_section_wrench_components": {
+            "Fyb_required_from_local_bending_moment_psi": 8919.128527799152,
+            "M1_nmm": -4014.8285061041042,
+            "M2_nmm": 106.96515338283749,
+            "N_n": 104.56394440042962,
+            "T_nmm": 0.0,
+            "interaction_or_whole_connection_check": null,
+            "lateral_yield_hinge_moment_reference_lbin_at_45ksi": 179.34572880750002,
+            "local_M_over_hinge_moment_reference_scenario": 0.1982028561733145
+          },
+          "wood_Fe_psi_by_member": {
+            "base_floor_right": 5598.706943198905,
+            "lumber_leg_right": 4199.851981089152
+          }
+        }
+      }
+    },
+    "generic45_rawport_partition_bounds": {
+      "above_one_inconclusive_bound_count": 21,
+      "counts": {
+        "bounded_cases": 252,
+        "interface_cases": 252,
+        "interface_groups": 42
+      },
+      "maximum": {
+        "NDS_complete_group_ownership_qualified": false,
+        "actual_connection_Cg": null,
+        "actual_partition": null,
+        "additional_mixed_axis_ids": [],
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "bound_scope": "Pure lateral aggregate row envelope only, conditional on actual uniform NDS row eligibility and positive member EA; no actual partition or group is selected.",
+        "case_id": "a12-rear",
+        "complete_joint_capacity": null,
+        "conditional_partition_envelope": {
+          "actual_Cg": null,
+          "actual_partition_selected": false,
+          "all_hypothetical_partitions": [
+            {
+              "blocks": [
+                [
+                  "lumber_leg_bolt_left_1"
+                ],
+                [
+                  "proposal_upper_rear_left_added_half_in"
+                ]
+              ],
+              "maximum_row_index_upper": 1.4442752212174867,
+              "rows": [
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 420.97321672880804,
+                  "axis_ids": [
+                    "lumber_leg_bolt_left_1"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 1.3057550247024934,
+                  "fastener_count": 1,
+                  "lateral_demand_upper_lbf": 549.6878930088128
+                },
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 420.97321672880804,
+                  "axis_ids": [
+                    "proposal_upper_rear_left_added_half_in"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 1.4442752212174867,
+                  "fastener_count": 1,
+                  "lateral_demand_upper_lbf": 608.0011857176362
+                }
+              ]
+            },
+            {
+              "blocks": [
+                [
+                  "lumber_leg_bolt_left_1",
+                  "proposal_upper_rear_left_added_half_in"
+                ]
+              ],
+              "maximum_row_index_upper": 2.75003024591998,
+              "rows": [
+                {
+                  "actual_Cg": null,
+                  "aggregate_capacity_lower_lbf": 420.97321672880804,
+                  "axis_ids": [
+                    "lumber_leg_bolt_left_1",
+                    "proposal_upper_rear_left_added_half_in"
+                  ],
+                  "capacity_basis": "k*Cg*min(Zi) >= min(Zi), conditional positive-EA uniform-row equation",
+                  "conditional_lateral_index_upper": 2.75003024591998,
+                  "fastener_count": 2,
+                  "lateral_demand_upper_lbf": 1157.689078726449
+                }
+              ]
+            }
+          ],
+          "complete_joint_capacity": null,
+          "maximum_index_upper": 2.75003024591998,
+          "partition_count": 2
+        },
+        "conditional_singleton_index_upper": 1.4442752212174867,
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+        "members": [
+          {
+            "host": "base_side_left",
+            "kind": "wood"
+          },
+          {
+            "host": "lumber_leg_left",
+            "kind": "wood"
+          }
+        ],
+        "nominal_singleton_lateral_row_Cg": 1.0,
+        "pairwise_direction_trials": [
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 34.08419768571136,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "group_resultant",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.24885568399880142,
+              0.9685405766107524
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 65.49867655688622,
+            "quarter_parallel_offset_mm": 16.374669139221556,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 17.709528546489803
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 29.693356316779198,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "lumber_leg_bolt_left_1",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.18448227253269922,
+              0.9828358413901942
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 67.60261646731608,
+            "quarter_parallel_offset_mm": 16.90065411682902,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 12.792702199950178
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 37.9171301495725,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "proposal_upper_rear_left_added_half_in",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              -0.3059850691882361,
+              0.9520363109849699
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 63.35692861718146,
+            "quarter_parallel_offset_mm": 15.839232154295365,
+            "receiver": "base_side_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 22.077897995277134
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 34.04965774354626,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "group_resultant",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.24834497119992244,
+              -0.9686716550409173
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 65.51663887997925,
+            "quarter_parallel_offset_mm": 16.379159719994814,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 17.67049802355145
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 29.665550868787033,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "lumber_leg_bolt_left_1",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.1840780459077126,
+              -0.9829116303182083
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 67.61482274053269,
+            "quarter_parallel_offset_mm": 16.903705685133172,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 12.761845183653861
+          },
+          {
+            "axis_ids": [
+              "lumber_leg_bolt_left_1",
+              "proposal_upper_rear_left_added_half_in"
+            ],
+            "between_load_aligned_rows_mm": 37.878134360274515,
+            "bore_centerline_delta_in_transverse_plane_mm": [
+              0.0,
+              16.712210524253578,
+              71.92017228827581
+            ],
+            "complete_joint_resistance": null,
+            "component_Cg": 1.0,
+            "direction_id": "proposal_upper_rear_left_added_half_in",
+            "fasteners_per_Cg_row": [
+              1,
+              1
+            ],
+            "load_direction_xyz": [
+              0.0,
+              0.30539914679902613,
+              -0.9522244279235998
+            ],
+            "origin_axial_offset_removed_mm": 0.0,
+            "parallel_to_load_offset_mm": 63.38025007813742,
+            "quarter_parallel_offset_mm": 15.845062519534356,
+            "receiver": "lumber_leg_left",
+            "status": "two_unmerged_single_fastener_rows",
+            "strict_quarter_rule_merges_rows": false,
+            "unmerged_row_margin_mm": 22.03307184074016
+          }
+        ],
+        "receiver_wrenches_and_raw_ports": [
+          {
+            "host": "base_side_left",
+            "per_axis": [
+              {
+                "absolute_axial_port_force_sum_N": 47.69529785368043,
+                "axis_id": "lumber_leg_bolt_left_1",
+                "force_xyz_N": [
+                  -47.69529785368043,
+                  -252.5881384156574,
+                  1345.6722542320863
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  -252.5881384156574,
+                  1345.6722542320863
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  -20327.67022110107,
+                  -119439.74596436952,
+                  -24041.21805748984
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2304.950914051457,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 1.4551915228366852e-11,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -321.90392133720013,
+                      1808.5183083092531
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -321.90392133720013,
+                      1808.5183083092531
+                    ],
+                    "lateral_magnitude_N": 1836.9432778564583,
+                    "point_xyz_mm": [
+                      -1200.413219465479,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-0-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/364"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      69.31578292154272,
+                      -462.84605407716697
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      69.31578292154272,
+                      -462.84605407716697
+                    ],
+                    "lateral_magnitude_N": 468.0076361949986,
+                    "point_xyz_mm": [
+                      -1149.086780534521,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-0-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/365"
+                  },
+                  {
+                    "axial_force_signed_N": -47.69529785368043,
+                    "force_xyz_N": [
+                      -47.69529785368043,
+                      -0.0,
+                      -0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1130.3,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/nut-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/169"
+                  }
+                ]
+              },
+              {
+                "absolute_axial_port_force_sum_N": 98.07863065865796,
+                "axis_id": "proposal_upper_rear_left_added_half_in",
+                "force_xyz_N": [
+                  -98.07863065865796,
+                  -464.5237304199396,
+                  1445.3105827915947
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  -464.5237304199396,
+                  1445.3105827915947
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  28781.480728169867,
+                  -133444.96642530372,
+                  -41782.6072979777
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2561.148719448797,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 7.275957614183426e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -609.1061816019625,
+                      1946.4712643261332
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -609.1061816019625,
+                      1946.4712643261332
+                    ],
+                    "lateral_magnitude_N": 2039.5491470697878,
+                    "point_xyz_mm": [
+                      -1200.413219465479,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-0-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/496"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      144.58245118202285,
+                      -501.1606815345386
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      144.58245118202285,
+                      -501.1606815345386
+                    ],
+                    "lateral_magnitude_N": 521.5995723790091,
+                    "point_xyz_mm": [
+                      -1149.086780534521,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-0-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/497"
+                  },
+                  {
+                    "axial_force_signed_N": -98.07863065865796,
+                    "force_xyz_N": [
+                      -98.07863065865796,
+                      -0.0,
+                      -0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1130.3,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/nut-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/225"
+                  }
+                ]
+              }
+            ],
+            "summed_force_xyz_N": [
+              -145.7739285123384,
+              -717.1118688355971,
+              2790.982837023681
+            ],
+            "summed_moment_about_group_reference_xyz_Nmm": [
+              8453.810507068796,
+              -252884.71238967322,
+              -65823.82535546755
+            ]
+          },
+          {
+            "host": "lumber_leg_left",
+            "per_axis": [
+              {
+                "absolute_axial_port_force_sum_N": 47.695297851119314,
+                "axis_id": "lumber_leg_bolt_left_1",
+                "force_xyz_N": [
+                  47.695297851119314,
+                  252.5881384161013,
+                  -1348.7312824587582
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  252.5881384161013,
+                  -1348.7312824587582
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  20353.231782978917,
+                  119742.64653937228,
+                  24041.218057554648
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2445.1335589403097,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 3.637978807091713e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -115.59156778903126,
+                      523.977149241892
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -115.59156778903126,
+                      523.977149241892
+                    ],
+                    "lateral_magnitude_N": 536.5756828925312,
+                    "point_xyz_mm": [
+                      -1289.3132194654788,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-1-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/366"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      368.17970620513256,
+                      -1872.7084317006502
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      368.17970620513256,
+                      -1872.7084317006502
+                    ],
+                    "lateral_magnitude_N": 1908.5578760477783,
+                    "point_xyz_mm": [
+                      -1237.9867805345211,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/bearing-1-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/367"
+                  },
+                  {
+                    "axial_force_signed_N": 47.695297851119314,
+                    "force_xyz_N": [
+                      47.695297851119314,
+                      0.0,
+                      0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1308.1,
+                      1120.9889444131895,
+                      1745.062836941169
+                    ],
+                    "source_id": "lumber_leg_bolt_left_1/head-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/168"
+                  }
+                ]
+              },
+              {
+                "absolute_axial_port_force_sum_N": 98.07863065539868,
+                "axis_id": "proposal_upper_rear_left_added_half_in",
+                "force_xyz_N": [
+                  98.07863065539868,
+                  464.52373042052164,
+                  -1448.369611024821
+                ],
+                "lateral_force_xyz_N": [
+                  0.0,
+                  464.52373042052164,
+                  -1448.369611024821
+                ],
+                "moment_about_group_reference_xyz_Nmm": [
+                  -28807.042290107456,
+                  133747.86700135295,
+                  41782.607298109884
+                ],
+                "raw_port_lateral_magnitude_sum_N": 2704.5240071348226,
+                "raw_port_to_receiver_force_replay_error_N": 0.0,
+                "raw_port_to_receiver_moment_replay_error_Nmm": 7.275957614183426e-12,
+                "raw_receiver_ports": [
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      -195.47252080804998,
+                      558.6028406868348
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      -195.47252080804998,
+                      558.6028406868348
+                    ],
+                    "lateral_magnitude_N": 591.8163904577626,
+                    "point_xyz_mm": [
+                      -1289.3132194654788,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-1-0",
+                    "source_json_pointer": "/common_shaft_bearing_actions/498"
+                  },
+                  {
+                    "axial_force_signed_N": 0.0,
+                    "force_xyz_N": [
+                      -0.0,
+                      659.9962512285716,
+                      -2006.9724517116558
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      -0.0,
+                      659.9962512285716,
+                      -2006.9724517116558
+                    ],
+                    "lateral_magnitude_N": 2112.70761667706,
+                    "point_xyz_mm": [
+                      -1237.9867805345211,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/bearing-1-1",
+                    "source_json_pointer": "/common_shaft_bearing_actions/499"
+                  },
+                  {
+                    "axial_force_signed_N": 98.07863065539868,
+                    "force_xyz_N": [
+                      98.07863065539868,
+                      0.0,
+                      0.0
+                    ],
+                    "free_couple_xyz_Nmm_at_point": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_force_xyz_N": [
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "lateral_magnitude_N": 0.0,
+                    "point_xyz_mm": [
+                      -1308.1,
+                      1137.701154937443,
+                      1816.9830092294449
+                    ],
+                    "source_id": "proposal_upper_rear_left_added_half_in/head-capture",
+                    "source_json_pointer": "/shaft_end_capture_actions/224"
+                  }
+                ]
+              }
+            ],
+            "summed_force_xyz_N": [
+              145.773928506518,
+              717.111868836623,
+              -2797.100893483579
+            ],
+            "summed_moment_about_group_reference_xyz_Nmm": [
+              -8453.810507128539,
+              253490.51354072522,
+              65823.82535566454
+            ]
+          }
+        ],
+        "reference_point_xyz_mm": [
+          -1308.1,
+          1129.3450496753162,
+          1781.022923085307
+        ],
+        "robust_singleton_rows_across_tested_net_directions": true,
+        "two_media_axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ]
+      }
+    },
+    "individual_Cg_floor_above_one_count": 8,
+    "individual_Cg_floor_maximum": {
+      "Pi_over_Zi": 0.2837557063876539,
+      "axis_id": "v11_top_left_beam_2",
+      "case_id": "a12-rear",
+      "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+      "nmax": 4,
+      "nmax_Pi_over_Zi": 1.1350228255506156
+    },
+    "mixed_plane_above_one_count": 0,
+    "mixed_plane_maximum": {
+      "Fyb_scenario_class": "A574_generic45_conditional",
+      "adjacent_receiver_wrench_resultants": [
+        {
+          "actions": [
+            {
+              "force_on_host_xyz_N": [
+                93.52472252791021,
+                -272.0876460878735,
+                306.04727855153794
+              ],
+              "moment_on_host_at_point_xyz_Nmm": [
+                0.0,
+                -1047.521341954808,
+                -914.8494920845126
+              ],
+              "own_bearing_points": [
+                "v11_cleat_left_side_1/bearing-1-0",
+                "v11_cleat_left_side_1/bearing-1-1"
+              ],
+              "own_end_captures": [
+                "v11_cleat_left_side_1/head-capture"
+              ],
+              "point_xyz_mm": [
+                -1238.25,
+                -130.0125,
+                300.8125
+              ],
+              "source": {
+                "axis_id": "v11_cleat_left_side_1",
+                "case_id": "a12-forward",
+                "field": {
+                  "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/a12-forward/field.json",
+                  "sha256": "d819de9a53c81b959a0da21e7fdc4fb8f45964248f417e97683c3e2f6f31aa89"
+                },
+                "field_family": "common_shaft_wood_bearing_actions",
+                "row_index": 121
+              }
+            }
+          ],
+          "host": "eoere_cleat_left",
+          "kind": "wood",
+          "surface_index": 1
+        },
+        {
+          "actions": [
+            {
+              "force_on_host_xyz_N": [
+                0.0,
+                506.5485881164678,
+                -570.6465170461231
+              ],
+              "moment_on_host_at_point_xyz_Nmm": [
+                0.0,
+                -5575.51511650168,
+                -4950.159755055211
+              ],
+              "own_bearing_points": [
+                "v11_cleat_left_side_1/bearing-0-0",
+                "v11_cleat_left_side_1/bearing-0-1"
+              ],
+              "own_end_captures": [],
+              "point_xyz_mm": [
+                -1174.75,
+                -130.0125,
+                300.8125
+              ],
+              "source": {
+                "axis_id": "v11_cleat_left_side_1",
+                "case_id": "a12-forward",
+                "field": {
+                  "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/a12-forward/field.json",
+                  "sha256": "d819de9a53c81b959a0da21e7fdc4fb8f45964248f417e97683c3e2f6f31aa89"
+                },
+                "field_family": "common_shaft_wood_bearing_actions",
+                "row_index": 120
+              }
+            }
+          ],
+          "host": "base_side_left",
+          "kind": "wood",
+          "surface_index": 0
+        }
+      ],
+      "axis_id": "v11_cleat_left_side_1",
+      "body_root_exposure_source": {
+        "first_root_or_runout_station_mm": 116.48440000000001,
+        "full_body_assumed_from_old_model": false,
+        "head_station_mm": -2.6416,
+        "member_bearing_lengths_mm": [
+          38.09999999999991,
+          88.90000000000009
+        ],
+        "member_thread_or_runout_lengths_mm": [
+          0.0,
+          10.515599999999992
+        ],
+        "profile": {
+          "full_body_diameter_mm": 9.3218,
+          "profile_source": {
+            "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-v1.json",
+            "sha256": "cadef382cfdfb164fe6c7697abbb25a4b3fae33ed5c7776b2612e80dbe09d0dc"
+          },
+          "profile_source_row": {
+            "axis_id": "v11_cleat_left_side_1",
+            "candidate_group": "sku8093_a574_6_5in",
+            "candidate_nut_delta_xyz_mm": [
+              -25.4,
+              -0.0,
+              -0.0
+            ],
+            "candidate_thread_body_profile_v1": {
+              "analysis_transition_hypothesis": {
+                "basis": "conditional minimum-body design floor plus the named root sensitivity; not actual thread-start/root geometry",
+                "root_diameter_mm": 7.3787,
+                "station_from_shaft_start_mm": 119.126
+              },
+              "candidate_clearance_checked": false,
+              "candidate_group": "sku8093_a574_6_5in",
+              "candidate_product_sku": "8093",
+              "conditional_thread_root_basis": {
+                "class": "3A",
+                "current_edition_numeric_equivalence_verified": false,
+                "d2_min_in": 0.3311,
+                "edition": "ASME B1.1-2003",
+                "floor_in": 0.2905,
+                "floor_mm": 7.3787,
+                "formula": "d2_min - 0.64951905 / threads_per_inch, rounded down to 0.0001 in",
+                "status": "conditional class-3A root-floor calculation for the B18.3 required thread class; not a delivered dimension or product acceptance minimum",
+                "threads_per_inch": 16,
+                "unrounded_floor_in": 0.290505059375
+              },
+              "current_product_sku": "8095",
+              "current_spacer_length_mm_removed": 25.4,
+              "nominal_tip_projection_beyond_nut_mm": 17.907,
+              "nut_translation_xyz_mm_from_current": [
+                -25.4,
+                -0.0,
+                -0.0
+              ],
+              "product_or_delivered_profile_verified": false,
+              "product_url": "https://boltdepot.com/Product-Details?product=8093",
+              "profile_brep_status": "nominal smooth-shaft occupied BRep; thread, runout, actual root, and delivered length profile are not modeled or observed",
+              "profile_source_contract_status": "conditional source-bound purchase/design profile; not a delivered part measurement, catalog guarantee, clearance result, strength qualification, or acceptance",
+              "proposal_maximum_smooth_body_mm_at_minimum_length": 130.302,
+              "proposal_maximum_smooth_body_mm_nominal": 133.35,
+              "proposal_maximum_underhead_length_mm": 165.1,
+              "proposal_minimum_smooth_body_mm": 119.126,
+              "proposal_minimum_thread_length_mm": 31.75,
+              "proposal_minimum_underhead_length_mm": 162.052,
+              "proposal_source": {
+                "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/nominal-fit-audit-v1/shorter-bolt-stack-proposal-v2.json",
+                "sha256": "0a893423794ded31d42c22f8d8997a3cfe2dc17702b5822b045fcaac13559512"
+              },
+              "receiver_body_thread_intervals": {
+                "candidate_product": "8093",
+                "maximum_body_at_min_length_mm": 130.302,
+                "maximum_body_nominal_mm": 133.35,
+                "maximum_length_mm": 165.1,
+                "minimum_body_mm": 119.126,
+                "minimum_length_mm": 162.052,
+                "minimum_thread_length_mm": 31.75,
+                "minimum_thread_smooth_body_source": "SKU 8093 listing reports minimum body 4.69 in and minimum thread 1.25 in; B18.3-2012 Table 1 length tolerance is a separate conditional type-compliance bound.",
+                "nominal_length_mm": 165.1,
+                "receiver_segments_from_shaft_start_mm": [
+                  {
+                    "end_mm": 2.6416,
+                    "member_bearing": false,
+                    "name": "head_side_15023_washer",
+                    "start_mm": 0.0
+                  },
+                  {
+                    "end_mm": 129.6416,
+                    "member_bearing": true,
+                    "name": "wood_receiver",
+                    "start_mm": 2.6416
+                  },
+                  {
+                    "end_mm": 135.9916,
+                    "member_bearing": true,
+                    "name": "nut_side_steel_plate",
+                    "start_mm": 129.6416
+                  }
+                ],
+                "thread_start_interval_at_minimum_listed_length_mm_from_fixed_shaft_start": [
+                  119.126,
+                  130.302
+                ],
+                "thread_start_interval_mm_from_fixed_shaft_start": [
+                  119.126,
+                  133.35
+                ],
+                "thread_start_interval_semantics": "scenario bounds for a smooth-body/thread transition; not measured full-form thread-start coordinates",
+                "threaded_bearing_envelopes": {
+                  "actual_thread_start_coordinate_mm": null,
+                  "analysis_transition_at_conditional_minimum_body_mm": 119.126,
+                  "interpretation": "Only the conditional lower-body transition is used for the proposed numeric profile. Actual complete-thread start, runout and root coordinates remain unknown.",
+                  "maximum_body_at_minimum_length_mm": 130.302,
+                  "maximum_body_nominal_mm": 133.35,
+                  "receiver_segments_from_shaft_start_mm": [
+                    {
+                      "end_mm": 2.6416,
+                      "member_bearing": false,
+                      "name": "head_side_15023_washer",
+                      "start_mm": 0.0
+                    },
+                    {
+                      "end_mm": 129.6416,
+                      "member_bearing": true,
+                      "name": "wood_receiver",
+                      "start_mm": 2.6416
+                    },
+                    {
+                      "end_mm": 135.9916,
+                      "member_bearing": true,
+                      "name": "nut_side_steel_plate",
+                      "start_mm": 129.6416
+                    }
+                  ]
+                }
+              },
+              "shaft_start_xyz_mm_fixed": [
+                -1259.9415999999999,
+                -130.0125,
+                300.8125
+              ],
+              "shaft_tip_xyz_mm_candidate": [
+                -1094.8416,
+                -130.0125,
+                300.8125
+              ],
+              "status": "proposal-source catalog bounds; pending hardware-contract validation; not delivered profile data",
+              "thread_root_actual_mm": null,
+              "thread_root_conditional_sensitivity_mm": 7.3787,
+              "thread_root_sensitivity_assumption": "conditional class-3A root-floor calculation for the B18.3 required thread class; not a delivered dimension or product acceptance minimum",
+              "thread_start_interval_at_minimum_listed_length_mm_from_fixed_shaft_start": [
+                119.126,
+                130.302
+              ],
+              "thread_start_interval_mm_from_fixed_shaft_start": [
+                119.126,
+                133.35
+              ],
+              "underhead_length_mm_nominal": 165.1
+            },
+            "complete_thread_start_coordinate_mm": null,
+            "conditional_body_minimum_mm": 119.126,
+            "conditional_thread_root_basis": {
+              "class": "3A",
+              "current_edition_numeric_equivalence_verified": false,
+              "d2_min_in": 0.3311,
+              "edition": "ASME B1.1-2003",
+              "floor_in": 0.2905,
+              "floor_mm": 7.3787,
+              "formula": "d2_min - 0.64951905 / threads_per_inch, rounded down to 0.0001 in",
+              "status": "conditional class-3A root-floor calculation for the B18.3 required thread class; not a delivered dimension or product acceptance minimum",
+              "threads_per_inch": 16,
+              "unrounded_floor_in": 0.290505059375
+            },
+            "conditional_thread_root_floor_mm": 7.3787,
+            "design_body_diameter_basis": "Conditional strength-analysis floor. SKU365 is B18.2.1 Table 6 minimum. SKU8093 uses the existing conservative analytical body diameter 9.3218 mm, below the B18.3 Table 1 minimum 9.34212 mm; neither is a measurement of the delivered bolt.",
+            "design_body_diameter_mm": 9.3218,
+            "direct_catalog_minimum_body_mm": 119.126,
+            "exact_pinned_profile_enrichment_verified": true,
+            "fastener_type": "hexagon socket head cap screw, ASTM A574; conditional B18.3-2012 type required",
+            "final_geometry_grade_label": "ASTM A574 alloy steel; partially threaded socket cap screw",
+            "fit_and_delivery_status": "conditional purchase/design profile only; actual part not purchased or observed",
+            "full_body_diameter_mm": 9.3218,
+            "maximum_grip_gaging_mm": 127.0,
+            "maximum_grip_gaging_semantics": "standard gage value only; not an actual delivered thread-start coordinate or stand-alone maximum-joint-grip pass",
+            "maximum_smooth_body_mm_at_minimum_length": 130.302,
+            "maximum_smooth_body_mm_nominal": 133.35,
+            "minimum_body_mm": 119.126,
+            "minimum_full_form_thread_length_mm": 31.75,
+            "nominal_diameter_mm": 9.525,
+            "nominal_tip_projection_beyond_nut_mm": 17.907,
+            "nominal_underhead_length_mm": 165.1,
+            "nut_side_spacer_mm": 0.0,
+            "profile_segments_from_shaft_start_mm": [
+              {
+                "end_mm": 2.6416,
+                "member_bearing": false,
+                "name": "head_side_15023_washer",
+                "start_mm": 0.0
+              },
+              {
+                "end_mm": 129.6416,
+                "member_bearing": true,
+                "name": "wood_receiver",
+                "start_mm": 2.6416
+              },
+              {
+                "end_mm": 135.9916,
+                "member_bearing": true,
+                "name": "nut_side_steel_plate",
+                "start_mm": 129.6416
+              }
+            ],
+            "profile_source_supplement": {
+              "path": "fea/generated/v11-shorter-bolts-v1/hardware/profile-contract-source-supplement-v1.json",
+              "sha256": "2048c4a25c99498ef59bae3acd64427d1277c0fbcd42dfab1d2bd7176e00bed2"
+            },
+            "public_source_refs": [
+              {
+                "locator": "manufacturer/supplier product identity and listed nominal size/length/material/thread facts; listing does not establish delivered conformity",
+                "url": "https://boltdepot.com/Product-Details?Category=Socket_screws&Drive_type=Allen&F_Diameter=3%2F8%22&F_Length=6--1%2F2%22&F_Thread_count=16&Knurled=&Units=US"
+              },
+              {
+                "locator": "conditional dimensional type requirements and table values stated in this row",
+                "url": "https://www.asme.org/getmedia/0a437522-c228-448f-b610-b658ab95bc32/34701.pdf"
+              },
+              {
+                "locator": "conditional thread-root design formula/source; not delivered root acceptance",
+                "url": "https://chinastudbolt.com/wp-content/uploads/2024/12/ASME-B1.1-Unified-Inch-Screw-Threads-UN-UNR-and-UNJ-Thread-Forms.pdf"
+              }
+            ],
+            "resistance_body_credit_mm": 119.126,
+            "selected_bolt_grade": "ASTM A574 alloy steel; partially threaded socket cap screw",
+            "selected_nut_sku": "2584",
+            "selected_product": "8093",
+            "selected_spacer_sku": null,
+            "selected_washer_sku_each_end": "15023",
+            "source_contract_grade_family": "ASTM A574 alloy steel",
+            "source_refs": [
+              {
+                "path": "fea/generated/v11-shorter-bolts-v1/geometry-v1/geometry.json",
+                "sha256": "276e7ff12eaad5b7fcc53aea7d56bbdda87feda9ca2992ed7448cc05384bff2d"
+              },
+              {
+                "path": "fea/generated/v11-v9-eight-bolt-v1/hardware/nominal-fit-audit-v1/shorter-bolt-stack-proposal-v2.json",
+                "sha256": "0a893423794ded31d42c22f8d8997a3cfe2dc17702b5822b045fcaac13559512"
+              },
+              {
+                "path": "fea/generated/v10-catalog-buying-list-v1/catalog-observations.json",
+                "sha256": "4ed1d6ba084de9e4586faf7260ec0e396fa5429e218d26edfc04b4f5b56192da"
+              },
+              {
+                "path": "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/bolts/source-observations.json",
+                "sha256": "7fa861f00888bb3cd2672a27b2f18301d89f90e07bfbb46bbf762ab5390f5cf2"
+              },
+              {
+                "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json",
+                "sha256": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d"
+              }
+            ],
+            "spacer_removed_mm": 25.4,
+            "standard_full_body_diameter_range_mm": [
+              9.34212,
+              9.525
+            ],
+            "thread_class_form_requirement": "Class 3A UNRC required by B18.3-2012 Table 1 notes",
+            "thread_root_diameter_mm": null,
+            "thread_series": "3/8-16 UNC",
+            "threads_per_inch": 16,
+            "underhead_length_window_mm": {
+              "actual_underhead_length_observed_mm": null,
+              "basis": "Conditional exact standard/type requirement; 365 also matches direct listing length tolerance. The 8093 supplier page has no tolerance field; 162.052 mm is the B18.3-2012 Table 1 requirement for a conforming 3/8 \u00d7 6.5 in socket cap screw, not a supplier-specific observation.",
+              "maximum_mm": 165.1,
+              "minimum_mm": 162.052,
+              "nominal_mm": 165.1,
+              "supplier_published_maximum_mm": null,
+              "supplier_published_minimum_mm": null
+            }
+          },
+          "thread_root_diameter_mm": 7.3787
+        },
+        "selector": {
+          "missing_inputs": [],
+          "selected_effective_diameter_mm": 9.3218,
+          "selection_basis": "NDS full-body one-quarter thread-bearing exception"
+        },
+        "source_field": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/a12-forward/field.json",
+          "sha256": "d819de9a53c81b959a0da21e7fdc4fb8f45964248f417e97683c3e2f6f31aa89"
+        }
+      },
+      "case_id": "a12-forward",
+      "conditional_Fyb_psi": 45000.0,
+      "cut_sign_convention": "force and couple on the lower-axis-station part from omitted higher-station part",
+      "global_lateral_cut_vector_N": [
+        0.0,
+        -272.0876460878735,
+        306.2383895023366
+      ],
+      "governing_mode": "IIIs",
+      "interpretation": "two-member shear-plane reference only; not additive across planes and not a three-member, group, full-wrench or complete-joint capacity",
+      "lateral_plane_demand_N": 409.6506296328918,
+      "lateral_plane_demand_lbf": 92.09312508790136,
+      "minimum_six_mode_Z_lbf": 211.09501342318197,
+      "plane_force_over_Z_conditional_reference": 0.4362638586032459,
+      "plane_index": 0,
+      "plane_left": {
+        "host": "eoere_cleat_left",
+        "interval_mm": [
+          0.0,
+          38.09999999999991
+        ],
+        "kind": "wood"
+      },
+      "plane_right": {
+        "host": "base_side_left",
+        "interval_mm": [
+          38.09999999999991,
+          127.0
+        ],
+        "kind": "wood"
+      },
+      "reference_kind": "conditional_solid_sawn_main_plywood_side_single_shear_plane_reference",
+      "selected_effective_D_or_Dr_in": 0.367,
+      "signed_six_component_cut_wrench": {
+        "M1_nmm": 4268.420165889465,
+        "M2_nmm": -4790.765000315918,
+        "N_n": 93.52472252791021,
+        "T_nmm": 2.885272138203195e-15,
+        "V1_n": 306.2383895023366,
+        "V2_n": 272.0876460878735
+      },
+      "six_mode_reference_lbf": {
+        "II": 351.3039773698488,
+        "IIIm": 420.11519179269567,
+        "IIIs": 211.09501342318197,
+        "IV": 245.54299314384758,
+        "Im": 975.595127926589,
+        "Is": 353.3955789878629
+      },
+      "source_bounded_pair_inputs": {
+        "analytical_plywood_side_host": "eoere_cleat_left",
+        "nominal_leaf_thickness_mm": 19.05,
+        "paired_leaf_analysis_thickness_mm": 38.09999999999991,
+        "panel_angle_for_k_theta_degrees": 81.62055011265323,
+        "perfect_bond_analysis_assumption": true,
+        "physical_leaves": 2,
+        "plywood_Fe_across_psi": 3150.0,
+        "plywood_Fe_parallel_psi": 5600.0,
+        "plywood_Fe_selected_psi": 3150.0,
+        "plywood_Fe_selection": "minimum of the APA D510F Table 5 Group 1 parallel/across values; no intermediate-angle panel bearing interpolation is asserted",
+        "plywood_angle_to_panel_strength_axis_degrees": 41.62055009451324,
+        "solid_wood_Fe_psi": 3726.8531385507895,
+        "solid_wood_G_scenario": 0.5,
+        "solid_wood_main_host": "base_side_left"
+      },
+      "source_cut_id": {
+        "axis_id": "v11_cleat_left_side_1",
+        "cut_index": 17,
+        "cut_row_index": 104,
+        "field": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/a12-forward/field.json",
+          "sha256": "d819de9a53c81b959a0da21e7fdc4fb8f45964248f417e97683c3e2f6f31aa89"
+        },
+        "field_family": "common_shaft_section_cut_actions"
+      },
+      "wood_load_to_grain_angles_degrees": {
+        "base_side_left": 81.62055011265323,
+        "eoere_cleat_left": 41.62055009451324
+      }
+    },
+    "nominal_singleton_interface_cases": 134,
+    "remaining_row_application_interface_cases": 118,
+    "run_binding": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "6289373d285f874c5b2a9667883ec6091ccc0cce0e97fafe64763165f85c277b"
+    },
+    "standard_Cg_above_one_counts": {
+      "aggregate_direction_independent_floor_index": 0,
+      "aggregate_directional_index": 0,
+      "resolved_individual_extra_conservative_index": 0
+    },
+    "standard_Cg_maxima": {
+      "aggregate_direction_independent_floor_index": {
+        "aggregate_direction_independent_floor_index": 0.6725790257086707,
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "case_id": "a12-rear",
+        "group_id": "interface:wood:base_side_left+wood:lumber_leg_left"
+      },
+      "aggregate_directional_index": {
+        "aggregate_directional_index": 0.5142233551765657,
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right"
+      },
+      "resolved_individual_extra_conservative_index": {
+        "axis_ids": [
+          "rail_rear_bolt_right_1"
+        ],
+        "case_id": "k12-right",
+        "group_id": "interface:wood:base_floor_right+wood:lumber_leg_right",
+        "resolved_individual_extra_conservative_index": 0.5142233551765657
+      }
+    },
+    "summary": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/connections/connection-summary-v1.json",
+      "sha256": "fbf114b75f977610f8cb830e2cf43002f67cfe4ed3b963f803ffbbb22404fb47"
+    }
+  },
+  "execution": {
+    "all_current_family_connection_and_rear_outputs_bound": true,
+    "historical_trial_forces_or_indices_transferred": false,
+    "native_or_global_solve": false,
+    "source_bank_or_fields_modified": false
+  },
+  "fabrication_released": false,
+  "families": {
+    "binding": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/reference-family-binding-v1.json",
+      "sha256": "d3c0e102bfd38023c10a8e3a9e8e0c2dc0723f5c0879d51e5870e7ca5f952caf"
+    },
+    "cleat_group_rows_per_thickness": 3060,
+    "legacy_signature_Cg_pressure_NM_flags_are_not_adopted_group_failures": true,
+    "outputs": {
+      "cleat_actual_perimeter_rows": {
+        "above_one_count": 0,
+        "maximum": {
+          "axes": [
+            "cleat_post_bolt_left_1",
+            "cleat_post_bolt_left_2",
+            "eoere_bolt_067",
+            "v11_cleat_left_side_1",
+            "v11_cleat_left_side_2",
+            "v11_cleat_left_post_1",
+            "v11_cleat_left_post_2"
+          ],
+          "case_id": "a12-forward",
+          "component": "eoere_cleat_left",
+          "index": 0.4151742786595276,
+          "wall_mm": 36.5
+        },
+        "row_count": 6120,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/cleat_actual_perimeter_rows.json",
+          "sha256": "3b0f44883ce95e27604e6747c821cc39da8ee30c4fef747827cd7f12702fee2c"
+        }
+      },
+      "direct_elastic_steel": {
+        "above_one_count": 0,
+        "maximum": {
+          "Cg": 0.5,
+          "case_id": "a12-left",
+          "complete_Cdelta": null,
+          "component": "proposal_upper_rear_left_added_half_in",
+          "index": 0.4113988097859628
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/direct_elastic_steel.json",
+          "sha256": "bda56d534c6e60020f66ea97c532f042f56e060cae502330b5f208ac68a6405b"
+        }
+      },
+      "reduced_connection_axial_bending": {
+        "above_one_count": 16,
+        "maximum": {
+          "Cg": 0.25,
+          "case_id": "a12-forward",
+          "complete_Cdelta": null,
+          "component": "v11_cleat_left_side_1",
+          "index": 1.4752346343387537,
+          "individual_reference_before_Cg": 0.3688086585846884
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/reduced_connection_axial_bending.json",
+          "sha256": "2fabebd42a8e58e0ad6e2300a70024207bfb03546e85e38a99f15f18f05892ff"
+        }
+      },
+      "timber_net_shear_torsion": {
+        "above_one_count": 0,
+        "maximum": {
+          "case_id": "a12-rear",
+          "component": "base_side_left",
+          "index": 0.9479881675458377,
+          "metric": "maximum_shear_torsion_reference_upper"
+        },
+        "row_count": 120,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/timber_net_shear_torsion.json",
+          "sha256": "f8eada7d326815518d4f89faff113bac4924591d6110a31f6ae915942cb69aba"
+        }
+      },
+      "timber_normal_and_stability": {
+        "above_one_count": 0,
+        "maximum": {
+          "case_id": "a12-left",
+          "component": "lumber_leg_left",
+          "index": 0.8159302036432068,
+          "metric": "maximum_declared_restraint_normal_reference_upper"
+        },
+        "row_count": 240,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/timber_normal_and_stability.json",
+          "sha256": "d5c2cbfd1fc374d547052c3d07b2170e33d62f616d99f5e4e4a63903e956943e"
+        }
+      },
+      "wood_bearing_whole_affine": {
+        "above_one_count": 35,
+        "maximum": {
+          "Cg": 0.5,
+          "case_id": "a12-rear",
+          "complete_Cdelta": null,
+          "component": "proposal_upper_rear_left_added_half_in",
+          "index": 1.9767114568292503,
+          "individual_reference_before_Cg": 0.9883557284146252
+        },
+        "row_count": 684,
+        "worksheet": {
+          "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/wood_bearing_whole_affine.json",
+          "sha256": "0f6e55c4bd2045581ad88a592d987d8639ba105417958185c0a4c7f469f65193"
+        }
+      }
+    },
+    "run_binding": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "6289373d285f874c5b2a9667883ec6091ccc0cce0e97fafe64763165f85c277b"
+    },
+    "shaft_references": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/connections/force-only-Grade5-F606-92ksi-v1.json",
+      "sha256": "7e1d9449768ea45b348ca8a4a76c923d30e1f4303b5528f1870db6fb31e9d047"
+    }
+  },
+  "rear": {
+    "affine_Mp_over5_diagnostic_separate": true,
+    "axis_case_states": 36,
+    "axis_count": 6,
+    "continuous_necessary_bound": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-continuous-bearing-necessary-bound-v1.json",
+      "sha256": "94e698843280acda7b7ad3b40bc4f4e33f97a3c59ebf8937539f8dcb6c80090a"
+    },
+    "continuous_summary": {
+      "axis_case_states_above_one": 0,
+      "continuous_reference_exceedances": 0,
+      "governing": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        "base_side_left"
+      ],
+      "maximum_lower_bound": 0.6812180076824135,
+      "receiver_case_rows": 72
+    },
+    "contracted_common_work_reference": {
+      "above_one_state_count": 0,
+      "bearing_plus_unchanged_hinge_above_one_state_count": 0,
+      "complete_joint_qualified": false,
+      "governing": {
+        "Dlocal_mm": 9.9949,
+        "Fe_parallel_MPa": 38.61064084174282,
+        "Fe_perpendicular_MPa": 21.718485473480335,
+        "axis_id": "proposal_upper_rear_left_added_half_in",
+        "case_id": "a12-rear",
+        "contracted_bearing_index": 0.7750203178041969,
+        "contracted_parallel_cap_N_mm": 68.43089679370115,
+        "contracted_perpendicular_cap_N_mm": 38.49237944645689,
+        "dataset": "relocated_v11_fresh114",
+        "host": "base_side_left",
+        "interval_mm": [
+          164.97299999999998,
+          170.39166666666662
+        ],
+        "lambda": 0.886618466650835,
+        "nominal_Fe_diameter_mm": 12.7,
+        "original_ellipse_cell_index": 0.6871473257947999,
+        "region_id": "base_side_left:root",
+        "signed_saved_line_density_N_mm": [
+          26.73343979429146,
+          15.763095274814125
+        ]
+      },
+      "maximum": 0.7750203178041969,
+      "method_scope": "Existing contracted common-work ellipse on the relocated candidate's own saved projected-witness states. This is a fixed-field component reference; it does not replace or merge the ellipse, continuous bound, independent hinge, axial/torsional, or complete-joint qualifications.",
+      "physical_failure_claim": false,
+      "same_method_historical_comparator_reference_only": null,
+      "source": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-summary-v1.json",
+        "sha256": "0eacfa18918c342104e225302f139b3e14c13cd1a2abd94914f36bca11cbcb8a"
+      },
+      "states": 36
+    },
+    "full1D_affine_diagnostic": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-full-wrench-1d-v1.json",
+      "sha256": "81f90c40045d84c13e4901cb45a7f4257fe194b8882aba658a7cbab768742fdb"
+    },
+    "full1D_summary": {
+      "Fe_over_5_states_above_one": 13,
+      "Grade5_92ksi_Fyb_scenario_exceedances": 0,
+      "J429_92ksi_Fy_scenario_exceedances": 0,
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "actual_Fe": null,
+      "actual_Fy": null,
+      "actual_Fyb": null,
+      "axis_count": 6,
+      "case_count": 6,
+      "complete_joint_capacity": null,
+      "generic_45ksi_Fy_sensitivity_exceedances": 0,
+      "generic_45ksi_Fyb_sensitivity_exceedances": 6,
+      "maximum_Fe_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear"
+      ],
+      "maximum_Fe_over_5_utilization": 1.633892312132629,
+      "maximum_Fy_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-left"
+      ],
+      "maximum_Fyb_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-left"
+      ],
+      "maximum_closure_and_replay_errors": {
+        "cut_N_replay_N": 0.0,
+        "cut_T_replay_Nmm": 0.0,
+        "force_closure_N": 2.804087282480805e-08,
+        "moment_closure_Nmm": 7.333428514317351e-07,
+        "stress_helper_replay_MPa": 0.0,
+        "surface_force_replay_N": 0.0,
+        "surface_moment_replay_Nmm": 0.0
+      },
+      "maximum_required_Fy_MPa_for_Fy_over_2": 259.9726817416512,
+      "maximum_required_Fy_ksi": 37.70584963146476,
+      "maximum_required_Fyb_MPa_for_Fyb_over_5": 357.0441708644236,
+      "maximum_required_Fyb_psi": 51784.878811934286,
+      "native_global_solve_or_CAD_run": false,
+      "physical_failure_claim": false,
+      "state_count": 36,
+      "structural_acceptance": false
+    },
+    "maximum_case_reference_bracket": [
+      0.6812180076824135,
+      0.6871473257947999
+    ],
+    "projected_cases_independently_replayed": 36,
+    "projected_summary": {
+      "actual_Cdelta": null,
+      "actual_Cg": null,
+      "actual_Fe": null,
+      "actual_Fy": null,
+      "actual_Fyb": null,
+      "axis_count": 6,
+      "case_count": 6,
+      "continuous_bending_above_one_count": 0,
+      "ellipse_bearing_above_one_count": 0,
+      "full_NDS_connection_capacity": null,
+      "independent_replay": {
+        "continuous_metal_stationary_extrema_checked_for_all_intervals": true,
+        "maximum_continuous_bending_index": 0.6770014937283909,
+        "maximum_metal_helper_arithmetic_replay_error_MPa": 0.0,
+        "maximum_true_ellipse_index": 0.6871473257947999
+      },
+      "maximum_conditional_Fy_92ksi_scenario_utilization": 0.5798533502945271,
+      "maximum_continuous_bending_index_case": [
+        "proposal_upper_rear_right_added_half_in",
+        "k12-rear",
+        0.6770014937283909
+      ],
+      "maximum_ellipse_bearing_index_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        0.6871473257947999
+      ],
+      "maximum_projected_reference_index_case": [
+        "proposal_upper_rear_left_added_half_in",
+        "a12-rear",
+        0.6871473257947999
+      ],
+      "maximum_replay_errors": {
+        "member_first_moment_Nmm": 6.548361852765083e-11,
+        "member_force_N": 1.8189894035458565e-12,
+        "shaft_force_N": 7.482178765449987e-09,
+        "shaft_moment_Nmm": 6.924042105893591e-07
+      },
+      "maximum_required_Fy_MPa_case": [
+        "proposal_upper_rear_right_added_half_in",
+        "k12-rear",
+        367.81122666383953
+      ],
+      "maximum_required_Fy_ksi": 53.3465082270965,
+      "physical_failure_claim": false,
+      "reference_index_above_one_count": 0,
+      "state_count": 36,
+      "structural_acceptance": false
+    },
+    "projected_witness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-projected-bearing-witness-v1.json",
+      "sha256": "ef35f27a0dc8926bba84079662ce0082aa98b318611c6dca62529b6e3a671eae"
+    },
+    "receiver_case_certificates": 72,
+    "same_declared_nominal_D_Fe90_body_root_Fe_over5_Mp_over4_material_reference_only": true
+  },
+  "revision": "v11-relocated-rear-pair-v1",
+  "schema": "v11_relocated_rear_fresh_reference_completion/v1",
+  "source_bindings": {
+    "analysis_geometry": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/geometry/geometry.json",
+      "sha256": "cbe32f947e200945d10eecc0f8bf600572c0ea7866097eafe43323e85bde1a74"
+    },
+    "bank_admission_compatibility": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/bank-contract-compatibility-v1/bank-admission-compatibility-v1.json",
+      "sha256": "7f63da5561f3aa01340f396ccd965a0cd5cf2bdf10313eb2a339e01174a56115"
+    },
+    "contracted_rear_summary": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-summary-v1.json",
+      "sha256": "0eacfa18918c342104e225302f139b3e14c13cd1a2abd94914f36bca11cbcb8a"
+    },
+    "family_binding": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/families/reference-family-binding-v1.json",
+      "sha256": "d3c0e102bfd38023c10a8e3a9e8e0c2dc0723f5c0879d51e5870e7ca5f952caf"
+    },
+    "material": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/material.json",
+      "sha256": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e"
+    },
+    "mechanics_readiness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/adapter-readiness.json",
+      "sha256": "7352628ad262bf29d85494ed754e86124256a8e9f2d6cd252ca4d2557c5405f2"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+      "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+    },
+    "physical_receipt": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "e2fd4bf18df8fa8414ebe65d18865ac2a41deb1e56100dab5cd50a0f27ee63a6"
+    },
+    "prepared_inputs": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/four-hosts/preparation/inputs.json",
+      "sha256": "673a250bd23d3a15a97a45e214229cf33b44ad67b749ece81b8cce2ac9fd63f1"
+    },
+    "rear_wrench_run": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-wrench-run-v1.json",
+      "sha256": "c5c9ee4e6b69f3f308b3348cc94b2ec6a0b35af69b732176f1007212688e8f12"
+    },
+    "reference_readiness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/adapter-readiness-v2.json",
+      "sha256": "6303c7982ff09c5afcecbe8b1db3d30695092810f33ff9c60acca64824b5033f"
+    },
+    "reference_run": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "6289373d285f874c5b2a9667883ec6091ccc0cce0e97fafe64763165f85c277b"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+    }
+  },
+  "status": "fresh conditional reference outputs; no complete joint acceptance",
+  "structural_acceptance": false,
+  "unresolved_scope": [
+    "Applicable actual row/oblique-area and Cdelta mapping; finite fixed hypotheses are not selected actual factors.",
+    "Independent axial/head/nut/washer/wood/fitting load paths and genuine boundary couples require their own resistance mapping; internal EYM-induced moments are not counted again as independent inputs.",
+    "No compatible asymmetric three-member or arbitrary N/V/M plane-sum interaction is supplied by the reused helpers.",
+    "Local brittle wood and formed heel/holed-plate behavior remain separate; physical conformity and panel-screw resistance remain unqualified/deferred.",
+    "Finite projected-witness exceedance is inconclusive; continuous necessary bound concerns only the same declared material cap.",
+    "Independent circular-shaft elastic Fy/2 and conditional92ksi Fy/Fyb stay separate.",
+    "Ordinary induced moments, point/capture N/T and full signed source wrenches are retained; no new whole-joint interaction law.",
+    "Actual Fe/Fy/Fyb, Cg/Cdelta, contact compatibility, row/end/edge and complete-joint acceptance remain unqualified."
+  ]
+}

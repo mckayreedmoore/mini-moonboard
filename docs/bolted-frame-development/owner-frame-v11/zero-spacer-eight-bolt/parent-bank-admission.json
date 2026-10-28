@@ -1,0 +1,157 @@
+{
+  "all_criteria_or_complete_joint_accepted": false,
+  "analysis_geometry": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/geometry/geometry.json",
+    "sha256": "720e1c96044af250270c6311eba06b3fce41b7dc70b892ce5845e642308cb137"
+  },
+  "bank": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/response-bank.json",
+    "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+  },
+  "candidate_revision": "v11-zero-spacer-eight-bolt-v1",
+  "candidate_selected": false,
+  "case_completion_adapters": {
+    "a1-rear": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/run_v11_zero_spacer_case_v3.py",
+      "sha256": "4c3418c68c759a554bc3faab6008c1bfd4d964ec07fbb0f3d3cb92ac6706dffd"
+    },
+    "a12-forward": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/recover_current_replays_v2.py",
+      "sha256": "434399bb500e9f66c3be5c95ff3563d013c7e2dd19f561219e1202799815764b"
+    },
+    "a12-left": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/recover_current_replays_v2.py",
+      "sha256": "434399bb500e9f66c3be5c95ff3563d013c7e2dd19f561219e1202799815764b"
+    },
+    "a12-rear": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/run_v11_zero_spacer_case_v3.py",
+      "sha256": "4c3418c68c759a554bc3faab6008c1bfd4d964ec07fbb0f3d3cb92ac6706dffd"
+    },
+    "k12-rear": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/retry_k12_rear_cold_v1.py",
+      "sha256": "56dd6f4513286cfffd872138390f189067ee6684a3f28b22cd4d26f9876883dd"
+    },
+    "k12-right": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/run_v11_zero_spacer_case_v3.py",
+      "sha256": "4c3418c68c759a554bc3faab6008c1bfd4d964ec07fbb0f3d3cb92ac6706dffd"
+    }
+  },
+  "case_count": 6,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "climbing_released": false,
+  "cold_retry_completion_proof": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/closure-retry-k12-rear-cold-v1/completion-proof.json",
+    "sha256": "c27ef086e211641b203f21fc7953d966253ed259eecdb6af4dde066bd9e24814"
+  },
+  "execution_admitted": true,
+  "fabrication_released": false,
+  "fields": [
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+      "sha256": "3836580704c574e08312d14c324353869622c813ab1fe2cae56adfa9255114ce"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+      "sha256": "a8b3cba0ccfb35d7aac94140e70c97000b7e89fd956fdff1f05e792b9020cfdf"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+      "sha256": "adc28125b28aff6a1fcf2f9d085e70062759612976eaf202bb87030ac268478f"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+      "sha256": "cbc9076584720f3b17a8918ce8f6ec4d30fb229ea2a3c7ba8e5f7305b032baab"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/closure-retry-k12-rear-cold-v1/four-hosts/k12-rear/field.json",
+      "sha256": "010535d05b6a5816e61c35b3847def8e99583dc01fb77f628078f535944c72e6"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+      "sha256": "0b0919c5b378fd167fa21aa90ebaad0facd93f3a23b43d6928d70c7f8a1e2bb1"
+    }
+  ],
+  "five_warm_guesses_and_one_default_cold": true,
+  "fresh_all_six_case_bank_admitted": true,
+  "geometry": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+    "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+  },
+  "independent_replay_count": 12,
+  "maximum_gradient_inf_N": 8.35250851372038e-06,
+  "old_parent_field_hashes_rejected": true,
+  "parent_admitted_bank": true,
+  "prepared_inputs": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+    "sha256": "515ed1c23f8dfae527d3b9ae56e964529682bc543342bd53175bb7ba16145264"
+  },
+  "profile_contract": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/hardware/profile-contract-v1.json",
+    "sha256": "abcc49a6f59e4183b8b522e5fa064157f7107cf290a3043fac76d4927a508f8f"
+  },
+  "readiness": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/adapter-readiness.json",
+    "sha256": "570d7ca85f51e01189b3de8709de98bd3e6f5657163142e034b3339f3e119aa7"
+  },
+  "replays": [
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-forward/independent-replay.json",
+      "sha256": "90a9b123b0eba7accbd984d94b13ba00e433ce7e461d1abd950545ce4558bdd9"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-forward/independent-replay-plywood.json",
+      "sha256": "9e846fb8cf53338b192447272c56ff4894bb5c2a4ff28b5d401085ae1ba75549"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-left/independent-replay.json",
+      "sha256": "15c7087870a38bf2d6aa2f2e745c5e9627dda79e535418a7d29b191de0d6b8fc"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-left/independent-replay-plywood.json",
+      "sha256": "32dbd1c85645840221a419ee4cb91efa26ac68ef8be95fbdbe44b9e32ddf2968"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-rear/independent-replay.json",
+      "sha256": "2328bdaa8f5f94614df909e1625ebaaa653f261eff29205e2ac9dfec7d5c4313"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a12-rear/independent-replay-plywood.json",
+      "sha256": "bd0f97dc0077424e94ae2e97f8545a743f02a17aa9980fa74d8e3591e17685a9"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/k12-right/independent-replay.json",
+      "sha256": "d531bf4a1c9fb3120d1bd35bdf0162fade03a088060c00faa80135fdb03d8c49"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/k12-right/independent-replay-plywood.json",
+      "sha256": "7b6c360bfb2ea2edb64d83418b72ce3dfb03e254d9c2b5471fe1abeb9534109b"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/closure-retry-k12-rear-cold-v1/four-hosts/k12-rear/independent-replay.json",
+      "sha256": "70cc09621ad43374682d236b04e3598c5cd359121709014e0b605b4f46b50527"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/closure-retry-k12-rear-cold-v1/four-hosts/k12-rear/independent-replay-plywood.json",
+      "sha256": "4c33e6d51657244590323f00e29b4a837ac4f029b2e61dac24520e2105bcd32d"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a1-rear/independent-replay.json",
+      "sha256": "1636dccc1d7e0febc7f35f283d8a2f0fdb5ad62c2da828dede09685bdcabc775"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/a1-rear/independent-replay-plywood.json",
+      "sha256": "bc56a058490ce1c485139368e5d444f724285d4158e30755abb4693bf12013e3"
+    }
+  ],
+  "schema": "zero_spacer_parent_fresh_bank_admission/v1",
+  "source_failures": 0,
+  "structural_acceptance": false,
+  "unique_field_sources_independently_verified": 1689
+}

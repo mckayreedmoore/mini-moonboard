@@ -1,0 +1,698 @@
+{
+  "analysis_revision": "eoere-v11-relocated-rear-pair-analysis-v2",
+  "candidate_revision": "v11-relocated-rear-pair-v1",
+  "conditional_geometry_markers": {
+    "NDS_4D_5D_markers_are_normative_failure_findings": false,
+    "closest_upper_positive_grain_distance_mm": 65.81700036127134,
+    "fastener_nominal_D_mm": 12.7,
+    "five_D_pair_marker_mm": 63.5,
+    "four_D_marker_mm": 50.8,
+    "loaded_edge_end_or_row_assigned": false,
+    "minimum_convex_hull_crossgrain_edge_distance_mm": 53.13645018549871,
+    "minimum_five_D_pair_marker_margin_mm": 2.336450174473285,
+    "minimum_four_D_edge_marker_margin_mm": 2.3364501854987125,
+    "minimum_pairwise_grain_projection_mm": 65.83645017447328,
+    "net_grain_direction_context": {
+      "base_side": "positive-grain for all12 case/side host groups; descriptive net-force sign only",
+      "leg_negative_end_distance_mm": 1797.2140643162058,
+      "lumber_leg": "negative-grain for all12 case/side host groups; the nearest upper positive-grain cut face is opposite the current descriptive net sign",
+      "upper_cut_distance_on_legs_mm": [
+        65.817000361,
+        107.221185636
+      ]
+    },
+    "pairwise_center_spacing_mm": 73.83636747959807,
+    "profile_hull_is_actual_cut_boundary_proof": false,
+    "upper_positive_grain_planar_faces": [
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "distance_mm": 581.6706405734184,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "base_side_left",
+        "plane_offset_error_mm": 3.6107849155087024e-08
+      },
+      {
+        "axis_id": "proposal_upper_rear_left_added_half_in",
+        "distance_mm": 515.8341903882806,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "base_side_left",
+        "plane_offset_error_mm": 3.6107849155087024e-08
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "distance_mm": 581.6706405734184,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "base_side_right",
+        "plane_offset_error_mm": 3.6107849155087024e-08
+      },
+      {
+        "axis_id": "proposal_upper_rear_right_added_half_in",
+        "distance_mm": 515.8341903882806,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "base_side_right",
+        "plane_offset_error_mm": 3.6107849155087024e-08
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "distance_mm": 107.22118563630305,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "lumber_leg_left",
+        "plane_offset_error_mm": 2.917317942774389e-08
+      },
+      {
+        "axis_id": "proposal_upper_rear_left_added_half_in",
+        "distance_mm": 65.81700036127134,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "lumber_leg_left",
+        "plane_offset_error_mm": 2.917317942774389e-08
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "distance_mm": 107.22118563630305,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "lumber_leg_right",
+        "plane_offset_error_mm": 2.917317942774389e-08
+      },
+      {
+        "axis_id": "proposal_upper_rear_right_added_half_in",
+        "distance_mm": 65.81700036127134,
+        "full_thickness_planar_face_confirmed": true,
+        "host": "lumber_leg_right",
+        "plane_offset_error_mm": 2.917317942774389e-08
+      }
+    ]
+  },
+  "fresh_signed_load_context": {
+    "admitted_cases": [
+      "a12-forward",
+      "a12-left",
+      "a12-rear",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "admitted_independent_replays": 12,
+    "all_case_host_rows": [
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 1863.060985206985,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-forward",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 1442.802108593161,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 66.9128158807975,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-forward",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "positive",
+          "negative"
+        ],
+        "net_grain_force_N": -2361.4426995134822,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -557.0785511397804,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-forward",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 426.9838911402269,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -17.45530405246737,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-forward",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "negative",
+          "positive"
+        ],
+        "net_grain_force_N": -707.6498698262731,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 2111.5849986774365,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-left",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 1638.2024372350193,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 78.01463373599427,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-left",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "positive",
+          "negative"
+        ],
+        "net_grain_force_N": -2677.389250910716,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -589.3318277192177,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-left",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 374.1167340546723,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": 44.258658147441025,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-left",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": -702.4926400576335,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 2343.348749233746,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a12-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 1677.0662683538405,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": -27.37104560447392,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "positive",
+          "negative"
+        ],
+        "net_grain_force_N": -2887.433751034906,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -626.5107719431776,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 482.2028360836242,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -21.064184702148196,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a12-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "negative",
+          "positive"
+        ],
+        "net_grain_force_N": -796.2892580514948,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 618.9851090418928,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "k12-right",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 394.04629883729535,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": -45.66695241014932,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "k12-right",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": -738.1930791710944,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -2081.7902970789487,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "k12-right",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 1614.3854413869237,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -76.36791491895667,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "k12-right",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "negative",
+          "positive"
+        ],
+        "net_grain_force_N": -2639.2806973996285,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 659.3537766779042,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "k12-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 508.49265384959915,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 22.908524001128285,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "k12-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "positive",
+          "negative"
+        ],
+        "net_grain_force_N": -838.3180088250933,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -2310.905983780113,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "k12-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 1663.9029637963033,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": 18.85405283756404,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "k12-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "negative",
+          "positive"
+        ],
+        "net_grain_force_N": -2853.473974061302,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": 654.837712762971,
+        "axis_specific_q_sign_context_only": "positive",
+        "case_id": "a1-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_left",
+        "individual_q_signs": [
+          "positive",
+          "positive"
+        ],
+        "net_grain_force_N": 417.75447298302436,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_left_1",
+          "proposal_upper_rear_left_added_half_in"
+        ],
+        "axis_specific_q_force_N": -47.68280687433858,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a1-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_left",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": -781.1281818906634,
+        "net_grain_sign_context_only": "negative"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -431.163686481912,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a1-rear",
+        "conditional_grain_direction_label": "positive_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          515.8341903882806
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "base_side_right",
+        "individual_q_signs": [
+          "negative",
+          "negative"
+        ],
+        "net_grain_force_N": 325.81334060443953,
+        "net_grain_sign_context_only": "positive"
+      },
+      {
+        "axis_ids": [
+          "lumber_leg_bolt_right_1",
+          "proposal_upper_rear_right_added_half_in"
+        ],
+        "axis_specific_q_force_N": -10.077964225667031,
+        "axis_specific_q_sign_context_only": "negative",
+        "case_id": "a1-rear",
+        "conditional_grain_direction_label": "negative_grain_end",
+        "conditional_grain_directional_hull_distance_mm": [
+          1797.2140643162058
+        ],
+        "full_pair_wrench_retained": true,
+        "host": "lumber_leg_right",
+        "individual_q_signs": [
+          "negative",
+          "positive"
+        ],
+        "net_grain_force_N": -546.2943360024369,
+        "net_grain_sign_context_only": "negative"
+      }
+    ],
+    "all_pair_force_and_free_couple_vectors_retained": true,
+    "force_projection_rows": 48,
+    "heterogeneous_individual_q_sign_pair_counts_by_host_class": {
+      "base_side": 0,
+      "lumber_leg": 9
+    },
+    "maximum_absolute_component_of_summed_pair_moment_Nmm": 130123.18631341543,
+    "maximum_gradient_inf_N": 3.4315926837891197e-06,
+    "net_grain_direction_counts_by_host_class": {
+      "base_side_positive": 12,
+      "lumber_leg_negative": 12
+    },
+    "paired_host_wrenches": 24
+  },
+  "limits_and_release": {
+    "C_delta": null,
+    "C_g": null,
+    "NDS_loaded_edge_end_row_or_group_assignment": null,
+    "actual_frame_or_hardware_physically_inspected": false,
+    "actual_old_bores_repaired_or_new_holes_drilled": false,
+    "climbing_released": false,
+    "complete_joint_capacity": null,
+    "fabrication_released": false,
+    "interpretation": [
+      "The signed rows are fresh responses for the relocated candidate's admitted fields. Force signs are descriptive projections of current pair host resultants; they do not assign a normative loaded edge or end.",
+      "Free couples and eccentric force moments are retained in the detailed signed-context report. Their effects are not cleared by the net-force direction screen.",
+      "The close upper positive-grain cut on each leg is an actual full-thickness planar BRep face, independently checked. Other crossgrain edge and negative-end distances remain profile-hull projections.",
+      "The 4D edge and 5D row values are geometry markers only. Row partitioning, oblique action applicability, local reversal, splitting, C_g, C_delta, and complete joint acceptance remain unresolved.",
+      "The 34.925 mm by 60 mm cylinders are conditional clearance envelopes derived from the modeled washer OD; they are not sockets, wrenches, or proof of physical access."
+    ],
+    "splitting_local_reversal_and_independent_flange_couples_resistance": null,
+    "structural_acceptance": false
+  },
+  "occupied_clearance_and_conditional_tool_envelope": {
+    "actual_socket_wrench_or_installation_access_verified": false,
+    "candidate_occupied_parts": 1099,
+    "collisions": 0,
+    "conditional_tool_envelope_count": 8,
+    "conditional_tool_envelope_diameter_mm": 34.925,
+    "conditional_tool_envelope_extension_mm": 60.0,
+    "conditional_tool_envelopes_clear": 8,
+    "incremental_exact_pair_queries": 56,
+    "missing_parts": 0,
+    "unconditional_occupied_clearance_clear": true
+  },
+  "schema": "v11_relocated_rear_pair_geometry_applicability/v1",
+  "source_bindings": {
+    "bank": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+    },
+    "bank_admission": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/parent-bank-admission-v1.json",
+      "sha256": "26cc8fac5e0ddae8ed584576b0d63a8079ff01df88571e1f56be7be8f915537a"
+    },
+    "clearance": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/clearance.json",
+      "sha256": "6c07f3c40a190b8e596aee71218827479642f1e5037bf16e5a50f4d5c547847a"
+    },
+    "clearance_summary": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/clearance-summary-v1.json",
+      "sha256": "63661ccee88cd1bd7402d075156024d2d14474721de535b06177f2ad1458fff0"
+    },
+    "end_face_check": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/end-face-check-v1.json",
+      "sha256": "468ef9b27182cba67bd7048f87ba7ab8fc2bfa28985f51754070c162c553c313"
+    },
+    "geometry": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+      "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+    },
+    "geometry_screen": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry-screen-v1.json",
+      "sha256": "d5504a78036cf144913627df9ceaea590a9b4f10fbd81c627854637fe756f8a3"
+    },
+    "receipt": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "e2fd4bf18df8fa8414ebe65d18865ac2a41deb1e56100dab5cd50a0f27ee63a6"
+    },
+    "signed_producer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-review/produce_relocated_signed_geometry_context_v2.py",
+      "sha256": "16bdc3ce9f1e1647571c61339208c7729eed5e81c94c4bb4d0bf24db738d47d0"
+    },
+    "signed_report": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-review/current-signed-load-context-v1/run-v1/signed-geometry-context-v1.json",
+      "sha256": "6406b5bb030116a3e9c8723e311da1b03541cb77cb79ee0287df0f8a1eb4d0e9"
+    },
+    "this_summary_producer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-review/summarize_relocated_geometry_applicability_v1.py",
+      "sha256": "5b47bf500639b48251b71547cddd071b7fa867be5b73eab9bdae4cbcb6dcf8c0"
+    },
+    "tool_screen": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/tool-envelope-screen-v1.json",
+      "sha256": "24426ae407d9f9c329e779d64010b37dfddbfb7a7ae076d5dab2d79a6d5a77d9"
+    }
+  },
+  "status": "fresh signed net-force context joined; geometry markers are conditional; NDS loaded-edge/end/row and complete joint acceptance remain unassigned"
+}

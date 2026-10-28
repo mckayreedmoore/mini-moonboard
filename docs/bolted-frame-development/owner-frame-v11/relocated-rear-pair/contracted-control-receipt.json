@@ -1,0 +1,228 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fe": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "execution_command_argv": [
+    "PYTHONDONTWRITEBYTECODE=1",
+    ".venv/bin/python",
+    "-B",
+    "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/run_relocated_contracted_rear_reference_v1.py",
+    "--run",
+    "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/reference-run-v1.json",
+    "--run-sha256",
+    "6289373d285f874c5b2a9667883ec6091ccc0cce0e97fafe64763165f85c277b",
+    "--rear",
+    "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-wrench-run-v1.json",
+    "--rear-sha256",
+    "c5c9ee4e6b69f3f308b3348cc94b2ec6a0b35af69b732176f1007212688e8f12",
+    "--bank",
+    "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+    "--bank-sha256",
+    "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd",
+    "--raw-out",
+    "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-states-v1.json",
+    "--summary-out",
+    "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-summary-v1.json"
+  ],
+  "fabrication_released": false,
+  "focused_control_result": "19 passed: 10 fresh inventory/source-scope controls and 9 frozen contraction controls; Ruff passed.",
+  "fresh_contracted_reference": {
+    "bearing_above_one_states": [],
+    "bearing_plus_unchanged_hinge_above_one_state_count": 0,
+    "bearing_plus_unchanged_hinge_maximum": 0.7750203178041969,
+    "governing": {
+      "Dlocal_mm": 9.9949,
+      "Fe_parallel_MPa": 38.61064084174282,
+      "Fe_perpendicular_MPa": 21.718485473480335,
+      "axis_id": "proposal_upper_rear_left_added_half_in",
+      "case_id": "a12-rear",
+      "contracted_bearing_index": 0.7750203178041969,
+      "contracted_parallel_cap_N_mm": 68.43089679370115,
+      "contracted_perpendicular_cap_N_mm": 38.49237944645689,
+      "dataset": "relocated_v11_fresh114",
+      "host": "base_side_left",
+      "interval_mm": [
+        164.97299999999998,
+        170.39166666666662
+      ],
+      "lambda": 0.886618466650835,
+      "nominal_Fe_diameter_mm": 12.7,
+      "original_ellipse_cell_index": 0.6871473257947999,
+      "region_id": "base_side_left:root",
+      "signed_saved_line_density_N_mm": [
+        26.73343979429146,
+        15.763095274814125
+      ]
+    },
+    "maximum_contracted_bearing_index": 0.7750203178041969,
+    "states": 36
+  },
+  "fresh_preserved_ellipse_hinge_metal_references": {
+    "above_one_states": [],
+    "maximum_original_ellipse_and_hinge_index": 0.6871473257947999,
+    "states": 36,
+    "unchanged_Mp_over4_maximum": 0.6770014937283909,
+    "unchanged_selected_witness_Fy92_maximum": 0.5798533502945271
+  },
+  "numerical_execution_exit_code": 0,
+  "own_inventory": {
+    "axis_cases": 36,
+    "receiver_cases": 72,
+    "replayed_pressure_cells": 900
+  },
+  "own_replay_maxima": {
+    "end_force_error_n": 7.482178765449987e-09,
+    "end_moment_error_nmm": 6.924042105893591e-07,
+    "maximum_member_first_moment_error_nmm": 6.548361852765083e-11,
+    "maximum_member_force_error_n": 1.8189894035458565e-12
+  },
+  "pressure_optimization_or_native_global_CAD_run": false,
+  "revision": "v11-relocated-rear-pair-v1",
+  "schema": "v11_relocated_rear_contracted_common_work_execution_controls/v1",
+  "scope": "Fixed-field component reference with unchanged Mp/4 and all signed N/V/T/M. It does not establish physical compatibility, actual material properties, Cg/Cdelta, geometry/group/splitting/washer/fitting interaction or complete NDS/physical joint capacity.",
+  "selected_witness_metal_interpretation": "The retained Fy92 value is the sufficient Fy/2 envelope on the selected constructed pressure witness, not the direct FE elastic steel reference.",
+  "separate_historical_comparison_only": {
+    "no_previous_force_field_or_numeric_index_used_in_fresh_calculation": true,
+    "original112_contracted_rear_maximum": 1.442629514477354,
+    "source": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/contracted-common-work-summary-v1.json",
+      "sha256": "448b3c5b7eed46d6f280916b788327c8276c2fc4edb2ebde13fcf705120fe81c"
+    },
+    "unselected_matching114_contracted_rear_maximum": 0.7698590360553066
+  },
+  "source_bindings": {
+    "all_axis_reference_run": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "6289373d285f874c5b2a9667883ec6091ccc0cce0e97fafe64763165f85c277b"
+    },
+    "control_producer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/freeze_relocated_contracted_controls_v1.py",
+      "sha256": "01034ee4828b8cfd0c53286e4f48fb4c2e5ed39ebf834f92507260dbd90f2c60"
+    },
+    "focused_controls": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/test_relocated_contracted_rear_reference_v1.py",
+      "sha256": "0f98042c3c1ddef29126b43dd9d93d6ee3460e084671a2a32ff035e47b641130"
+    },
+    "frozen_evaluator": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/evaluate_contracted_saved_fields_v1.py",
+      "sha256": "bbe9da2d36cd46e26b4845042c2dd6c88888bd1f03f858a731f20e40cde6cd2b"
+    },
+    "frozen_evaluator_source_controls": [
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/saved-field-disk-rows-v1.json",
+        "sha256": "4864dd7e103cb9411c1fb9ab37a0318d8642070f43586e8987bd316fabf8c535"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/isotropic-common-law-summary-v1.json",
+        "sha256": "42adf7cabe73695d14dc4781b3eab95978998394981bcfed0b1a95ef67027fb0"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/isotropic-common-law-controls-v1.json",
+        "sha256": "0893a5648c39b523faaeca1f0920fb48dbcd741d1cdba9e875b1853ce050a61f"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/nominal-fe90-projection-v2-attempt02/mixed-radial-nominal-Fe90-v2.json",
+        "sha256": "7863cf9500cf7e16ade0f76051d1c0118f0bb998b859e8f85b5714af314c9696"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-projected-bearing-witness-v2.json",
+        "sha256": "70884b23c719e82591b9f92987463d7cf659c2973fd44b33ef5338785d1726da"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v3/rear-projected-bearing-witness-v1.json",
+        "sha256": "fc73da2cc7b726c205d6839c38ca005cbe370c81ae7897e9efe7a2c260a6d05b"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/reference-completion-v1.json",
+        "sha256": "38eceab51e314607bd94663b7130dc6149167724f70d6f5e034ba939e844adf4"
+      },
+      {
+        "path": "mini_moonboard/projected_bearing_witness.py",
+        "sha256": "caf91afdc94b45d72f22c12675218ba649b0ca5e681c51002996027a7c235d0e"
+      },
+      {
+        "path": "scripts/eoere_joint_vector_tests.py",
+        "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/methodscope/uniform-ellipse-contraction-v1.json",
+        "role": "uniform_contraction_proof",
+        "sha256": "ddaa8962a5a3517e00d4d648a9287060e9166dbb67449ed8449ea83330d454a1"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/methodscope/generalized-lateral-lower-bound-v1.json",
+        "role": "common_work_bearing_and_hinge_scope",
+        "sha256": "f122767731df38e30699679674360a33e7b34e2742169563515009464473eaf4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "role": "current112_contracted_comparator_bank",
+        "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "role": "unselected114_contracted_comparator_bank",
+        "sha256": "b364c9b572960a23c6566575abf3b791a326ab5ac35e263a770dd6e2fe891a46"
+      }
+    ],
+    "numerical_producer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/run_relocated_contracted_rear_reference_v1.py",
+      "sha256": "70febaf2dcb09b1a9dae29fa3196822a89d09ecb2e344c77d187a2a8fba6010b"
+    },
+    "parent_bank_admission": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/parent-bank-admission-v1.json",
+      "sha256": "26cc8fac5e0ddae8ed584576b0d63a8079ff01df88571e1f56be7be8f915537a"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+      "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+    },
+    "physical_receipt": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "e2fd4bf18df8fa8414ebe65d18865ac2a41deb1e56100dab5cd50a0f27ee63a6"
+    },
+    "producer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/run_relocated_contracted_rear_reference_v1.py",
+      "sha256": "70febaf2dcb09b1a9dae29fa3196822a89d09ecb2e344c77d187a2a8fba6010b"
+    },
+    "projected_witness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-projected-bearing-witness-v1.json",
+      "sha256": "ef35f27a0dc8926bba84079662ce0082aa98b318611c6dca62529b6e3a671eae"
+    },
+    "raw_states": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-states-v1.json",
+      "sha256": "31f8340d3386f6cb4c5e93a1776c67f9a830c3964d2112cb17fd585286505541"
+    },
+    "rear_wrench_run": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/runs/rear-wrench-v2/rear-wrench-run-v1.json",
+      "sha256": "c5c9ee4e6b69f3f308b3348cc94b2ec6a0b35af69b732176f1007212688e8f12"
+    },
+    "reference_readiness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/adapter-readiness-v2.json",
+      "sha256": "6303c7982ff09c5afcecbe8b1db3d30695092810f33ff9c60acca64824b5033f"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+      "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+    },
+    "same_method_historical_comparator_summary_reference_only": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/contracted-common-work-summary-v1.json",
+      "sha256": "448b3c5b7eed46d6f280916b788327c8276c2fc4edb2ebde13fcf705120fe81c"
+    },
+    "summary": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-summary-v1.json",
+      "sha256": "0eacfa18918c342104e225302f139b3e14c13cd1a2abd94914f36bca11cbcb8a"
+    }
+  },
+  "structural_acceptance": false,
+  "versions": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  }
+}

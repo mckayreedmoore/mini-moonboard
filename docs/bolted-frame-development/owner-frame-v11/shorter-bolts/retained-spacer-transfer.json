@@ -1,0 +1,423 @@
+{
+  "controls": {
+    "all_24_current_washer_spacer_load_ring_pressures_match_spacer_bottom": true,
+    "all_six_current_fields_admitted_and_replayed": true,
+    "current_nut_capture_matches_axial_composition_and_proof_rows": true,
+    "four_axis_stack_descriptors_match_retained_sku372_sku13731_sku2584": true,
+    "maximum_bottom_vs_washer_ring_pressure_error_MPa": 0.0,
+    "maximum_current_capture_join_error_N": 0.0,
+    "maximum_force_integral_error_N": 7.105427357601002e-15,
+    "maximum_saved_own_end_couple_model_only_Nmm": 0.0,
+    "physical_end_moment_or_prying_known_zero": false
+  },
+  "current_spacers": 4,
+  "detailed_result": {
+    "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/spacer-static-transfer-v1/current-spacer-static-transfer-v2.json",
+    "sha256": "21fc3c1565b21bb2036ea7d0c7fcca4ebfc423d52743c6c32bd23d9bccc1f34a"
+  },
+  "hardware_changed": false,
+  "limits": [
+    "This is the historical statically admissible axial transfer field applied to the current prescribed capture forces; it is not an elastic first-yield or physical contact/prying solution.",
+    "The 6.43509 mm nut-face radius is a conditional double-chamfer geometry construction, not an observed face or delivered SKU2584 profile. The 19.05 mm spacer OD and 10.31875 mm bore are nominal modeled geometry, not an inspection.",
+    "No supported Fy or material grade for spacer SKU13731 is supplied. Required Fy values are comparison thresholds only; no ratio or pass is reported.",
+    "Nut/bolt thread engagement, preload, head/washer transfers, lateral actions, free couples, steel fitting strength, timber/cleat behavior, and complete-joint interaction remain outside this spacer-only static field.",
+    "The optional proof-upper sensitivity adds a separate assembly metal-weight bound and is not a newly resolved force through the spacer."
+  ],
+  "method_reuse": {
+    "application": "same closed-form static ring-transfer coefficient calculation; current V11 loads and ring geometry only",
+    "conditional_Omega": 1.67,
+    "function": "coefficients(a,b,c,s,t)",
+    "historical_kernel": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-v1.py",
+      "sha256": "3e3540512c94df5802dad9163cdb292dd998e9979c4e19e34e165793ba1b4125"
+    },
+    "prior_result_transfer": false,
+    "required_Fy_is_reference_only": true
+  },
+  "parent_validation": {
+    "decimal_digits": 50,
+    "maximum_VM_difference_MPa": 1.930562110893014e-16,
+    "rows_checked": 24,
+    "source_files_verified": 18
+  },
+  "qualification": {
+    "actual_nut_face_patch_or_delivered_conformity_known": false,
+    "actual_preload_or_unilateral_contact_distribution_solved": false,
+    "actual_sku13731_material_strength_known": false,
+    "actual_spacer_Fy_MPa": null,
+    "actual_washer_spacer_contact_or_flatness_known": false,
+    "bolt_or_nut_proof_results_replaced": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "physical_prying_or_nonzero_end_moment_excluded": false,
+    "spacer_product_strength_pass": null,
+    "structural_acceptance": false
+  },
+  "release": {
+    "climbing_released": false,
+    "fabrication_released": false,
+    "structural_acceptance": false
+  },
+  "response_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+    "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+  },
+  "revision": "v11-shorter-bolts-v1",
+  "ring_map": {
+    "a_mm": 5.159375,
+    "actual_contact_patch_established": false,
+    "b_mm": 9.525,
+    "c_mm": 6.435089999999999,
+    "nut_face_radius_conditional_not_observed_mm": 6.435089999999999,
+    "nut_to_spacer_top": "conditional direct #2584 chamfer-circle bearing annulus clipped inward by the spacer bore",
+    "s_mm": 5.55625,
+    "spacer_to_nut_washer_bottom": "overlap of spacer annulus and #15023 washer, from washer ID to spacer OD; matched to the existing washer load ring",
+    "t_mm": 12.7,
+    "top_and_bottom_prescribed_resultants_N": "each equals the same current saved nut-end capture; pressures differ because actual conditional rings differ"
+  },
+  "row_columns": [
+    "axis_id",
+    "case_id",
+    "saved_nut_capture_N",
+    "VM_upper_MPa",
+    "required_Fy_at_declared_Omega_1_67_MPa",
+    "nut_face_pressure_MPa",
+    "spacer_bottom_and_washer_load_ring_pressure_MPa"
+  ],
+  "rows": [
+    [
+      "v11_cleat_left_post_1",
+      "a12-forward",
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "a12-forward",
+      35.79863957901808,
+      0.9016966462954592,
+      1.5058333993134168,
+      0.7703929046015617,
+      0.19038186123214074
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "a12-forward",
+      36.010458944336186,
+      0.9070319555020055,
+      1.5147433656883493,
+      0.7749512939151579,
+      0.19150834440268857
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "a12-forward",
+      36.64416467730375,
+      0.9229937445776432,
+      1.541399553444664,
+      0.7885887507019148,
+      0.19487847461809918
+    ],
+    [
+      "v11_cleat_left_post_1",
+      "a12-left",
+      16.228824078079683,
+      0.40877185324942533,
+      0.6826489949265403,
+      0.349247096169192,
+      0.08630701529241008
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "a12-left",
+      140.0670223375542,
+      3.5280101641736192,
+      5.891776974169943,
+      3.0142665041597088,
+      0.7448947983346473
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "a12-left",
+      51.18720409070243,
+      1.2893040295553484,
+      2.153137729357432,
+      1.1015574698258082,
+      0.2722202659279008
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "a12-left",
+      25.541096339996017,
+      0.64332950031939,
+      1.074360265533381,
+      0.5496488030682187,
+      0.13583090073534113
+    ],
+    [
+      "v11_cleat_left_post_1",
+      "a12-rear",
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "a12-rear",
+      0.8249023700077629,
+      0.020777652707035573,
+      0.034698680020749405,
+      0.017752041427168217,
+      0.00438693901175307
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "a12-rear",
+      45.54071573358043,
+      1.1470801999674947,
+      1.915623933945716,
+      0.9800440654786858,
+      0.2421915001564618
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "a12-rear",
+      70.13328006587238,
+      1.7665180624953765,
+      2.9500851643672785,
+      1.5092802959710747,
+      0.3729779832494409
+    ],
+    [
+      "v11_cleat_left_post_1",
+      "k12-right",
+      48.265695023080866,
+      1.2157170173287684,
+      2.030247418939043,
+      1.0386860902736104,
+      0.2566832974720837
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "k12-right",
+      27.37033733150551,
+      0.6894044486053307,
+      1.1513054291709022,
+      0.5890143850355068,
+      0.14555904428216515
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "k12-right",
+      19.082030410064064,
+      0.48063845519279036,
+      0.8026662201719599,
+      0.4106485890575792,
+      0.10148074084037448
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "k12-right",
+      145.6041900993743,
+      3.6674804250417132,
+      6.124692309819661,
+      3.1334273104210437,
+      0.7743421828399453
+    ],
+    [
+      "v11_cleat_left_post_1",
+      "k12-rear",
+      45.49510786064281,
+      1.1459314282109103,
+      1.9137054851122202,
+      0.9790625761785812,
+      0.24194895150548482
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "k12-rear",
+      70.0621947861696,
+      1.7647275654523953,
+      2.9470950343055,
+      1.5077505284785486,
+      0.3725999424072421
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "k12-rear",
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "k12-rear",
+      3.557128435025869,
+      0.08959700195381053,
+      0.14962699326286358,
+      0.07655001808243445,
+      0.018917275630186733
+    ],
+    [
+      "v11_cleat_left_post_1",
+      "a1-rear",
+      90.32501789515402,
+      2.275107844052651,
+      3.799430099567927,
+      1.9438099802882067,
+      0.4803602937130807
+    ],
+    [
+      "v11_cleat_left_post_2",
+      "a1-rear",
+      75.6315559341325,
+      1.9050087137916119,
+      3.1813645520319915,
+      1.6276041419680676,
+      0.4022185355630727
+    ],
+    [
+      "v11_cleat_right_post_1",
+      "a1-rear",
+      20.03735777127469,
+      0.5047012544457206,
+      0.8428510949243532,
+      0.431207398814131,
+      0.10656129706407712
+    ],
+    [
+      "v11_cleat_right_post_2",
+      "a1-rear",
+      70.63710730104795,
+      1.7792084701089772,
+      2.9712781450819916,
+      1.5201227450610053,
+      0.37565740257654817
+    ]
+  ],
+  "schema": "v11_retained_spacer_static_summary/v1",
+  "scope": {
+    "axis_ids": [
+      "v11_cleat_left_post_1",
+      "v11_cleat_left_post_2",
+      "v11_cleat_right_post_1",
+      "v11_cleat_right_post_2"
+    ],
+    "case_ids": [
+      "a12-forward",
+      "a12-left",
+      "a12-rear",
+      "k12-right",
+      "k12-rear",
+      "a1-rear"
+    ],
+    "row_count": 24,
+    "scope_text": "Current admitted V11 fixed-bank axial capture only, four retained 12.7 mm spacers; no new force, geometry, or mechanics run."
+  },
+  "source_bindings": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-v1.py",
+      "sha256": "3e3540512c94df5802dad9163cdb292dd998e9979c4e19e34e165793ba1b4125"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-verification-v1.json",
+      "sha256": "245f16b422e11b8634e70350c2d38e39ee5fab6c9bdbd667f8b17420ba6c30fa"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/fitting-axial/axial-interface-references-v1.json",
+      "sha256": "83b2678632d5410dc6a4f5d31776b4910c154a59f8ebe406957c855c3d786a9e"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/proof/axial-proof-rows-v1.json",
+      "sha256": "7796f706a25d3bf73dedd69d45044d67c4b6ecafedf1ef6f604dac617051d053"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/axial-static-composition-v1/axial-static-composition-v1.json",
+      "sha256": "7f3f4de898b0506545715c012e3c517e518966d0fa470a0e62291a06f52d4d62"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/full-stress-extension-v1/current-washer-static-lower-bound-1344-v1.json",
+      "sha256": "3f256cfed86462e7b4af30a07d10170fa3820147e23c9f346e5e320f3ab45c07"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/product-face-correction-v1.json",
+      "sha256": "0cfc312e06c01ddf16fbbfff6b62f4b9c1eaf3a7718786ea63b48796829c7afb"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/component-followup/adapter-readiness-v1/results/washer-fitting/spacer-static-transfer-v1/produce_current_spacer_static_transfer_v1.py",
+      "sha256": "1da854b0bf172f4a0ff8dcc9c0d2565076b67a0aae5737d42502842ff03d8cc3"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/checked-receipt-v1.json",
+      "sha256": "cc2a1688270cd56a36176ff1957ef769d1a84c54eba8c8d255d2b65ec8bcfee9"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/hardware/lower-post-spacer-decision-v1.json",
+      "sha256": "e913bac780cd07fc5eb71886b5e7dc3676ff001058bf7c24ef13342854d767c5"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a1-rear/field.json",
+      "sha256": "81366b394c0b4770c69a155ce6d7f9409863b845632c4ae2a2772e114497eb3c"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-forward/field.json",
+      "sha256": "abae7e53034dd81e0aef796ed0f67a31ad84e757faef860cf2c95be408e83ac4"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-left/field.json",
+      "sha256": "5d1b045ff455e3158f4d724333da18cd748d930a87c62a59b134c99d2e5e35d7"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/a12-rear/field.json",
+      "sha256": "b130111ba63449fe46b26e57006508df43d46f593896a41ad1e1cd18a9090e89"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-rear/field.json",
+      "sha256": "efcbe71f717550a5779e3a629c660f2cd2ef6c2f8e7d5b3d16d6afbb6646f478"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/four-hosts/k12-right/field.json",
+      "sha256": "f101b38858f854f994abfabc742e995327881a72a3fb13bdcd87e0e9e40968f6"
+    },
+    {
+      "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+    }
+  ],
+  "summary": {
+    "maximum_capture_VM_upper_MPa": 3.6674804250417132,
+    "maximum_capture_governing_axis_case": {
+      "axis_id": "v11_cleat_right_post_2",
+      "captured_nut_force_N": 145.6041900993743,
+      "case_id": "k12-right"
+    },
+    "maximum_capture_required_Fy_at_Omega_1_67_MPa": 6.124692309819661,
+    "maximum_proof_upper_VM_sensitivity_MPa": 3.7053277073971818,
+    "maximum_proof_upper_required_Fy_sensitivity_MPa": 6.187897271353293,
+    "maximum_proof_upper_sensitivity_governing_axis_case": {
+      "axis_id": "v11_cleat_right_post_2",
+      "case_id": "k12-right",
+      "proof_upper_N_not_transmitted_spacer_load": 147.1067810490636
+    }
+  },
+  "summary_producer": {
+    "path": "fea/generated/v11-shorter-bolts-v1/delivery/project_spacer_static_summary_v1.py",
+    "sha256": "75f1458ddeca02dfd364e7ea3c17d0a56050d0b5001c6850e4aaefca4229e697"
+  },
+  "washer_followthrough": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/washer-axial-static-summary.json",
+    "sha256": "053b91cfb75f37ee19f917821689a6dc48e3e4afd437208ba30e4be40bd5a80c"
+  }
+}

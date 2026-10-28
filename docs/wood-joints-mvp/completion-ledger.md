@@ -11,6 +11,16 @@ retained-solid-cleat resistance research as the main route. Current geometry
 and frozen timber results retain their recorded scope while the plywood
 connection checks proceed.
 
+## Active zero-spacer comparison
+
+The completed [114-bolt zero-spacer packet](../bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/README.md) has six own cases, twelve replays and complete declared component calculations. Member vector maximum is 0.948106; rear contracted work reference is 0.775013. Three generic 45 ksi A574 bending-reference flags peak at 1.236622. Geometry holds remain distinct: four cleat-post near holes, the two outer top near-beam holes and the declared top Table-D interpretation. All 192 coarse fitting states and two observed governing fine comparisons are calculated, maximum sampled fine stress 62.410 MPa. The [component summary](../bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/component-reference-summary.json) includes all 1,368 end/case washer constructions, requiring up to 170.308 MPa washer Fy at minimum thickness, and 12 signed bond-plane states. Four direct-nut radii were corrected from the old spacer 9.525 mm to 6.43509 mm; 24 Style-1 head cases retain their separate 6.42366 mm circle sensitivity. The native traction mapper does not consume those analytical loaded-face radii, so its 194 coarse/fine RHS states are unchanged. Actual materials, contact and complete joints remain unqualified.
+
+The [independent error audit](../bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/error-audit.json) reproduces 144 hinges, 1,152 bearing endpoints, 429 net/primitive end comparisons and 672 weak-edge quotients without a new numerical error. Six own fields, the accepted cold right-rear retry, unchanged 114 stations/30 profiles and all 24 corrected direct-nut rows verify. End flags already use the reduced minimum: representative cleat-post availability is 23.8125 mm versus 27.233816 mm required. The top Table-D shortfall remains 6.35 mm under its recorded interpretation; rear-foot flags remain optional envelope comparisons. Generic 45 ksi flags are material-reference comparisons.
+
+The owner's latest [106-bolt evaluation decision](../bolted-frame-development/owner-frame-v11/owner-four-bolt-outer-top-evaluation.json) supersedes eight per **outer top corner** for the next trial only: four there, eight per cleat, four at center tops, zero spacers. Only eight near axes and their planned timber bores are omitted; three rebuilt solids retain all exterior profiles. Checked geometry has 1,055 occupied parts, 106 stacks and no detected collisions across 86 occupied-pair queries. Fresh mass/contact, six cases with two replays each and all affected component checks are being prepared; no 114-bolt force or capacity result transfers. The twelve-cleat Grade 5 head substitution remains unimplemented. Selected 112-bolt development and baseline authority stay separate; no physical release follows.
+
+Active raw packets remain under `fea/generated/v11-zero-spacer-eight-bolt-v1/` and `fea/generated/v11-four-bolt-outer-top-v1/`, alongside their preserved parent and failed attempts. The roughly 2.31 GB fitting output remains ignored and active; public delivery uses compact summaries, existing mesh aliases and five existing jig STLs rather than raw runs. No archive or pruning occurred.
+
 ## Engineering closure beyond the assessment
 
 **The preserved 2×6-post conditional numerical evaluation is complete** for
@@ -5390,8 +5400,473 @@ diagnostic and commands recorded in `final-validation.json`. No maintained
 application code changed. All catalog/model fit gaps remain explicit and
 no full-envelope, connection or physical-operation acceptance is established.
 
+<a id="v11-reduced-spacer-selection"></a>
+**Owner-selected spacer reduction and full-thread comparison.** The
+[recorded owner request](../bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json)
+selects the already evaluated `v11-shorter-bolts-v1` development geometry:
+112 stacks and four spacers, reduced from 24. Local entry links, the revision
+index, viewer labels and selection guards now resolve that model and its own
+six-case bank; original geometry and the selected baseline are preserved.
+The integration passes 1,088 affected tests and 44 viewer/link checks. No
+staging, commit or push occurs during the blackout ending 18:17 Mountain.
+
+Two subagents completed the hardware/source and numerical evaluations in
+parallel. The [compact thread-options record](../bolted-frame-development/owner-frame-v11/shorter-bolts/thread-profile-options.json)
+binds their frozen audit, controlling per-host addendum and four six-case
+fixed-force scenarios. Parent verification authenticates 19 numerical source
+bindings and independently replays 2,688 governing segment stress calculations.
+Four 6½-inch partial-thread bolts are the preferred next evaluation for removing
+the last four sleeves: conditional overlap is 4.166 mm in each 88.9 mm post,
+with none in either plywood leaf. The 4.69% per-post fraction is below the NDS
+one-quarter screen, but the exact product profile is not qualified. Their
+fixed-force sufficient stress bound is 59.015 MPa versus 121.761 MPa for a
+full-root sensitivity on the same four axes. Full-root substitution across all
+112 axes changes the maximum bound from 208.314 to 420.626 MPa. No actual Fy,
+complete connection result, changed frame forces or zero-spacer selection is
+inferred. Washer seats remain; roots, stiffness, thread-bearing applicability
+and exact matching products require their own disposition. The 14,872-byte
+public summary and raw studies in the existing ignored hardware and
+`generalized-wrench/full-thread-fixed-force-v1/` packets remain active; nothing
+is archived or pruned. All release holds remain.
+
+<a id="v11-method-assumption-audit"></a>
+**V11 joint-method and assumption audit.** The owner requested a fuller error,
+assumption and engineering-practice review of the current exceedances. The
+[source-bound audit](../bolted-frame-development/owner-frame-v11/shorter-bolts/method-assumption-audit.json)
+uses the existing `v11-shorter-bolts-v1` bank and methods. Its independent
+arithmetic replay checks six field hashes, 112 prepared shafts, 66 screw rows,
+144 mixed hinge comparisons, 1,104 mixed bearing endpoints and 600 rear bearing
+cells. Maximum differences are 5.685e-14 MPa for required Fyb and 4.441e-16 for
+bearing indices. No new arithmetic or current-bank join error is confirmed in
+that scope. Twenty-two existing contraction, hinge-projection and relaxed-moment
+controls pass. This does not authenticate every historical dependency or prove
+all implementation paths correct.
+
+The principal finding is a claim boundary: rear index **1.442630** evaluates a
+constructed field in a conservative bearing reference, rather than proving the
+physical joint is 44% understrength. Existing evidence allowing arbitrary
+individual receiver moment exchange still excludes the declared contracted law
+for left a12-rear at factors **≤1.04817**; its **1.223270** finite witness is
+neither that continuous bound nor a proven optimum. The passing **0.841812**
+force-only reference does not map the saved full wrench. Its approximately
+1.12 kN mm force-parallel couple survives a pole translation after the saved
+face/capture allocation, but a different internal face-pressure allocation can
+change that radial wrench. No invariant across all possible complete-joint
+load paths is asserted. The five mixed-bolt flags under generic 45 ksi Fyb
+also remain conditional; the governing requirement is 58.665493 ksi. The
+separate A574 design-note/TR12 property scenario is not an adopted product
+guarantee or permission to omit wood, elastic-steel or detailing checks.
+
+The assembly includes panel bracing through unmeasured **1,000 N/mm** Hillman
+springs, together with conditional bedding, flange and perfect-composite cleat
+operators. Elastic shafts retain nominal diameter while strength processing
+uses body/root profiles. For the governing 3/8-inch family, local circular
+body/root-section I ratios to nominal are **0.917359 / 0.360130** at equal E;
+these are not measured thread stiffness or global demand-error factors. The
+saved contact sensitivities address fixed-material-point contact kinematics
+while retaining small-strain internals. None of these choices establishes a
+physical upper bound on joint demands. Existing screw-resistance deferral and
+the suspended review loop remain unchanged.
+
+Primary guidance was checked against [AWC's 2024 NDS](https://awc.org/resources/2024-nds),
+the already retained primary chapter PDFs, the pinned
+[2015 TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf),
+[USDA's 2021 fastening chapter](https://research.fs.usda.gov/download/treesearch/62253.pdf)
+and [System Three's product guidance](https://www.systemthree.com/products/t-88-structural-epoxy-adhesive).
+NDS 11.1.1.3 permits demonstrated recognized-theory analysis; physical testing
+is not the sole blanket route. Mixed-fastener and eccentric cross-grain
+connection behavior still needs an applicable analysis. The audit identifies
+invalid shortcuts: adding another arbitrary panel-strength multiplier,
+presuming permanent timber clamping friction, substituting proof load for Fyb,
+waiving splitting with a steel pass, or transferring a partial-thread result
+to full-thread stock. No accepted use of those shortcuts is established in
+the audited current records. The conditional top-row shortfall and 24
+interrupted brittle directions remain separate unresolved matters.
+
+Next work is to resolve the complete rear force-and-moment method, document
+the mixed-bolt property route and finish the actual top-row/brittle-path
+interpretations. Refining a pressure grid cannot clear an already excluded
+reference law. No new global/native/CAD solve, geometry change, physical test,
+floor-friction test, sign-off gate, purchase or structural acceptance is added.
+The approximately 25 kB public overlay and its reproducible helpers/calculation
+record under `fea/generated/v11-shorter-bolts-v1/connections/method-closure/assumption-audit-v1/`
+remain active with the existing evidence; nothing was archived or pruned.
+
 <a id="current-v11-v9-restoration"></a>
+**Current V5 numerical correction and method disposition.** The
+[V5 overlay](../bolted-frame-development/owner-frame-v11/shorter-bolts/current-joint-disposition-v5.json.gz)
+adds 93,677 bytes over frozen V4, encoded SHA
+`89e1e83e92ce01774764dbe188cef257ddd20078d11f8abf242a2485cf5d3e8d`,
+decoded SHA `8a88d0c77096efdf964bed5ca23bb2688f0093f68dfc4248715233f09f9ce0b3`.
+It retains all 26 clusters, 112 axes and 24 fittings. The exact G0340956 head
+is listed as ¾ inch while its occupied envelope declares ⅞ inch. Its loaded-face
+audit covers all 1,344 saved axial end/case plate references: 1,224 radii change
+and 120 exact controls stay unchanged. The updated conditional maximum is
+**134.9183439001 MPa required Fy**, at bolt 082's nut in a12-forward; the prior
+119.3394495070 MPa maximum remains historical. The 1,152 global, 96 near-seat,
+72 plywood circular-head and 24 plywood hex-head rows retain their own support
+geometry and thickness. Minimum-AF circles, cap-screw gage-plane circles,
+conditional nut chamfer circles, circular heads and spacer faces remain distinct;
+none establishes an actual bearing-plane patch, material yield, preload or prying
+acceptance. The parent checked 14 raw source bindings, all 1,344 unique identities,
+the governing helper result, and load/thickness scaling controls.
+
+The rear addition supplies a one-case 500 N normal-contact construction preserving
+each complete external wood wrench while removing both saved radial pitches.
+Centered capture tension rises to 396.431 N; this is neither a physically
+compatible response nor a capacity witness. The continuous contracted-law bound
+remains **strictly above 1.04817** for fixed net receiver forces and their combined
+first moment. Primary sources do not supply a pressure-by-pressure Kθ substitution;
+no favorable factor was adopted. A historical Eurocode own-angle comparison on
+current top forces also fails to provide blanket spacing clearance: 19 of 48
+beam-port screens exceed 41.275 mm, with maxima 44.963/45.102 mm. No Eurocode
+loads/factors, actual row assignment or code-violation status is adopted.
+V5 has eight direct sources and 1,521 selectors; the parent projection replay
+is byte-identical. Fifteen producer controls and **1,106 affected Node/document
+tests** pass, including rejection of lost plywood rows, wrong hardware/face
+classes, understated joint envelopes and false acceptance. No force cases,
+geometry, native work or material selection were added. The 93,677-byte overlay
+retains the complete corrected end/case census while referencing the earlier
+book. Raw inputs/helpers stay active in the existing V11 packet; nothing is
+archived or pruned. V5 and the 24-to-four spacer selection remain local and
+uncommitted during blackout. Full joint capacities, geometry/brittle interpretation
+and physical qualifications remain open; no release is granted. Earlier references
+and their evidence-time status descriptions below are preserved.
+
+**Current axial washer follow-through using the historical 3D kernel.** The
+[compact current result](../bolted-frame-development/owner-frame-v11/shorter-bolts/washer-axial-static-summary.json)
+adds 27,062 bytes, SHA `053b91cfb75f37ee19f917821689a6dc48e3e4afd437208ba30e4be40bd5a80c`,
+and joins all 26 V5 joint clusters without copying the earlier book. It reuses
+`current-axial-washer-transfer-v1.py::coefficients` unchanged; the historical
+loads, bearing lands, 33-ksi hypothesis and passes do not transfer. All 1,344
+current corrected radii/thicknesses and own-end loads are used. The continuous
+3D static-field bound includes hoop stress, radial transverse shear and
+through-thickness compression. Maximum VM upper bound is **109.266858 MPa**;
+with the declared historical comparison factor 1.67, sufficient Fy reference
+is **182.475652 MPa**, at bolt 082 / a12-forward / nut / header outer-under-left.
+This is a plastic static-strength construction, separate from the retained
+134.918-MPa sampled elastic bending reference. Neither result supplies actual
+washer material strength or a full connection pass. The 96 near-seat rows
+retain their 22.225-mm supported-ring proxies. Physical bearing faces,
+contact, preload, prying, spacer transfer and material conformity remain open.
+All 1,344 saved own-end moments were joined and are zero in this axial-only
+subproblem; physical end moments are not established as zero.
+
+Parent verification checks the eight direct input pins, every V5 load/radius/
+thickness/basis join and all 1,344 stress calculations at 50 decimal digits;
+maximum discrepancy is **1.98e-14 MPa**. All 99 focused delivery/documentation
+checks and the development authority check pass. No global, native, CAD or contact run,
+hardware selection, geometry change, commit or push occurred. Raw result
+`current-washer-static-lower-bound-1344-v1.json` (SHA
+`3f256cfed86462e7b4af30a07d10170fa3820147e23c9f346e5e320f3ab45c07`)
+and its source-bound producer remain active under the existing V11
+`component-followup/adapter-readiness-v1/results/washer-fitting/global-catalog-minimum-extension-v1/product-face-correction-v1/full-stress-extension-v1/`
+packet. The abandoned plate-lift preflight remains recoverable; its first two
+control records have superseded shear summaries. No source bytes were pruned.
+
+**Four retained spacers: current axial transfer reference.** The
+[24-case retained-spacer record](../bolted-frame-development/owner-frame-v11/shorter-bolts/retained-spacer-transfer.json)
+adds 14,597 bytes, SHA `402c2c715c1d5053ca100d3e47c0bc7ea2988bf85317e5c0e43249239262ebe6`.
+Current descriptors place the stack at 127 mm wood, 6.35 mm steel, 2.6416 mm
+washer, 12.7 mm spacer, then nut. The nut bears directly on the spacer.
+The conditional nut ring is 5.159375–6.43509 mm; the spacer/washer interface
+is 5.55625–9.525 mm and matches the existing washer load ring in every case.
+Reusing the historical 3D static coefficient kernel gives maximum stress bound
+**3.667480 MPa**, or **6.124692 MPa** required Fy under the declared 1.67
+comparison, at right lower cleat/post bolt 2 in k12-right. Actual spacer Fy
+is unknown and no strength ratio or product pass is assigned. A separate
+147.106781-N proof-envelope sensitivity gives 6.187897 MPa required Fy;
+it is not a newly solved spacer load. Existing bolt/nut proof checks remain.
+
+Parent validation verifies 18 distinct source files and all 24 calculations at
+50 decimal digits, maximum difference **1.94e-16 MPa**. Force integrals close
+to 7.11e-15 N; interface pressure error is zero. The detailed v2 result
+(SHA `21fc3c1565b21bb2036ea7d0c7fcca4ebfc423d52743c6c32bd23d9bccc1f34a`)
+and producer remain in the existing ignored V11 washer-fitting packet under
+`spacer-static-transfer-v1/`; the first unpinned result remains recoverable.
+The current four spacers, geometry, forces, actual-observation blanks and
+release holds are unchanged. Physical contact/flatness, preload, prying and
+combined full-joint transfer remain open.
+
+**Current bonded-leaf integrated action references.** The
+[12-case bond-interface wrench record](../bolted-frame-development/owner-frame-v11/shorter-bolts/bond-interface-wrenches.json)
+adds 34,026 bytes, SHA `00c5bbd8dcb5e8c2a2102db03b2b4fce6a4ad5b1f50babd499ee731138a3ae30`.
+The two physical 19.05-mm leaves remain one perfect-bond analytical host.
+These are statics partitions of that host's saved external actions, not new
+leaf DOFs or independently solved leaf forces. Each shaft interval's two
+weighted Gauss forces are reconstructed as an affine force density and
+integrated across the physical 19.05-mm halves. Captures and contacts are
+assigned once; equal-volume gravity is split at the saved physical leaf COMs.
+No aggregated bearing alias is added a second time.
+
+All 12 outer-leaf normal resultants are compressive, **225.84–824.32 N**;
+the inferred normal-pressure centroids lie inside the saved outline convex
+hull. This establishes only a compression-only representation of the global
+normal force and overturning moments on that hull. It does not establish the
+actual net glue footprint, finite pressure or local peel. Tangential force
+reaches **180.388 N** and normal-axis torque **11,594.933 Nmm**. Those duties,
+local bolt introduction, adhesive capacity/stiffness and physical bond quality
+remain open; the earlier 9.826-N/mm beam shear-flow reference is retained.
+
+The 169,696-byte raw result, SHA
+`c3e93e0b158b4f5a870c23ce240473c7831036bf85e2d353b032b3026941b171`,
+and its producer remain active under the existing V11
+`connection-disposition-inputs-v1/interleaf-leaf-wrench-v1/` packet.
+Parent validation verifies 12 source files, an independent affine-polynomial
+control, category-to-leaf equilibrium and all pressure centroids with the
+separate SciPy hull implementation. Maximum merged-host closure is 1.22e-13 N
+and 6.00e-7 Nmm; affine force/first-moment closure is below 5.7e-14 N and
+1.9e-12 Nmm. No adhesive strength, continuous bond traction, geometry change,
+new frame solve or release is introduced. Both added component records remain
+local during blackout and keep the frozen V5 book and earlier source bytes. The 1,097 affected Node checks and 12 documentation checks pass; four locally served artifacts match their source bytes. Logs and the parent receipt remain under `delivery/spacer-bond-validation-v1/parent-validation.json`, SHA `1036adbf4b1ab4fb3db94bc73650d877e112ed45554aa2a2075c2ec8d89d2d55`.
+
+**Scoped Git checkpoint preparation.** Root review covers eleven tracked
+paths and ten added owner/evidence files, 234,072 added bytes; the largest
+addition is the 93,677-byte V5 gzip. Root and builder entry links now resolve
+V5. A targeted current-link check and all twelve documentation checks pass
+after that correction, reusing the earlier 1,097 affected code checks. The
+reviewed files contain no matches for the checked credential patterns; the
+review SVG has no script, event handler or external content. This is a scoped
+check, not a security audit or structural approval. The exact owned-path
+manifest, tracked patch and Git tree snapshot are retained under the ignored
+`delivery/checkpoint-review-v1/` folder. Its producer supports `--check` to
+reject changed source bytes or HEAD before later publication. Shared staging,
+`master`, existing history and the two unrelated untracked paths remain
+untouched; no commit, push, merge or deployment is performed during blackout.
+All raw runs and source-bound records remain active; no archive/prune occurs.
+
+**Owner-authorized relocated rear-pair evaluation.** The owner's “Go ahead”
+accepts evaluation of the just-described relocated-pair proposal; the
+[scoped decision](../bolted-frame-development/owner-frame-v11/matching-rear-bolts/owner-relocated-pair-evaluation.json),
+SHA `45f2cea7dd3fc516133c9fb7f5241a601f0e9a672253d7f54a0055a4f95f9b9d`,
+supersedes the earlier pending-exception language for this trial only.
+`v11-relocated-rear-pair-v1` moves the two existing upper-rear axes to
+YZ (1120.9889444131895,1745.062836941169) mm and adds matching half-inch axes
+at YZ (1137.701154937443,1816.9830092294449) mm. Head X and orientation stay
+fixed. All timber/cleat outer profiles, other bolt/screw axes, 24 fittings and
+four spacers remain unchanged. The two existing and two added axes require
+fresh affected solids, clearance/grip/edge/end/row checks and a new six-case
+bank with two independent replays per case. The 112 and earlier 114 studies
+remain history; their passing references do not transfer. This is evaluation
+authorization, not candidate selection, purchase or physical release.
+
+Existing geometry, mechanics, reference, viewer and hardware workers own
+separate subtrees under `fea/generated/v11-relocated-rear-pair-v1/`; parent
+owns frozen readiness and serialized heavy execution. Existing builders,
+prepared-method fixes and reference kernels are reused. The earlier reviewed
+Git tree `e56ffdb133e3a3cf32a0bb222bd6e18d976f9791` preserves the prior scope;
+this new decision changes its owned source bytes, so its manifest must not be
+used for a later commit without a refreshed review. No shared staging,
+commit, push, merge or deployment occurs during blackout.
+
+The relocated candidate now has checked geometry: 1,099 occupied parts,
+114 stacks, 228 washers and four spacers. Its 24 changed parts have zero
+detected collisions; eight nominal tool envelopes clear. Cached-profile
+4D edge and 5D spacing markers have at least 2.336 mm nominal margin; the
+upper cut faces are separately confirmed against the finished BReps. These
+are conditional geometry screens, not an NDS joint pass. The
+[unselected local preview](http://127.0.0.1:8767/?model=eoere-v11-relocated-rear-preview&view=rear&holds=off)
+uses four new wood meshes and twenty role translations, sharing 1,075
+unchanged parent mesh references. Browser and viewer checks pass. Fresh
+`analysis-v2` preparation and parent verification pass under unchanged loads.
+All six fresh cases and twelve replays pass; maximum gradient is
+3.4315926837891197e-6 against the unchanged 1e-5 gate. Parent recreated the
+response-bank record from the verified artifacts and matched its saved bytes.
+The [new bank](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/response-bank.json)
+is SHA `ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd`.
+Fresh family, connection, rear full-wrench and component references are
+complete. The contracted rear reference is 0.7750203178041969 across 36
+states, with zero states above one and 900 pressure cells independently
+replayed. Original112 is 1.442629514477354 and the earlier unselected114 is
+0.7698590360553066 under the same reference; those remain distinct saved
+models. Fresh member shear/torsion, normal/stability, cleat perimeter and
+direct shaft-steel references peak at 0.947988, 0.815930, 0.415174 and
+0.411399. The new book preserves 35 signature-reduced affine-bearing and
+16 reduced-N/M diagnostic flags; none becomes an adopted whole-joint
+failure or pass. The fresh mixed full-wrench/common-work Mp4 reference covers
+144 states, 432 receiver actions and 1,104 endpoints. It has three generic 45 ksi
+hinge flags: `v11_cleat_left_side_1` / `a12-forward` 1.2362823305360882,
+left / `a12-left` 1.1988971205786227, and `v11_cleat_right_side_1` /
+`k12-right` 1.185824699564249. Contracted bearing peaks at 0.45625366862158473.
+This reference requires Fyb up to 55.63270487412396 ksi; the independent
+elastic Fy/2 requirement is 332.227965 MPa and is a separate quantity.
+Actual Fyb, physical groups and complete joint capacity remain unqualified.
+The old112 1.303678 / five Mp4 flags remain preserved, not carried over.
+The stopped preparation and launcher attempts remain in the ignored packet
+and supplied no forces. The rear postprocessor wrote five valid artifacts
+then failed only at its final NumPy-integer console serialization; parent
+verified the artifact hashes, 36/72 coverage and fresh bank binding in
+`references/parent-rear-artifact-admission-v1.json` before accepting them.
+
+The [fresh conditional review](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/reference-completion.json),
+[geometry applicability](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/geometry-applicability.json),
+[mixed reference](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/mixed-common-work-summary.json)
+and [rear component follow-through](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/affected-connection-components.json.gz)
+are the detailed entry points. The raw relocated packet stays active;
+previous112/114 results and failed preparation/launcher/postprocessing
+attempts remain recoverable. No archive or prune occurs. New meshes are
+limited to four bored timber bodies; 1,075 parent mesh references stay shared.
+The additional bank, summaries and compressed component rows are necessary
+fresh-load evidence, with bulky raw operators and intermediate states ignored.
+A checkpoint of 38 owned paths using a private Git index is prepared after
+final checks by `fea/generated/v11-relocated-rear-pair-v1/delivery/prepare_reviewed_checkpoint_v1.py`;
+its `delivery/checkpoint-review-v1/manifest.json` records the exact HEAD/tree
+and source hashes. Run that producer with `--check` before a later commit.
+Final verification passes 1,182 affected software checks, the source-bound
+authority checker and the bounded browser check. The browser confirms all
+114 selectors, four relocated stack selections, eleven own evidence links,
+the three new mixed flags and zero stale-result, interpolation, ignored-file
+or failed requests. Geometry assets remain byte-identical to the checked
+export; the earlier mesh-compaction/alias checks passed. Nineteen contracted
+rear controls and sixteen fresh mixed controls also pass. These are software
+and conditional calculation checks, not physical load tests.
+The shared index stays empty; publication remains subject to 18:17 local
+quiet-hours cutoff. This evaluation does not select the trial, resolve every
+applicable criterion, or release cutting, fabrication or climbing.
+
+The fixed-input item #3 [component disposition](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/item3-disposition.json)
+reuses 148 unchanged station measurements, all 24 fitting poses and existing
+geometry, Appendix E, cut, compression-patch, header-tie, shaft and metal
+kernels. Fresh work covers 114 axes, 156 physical receiver/leaf rows, 840
+signed wood actions and 616 same-host pairs. All nominal wood-hole ranges and
+corrected grips meet their stated geometric screens. The exact foot walls are
+50.8 mm leg plus 38.1 mm runner. Eight aligned outer-top Table-D comparisons
+retain 41.275 mm available versus 47.625 mm required in the perpendicular
+principal scenario. Four added top-beam and four added cleat-post holes have
+23.8125 mm near ends (full principal 4D index 1.6; possible softwood-tension 7D
+index 2.8). Four added cleat-side holes have 31.085 mm near ends. These
+principal comparisons do not choose actual oblique row/end applicability or
+Cdelta. The rear staggered pair's grain/crossgrain projections are 65.836 /
+33.427 mm; neither becomes the accepted row direction automatically. Current
+068/069 forces remain net-away in every case; their near-edge 4D comparison
+remains optional conservatism.
+
+Fresh brittle components include 336 E2, 420 E3 and 192 E4 case checks,
+maxima 0.028868 / 0.115810 / 0.031187, plus 480 individual E3 comparisons.
+All 4,872 cut wrenches retain their signed forces and moments. Actual material
+areas were measured on 36 interrupted directions; 204 excluded case/row
+records remain outside the supported E3/E4 path method. Larger outer groups
+and net-away resultants do not erase those weaker or moment-loaded paths.
+Ninety-six compression-only cut constructions exist; rear Fc-perpendicular
+reference peaks at 0.295223. Header tension is addressed by the existing
+additional eight-flat-tie construction: 96 tie states peak at 0.024884,
+96 augmented shaft states retain all baseline actions and 192 steel-anchor
+checks retain their force and moment duties. The saved header equilibrium
+residue is disclosed separately; the global admission gate and loads did not
+change. These are static component alternatives, not observed redistribution.
+
+All 144 ideal-sector fitting states, 288 gross roots, 288 nominal net sections,
+672 hole actions and 96 near-washer seats have current-load arithmetic.
+The quarter-annular Ri=t scenario reaches 0.924190 under the conditional
+235 MPa / 1.67 comparison. Force-only hole Fu requirement is 7.455959 MPa;
+retaining the perpendicular free couples in the explicit affine-thickness
+extension gives 20.370060 MPa. That extension is not a complete eccentric
+fracture rule. A contained annular washer stress field extends by zero into
+the unloaded actual overhang, requiring Fy 105.248072 MPa under the stated
+1.67 marker; it does not require full washer-OD flat support. Actual material,
+radius, preload and contact remain separate. Every entry/midpoint wrench and
+tiny torque remains recorded. The fixed FE allocation supplies the prescribed
+loads; normal-statics null cycles do not invalidate it or authorize an arbitrary
+extra prying multiplier. Existing meshes and pinned native controls support a
+continuous holed-body follow-through: all 144 baseline states and 48 distinct
+header states covering 96 exact event aliases are evaluated. Their coarse
+maxima are 61.203265 and 61.200727 MPa. The observed governing baseline and
+header fields each have their own 3 mm calculation: 62.403019 and 62.400585 MPa,
+about 1.96% above the corresponding 4 mm values. The larger requires
+Fy 104.213043 MPa under the stated 1.67 comparison, giving the conditional
+235 MPa marker 0.443460. This is selected-state mesh evidence, not an all-state
+fine-mesh or continuum stress bound. The initial a12-left probe remains
+preserved and is not mislabeled governing. All 3,792 original baseline source
+groups and 672 combined steel-entry wrenches reconcile to the current fields.
+Seventeen tiny canonical-axis torques use an explicit same-port, positive-normal
+washer tangential-transfer scenario, with required discrete friction up to
+2.34493e-8 and no actual friction value assigned. Other numerical residuals
+retain the original mapping gates; every raw moment remains recorded. Six
+serialized local native jobs ran on the pinned existing solver and meshes.
+No new global frame case or model change occurs.
+
+The item3 raw packet stays active in the existing ignored trial folder;
+only its compact disposition is added to the maintained reading path. Frozen
+old geometry, banks, diagnostics, reports and viewer assets remain unchanged.
+No archive/prune or commit/push occurs during quiet hours. The earlier 38-path
+private checkpoint manifest binds the earlier source bytes; it cannot approve
+these changed summaries or checks without a refreshed scoped manifest.
+
+Final item3 verification passes 920 affected software checks and the authority
+checker. The compact disposition and its local calculation graph verify 324
+distinct files with zero binding failures; historical dependencies outside that
+graph are hashed without claiming a full ancestral audit. The new viewer
+resource link serves the exact disposition bytes over the local port 8767
+server; geometry assets, current112 selection and all earlier evidence stay
+unchanged. These are calculation/source/software checks, not physical tests or
+complete connection acceptance. Unsupported critical paths and actual oblique
+criterion applicability remain open rather than being marked passed.
+The refreshed owned scope contains 39 paths and uses
+`fea/generated/v11-relocated-rear-pair-v1/delivery/prepare_reviewed_checkpoint_v2.py`
+with its `delivery/checkpoint-review-v2/manifest.json`. Run that producer with
+`--check` before a later commit; it preserves the earlier manifest and uses a
+private index. All item3 raw inputs, native outputs and producers stay active
+for the current evidence graph. No archive or prune candidate is selected;
+other agents' files remain untouched. No shared staging, commit, push, merge,
+deployment, physical work or release occurs during this task.
+
+The subsequent [connection closeout](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/connection-closeout.json) addresses the owner's four next steps on the same frozen 114-bolt geometry and analysis-v2 bank. Five distinct workers handled geometry, brittle paths, bolt material, fitting/contact/bond and planning. No native or global case, model change, selection or physical release occurred. All 36 interrupted parallel directions now have 72 connected intact patches and 216 affine force/moment comparisons, maximum **0.094773** under the declared E3 extension. This construction does not add disconnected material or clear transverse cracking. Fresh NDS §3.4.4 arithmetic covers 336 cases and 672 edge alternatives, with three optional rear-foot envelope flags, maximum **1.092709**. The historical centering remedy fits the current finished walls and hardware: 50.8 mm leg plus 38.1 mm runner, 24 exact obstacle queries and no modeled collisions. Its held-force **0.835124** is an unselected proposal. A changed mark requires fresh-stock geometry and matching analyses; the old jig cannot transfer unchanged.
+
+Actual a1-rear top actions are perpendicular to grain within the existing reporting tolerance. Under the supported sole-wood-length Table-D interpretation, 41.275 mm available misses 47.625 mm by **6.35 mm**. Supplemental primary 2018 end-angle interpolation is recorded separately from the 2024 normative endpoints; four cleat-post near axes still miss its minimum. All eight added cleat axes cross steel. Moving the post axes past the arm misses both plywood leaves and enters the runner, so that proposal is rejected. The [dimensioned constraint review](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/owner-constraint-options-review-v1.svg) and bound JSON compare the unchanged trial with two unselected routes: evaluate 102 bolts using the 24 owned angles, or preserve eight bolts while resolving a compatible fitting/pattern or alternative method. The 102-bolt route would use four per outer top and six per cleat, with zero spacers. It relaxes the owner's bolt-count instruction; preference is pending and no omission is implemented. Remaining end reductions, side/plywood geometry, complete strengths and full-wrench splitting are not labeled passed.
+
+All 144 mixed states were recomputed for two concrete specifications. Current A574 profiles with an expressly specified conventional 0.2%-offset F606 yield/Fyb of at least 60 ksi give **0.927212** for that reference and **0.803093** for separate elastic steel. Generic A574 does not establish that added property: the primary note genuinely says 2%, not 0.2%. The same-diameter Grade 5 hex-cap option gives conservative fixed-field bounds **0.619942 / 0.536955**. All 12 larger heads and declared access envelopes clear the model; the source-qualified default Style 1 fillet fits minimum washer thickness. Actual underhead/profile/seat/tool conformity remains unobserved; selecting a changed profile requires matched mechanics. Exact same-head Unbrako 111241 is another procurement-review candidate, but its published body floor is 0.0762 mm below the current floor and its conventional minimum/F606 material join remains open. No product or favorable property is silently adopted; all three original generic 45 ksi flags remain.
+
+The source-backed Q235B development hypothesis and existing compatible contact allocation remain, without an arbitrary prying multiplier. Twelve current bond states preserve all six reduced resultants on bore-free net faces; long-wavelength shear demand is **0.066143 MPa**. T-88's saved full cure basis is three days at 70°F. The continuous near-washer bound requires **81.627 MPa Fy**, with actual washer strength unassigned. Its pressure field and the native fitting's field remain separate component hypotheses. Local bond/load introduction, actual assembly behavior and complete joint acceptance remain unqualified. Planning reuses 110 literal axis records and overlays four; 144 literal receiver rows plus 12 overlays give 156. It records 114 bolts/nuts, 228 washers, four spacers and source data for a future upper-rear template. Observations stay blank and all buying/drilling rows HOLD.
+
+Parent validation checks **177 distinct bound files across 36 local reports**, all 18 fresh field/replay sources and all 30 finished profile hashes, without failures. Public review copies match their frozen sources. The **921 affected Node checks**, authority check and whitespace check pass; the development summary stays within its 150-line limit. The three additions total **78,797 bytes**, retaining the decision/results and exact review coordinates; bulky arrays remain ignored. Both closeout and earlier item3 raw evidence stay active. Original summaries, diagnostics, meshes and failed studies remain unchanged; no archive/prune is selected. The active goal remains unfinished pending the detail decision and dependent matched work. The selected 112-bolt development model and root baseline retain authority; panel-screw resistance remains deferred and the review loop suspended.
+
+The earlier 39-path and 42-path private checkpoints preserve their original reviewed bytes. The fixed-input closeout uses `fea/generated/v11-relocated-rear-pair-v1/delivery/prepare_reviewed_checkpoint_v4.py` with `delivery/checkpoint-review-v4/manifest.json`; the subsequent planning scope is recorded below. Shared staging remains untouched, and no commit/push occurs during quiet hours.
+
+The [provisional 114-stack planning packet](../bolted-frame-development/owner-frame-v11/relocated-rear-pair/planning/README.md) now materializes the complete hardware and 156-row receiver tables, preserving original cells plus the checked overlays and explicit HOLD status. An independent join verifies 29 expected source bindings and every inherited cell. The full thread audit covers 268 physical member intervals: 60 axes meet the wood-only quarter geometry and 54 require root/profile treatment. The existing rear-foot 26.0% and front-post 25.714% cases already use Dr; no missed nominal-D capacity assumption was found. The separate conservative all-media selector remains 12/102, with steel fractions kept outside the normative wood-quarter claim. Exact product body/root/runout conformity remains unobserved.
+
+Two handed upper-rear marking prototypes reuse the existing box, proper-transform and STL-check helpers. Their nominal envelope is 178 × 141.3 × 8.2 mm, with two 2 mm marking apertures per side and actual upper-end/rear-edge registration. Twelve finished-BRep datum samples, valid-solid and manifold checks pass. Parent independently checks both STL topologies and reconstructs all four target axes, maximum error 9.10e-13 mm. These remain digital prototypes with physical use HOLD. The existing lower-foot templates remain tied to unchanged axes; the unselected centering proposal would require different marks.
+
+The eight added planning files total 296,634 bytes, including two requested printable meshes and complete review tables. Editable STEP/source files and detailed replay arrays remain ignored and active. Parent checks 92 bound source files without failure; all eight public copies serve exact bytes locally. The 921 affected tests pass, followed by the changed navigation check and 12 documentation tests. Fifteen relocated-trial resource links now include the closeout, dimensioned decision and planning packet. That 50-path scope is preserved by `fea/generated/v11-relocated-rear-pair-v1/delivery/prepare_reviewed_checkpoint_v5.py` and `delivery/checkpoint-review-v5/manifest.json`; later authorized changes require a refreshed scoped checkpoint. The 112-model selection, original reports and release holds remain unchanged. No archive/prune, shared staging, commit or push occurred.
+
+The owner subsequently requested checking the historical reasons for eight bolts. V9's 0.539641 plywood result was separate from its upper-cleat connection flags and 1.169225 top-section reference; V10's 0.613288 top result used a different frame. No controlled current V11 count-removal comparison was found. The parent withdrew the preference for 102 bolts and identified the already-saved four shorter Grade 5 stacks as an independent zero-spacer route. The owner explicitly directed proceeding with that approach and starting a new goal. The [bounded authorization](../bolted-frame-development/owner-frame-v11/owner-zero-spacer-eight-bolt-evaluation.json) retains all 114 axes, eight bolts at each affected joint, the paired half-inch upper-rear bolts, every timber/cleat profile and bore, all 24 angles and 66 Hillman axes. Only four cleat-post Grade 5 bolts change from 7 to 6½ inches, their four 12.7-mm spacers are removed and their nuts move inward. Other remedies require review; the 102-bolt alternative is not selected. New candidate `v11-zero-spacer-eight-bolt-v1` is being built and evaluated with its own geometry, mass, six-case forces and both replays. Saved conditional type/profile and component methods are reused; earlier numerical passes do not transfer. Existing selected development/baseline authority and all physical release holds remain separate.
+The zero-spacer geometry receipt is `b52265bc…`: 1,095 occupied parts, 114 bolts and no spacers, with all 30 profiles and 114 axis stations preserved. The four maximum-head envelopes and compact 25.4 mm nut approaches clear; 100 mm approaches encounter perpendicular header hardware after 39.2875 mm. Actual tools and assembly/service sequence remain unqualified. The [local geometry preview](http://127.0.0.1:8767/?model=eoere-v11-zero-spacer-preview&view=rear&holds=off) passes browser checks. Its 114-row hardware and 156-row receiver planning tables preserve all coordinates and reuse existing jig meshes by hash; force binding remains pending. The first preparation retained obsolete spacer/metal gravity rows and stopped before solving. The second exposed inherited default paths and was also preserved. Corrected `mechanics/analysis-v3` refreshes only four removed spacer and eight shaft/nut gravity rows per case. All six actual factory preparations and 1,684 source hashes pass; parent admission `44870733…` authorizes the fresh six-case run with both replays. No historical force field becomes a current result.
+
+The zero-spacer bank `a87f9edf…` and independent parent admission `a9077767…` now bind six fresh fields and twelve admitted replays, with 1,689 unique field-source hashes checked without failure. Five cases use parent vectors solely as numerical guesses. The original right-rear warm attempt passed the generalized-gradient gate but failed the separate recovered wrench check; it remains rejected and preserved. One explicit default-cold retry used the same input `515ed1c2…`, geometry `720e1c96…`, loads and original thresholds. It passes all 166 body/global checks and both replays: maximum body force residual 7.939e-7 N, body moment residual 0.000724 Nmm and global moment norm about 0.001116 Nmm. Maximum accepted case gradient is 8.352509e-6, below the unchanged 1e-5 gate. The [current provisional planning packet](../bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/planning/README.md) binds this bank, 114 bolts/nuts, 228 washers, zero spacers and 156 receiver rows. Thirty unchanged profiles and five STL hashes are reused; no drilling release follows. The fresh member, mixed, rear, fitting, washer and bond component calculations are now complete within their declared scopes; the separate status below records the retained flags. All raw zero-spacer inputs, failed attempts, source helpers and existing parent dependencies stay active; no archive or prune occurred.
+
 **V11 restored geometry and conditional six-case calculations are complete; complete joint qualification remains unfinished.** The evaluation holds geometry and hardware fixed, retains the six-case 250 lb load contract and admits all six fresh fields with two independent replays per case. The [owner request](../bolted-frame-development/owner-frame-v11/owner-v9-eight-bolt-request.json), SHA `8704cdfba23c59ea2a56d87bddf8f1123caedfbaad3c5163d6196eda2234fde0`, selects V9's straight-sided 361.186 × 139.7 mm cleat outlines and two glued nominal 19.05 mm leaves per side. Each cleat has four bolts into each member; only the two outer top corners gain eight bolts. Center top connections retain their V9 four-bolt arrangements. Standard actual 88.9 × 139.7 mm top and sides and no wood packers are represented. The [local preview](http://127.0.0.1:8767/?model=eoere-v11-v9-eight-bolt-preview&view=rear&holds=off) is bound to the [checked receipt](../bolted-frame-development/owner-frame-v11/geometry-receipt.json), SHA `576159eb2dcd791cf1a983165728e173fa594015fd7ab39ed9d69c1cb591a330`. Parent comparison verifies all 27 other profile outlines and all 80 original non-top bolt records against the frozen V9 source; the two principals shorten only 50.8 mm at the upper ends and the top grows toward its underside with its upper face fixed. No Candidate 13 cleat thinning/enlargement or rear/header changes transfer.
+
+The [rear placement review](../bolted-frame-development/owner-frame-v11/matching-rear-bolts/placement-review.svg)
+and [source-bound proposal](../bolted-frame-development/owner-frame-v11/matching-rear-bolts/placement-review.json)
+prepare one minimal owner-review option without changing current axes: move each
+existing upper-rear axis 6.509 mm and add a matching ½-inch bolt per side. Timber,
+cleat and fitting profiles and the four spacers stay fixed. The fixed-old-axis
+4D-edge/5D-pair envelope has only 0.144688 mm best common margin; allowing both
+positions to move gives 2.336450 mm. A 7D envelope at both ends is stricter and
+cannot be cleared by that pair in the present profiles, but it is not an actual
+NDS failure finding. The 48 saved two-bolt case/axis/host projections consistently
+load the short leg end away from the end; a conditional 4D reference there and
+7D at its far net-loaded end give a 15.017 mm end margin at the proposed positions.
+The parent independently measured the cached vertex hulls with a separate
+ConvexHull implementation and checked eleven source hashes. No new loads,
+couples, Cdelta, actual row rule or capacity result is inferred from that geometry.
+The old two-bolt bank supplies sign context only; the moved positions have no
+matched bank. The proposal assumes undrilled locations or suitable fresh stock.
+An owner exception to the axis freeze is pending before any distinct candidate
+geometry and six-case analysis. The 9,297-byte review and 6,659-byte close-up SVG
+are retained because they make the requested decision concrete; raw LP inputs,
+both stronger-envelope results and the original diagram remain recoverable.
+
+The [factory top-angle source screen](../bolted-frame-development/owner-frame-v11/shorter-bolts/top-factory-product-screen.json)
+retains four bounded manufacturer leads without claiming market-wide unavailability.
+None establishes the requested steel eight-hole pattern, both pitches and bolt-hole
+compatibility. The parent projection corrects one overly broad size interpretation:
+a flange shorter than the timber depth is not by itself a fit rejection; the C&C
+lead fails this requested route through its aluminum material and holes smaller
+than the current ⅜-inch bolts. A specific compatible drawing and material basis
+remain missing; no new fitting or custom steel was adopted. The 6,922-byte record
+and all raw sources remain active. Current geometry, bank and V5 joint disposition
+are unchanged; no purchase, fabrication or climbing release is granted. All new
+review records remain local during blackout.
 
 **Owner-authorized shorter-bolt six-case references are available; connection design remains active.** The owner explicitly exempts twenty header/cleat stack substitutions from the later model freeze; [the recorded exception](../bolted-frame-development/owner-frame-v11/owner-shorter-bolt-exemption.json) preserves all wood, cleat, fitting, hole, axis, head and washer-seat geometry. `v11-shorter-bolts-v1` removes twenty metal sleeves, leaving four, with 112 bolts and 1,089 occupied parts. Its [own six-case bank](../bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json), SHA `0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c`, admits all six fields and twelve replays, maximum gradient 4.735321e-7. The [matched review](../bolted-frame-development/owner-frame-v11/shorter-bolts/reference-review.json), SHA `9a95d840a81205e2ef6c9cb6924f8b0f27811339b4eaceff9359d0833cf70c72`, recalculates the changed design: governing timber 0.965879, cleat 0.439253, independent elastic steel 0.698285, conditional92 directional EYM 0.841812. The [110-row inventory](../bolted-frame-development/owner-frame-v11/shorter-bolts/numerical-flag-inventory.csv) preserves distinct diagnostics and property/bound scenarios rather than declaring physical failures. Fresh classification has 132 nominal-singleton and 120 unresolved row-application scopes; 24 mixed-media axes still lack complete compatible joint interaction. Signed 068/069 actions remain away from their nearest edges. The [rear conditional follow-through](../bolted-frame-development/owner-frame-v11/shorter-bolts/rear-conditional-followthrough.json), SHA `dccee1c21b1f371b4ac32c5dd6922f999a8f09c8e998d75998a8d58fe33fd99f`, closes 24 singleton/end-factor states (maximum 0.841812; foot end factor 0.9864649374) and 12 planar foot-shear states (maximum 0.659690) using current section proofs and signed controls. The original three two-edge-envelope flags remain, maximum 1.104593; local splitting, axial-seat/prying and concurrent out-of-plane duties remain unqualified. The [four-spacer decision](../bolted-frame-development/owner-frame-v11/shorter-bolts/remaining-spacer-decision.json) finds a conditional same-head 6½-inch dimensional route but no exact selected product; the four sleeves and all geometry stay unchanged. Body/root profiles control resistance postprocessing, while elastic shafts retain the original uniform nominal-diameter method; physical thread behavior is unqualified. The twelve fixed socket-head masses now follow source BReps, correcting self-weight by −0.034399 kg without changing the owner load recipe. Corrected fitting local-vector serialization leaves all numerical indices and world wrenches unchanged. The issued numerical subchecks remain preserved; actual Cg/Cdelta, applicable geometry/splitting, complete mixed/fitting/axial interactions and recorded physical assumptions remain open. The [main development summary](../bolted-frame-development/README.md) holds the current links, four-spacer planning table, publication state and retention notes. The preserved V11 route and selected baseline remain unchanged; no physical-work or structural release is granted.
 

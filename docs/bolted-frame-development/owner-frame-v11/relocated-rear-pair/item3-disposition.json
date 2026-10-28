@@ -1,0 +1,999 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fu": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "actual_friction": null,
+  "agent_review_loop_suspended": true,
+  "all_applicable_criteria_resolved": false,
+  "all_item3_criteria_resolved": false,
+  "augmented_header_steel_anchors": {
+    "anchor_states": 192,
+    "case_event_variants": 12,
+    "flat_leaf_states": 96,
+    "maximum_added_root_force_N": 0.0,
+    "maximum_added_root_moment_Nmm": 0.0,
+    "maximum_conditional_affine_principal_extension_marker": 0.06869637914960673,
+    "maximum_conditional_force_only_principal_marker": 0.025144619916763568,
+    "maximum_required_Fu_affine_extension_MPa": 8.238318434752408,
+    "maximum_required_Fu_force_only_MPa": 2.917237112553115,
+    "physical_paths": 8
+  },
+  "brittle_components": {
+    "geometry_paths": {
+      "both_directions_supported_rows": 70,
+      "common_core_row_geometry_exclusions": 2,
+      "host_groups": 56,
+      "interrupted_directional_paths": 36,
+      "rows": 102
+    },
+    "header_added_flat_tie": {
+      "maximum_conditional_index": 0.024883628660227454,
+      "states": 96,
+      "surface_eccentricity_mm": 3.175
+    },
+    "header_augmented_shared_shaft": {
+      "axis_case_event_states": 96,
+      "event_variants": 12,
+      "max_Fy_required_MPa": 58.556430539918075,
+      "max_Mp4_Fyb_required_MPa": 42.17225433762522,
+      "max_Mp5_Fyb_required_MPa": 52.715317922031524,
+      "max_steel_interface_Fe_required_MPa": 59.71756983023246,
+      "max_wood_Fe_required_MPa": 16.787567234624873,
+      "max_wood_bearing_cosine_local_reference_index": 0.6670769243024045,
+      "unique_axes": 8
+    },
+    "header_saved_equilibrium_residual": {
+      "additive_construction_gate_Nmm": 0.0001,
+      "load_or_global_gate_changed": false,
+      "old_gate_Nmm": 1e-05,
+      "original_member_cut_gate_Nmm": 0.1,
+      "raw_residuals": [
+        {
+          "case_id": "a1-rear",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            8.40564009507716e-08,
+            -9.247200978279579e-07,
+            -8.784026431385428e-05
+          ]
+        },
+        {
+          "case_id": "a1-rear",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            8.40564009507716e-08,
+            -9.247200978279579e-07,
+            -8.784026431385428e-05
+          ]
+        },
+        {
+          "case_id": "a12-forward",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            -3.026912054338027e-11,
+            4.793037078343332e-10,
+            4.528556019067764e-08
+          ]
+        },
+        {
+          "case_id": "a12-forward",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            -3.026912054338027e-11,
+            4.793037078343332e-10,
+            4.528556019067764e-08
+          ]
+        },
+        {
+          "case_id": "a12-left",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            -1.042224084812915e-10,
+            -4.3792169890366495e-10,
+            6.893969839438796e-08
+          ]
+        },
+        {
+          "case_id": "a12-left",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            -1.042224084812915e-10,
+            -4.3792169890366495e-10,
+            6.893969839438796e-08
+          ]
+        },
+        {
+          "case_id": "a12-rear",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            8.96681200401872e-08,
+            9.86754457699135e-07,
+            1.1326566891511902e-05
+          ]
+        },
+        {
+          "case_id": "a12-rear",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            8.96681200401872e-08,
+            9.86754457699135e-07,
+            1.1326566891511902e-05
+          ]
+        },
+        {
+          "case_id": "k12-rear",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            9.021530900099606e-08,
+            3.8245361793087795e-06,
+            -1.4062188711250201e-05
+          ]
+        },
+        {
+          "case_id": "k12-rear",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            9.021530900099606e-08,
+            3.8245361793087795e-06,
+            -1.4062188711250201e-05
+          ]
+        },
+        {
+          "case_id": "k12-right",
+          "event": "on-plane-to-high",
+          "high_minus_low_N_Mx_Mz": [
+            1.1873169114551274e-10,
+            2.5056579033844173e-10,
+            6.363552529364824e-08
+          ]
+        },
+        {
+          "case_id": "k12-right",
+          "event": "on-plane-to-low",
+          "high_minus_low_N_Mx_Mz": [
+            1.1873169114551274e-10,
+            2.5056579033844173e-10,
+            6.363552529364824e-08
+          ]
+        }
+      ],
+      "zero_equilibrium_claim": false
+    },
+    "individual_E3": {
+      "above_one_count": 0,
+      "maximum": 0.11581025499876911,
+      "rows": 480
+    },
+    "interrupted_followthrough": {
+      "blocked_positive_net_force_rows": 91,
+      "directional_case_rows": 480,
+      "max_valid_directional_force_component": 0.16838942941397134,
+      "measured_interrupted_paths": 36,
+      "valid_directional_reference_rows": 264
+    },
+    "longitudinal_center_u_compression_patches": {
+      "base_header": {
+        "all_positive_normal_resultants_rejected": true,
+        "compression_cop_outside_or_no_contained_patch_count": 0,
+        "contained_patch_certificate_count": 0,
+        "event_side_row_count": 24,
+        "maximum_conditional_Fc_perp_ratio_and_witness": null,
+        "maximum_required_uniform_pressure_MPa_and_witness": null,
+        "negative_normal_resultant_count": 0,
+        "positive_normal_resultant_count_rejected": 24
+      },
+      "eoere_cleat_left": {
+        "all_positive_normal_resultants_rejected": true,
+        "compression_cop_outside_or_no_contained_patch_count": 0,
+        "contained_patch_certificate_count": 24,
+        "event_side_row_count": 24,
+        "maximum_conditional_Fc_perp_ratio_and_witness": null,
+        "maximum_required_uniform_pressure_MPa_and_witness": [
+          2.878469098479236,
+          "a12-forward",
+          "on-plane-to-low",
+          "high"
+        ],
+        "negative_normal_resultant_count": 24,
+        "positive_normal_resultant_count_rejected": 0
+      },
+      "eoere_cleat_right": {
+        "all_positive_normal_resultants_rejected": true,
+        "compression_cop_outside_or_no_contained_patch_count": 0,
+        "contained_patch_certificate_count": 24,
+        "event_side_row_count": 24,
+        "maximum_conditional_Fc_perp_ratio_and_witness": null,
+        "maximum_required_uniform_pressure_MPa_and_witness": [
+          1.6322116911002253,
+          "k12-rear",
+          "on-plane-to-low",
+          "low"
+        ],
+        "negative_normal_resultant_count": 24,
+        "positive_normal_resultant_count_rejected": 0
+      },
+      "lumber_leg_left": {
+        "all_positive_normal_resultants_rejected": true,
+        "compression_cop_outside_or_no_contained_patch_count": 0,
+        "contained_patch_certificate_count": 24,
+        "event_side_row_count": 24,
+        "maximum_conditional_Fc_perp_ratio_and_witness": [
+          0.29319311482523813,
+          "a12-left",
+          "on-plane-to-low",
+          "high",
+          1.263434604217537
+        ],
+        "maximum_required_uniform_pressure_MPa_and_witness": [
+          1.263434604217537,
+          "a12-left",
+          "on-plane-to-low",
+          "high"
+        ],
+        "negative_normal_resultant_count": 24,
+        "positive_normal_resultant_count_rejected": 0
+      },
+      "lumber_leg_right": {
+        "all_positive_normal_resultants_rejected": true,
+        "compression_cop_outside_or_no_contained_patch_count": 0,
+        "contained_patch_certificate_count": 24,
+        "event_side_row_count": 24,
+        "maximum_conditional_Fc_perp_ratio_and_witness": [
+          0.2952228757530721,
+          "k12-right",
+          "on-plane-to-low",
+          "high",
+          1.2721812973178943
+        ],
+        "maximum_required_uniform_pressure_MPa_and_witness": [
+          1.2721812973178943,
+          "k12-right",
+          "on-plane-to-low",
+          "high"
+        ],
+        "negative_normal_resultant_count": 24,
+        "positive_normal_resultant_count_rejected": 0
+      }
+    },
+    "parallel_components": {
+      "counts": {
+        "E2": 336,
+        "E3": 420,
+        "E4": 192,
+        "unresolved_case_rows": 204
+      },
+      "flags": {
+        "E2": 0,
+        "E3": 0,
+        "E4": 0
+      },
+      "maxima": {
+        "E2": 0.028867919980019134,
+        "E3": 0.11581025499876911,
+        "E4": 0.03118737669834162
+      }
+    }
+  },
+  "candidate_selected": false,
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "fabrication_released": false,
+  "fitting_component_scope": [
+    {
+      "count": 288,
+      "duty": "Co-located complete root N/V/T/M",
+      "result": "Fy67.730272MPa required at retained1.67 marker; nominal40.557MPa",
+      "scope": "Unperforated full-width prismatic free-warping section only; does not replace the previous half-strip or holed-body behavior."
+    },
+    {
+      "count": 288,
+      "duty": "Nominal net sections with all six section resultants",
+      "result": "Maximum0.466599431 at conditional235/1.67",
+      "scope": "Historical12mm deductions for both transverse holes and convex one-sided station envelope of fresh fine point actions. No finite contact traction, stress concentration or 3D continuity proof."
+    },
+    {
+      "count": 672,
+      "duty": "Hole bearing and tearout, fresh force and perpendicular free couple",
+      "result": "Force-only Fu7.455959MPa; affine-thickness extension Fu20.370060MPa",
+      "scope": "All4factoryholes and rectangle edge rays retained. The affine endpoint envelope reproduces force and perpendicular moment. Applying force-only AISC equations locally through thickness is an explicit conditional mechanics extension, not an adopted full3D fracture interaction. Heel-cut paths are conservative artificial boundaries, not asserted physical free edges."
+    },
+    {
+      "count": 288,
+      "duty": "Principal L/U block-shear components",
+      "result": "Force-only marker0.062964659; affine extension0.168252034",
+      "scope": "Conditional235/370 reference, Ubs0.5 andOmega2. The linear principal sum and affine extension are not claimed as general AISC eccentric3D interaction rules."
+    },
+    {
+      "count": 144,
+      "duty": "Formed heel six-wrench ideal-sector construction",
+      "result": "Continuous interval upper marker0.924190487; sufficient requiredFy217.184765MPa under retained factor",
+      "scope": "Ri=t6.35 quarterannular full-width equilibrated field with own source gravity partition. Actual material, radius and flange-to-sector traction matching remain distinct."
+    },
+    {
+      "count": 96,
+      "duty": "Near washer prescribed-load static strength on partial flat support",
+      "result": "RequiredFy105.248072MPa at1.67; no washer OD change",
+      "scope": "Concentric specified load rings and contained support annulus. Outer radial interface traction vanishes, so zero stress on the actual unloaded overhang is an admissible extension. This is a strength construction, not actual elastic pressure, prying or preload."
+    },
+    {
+      "count": 672,
+      "duty": "All typed entry actions and tiny residual axial torque",
+      "result": "Force/moment replay4.74e-11; Tentry1.741877e-6Nmm; conditionalminimum\u00b51.776823e-8",
+      "scope": "Entry and midpoint wrenches both retained. Transverse pole offsets account for their different torques. Actual friction is unassigned; torque is not silently erased."
+    },
+    {
+      "count": 672,
+      "duty": "Actual fresh normal-statics prying boundary",
+      "result": "576 nonnegative unit-extra-capture cycles;96notfound",
+      "scope": "Projected normal force and two bending moments only. Cycles show that those statics cannot supply a universal finite physical prying bound; source tangential and torsional duties retain separate full-wrench checks. No assertion of an exact6DOF cycle, unlimited physical force, or absent cycles for the96."
+    }
+  ],
+  "fitting_conditional_inputs": {
+    "angle_flat_t_mm": 6.35,
+    "angle_inside_radius_scenario_mm": 6.35,
+    "block_and_hole_ASD_factor": 2.0,
+    "near_washer_actual_outer_radius_mm": 13.081,
+    "near_washer_bend_support_condition": "Ri <= 23.8125 - t - c; c is the selected contained supported radius and must contain the loaded footprint. Full actual washer OD need not be supported in this static construction.",
+    "near_washer_min_thickness_scenario_mm": 1.6256,
+    "near_washer_supported_radius_mm": 11.1125,
+    "steel_ASD_comparison_factor": 1.67,
+    "steel_Fu_reference_MPa": 370.0,
+    "steel_Fy_reference_MPa": 235.0,
+    "width_mm": 88.9
+  },
+  "fitting_current_native_layer": {
+    "counts": {
+      "actual_variant_governing_fine_states": 2,
+      "coarse_meshes_reused": 1,
+      "current_baseline_body_cases": 144,
+      "current_header_body_cases": 48,
+      "explicit_same_port_positive_N_torque_transfer_pairs": 17,
+      "header_event_aliases_covered": 96,
+      "initial_fine_method_probe_states": 1,
+      "source_typed_steel_ports": 672,
+      "source_wrench_groups": 3792,
+      "total_distinct_coarse_prescribed_traction_states": 192
+    },
+    "engineering_disposition": {
+      "body_composition": "The new native bodies join the straight perforated flanges and curved heel within one prescribed-traction elastic solid. This closes the earlier missing response composition for the declared local geometry and traction scenario; the independent analytical sector and section fields are retained as separate references, not silently glued into a strength proof.",
+      "completed": "Fresh conditional component arithmetic, all current baseline continuous holed/curved elastic body responses, both exact header event aliases, full source-wrench reconciliation and both observed variant-governing two-mesh comparisons are now calculated. No source force, moment, load or model geometry was reduced.",
+      "fracture": "Force-only AISC bearing, tearout and principal block-shear checks are complete within their printed scopes. The affine-thickness force-and-moment extension and linear principal marker are explicit conditional mechanics screens, not an adopted general3D fracture interaction. Elastic IP stress does not invent such a resistance.",
+      "load_allocation": "Saved FE strip/contact/capture reactions remain prescribed demands from that model. Normal nullcycles do not invalidate the saved allocation or demand arbitrary new prying loads. The local native studies do not establish assembly compatibility or predict physical prying.",
+      "material": "Angle Fy235/Fu370, Ri=t6.35 and the stated washer thickness/contact are conditional references. Required strengths are reported. Actual Eoere steel properties, bend radius and physical conformity remain unverified, separate from numerical completion.",
+      "remaining": "Actual load allocation/contact and physical prying, coupled fracture and cyclic modes, material/radius/fit, timber splitting geometry and applicable connection rules retain their separate dispositions. This fitting layer does not supply whole-joint or product acceptance.",
+      "seat_pressure": "The native near-seat loads use the historical centered symmetric partial-flat annulus witness. The separate washer-strength construction uses its contained full subannulus with zero stress on the actual unloaded overhang. These different traction hypotheses are not composed into one washer-fitting assembly pass.",
+      "tiny_torque": "All672 raw canonical port torques remain recorded. Only17 above the unchanged radial-map tolerance are explicitly transferred to the same bolt positive-N washer using a pressure-weighted tangential field. Combined port force and moment remain unchanged; required discrete friction is reported and actual friction stays unassigned. Zero-N residual cases use the unchanged original numerical gates, with no new friction credited."
+    },
+    "references": {
+      "actual_coarse_governing_fine_comparisons_complete": true,
+      "actual_observed_variant_governing_fine_comparisons": [
+        {
+          "case_id": "a12-forward",
+          "coarse_VM_MPa": 61.203265000434335,
+          "coarse_governing_state_id": "C00-a12-forward",
+          "fine_Fy235_marker_index": 0.4434597555097106,
+          "fine_VM_MPa": 62.40301948789342,
+          "fine_required_Fy_1_67_MPa": 104.213042544782,
+          "fitting_id": "eoere_clip_angle_base_left",
+          "relative_VM_change": 0.01960278569207974,
+          "variant": "baseline"
+        },
+        {
+          "case_id": "a12-forward",
+          "coarse_VM_MPa": 61.20072721147251,
+          "coarse_governing_state_id": "H00-a12-forward",
+          "fine_Fy235_marker_index": 0.44344245240673585,
+          "fine_VM_MPa": 62.40058462010954,
+          "fine_required_Fy_1_67_MPa": 104.20897631558293,
+          "fitting_id": "eoere_clip_angle_base_left",
+          "relative_VM_change": 0.019605280252488644,
+          "variant": "header"
+        }
+      ],
+      "all_state_fine_mesh_envelope_established": false,
+      "baseline": {
+        "cases": 6,
+        "conditional_Fy235_marker_index": 0.4349338406413844,
+        "fittings": 24,
+        "governing_case": "a12-forward",
+        "governing_fitting": "eoere_clip_angle_base_left",
+        "governing_state": "C00-a12-forward",
+        "marker_above_one_count": 0,
+        "maximum_IP_VM_MPa": 61.203265000434335,
+        "maximum_gauge_plus_applied_force_residual_N": 6.0441377101693314e-09,
+        "maximum_gauge_plus_applied_moment_residual_Nmm": 1.3726131995052734e-07,
+        "minimum_half_CLOAD_U_work_Nmm": 2.4102173474393298e-05,
+        "required_Fy_1_67_MPa": 102.20945255072533,
+        "states": 144
+      },
+      "combined_coarse_governing_fine_VM_MPa": 62.40301948789342,
+      "combined_coarse_governing_fine_variant": "baseline",
+      "combined_coarse_peak": {
+        "actual_Fy_MPa": null,
+        "case_id": "a12-forward",
+        "centroid_is_not_IP_coordinate": true,
+        "conditional_Fy235_marker_index": 0.4349338406413844,
+        "element_corner_centroid_local_mm": [
+          5.9283005072776085,
+          -30.616738389373957,
+          22.713380129989797
+        ],
+        "fitting_id": "eoere_clip_angle_base_left",
+        "gauge_plus_applied_force_residual_N": 6.0441377101693314e-09,
+        "gauge_plus_applied_moment_residual_Nmm": 1.3726131995052734e-07,
+        "gauge_reactions": [
+          {
+            "RF_N": 6.269291e-09,
+            "dof": 1,
+            "node": 21019
+          },
+          {
+            "RF_N": -6.450508e-09,
+            "dof": 2,
+            "node": 21019
+          },
+          {
+            "RF_N": -4.384756e-09,
+            "dof": 3,
+            "node": 21019
+          },
+          {
+            "RF_N": -2.47769e-09,
+            "dof": 1,
+            "node": 21020
+          },
+          {
+            "RF_N": 2.623849e-09,
+            "dof": 2,
+            "node": 21020
+          },
+          {
+            "RF_N": -3.37393e-09,
+            "dof": 1,
+            "node": 21021
+          }
+        ],
+        "half_CLOAD_U_work_Nmm": 24.17876264557893,
+        "header_event_aliases": [],
+        "integration_points": 86864,
+        "maximum_IP_VM_MPa": 61.203265000434335,
+        "native_step": 1,
+        "peak_IP": 4,
+        "peak_element": 32029,
+        "peak_simultaneous_tensor_MPa": [
+          0.6402255,
+          -4.282779,
+          57.82352,
+          -0.3604757,
+          -1.009009,
+          -7.45468
+        ],
+        "required_Fy_1_67_MPa": 102.20945255072533,
+        "state_id": "C00-a12-forward",
+        "tensor_order": [
+          "Sxx",
+          "Syy",
+          "Szz",
+          "Sxy",
+          "Sxz",
+          "Syz"
+        ]
+      },
+      "header": {
+        "cases": 6,
+        "conditional_Fy235_marker_index": 0.43491580614110253,
+        "fittings": 8,
+        "governing_case": "a12-forward",
+        "governing_fitting": "eoere_clip_angle_base_left",
+        "governing_state": "H00-a12-forward",
+        "marker_above_one_count": 0,
+        "maximum_IP_VM_MPa": 61.20072721147251,
+        "maximum_gauge_plus_applied_force_residual_N": 6.0154804607327286e-09,
+        "maximum_gauge_plus_applied_moment_residual_Nmm": 1.3601590280409175e-07,
+        "minimum_half_CLOAD_U_work_Nmm": 0.00595312780848987,
+        "required_Fy_1_67_MPa": 102.2052144431591,
+        "states": 48
+      },
+      "initial_a12_left_method_probe": {
+        "all_family_fitting_case_states": 144,
+        "coarse_VM_MPa": 55.71287491326698,
+        "completed_native_jobs": 2,
+        "current_fitting_case_states": 1,
+        "fine_Fy235_marker_index": 0.40364895433465253,
+        "fine_VM_MPa": 56.800900759666675,
+        "fine_over_coarse_VM": 1.0195291635567814,
+        "fine_required_Fy_1_67_MPa": 94.85750426864334,
+        "global_cases": 0,
+        "maximum_gauge_plus_applied_force_residual_N": 5.1352294282174125e-09,
+        "maximum_gauge_plus_applied_moment_residual_Nmm": 1.6830342976356364e-07,
+        "relative_VM_change": 0.01952916355678142
+      },
+      "initial_coarse_probe_replayed_in_full_batch": true,
+      "initial_method_probe_matches_combined_coarse_governing_state": false,
+      "initial_method_probe_variant": "baseline",
+      "maximum_selected_governing_fine_VM_MPa": 62.40301948789342
+    }
+  },
+  "fixed_force_allocation": {
+    "evaluation_completion": "The source-prescribed component arithmetic is complete within the printed conditional section/sector/hole/washer models. A complete actual holed formed-angle proof is not claimed because matching interface fields and coupled fracture/physical contact compatibility are not supplied. No blanket test, external signoff or extra global solve is introduced.",
+    "normal_cycles": "The576 projected normal nullcycles show only that normal equilibrium alone cannot uniquely determine or finitely bound a different capture allocation without constitutive/contact compatibility. They are not predictions of physical prying, unlimited physical force, or a requirement to add an arbitrary worst-case force to current checks. The other96 states are not proven cycle-free.",
+    "saved_FE_allocation": "The current gross-strip/contact/capture operator supplies a stiffness-dependent compatible allocation within its own idealization. All saved normal forces and moments remain the prescribed fixed-bank demands; the unit normal cycles do not invalidate them."
+  },
+  "formed_fitting_components": {
+    "affine_hole_required_Fu_MPa": 20.370060011224172,
+    "affine_principal_extension_marker": 0.16825203403305034,
+    "bend_covered_states": 144,
+    "bend_maximum_constructed_upper_index": 0.9241904872524929,
+    "capture_case_states": 672,
+    "cases": 6,
+    "conditional_bend_required_Fy_from_interval_upper_MPa": 217.18476450433582,
+    "continuous_point_action_net_section_marker": 0.46659943078678423,
+    "entry_complete_port_replay_max_error": 4.7407411329913884e-11,
+    "entry_maximum_abs_axis_torque_Nmm": 1.7418771683466112e-06,
+    "entry_maximum_bearing_free_couple_Nmm": 1492.0722367041024,
+    "fittings": 24,
+    "force_only_hole_required_Fu_MPa": 7.455959440721976,
+    "force_only_principal_marker": 0.06296465873647064,
+    "heel_states": 144,
+    "hole_states": 672,
+    "maximum_entry_mu_uniform_washer_annulus_scenario": 1.7768232464810222e-08,
+    "maximum_hole_free_moment_Nmm": 800.5169564250656,
+    "maximum_required_mu_washer_face_scenario": 2.4932631565329035e-13,
+    "maximum_root_replay_error_N_or_Nmm": 7.275957614183426e-12,
+    "maximum_shaft_axis_torque_Nmm": 2.4438949497761003e-11,
+    "maximum_transverse_pole_offset_mm": 1.6110686245471148e-08,
+    "midpoint_maximum_abs_axis_torque_Nmm": 2.4453160352476205e-11,
+    "near_seat_states": 96,
+    "near_seat_static_required_Fy_1_67_MPa": 105.24807158539069,
+    "nonnegative_unit_capture_cycles": 576,
+    "root_required_Fy_1_67_MPa": 67.73027190310093,
+    "root_states": 288
+  },
+  "geometry": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/geometry.json",
+    "sha256": "9bab57acdfd7fd3d72478a9f44e707413d74f0dded6a106346ccb0807eb73d9f"
+  },
+  "geometry_components": {
+    "counts": {
+      "bolt_axes": 114,
+      "exact_foot_wall_checks": 4,
+      "factory_flange_grids": 48,
+      "logical_wood_receiver_interfaces": 140,
+      "physical_bookkeeping_groups": 58,
+      "physical_profile_leaf_rows": 156,
+      "same_host_pairs": 616,
+      "same_host_parallel_pairs": 616,
+      "signed_wood_actions": 840,
+      "source_geometry_distance_reuse_rows": 148
+    },
+    "current_068069_net_away": true,
+    "interpretation": "Completed nominal geometric arithmetic and signed action reconstruction. Principal Table A-D hypotheses are conditional references at full Cdelta=1, not actual adopted oblique/group applicability; no Cg or Cdelta assigned. Affine endpoint reversals preserve couples but do not automatically redefine a code loaded edge. Plywood principal-branch numbers are comparisons, not sawn-softwood geometry acceptance.",
+    "minimum_end_branch_coverage": "For the same D, measured end and defined softwood principal branch, the minimum requirement is half the full requirement. All full-passing sawn rows therefore also meet the weaker minimum; every flagged full-end location in the detailed disposition already carries its exact minimum-branch comparison. No Cdelta is selected.",
+    "near_end_examples": [
+      {
+        "Cdelta_if_principal_branch_and_other_conditions_eligible": null,
+        "available_mm": 23.812499999999773,
+        "axis_id": "v11_top_left_beam_1",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "direction": "negative_grain_end",
+        "flagged_case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "host": "base_rail_top",
+        "index": 2.8000000000000265,
+        "joint_id": "outer-top-left",
+        "material_scope": "sawn_principal_hypothesis",
+        "minimum_branch_index": 1.4000000000000132,
+        "minimum_permitted_geometry_mm_for_principal_branch": 33.3375,
+        "required_full_mm": 66.675
+      },
+      {
+        "Cdelta_if_principal_branch_and_other_conditions_eligible": null,
+        "available_mm": 31.08501108548296,
+        "axis_id": "v11_cleat_left_side_1",
+        "case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "direction": "negative_grain_end",
+        "flagged_case_ids": [
+          "a12-forward",
+          "a12-left",
+          "a12-rear",
+          "k12-right",
+          "k12-rear",
+          "a1-rear"
+        ],
+        "host": "base_side_left",
+        "index": 2.1449244401633156,
+        "joint_id": "cleat-header-left",
+        "material_scope": "sawn_principal_hypothesis",
+        "minimum_branch_index": 1.0724622200816578,
+        "minimum_permitted_geometry_mm_for_principal_branch": 33.3375,
+        "required_full_mm": 66.675
+      }
+    ],
+    "neighbor_bore_minimum_clear_ligament_mm": 28.8875,
+    "nominal_hole_ranges_met": 114,
+    "principal_end_edge_checks": {
+      "optional_both_edges_4D": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 0,
+          "maximum_index": 0.9710635231677112,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 0
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 8,
+          "maximum_index": 1.2676334015479096,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 8
+        }
+      },
+      "optional_both_ends_7D": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 12,
+          "maximum_index": 1.9545621106632458,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 6
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 58,
+          "maximum_index": 2.8000000000000265,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 58
+        }
+      },
+      "parallel_edge": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 0,
+          "maximum_index": 0.3641488211878917,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 0
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 0,
+          "maximum_index": 0.5714285716905847,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 0
+        }
+      },
+      "parallel_net_end": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 12,
+          "maximum_index": 1.9545621106632458,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 6
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 53,
+          "maximum_index": 2.8000000000000265,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 53
+        }
+      },
+      "perpendicular_end": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 8,
+          "maximum_index": 1.1168926346647121,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 4
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 12,
+          "maximum_index": 1.6000000000000154,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 12
+        }
+      },
+      "perpendicular_net_edge": {
+        "plywood_comparison": {
+          "flagged_receiver_rows": 0,
+          "maximum_index": 0.9710635231677112,
+          "receiver_rows": 32,
+          "unique_flagged_axes": 0
+        },
+        "sawn_principal_hypothesis": {
+          "flagged_receiver_rows": 5,
+          "maximum_index": 1.2676334015479096,
+          "receiver_rows": 124,
+          "unique_flagged_axes": 5
+        }
+      }
+    },
+    "principal_pair_checks": {
+      "Table_B_parallel_index": {
+        "flag_locations": [],
+        "flag_pair_count": 0,
+        "geometric_pair_count": 38,
+        "maximum_index": 0.9525
+      },
+      "Table_B_perpendicular_full_4D_attached_member_scenario_index": {
+        "flag_locations": [],
+        "flag_pair_count": 0,
+        "geometric_pair_count": 56,
+        "maximum_index": 0.9525
+      },
+      "Table_B_perpendicular_minimum_3D_index": {
+        "flag_locations": [],
+        "flag_pair_count": 0,
+        "geometric_pair_count": 56,
+        "maximum_index": 0.7143750000000001
+      },
+      "Table_D_parallel_between_row_index": {
+        "flag_locations": [],
+        "flag_pair_count": 0,
+        "geometric_pair_count": 56,
+        "maximum_index": 0.35718750000000005
+      },
+      "Table_D_perpendicular_between_row_index": {
+        "flag_locations": [
+          {
+            "available_mm": 41.27500000000009,
+            "axis_ids": [
+              "eoere_bolt_001",
+              "v11_top_left_beam_1"
+            ],
+            "group_id": "outer-top-left|host:base_rail_top",
+            "host": "base_rail_top",
+            "index": 1.1538461538461513,
+            "required_mm": 47.625
+          },
+          {
+            "available_mm": 41.27500000000009,
+            "axis_ids": [
+              "eoere_bolt_005",
+              "v11_top_left_beam_2"
+            ],
+            "group_id": "outer-top-left|host:base_rail_top",
+            "host": "base_rail_top",
+            "index": 1.1538461538461513,
+            "required_mm": 47.625
+          },
+          {
+            "available_mm": 41.27500000000019,
+            "axis_ids": [
+              "eoere_bolt_006",
+              "v11_top_left_post_1"
+            ],
+            "group_id": "outer-top-left|host:base_side_left",
+            "host": "base_side_left",
+            "index": 1.1538461538461484,
+            "required_mm": 47.62499999999999
+          },
+          {
+            "available_mm": 41.27500000000019,
+            "axis_ids": [
+              "eoere_bolt_010",
+              "v11_top_left_post_2"
+            ],
+            "group_id": "outer-top-left|host:base_side_left",
+            "host": "base_side_left",
+            "index": 1.1538461538461484,
+            "required_mm": 47.62499999999999
+          },
+          {
+            "available_mm": 41.27500000000009,
+            "axis_ids": [
+              "eoere_bolt_017",
+              "v11_top_right_beam_1"
+            ],
+            "group_id": "outer-top-right|host:base_rail_top",
+            "host": "base_rail_top",
+            "index": 1.1538461538461513,
+            "required_mm": 47.625
+          },
+          {
+            "available_mm": 41.27500000000009,
+            "axis_ids": [
+              "eoere_bolt_018",
+              "v11_top_right_beam_2"
+            ],
+            "group_id": "outer-top-right|host:base_rail_top",
+            "host": "base_rail_top",
+            "index": 1.1538461538461513,
+            "required_mm": 47.625
+          },
+          {
+            "available_mm": 41.27500000000019,
+            "axis_ids": [
+              "eoere_bolt_009",
+              "v11_top_right_post_1"
+            ],
+            "group_id": "outer-top-right|host:base_side_right",
+            "host": "base_side_right",
+            "index": 1.1538461538461484,
+            "required_mm": 47.62499999999999
+          },
+          {
+            "available_mm": 41.27500000000019,
+            "axis_ids": [
+              "eoere_bolt_013",
+              "v11_top_right_post_2"
+            ],
+            "group_id": "outer-top-right|host:base_side_right",
+            "host": "base_side_right",
+            "index": 1.1538461538461484,
+            "required_mm": 47.62499999999999
+          }
+        ],
+        "flag_pair_count": 8,
+        "geometric_pair_count": 38,
+        "maximum_index": 1.1538461538461513
+      }
+    },
+    "rear_staggered_pair": {
+      "actual_row_assignment": null,
+      "crossgrain_projection_mm": 33.42710034894656,
+      "grain_projection_mm": 65.83645017447328
+    }
+  },
+  "geometry_hardware_loads_changed": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "local_native_probe": {
+    "all_family_states_evaluated": false,
+    "case_id": "a12-left",
+    "fitting_id": "eoere_clip_angle_base_left",
+    "scope": "Two existing meshes at one CURRENTfixed-traction body/case. All29currentbore,capture,backing,gravitywrenches retained. This is now a singlecontinuouscurvedperforatedelasticbodyresponse for this prescribedloadconstruction; no separately unmatchedanalyticheelendtractions areused in the nativeproblem. It is1of144states, not a familygoverningproof, continuumstressbound, asymptoticmeshconvergence, assemblyprying/contactsolution, physicalsteelstrength orfractureacceptance. The savedcenteredsymmetricpartialflatnearwasher pressurewitness isdistinct from the separately constructed washer fullsubannulusstaticfield; the two are not composed into oneassemblypass.",
+    "summary": {
+      "all_family_fitting_case_states": 144,
+      "coarse_VM_MPa": 55.71287491326698,
+      "completed_native_jobs": 2,
+      "current_fitting_case_states": 1,
+      "fine_Fy235_marker_index": 0.40364895433465253,
+      "fine_VM_MPa": 56.800900759666675,
+      "fine_over_coarse_VM": 1.0195291635567814,
+      "fine_required_Fy_1_67_MPa": 94.85750426864334,
+      "global_cases": 0,
+      "maximum_gauge_plus_applied_force_residual_N": 5.1352294282174125e-09,
+      "maximum_gauge_plus_applied_moment_residual_Nmm": 1.6830342976356364e-07,
+      "relative_VM_change": 0.01952916355678142
+    }
+  },
+  "new_global_force_cases": 0,
+  "panel_screw_resistance_deferred": true,
+  "physical_failure_established": false,
+  "precise_remaining_methods": [
+    {
+      "duty": "Oblique end/edge/row applicability",
+      "remaining": "Select actual physical load-aligned row/main-side interpretation for oblique, nonparallel, eccentric actions; NDS principal tables do not provide a verified automatic any-component rule or favorable interpolation. Near-edge optional4D and both-end7D envelopes retain their separate status. Exact product/wood delivered geometry is unobserved."
+    },
+    {
+      "completed": "336 E2,420 valid row E3 and192 valid E4 case components computed on current inputs, with4872 fullsigned cut wrenches and individual comparisons; no component index above1. Two cleat-side full-depth-core exclusions have fresh contained terminal-net E2 arithmetic and saved full-wrench nominal component records.",
+      "duty": "NDS Appendix E parallel-grain E2/E3/E4",
+      "unresolved": "204 excluded case/row records: interrupted tangent faces and two common-core row geometries remain outside the connected E3/E4 path method. Perpendicular actions and independent couples stay separate."
+    },
+    {
+      "completed": "All36 current interrupted directions measured as actual multi-face/holed net tangent-plane areas. Current signed force-only direction references separately computed;264 valid directional rows max0.16838943,91 blocked positive-net-force rows.",
+      "duty": "Interrupted holes and whole-block/group alternatives",
+      "unresolved": "Net disconnected area is not a proven capacity. A larger outer whole-block group can be another failure candidate but cannot bound the weaker interrupted internal paths. Existing E3/E4 offers no compatible multi-ligament full-wrench fracture/traction law for those particular paths."
+    },
+    {
+      "completed": "Five exact longitudinal center-u source-BRep cuts replayed for all six cases andboth eventassignments.96 compressive event-side constructions exist; rear Fc_perp max0.295223. Cleat required pressures2.878469/1.632212MPa are recorded without assigning plywood/bond strength.",
+      "duty": "Perpendicular opening / compression-only construction",
+      "unresolved": "These particular cuts do not constitute an all-crack-plane splitting bound; contained-disk existence does not establish transfer compatibility, shear/torsion or local loaded-hole splitting."
+    },
+    {
+      "completed": "24 positive original header event-side normal resultants reject compression-only. Eight existing steel flat paths carry an explicit additional N/Mx/Mz field across12 case/event variants;96 flat-tie and96 augmented shared-shaft states computed preserving baseline loads and all source moments. Flat-tie conditional index0.024884; augmented cosine wood-bearing reference0.667077; required independentelasticFy58.556431MPa and separate Mp4Fyb42.172254MPa.",
+      "duty": "Header zero-transverse-tension mechanical alternative",
+      "unresolved": "This source-bound static construction is an engineering alternative, not proven actual or post-crack sharing. Baseline formedheel, holedangle, coupledsteeltearout/prying and actual local timbercritical paths remain distinct; do not add saved bridge forces again as unused reserve."
+    },
+    {
+      "completed": "Primary-source method note retained. Ordinary induced bearing moments alone do not mandate another blanket Ft90 or test gate. Historic softwood planar EC5 comparison is available in its own section-shear scope.",
+      "duty": "Planar EC5 / other source alternatives",
+      "unresolved": "The source does not map actual through-width free couples/shared interrupted holes to a full 3D splitting interaction. Linear width scaling or replacing net action with peak affine load does not prove that missing fracture rule. No Ft90,Gc,Cg,Cdelta or favorable actualproperty invented."
+    },
+    {
+      "completed": "The new native bodies join the straight perforated flanges and curved heel within one prescribed-traction elastic solid. This closes the earlier missing response composition for the declared local geometry and traction scenario; the independent analytical sector and section fields are retained as separate references, not silently glued into a strength proof.",
+      "duty": "Complete formed-fitting transfer",
+      "fracture_method_boundary": "Force-only AISC bearing, tearout and principal block-shear checks are complete within their printed scopes. The affine-thickness force-and-moment extension and linear principal marker are explicit conditional mechanics screens, not an adopted general3D fracture interaction. Elastic IP stress does not invent such a resistance.",
+      "load_allocation_boundary": "Saved FE strip/contact/capture reactions remain prescribed demands from that model. Normal nullcycles do not invalidate the saved allocation or demand arbitrary new prying loads. The local native studies do not establish assembly compatibility or predict physical prying.",
+      "seat_transfer_boundary": "The native near-seat loads use the historical centered symmetric partial-flat annulus witness. The separate washer-strength construction uses its contained full subannulus with zero stress on the actual unloaded overhang. These different traction hypotheses are not composed into one washer-fitting assembly pass.",
+      "unresolved": "Actual load allocation/contact and physical prying, coupled fracture and cyclic modes, material/radius/fit, timber splitting geometry and applicable connection rules retain their separate dispositions. This fitting layer does not supply whole-joint or product acceptance."
+    }
+  ],
+  "preserved_initial_local_native_readiness": {
+    "existing_144_fresh_load_maps_ready": false,
+    "existing_geometry_mesh_and_native_controls_reusable": true,
+    "near_washer_contained_supported_annulus_required": true,
+    "physical_midpoint_torque_does_not_clear_canonical_mesh_torque": true,
+    "unchanged_radial_only_pressure_map_covers_all_current_source_wrenches": false
+  },
+  "producer": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/assemble_item3_disposition_v1.py",
+    "sha256": "337fdc8a179481a9b3a3b916c0e2e0de527474076d4dce4818f05e5713b3f5f3"
+  },
+  "purchase_authorized": false,
+  "response_bank": {
+    "path": "fea/generated/v11-relocated-rear-pair-v1/mechanics/analysis-v2/response-bank.json",
+    "sha256": "ef84f0a7e8630f277ea185a042babd7dd73d54198b13e7197b01336efa9effbd"
+  },
+  "retained_other_flags": {
+    "maximum": 1.2362823305360882,
+    "mixed_generic45_Mp4_states": 3,
+    "remediation_deferred": true
+  },
+  "retention": "Raw item3 inputs, detailed results, producers and failed attempts remain active in fea/generated/v11-relocated-rear-pair-v1/references/item3/. No archive or prune. Frozen previous receipts, banks, summaries and viewer geometry remain unchanged.",
+  "reuse": {
+    "historical_forces_or_passing_indices_transferred": false,
+    "kernels": "Existing profile, Appendix E, full-cut, compression patch, header bridge, shaft, rectangular/curved steel and annular washer helpers.",
+    "old_fitting_geometry": {
+      "path": "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json",
+      "sha256": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8"
+    },
+    "same_fitting_poses": 24,
+    "unchanged_station_distance_rows": 148
+  },
+  "revision": "v11-relocated-rear-pair-v1",
+  "schema": "v11_relocated_item3_disposition/v1",
+  "scope": "Joint geometry, timber brittle paths and formed-fitting components under the saved six-case forces and couples. Existing exceedances are retained; no remedy or new global force case.",
+  "source_reports": {
+    "augmented_header_steel_anchors": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/header-bridge-anchor-followthrough-v1.json",
+      "sha256": "9afd82d22166fc6dc1a253a660272bcd47d87cd8b6c56c75beb9eff1aa1e7dfc"
+    },
+    "brittle": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/brittle/brittle-evaluation-summary-v1.json",
+      "sha256": "aaab7a8d1a3f884fdf1c8908384b5b6d58c0a4cbdfb75efae6f23a1ecb4dce9a"
+    },
+    "brittle_controls": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/brittle/brittle-evaluation-controls-v1.json",
+      "sha256": "14fd19d5fbebcb1ba0e6df6823c2cd50d493591c3bc6bf3eb9773f0504207046"
+    },
+    "current_fitting_native_layer": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/fitting-evaluation-native-layer-v1.json",
+      "sha256": "f1f741cf8e7135698a9fa95c217162e1259a1b4a8e76a471b577a0f3366f90cd"
+    },
+    "current_quadrature_reuse": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/native-probe-v1/current-quadrature-check-v1.json",
+      "sha256": "2b3b09ee140db0bf4f19112065f19897fca69635e0f95a74de4d20f3f40c2631"
+    },
+    "fitting": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/fitting-evaluation-summary-v1.json",
+      "sha256": "6143886da0e08676cc8862196bafd10bef73d187b48edaf7f1c8be02061483dc"
+    },
+    "fitting_scope": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/fitting-evaluation-summary-v2.json",
+      "sha256": "56cb5e82df1f29552d6f2c39055d723dc52a09fa8fff0b279b5e31965980a3c0"
+    },
+    "geometry": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/geometry/geometry-disposition-v2.json",
+      "sha256": "fb1a3824928f210c60798162e117a81f2cae666b76e4d6a21377b76f65943847"
+    },
+    "local_native_probe": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/native-probe-v1/observation-v1.json",
+      "sha256": "08faeb00245a73dc9d757c3a8218bafbfc5c20b385f0cb9ba989d3e844724ccb"
+    },
+    "local_native_readiness": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/native-route-readiness-v1.json",
+      "sha256": "ef12abad7e77822535fc3a8f834f764182183a1519673bd66f4424aa0306f7ba"
+    }
+  },
+  "status": "component_evaluation_complete_full_criteria_open",
+  "structural_acceptance": false
+}

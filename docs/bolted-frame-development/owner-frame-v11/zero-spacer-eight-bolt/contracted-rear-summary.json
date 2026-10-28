@@ -1,0 +1,167 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fe": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "climbing_released": false,
+  "comparison_note": "The frozen V11-shorter and matching-rear same-method summaries are source-linked only; no previous numeric value or force field is copied into this fresh relocated result.",
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "contracted_common_work_rear": {
+    "bearing_above_one_states": [],
+    "bearing_plus_unchanged_hinge_above_one_state_count": 0,
+    "bearing_plus_unchanged_hinge_maximum": 0.7750130886825141,
+    "governing": {
+      "Dlocal_mm": 12.5222,
+      "Fe_parallel_MPa": 38.61064084174282,
+      "Fe_perpendicular_MPa": 21.718485473480335,
+      "axis_id": "proposal_upper_rear_left_added_half_in",
+      "case_id": "a12-rear",
+      "contracted_bearing_index": 0.7750130886825141,
+      "contracted_parallel_cap_N_mm": 85.73426205665734,
+      "contracted_perpendicular_cap_N_mm": 48.22552240686975,
+      "dataset": "relocated_v11_fresh114",
+      "host": "lumber_leg_left",
+      "interval_mm": [
+        37.04166666666661,
+        44.44999999999993
+      ],
+      "lambda": 0.886618466650835,
+      "nominal_Fe_diameter_mm": 12.7,
+      "original_ellipse_cell_index": 0.6871409163220181,
+      "region_id": "lumber_leg_left:body",
+      "signed_saved_line_density_N_mm": [
+        28.41176358196748,
+        39.0030265193311
+      ]
+    },
+    "maximum_contracted_bearing_index": 0.7750130886825141,
+    "states": 36
+  },
+  "dataset": "relocated_v11_fresh114",
+  "fabrication_released": false,
+  "method_scope": "Existing contracted common-work ellipse on the relocated candidate's own saved projected-witness states. This is a fixed-field component reference; it does not replace or merge the ellipse, continuous bound, independent hinge, axial/torsional, or complete-joint qualifications.",
+  "own_original_ellipse_plus_hinge_reference_preserved": {
+    "above_one_states": [],
+    "maximum_original_ellipse_and_hinge_index": 0.6871409163220181,
+    "states": 36,
+    "unchanged_Mp_over4_maximum": 0.686005719915181,
+    "unchanged_selected_witness_Fy92_maximum": 0.5875935542773183
+  },
+  "revision": "v11-zero-spacer-eight-bolt-v1",
+  "same_method_historical_comparator_reference": {
+    "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/contracted-common-work-summary-v1.json",
+    "sha256": "448b3c5b7eed46d6f280916b788327c8276c2fc4edb2ebde13fcf705120fe81c"
+  },
+  "schema": "v11_zero_spacer_rear_contracted_common_work_reference/v1",
+  "source_bindings": {
+    "all_axis_reference_run": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "4328fca61c970ddba797f8530afda1398beeae4101b1dc5a14a7c2058c7664f8"
+    },
+    "frozen_evaluator": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/evaluate_contracted_saved_fields_v1.py",
+      "sha256": "bbe9da2d36cd46e26b4845042c2dd6c88888bd1f03f858a731f20e40cde6cd2b"
+    },
+    "frozen_evaluator_source_controls": [
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/saved-field-disk-rows-v1.json",
+        "sha256": "4864dd7e103cb9411c1fb9ab37a0318d8642070f43586e8987bd316fabf8c535"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/isotropic-common-law-summary-v1.json",
+        "sha256": "42adf7cabe73695d14dc4781b3eab95978998394981bcfed0b1a95ef67027fb0"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/isotropic-common-law-v1/isotropic-common-law-controls-v1.json",
+        "sha256": "0893a5648c39b523faaeca1f0920fb48dbcd741d1cdba9e875b1853ce050a61f"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/nominal-fe90-projection-v2-attempt02/mixed-radial-nominal-Fe90-v2.json",
+        "sha256": "7863cf9500cf7e16ade0f76051d1c0118f0bb998b859e8f85b5714af314c9696"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/current-rear-projected-bearing-witness-v2.json",
+        "sha256": "70884b23c719e82591b9f92987463d7cf659c2973fd44b33ef5338785d1726da"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/runs/rear-reference-v3/rear-projected-bearing-witness-v1.json",
+        "sha256": "fc73da2cc7b726c205d6839c38ca005cbe370c81ae7897e9efe7a2c260a6d05b"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/references/reference-completion-v1.json",
+        "sha256": "38eceab51e314607bd94663b7130dc6149167724f70d6f5e034ba939e844adf4"
+      },
+      {
+        "path": "mini_moonboard/projected_bearing_witness.py",
+        "sha256": "caf91afdc94b45d72f22c12675218ba649b0ca5e681c51002996027a7c235d0e"
+      },
+      {
+        "path": "scripts/eoere_joint_vector_tests.py",
+        "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/methodscope/uniform-ellipse-contraction-v1.json",
+        "role": "uniform_contraction_proof",
+        "sha256": "ddaa8962a5a3517e00d4d648a9287060e9166dbb67449ed8449ea83330d454a1"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/methodscope/generalized-lateral-lower-bound-v1.json",
+        "role": "common_work_bearing_and_hinge_scope",
+        "sha256": "f122767731df38e30699679674360a33e7b34e2742169563515009464473eaf4"
+      },
+      {
+        "path": "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "role": "current112_contracted_comparator_bank",
+        "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+      },
+      {
+        "path": "fea/generated/v11-matching-rear-bolts-v1/mechanics/analysis-v3/response-bank.json",
+        "role": "unselected114_contracted_comparator_bank",
+        "sha256": "b364c9b572960a23c6566575abf3b791a326ab5ac35e263a770dd6e2fe891a46"
+      }
+    ],
+    "parent_bank_admission": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/parent-bank-admission-v1.json",
+      "sha256": "a907776722558f4288044e55939011aea8d869b5a63c95f11a1cb48fb434828d"
+    },
+    "physical_geometry": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+      "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+    },
+    "physical_receipt": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/checked-intake-receipt-v1.json",
+      "sha256": "097186e62428ebccf2de5d89541281b6261661e6ac7b9f856b6a827baa50d5d8"
+    },
+    "producer": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/run_zero_spacer_references_v5.py",
+      "sha256": "757cd6a5b571e72cb003158b7d3a8a4d88b3fc25602bc5b7d585381a1559fc4a"
+    },
+    "projected_witness": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/runs/rear-reference-v1/rear-projected-bearing-witness-v1.json",
+      "sha256": "d04889fccdb36170cc42bcb35d3743db671a6d50b5b334968de2f483a8997f20"
+    },
+    "raw_states": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/contracted-rear-reference-v1/runs/reference-v1/contracted-rear-states-v1.json",
+      "sha256": "6e76eae7ac2146ebc57de836c19928f9544f3d0892b386f08791b92255d81d2a"
+    },
+    "rear_wrench_run": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/runs/rear-reference-v1/rear-wrench-run-v1.json",
+      "sha256": "2e394f136b0d9e16fae27f7d7613f8e2537cedaa41a8f32d380aeb1c00b23d59"
+    },
+    "reference_readiness": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/adapter-readiness-v3.json",
+      "sha256": "cc9b88cb00ccc5a2990b58c9538a98fc190678de301a2f99b5c34d976aead4af"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/response-bank.json",
+      "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+    },
+    "same_method_historical_comparator_summary_reference_only": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/contracted-common-work-summary-v1.json",
+      "sha256": "448b3c5b7eed46d6f280916b788327c8276c2fc4edb2ebde13fcf705120fe81c"
+    }
+  },
+  "structural_acceptance": false
+}

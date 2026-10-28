@@ -38,6 +38,39 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-zero-spacer-preview')
+    return [
+      {label: 'Zero-spacer geometry and conditional tool access', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/response-bank.json'},
+      {label: 'Source-bound connection and section route completion', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/reference-completion.json'},
+      {label: 'Current conditional references and geometry limits', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/current-reference-summary.json'},
+      {label: 'Fresh mixed common-work/Mp/4 material flags', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/mixed-common-work-summary.json'},
+      {label: 'Primary contracted rear connection reference', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/contracted-rear-summary.json'},
+      {label: 'Mixed-reference source and profile controls', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/mixed-current-controls.json'},
+      {label: 'Four shorter Grade 5 profiles and intake requirements', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/hardware-profile-contract.json'},
+      {label: 'Provisional hardware and marking-template packet — HOLD', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/planning/README.md'},
+      {label: 'Independent fresh-bank source admission', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/parent-bank-admission.json'},
+      {label: 'Owner authorization: retain eight bolts', path: current + 'owner-frame-v11/owner-zero-spacer-eight-bolt-evaluation.json'},
+      {label: 'Current evaluation and preserved development authority', path: current + 'README.md'},
+    ];
+  if (model === 'eoere-v11-relocated-rear-preview')
+    return [
+      {label: 'Own relocated-pair checked geometry', path: current + 'owner-frame-v11/relocated-rear-pair/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/relocated-rear-pair/response-bank.json'},
+      {label: 'Own conditional references and unresolved connections', path: current + 'owner-frame-v11/relocated-rear-pair/reference-completion.json'},
+      {label: 'Primary contracted common-work rear reference', path: current + 'owner-frame-v11/relocated-rear-pair/contracted-rear-summary.json'},
+      {label: 'Fresh mixed common-work/Mp/4 conditional references', path: current + 'owner-frame-v11/relocated-rear-pair/mixed-common-work-summary.json'},
+      {label: 'Mixed-reference source and execution controls', path: current + 'owner-frame-v11/relocated-rear-pair/mixed-control-receipt.json'},
+      {label: 'Own signed geometry and eligibility holds', path: current + 'owner-frame-v11/relocated-rear-pair/geometry-applicability.json'},
+      {label: 'Joint geometry, splitting and fitting calculations', path: current + 'owner-frame-v11/relocated-rear-pair/item3-disposition.json'},
+      {label: 'Connection closeout and pending detail choice', path: current + 'owner-frame-v11/relocated-rear-pair/connection-closeout.json'},
+      {label: 'Dimensioned owner constraint comparison', path: current + 'owner-frame-v11/relocated-rear-pair/owner-constraint-options-review-v1.svg'},
+      {label: 'Provisional hardware tables and upper-rear templates — HOLD', path: current + 'owner-frame-v11/relocated-rear-pair/planning/README.md'},
+      {label: 'Affected component references and holds (compressed JSON)', path: current + 'owner-frame-v11/relocated-rear-pair/affected-connection-components.json.gz'},
+      {label: 'Owner-authorized unselected placement evaluation', path: current + 'owner-frame-v11/matching-rear-bolts/owner-relocated-pair-evaluation.json'},
+      {label: 'Relocated-pair placement and geometry scope', path: current + 'owner-frame-v11/matching-rear-bolts/placement-review.json'},
+      {label: 'Current development selection and remaining holds', path: current + 'README.md'},
+    ];
   if (model === 'eoere-v11-matching-rear-bolts-preview')
     return [
       {label: 'Unselected matching rear-bolt trial and remaining checks', path: current + 'owner-frame-v11/matching-rear-bolts/README.md'},
