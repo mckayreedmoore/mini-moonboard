@@ -493,6 +493,25 @@ export function validateZeroSpacerTrial(entry, index) {
           assert.equal(controls.source_failures, 0);
           assert.equal(controls.current_end_case_source_joins, 1272);
         }
+        if (next.hardware_option_twelve_grade5) {
+          const option = JSON.parse(bound(next.hardware_option_twelve_grade5));
+          assert.equal(option.schema, 'v11_current106_twelve_Grade5_owner_review/v1');
+          assert.equal(option.source_bindings.current_bank.sha256, next.response_bank.sha256);
+          assert.deepEqual(option.source_bindings.current_geometry, next.geometry_source);
+          assert.equal(new Set(option.exact_twelve_axis_ids).size, 12);
+          assert.deepEqual([option.states, option.changed_axis_case_states,
+            option.current_generic45_flags_retained], [144, 72, 3]);
+          assert.deepEqual([option.counts_if_later_authorized.bolts,
+            option.counts_if_later_authorized.spacers,
+            option.counts_if_later_authorized.total_this_type_stacks], [106, 0, 16]);
+          assert.equal(option.geometry_review.restored_bore_AABB_checks, 288);
+          assert.ok(option.geometry_review.minimum_new_material_separation_mm > 0);
+          for (const key of ['owner_reviewed', 'implemented', 'matched_alternate_bank_computed',
+            'supplier_selected', 'complete_joint_qualified', 'structural_acceptance',
+            'fabrication_released', 'climbing_released']) assert.equal(option[key], false);
+          for (const key of ['actual_Fy', 'actual_Fyb', 'actual_Cg', 'actual_Cdelta'])
+            assert.equal(option[key], null);
+        }
       }
     }
   }

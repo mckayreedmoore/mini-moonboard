@@ -92,6 +92,23 @@ test('four-bolt results retain both precision cases and all eight installed clea
   assert.match(fourBoltOuterTopResultsStatus(data),/eight installed per cleat/);
 });
 
+test('current Grade 5 review cannot adopt hardware or reuse the old force bank',()=>{
+  const index=readIndex(),entry=index.owner_authorized_four_bolt_outer_top_trial;
+  const source=JSON.parse(readFileSync(path.join(root,entry.hardware_option_twelve_grade5.path)));
+  assert.equal(source.implemented,false);
+  assert.equal(source.owner_reviewed,false);
+  assert.equal(source.current_generic45_flags_retained,3);
+  assert.equal(source.geometry_review.restored_bore_AABB_checks,288);
+  assert.ok(source.combined_governing.combined_upper_bound<1);
+  assert.ok(source.separate_elastic_governing.separate_elastic_upper_bound<1);
+  const changed=structuredClone(index);
+  changed.owner_authorized_four_bolt_outer_top_trial.hardware_option_twelve_grade5={
+    path:'docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-option-twelve-grade5.json',
+    sha256:'cb699292fa1e9a71e197bc7b12c31530ab1b6932a730ac49b0cc40f902373df0',
+  };
+  assert.throws(()=>validateZeroSpacerTrial(changed.owner_authorized_zero_spacer_trial,changed));
+});
+
 test('four-bolt results reject old banks, removed flags, wrong roots and material adoption',()=>{
   const index=readIndex(),entry=index.owner_authorized_four_bolt_outer_top_trial;
   const original=JSON.parse(readFileSync(path.join(root,entry.viewer.results_data.path)));

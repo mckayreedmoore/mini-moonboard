@@ -48,6 +48,7 @@ export function documentsForModel(model, recordedDocuments = []) {
       {label: 'Fresh mixed common-work material flags', path: current + 'owner-frame-v11/four-bolt-outer-top/mixed-common-work-summary.json'},
       {label: 'Fresh rear connection reference', path: current + 'owner-frame-v11/four-bolt-outer-top/contracted-rear-summary.json'},
       {label: 'Separate 60 ksi material comparison; unadopted', path: current + 'owner-frame-v11/four-bolt-outer-top/material-comparison.json'},
+      {label: 'Review-only twelve Grade 5 cleat bolts; not implemented', path: current + 'owner-frame-v11/four-bolt-outer-top/hardware-option-twelve-grade5.json'},
       {label: 'Provisional hardware and marking packet — HOLD', path: current + 'owner-frame-v11/four-bolt-outer-top/planning/README.md'},
       {label: 'Current fitting, washer and bond component evidence', path: current + 'owner-frame-v11/four-bolt-outer-top/component-reference-summary.json'},
       {label: 'Current component source and coverage controls', path: current + 'owner-frame-v11/four-bolt-outer-top/component-reference-controls.json'},

@@ -1,0 +1,216 @@
+{
+  "above_one_count": 0,
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "calculation_producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/review_grade5_option_v1.py",
+    "sha256": "2e99e3371fd4abe869fb2aff5a852837e0bf7c869dcc7cec9efbcbf6a66fbf7d"
+  },
+  "changed_axis_case_states": 72,
+  "climbing_released": false,
+  "combined_governing": {
+    "Mp4_hinge_upper_bound": 0.6168845802318804,
+    "axis_id": "v11_cleat_left_side_1",
+    "bearing_upper_bound": 0.4073542778215112,
+    "case_id": "a12-forward",
+    "combined_upper_bound": 0.6168845802318804,
+    "separate_elastic_upper_bound": 0.5344370601144228,
+    "substitution_proposed": true
+  },
+  "complete_joint_qualified": false,
+  "conditional_Fy_ksi": 92,
+  "conditional_Fyb_ksi": 92,
+  "conditional_material_method": {
+    "actual_material_conformity": null,
+    "basis": "Reuse the qualified conditional SAE J429_201405 Grade 5 minimum tensile yield of 92 ksi for the 1/4\u20131-inch size band, explicitly linked to ASTM F606/F606M-21 and the NDS 2024 \u00a712.3.6.2 tensile-yield route. No proof/Fu average or universal physical Fy=Fyb identity is used.",
+    "lot_observed_or_new_blanket_test_required": false,
+    "proof_ksi_not_used_as_Fy_or_Fyb": 85,
+    "specified_Fy_ksi": 92,
+    "specified_NDS_Fyb_ksi": 92,
+    "supplier_or_product_gap": "The Type is a design and receiving specification, not a selected supplier SKU. A generic Grade 5, 6.5-inch, partial-thread label does not establish the exact HCS body, grip, length and style requirements. No saved listing establishes every condition.",
+    "ultimate_ksi_not_averaged": 120
+  },
+  "conditional_type_id": "grade5-hcs-3_8-16x6_5-style1-conditional-v1",
+  "controls": {
+    "current_fields_verified": 6,
+    "decimal50_max_error": 2.220446049250313e-16,
+    "later_body_transition_and_diameter_bound_verified": true,
+    "old_force_result_transferred": false
+  },
+  "counts_if_later_authorized": {
+    "additional_proposed_type_stacks": 12,
+    "bolts": 106,
+    "existing_conditional_type_stacks": 4,
+    "spacers": 0,
+    "total_this_type_stacks": 16,
+    "washers": 212
+  },
+  "current_generic45_flags_retained": 3,
+  "detailed_current_comparison": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/hardware-review/grade5-current-field-review-v2.json",
+    "sha256": "893a51c0e83a9e46bd42932fabac47b259f283231de64f15462df5dc2733e98d"
+  },
+  "dimensional_contract": {
+    "LB_increase": 6.35,
+    "Style1_fillet_radius_max": 0.635,
+    "axial_head_height_reduction": 3.3528,
+    "broader_transition_OD_and_length": [
+      10.795,
+      2.2098
+    ],
+    "current_nut_height": 8.5598,
+    "current_washer_each_nominal": 2.6416,
+    "new_Grade5_2A_root_sensitivity": 7.31774,
+    "new_Grade5_body_floor": 9.3726,
+    "new_body_length_floor_LB": 125.476,
+    "new_earliest_nut_start_margin_beyond_LG_max": 3.2512,
+    "new_far88_9mm_wood_thread_overlap": 4.1656,
+    "new_far_member_thread_fraction": 0.04685714285714286,
+    "new_grip_gage_LG_max": 133.35,
+    "new_head_envelope_corner_OD_height": [
+      16.51,
+      6.1722
+    ],
+    "new_length_window": [
+      160.528,
+      165.1
+    ],
+    "new_min_length_margin_over_project_screen": 10.16,
+    "new_min_length_tip_projection": 13.335,
+    "new_nominal_tip_projection": 17.907,
+    "new_project_two_pitch_screen": 3.175,
+    "nominal_diameter_and_underhead_length_unchanged": [
+      9.525,
+      165.1
+    ],
+    "old_A574_3A_root_sensitivity": 7.3787,
+    "old_A574_analysis_body_floor": 9.3218,
+    "old_body_length_floor_LB": 119.126,
+    "old_far88_9mm_wood_thread_overlap": 10.5156,
+    "old_far_member_thread_fraction": 0.11828571428571427,
+    "old_grip_gage_LG_max": 127,
+    "old_length_window": [
+      162.052,
+      165.1
+    ],
+    "old_socket_head_max_OD_height": [
+      14.2748,
+      9.525
+    ],
+    "radial_head_growth": 1.1176,
+    "thread_rule": "Per-member quarter-thread wood screen is conditionally met; thread roots remain in the detailed strength calculation and steel flange. This does not guarantee delivered root/runout or calibrated physical thread stiffness.",
+    "tool_change": "5/16in internal hex key \u21929/16in wrench/socket.",
+    "two19_05mm_plywood_leaves_thread_overlap": 0,
+    "washer_ID_min_to_max": [
+      10.9982,
+      11.5062
+    ],
+    "washer_thickness_min_to_max": [
+      1.6256,
+      2.6416
+    ],
+    "wood_and_steel_grip": [
+      127,
+      6.35
+    ]
+  },
+  "distinction": "These current-force upper bounds support choosing a separate trial. They are not a new force bank, selected hardware, delivered conformity, a complete connection pass or a remedy for end/edge limitations.",
+  "exact_twelve_axis_ids": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2",
+    "eoere_bolt_067",
+    "eoere_bolt_070",
+    "eoere_bolt_071",
+    "eoere_bolt_074",
+    "v11_cleat_left_side_1",
+    "v11_cleat_left_side_2",
+    "v11_cleat_right_side_1",
+    "v11_cleat_right_side_2"
+  ],
+  "fabrication_released": false,
+  "fixed": "Keep all 106 axes, diameters, holes, wood and glued plywood outlines, four outer-top bolts per corner, eight per cleat, four per center top, both washer seats, nut seats, loads and zero spacers.",
+  "geometry_review": {
+    "actual_tool_or_part_fit_qualified": false,
+    "detailed_source": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-review/grade5-twelve-head-feasibility-current106-v1.json",
+      "sha256": "8bb7e91fd97ead942c8ecc66fffbbd18bae77f1bf836fd2d05521725ff1df629"
+    },
+    "head_fillet_tool_envelopes": 36,
+    "inherited_minimum_other_obstacle_gaps_mm": {
+      "fillet": 0.4317999999996118,
+      "head": 2.6415999999996984,
+      "tool": 2.6415999999996984
+    },
+    "limits": [
+      "This is geometric feasibility of a hypothetical12socket-head-to-hex-head option. The current106model still has the original12A574socket heads; no substitution or property adoption occurred.",
+      "The proposal requires new hex heads and body/thread/root metadata, not merely a material label. Actual washer/fillet/bore-entry seating and socket/wrench engagement/swing remain unverified.",
+      "Head-side envelope transfer does not clear the separate four100mm nut-side corridor limitations.",
+      "No prior114strength number or force field is transferred to106or to a hypothetical12-head alternate. If selected, actual geometry/profile/mass changes require a matching analysis and component checks.",
+      "No new supplierSKU, actualGrade5conformity, Fy, Fyb, Cg, Cdelta or complete-joint pass is assigned."
+    ],
+    "minimum_new_material_separation_mm": 2257.218791166932,
+    "restored_bore_AABB_checks": 288,
+    "review_only": true,
+    "twelve_stations_and_both_washer_and_nut_seats_identical": true
+  },
+  "head_change": "At each of twelve unchanged underhead faces: socket OD/height 14.2748/9.525 mm becomes the declared hex corner envelope 16.51/6.1722 mm. Head-side tool changes from 5/16-inch hex key to 9/16-inch socket or wrench.",
+  "implemented": false,
+  "matched_alternate_bank_computed": false,
+  "owner_reviewed": false,
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/delivery/prepare_grade5_review_v1.py",
+    "sha256": "6b6eb4ebbaa9dfb98ab31c83337ee85e8dafe225922bd7319299f43d04446283"
+  },
+  "profile_minimum_diameter_ratio": 0.9917383820998278,
+  "proposal": "Evaluate twelve 3/8-16 x 6.5-inch partially threaded SAE J429 Grade 5 Style 1 hex cap screws in place of the twelve current A574 cleat socket screws.",
+  "required_before_implementation": [
+    "Create separate hardware geometry and metadata with 12 compliant hex heads and updated body, root and grip source contracts. Preserve all fixed bolt lines and wood, washer and nut stations.",
+    "Recheck simultaneous maximum heads and fillets, flat head/washer bearing, actual washer thickness, hole-entry seating, tool engagement and assembly/removal access. A bounding-cylinder clearance is not delivered fit.",
+    "Bind the exact conditional Type and material specification or a conforming supplier product. Preserve blank Actual/Disposition fields; do not assume supplier guarantees for class, root, runout or length.",
+    "Run a fresh matched six-case bank, replays and component references for the adopted head, profile and mass configuration. Neither the old 144-state comparison nor the current four-stack zero-spacer bank qualifies the twelve-head alternate.",
+    "Keep unresolved geometry, row/group, splitting, fitting, screw/panel, bond, support and complete-joint checks separate. The same diameter and positions provide no new spacing credit."
+  ],
+  "revision": "v11-four-bolt-outer-top-v1",
+  "schema": "v11_current106_twelve_Grade5_owner_review/v1",
+  "scope": "The existing all-station minimum-diameter bound is evaluated on the current 106-bolt signed-force requirements. Force fields remain fixed; changed head/profile geometry, selfweight and redistribution are not calculated.",
+  "separate_elastic_above_one_count": 0,
+  "separate_elastic_governing": {
+    "Mp4_hinge_upper_bound": 0.6168845802318804,
+    "axis_id": "v11_cleat_left_side_1",
+    "bearing_upper_bound": 0.4073542778215112,
+    "case_id": "a12-forward",
+    "combined_upper_bound": 0.6168845802318804,
+    "separate_elastic_upper_bound": 0.5344370601144228,
+    "substitution_proposed": true
+  },
+  "source_bindings": {
+    "current_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/response-bank.json",
+      "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+    },
+    "current_geometry": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+      "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+    },
+    "current_rows": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/material-comparison-v1.json",
+      "sha256": "f963f6a249d5448e8e37048acbacee4272456a5b4b5a4d7948f32b0914c38d21"
+    },
+    "existing_profile_bound": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/bolt-material-comparison.json",
+      "sha256": "e560e7b6415965b1eb7e9d1504dff1ad2c59b3b06c3f076a7cc7cd05d8e2cc38"
+    },
+    "existing_review_option": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-option-twelve-grade5.json",
+      "sha256": "cb699292fa1e9a71e197bc7b12c31530ab1b6932a730ac49b0cc40f902373df0"
+    }
+  },
+  "states": 144,
+  "stress_upper_bound_multiplier": 1.0252000892915107,
+  "structural_acceptance": false,
+  "supplier_selected": false
+}
