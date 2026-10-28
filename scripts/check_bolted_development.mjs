@@ -9,6 +9,7 @@ import {isDeepStrictEqual} from 'node:util';
 import {gunzipSync} from 'node:zlib';
 import {validateRelocatedRearResults, RELOCATED_REAR_RESULTS_ASSET} from '../site/eoere-v11-relocated-rear-results.mjs';
 import {validateZeroSpacerResults, ZERO_SPACER_RESULTS_ASSET} from '../site/eoere-v11-zero-spacer-results.mjs';
+import {validateFourBoltOuterTopResults, FOUR_BOLT_OUTER_TOP_RESULTS_ASSET} from '../site/eoere-v11-four-bolt-outer-top-results.mjs';
 import {validatePackerFreeProvenance, validatePackerFreeDelta, PACKER_FREE_MODEL,
   PACKER_FREE_REVISION} from '../site/eoere-packer-free-overlay.mjs';
 import {validatePackerFreeResults, PACKER_FREE_RESULTS_ASSET} from '../site/eoere-packer-free-results.mjs';
@@ -433,6 +434,67 @@ export function validateZeroSpacerTrial(entry, index) {
     assert.equal(next.historical_capacity_transferred, false);
     for (const key of ['structural_acceptance', 'fabrication_released', 'climbing_released'])
       assert.equal(next[key], false);
+    if (next.viewer) {
+      const receipt = JSON.parse(bound(next.geometry_receipt));
+      assert.deepEqual(receipt.geometry, next.geometry_source);
+      assert.deepEqual(receipt.owner_authorization, next.owner_authorization);
+      assert.deepEqual([receipt.counts.bolt_axes, receipt.counts.occupied_parts_expected,
+        receipt.counts.spacers], [106, 1055, 0]);
+      const provenance = JSON.parse(bound(next.viewer.provenance));
+      assert.deepEqual(provenance.geometry, next.geometry_source);
+      assert.deepEqual(provenance.geometry_receipt, next.geometry_receipt);
+      assert.deepEqual(provenance.scene, next.viewer.scene);
+      bound(next.viewer.overlay);
+      const decoded = gunzipSync(bound(next.viewer.scene));
+      assert.equal(sha(decoded), next.viewer.scene.decoded_sha256);
+      const scene = JSON.parse(decoded);
+      assert.equal(scene.key, next.viewer.model);
+      assert.deepEqual([scene.part_count, scene.counts.bolt_stacks, scene.counts.spacer_pieces], [1055, 106, 0]);
+      assert.deepEqual([...scene.removed_axis_ids].sort(), [...decision.omitted_near_row_axis_ids].sort());
+      assert.deepEqual([scene.replacements.length, scene.removals.length], [3, 40]);
+      assert.deepEqual(scene.cleat_bolt_counts, receipt.cleat_bolt_counts);
+      assert.deepEqual(scene.outer_corner_bolt_counts, receipt.outer_corner_bolt_counts);
+      assert.deepEqual(scene.center_top_bolt_counts, receipt.center_top_bolt_counts);
+      assert.equal(scene.geometry_only, true);
+      assert.equal(scene.current_response_computed, false);
+      assert.equal(scene.historical_capacity_transferred, false);
+      if (next.viewer.results_data) {
+        assert.deepEqual(next.viewer.results_data, FOUR_BOLT_OUTER_TOP_RESULTS_ASSET);
+        bound(next.viewer.results_overlay);
+        const results = validateFourBoltOuterTopResults(JSON.parse(bound(next.viewer.results_data)));
+        assert.deepEqual(results.geometry, next.geometry_source);
+        assert.deepEqual(results.geometry_receipt, next.geometry_receipt);
+        const bank = JSON.parse(bound(next.response_bank));
+        const admission = JSON.parse(bound(next.parent_bank_admission));
+        assert.equal(bank.physical_geometry.sha256, next.geometry_source.sha256);
+        assert.equal(bank.physical_receipt.sha256, next.geometry_receipt.sha256);
+        assert.equal(admission.bank.sha256, next.response_bank.sha256);
+        assert.deepEqual([admission.case_count, admission.independent_replay_count, admission.source_failures], [6, 12, 0]);
+        for (const [key, source] of Object.entries(results.sources)) assert.deepEqual(source, next[key]);
+        for (const row of results.cases) assert.deepEqual(row, bank.cases.find(value => value.case_id === row.case_id));
+        const references = JSON.parse(bound(next.current_reference_summary));
+        assert.equal(references.response_bank.sha256, next.response_bank.sha256);
+        for (const [key, value] of Object.entries(results.family_references))
+          for (const field of ['index', 'case_id', 'component'])
+            assert.equal(value.maximum[field], references.conditional_family_maxima[key][field]);
+        assert.deepEqual(results.mixed_common_work_reference.summary, JSON.parse(bound(next.mixed_common_work_summary)).summary);
+        if (next.component_reference_summary) {
+          const components = JSON.parse(bound(next.component_reference_summary));
+          const controls = JSON.parse(bound(next.component_reference_controls));
+          assert.equal(components.response_bank.sha256, next.response_bank.sha256);
+          assert.equal(components.physical_geometry.sha256, next.geometry_source.sha256);
+          assert.equal(controls.component_summary.sha256, next.component_reference_summary.sha256);
+          assert.deepEqual([components.counts.axes, components.counts.ends, components.counts.end_cases], [106, 212, 1272]);
+          assert.deepEqual([components.counts.body_cases, components.counts.header_distinct_native_states,
+            components.counts.selected_actual_governing_fine_states], [144, 48, 2]);
+          assert.equal(components.all_declared_component_arithmetic_evaluated, true);
+          assert.equal(components.complete_joint_qualified, false);
+          assert.equal(components.structural_acceptance, false);
+          assert.equal(controls.source_failures, 0);
+          assert.equal(controls.current_end_case_source_joins, 1272);
+        }
+      }
+    }
   }
   return entry;
 }

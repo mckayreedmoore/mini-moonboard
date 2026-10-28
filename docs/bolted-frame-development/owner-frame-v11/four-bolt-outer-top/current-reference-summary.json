@@ -1,0 +1,812 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "all_shaft_existing_local_gates": {
+    "failed_states": [],
+    "reconstruction_errors": [],
+    "states": 636
+  },
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "completed_scope": {
+    "axes": 106,
+    "cases": 6,
+    "connected_path_direction_cases": 216,
+    "full_member_cut_wrenches": 4536,
+    "header_tie_and_augmented_shaft_states": 96,
+    "independent_replays": 12,
+    "individual_parallel_components": 456,
+    "mixed_endpoints": 1152,
+    "mixed_states": 144,
+    "rear_states": 36,
+    "signed_receiver_actions": 792,
+    "valid_parallel_components": 948
+  },
+  "compression_patches": {
+    "base_header": {
+      "all_positive_normal_resultants_rejected": true,
+      "compression_cop_outside_or_no_contained_patch_count": 0,
+      "contained_patch_certificate_count": 0,
+      "event_side_row_count": 24,
+      "maximum_conditional_Fc_perp_ratio_and_witness": null,
+      "maximum_required_uniform_pressure_MPa_and_witness": null,
+      "negative_normal_resultant_count": 0,
+      "positive_normal_resultant_count_rejected": 24
+    },
+    "eoere_cleat_left": {
+      "all_positive_normal_resultants_rejected": true,
+      "compression_cop_outside_or_no_contained_patch_count": 0,
+      "contained_patch_certificate_count": 24,
+      "event_side_row_count": 24,
+      "maximum_conditional_Fc_perp_ratio_and_witness": null,
+      "maximum_required_uniform_pressure_MPa_and_witness": [
+        3.2394723847080176,
+        "a12-forward",
+        "on-plane-to-low",
+        "high"
+      ],
+      "negative_normal_resultant_count": 24,
+      "positive_normal_resultant_count_rejected": 0
+    },
+    "eoere_cleat_right": {
+      "all_positive_normal_resultants_rejected": true,
+      "compression_cop_outside_or_no_contained_patch_count": 0,
+      "contained_patch_certificate_count": 24,
+      "event_side_row_count": 24,
+      "maximum_conditional_Fc_perp_ratio_and_witness": null,
+      "maximum_required_uniform_pressure_MPa_and_witness": [
+        1.7361709387269715,
+        "k12-rear",
+        "on-plane-to-low",
+        "low"
+      ],
+      "negative_normal_resultant_count": 24,
+      "positive_normal_resultant_count_rejected": 0
+    },
+    "lumber_leg_left": {
+      "all_positive_normal_resultants_rejected": true,
+      "compression_cop_outside_or_no_contained_patch_count": 0,
+      "contained_patch_certificate_count": 24,
+      "event_side_row_count": 24,
+      "maximum_conditional_Fc_perp_ratio_and_witness": [
+        0.32195944229984774,
+        "a12-left",
+        "on-plane-to-low",
+        "low",
+        1.3873951330633083
+      ],
+      "maximum_required_uniform_pressure_MPa_and_witness": [
+        1.3873951330633083,
+        "a12-left",
+        "on-plane-to-low",
+        "low"
+      ],
+      "negative_normal_resultant_count": 24,
+      "positive_normal_resultant_count_rejected": 0
+    },
+    "lumber_leg_right": {
+      "all_positive_normal_resultants_rejected": true,
+      "compression_cop_outside_or_no_contained_patch_count": 0,
+      "contained_patch_certificate_count": 24,
+      "event_side_row_count": 24,
+      "maximum_conditional_Fc_perp_ratio_and_witness": [
+        0.32387287645793467,
+        "k12-right",
+        "on-plane-to-low",
+        "low",
+        1.3956405481361003
+      ],
+      "maximum_required_uniform_pressure_MPa_and_witness": [
+        1.3956405481361003,
+        "k12-right",
+        "on-plane-to-low",
+        "low"
+      ],
+      "negative_normal_resultant_count": 24,
+      "positive_normal_resultant_count_rejected": 0
+    }
+  },
+  "conditional_family_maxima": {
+    "cleat_actual_perimeter_rows": {
+      "axes": [
+        "cleat_post_bolt_left_2",
+        "eoere_bolt_067",
+        "v11_cleat_left_side_1",
+        "v11_cleat_left_side_2",
+        "v11_cleat_left_post_1",
+        "v11_cleat_left_post_2"
+      ],
+      "case_id": "a12-left",
+      "component": "eoere_cleat_left",
+      "index": 0.4123769780030486,
+      "wall_mm": 36.5
+    },
+    "direct_elastic_steel": {
+      "Cg": 0.5,
+      "case_id": "a12-left",
+      "complete_Cdelta": null,
+      "component": "proposal_upper_rear_left_added_half_in",
+      "index": 0.39983828522447473
+    },
+    "reduced_connection_axial_bending": {
+      "Cg": 0.25,
+      "case_id": "a12-forward",
+      "complete_Cdelta": null,
+      "component": "v11_cleat_left_side_1",
+      "index": 1.4682870459303077,
+      "individual_reference_before_Cg": 0.3670717614825769
+    },
+    "timber_net_shear_torsion": {
+      "case_id": "a12-rear",
+      "component": "base_side_left",
+      "index": 0.9075753964940723,
+      "metric": "maximum_shear_torsion_reference_upper"
+    },
+    "timber_normal_and_stability": {
+      "case_id": "a12-left",
+      "component": "lumber_leg_left",
+      "index": 0.794245273168825,
+      "metric": "maximum_declared_restraint_normal_reference_upper"
+    },
+    "wood_bearing_whole_affine": {
+      "Cg": 0.5,
+      "case_id": "a12-rear",
+      "complete_Cdelta": null,
+      "component": "proposal_upper_rear_left_added_half_in",
+      "index": 1.9872748355730896,
+      "individual_reference_before_Cg": 0.9936374177865448
+    }
+  },
+  "conditional_weak_edge_scenario_flags": [
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "both_edge_scenario_indices": {
+        "q_max_unloaded": 0.6025215521763873,
+        "q_min_unloaded": 1.0088762821992077
+      },
+      "case_id": "a12-forward",
+      "envelope_index": 1.0088762821992077,
+      "group_id": "rear-foot-left/lumber_leg_left",
+      "host": "lumber_leg_left"
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_left_1"
+      ],
+      "both_edge_scenario_indices": {
+        "q_max_unloaded": 0.6529385705466464,
+        "q_min_unloaded": 1.093295725568871
+      },
+      "case_id": "a12-left",
+      "envelope_index": 1.093295725568871,
+      "group_id": "rear-foot-left/lumber_leg_left",
+      "host": "lumber_leg_left"
+    },
+    {
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "both_edge_scenario_indices": {
+        "q_max_unloaded": 1.096201426119964,
+        "q_min_unloaded": 0.6546739143515261
+      },
+      "case_id": "k12-right",
+      "envelope_index": 1.096201426119964,
+      "group_id": "rear-foot-right/lumber_leg_right",
+      "host": "lumber_leg_right"
+    }
+  ],
+  "connected_extension_scope": "Computed engineering parallel-transfer component using the unchanged72 proven intact tangent rectangles and all current affine force/couple actions; no complete3D fracture/interaction or minimum-geometry waiver.",
+  "connected_parallel_extension": {
+    "above_one_count": 0,
+    "case_direction_rows": 216,
+    "interrupted_directions": 36,
+    "maximum_conditional_extension_index": 0.0951910054145548,
+    "maximum_force_replay_error_N": 4.687428401686771e-13,
+    "maximum_moment_replay_error_Nmm": 7.499885442698834e-12,
+    "new_BRep_patch_queries": 0,
+    "unchanged_patch_reuse": 36
+  },
+  "contracted_rear": {
+    "bearing_above_one_states": [],
+    "bearing_plus_unchanged_hinge_above_one_state_count": 0,
+    "bearing_plus_unchanged_hinge_maximum": 0.7788254902108989,
+    "governing": {
+      "Dlocal_mm": 12.5222,
+      "Fe_parallel_MPa": 38.61064084174282,
+      "Fe_perpendicular_MPa": 21.718485473480335,
+      "axis_id": "proposal_upper_rear_left_added_half_in",
+      "case_id": "a12-rear",
+      "contracted_bearing_index": 0.7788254902108989,
+      "contracted_parallel_cap_N_mm": 85.73426205665734,
+      "contracted_perpendicular_cap_N_mm": 48.22552240686975,
+      "dataset": "relocated_v11_fresh114",
+      "host": "lumber_leg_left",
+      "interval_mm": [
+        22.224999999999966,
+        29.633333333333287
+      ],
+      "lambda": 0.886618466650835,
+      "nominal_Fe_diameter_mm": 12.7,
+      "original_ellipse_cell_index": 0.690521061919372,
+      "region_id": "lumber_leg_left:body",
+      "signed_saved_line_density_N_mm": [
+        8.982367301604237,
+        -36.469378248383514
+      ]
+    },
+    "maximum_contracted_bearing_index": 0.7788254902108989,
+    "states": 36
+  },
+  "fabrication_released": false,
+  "geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "header_augmented_anchors": {
+    "axis_case_event_states": 96,
+    "event_variants": 12,
+    "max_Fy_required_MPa": 58.94015794526227,
+    "max_Mp4_Fyb_required_MPa": 42.43331552682507,
+    "max_Mp5_Fyb_required_MPa": 53.04164440853133,
+    "max_steel_interface_Fe_required_MPa": 60.07208342400687,
+    "max_wood_Fe_required_MPa": 16.850878371675787,
+    "max_wood_bearing_cosine_local_reference_index": 0.6695926788478817,
+    "unique_axes": 8
+  },
+  "header_flat_tie": {
+    "maximum": 0.02444656872211612,
+    "states": 96
+  },
+  "legacy_family_interpretation": "Receiver-signature1/n N/M and bearing rows remain historical diagnostics; use the separate physical-row/common-work/mechanics records with their actual applicability limits. No actualCg/Cdelta adopted.",
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "mixed": {
+    "above_one_count": 3,
+    "above_one_rows": [
+      {
+        "Mp4_hinge_index": 1.2301854692483343,
+        "Mp4_required_Fyb_ksi": 55.358346116175035,
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "combined_common_work_Mp4_index": 1.2301854692483343,
+        "conditional_Fyb_reference_psi": 45000.0
+      },
+      {
+        "Mp4_hinge_index": 1.1905336939177829,
+        "Mp4_required_Fyb_ksi": 53.57401622630022,
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-left",
+        "combined_common_work_Mp4_index": 1.1905336939177829,
+        "conditional_Fyb_reference_psi": 45000.0
+      },
+      {
+        "Mp4_hinge_index": 1.1779816622318393,
+        "Mp4_required_Fyb_ksi": 53.00917480043276,
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-right",
+        "combined_common_work_Mp4_index": 1.1779816622318393,
+        "conditional_Fyb_reference_psi": 45000.0
+      }
+    ],
+    "endpoint_count": 1152,
+    "fresh_Mp5_hinge_above_one_count_preserved": 6,
+    "fresh_Mp5_hinge_maximum_preserved": 1.5377318365604178,
+    "governing_axis_case": [
+      "v11_cleat_left_side_1",
+      "a12-forward"
+    ],
+    "maximum_Mp4_hinge_index": 1.2301854692483343,
+    "maximum_combined_common_work_Mp4_index": 1.2301854692483343,
+    "maximum_contracted_bearing_index": 0.45965836128216825,
+    "maximum_required_Fyb_ksi": 55.358346116175035,
+    "receiver_case_count": 432,
+    "state_count": 144
+  },
+  "new_four_post_profiles": {
+    "actual_product_or_delivery_qualified": false,
+    "applicable_conditional_Grade5_reference_ksi": 92,
+    "body_mm": 9.3726,
+    "maximum_Mp4_hinge": 0.19318057485457127,
+    "maximum_contracted_bearing": 0.32042192593119945,
+    "maximum_required_Fy_MPa": 112.64098432682513,
+    "root_mm": 7.31774,
+    "states": 24,
+    "steel_root_fraction": 1.0,
+    "transition_axis_t_mm": 122.8344,
+    "wood_root_fraction": 0.04685714285714286
+  },
+  "numerical_reference_scope_completed": true,
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/finalize_precision_reference_summary_v2.py",
+    "sha256": "723c76db6813708544f9158f6e8274a4fceff523dddbdafb89db58199fe70b00"
+  },
+  "reduced_depth_shear_scenarios": {
+    "above_one_rows": 3,
+    "case_rows": 336,
+    "edge_scenario_rows": 672,
+    "governing": {
+      "axis_ids": [
+        "rail_rear_bolt_right_1"
+      ],
+      "case_id": "k12-right",
+      "envelope_index": 1.096201426119964,
+      "group_id": "rear-foot-right/lumber_leg_right",
+      "host": "lumber_leg_right"
+    },
+    "groups": 56,
+    "maximum_conditional_index": 1.096201426119964
+  },
+  "remaining_scope": [
+    "The exact generic-A57445 material-reference exceedances remain in mixed above_one_rows. The separate60ksi comparison is unadopted and does not erase45ksi flags.",
+    "The old outer-top41.275mm two-row TableD detail is absent in the106 far-row trial; four near-end cleat-post limitations remain. No parallel component waives other end/edge/row applicability.",
+    "Three optional weak-edge NDS3.4.4 envelope rows remain above1; both signed-edge scenarios and local couples remain recorded.",
+    "Full coupled3D interrupted-hole splitting/interaction and static-transfer compatibility remain unqualified. No inventedFt90/Gc or extra equal-sharing factor was used.",
+    "Fitting/native/contact/bond/hardware evaluation belongs to its separate current worker packet; use its fresh final status.",
+    "Physical timber/hardware/bond/support evidence and existing release boundaries remain separate from these conditional numerical references."
+  ],
+  "response_bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "revision": "v11-four-bolt-outer-top-v1",
+  "schema": "v11_zero_spacer_current_reference_summary/v1",
+  "source_bindings": {
+    "all_shaft_local_gates": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/all-shaft-existing-closure-sweep-v2.json",
+      "sha256": "41fd144238fe485978e6b99a5297157a0ef8a58f27aad7973dea79f245b76ab6"
+    },
+    "bank": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+      "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+    },
+    "bridge": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/header-bridge-current-v2.json",
+      "sha256": "5213564d848b48c7739d64b6bf5949c4a7ff7bd1ad2a8814f314e4e44e2a4bff"
+    },
+    "compression": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/compression-patches-current-v1.json",
+      "sha256": "a090e90a75156b55c750d9b37a8c162cd405f943de249b32224706184543aa86"
+    },
+    "connected": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/connected-ligament-extension-v1.json",
+      "sha256": "d3d67d25745d0a78aec29d98cee39248e5dd340b02f2c2f02aafa567f844fb62"
+    },
+    "connected_controls": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/connected-transfer-controls-and-ownership-v1.json",
+      "sha256": "3888a85f639d3bbf19614dfbe28494469718a7e2017f356fbb5c48022d34433d"
+    },
+    "contracted_rear": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/contracted-rear-reference-v2/contracted-rear-summary-v1.json",
+      "sha256": "496b13dba58c027f9589b7c15901f03bab4296d743700589a1f6fe4461be5d0c"
+    },
+    "controls": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/current-reference-controls-v1.json",
+      "sha256": "2f3851c28b07d5fab89b358a838493d3d39327a84be4580fae97cc3f5593f08c"
+    },
+    "families": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v3/families/reference-family-binding-v1.json",
+      "sha256": "649c41ffd5783cee1112d97ef72d3d84445b790e416399fdccb2396a4a2ea0bb"
+    },
+    "family_evaluation": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v3/families/reference-evaluation.json",
+      "sha256": "316ff17aac3e00174e2b466d35f343f6650897df17765267e564b8bf8731ab4e"
+    },
+    "flat_ties": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/header-flat-tie-actual-eccentricity-v1.json",
+      "sha256": "feda268fbc9b144d0ab22d3190e3a5b7e0c368b66530bbf2cc32032a867b1d5e"
+    },
+    "four_post_profiles": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-common-work-v1/runs/reference-v2/four-post-profile-references-v1.json",
+      "sha256": "74c14a19fc49439e533a6d855d33b0c82c6c2ea5c98e5c9c3e4c3fd9a8953567"
+    },
+    "frozen_summary_publisher": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/summarize_reference_results_v1.py",
+      "sha256": "f25a577e53642d68c087291b1ecb7512e4ac298ab127e8149489405c98afa9e4"
+    },
+    "geometry_disposition": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/geometry-v2/geometry-method-closeout-v1.json",
+      "sha256": "d04cbc95a13adc926b80a0bfdfcb1afbc235f86d3fdcc52bd40e162058420216"
+    },
+    "header_anchors": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/header-augmented-anchor-current-v1.json",
+      "sha256": "62815abab8828771bab3bd5eea622d703278dcbb9a84bdb55ea7f8a715721de1"
+    },
+    "individual_parallel": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/individual-E3-current-v1.json",
+      "sha256": "a9b47c40ea250f6723bed4bb6db814ff6af29f431f2e6b1e03dd43696f7ef1f5"
+    },
+    "interrupted": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/interrupted-path-net-and-signed-followthrough-v1.json",
+      "sha256": "46b29ad906beb436711c616b90b5121f3f6b99d50f56a7184507bea489bc6796"
+    },
+    "material_sensitivity": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/material-comparison-v1.json",
+      "sha256": "f963f6a249d5448e8e37048acbacee4272456a5b4b5a4d7948f32b0914c38d21"
+    },
+    "mixed_controls": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-current-controls-v1.json",
+      "sha256": "bc1ea0e899e26e0f08431737f82af773c95b606a9bf642a1dfe7a0bafb342a14"
+    },
+    "mixed_summary": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-summary-v1.json",
+      "sha256": "48c5772e5a482fcf96f0ff63aed362958ef026547c3544fa500030b78ad7efed"
+    },
+    "parallel": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/parallel-current-v1.json",
+      "sha256": "accca09ed0bee8b59d25bcbd9570a7492c8494e58c0cd7f5dcc1624aecea08ea"
+    },
+    "parent_bank_admission": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/parent-bank-admission-v1.json",
+      "sha256": "60a06f0501ced00f6939fb9d05f0e69394db8cf59f67c75a5ff57e16d5fd7a38"
+    },
+    "path_geometry": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/geometry-paths-v1.json",
+      "sha256": "39812c5fdeb8af0da17acbbc46cc6a554f8ba0c69660ca99ca9ce6221d140e40"
+    },
+    "rear_wrench": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/rear-reference-v2/rear-wrench-run-v1.json",
+      "sha256": "c2a6881597fcd4ca0363714a414eaff90b54e37a9dfa93a153a2de41104513c5"
+    },
+    "reduced_depth": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/current-reduced-depth-shear-v1.json",
+      "sha256": "c6f6b71346178b8f4003bb514dbf6e54e0b20b3d7eac1a34cd7ae15443a7015d"
+    },
+    "reference_readiness": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/adapter-readiness-v7.json",
+      "sha256": "cfd110f913e2523fda682ce8cea1c4c829b6d3c0e4a97e0994efc5b5b5741e72"
+    },
+    "reference_run": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v3/reference-completion-v1.json",
+      "sha256": "60e8a0e5a9a3bd9cc8c19ab3257ecacc1dbaed74589b5434bcb00a25a84108fc"
+    },
+    "signed_geometry": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/geometry-v2/geometry-detail-v1.json",
+      "sha256": "a838cb20d9fd563c38dae6f6ed590a43c6b6a25b1cd369a69659b32d3c6d4085"
+    },
+    "split_map": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/split-plane-current-v1.json",
+      "sha256": "69086f02cc84f9467544d89e142b786aaeba383334009f3d7649642f4d9f5536"
+    }
+  },
+  "strength_only_60ksi_comparison": {
+    "counts": {
+      "axes": 24,
+      "cases": 6,
+      "material_states": {
+        "A574": 72,
+        "Grade5": 72
+      },
+      "states": 144
+    },
+    "flags": {
+      "primary_combined_Mp4_index": [
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-forward",
+          "primary_combined_Mp4_index": 1.2301854692483343
+        },
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-left",
+          "primary_combined_Mp4_index": 1.1905336939177829
+        },
+        {
+          "axis_id": "v11_cleat_right_side_1",
+          "case_id": "k12-right",
+          "primary_combined_Mp4_index": 1.1779816622318393
+        }
+      ],
+      "primary_separate_elastic_index": [
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-forward",
+          "primary_separate_elastic_index": 1.0657693945493505
+        },
+        {
+          "axis_id": "v11_cleat_left_side_1",
+          "case_id": "a12-left",
+          "primary_separate_elastic_index": 1.0414250774477762
+        },
+        {
+          "axis_id": "v11_cleat_right_side_1",
+          "case_id": "k12-right",
+          "primary_separate_elastic_index": 1.0308810996902755
+        }
+      ],
+      "sensitivity60_combined_Mp4_index": [],
+      "sensitivity60_separate_elastic_index": []
+    },
+    "maxima": {
+      "primary_combined_Mp4_index": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 1.2301854692483343
+      },
+      "primary_separate_elastic_index": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 1.0657693945493505
+      },
+      "sensitivity60_combined_Mp4_index": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.9226391019362505
+      },
+      "sensitivity60_separate_elastic_index": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.7993270459120129
+      }
+    }
+  },
+  "structural_acceptance": false,
+  "unchanged_geometry_limits": {
+    "current_primitive_geometry_summary": {
+      "actual_perpendicular_top_group_cases": [
+        {
+          "case_id": "k12-right",
+          "force_local_N": [
+            -6.409596539706757e-09,
+            -0.6510008706916529,
+            121.70728083078995
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-left",
+          "max_abs_primitive_grain_N": 4.023669563961264e-09
+        },
+        {
+          "case_id": "a1-rear",
+          "force_local_N": [
+            -5.005395874464089e-09,
+            -1.2755461762183578,
+            7.806525201394353
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-left",
+          "max_abs_primitive_grain_N": 4.989787020230531e-09
+        },
+        {
+          "case_id": "a12-left",
+          "force_local_N": [
+            -9.125035825449032e-11,
+            -0.6510008665390155,
+            112.52149098412454
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-right",
+          "max_abs_primitive_grain_N": 1.2979416023312901e-09
+        },
+        {
+          "case_id": "a1-rear",
+          "force_local_N": [
+            4.555354349778732e-10,
+            -0.6510008696945105,
+            8.855870470453622
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-right",
+          "max_abs_primitive_grain_N": 1.6389596906834997e-09
+        }
+      ],
+      "axis_host_case_rows": 264,
+      "group_case_rows": 72,
+      "groups": 12,
+      "net_flag_locations": [
+        [
+          "v11_cleat_left_post_1",
+          "base_post_outer_left"
+        ],
+        [
+          "v11_cleat_left_post_2",
+          "base_post_outer_left"
+        ],
+        [
+          "v11_cleat_right_post_1",
+          "base_post_outer_right"
+        ],
+        [
+          "v11_cleat_right_post_2",
+          "base_post_outer_right"
+        ]
+      ],
+      "net_interpolated_end_minimum_flags": 18,
+      "primitive_flag_locations": [
+        [
+          "v11_cleat_left_post_1",
+          "base_post_outer_left"
+        ],
+        [
+          "v11_cleat_left_post_2",
+          "base_post_outer_left"
+        ],
+        [
+          "v11_cleat_right_post_1",
+          "base_post_outer_right"
+        ],
+        [
+          "v11_cleat_right_post_2",
+          "base_post_outer_right"
+        ]
+      ],
+      "primitive_interpolated_end_minimum_flags": 16,
+      "sawn_axis_host_case_rows": 168
+    },
+    "supplemented_end_method": "Historical primary-author interpolation is a declared component comparison. Four near-end cleat-post axes retain flags; the restored outer-top far-row detail no longer has the omitted near-row topbeam end markers. Full coupled applicability remains distinct.",
+    "top_actual_direction_TableD": {
+      "complete_joint_or_all_geometry_qualified": false,
+      "current_outer_top_pair_geometry": [
+        {
+          "D_mm": 9.525,
+          "Table_B_parallel_index": null,
+          "Table_B_perpendicular_full_4D_attached_member_scenario_index": 0.7500000000057512,
+          "Table_B_perpendicular_minimum_3D_index": 0.5625000000043134,
+          "Table_D_parallel_between_row_index": 0.2812500000021567,
+          "Table_D_perpendicular_between_row_index": null,
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "center_spacing_mm": 50.799999999610456,
+          "conditional_Table_D_perp_if_row_separation_along_grain_index": null,
+          "conditional_Table_D_perp_if_row_separation_crossgrain_index": 0.9375000000071889,
+          "crossgrain_spacing_mm": 50.799999999610456,
+          "ell_mm": 88.89999999762225,
+          "grain_spacing_mm": 0.0,
+          "group_id": "outer-top-left|host:base_rail_top",
+          "host": "base_rail_top",
+          "interpretation": "principal row orientations only; projected scenarios retained for staggered pairs. Actual oblique/staggered row assignment unresolved. Perpendicular full TableB spacing must satisfy attached member, not universally4D.",
+          "same_crossgrain_row": true,
+          "same_grain_row": false
+        },
+        {
+          "D_mm": 9.525,
+          "Table_B_parallel_index": null,
+          "Table_B_perpendicular_full_4D_attached_member_scenario_index": 0.7500000000049621,
+          "Table_B_perpendicular_minimum_3D_index": 0.5625000000037217,
+          "Table_D_parallel_between_row_index": 0.28125000000186084,
+          "Table_D_perpendicular_between_row_index": null,
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010"
+          ],
+          "center_spacing_mm": 50.799999999663896,
+          "conditional_Table_D_perp_if_row_separation_along_grain_index": null,
+          "conditional_Table_D_perp_if_row_separation_crossgrain_index": 0.9375000000062027,
+          "crossgrain_spacing_mm": 50.799999999663896,
+          "ell_mm": 88.90000000000009,
+          "grain_spacing_mm": 2.359067161125875e-10,
+          "group_id": "outer-top-left|host:base_side_left",
+          "host": "base_side_left",
+          "interpretation": "principal row orientations only; projected scenarios retained for staggered pairs. Actual oblique/staggered row assignment unresolved. Perpendicular full TableB spacing must satisfy attached member, not universally4D.",
+          "same_crossgrain_row": true,
+          "same_grain_row": false
+        },
+        {
+          "D_mm": 9.525,
+          "Table_B_parallel_index": null,
+          "Table_B_perpendicular_full_4D_attached_member_scenario_index": 0.7500000000057512,
+          "Table_B_perpendicular_minimum_3D_index": 0.5625000000043134,
+          "Table_D_parallel_between_row_index": 0.2812500000021567,
+          "Table_D_perpendicular_between_row_index": null,
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "center_spacing_mm": 50.799999999610456,
+          "conditional_Table_D_perp_if_row_separation_along_grain_index": null,
+          "conditional_Table_D_perp_if_row_separation_crossgrain_index": 0.9375000000071889,
+          "crossgrain_spacing_mm": 50.799999999610456,
+          "ell_mm": 88.89999999762225,
+          "grain_spacing_mm": 0.0,
+          "group_id": "outer-top-right|host:base_rail_top",
+          "host": "base_rail_top",
+          "interpretation": "principal row orientations only; projected scenarios retained for staggered pairs. Actual oblique/staggered row assignment unresolved. Perpendicular full TableB spacing must satisfy attached member, not universally4D.",
+          "same_crossgrain_row": true,
+          "same_grain_row": false
+        },
+        {
+          "D_mm": 9.525,
+          "Table_B_parallel_index": null,
+          "Table_B_perpendicular_full_4D_attached_member_scenario_index": 0.7500000000049621,
+          "Table_B_perpendicular_minimum_3D_index": 0.5625000000037217,
+          "Table_D_parallel_between_row_index": 0.28125000000186084,
+          "Table_D_perpendicular_between_row_index": null,
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013"
+          ],
+          "center_spacing_mm": 50.799999999663896,
+          "conditional_Table_D_perp_if_row_separation_along_grain_index": null,
+          "conditional_Table_D_perp_if_row_separation_crossgrain_index": 0.9375000000062027,
+          "crossgrain_spacing_mm": 50.799999999663896,
+          "ell_mm": 88.90000000000009,
+          "grain_spacing_mm": 2.359067161125875e-10,
+          "group_id": "outer-top-right|host:base_side_right",
+          "host": "base_side_right",
+          "interpretation": "principal row orientations only; projected scenarios retained for staggered pairs. Actual oblique/staggered row assignment unresolved. Perpendicular full TableB spacing must satisfy attached member, not universally4D.",
+          "same_crossgrain_row": true,
+          "same_grain_row": false
+        }
+      ],
+      "current_perpendicular_case_groups": [
+        {
+          "case_id": "k12-right",
+          "force_local_N": [
+            -6.409596539706757e-09,
+            -0.6510008706916529,
+            121.70728083078995
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-left",
+          "max_abs_primitive_grain_N": 4.023669563961264e-09
+        },
+        {
+          "case_id": "a1-rear",
+          "force_local_N": [
+            -5.005395874464089e-09,
+            -1.2755461762183578,
+            7.806525201394353
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-left",
+          "max_abs_primitive_grain_N": 4.989787020230531e-09
+        },
+        {
+          "case_id": "a12-left",
+          "force_local_N": [
+            -9.125035825449032e-11,
+            -0.6510008665390155,
+            112.52149098412454
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-right",
+          "max_abs_primitive_grain_N": 1.2979416023312901e-09
+        },
+        {
+          "case_id": "a1-rear",
+          "force_local_N": [
+            4.555354349778732e-10,
+            -0.6510008696945105,
+            8.855870470453622
+          ],
+          "host": "base_rail_top",
+          "joint_id": "outer-top-right",
+          "max_abs_primitive_grain_N": 1.6389596906834997e-09
+        }
+      ],
+      "method": "Same primary NDS principal-row interpretation as114; actual current pair geometry and all primitive actions replayed.",
+      "old_41_275mm_two_row_detail_present": false,
+      "perpendicular_between_parallel_rows_applicable": false,
+      "result": "Only one grain-coordinate row remains on each outer flange. The old41.275mm between-row5D shortfall is absent; actual single-row along-load spacing and all other end/edge/oblique/couple criteria remain separate."
+    }
+  },
+  "whole_connection_acceptance_established": false,
+  "wood_parallel": {
+    "counts": {
+      "E2": 336,
+      "E3": 420,
+      "E4": 192,
+      "unresolved_case_rows": 204
+    },
+    "flags": {
+      "E2": 0,
+      "E3": 0,
+      "E4": 0
+    },
+    "maxima": {
+      "E2": 0.028499373524188205,
+      "E3": 0.11573456476426446,
+      "E4": 0.030355868230479956
+    }
+  }
+}

@@ -8,7 +8,7 @@ connection inspection, hold previews and shareable problem highlights.
 
 **[Current local development · shorter bolts · four spacers](http://127.0.0.1:8767/?model=eoere-v11-shorter-bolts-preview&view=rear&holds=off)**
 
-The active [114-bolt zero-spacer evaluation](docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/README.md) retains every eight-bolt joint and has its own [viewer route](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-zero-spacer-preview&view=rear&holds=off), six-case bank and provisional hardware/template packet. It remains an unselected development candidate with recorded material and geometry limits.
+The active [106-bolt outer-top evaluation](docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/README.md) uses four bolts at each outer top corner, eight per cleat and zero spacers. Its [viewer route](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-four-bolt-outer-top-preview&view=rear&holds=off), matched six-case bank, component checks and provisional hardware/template packet remain unselected development evidence with recorded material and geometry limits. The [114-bolt parent](docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/README.md) is preserved.
 
 The current geometry is **`v11-shorter-bolts-v1`**, selected by the [owner's spacer-reduction decision](docs/bolted-frame-development/owner-frame-v11/owner-shorter-bolt-selection.json). It retains V9's straight-sided cleats with two glued nominal ¾-inch plywood leaves per side, eight bolts per cleat, eight at each outer top corner and four at each center top connection. Top and side stock remains actual 88.9 × 139.7 mm, with no wood packers.
 

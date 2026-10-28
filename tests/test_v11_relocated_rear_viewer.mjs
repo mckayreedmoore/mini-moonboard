@@ -77,7 +77,7 @@ test('explicit own-result route preserves current112, old114 and baseline and ex
   assert.equal(viewerModel(html,null),'compact-floor-flush-development');
   assert.ok(html.includes('relocatedRear ? loadRelocatedRearResultsScene : matchingRear ? loadMatchingRearScene'));
   assert.ok(html.includes('Unselected relocated upper-rear pair · 114 stacks · own references'));
-  assert.ok(html.includes("groupExamples: !['eoere-v11-relocated-rear-preview'"));
+  assert.match(html, /groupExamples:\s*!\[[^\]]*'eoere-v11-relocated-rear-preview'/);
   const rows=documentsForModel(RELOCATED_REAR_MODEL);assert.ok(rows.some(row=>row.path===provenance.geometry_receipt.path));
   for(const ref of Object.values(results.sources))assert.ok(rows.some(row=>row.path===ref.path));
   for(const file of['geometry-applicability.json','affected-connection-components.json.gz','item3-disposition.json',

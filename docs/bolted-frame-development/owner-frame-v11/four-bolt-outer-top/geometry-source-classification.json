@@ -1,0 +1,165 @@
+{
+  "CAD_calls_exports_or_solves": 0,
+  "all_old114_map_entries_inherited_unchanged": true,
+  "ancestral_map_all_live_bytes_valid": false,
+  "build_manifest": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/build-manifest.json",
+    "sha256": "0cea9e3db6bb65cf9588e48371317d774a1559c1872a209fb53e4ff9fb7965eb"
+  },
+  "checked_receipt": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "711a3d09cde2d966ad6f97ed7e360569520b4a869ed46b35af4b47931a2266f4"
+  },
+  "current_clearance": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/clearance.json",
+    "sha256": "5f9afd844ff846492868403e68fa25421c15f6dfbf43cfcb912b37446db6fc34"
+  },
+  "current_stage_direct_inputs_and_helpers": [
+    {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-proposal/build_four_bolt_outer_top_v1.py",
+      "sha256": "b835d082cee0e0049a00cc40736b5073444af0ff25df64e18b8a1ccebae6f228"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-four-bolt-outer-top-evaluation.json",
+      "sha256": "9f7a52fa675826cd7ec71ef950dfd1e3a549767be8e72740342a952eee435493"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+      "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "b52265bcb0d9ff4cdf8215794a00df7b8f13bca285da9a7db532072c18147882"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/clearance.json",
+      "sha256": "9e6c7b50aeb4d8dbd4201d0af07b43ad018aa495d8baabc8a3609c1710471afe"
+    },
+    {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json",
+      "sha256": "515ed1c23f8dfae527d3b9ae56e964529682bc543342bd53175bb7ba16145264"
+    },
+    {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-proposal/build_relocated_rear_pair_v1.py",
+      "sha256": "e40316795602c011690626830ee93cdacd3133343cb5c574904c0cd2baa7aaf1"
+    },
+    {
+      "path": "fea/generated/v10-standard-top-stock-v1/geometry-proposal/build_4x6_geometry.py",
+      "sha256": "6aff110b092df289dd9282d2c72caa0eb4cb32a91a178db40a2b592dee1ebe14"
+    },
+    {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-proposal/check_four_bolt_outer_top_v1.py",
+      "sha256": "bee9d227db7105b392f6fbb55f3b453d6c3c6c86aafe9128dda29abe4f1e57dd"
+    },
+    {
+      "path": "scripts/eoere_leg_header_clearance.py",
+      "sha256": "54bd1cf4022503e4aac08e78ba361c92423241531929cd06131a6c3307ee5ee9"
+    }
+  ],
+  "current_stage_direct_source_validation": {
+    "actual30_profile_finished_BRep_files_match": true,
+    "actual566_registry_BRep_files_match": true,
+    "current_clearance_source_pin_entries": 121,
+    "current_clearance_source_pin_mismatches": [],
+    "frozen_stock_helper_functions_used": [
+      "outer",
+      "profile_cylinder",
+      "source_path",
+      "descriptor"
+    ],
+    "producer_matches_build_manifest": true,
+    "stock_helper_scope": "These functions are accessed through the explicitly pinned relocated-builder helper. Live stock-helper bytes match inherited frozen6aff110b. Its earlier complete4x6 build() is not executed."
+  },
+  "frozen_geometry_sha256_unchanged": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d",
+  "geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "geometry_source_or_analysis_inputs_rewritten": false,
+  "historical_mismatch_classification": {
+    "entry": {
+      "expected": "acc715613e29732381927e3f188053b2e4467ef7ad0931f83e98bfe4768b7262",
+      "live": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d",
+      "path": "scripts/eoere_builder_layout.py"
+    },
+    "inherited_identically_from114": true,
+    "live_file_identical_to_HEAD": true,
+    "new_geometry_or_current_source_edit_caused_mismatch": false,
+    "scope": "Inherited historical provenance hash, not a successful current live-source binding. Reexecuting the ancestral shop generator under its old hash would fail. The current frozen-solid derivative does not regenerate that shop layout; no historical hash was silently updated."
+  },
+  "legacy_import_boundary": {
+    "DOC_assignment_line": 19,
+    "DOC_import_line": 10,
+    "DOC_literal_value": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1",
+    "DOC_runtime_uses": [
+      {
+        "line": 43,
+        "path_suffix": "shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/inputs.json"
+      },
+      {
+        "line": 82,
+        "path_suffix": "occupied-bottom-rail-v1.json"
+      }
+    ],
+    "builder_layout_load_sources_validate_render_or_build_called_by_current_geometry_or_clearance": false,
+    "clarification": "The module is transitively imported, so actual live9fff bytes are pinned here. Clearance consumes only the independent DOC constant from leg_header_revision, then separately pins the loaded JSON/data. Its ancestral build() and shop calls are not executed. The kernel local variable shop is a JSON dictionary, not this Python module.",
+    "consumed_by_clearance_kernel": {
+      "path": "scripts/eoere_leg_header_clearance.py",
+      "sha256": "54bd1cf4022503e4aac08e78ba361c92423241531929cd06131a6c3307ee5ee9"
+    },
+    "imported_by": {
+      "path": "scripts/eoere_leg_header_revision.py",
+      "sha256": "821ff247a4fea27aa4d1f52b89220dee39d6dd4bf30f21b03353cca83eec53a4"
+    },
+    "live_builder_layout_import": {
+      "path": "scripts/eoere_builder_layout.py",
+      "sha256": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d"
+    },
+    "shop_import_line": 16
+  },
+  "mechanics_boundary": "Mechanics readiness/flat-input pins are separate and parent reports they contain no builder_layout path. This audit does not change or revalidate mechanics.",
+  "new106_ancestral_source_map_audit": {
+    "entries": 1442,
+    "matching": 1441,
+    "mismatches": [
+      {
+        "expected": "acc715613e29732381927e3f188053b2e4467ef7ad0931f83e98bfe4768b7262",
+        "live": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d",
+        "path": "scripts/eoere_builder_layout.py"
+      }
+    ],
+    "missing": []
+  },
+  "new_current_stage_map_entries": {
+    "/home/mckay-linux/repos/mini-moonboard/docs/bolted-frame-development/owner-frame-v11/owner-four-bolt-outer-top-evaluation.json": "9f7a52fa675826cd7ec71ef950dfd1e3a549767be8e72740342a952eee435493",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-proposal/build_four_bolt_outer_top_v1.py": "b835d082cee0e0049a00cc40736b5073444af0ff25df64e18b8a1ccebae6f228",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_rail_top.brep": "28f4ed422c34da88fc606c0270e38f8a9d5981f77c5e295e98ebf2d0883fb52b",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_left.brep": "c09f42b1ab5b30d0fbc5931dd6555cd97f724636aca81279b870fbcc6541bf49",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_right.brep": "9ea34302825d531d158b7b613f51b9fea80b17e11bcbb85a3a69e330ebf848a1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-relocated-rear-pair-v1/geometry-v1/breps/base_side_left.brep": "95cff20c8c7ca4e78958e7659bb95f421f03f7667a8e49c64f22d6768182a8d1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-relocated-rear-pair-v1/geometry-v1/breps/base_side_right.brep": "8f4e163a8c2d651570a4ce2402d8d848cb8ab39db978ef10c6d970aa65c9f9e1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/checked-receipt-v1.json": "b52265bcb0d9ff4cdf8215794a00df7b8f13bca285da9a7db532072c18147882",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/clearance.json": "9e6c7b50aeb4d8dbd4201d0af07b43ad018aa495d8baabc8a3609c1710471afe",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/analysis-v3/four-hosts/preparation/inputs.json": "515ed1c23f8dfae527d3b9ae56e964529682bc543342bd53175bb7ba16145264"
+  },
+  "physical_release": false,
+  "schema": "v11_four_top_source_provenance_classification/v1",
+  "source114_ancestral_source_map_audit": {
+    "entries": 1431,
+    "matching": 1430,
+    "mismatches": [
+      {
+        "expected": "acc715613e29732381927e3f188053b2e4467ef7ad0931f83e98bfe4768b7262",
+        "live": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d",
+        "path": "scripts/eoere_builder_layout.py"
+      }
+    ],
+    "missing": []
+  },
+  "source114_geometry": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/geometry-v1/geometry.json",
+    "sha256": "fe56b38ecd57ce1c2b9e36065d66eced35dccf10424d376919243cb7864c6772"
+  },
+  "structural_acceptance": false
+}

@@ -1,0 +1,339 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "beyond_material": [
+    "Current114 plywood-cleat perimeter reference0.415393 is below its conditional component limit; this is separate from individual bolt, end-distance, bond and complete-joint checks.",
+    "Material assumptions do not remove the four cleat-post near-end comparisons, top TableD6.35mm shortfall, optional rear-foot scenarios, or complete splitting/contact/bond requirements.",
+    "The separately authorized106-bolt outer-top trial keeps eight bolts per cleat and restores eight planned top bores. Its own force bank and comparisons are pending; neither current bank is transferred."
+  ],
+  "climbing_released": false,
+  "comparison_basis": {
+    "A574_primary_source": {
+      "Table1_machined_0_2percent_yield_applies_to_this_size": false,
+      "design_note_offset_percent": 2.0,
+      "design_note_yield_ksi": 153.0,
+      "edition": "ASTM A574-17 Table1 and Note1, pinned original",
+      "full_size_minimum_tensile_ksi": 180.0,
+      "full_size_proof_stress_ksi": 140.0,
+      "proof_is_not_yield": true,
+      "size_band": "Current 3/8-inch screws",
+      "use_153_as_conventional_elastic_Fy": false,
+      "why_not_automatically_use_153": "The retained original explicitly uses2% offset for the small-size design note. The machined0.2% row is not applicable at3/8in; neither is silently relabeled. The153 bending sensitivity is not a qualified F606/Fyb property route."
+    },
+    "Grade5_alternative": {
+      "alternative_root_mm": 7.31774,
+      "changed_head_profile_requires_matched_geometry_mass_contact_and_forces": true,
+      "conservative_stress_bound_multiplier": 1.0252000892915107,
+      "current_root_mm": 7.3787,
+      "existing_source_route": "Pinned J429_201405/F606-F606M21 and NDS2024_12.3.6.2 conditional tensile-yield route.",
+      "implemented": false,
+      "scope": "Review-only substitution of twelve8093 cleat stacks; current Grade5 stacks unchanged.",
+      "specified_Fy_ksi": 92.0,
+      "specified_Fyb_ksi": 92.0,
+      "supplier_selected": false,
+      "uniform_root_ratio": 0.9917383820998278
+    },
+    "engineering_assumed60": {
+      "A574_Fyb_ksi": 60.0,
+      "A574_conventional_Fy_ksi": 60.0,
+      "Grade5_Fyb_ksi": 92.0,
+      "Grade5_conventional_Fy_ksi": 92.0,
+      "comparison_only": true,
+      "proven_by_A574_label_or_proof": false,
+      "reason_for_use": "Reuses the already documented reduced 60-ksi material specification as a practical sensitivity on both current frozen banks. It is intentionally separate from generic 45-ksi bookkeeping and A574's much higher tensile/proof/design-note figures.",
+      "required_before_claiming_product_conformity": "An applicable material/product specification supporting conventional tensile yield at least60ksi; no blanket new physical test or external sign-off gate is imposed.",
+      "status": "Owner-authorized conditional engineering comparison; additional conventional-yield assumption, not a supplier guarantee, actual measured property, or adopted NDS joint capacity."
+    }
+  },
+  "comparisons": {
+    "selected112": {
+      "A574_note153_bending_only_sensitivity": {
+        "axis_id": "eoere_bolt_081",
+        "case_id": "a12-left",
+        "value": 0.4810748220000503
+      },
+      "A574_states": 72,
+      "Grade5_profile_fixed_field_combined_upper_bound": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.6537377060656119
+      },
+      "Grade5_profile_fixed_field_elastic_upper_bound": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.5662489252400349
+      },
+      "Grade5_states": 72,
+      "complete_joint_capacity": null,
+      "engineering_assumed60_A574_combined": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.9777582214804553
+      },
+      "engineering_assumed60_flags": 0,
+      "engineering_assumed60_separate_elastic": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.846906239185703
+      },
+      "preserved_generic45_flags": 5,
+      "preserved_generic45_maximum": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 1.303677628640607
+      },
+      "response_bank": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json",
+        "sha256": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c"
+      },
+      "revision": "v11-shorter-bolts-v1",
+      "source_rows": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/mixed-Mp4-projection-v1.json",
+        "sha256": "d44dd0e078d2164fa2bba170b6e28c2be45d21829f897a11dc20f2bbdd65b885"
+      },
+      "states": 144,
+      "unchanged_max_required_Fy_ksi": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 50.81437435114218
+      },
+      "unchanged_max_required_Fyb_ksi": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 58.66549328882732
+      }
+    },
+    "zero_spacer114": {
+      "A574_note153_bending_only_sensitivity": {
+        "axis_id": "eoere_bolt_081",
+        "case_id": "a12-left",
+        "value": 0.4561940007546075
+      },
+      "A574_states": 72,
+      "Grade5_profile_fixed_field_combined_upper_bound": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.6201122113420514
+      },
+      "Grade5_profile_fixed_field_elastic_upper_bound": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.537101105399575
+      },
+      "Grade5_states": 72,
+      "complete_joint_capacity": null,
+      "engineering_assumed60_A574_combined": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.9274664858007495
+      },
+      "engineering_assumed60_flags": 0,
+      "engineering_assumed60_separate_elastic": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 0.8033115065845203
+      },
+      "preserved_generic45_flags": 3,
+      "preserved_generic45_maximum": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 1.2366219810676662
+      },
+      "response_bank": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/response-bank.json",
+        "sha256": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092"
+      },
+      "revision": "v11-zero-spacer-eight-bolt-v1",
+      "source_rows": {
+        "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json",
+        "sha256": "9883ecc2ce52ba9a54e849f88132b54d33305c85b2d8b32ec7135a774ab27ba3"
+      },
+      "states": 144,
+      "unchanged_max_required_Fy_ksi": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 48.19869039507122
+      },
+      "unchanged_max_required_Fyb_ksi": {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "value": 55.64798914804497
+      }
+    }
+  },
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "controls": {
+    "Grade5_states_unchanged_per_bank": 72,
+    "all12_force_field_hashes_verified": true,
+    "case_count_per_bank": 6,
+    "decimal50_maximum_scaling_error": 1.1102230246251565e-16,
+    "existing_Mp4_helper_reused": true,
+    "explicit_two_percent_note_not_relabeled": true,
+    "material_families_per_bank": 2,
+    "old_flags_and_banks_unchanged": true,
+    "signed_forces_moments_profiles_and_bearing_fields_unchanged": true,
+    "states_replayed": 288
+  },
+  "detailed_rows": {
+    "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/hardware/material-scope/owner-comparison-v1/comparison-rows.json",
+    "sha256": "98e3224eb615e4cced89ddd663272f9bf3c2e1e085f17f368972998dce7bceb3"
+  },
+  "fabrication_released": false,
+  "geometry_changed": false,
+  "hardware_substitution_selected": false,
+  "next106_force_result_transferred": false,
+  "owner_direction": "Look at the actual scheduled bolts and use reasonable available comparisons when exact product comparisons are absent; compare cleat and general exceedance alternatives.",
+  "producer": {
+    "path": "scripts/eoere_bolt_material_comparison.py",
+    "sha256": "f07719d767193df662f4cd868285672f14d501e4db1428ef42e17580491f7640"
+  },
+  "purchase_authorized": false,
+  "question": "Which current exceedances need a different cleat, and which change under a reasonable explicitly assumed material comparison?",
+  "recorded_inventory_scope": "Scheduled zero-spacer 114-bolt hardware, not an observation of delivered parts. Owner's saved record says nuts/bolts unpurchased.",
+  "remedy_order": [
+    {
+      "benefit": "No geometry or force change for the material-only comparison; both current mixed atlases have zero rows above this material reference.",
+      "limit": "An explicitly assumed comparison does not establish actual material conformity or clear end/row/splitting details.",
+      "route": "Retain current plywood outlines and current socket heads; use the declared reduced60ksi comparison."
+    },
+    {
+      "benefit": "Known conditional tensile-yield route; current conservative profile bounds stay below one without changing cleat outlines or hole stations.",
+      "limit": "Exact6.5in product/profile, head seats/tool access, selfweight and matching mechanics require disposition before adoption.",
+      "route": "Substitute twelve same-diameter partially threaded Grade5 hex-cap cleat bolts."
+    },
+    {
+      "benefit": "Uses owned fittings and far rows to address the top pattern without changing cleat outlines.",
+      "limit": "Changed top connection forces, local geometry and complete checks require its own bank; not a current pass.",
+      "route": "Finish the separately authorized four-bolt outer-top comparison, retaining eight per cleat."
+    },
+    {
+      "benefit": "Targets the actual hole-to-timber-end limitation while preserving the climbing surface.",
+      "limit": "Thicker plywood or a stronger bolt alone does not add timber beyond the hole; new marks, access, net sections and forces must be checked.",
+      "route": "Revise the cleat-post bolt group or its supporting end detail if its end-distance hold persists."
+    },
+    {
+      "benefit": "Possible broader fallback if local detailing cannot satisfy the complete joint.",
+      "limit": "Unmodeled alternative, not a selected design; requires clearance, timber-end support, bond/load-path and complete matched evaluation. Existing shortfalls do not prove this redesign is necessary.",
+      "route": "Larger gusset with an independently arranged bolt group or a new bearing-seat connection."
+    }
+  ],
+  "reproduce": "uv run python scripts/eoere_bolt_material_comparison.py --check",
+  "scheduled_bolt_families": {
+    "A574_socket_screws": 16,
+    "Grade5_hex_cap_screws_including_four_conditional_types": 98,
+    "bolt_sku_8092_quantity": 4,
+    "bolt_sku_8093_quantity": 12,
+    "four_shorter_Grade5_supplier_SKUs_selected": false
+  },
+  "scheduled_bolt_inventory": [
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "historical_product_link": "https://www.zoro.com/zoro-select-grade-5-12-13-hex-head-cap-screw-zinc-plated-steel-8-12-in-l-5-pk-n012000500850/i/G0340956/",
+      "nominal_description": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "required_quantity_each": "4",
+      "sku": "G0340956"
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "historical_product_link": "https://www.zoro.com/zoro-select-grade-5-38-16-hex-head-cap-screw-zinc-plated-steel-4-34-in-l-10-pk-n012000370475/i/G0341148/",
+      "nominal_description": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "required_quantity_each": "32",
+      "sku": "G0341148"
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "historical_product_link": "https://boltdepot.com/Product-Details?product=363",
+      "nominal_description": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "required_quantity_each": "48",
+      "sku": "363"
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "SAE J429 Grade 5",
+      "historical_product_link": "https://boltdepot.com/Product-Details?product=365",
+      "nominal_description": "SAE J429 Grade 5",
+      "required_quantity_each": "8",
+      "sku": "365"
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "historical_product_link": "https://boltdepot.com/Product-Details?product=368",
+      "nominal_description": "SAE J429 Grade 5; zinc; partially threaded full body",
+      "required_quantity_each": "2",
+      "sku": "368"
+    },
+    {
+      "conditional_bolt_type_id": "grade5-hcs-3_8-16x6_5-style1-conditional-v1",
+      "grade_or_material": "SAE J429 Grade5; zinc; conditional B18.2.1-2012 Style1 HCS",
+      "historical_product_link": "",
+      "nominal_description": "3/8-16 x6.5in Grade5 partially threaded full-size-body Style1 HCS; conditional type, no supplier SKU selected",
+      "required_quantity_each": "4",
+      "sku": ""
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "ASTM A574 alloy steel; partially threaded socket head",
+      "historical_product_link": "https://boltdepot.com/Product-Details?product=8092",
+      "nominal_description": "ASTM A574 alloy steel; partially threaded socket head",
+      "required_quantity_each": "4",
+      "sku": "8092"
+    },
+    {
+      "conditional_bolt_type_id": "",
+      "grade_or_material": "ASTM A574 alloy steel",
+      "historical_product_link": "https://boltdepot.com/Product-Details?product=8093",
+      "nominal_description": "ASTM A574 alloy steel",
+      "required_quantity_each": "12",
+      "sku": "8093"
+    }
+  ],
+  "schema": "v11_owner_bolt_material_comparison/v1",
+  "source_bindings": {
+    "docs/bolted-frame-development/owner-frame-v11/owner-four-bolt-outer-top-evaluation.json": "9f7a52fa675826cd7ec71ef950dfd1e3a549767be8e72740342a952eee435493",
+    "docs/bolted-frame-development/owner-frame-v11/owner-material-purchase-decisions.json": "6f437911a9603ee4310eb284938479050049f6e54afd80792733d77f9d6b1da3",
+    "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/response-bank.json": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/error-audit.json": "b79069db91fea439b5c21aac344495f0186cf189364f9d8499e3f75a47bcee47",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/geometry-receipt.json": "b52265bcb0d9ff4cdf8215794a00df7b8f13bca285da9a7db532072c18147882",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-option-twelve-grade5.json": "cb699292fa1e9a71e197bc7b12c31530ab1b6932a730ac49b0cc40f902373df0",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/hardware-profile-contract.json": "abcc49a6f59e4183b8b522e5fa064157f7107cf290a3043fac76d4927a508f8f",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/planning/grouped-hardware.csv": "c82ff566e1ef0b541f08226cada83a11c5f1293326fb1e906634e5e920e97a4f",
+    "docs/bolted-frame-development/owner-frame-v11/zero-spacer-eight-bolt/response-bank.json": "a87f9edfa6006c206e883dd28108c8fa78369dbc8e40a256f141405fcfa5d092",
+    "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/a574/decision-v1.json": "4150ae57d6c6afd8e46e9ee0a1948c62ee90bf15ebce6c5b3daf0101b0edcf3c",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/A574-property/source-cache/a574-17-page-2.png": "c4428d00c1eeec535f6f17b80daae0ee63bc17e14f646ef72071ed53537d8864",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/A574-property/source-cache/a574-17.pdf": "7e2784c14e655862f0c22da437c200394702f31c7a1b23bb4130930b6e033c6a",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/mixed-Mp4-projection-v1.json": "d44dd0e078d2164fa2bba170b6e28c2be45d21829f897a11dc20f2bbdd65b885",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/project_mixed_mp4_v1.py": "fef047fcdc90f4cd6f6a232dc866000cce6e1f580621ae69769a9a257caa65de",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/hardware/material-scope/A574-proof-permanent-set-inference-v1.json": "e68f8782d5541054bb29fdb0d664c0c827acda933f3ba24452aae12afb93870b",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json": "9883ecc2ce52ba9a54e849f88132b54d33305c85b2d8b32ec7135a774ab27ba3"
+  },
+  "source_verification": {
+    "primary_product_pages_checked": [
+      {
+        "facts": "3/8-16x6.5in partial-thread ASME B18.3, ASTM A574, minimum body4.69in.",
+        "url": "https://boltdepot.com/Product-Details?product=8093"
+      },
+      {
+        "facts": "3/8-16x6in partial-thread ASME B18.3, ASTM A574, minimum body4.19in.",
+        "url": "https://boltdepot.com/Product-Details?product=8092"
+      },
+      {
+        "facts": "3/8-16x2.5in partial-thread ASME B18.2.1, SAE J429 Grade5.",
+        "url": "https://boltdepot.com/Product-Details?product=363"
+      },
+      {
+        "facts": "3/8-16x3in partial-thread ASME B18.2.1, SAE J429 Grade5.",
+        "url": "https://boltdepot.com/Product-Details?product=365"
+      }
+    ],
+    "standard_design_methods": "Pinned original A574 image and existing NDS/F606 method chain, plus https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf; no new proof-to-yield conversion.",
+    "supplier_lookup": "Stripe Directory CLI unavailable; public primary product pages checked. No outreach, order, account change or purchase."
+  },
+  "structural_acceptance": false
+}

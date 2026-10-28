@@ -1,0 +1,66 @@
+{
+  "actualcase_output_bases": {
+    "a1-rear": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2",
+    "a12-forward": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2",
+    "a12-left": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2",
+    "a12-rear": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/a12-rear",
+    "k12-rear": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/k12-rear",
+    "k12-right": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2"
+  },
+  "all_cases_default_cold": false,
+  "all_frozen_case_recovery_and_replay_gates_rechecked": true,
+  "all_physical_operator_arrays_inputs_material_geometry_loads_unchanged": true,
+  "bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "candidate_selected": false,
+  "case_count": 6,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "current_existing_local_closure_replay_pending": true,
+  "fabrication_released": false,
+  "historical_q_or_field_transfer": false,
+  "independent_replay_count": 12,
+  "internal_polish_target_N": 1e-07,
+  "maximum_gradient_inf_N": 7.187458731294782e-06,
+  "original_bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/response-bank.json",
+    "sha256": "aa995fbaee89da24e0dda15ae148e119ce3bad0d096c775bdae5ac8458e660a9"
+  },
+  "original_cold_case_rows_retained_exact": [
+    "a1-rear",
+    "a12-forward",
+    "a12-left",
+    "k12-right"
+  ],
+  "original_parent_admission": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "8f193e7fe64dc66a7e6ed29e5f713ee5be8b8b29efcb285e0adb1c8558b0911c"
+  },
+  "parent_precision_admission": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/parent-admission-v1.json",
+    "sha256": "eaa5a3d1a813d60cbba85e63a12e2edc7d373512c3a415148c20f777d6aa6ee9"
+  },
+  "precision_completion_proofs": {
+    "a12-rear": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/a12-rear/completion-proof.json",
+      "sha256": "432195e8143e1fa1d7c38c00d8a236c8e5d98c6486ff0c944d69403f79a8378b"
+    },
+    "k12-rear": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/k12-rear/completion-proof.json",
+      "sha256": "a8116d233381ec56954145320b734826feadaa46138ecf4a99aceed2b3229ee7"
+    }
+  },
+  "same_current_case_q_used_only_as_numerical_guess": [
+    "a12-rear",
+    "k12-rear"
+  ],
+  "schema": "four_bolt_outer_top_parent_bank_admission/v1",
+  "source_failures": 0,
+  "structural_acceptance": false,
+  "unchanged_admission_gate_N": 1e-05,
+  "unique_current_field_source_pins_verified": 1525,
+  "unique_fresh_fields": 6,
+  "unique_independent_replays": 12
+}

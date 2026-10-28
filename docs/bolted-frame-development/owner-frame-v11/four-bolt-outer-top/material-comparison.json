@@ -1,0 +1,127 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "calculation_producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/compare_fresh_materials_v1.py",
+    "sha256": "964e1d3c39feb261d9bbbbde411b31b56a15602b21f8b04e8cf3cef6f81aee60"
+  },
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "controls": {
+    "body_root_profiles_bearing_caps_and_Grade5_92_unchanged": true,
+    "decimal_division_replay_maximum_error": 1.1102230246251565e-16,
+    "existing_Mp4_property_requirement_replayed": true,
+    "source_fields_and_all_signed_wrenches_preserved": true
+  },
+  "counts": {
+    "axes": 24,
+    "cases": 6,
+    "material_states": {
+      "A574": 72,
+      "Grade5": 72
+    },
+    "states": 144
+  },
+  "current45_flags_erased": false,
+  "detailed_result": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/material-comparison-v1.json",
+    "sha256": "f963f6a249d5448e8e37048acbacee4272456a5b4b5a4d7948f32b0914c38d21"
+  },
+  "detailed_row_count": 144,
+  "fabrication_released": false,
+  "flags": {
+    "primary_combined_Mp4_index": [
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "primary_combined_Mp4_index": 1.2301854692483343
+      },
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-left",
+        "primary_combined_Mp4_index": 1.1905336939177829
+      },
+      {
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-right",
+        "primary_combined_Mp4_index": 1.1779816622318393
+      }
+    ],
+    "primary_separate_elastic_index": [
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-forward",
+        "primary_separate_elastic_index": 1.0657693945493505
+      },
+      {
+        "axis_id": "v11_cleat_left_side_1",
+        "case_id": "a12-left",
+        "primary_separate_elastic_index": 1.0414250774477762
+      },
+      {
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-right",
+        "primary_separate_elastic_index": 1.0308810996902755
+      }
+    ],
+    "sensitivity60_combined_Mp4_index": [],
+    "sensitivity60_separate_elastic_index": []
+  },
+  "material_scenario_adopted": false,
+  "maxima": {
+    "primary_combined_Mp4_index": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-forward",
+      "value": 1.2301854692483343
+    },
+    "primary_separate_elastic_index": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-forward",
+      "value": 1.0657693945493505
+    },
+    "sensitivity60_combined_Mp4_index": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-forward",
+      "value": 0.9226391019362505
+    },
+    "sensitivity60_separate_elastic_index": {
+      "axis_id": "v11_cleat_left_side_1",
+      "case_id": "a12-forward",
+      "value": 0.7993270459120129
+    }
+  },
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/delivery/compact_material_comparison_v1.py",
+    "sha256": "97db4c3757ae47012651695571b14744e5002a4ef4d42081dccd957c63d90bd0"
+  },
+  "product_or_delivered_lot_qualified": false,
+  "projection_scope": "All extrema, flags, source bindings and qualification limits retained; detailed signed rows stay in the unchanged raw source.",
+  "revision": "v11-four-bolt-outer-top-v1",
+  "scenario_scope": "A57445 primary and declared60 strength-only sensitivity use identical fresh106 fields, body/root profiles, Fe, E and stiffness. Grade5 remains92 in both. No153 proof/yield conversion or Grade5 head substitution is made.",
+  "schema": "current106_material_comparison_public_summary/v1",
+  "source_bindings": {
+    "current_bank": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+      "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+    },
+    "current_rows": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json",
+      "sha256": "4fc890332ff00499ef81935f0c6c10656aceb07dcd52f8d182c483b469fbc9f7"
+    },
+    "existing_Mp4_projection": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/generalized-wrench/common-work-contracted-ellipse-v1/project_mixed_mp4_v1.py",
+      "sha256": "fef047fcdc90f4cd6f6a232dc866000cce6e1f580621ae69769a9a257caa65de"
+    },
+    "existing_comparison_scope": {
+      "path": "scripts/eoere_bolt_material_comparison.py",
+      "sha256": "f07719d767193df662f4cd868285672f14d501e4db1428ef42e17580491f7640"
+    },
+    "inherited_public_comparison_scope_only": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/bolt-material-comparison.json",
+      "sha256": "e560e7b6415965b1eb7e9d1504dff1ad2c59b3b06c3f076a7cc7cd05d8e2cc38"
+    }
+  },
+  "structural_acceptance": false
+}

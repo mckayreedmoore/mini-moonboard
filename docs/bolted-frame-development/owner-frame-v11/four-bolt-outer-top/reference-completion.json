@@ -1,0 +1,84 @@
+{
+  "all_reference_routes_completed_against_one_bank": true,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "fabrication_released": false,
+  "historical_forces_or_indices_transferred": false,
+  "native_or_global_mechanics_run": false,
+  "parent_admitted_bank": true,
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/publish_reference_completion_v1.py",
+    "sha256": "de6fe3e6bc10a780313aebbd6c775513b9a34d2f415593c6bf6032321974e1e9"
+  },
+  "readiness": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/adapter-readiness-v7.json",
+    "sha256": "cfd110f913e2523fda682ce8cea1c4c829b6d3c0e4a97e0994efc5b5b5741e72"
+  },
+  "reference_routes": {
+    "connections": {
+      "outputs": {
+        "Grade5_92_force": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/force-only-Grade5-F606-92ksi-v1.json",
+          "sha256": "6240f751b9eee83e686d8c9abf32d8197d40227769b5ab44466072f40c0799b3"
+        },
+        "Grade5_92_rows": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/physical-row-Grade5-F606-92ksi-v1.json",
+          "sha256": "f78d0825106d80f0204e15d4620797c1e1090938e981c73643667e4d509ed866"
+        },
+        "generic45_force": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/force-only-45ksi-v1.json",
+          "sha256": "6ff163eb95a91d33ba6a92175a4eb378ce93d5a20406664fa362934e10a3e1a0"
+        },
+        "generic45_rows": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/physical-row-45ksi-v1.json",
+          "sha256": "141bae48323fca9dd117eddf55c462eb12c701de2c8a6499d7364abe7d67d73e"
+        },
+        "individual_Cg_floor": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/individual-EYM-Cg-equation-bound-v1.json",
+          "sha256": "fa4bf4ca1bc8381209e149c6ff1291e0839efc178200dd663c72a34c92ddf359"
+        },
+        "method_disposition": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/numerical-method-disposition-v1.json",
+          "sha256": "8ddd2b53cdae5db40c38251ca2db109798d2952d761cf2950f671a76778a6fae"
+        },
+        "mixed_planes": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/mixed-media-plane-references-v1.json",
+          "sha256": "e3b63357a31e76f5ee5f14b73ddbf89c3bc7d02519300c104dd25a9ed337490d"
+        },
+        "standard_Cg": {
+          "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/standard-Cg-net-lateral-v1.json",
+          "sha256": "777bf820df5e7a57794f76b00218868267917c8d71e9bd59ccf3a9fef87dfa5b"
+        }
+      },
+      "summary": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connections/connection-summary-v1.json",
+        "sha256": "00fd62051ba3bc252d3eb863bdc05e188ec58835b75e3703d4af980ea4b3a61f"
+      }
+    },
+    "families": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v3/families/reference-family-binding-v1.json",
+      "sha256": "649c41ffd5783cee1112d97ef72d3d84445b790e416399fdccb2396a4a2ea0bb"
+    }
+  },
+  "response_bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "revision": "v11-four-bolt-outer-top-v1",
+  "schema": "v11_four_bolt_outer_top_reference_run/v1",
+  "source_bindings": {
+    "completed_connection_input_admission": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v2/connection-input-admission-v1.json",
+      "sha256": "6ea1d9c86d736438840a6a2b44e5a04d6d9304fac1a9a5bbe905c9bde91dc9bd"
+    },
+    "completed_family_run": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/runs/reference-v3/reference-run-v1.json",
+      "sha256": "b3c725474ac4a17942d62b602777e2e1c1728c73e1aa58ae44882dceeba03d6b"
+    },
+    "completion_publisher": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/publish_reference_completion_v1.py",
+      "sha256": "de6fe3e6bc10a780313aebbd6c775513b9a34d2f415593c6bf6032321974e1e9"
+    }
+  },
+  "structural_acceptance": false
+}

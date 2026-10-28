@@ -80,3 +80,5 @@ For baseline shop records, use the matching **4×4** or **4×8** folder, the
 **checklist** and the **assembly guide** together. Read their recorded conditions.
 For the active development lane, return to the [compact bolted-frame summary](bolted-frame-development/README.md).
 For earlier ideas and the writeup, use [history/](history/).
+
+The separate [106-bolt outer-top evaluation](bolted-frame-development/owner-frame-v11/four-bolt-outer-top/README.md) completes matched numerical references with four bolts per outer top corner, eight per cleat and zero spacers. Its unselected [hardware and marking packet](bolted-frame-development/owner-frame-v11/four-bolt-outer-top/planning/README.md) retains all physical-use holds.

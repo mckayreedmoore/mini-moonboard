@@ -1,0 +1,35 @@
+{
+  "active_planned_far_axes_each_angle": 4,
+  "factory_holes_each_angle": 8,
+  "geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "inactive_near_holes_each_angle": 4,
+  "marking_or_drilling_released": false,
+  "new_template_CAD_required_or_built": false,
+  "physical_factory_hole_offsets_or_stock_or_mask_fit_observed": false,
+  "physical_mask_or_bit_or_bushing_selected": false,
+  "policy": [
+    "Only FAR pair on beam flange and FAR pair on post flange are active in this106 candidate.",
+    "Every NEAR aperture on both outer-top flanges is inactive: cover/disable it in any generic marking layout and do not transfer it to timber. This is a design mask policy, not a qualified physical mask or drilling instruction.",
+    "Never use all8 factory holes merely because steel holes exist. Only listed retained axis IDs define the proposed pattern.",
+    "The existing horizontal-family STL is FAR-beam-only and has no proved outer-top or post-flange registration. No such qualification is added.",
+    "Cleats retain8 bolts per side and center top connections retain4; this outer-top policy must not be applied to other brackets."
+  ],
+  "removed_axes": [
+    "v11_top_left_beam_1",
+    "v11_top_left_beam_2",
+    "v11_top_left_post_1",
+    "v11_top_left_post_2",
+    "v11_top_right_beam_1",
+    "v11_top_right_beam_2",
+    "v11_top_right_post_1",
+    "v11_top_right_post_2"
+  ],
+  "schema": "outer_top_four_bolt_inactive_near_policy/v1",
+  "scope_only_angles": [
+    "eoere_clip_single_top_left_1",
+    "eoere_clip_single_top_right_2"
+  ]
+}

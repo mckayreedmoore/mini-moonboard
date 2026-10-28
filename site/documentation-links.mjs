@@ -38,6 +38,21 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-four-bolt-outer-top-preview')
+    return [
+      {label: 'Four-bolt outer-top evaluation and current limits', path: current + 'owner-frame-v11/four-bolt-outer-top/README.md'},
+      {label: 'Own checked geometry and clearance', path: current + 'owner-frame-v11/four-bolt-outer-top/geometry-receipt.json'},
+      {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/four-bolt-outer-top/response-bank.json'},
+      {label: 'Independent current-field source admission', path: current + 'owner-frame-v11/four-bolt-outer-top/parent-bank-admission.json'},
+      {label: 'Current member, bolt and geometry references', path: current + 'owner-frame-v11/four-bolt-outer-top/current-reference-summary.json'},
+      {label: 'Fresh mixed common-work material flags', path: current + 'owner-frame-v11/four-bolt-outer-top/mixed-common-work-summary.json'},
+      {label: 'Fresh rear connection reference', path: current + 'owner-frame-v11/four-bolt-outer-top/contracted-rear-summary.json'},
+      {label: 'Separate 60 ksi material comparison; unadopted', path: current + 'owner-frame-v11/four-bolt-outer-top/material-comparison.json'},
+      {label: 'Provisional hardware and marking packet — HOLD', path: current + 'owner-frame-v11/four-bolt-outer-top/planning/README.md'},
+      {label: 'Current fitting, washer and bond component evidence', path: current + 'owner-frame-v11/four-bolt-outer-top/component-reference-summary.json'},
+      {label: 'Current component source and coverage controls', path: current + 'owner-frame-v11/four-bolt-outer-top/component-reference-controls.json'},
+      {label: 'Owner direction: four outer, eight per cleat', path: current + 'owner-frame-v11/owner-four-bolt-outer-top-evaluation.json'},
+    ];
   if (model === 'eoere-v11-zero-spacer-preview')
     return [
       {label: 'Zero-spacer geometry and conditional tool access', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/geometry-receipt.json'},
@@ -45,6 +60,7 @@ export function documentsForModel(model, recordedDocuments = []) {
       {label: 'Source-bound connection and section route completion', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/reference-completion.json'},
       {label: 'Current conditional references and geometry limits', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/current-reference-summary.json'},
       {label: 'Fresh mixed common-work/Mp/4 material flags', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/mixed-common-work-summary.json'},
+      {label: 'Scheduled bolt grades, conditional material comparisons and remedies', path: current + 'owner-frame-v11/bolt-material-comparison.json'},
       {label: 'Primary contracted rear connection reference', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/contracted-rear-summary.json'},
       {label: 'Mixed-reference source and profile controls', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/mixed-current-controls.json'},
       {label: 'Four shorter Grade 5 profiles and intake requirements', path: current + 'owner-frame-v11/zero-spacer-eight-bolt/hardware-profile-contract.json'},
@@ -83,6 +99,7 @@ export function documentsForModel(model, recordedDocuments = []) {
   if (model === 'eoere-v11-shorter-bolts-preview')
     return [
       {label: 'Own shorter-bolt geometry receipt', path: current + 'owner-frame-v11/shorter-bolts/geometry-receipt.json'},
+      {label: 'Scheduled bolt grades, conditional material comparisons and remedies', path: current + 'owner-frame-v11/bolt-material-comparison.json'},
       {label: 'Own six-case bank and twelve replays', path: current + 'owner-frame-v11/shorter-bolts/response-bank.json'},
       {label: 'Current conditional references and unresolved connections', path: current + 'owner-frame-v11/shorter-bolts/reference-review.json'},
       {label: 'Current-pattern connection checks and remaining duties', path: current + 'owner-frame-v11/shorter-bolts/joint-disposition.json'},

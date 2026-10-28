@@ -1,0 +1,428 @@
+{
+  "actual_property_qualification": false,
+  "agent_review_loop_suspended": true,
+  "all_declared_component_arithmetic_evaluated": true,
+  "analytical_fitting_components": {
+    "actual_Fu_MPa": null,
+    "actual_Fy_MPa": null,
+    "actual_inside_radius_mm": null,
+    "conditional_Fu_MPa": 370.0,
+    "conditional_Fy_MPa": 235.0,
+    "conditional_Ri_equals_t_mm": 6.35,
+    "entry_net_ideal_sector_summary": {
+      "capture_case_states": 624,
+      "conditional_bend_required_Fy_from_interval_upper_MPa": 203.2903243708186,
+      "continuous_point_action_net_section_marker": 0.47100547661973463,
+      "entry_complete_port_replay_max_error": 6.389200279954821e-11,
+      "entry_maximum_abs_axis_torque_Nmm": 2.137510194325725e-06,
+      "entry_maximum_bearing_free_couple_Nmm": 1492.9540064760756,
+      "maximum_entry_mu_uniform_washer_annulus_scenario": 4.579746812487161e-09,
+      "maximum_transverse_pole_offset_mm": 1.6110686245471148e-08,
+      "midpoint_maximum_abs_axis_torque_Nmm": 3.0069990673634966e-11,
+      "nonnegative_unit_capture_cycles": 576
+    },
+    "header_steel_anchor_summary": {
+      "anchor_states": 192,
+      "case_event_variants": 12,
+      "flat_leaf_states": 96,
+      "maximum_added_root_force_N": 0.0,
+      "maximum_added_root_moment_Nmm": 0.0,
+      "maximum_conditional_affine_principal_extension_marker": 0.06950844310182844,
+      "maximum_conditional_force_only_principal_marker": 0.0254418559527743,
+      "maximum_required_Fu_affine_extension_MPa": 8.290158009708783,
+      "maximum_required_Fu_force_only_MPa": 2.9368725542160754,
+      "physical_paths": 8
+    },
+    "root_hole_principal_summary": {
+      "affine_hole_required_Fu_MPa": 10.7476766752163,
+      "affine_principal_extension_marker": 0.10907130997452996,
+      "bend_covered_states": 144,
+      "bend_maximum_constructed_upper_index": 0.8650652100885898,
+      "cases": 6,
+      "fittings": 24,
+      "force_only_hole_required_Fu_MPa": 4.8656695863967006,
+      "force_only_principal_marker": 0.06270271317087997,
+      "heel_states": 144,
+      "hole_states": 624,
+      "maximum_hole_free_moment_Nmm": 523.3941682382175,
+      "maximum_required_mu_washer_face_scenario": 6.436590574920246e-14,
+      "maximum_root_replay_error_N_or_Nmm": 7.275957614183426e-12,
+      "maximum_shaft_axis_torque_Nmm": 3.004156896420456e-11,
+      "near_seat_states": 48,
+      "near_seat_static_required_Fy_1_67_MPa": 84.32810158353696,
+      "root_required_Fy_1_67_MPa": 68.49456276107347,
+      "root_states": 288
+    },
+    "scope": "Separate gross/net sections, force-only fracture formulas, affine-thickness extensions and ideal curved-sector construction retain their declared limits. They do not form a general 3D fracture interaction or complete fitting capacity.",
+    "separate_augmented_shaft_and_wood_reference": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/header-augmented-anchor-current-v1.json",
+      "sha256": "62815abab8828771bab3bd5eea622d703278dcbb9a84bdb55ea7f8a715721de1"
+    }
+  },
+  "bond": {
+    "actual_G_over_t_MPa_per_mm": null,
+    "actual_adhesive_design_allowable_MPa": null,
+    "constitutive_hypothesis": "Two nominal19.05mm leaves per cleat, T-88 process basis and perfect composite bond remain conditional.",
+    "scope": "Twelve current physical-leaf six-resultant reductions and contained net-face witnesses; required transfer levels are not actual local peel/adhesive stresses or calibrated allowables.",
+    "shear_lag_parameter_scenarios": [
+      {
+        "required_G_over_t_MPa_per_mm": 1707.4866436531443,
+        "transfer_length_lambda_mm": 5.0
+      },
+      {
+        "required_G_over_t_MPa_per_mm": 426.87166091328606,
+        "transfer_length_lambda_mm": 10.0
+      },
+      {
+        "required_G_over_t_MPa_per_mm": 106.71791522832152,
+        "transfer_length_lambda_mm": 20.0
+      },
+      {
+        "required_G_over_t_MPa_per_mm": 26.67947880708038,
+        "transfer_length_lambda_mm": 40.0
+      },
+      {
+        "required_G_over_t_MPa_per_mm": 6.669869701770095,
+        "transfer_length_lambda_mm": 80.0
+      }
+    ],
+    "summary": {
+      "all_12_reduced_wrenches_compression_only_representable": true,
+      "cleat_case_states": 12,
+      "max_six_resultant_replay_error_N_Nmm": 3.956301952712238e-10,
+      "maximum_long_wavelength_q_N_per_mm": 9.63457218930559,
+      "maximum_long_wavelength_width_average_shear_MPa": 0.06896615740376229,
+      "maximum_reduced_normal_compression_cap_MPa": 0.025454636120512488,
+      "maximum_reduced_tangential_traction_MPa": 0.008238107209649877
+    }
+  },
+  "candidate_revision": "v11-four-bolt-outer-top-v1",
+  "candidate_selected": false,
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "complete_physical_fitting_capacity": false,
+  "counts": {
+    "axes": 106,
+    "axis_cases": 636,
+    "body_cases": 144,
+    "bond_six_resultant_states": 12,
+    "cases": 6,
+    "complete_source_backing_patch_geometry_equal_between_current_cases": true,
+    "end_cases": 1272,
+    "ends": 212,
+    "fittings": 24,
+    "global_full_ring_cases": 1128,
+    "header_distinct_native_states": 48,
+    "header_event_aliases": 96,
+    "near_cases": 48,
+    "near_seats": 8,
+    "receiver_cases": {
+      "plywood": 96,
+      "sawn_wood": 552,
+      "steel": 624
+    },
+    "receiver_ends": {
+      "plywood": 16,
+      "sawn_wood": 92,
+      "steel": 104
+    },
+    "root_cases": 288,
+    "selected_actual_governing_fine_states": 2,
+    "source_wrench_groups": 3696,
+    "steel_port_cases": 624,
+    "steel_ports": 104
+  },
+  "drilling_released": false,
+  "fabrication_released": false,
+  "native": {
+    "actual_friction": null,
+    "all_state_fine_mesh_envelope_established": false,
+    "analytical_loaded_face_radius_c_does_not_enter_native_pressure_or_footprint": true,
+    "backing_domain_reuse_proof": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/all-baseline-v1/actual-backing-domain-reuse-v1.json",
+      "sha256": "9962b45ad87debc3dada7851eebda38c5e4db062418b88b16649ec18e06503ff"
+    },
+    "baseline": {
+      "cases": 6,
+      "conditional_Fy235_marker_index": 0.4366938164579234,
+      "fittings": 24,
+      "governing_case": "a12-forward",
+      "governing_fitting": "eoere_clip_angle_base_left",
+      "governing_state": "C00-a12-forward",
+      "marker_above_one_count": 0,
+      "maximum_IP_VM_MPa": 61.45092626803113,
+      "maximum_gauge_plus_applied_force_residual_N": 7.9939626757552e-09,
+      "maximum_gauge_plus_applied_moment_residual_Nmm": 1.879950205446222e-07,
+      "minimum_half_CLOAD_U_work_Nmm": 0.00014405531246736484,
+      "required_Fy_1_67_MPa": 102.62304686761199,
+      "states": 144
+    },
+    "current_governing_fine_comparisons": [
+      {
+        "case_id": "a12-forward",
+        "coarse_VM_MPa": 61.45092626803113,
+        "coarse_governing_state_id": "C00-a12-forward",
+        "fine_Fy235_marker_index": 0.44533468906442963,
+        "fine_VM_MPa": 62.66685744319819,
+        "fine_required_Fy_1_67_MPa": 104.65365193014097,
+        "fitting_id": "eoere_clip_angle_base_left",
+        "relative_VM_change": 0.019787027617183872,
+        "variant": "baseline"
+      },
+      {
+        "case_id": "a12-forward",
+        "coarse_VM_MPa": 61.44808817516581,
+        "coarse_governing_state_id": "H00-a12-forward",
+        "fine_Fy235_marker_index": 0.44531535065478584,
+        "fine_VM_MPa": 62.66413616998483,
+        "fine_required_Fy_1_67_MPa": 104.64910740387467,
+        "fitting_id": "eoere_clip_angle_base_left",
+        "relative_VM_change": 0.019789842628667564,
+        "variant": "header"
+      }
+    ],
+    "exact_unchanged_source_map_reuse": {
+      "changed_cases": [
+        "a12-rear",
+        "k12-rear"
+      ],
+      "current_recomputed_states": 48,
+      "exact_reused_states": 96,
+      "prior_readiness": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v1/all-baseline-v1/input-readiness.json",
+        "sha256": "9cf15d7e969fbd1f44801279df5c5578af696e6f1e1b0b8fd9864ab70ead77c9"
+      },
+      "unchanged_cases": [
+        "a1-rear",
+        "a12-forward",
+        "a12-left",
+        "k12-right"
+      ],
+      "whole_unchanged_field_bindings_and_all_source_records_equal": true
+    },
+    "force_independent_pressure_dependency_proof": {
+      "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/fitting-reuse/all-end-washers-v1/native-radius-independence-v1.json",
+      "sha256": "4b9ef7be6614a3e3103da7d6b483ba987e2d3b0cb25d70e0a779189aa8e3d0d2"
+    },
+    "header": {
+      "cases": 6,
+      "conditional_Fy235_marker_index": 0.43667364788309315,
+      "fittings": 8,
+      "governing_case": "a12-forward",
+      "governing_fitting": "eoere_clip_angle_base_left",
+      "governing_state": "H00-a12-forward",
+      "marker_above_one_count": 0,
+      "maximum_IP_VM_MPa": 61.44808817516581,
+      "maximum_gauge_plus_applied_force_residual_N": 6.01220603789947e-09,
+      "maximum_gauge_plus_applied_moment_residual_Nmm": 1.3175112716055757e-07,
+      "minimum_half_CLOAD_U_work_Nmm": 0.0058869112912327895,
+      "required_Fy_1_67_MPa": 102.61830725252689,
+      "states": 48
+    },
+    "header_entry_full_wrench_error": 1.1368683772161603e-13,
+    "maximum_near_strip_clipped_pressure_MPa": 0.36084373430315003,
+    "maximum_required_discrete_mu": 5.6940746391333095e-09,
+    "maximum_selected_fine_VM_MPa": 62.66685744319819,
+    "maximum_selected_fine_required_Fy_1_67_MPa": 104.65365193014097,
+    "same_governing_body_and_case_between_variants": true,
+    "same_port_torque_transfers": 12,
+    "scope": "Current prescribed-traction linear-elastic responses with sampled integration-point peaks and two actual governing mesh comparisons. Native symmetric strip-clipped seats remain independent of the analytical loaded-circle radius. No asymptotic continuum stress bound, physical contact/prying, coupled fracture or complete joint capacity.",
+    "selected_fine_source_groups": [
+      29,
+      29
+    ],
+    "separate_variants_reason": "The explicit header bore increments change local prescribed traction even when both variants select the same body/case.",
+    "source_entry_full_wrench_error": 6.31530383543577e-11,
+    "unchanged_pressure_mapper": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/formed-angle-3d-v1/materialize_clipped_fittings_v1.py",
+      "sha256": "f23bf4be8c4e1e38bab85558648ebf956b10135302971bee8c5e013d98464dc5"
+    }
+  },
+  "native_jobs_launched_by_this_adapter": 0,
+  "no_slip_floor_support": "Unverified analytical assumption retained.",
+  "panel_screw_resistance_deferred": true,
+  "parent_bank_admission": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/parent-bank-admission-v1.json",
+    "sha256": "60a06f0501ced00f6939fb9d05f0e69394db8cf59f67c75a5ff57e16d5fd7a38"
+  },
+  "physical_contact_prying_or_complete_joint_qualified": false,
+  "physical_geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "physical_release": false,
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/consolidate_current_components_v1.py",
+    "sha256": "f786112c3c08cffa988a1bef565256847ef19fdc75cd5fb40cbed1a1e1fc3b7f"
+  },
+  "purchase_authorized": false,
+  "response_bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "retention": "Polished v2 inputs/results stay active and ignored. Original aa995 v1, all114-bolt v1/v2 and historical/raw evidence remain frozen and recoverable. No archive/prune.",
+  "schema": "four_bolt_outer_top_current_fitting_washer_bond_summary/v1",
+  "source_sha256": {
+    "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/response-bank-v1.json": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/all-end-washers-v2/all-1272-end-demands-static-v1.json": "7406b21e12e2c81262a18e8f2cc2562ea43176aa5000d09d118d759e68a2d20e",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/all-end-washers-v2/near-seat-corrected-plate-v1.json": "4f090edc52ef4957a6a1ec3177b8c84b6cc19f1f31dca828d41eb79a92e0611e",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/all-end-washers-v2/validation-v1.json": "c9972e144a944d15c413aa6b5b4f7a5a13f1e1b572b8c6f92eb1ad102dca842b",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/consolidate_current_components_v1.py": "f786112c3c08cffa988a1bef565256847ef19fdc75cd5fb40cbed1a1e1fc3b7f",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/current-bank-binding-v2.json": "62a0ef5b8f3e637898bd2ae7d6360bd0c8d3e87988d8832d21d73fb86491b604",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/derived-census-v2.json": "d0736417a23b9a00cbe26856e17bd2babdf4997c636d1b6bdb6037c6060a7c6f",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/all-baseline-v1/actual-backing-domain-reuse-v1.json": "9962b45ad87debc3dada7851eebda38c5e4db062418b88b16649ec18e06503ff",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/all-baseline-v1/input-readiness.json": "31b1d11242c06f723fde6ecb87f59bbc3f9831e5b1959f27689b9a8ac655489d",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/all-baseline-v1/observation-v1.json": "eda1bae83b741a3cce44cb671afa671ca6f3f7a8863de69ee32ed28039b3aa85",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/all-baseline-v1/source-coverage-check-v1.json": "4ada47e81862197e4a03aa5ebfb44144a016d25a9d6dce134968cf6d4aa8400b",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/governing-fine-v1/baseline/observation-v1.json": "8b4a10425174e2c74de19dcf3581cf17ee52e44719761b75b99ed11fe3ac9363",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/governing-fine-v1/baseline/source-coverage-check-v1.json": "5dbafec8596536956684a1b1fec954a5e2b9495a4b626fbd681748a7843fe88d",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/governing-fine-v1/header/observation-v1.json": "ceddf4137bd1ccb73e2b0a1448b9ad73e355a6d93e601d4dd9fb380284a461c7",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/governing-fine-v1/header/source-coverage-check-v1.json": "0ee831c2e755de33c5c47fe38732a84450f00139c18beaa6e31168ce8389da6b",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/header-native-v1/input-readiness.json": "40e65377d918ec3b48063a4c78d7682a98c50a75a900607abf67862c43028cdc",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/header-native-v1/observation-v1.json": "9fa28b623363bebfeabebbf6d129e047cd68619eb6322b5637e8251803bd0a10",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/header-native-v1/source-coverage-check-v1.json": "883bcd3aabf77258e2983d09f8363781a6ff2f4eb3fc874fea0c7762595d01fc",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/native-maps-v2/header-variant-inventory-v1.json": "2e5c2230b3563eb18dc9bfcb41821a7db50bb2744d7e832cdfd6b47306f03a8f",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/results-v2/current-bond-transfer-v1.json": "5526b2fc0d104b44de2e4f297b0240cfbc351e91ce57df4d3158dfcb6d7ef954",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/results-v2/current-fitting-references-v1.json": "572e275ffbc08ffe610d9e44d99f23723e376c625a31bc3ced87854316322441",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/results-v2/fitting-followthrough-v2.json": "7a1407dc2c998338389c9be2488dc9ccdf42d32e7bf6ca526819608e8a06bfdb",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/results-v2/header-bridge-anchor-followthrough-v1.json": "9aaed8aeb7d2d61430e0c85696179f2d95de2ad10d39fb1e37f92fde2089c12a",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/item3/brittle-v2/header-augmented-anchor-current-v1.json": "62815abab8828771bab3bd5eea622d703278dcbb9a84bdb55ea7f8a715721de1",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/references/fitting-reuse/all-end-washers-v1/native-radius-independence-v1.json": "4b9ef7be6614a3e3103da7d6b483ba987e2d3b0cb25d70e0a779189aa8e3d0d2"
+  },
+  "structural_acceptance": false,
+  "washer": {
+    "Style1_head_gage_circle_sensitivity_mm": 6.42366,
+    "actual_Fy_MPa": null,
+    "actual_bearing_faces_qualified": false,
+    "actual_preload_N": null,
+    "all_end_summary": {
+      "added_half_inch_rear_rows": 24,
+      "all_current_saved_own_end_couples_zero": true,
+      "axis_case_states": 636,
+      "by_end": {
+        "head": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "head",
+          "host": "eoere_clip_angle_base_left",
+          "minimum_thickness_static_required_Fy_1_67_MPa": 165.65326772179353,
+          "receiver_kind": "steel",
+          "source_subset": "global_full_ring"
+        },
+        "nut": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "nut",
+          "host": "eoere_clip_header_outer_under_left",
+          "minimum_thickness_static_required_Fy_1_67_MPa": 169.35369701209424,
+          "receiver_kind": "steel",
+          "source_subset": "global_full_ring"
+        }
+      },
+      "by_receiver": {
+        "plywood": {
+          "axis_id": "eoere_bolt_067",
+          "case_id": "a12-forward",
+          "end": "head",
+          "host": "eoere_cleat_left",
+          "minimum_thickness_static_required_Fy_1_67_MPa": 98.23974786792067,
+          "receiver_kind": "plywood",
+          "source_subset": "plywood_full_annulus_A574_circular_head"
+        },
+        "sawn_wood": {
+          "axis_id": "eoere_bolt_005",
+          "case_id": "a12-left",
+          "end": "head",
+          "host": "base_rail_top",
+          "minimum_thickness_static_required_Fy_1_67_MPa": 152.21331009576113,
+          "receiver_kind": "sawn_wood",
+          "source_subset": "global_full_ring"
+        },
+        "steel": {
+          "axis_id": "eoere_bolt_082",
+          "case_id": "a12-forward",
+          "end": "nut",
+          "host": "eoere_clip_header_outer_under_left",
+          "minimum_thickness_static_required_Fy_1_67_MPa": 169.35369701209424,
+          "receiver_kind": "steel",
+          "source_subset": "global_full_ring"
+        }
+      },
+      "changed_four_Style1_head_sensitivity_rows": 24,
+      "changed_four_direct_nut_rows": 24,
+      "end_case_states": 1272,
+      "maximum_CAD_thickness_required_Fy": {
+        "CAD_thickness_static_required_Fy_1_67_MPa": 74.12802659020214,
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left",
+        "receiver_kind": "steel",
+        "source_subset": "global_full_ring"
+      },
+      "maximum_minimum_thickness_required_Fy": {
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left",
+        "minimum_thickness_static_required_Fy_1_67_MPa": 169.35369701209424,
+        "receiver_kind": "steel",
+        "source_subset": "global_full_ring"
+      },
+      "maximum_near_subset_continuous_dimension_box_required_Fy": {
+        "axis_id": "v11_cleat_right_side_1",
+        "case_id": "k12-right",
+        "end": "nut",
+        "host": "eoere_clip_angle_base_right",
+        "near_continuous_dimension_box_required_Fy_1_67_MPa": 65.52942478616191,
+        "receiver_kind": "steel",
+        "source_subset": "near_seat_partial_supported_ring"
+      },
+      "maximum_plywood_02in_mean_index": 0.3565399260053247,
+      "maximum_plywood_dry_mean_index": 0.20798162350310606,
+      "maximum_saved_shaft_axial_balance_residual_N": 2.4211743721025414e-08,
+      "maximum_sawn_mean_index": 0.1813485354445406,
+      "maximum_source_force_replay_error_N": 0.0,
+      "maximum_source_global_moment_transport_error_Nmm": 8.731149137020111e-11,
+      "near_subset_is_all_end_envelope": false,
+      "receiver_counts": {
+        "plywood": 96,
+        "sawn_wood": 552,
+        "steel": 624
+      },
+      "subset_counts": {
+        "global_full_ring": 1128,
+        "near_seat_partial_supported_ring": 48,
+        "plywood_full_annulus_A574_circular_head": 72,
+        "plywood_full_annulus_HCS_gage_circle_sensitivity": 24
+      },
+      "unique_ends": 212,
+      "unsupported_geometry_or_method_rows": 0
+    },
+    "corrected_near_subset_summary": {
+      "corrected_direct_nut_rows": 24,
+      "force_scaling_control_error_MPa": 7.105427357601002e-15,
+      "maximum_CAD_thickness_plate_static_required_Fy_1_67_MPa": 38.51836078911777,
+      "maximum_continuous_dimension_box_required_Fy_1_67_MPa": 65.52942478616191,
+      "maximum_minimum_thickness_plate_static_required_Fy_1_67_MPa": 84.32810158353684,
+      "near_seat_case_rows": 48
+    },
+    "direct_nut_radius_sensitivity_mm": 6.43509,
+    "fresh_all_angle_axial_static_envelope_also_bounds_all_current_end_references": true,
+    "independent_arithmetic_validation": {
+      "corrected_direct_nut_rows": 24,
+      "decimal_rows": 1272,
+      "exact_current_source_joins": 1272,
+      "independent_decimal_digits": 50,
+      "maximum_required_Fy_arithmetic_error_MPa": 2.0641156439323326e-14,
+      "model_only_saved_end_moments_zero": 1272,
+      "near_subset_rows": 48,
+      "source_bound_Style1_head_sensitivity_rows": 24,
+      "unsupported_axial_geometry_or_method_rows": 0
+    },
+    "native_pressure_pointwise_unified": false,
+    "near_subset_is_all_end_scope": false,
+    "scope": "Every current head/nut axial capture, full-ring/near-ring static construction, minimum/CAD thickness scenario and sawn/plywood load-only mean overlay is included. Source-bound face circles are dimensional sensitivities. Actual contact, pressure peaks, preload, combined normal/tangential washer response, physical end moments/prying and complete head/nut/thread transfer remain unqualified."
+  }
+}

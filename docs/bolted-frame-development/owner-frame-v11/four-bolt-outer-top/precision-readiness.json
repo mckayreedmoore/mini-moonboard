@@ -1,0 +1,299 @@
+{
+  "analysis_geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v1/geometry/geometry.json",
+    "sha256": "6c789fb43cafeaf44c2951f77aba7a6943531d78f3feb891a799bf0fa0cc47b1"
+  },
+  "analysis_revision": "eoere-v11-four-bolt-outer-top-analysis-v2",
+  "automatic_retry": false,
+  "candidate_revision": "v11-four-bolt-outer-top-v1",
+  "complete_joint_qualified": false,
+  "current_case_guesses": {
+    "a12-rear": {
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/v10-execution.json",
+        "sha256": "e01c444be829e379788a664a9cd5ed4b2cbbbc0ea187d4589359ba1893bce8dd"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/field.json",
+        "sha256": "431fe31ff2c9bf6f36d36c1583d8b06a821e8073846670d39716cfedb823cb9f"
+      },
+      "operator_arrays": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/operators.npz",
+        "sha256": "7c68de9ff5e9ffb127973911abdd89b7a1f900d0ee22f2224157d24a5495a544"
+      },
+      "operator_manifest": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/operators.json",
+        "sha256": "c9285ac39aa0659fdfaa9dd0378edecd4c15960c8848cbc32057d22d5728a542"
+      },
+      "q_canonical_sha256": "caaef4131abc8e599155049b7e5ed539673865e68601559eeb1ee3fed4c5d72e",
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/result.json",
+        "sha256": "6b18738a1eaf0ce83e1bff089740fb3b7f180d551e5acc6da7b7c077c8c8fa22"
+      }
+    },
+    "k12-rear": {
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/v10-execution.json",
+        "sha256": "0957494def4348299ffbb6bac1a4eb7fd4a041e4370a1b01b475415af538f6ed"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/field.json",
+        "sha256": "2f9d178fc9271e0ba74646602a9d7720d9bf3fba37805d6c2d59e7aec207734a"
+      },
+      "operator_arrays": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/operators.npz",
+        "sha256": "a701916e16401af3723050d3a95bf9bac9695d0b753bf0261f808a12e596d3d6"
+      },
+      "operator_manifest": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/operators.json",
+        "sha256": "9031eede45c823bc6e0dfab09240ff579a89b1b4a5a07095754b98551569301d"
+      },
+      "q_canonical_sha256": "4e82255a92f1da5298970367b58452cd590ccb408d07655cee0512b6550cfb6d",
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/result.json",
+        "sha256": "25301b25348035eb28d8991bbe9f140c86c6c35d1ca6d7ab32a9c1a35a5f251e"
+      }
+    }
+  },
+  "eligible_case_ids": [
+    "a12-rear",
+    "k12-rear"
+  ],
+  "inputs": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/preparation/inputs.json",
+    "sha256": "223177bde56adfd240791af321ba8fcb1bc942ee1e1e75476e0a18072dc57eba"
+  },
+  "internal_target_N": 1e-07,
+  "load_or_K_or_physical_law_changes": false,
+  "material": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v1/material.json",
+    "sha256": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e"
+  },
+  "no_historical_force_transfer": true,
+  "original_bank": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/response-bank.json",
+    "sha256": "aa995fbaee89da24e0dda15ae148e119ce3bad0d096c775bdae5ac8458e660a9"
+  },
+  "original_bank_admission": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "8f193e7fe64dc66a7e6ed29e5f713ee5be8b8b29efcb285e0adb1c8558b0911c"
+  },
+  "original_case_artifact_rows": [
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-forward",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/v10-execution.json",
+        "sha256": "5541cfa26c0da8bbb375b4dc7c8eebdbe3d8710aa6de93ef80ad3cc35feaf3d2"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/field.json",
+        "sha256": "8f3660e5c84ca06536c4853182e3577ae83a298176a098bc11fdddac12e63e5c"
+      },
+      "gradient_inf_N": 1.8461390208224238e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/independent-replay-plywood.json",
+        "sha256": "c07aa0d1a9255d70ba253ed4ee1bca489bdaffad0756c8793dac8e25c734b656"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/independent-replay.json",
+        "sha256": "798015b89f15e851f90f8e812bebca203fab34bdb632ce008732a58cda1f40ae"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/v10-replay-binding.json",
+        "sha256": "a70a3a869c33154d598fe03fd06bf767cfd93828da7d8d0e06a0d84e8bc336f2"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-forward/result.json",
+        "sha256": "fe6ae51ece046dfd95d61a0cf979f0fe8e64656103775dfb877739c562bdbf31"
+      },
+      "result_gradient_inf_N": 1.8461390208224238e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-left",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/v10-execution.json",
+        "sha256": "8cceb8233fbbea935282ac7306de45ad3201733df0818a7975f44166a2598cb0"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/field.json",
+        "sha256": "3777d35426dada71fecf2467127752503dbfe4e72bc28dba5c343cd6a5ccf73f"
+      },
+      "gradient_inf_N": 7.187458731294782e-06,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/independent-replay-plywood.json",
+        "sha256": "dd0169596dda76e38d0da89b77e04fcea1775c1fa5c987d1d9e4039ce17c0448"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/independent-replay.json",
+        "sha256": "1af6df2b9e220d144a758f8c13983294a51ee2e1faab009671f8fe85d07f7dd7"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/v10-replay-binding.json",
+        "sha256": "a78eb6507cb58e0240d1ea8a0660b900ff7e6de99e5b7cd5adba0e14cdad4a75"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-left/result.json",
+        "sha256": "c53071cab1289262c12f7bd19f20a6ef817e14e7fa9110212fe755194c78f5b7"
+      },
+      "result_gradient_inf_N": 7.187458731294782e-06
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-rear",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/v10-execution.json",
+        "sha256": "e01c444be829e379788a664a9cd5ed4b2cbbbc0ea187d4589359ba1893bce8dd"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/field.json",
+        "sha256": "431fe31ff2c9bf6f36d36c1583d8b06a821e8073846670d39716cfedb823cb9f"
+      },
+      "gradient_inf_N": 6.625321482545132e-07,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/independent-replay-plywood.json",
+        "sha256": "6c97b569747662e0012b4e9edd82fa2d772c586aed6abcf352f9bc3a8cb29a8b"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/independent-replay.json",
+        "sha256": "e3772ba2c307243fbc61d4e1c92bf69ff688ebe464cd435930ceb08527ba4546"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/v10-replay-binding.json",
+        "sha256": "58458b415e6d530594e256d32c440c79f48af5114dd0d0ec32be093343c86408"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a12-rear/result.json",
+        "sha256": "6b18738a1eaf0ce83e1bff089740fb3b7f180d551e5acc6da7b7c077c8c8fa22"
+      },
+      "result_gradient_inf_N": 6.625321482545132e-07
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-right",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/v10-execution.json",
+        "sha256": "4ed233c51810ef8494b412b05a9a2a9a9d6e6f67790a5f379cef59f047d09097"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/field.json",
+        "sha256": "2a472100d2109d19b70acadc94d81b4fb0f20f90af849291e2c802104f8950a7"
+      },
+      "gradient_inf_N": 2.576921843688851e-07,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/independent-replay-plywood.json",
+        "sha256": "abcca559693ef919ed828773712e32b47c28d6cd902926764bfbc41dcc2b5570"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/independent-replay.json",
+        "sha256": "86417cf8bf912eed5a4d777b1f0973f17167ce8ff81155f05bd6298a3617322e"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/v10-replay-binding.json",
+        "sha256": "9b8afa3490357942daf7dfd11086cb58bdab6a49caa3db39ed9778e7a658a22c"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-right/result.json",
+        "sha256": "c337fa4772129972b7db1d3f552df6786e2e1ba599622fb32297d4c30f48483f"
+      },
+      "result_gradient_inf_N": 2.576921843688851e-07
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-rear",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/v10-execution.json",
+        "sha256": "0957494def4348299ffbb6bac1a4eb7fd4a041e4370a1b01b475415af538f6ed"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/field.json",
+        "sha256": "2f9d178fc9271e0ba74646602a9d7720d9bf3fba37805d6c2d59e7aec207734a"
+      },
+      "gradient_inf_N": 8.315133624348185e-06,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/independent-replay-plywood.json",
+        "sha256": "1835e1140d04f4dc9dfa72021356b53f261c6810b6b46d326d6ea4af08411557"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/independent-replay.json",
+        "sha256": "69a19c55fe2191a0a507db0d1d9d1bd172fd8da69ebded80c9ef452ed6396423"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/v10-replay-binding.json",
+        "sha256": "45cdc7d7f8ac29228f55ca11eb537dbb85b0ee1bf01a88b382ff8040f21a8149"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/k12-rear/result.json",
+        "sha256": "25301b25348035eb28d8991bbe9f140c86c6c35d1ca6d7ab32a9c1a35a5f251e"
+      },
+      "result_gradient_inf_N": 8.315133624348185e-06
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a1-rear",
+      "execution": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/v10-execution.json",
+        "sha256": "932f7bd415937b91e3869b1d860246e95eeb275b90e7368e335cddab3b7b75e5"
+      },
+      "field": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/field.json",
+        "sha256": "80625c475d577c7586ee22fd3d61548ce867c6395ce59c2215c66c6e9efedc48"
+      },
+      "gradient_inf_N": 7.985597237730631e-07,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/independent-replay-plywood.json",
+        "sha256": "212943889d972b0683f0c63601dc431b2b494bd3e6cf9e666d5a82e50a8e615d"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/independent-replay.json",
+        "sha256": "b379728444b1061a0efe760ad8fe36f0a1de37771b45573947942fea360c9fa5"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/v10-replay-binding.json",
+        "sha256": "2c034c3efb371019d114a3a5599f65fb8633762c48a6901c769b532f1396184c"
+      },
+      "result": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/four-hosts/a1-rear/result.json",
+        "sha256": "ed83173860053b6926860348ebbb99371ed30ea912bf8d4554ae967f092805a7"
+      },
+      "result_gradient_inf_N": 7.985597237730631e-07
+    }
+  ],
+  "original_outputs_immutable": true,
+  "original_readiness": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/adapter-readiness.json",
+    "sha256": "b50a9b9a867c736ae5e88951a58c32aefa926b10cb923e439c43c7fc0048cbd3"
+  },
+  "producer": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision_polish_v1.py",
+    "sha256": "904e49ba7379d16d2c0f1fd3ec335506d79fbe333baae1c9f000a6b48a65e074"
+  },
+  "required_polish_case_ids": [
+    "a12-rear",
+    "k12-rear"
+  ],
+  "same_input_aliases_required": true,
+  "schema": "current106_precision_polish_readiness/v1",
+  "software_controls": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision-polish-v1/software-controls-v1.json",
+    "sha256": "33b89d9254295f02383ae0b69e9ed256e53b21ca97435f4cef657215cc344ade"
+  },
+  "source_sha256": {
+    "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/response-bank.json": "aa995fbaee89da24e0dda15ae148e119ce3bad0d096c775bdae5ac8458e660a9",
+    "fea/generated/v11-four-bolt-outer-top-v1/mechanics/precision_polish_v1.py": "904e49ba7379d16d2c0f1fd3ec335506d79fbe333baae1c9f000a6b48a65e074",
+    "fea/generated/v11-four-bolt-outer-top-v1/mechanics/run_four_bolt_outer_top_v3.py": "55afdc9d0b9bb183afc126d9f27c74d175a4f0c99db006d63e42b54e8e801448",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/all-shaft-existing-closure-sweep-v1.json": "659ef36ed16f76a888d28826ee8c0e02e2d020e6497b4d9044878980f68109eb",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/bridge-closure-diagnostic-v1.json": "5fc26888a4502ef9709f4df8464366d7077c7f7a334f853c3edef115d7a0d37c",
+    "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-closure-diagnostic-v1.json": "34043dcdaa566c66468fa303a5aa112d37694bef4ad992ac93cef50702aea3db",
+    "fea/generated/v11-v9-eight-bolt-v1/mechanics/run_v11_case_v2.py": "50050b3437851f99d03729d3b9e2a61d70ad2a576c21c2f6e04835e522e55550",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/retry_k12_rear_cold_v1.py": "56dd6f4513286cfffd872138390f189067ee6684a3f28b22cd4d26f9876883dd",
+    "fea/generated/v11-zero-spacer-eight-bolt-v1/mechanics/run_v11_zero_spacer_case_v1.py": "24e7782299702883e370cb56af026c417eeaaa7351d1b3ef9801276e02617802",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_support_state_search.py": "c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8"
+  },
+  "structural_acceptance": false,
+  "unchanged_admission_gradient_N": 1e-05
+}

@@ -2984,11 +2984,152 @@
     "bolt_stacks": 106,
     "spacer_pieces": 0,
     "trial_selected": false,
-    "analysis_status": "geometry_checked_fresh_matched_analysis_in_preparation",
-    "current_response_computed": false,
+    "analysis_status": "conditional_numerical_packet_complete_remaining_material_geometry_and_physical_limits",
+    "current_response_computed": true,
     "historical_capacity_transferred": false,
     "structural_acceptance": false,
     "fabrication_released": false,
-    "climbing_released": false
+    "climbing_released": false,
+    "geometry_source": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+      "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+    },
+    "geometry_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/geometry-receipt.json",
+      "sha256": "711a3d09cde2d966ad6f97ed7e360569520b4a869ed46b35af4b47931a2266f4"
+    },
+    "readable_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/README.md",
+      "sha256": "9cd8d4cdf8b4060dab90639fd25b6f90fc4ac1a466c44caf297ce81fc4fdbc53"
+    },
+    "viewer": {
+      "model": "eoere-v11-four-bolt-outer-top-preview",
+      "geometry_only": false,
+      "provenance": {
+        "path": "site/eoere-v11-four-bolt-outer-top-provenance.json",
+        "sha256": "534d2447f901ababdc63239d6ffd2b7f39a2bc3633f60af1b403037417fd3674"
+      },
+      "overlay": {
+        "path": "site/eoere-v11-four-bolt-outer-top-overlay.mjs",
+        "sha256": "199e84178934abde0c48633ba35977acea3342c17e403a6407a9db02760df291"
+      },
+      "scene": {
+        "decoded_sha256": "28ecf312af8bcc49bfa09df405b99aac700a04a2da9c7d1bb1604c4fbc6a3bf2",
+        "path": "site/eoere-v11-four-bolt-outer-top-scene.json.gz",
+        "sha256": "93b1ab9ed8b01d01b816a0f1643c07083155687a9391e0c2c5d7fd209b677b63"
+      },
+      "results_data": {
+        "path": "site/eoere-v11-four-bolt-outer-top-results.json",
+        "sha256": "3663e14bfea017a0ccdf9769e23491f5914536d86d5679b8bb1bf5bbaa3686c7"
+      },
+      "results_overlay": {
+        "path": "site/eoere-v11-four-bolt-outer-top-results.mjs",
+        "sha256": "4dcf09e0991f771fae6947c31086c0ffb241f1a8449aff9cb3bffb82f4f00bf8"
+      }
+    },
+    "preparation_readiness": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/analysis-v2/adapter-readiness.json",
+      "sha256": "b50a9b9a867c736ae5e88951a58c32aefa926b10cb923e439c43c7fc0048cbd3"
+    },
+    "preparation_controls": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/preparation-controls-v3.json",
+      "sha256": "48f943ff5d777c22737bf5950503c78d95635cff1e9bb2bf220f677e1ae980a2"
+    },
+    "parent_preparation_admission": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/mechanics/parent-preparation-admission-v1.json",
+      "sha256": "532ac20c1a20fe5ee17507b7ad7b976ca88576ff225c8419f118fd4e06352e10"
+    },
+    "geometry_source_classification": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/geometry-source-classification.json",
+      "sha256": "35e47118c8b0b44c2986f79bd73c8dc3b2121a8448674b190ca8515917984121"
+    },
+    "parent_geometry_validation": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/parent-geometry-validation.json",
+      "sha256": "41e565e7daad451bcb131eeccc5b8c301e589ff772ecaccc016d5d2688856afc"
+    },
+    "response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/response-bank.json",
+      "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+    },
+    "parent_bank_admission": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/parent-bank-admission.json",
+      "sha256": "60a06f0501ced00f6939fb9d05f0e69394db8cf59f67c75a5ff57e16d5fd7a38"
+    },
+    "response_case_count": 6,
+    "independent_replay_count": 12,
+    "maximum_gradient_inf_N": 7.187458731294782e-06,
+    "initial_cold_response_bank": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/response-bank-initial.json",
+      "sha256": "aa995fbaee89da24e0dda15ae148e119ce3bad0d096c775bdae5ac8458e660a9"
+    },
+    "initial_cold_parent_admission": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/parent-bank-admission-initial.json",
+      "sha256": "8f193e7fe64dc66a7e6ed29e5f713ee5be8b8b29efcb285e0adb1c8558b0911c"
+    },
+    "precision_readiness": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/precision-readiness.json",
+      "sha256": "c9fc32fec263ed2fa63a7af210864529f91f4e30e076b12efc194f951bdde908"
+    },
+    "precision_software_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/precision-software-controls.json",
+      "sha256": "33b89d9254295f02383ae0b69e9ed256e53b21ca97435f4cef657215cc344ade"
+    },
+    "polished_case_ids": [
+      "a12-rear",
+      "k12-rear"
+    ],
+    "four_other_case_rows_retained_exact": true,
+    "planning_packet": {
+      "readme": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/planning/README.md",
+        "sha256": "515c7c1f96859e169340faa0dcd8cd564108b8f382d21d38b3457295ac43f6bb"
+      },
+      "source_index": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/planning/source-index.json",
+        "sha256": "e6661ca65c51a40d10670d57f11b25812202c32f7fcd575812c2708c5ff50d50"
+      },
+      "provisional_only": true,
+      "physical_use_released": false
+    },
+    "reference_completion": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/reference-completion.json",
+      "sha256": "60e8a0e5a9a3bd9cc8c19ab3257ecacc1dbaed74589b5434bcb00a25a84108fc"
+    },
+    "contracted_rear_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/contracted-rear-summary.json",
+      "sha256": "496b13dba58c027f9589b7c15901f03bab4296d743700589a1f6fe4461be5d0c"
+    },
+    "mixed_common_work_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/mixed-common-work-summary.json",
+      "sha256": "48c5772e5a482fcf96f0ff63aed362958ef026547c3544fa500030b78ad7efed"
+    },
+    "mixed_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/mixed-current-controls.json",
+      "sha256": "bc1ea0e899e26e0f08431737f82af773c95b606a9bf642a1dfe7a0bafb342a14"
+    },
+    "material_comparison": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/material-comparison.json",
+      "sha256": "525cc5e48e885044b3316c59da447c6448c70bd44d9d9f5be1d471280a936b56"
+    },
+    "current_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/current-reference-summary.json",
+      "sha256": "087877672b17327f572f92c5a354164bfa9c1eecd2d023431e2a9d8d85655a2c"
+    },
+    "current_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/current-reference-controls.json",
+      "sha256": "2f3851c28b07d5fab89b358a838493d3d39327a84be4580fae97cc3f5593f08c"
+    },
+    "component_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/component-reference-summary.json",
+      "sha256": "cc9e07549b6ef9b66868865d7e2c796d66a3b3c4b24bada9202b1a17e4010d57"
+    },
+    "component_reference_controls": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/component-reference-controls.json",
+      "sha256": "77e04cf77529c5d18c5db09037945feac7f31606bf03492d8f58453ad9da2012"
+    },
+    "near_post_relocation_review": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/near-post-relocation-review.json",
+      "sha256": "b5533eced093bdf31e41990d611f0ce2508143d11aa2da23baef158ee8e156c3"
+    }
   }
 }
