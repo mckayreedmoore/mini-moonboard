@@ -1,0 +1,53 @@
+{
+  "schema": "v11_owner_external_hex_cleat_trial_scope/v1",
+  "owner_preference": "External hex head, with a wrench or socket fitting around the outside.",
+  "preference_received_via_thread": "01a16a80-6193-78c0-855a-e6c4d93622d4",
+  "source_context": "Owner compared the A574 socket-head and Grade5 external-hex styles for the reviewed twelve-cleat-bolt option. The relay and the other thread acknowledgement were consumed on 2026-10-28.",
+  "preference_scope": "Head/access style for the reviewed twelve-cleat-bolt development evaluation; not an exact supplier product or an all-frame-bolt substitution.",
+  "trial_revision": "v11-grade5-cleat-heads-v1",
+  "parent_revision": "v11-four-bolt-outer-top-v1",
+  "parent_geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "parent_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/response-bank.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "reviewed_option": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/hardware-option-twelve-grade5.json",
+    "sha256": "4e7038ccc71c48ae759d5d90a9b280dc8392c51cf2ceaea9af10acdda9abb12e"
+  },
+  "exact_twelve_axis_ids": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2",
+    "eoere_bolt_067",
+    "eoere_bolt_070",
+    "eoere_bolt_071",
+    "eoere_bolt_074",
+    "v11_cleat_left_side_1",
+    "v11_cleat_left_side_2",
+    "v11_cleat_right_side_1",
+    "v11_cleat_right_side_2"
+  ],
+  "fixed": "All106axes, holes, timber and glued two3/4in-leaf cleat outlines, eight bolts per cleat, four per outer top corner and center top connection, paired1/2in upper-rear bolts, washer/nut seats, zero spacers,24angles,66screws, unchanged250lb/2down/300N/25kg/CD1 loads.",
+  "allowed_changes": "Twelve cleat socket-cap heads become conditional SAEJ429 Grade5 Style1 hex-cap heads at the same underhead face. Update their body/root/runout/length metadata, actual changed head solid mass/centroid and matched load inputs. No other geometry, station or material-property improvement.",
+  "conditional_type": "grade5-hcs-3_8-16x6_5-style1-conditional-v1",
+  "conditional_grade5_basis": "Existing source-qualified J429_201405/F606_21 tensile-yield hypothesis92ksi; not actual observed conformity.",
+  "remaining_four_front_A574_axes_unchanged": true,
+  "required": "Fresh geometry/clearance/source checks, six matched cases with both independent replays, all affected section/bolt/washer/fitting/bond/geometry checks and current provisional packet/viewer. Reuse existing helpers and case coordinates after preparation/compatibility controls; do not transfer force values or a passing result.",
+  "trial_evaluation_only": true,
+  "development_candidate_selected": false,
+  "supplier_sku_selected": false,
+  "all_frame_bolts_substitution_selected": false,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "actual_Cg": null,
+  "actual_Cdelta": null,
+  "structural_acceptance": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false
+}

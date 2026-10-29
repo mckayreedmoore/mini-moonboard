@@ -1,0 +1,95 @@
+{
+  "all_rows_HOLD_and_Actual_Disposition_blank": true,
+  "candidate_selected": false,
+  "complete_joint_qualified": false,
+  "counts": {
+    "Grade8_nuts_retained": 20,
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolts": 106,
+    "conditional6in_front_Grade5_type_bolts": 4,
+    "conditional6p5_Grade5_type_bolts": 16,
+    "external_hex_structural_heads": 106,
+    "grouped_hardware_rows": 12,
+    "nuts": 106,
+    "occupied_parts": 1055,
+    "physical_cleat_leaves": 4,
+    "physical_receiver_rows": 148,
+    "profiles": 30,
+    "sawn_members": 20,
+    "socket_structural_heads": 0,
+    "spacers": 0,
+    "wall_panels": 6,
+    "washers": 212
+  },
+  "current_numerical_strength_pass_claimed": false,
+  "current_strength_reference_work_pending": true,
+  "far_top_full7D_screen": {
+    "available_mm": 65.0875,
+    "principal_reference_mm": 66.675,
+    "shortfall_mm": 1.5875,
+    "status": "Retained applicability screen; this force binding does not clear it."
+  },
+  "fresh_cases": 6,
+  "full_header_and_component_construction_checks_required": true,
+  "geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "geometry_only_manifest_preserved": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/manifest-v1.json",
+    "sha256": "866c6b115106e5a7e542d56938ac289758aebc3d9d391ce9cb023846f00b4327"
+  },
+  "geometry_only_review_bundle_preserved": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/planning-review-bundle-v1.json",
+    "sha256": "70e65e46e85026571f5a1116369af269e53b59e1f937d9448b8cfd76295d58b2"
+  },
+  "head_mass_reconciliation": {
+    "actual_mechanics_head_delta_kg": -0.0438706012523007,
+    "geometry_only_CAD_head_delta_kg": -0.03240434253474508,
+    "inherited_CAD_minus_mechanical_role_mass_correction_kg": -0.011466258717555626,
+    "inherited_nonzero_head_mass_discrepancy_axis_ids": [
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2",
+      "rail_front_bolt_right_1",
+      "rail_front_bolt_right_2"
+    ],
+    "only_authorized16_head_loads_changed": true
+  },
+  "historical_force_transfer": false,
+  "independent_replays": 12,
+  "internal_target_N": 1e-07,
+  "mass_scope": "Geometry-only head change is relative to old CAD; actual gravity-head load change is relative to old mechanics role masses. The additional correction belongs only to the four front heads. Neither value is measured delivered mass.",
+  "maximum_gradient_inf_N": 2.7391706680646166e-08,
+  "numerical_initialization": "corresponding current106 coordinates as numerical guesses only; new16-head geometry/profile/gravity",
+  "outer_top_far_only_mask_preserved": true,
+  "parent_bank_admission": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "75414a06fd56b7dee1e4f8d546bef46e0359fa64289fad7cdecf27337c291aef"
+  },
+  "producer": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/finalize_planning_v2.py",
+    "sha256": "3c7732461256a2d584dc2b38fc63639eec245655e9e323c6af1ce55a2811af1f"
+  },
+  "purchase_marking_drilling_fabrication_climbing_released": false,
+  "receiver148_bytes_and_five_jig_assets_unchanged": true,
+  "response_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "revision": "v11-external-hex-heads-v1",
+  "schema": "all_external_hex_completed_planning_force_binding/v2",
+  "shaft_closure_states": 636,
+  "source_index": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/source-index-v2.json",
+    "sha256": "4b320dd21be238600901093b39d8516b52e52e3d78ba87a5d314740bbcf530f6"
+  },
+  "structural_acceptance": false,
+  "supplier_SKU_selected_for_new_types": false,
+  "two_conditional_type_quantities": {
+    "6.5in": 16,
+    "6in_front": 4
+  },
+  "unchanged90_hardware_rows_literal": true,
+  "unchanged_gate_N": 1e-05
+}

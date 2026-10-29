@@ -1,0 +1,69 @@
+{
+  "axis": "v11_cleat_left_side_1",
+  "case": "a12-forward",
+  "current": {
+    "body_root": {
+      "D_body_mm": 9.3726,
+      "D_root_mm": 7.31774,
+      "profile_basis": {
+        "body": null,
+        "profile_id": null,
+        "root": null,
+        "source": {
+          "path": "fea/generated/v11-external-hex-heads-v1/hardware/profile-contract-v1.json",
+          "sha256": "c50609adb2d2602aeff2b9d784d1abd44000147bb07f9096b363a839d583e2ee"
+        }
+      },
+      "root_station_mm": 122.8344
+    },
+    "governing_D_mm": 9.3726,
+    "governing_station_mm": 72.11526526057004,
+    "moment_Nmm": 12882.851629917255,
+    "plastic_modulus_mm3": 137.223659810196,
+    "required_Mp4_Fyb_ksi": 54.46581612825644
+  },
+  "interpretation": "The saved governing hinge remains in full body. Moment rises about0.005%; larger qualified body plastic modulus reduces required bending yield about1.61%. Root diameter also decreases and its transition moves later, but the root does not control this hinge. New forces use changed head gravity, not a reduced load contract. The separate conditional resistance changes45 to92ksi; this is not a pure rescaling of the old index.",
+  "new_simulation_or_new_capacity_equation": false,
+  "old": {
+    "body_root": {
+      "D_body_mm": 9.3218,
+      "D_root_mm": 7.3787,
+      "profile_basis": {
+        "body": null,
+        "profile_id": null,
+        "root": null,
+        "source": {
+          "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/hardware/profile-contract-v1.json",
+          "sha256": "abcc49a6f59e4183b8b522e5fa064157f7107cf290a3043fac76d4927a508f8f"
+        }
+      },
+      "root_station_mm": 116.48440000000001
+    },
+    "governing_D_mm": 9.3218,
+    "governing_station_mm": 72.11433917637689,
+    "moment_Nmm": 12882.204540024137,
+    "plastic_modulus_mm3": 135.00445259270532,
+    "required_Mp4_Fyb_ksi": 55.358346116175035
+  },
+  "producer": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/publish_current_reference_controls_v1.py",
+    "sha256": "a778911c987745d8a5f976734d30e115dc01dcb766ff74c11349462acfcda841"
+  },
+  "ratios": {
+    "new_over_old_modulus": 1.0164380298195483,
+    "new_over_old_moment": 1.0000502313009476,
+    "new_over_old_required_Fyb": 0.9838772280868809
+  },
+  "schema": "v11_external_hex_saved_governing_demand_comparison/v1",
+  "sources": {
+    "current_rows": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/mixed-common-work-v1/runs/reference-v1/mixed-common-work-Mp4-rows-v1.json",
+      "sha256": "1b5586114517ab80f2fe7902fd0f8cc89d2924754e096853f951bb74f70eba4b"
+    },
+    "parent_rows": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/references/mixed-common-work-v1/runs/reference-v2/mixed-common-work-Mp4-rows-v1.json",
+      "sha256": "4fc890332ff00499ef81935f0c6c10656aceb07dcd52f8d182c483b469fbc9f7"
+    }
+  },
+  "structural_acceptance": false
+}

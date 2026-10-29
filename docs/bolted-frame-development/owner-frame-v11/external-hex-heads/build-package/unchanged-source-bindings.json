@@ -1,0 +1,79 @@
+{
+  "all106_axis_stations_and148_receiver_coordinates_literal": true,
+  "all30_wood_panel_profile_records_literal": true,
+  "cut_profile_stock_screw_sources": {
+    "geometry-packet.json": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/geometry-packet.json",
+      "sha256": "d8a1fc555d79b92debc3ea9536837093847baac0b1ad15e33462746f3cecdce0"
+    },
+    "member-cut-planning.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/member-cut-planning.csv",
+      "sha256": "b967d2aaf0e3942376d8004c79fd5722f21e68c5632ff36afa9c958b70b1e1d7"
+    },
+    "panel-screw-axis-planning.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/panel-screw-axis-planning.csv",
+      "sha256": "e63ad1d1139e9d98dc95d8682bfee8c6a759a926c117611ec5a6ec7435474d8b"
+    },
+    "stock-allocation.csv": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/stock-allocation.csv",
+      "sha256": "b9d02654fc07a6f97a22999de01fff74995072bad49d1095b18a80042287a4a2"
+    }
+  },
+  "cut_source_scope": "Only unchanged outer profiles, stock allocation and66 screw-axis data; historical hole/hardware inventories and force acceptance are not transferred.",
+  "five_STLs_reused": {
+    "horizontal_rail_marking_jig.stl": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/bracket-jig/horizontal_rail_marking_jig.stl",
+      "sha256": "4dc4758f37ad6fe2b286c796955587daa8ff7b6efcfa17d4fd23b061d82304c9"
+    },
+    "left-rear-foot-leg-marking-jig.stl": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/left-rear-foot-leg-marking-jig.stl",
+      "sha256": "c6bea1d60bba8a91648d3967c3e8e8f6ae8bfa661dfdb8ab2c54903f78a6847b"
+    },
+    "left-upper-rear-two-mark-template.stl": {
+      "bytes": 67884,
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/planning/upper-rear-template-prototype-v1/left-upper-rear-two-mark-template.stl",
+      "sha256": "abefdbecde23b90192f399f60fd33dfa36570deff4ce98803d94dfa4a9cc2070"
+    },
+    "right-rear-foot-leg-marking-jig.stl": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/right-rear-foot-leg-marking-jig.stl",
+      "sha256": "4b4f7713859ee9d40cc08d050288dcab5cdc0a99915c162dd9084c935237d0e6"
+    },
+    "right-upper-rear-two-mark-template.stl": {
+      "bytes": 69084,
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/planning/upper-rear-template-prototype-v1/right-upper-rear-two-mark-template.stl",
+      "sha256": "a5d039accc7c9f562f4e191def43de7e24077ce225f6dd6de7b506336c554b14"
+    }
+  },
+  "geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "jig_registration_proof_reused": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/jig-reuse-v1.json",
+    "sha256": "1927bf84cf098e4ba7ee5a063bb9a51402f14f36d60fbe8da57107f3a462d9f5"
+  },
+  "jig_scope_unchanged": "Only proved leg datums and loose-horizontal FAR-beam registrations; no outer-top/post-flange registration or actual tool fit is added.",
+  "new_CAD_or_registration_queries_or_asset_copies": 0,
+  "outer_top_far_only_mask_policy": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-mask-policy-v1.json",
+    "sha256": "d2bf0a74d1a1c90607e2850d222f2161ca49bade65879ea85801c9415e93c29f"
+  },
+  "outer_top_mask_csv": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-hole-mask.csv",
+    "sha256": "6afaa7f2503e00266a2582ce8ee829e5951c3fdd2c9641dd153a445e7eaed088"
+  },
+  "outer_top_reference_svg": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-mask-reference-v1.svg",
+    "sha256": "a614cf25415452732a456d157ad362fded339775506fb9edcd7504aa82d9f2f7"
+  },
+  "parent_geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "receiver_table_reused_without_copy": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/receiver-planning.csv",
+    "sha256": "e162dd8cae314b64ece6507a49b03477e11d314b03fd65f9cf662ee5583ca5d5"
+  },
+  "schema": "all_hex_trial_literal_category_reuse/v1",
+  "structural_or_physical_release": false
+}

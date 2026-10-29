@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="630" viewBox="0 0 1320 630">
+<rect width="1320" height="630" fill="white"/>
+<style>text{font-family:Arial,sans-serif;fill:#17242d;font-size:15px}.title{font-size:23px;font-weight:bold}.sub{font-size:18px;font-weight:bold}.small{font-size:13px}.wood{fill:#e9d2a9;stroke:#74552f;stroke-width:2}.steel{fill:#bdc6ce;stroke:#53616e;stroke-width:2}.review{fill:#d8e8fa;stroke:#2369a8;stroke-width:2}.red{fill:#f3b7b7;stroke:#b52f36;stroke-width:2}.dim{stroke:#273d4a;stroke-width:1.4}.dash{stroke-dasharray:5 4}</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#273d4a"/></marker></defs>
+<text x="28" y="34" class="title">Review only: an inward bracket move loses side-member seating</text>
+<text x="28" y="61">Current106-bolt external-hex model remains unchanged. Both corners behave the same; left corner shown schematically.</text>
+<text x="28" y="94" class="sub">A. Move the complete factory angle and hole pattern inward</text>
+<rect x="40" y="121" width="178" height="210" class="wood"/>
+<rect x="218" y="121" width="340" height="84" class="wood"/>
+<text x="66" y="151">Side timber</text><text x="310" y="151">Top rail</text>
+<path d="M218 205H396V218H231V329H218Z" fill="none" stroke="#66717a" stroke-width="2" stroke-dasharray="5 4"/>
+<path d="M226 205H404V218H239V329H226Z" class="review"/>
+<rect x="218" y="220" width="8" height="109" class="red"/>
+<line x1="12" y1="278" x2="284" y2="278" stroke="#4a5661" stroke-width="5"/>
+<rect x="26" y="260" width="10" height="36" fill="#66717a"/>
+<text x="50" y="352" class="small">Exterior head / washer and side timber stay fixed.</text>
+<line x1="348" y1="158" x2="348" y2="205" class="dim dash"/>
+<circle cx="348" cy="172" r="8" fill="none" stroke="#68717a" stroke-width="2"/>
+<line x1="356" y1="156" x2="356" y2="205" class="dim"/>
+<circle cx="356" cy="172" r="8" fill="#2369a8"/>
+<line x1="218" y1="108" x2="348" y2="108" class="dim" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="255" y="102" class="small">65.0875mm</text>
+<path d="M226 302L324 320" fill="none" stroke="#b52f36" stroke-width="2"/>
+<text x="328" y="317" fill="#b52f36">4mm empty gap</text>
+<text x="328" y="339" class="small">between wood and side flange</text>
+<text x="30" y="382">Minimum move1.5875mm: end distance66.675mm, zero nominal margin.</text>
+<text x="30" y="405">Review move4mm: end distance69.0875mm,2.4125mm beyond7D.</text>
+<text x="30" y="428">Both moves open an equal side gap; rail contact remains flush.</text>
+<text x="30" y="451">Moving the whole side bolt stack embeds its exterior washer in wood.</text>
+<text x="30" y="470" class="small">Both flush seats require ΔX = 0; improving the along-X end distance requires ΔX ≠ 0.</text>
+<text x="687" y="94" class="sub">B. Extend the top end with the bracket fixed</text>
+<rect x="700" y="121" width="178" height="210" class="wood"/>
+<rect x="878" y="121" width="340" height="84" class="wood"/>
+<rect x="870" y="121" width="8" height="84" class="red"/>
+<text x="724" y="151">Side timber</text><text x="980" y="151">Top rail</text>
+<path d="M878 205H1056V218H891V329H878Z" class="steel"/>
+<circle cx="1008" cy="172" r="8" fill="#53616e"/>
+<path d="M872 183L987 262" fill="none" stroke="#b52f36" stroke-width="2"/>
+<text x="920" y="285">The entire added end slab</text><text x="920" y="307">overlaps existing side timber.</text>
+<text x="690" y="382">1.5875mm extension:19,715.686mm³ overlap per end.</text>
+<text x="690" y="405">4mm extension:49,677.320mm³ overlap per end.</text>
+<text x="690" y="428">No clear full-section extension exists at these fixed seats.</text>
+<text x="690" y="451" class="small">The65.0875mm factory row is the furthest one; the23.8125mm row is closer.</text>
+<line x1="28" y1="478" x2="1292" y2="478" stroke="#c3cbd0"/>
+<text x="28" y="506" class="sub">Concrete alternatives require a separate choice</text>
+<text x="28" y="532">A compatible factory fitting could retain both seated faces while placing its beam holes at least68.675mm from the heel</text>
+<text x="28" y="554">for the separate7D+2mm screen. Existing owned far holes remain65.0875mm; no replacement product is selected.</text>
+<text x="28" y="577">Alternatively retain the current layout and complete its applicable reduced-end / signed-action method; no factor is adopted here.</text>
+<text x="28" y="609" class="small">Schematic, not a drilling template.7D is the stated principal reference;2mm is a planning screen, not a universal code rule. No packer, stand-off, timber cut or release is authorized.</text>
+</svg>

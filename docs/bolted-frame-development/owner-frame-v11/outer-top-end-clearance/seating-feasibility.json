@@ -1,0 +1,541 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "bounded_panel_screw_clearance": {
+    "moved_angle_panel_or_screw_collision_found": false,
+    "nearby_exact_candidates": [
+      {
+        "delta_mm": 1.5875,
+        "intersection_mm3": 0.0,
+        "panel_id": "main_upper_left",
+        "side": "left"
+      },
+      {
+        "delta_mm": 4.0,
+        "intersection_mm3": 0.0,
+        "panel_id": "main_upper_left",
+        "side": "left"
+      },
+      {
+        "delta_mm": 1.5875,
+        "intersection_mm3": 0.0,
+        "panel_id": "main_upper_right",
+        "side": "right"
+      },
+      {
+        "delta_mm": 4.0,
+        "intersection_mm3": 0.0,
+        "panel_id": "main_upper_right",
+        "side": "right"
+      }
+    ],
+    "panel_count": 6,
+    "panel_kicker_axis_count": 66,
+    "queried_scope": "Moved angle body only atboth1.5875/4mmpositions; all6panel+66fastener bounds screened, one upper panel per corner required exactintersection.",
+    "reason_not_completed": "A new full placement/assembly cannot be admitted after exact side seating is lost. No stand-off, packer or beam-hole repair is authorized.",
+    "screw_BRep_candidates": 0,
+    "source_occupied_part_count": 1055,
+    "whole_changed_hardware_tool_service_clearance_qualified": false
+  },
+  "cadquery_version": "2.8.0",
+  "climbing_released": false,
+  "concrete_review_alternatives": [
+    {
+      "geometry_requirement": "For the separate7D+2mmmarker, beam centers at least68.675mmfromthefixed end/heel. A69.0875mmcenter would give2.4125mmover7D; side flange/pattern seating must remain compatible. The owned far centers are65.0875mm.",
+      "new_forces_and_complete_joint_checks_required_if_selected": true,
+      "new_vendor_pattern_or_factory_drawing_verified": false,
+      "option": "Compatible factory fitting/pattern while both seated heel planes stay fixed",
+      "owned_steel_modification_authorized": false
+    },
+    {
+      "option": "Retain asdrawn and finish applicable end-distance method",
+      "scope": "The geometry ratio65.0875/66.675=0.976190476 is a hypothetical principal reduced-end comparison, not an adoptedCdelta or automatic connection pass. Signedoblique/end/group/splitting/wrench applicability stays separate."
+    }
+  ],
+  "current_contacts": [
+    {
+      "actual_coplanar_side_contact_area_mm2": 7578.877312696535,
+      "current_angle_rail_gap_mm": 0.0,
+      "current_angle_side_gap_mm": 0.0,
+      "factory_post_flange_plane_X_mm": -1130.3,
+      "post_flat_face_area_mm2": 7589.050734641023,
+      "side": "left",
+      "side_wood_inner_X_mm": -1130.3
+    },
+    {
+      "actual_coplanar_side_contact_area_mm2": 7578.877312696535,
+      "current_angle_rail_gap_mm": 0.0,
+      "current_angle_side_gap_mm": 0.0,
+      "factory_post_flange_plane_X_mm": 1127.125,
+      "post_flat_face_area_mm2": 7589.050734641023,
+      "side": "right",
+      "side_wood_inner_X_mm": 1127.125
+    }
+  ],
+  "drilling_released": false,
+  "existing_geometry_sha256_unchanged": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac",
+  "extension_conclusion": "A longer full-section top member enters the existing solid side member over100%of the proposed end addition atbothcorners. A different notch/seat/backing or fitting is a broader unadopted design; no current solid was cut.",
+  "fabrication_released": false,
+  "fixed_exterior_head_seat_alternative": "Leaving head/washer and wood fixed avoids the demonstrated rigid-stack penetration but retains the exactlydelta empty side gap. Separate hardware arithmetic fits nominal lengths; it does not supply the missing seated bearing path or qualify the unsupported shaft segment.",
+  "flat_seat_constraint": {
+    "beam_contact_plane_normal_unoriented_xyz": [
+      0.0,
+      0.6427876099290708,
+      0.7660444429154699
+    ],
+    "can_a_translation_preserve_both_flush_faces_and_increase_top_grain_end_distance": false,
+    "only_common_tangent_direction_unit_xyz": [
+      0.0,
+      0.7660444429154699,
+      -0.6427876099290708
+    ],
+    "preserve_both_flush_seats": "n_side dot translation = 0 and n_beam dot translation = 0. The first condition requires translation_X=0, so every translation preserving both planar seats has zero component along the top rail grain.",
+    "side_contact_plane_normal_unoriented_xyz": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "top_rail_grain_unit_xyz": [
+      1.0,
+      0.0,
+      0.0
+    ]
+  },
+  "full_section_top_end_extension_probes": [
+    {
+      "added_full_section_probe_volume_mm3": 19715.686375045054,
+      "extension_outward_mm": 1.5875,
+      "fraction_of_extension_overlapping_existing_side": 1.0,
+      "full_section_extension_clear": false,
+      "probe_basis": "Extrude actual finished top-rail end face, including its original wires, outwards along topgrain; in-memory probe only.",
+      "probe_intersection_with_fixed_side_mm3": 19715.686375045054,
+      "side": "left"
+    },
+    {
+      "added_full_section_probe_volume_mm3": 49677.320000112566,
+      "extension_outward_mm": 4.0,
+      "fraction_of_extension_overlapping_existing_side": 1.0,
+      "full_section_extension_clear": false,
+      "probe_basis": "Extrude actual finished top-rail end face, including its original wires, outwards along topgrain; in-memory probe only.",
+      "probe_intersection_with_fixed_side_mm3": 49677.320000112566,
+      "side": "left"
+    },
+    {
+      "added_full_section_probe_volume_mm3": 19715.686375045054,
+      "extension_outward_mm": 1.5875,
+      "fraction_of_extension_overlapping_existing_side": 1.0,
+      "full_section_extension_clear": false,
+      "probe_basis": "Extrude actual finished top-rail end face, including its original wires, outwards along topgrain; in-memory probe only.",
+      "probe_intersection_with_fixed_side_mm3": 19715.686375045054,
+      "side": "right"
+    },
+    {
+      "added_full_section_probe_volume_mm3": 49677.320000112566,
+      "extension_outward_mm": 4.0,
+      "fraction_of_extension_overlapping_existing_side": 1.0,
+      "full_section_extension_clear": false,
+      "probe_basis": "Extrude actual finished top-rail end face, including its original wires, outwards along topgrain; in-memory probe only.",
+      "probe_intersection_with_fixed_side_mm3": 49677.320000112566,
+      "side": "right"
+    }
+  ],
+  "hardware_scope": "The independent eight-axis length/thread/nut-window screen is conditional and passes its stated arithmetic atbothmoves. It does not accept a side gap or transfer forces/capacity.",
+  "hardware_screen": {
+    "path": "fea/generated/v11-outer-top-end-clearance-v1/hardware-review/translation-hardware-screen-v1.json",
+    "sha256": "70eddbfe4785d3aae52ea645c212aa12ea60c8a85217b9bf47259b2f43de02f9"
+  },
+  "heel_and_bend_scope": "The actual modeled factory-angle solid is translated rigidly; its hole pattern, heel and bend geometry are preserved. Angle-to-wood volumetric overlaps stay zero, but side seating disappears. Physical formed-angle/contact qualification remains separate.",
+  "historical_placement_precedent": {
+    "custom_packer_profiles": {
+      "top_packer_left": [
+        177.8,
+        139.6,
+        50.8
+      ],
+      "top_packer_right": [
+        177.8,
+        139.6,
+        50.8
+      ]
+    },
+    "deviation": "Top beam near rows populated at all four angles; top post near rows omitted because receiver/end applicability is not established. Outer fittings move50.8mm inboard on solid packers.",
+    "scope": "Prior50.8mminward outer fittings required real solid packers for that layout. Reused only as placement/load-path precedent, not permission to restore packers or reuse old forces.",
+    "source": {
+      "path": "fea/generated/v10-standard-side-stock-v1/geometry-v1/geometry.json",
+      "sha256": "c06d790aaed7d915cc729afaf3f5e58c456429c18a79555f1faf182775129a37"
+    }
+  },
+  "mirrored_whole_angle_pattern_cases": [
+    {
+      "actual_angle_to_rail_minimum_BRep_distance_mm": 0.0,
+      "actual_angle_to_side_minimum_BRep_distance_mm": 1.5875,
+      "angle_rail_intersection_mm3": 0.0,
+      "angle_side_intersection_mm3": 0.0,
+      "beam_axis_lines_must_follow_factory_holes_transversely": [
+        "eoere_bolt_001",
+        "eoere_bolt_005"
+      ],
+      "compatible_with_current_seated_load_path": false,
+      "mirrored_translation_xyz_mm": [
+        1.5875,
+        0.0,
+        0.0
+      ],
+      "new_top_beam_end_distance_mm": 66.67500000000001,
+      "nominal_margin_over_principal7D_mm": 0.0,
+      "side": "left",
+      "side_axis_lines_are_unchanged_infinite_lines": [
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "side_flat_face_contact_lost": true,
+      "side_steel_and_nut_seats_move_along_shaft_axis": true
+    },
+    {
+      "actual_angle_to_rail_minimum_BRep_distance_mm": 0.0,
+      "actual_angle_to_side_minimum_BRep_distance_mm": 4.0,
+      "angle_rail_intersection_mm3": 0.0,
+      "angle_side_intersection_mm3": 0.0,
+      "beam_axis_lines_must_follow_factory_holes_transversely": [
+        "eoere_bolt_001",
+        "eoere_bolt_005"
+      ],
+      "compatible_with_current_seated_load_path": false,
+      "mirrored_translation_xyz_mm": [
+        4.0,
+        0.0,
+        0.0
+      ],
+      "new_top_beam_end_distance_mm": 69.0875,
+      "nominal_margin_over_principal7D_mm": 2.4125,
+      "side": "left",
+      "side_axis_lines_are_unchanged_infinite_lines": [
+        "eoere_bolt_006",
+        "eoere_bolt_010"
+      ],
+      "side_flat_face_contact_lost": true,
+      "side_steel_and_nut_seats_move_along_shaft_axis": true
+    },
+    {
+      "actual_angle_to_rail_minimum_BRep_distance_mm": 0.0,
+      "actual_angle_to_side_minimum_BRep_distance_mm": 1.5875,
+      "angle_rail_intersection_mm3": 0.0,
+      "angle_side_intersection_mm3": 0.0,
+      "beam_axis_lines_must_follow_factory_holes_transversely": [
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "compatible_with_current_seated_load_path": false,
+      "mirrored_translation_xyz_mm": [
+        -1.5875,
+        0.0,
+        0.0
+      ],
+      "new_top_beam_end_distance_mm": 66.67500000000001,
+      "nominal_margin_over_principal7D_mm": 0.0,
+      "side": "right",
+      "side_axis_lines_are_unchanged_infinite_lines": [
+        "eoere_bolt_009",
+        "eoere_bolt_013"
+      ],
+      "side_flat_face_contact_lost": true,
+      "side_steel_and_nut_seats_move_along_shaft_axis": true
+    },
+    {
+      "actual_angle_to_rail_minimum_BRep_distance_mm": 0.0,
+      "actual_angle_to_side_minimum_BRep_distance_mm": 4.0,
+      "angle_rail_intersection_mm3": 0.0,
+      "angle_side_intersection_mm3": 0.0,
+      "beam_axis_lines_must_follow_factory_holes_transversely": [
+        "eoere_bolt_017",
+        "eoere_bolt_018"
+      ],
+      "compatible_with_current_seated_load_path": false,
+      "mirrored_translation_xyz_mm": [
+        -4.0,
+        0.0,
+        0.0
+      ],
+      "new_top_beam_end_distance_mm": 69.0875,
+      "nominal_margin_over_principal7D_mm": 2.4125,
+      "side": "right",
+      "side_axis_lines_are_unchanged_infinite_lines": [
+        "eoere_bolt_009",
+        "eoere_bolt_013"
+      ],
+      "side_flat_face_contact_lost": true,
+      "side_steel_and_nut_seats_move_along_shaft_axis": true
+    }
+  ],
+  "native_or_global_cases": 0,
+  "new_axes_bores_or_meshes_exported": 0,
+  "new_model_generated": false,
+  "new_supplier_or_hardware_selected": false,
+  "owned_factory_pattern": {
+    "factory_holes_or_wood_bores_changed": false,
+    "far_is_furthest_available_row": true,
+    "model_far_row_from_heel_mm": 65.0875,
+    "model_near_row_from_heel_mm": 23.8125,
+    "nearrow_swap_can_improve_end_distance": false
+  },
+  "owner_diagram": {
+    "path": "fea/generated/v11-outer-top-end-clearance-v1/geometry-review/owner-review.svg",
+    "sha256": "c625ff4c70112b9db3b363830d35d99bf93eeeff4275ca61c494ea44054148a2"
+  },
+  "principal_geometry_markers": {
+    "bolt_D_mm": 9.525,
+    "exact_full7D_shift_mm": 1.5875,
+    "existing_far_end_mm": 65.0875,
+    "full7D_mm": 66.675,
+    "full7D_plus_2mm_marker_mm": 68.675,
+    "margin_after4mm_shift_over7D_mm": 2.4125,
+    "reviewed_practical_shift_mm": 4.0,
+    "scope": "Arithmetic for the stated principal reference only; no actual signed-oblique applicability,Cdelta or complete connection pass adopted.",
+    "separate_practical_allowance_mm": 2.0,
+    "shift_for_that_marker_mm": 3.5875
+  },
+  "purchase_authorized": false,
+  "reused_read_only_occupied_registry_kernel": {
+    "path": "scripts/eoere_leg_header_clearance.py",
+    "sha256": "54bd1cf4022503e4aac08e78ba361c92423241531929cd06131a6c3307ee5ee9"
+  },
+  "rigid_whole_side_stack_collision_examples": [
+    {
+      "delta_mm": 1.5875,
+      "representative_axis_id": "eoere_bolt_006",
+      "side": "left",
+      "translated_head_intersection_with_fixed_side_mm3": 0.0,
+      "translated_head_washer_intersection_with_fixed_side_mm3": 699.4191405188284
+    },
+    {
+      "delta_mm": 4.0,
+      "representative_axis_id": "eoere_bolt_006",
+      "side": "left",
+      "translated_head_intersection_with_fixed_side_mm3": 126.54520062782738,
+      "translated_head_washer_intersection_with_fixed_side_mm3": 1163.833449823195
+    },
+    {
+      "delta_mm": 1.5875,
+      "representative_axis_id": "eoere_bolt_009",
+      "side": "right",
+      "translated_head_intersection_with_fixed_side_mm3": 0.0,
+      "translated_head_washer_intersection_with_fixed_side_mm3": 699.4191405188282
+    },
+    {
+      "delta_mm": 4.0,
+      "representative_axis_id": "eoere_bolt_009",
+      "side": "right",
+      "translated_head_intersection_with_fixed_side_mm3": 126.54520062787651,
+      "translated_head_washer_intersection_with_fixed_side_mm3": 1163.8334498231945
+    }
+  ],
+  "schema": "v11_outer_top_end_seating_feasibility/v1",
+  "side_edge_and_factory_port_scope": "The side grain/end/edge projections and existing side bore centerlines stay unchanged because the proposed motion is parallel to theirXshaft axes. Beam bores must be rebuilt on the shifted factory centers; bores cannot simply move independently of the steel. No bore or shaft was changed here.",
+  "source_BReps": {
+    "base_rail_top": {
+      "bounds_xyz_mm": [
+        -1130.3,
+        1127.1250000000002,
+        1371.4242802786132,
+        1535.584507483516,
+        2088.3915960821605,
+        2246.2903761488838
+      ],
+      "bytes": 49117,
+      "center_of_mass_xyz_mm": [
+        -1.568353446662562,
+        1453.5043938810563,
+        2167.3409861155483
+      ],
+      "id": "base_rail_top",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_rail_top.brep",
+      "sha256": "28f4ed422c34da88fc606c0270e38f8a9d5981f77c5e295e98ebf2d0883fb52b",
+      "volume_mm3": 27976230.83908558
+    },
+    "base_side_left": {
+      "bounds_xyz_mm": [
+        -1219.2000000000007,
+        -1130.3,
+        -175.7,
+        1535.584507484,
+        276.99999999999994,
+        2246.2903761490006
+      ],
+      "bytes": 50972,
+      "center_of_mass_xyz_mm": [
+        -1174.7499999999998,
+        677.8409072728925,
+        1243.426977742066
+      ],
+      "id": "base_side_left",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_left.brep",
+      "sha256": "c09f42b1ab5b30d0fbc5931dd6555cd97f724636aca81279b870fbcc6541bf49",
+      "volume_mm3": 30958185.557358734
+    },
+    "base_side_right": {
+      "bounds_xyz_mm": [
+        1127.125,
+        1216.0250000000005,
+        -175.7,
+        1535.584507484,
+        276.99999999999994,
+        2246.2903761490006
+      ],
+      "bytes": 51682,
+      "center_of_mass_xyz_mm": [
+        1171.5749999999994,
+        677.8409072728924,
+        1243.4269777420654
+      ],
+      "id": "base_side_right",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_right.brep",
+      "sha256": "9ea34302825d531d158b7b613f51b9fea80b17e11bcbb85a3a69e330ebf848a1",
+      "volume_mm3": 30958185.557358738
+    },
+    "eoere_bolt_006_head": {
+      "bounds_xyz_mm": [
+        -1227.8416,
+        -1221.8416,
+        1356.4937672199242,
+        1370.781267219924,
+        2091.508306261509,
+        2108.0060902036025
+      ],
+      "bytes": 6395,
+      "center_of_mass_xyz_mm": [
+        -1224.8416,
+        1363.6375172199241,
+        2099.7571982325558
+      ],
+      "id": "eoere_bolt_006_head",
+      "kind": "bolt",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_bolt_006_head.brep",
+      "sha256": "63d3cb1d832f80fed64064fc187a4c7b2480a625729cbf0a6a86baaee9a6a04a",
+      "volume_mm3": 1060.7043963269746
+    },
+    "eoere_bolt_006_head_washer": {
+      "bounds_xyz_mm": [
+        -1221.8416,
+        -1219.1999999999998,
+        1350.5565172199242,
+        1376.718517219924,
+        2086.6761982325556,
+        2112.838198232556
+      ],
+      "bytes": 2943,
+      "center_of_mass_xyz_mm": [
+        -1220.5208,
+        1363.6375172199241,
+        2099.7571982325558
+      ],
+      "id": "eoere_bolt_006_head_washer",
+      "kind": "bolt",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_bolt_006_head_washer.brep",
+      "sha256": "2ae6647d53dede3a558f573ac4bc43bb68c35d6ba35f915fab037c361a23f270",
+      "volume_mm3": 1163.833449823195
+    },
+    "eoere_bolt_009_head": {
+      "bounds_xyz_mm": [
+        1218.6666,
+        1224.6666,
+        1356.4937672199237,
+        1370.7812672199236,
+        2091.508306261509,
+        2108.0060902036025
+      ],
+      "bytes": 6405,
+      "center_of_mass_xyz_mm": [
+        1221.6666,
+        1363.6375172199237,
+        2099.7571982325558
+      ],
+      "id": "eoere_bolt_009_head",
+      "kind": "bolt",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_bolt_009_head.brep",
+      "sha256": "8a34c2d14c15b07d448f5984c6ac683c54049a8e344d6ae3e0a8a323743ed04b",
+      "volume_mm3": 1060.7043963269746
+    },
+    "eoere_bolt_009_head_washer": {
+      "bounds_xyz_mm": [
+        1216.0249999999999,
+        1218.6666,
+        1350.5565172199238,
+        1376.7185172199236,
+        2086.6761982325556,
+        2112.838198232556
+      ],
+      "bytes": 2955,
+      "center_of_mass_xyz_mm": [
+        1217.3458,
+        1363.6375172199237,
+        2099.7571982325558
+      ],
+      "id": "eoere_bolt_009_head_washer",
+      "kind": "bolt",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_bolt_009_head_washer.brep",
+      "sha256": "0c5e84f8d008bda732b4f75ba6bb7e97b3b334470423dee1f7a2524ead34ff0d",
+      "volume_mm3": 1163.8334498231945
+    },
+    "eoere_clip_single_top_left_1": {
+      "bounds_xyz_mm": [
+        -1130.3,
+        -1041.3999999999999,
+        1333.7379906206365,
+        1458.9831601185165,
+        2036.6170503820229,
+        2161.8622198799026
+      ],
+      "bytes": 13589,
+      "center_of_mass_xyz_mm": [
+        -1105.690284454248,
+        1409.1136643942357,
+        2114.4381747830016
+      ],
+      "id": "eoere_clip_single_top_left_1",
+      "kind": "angle",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v2/breps/eoere_clip_single_top_left_1.brep",
+      "sha256": "ebe9814b2f9d394058aae5d9ec9e8ae45b303c8204e05384b6064d4b5e1b9cd2",
+      "volume_mm3": 92796.27407994063
+    },
+    "eoere_clip_single_top_right_2": {
+      "bounds_xyz_mm": [
+        1038.225,
+        1127.125,
+        1333.7379906206365,
+        1458.9831601185163,
+        2036.6170503820229,
+        2161.8622198799026
+      ],
+      "bytes": 13589,
+      "center_of_mass_xyz_mm": [
+        1102.515284454248,
+        1409.1136643942357,
+        2114.4381747830016
+      ],
+      "id": "eoere_clip_single_top_right_2",
+      "kind": "angle",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v2/breps/eoere_clip_single_top_right_2.brep",
+      "sha256": "c9c16d4051014547470ce4457b6aa087e5323ac0ddbc445cc1dfe792038ceda9",
+      "volume_mm3": 92796.27407994075
+    }
+  },
+  "source_bank_identity_only_no_forces_used": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "source_checked_receipt": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "6806c6639fa0a1a7c0f485475f35b6ea48e2d92682cb4c02177292a09d95b5d0"
+  },
+  "source_geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "source_method": "Existing CQ Shape.importBrep, planar face.normalAt/Center matching, coplanar face.intersect.Area, translated actual angle.distance/intersect, actual end-face outerWire/innerWires extrudeLinear and side.intersect. Complete1055-part registry reused read-only for6panel/66screw bounds and local exact angle queries; no fitting/wood regeneration or output solids.",
+  "status": "NO_COMPATIBLE_SIMPLE_INWARD_TRANSLATION_OR_FULL_SECTION_END_EXTENSION",
+  "structural_acceptance": false,
+  "wood_packers_or_standoffs_adopted": false
+}

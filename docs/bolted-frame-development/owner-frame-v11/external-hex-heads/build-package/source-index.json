@@ -1,0 +1,199 @@
+{
+  "Actual_Disposition_blank": true,
+  "all_rows_HOLD": true,
+  "candidate_revision": "v11-external-hex-heads-v1",
+  "counts": {
+    "Grade8_nuts_retained": 20,
+    "Hillman_axes": 66,
+    "angles": 24,
+    "bolts": 106,
+    "conditional6in_front_Grade5_type_bolts": 4,
+    "conditional6p5_Grade5_type_bolts": 16,
+    "external_hex_structural_heads": 106,
+    "grouped_hardware_rows": 12,
+    "nuts": 106,
+    "occupied_parts": 1055,
+    "physical_cleat_leaves": 4,
+    "physical_receiver_rows": 148,
+    "profiles": 30,
+    "sawn_members": 20,
+    "socket_structural_heads": 0,
+    "spacers": 0,
+    "wall_panels": 6,
+    "washers": 212
+  },
+  "current106_hardware148_receiver_authority": true,
+  "full_raw_profile_contract_source": {
+    "path": "fea/generated/v11-external-hex-heads-v1/hardware/profile-contract-v1.json",
+    "sha256": "c50609adb2d2602aeff2b9d784d1abd44000147bb07f9096b363a839d583e2ee"
+  },
+  "geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "geometry_receipt": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "6806c6639fa0a1a7c0f485475f35b6ea48e2d92682cb4c02177292a09d95b5d0"
+  },
+  "head_mass_reconciliation": {
+    "actual_mechanics_head_delta_kg": -0.0438706012523007,
+    "geometry_only_CAD_head_delta_kg": -0.03240434253474508,
+    "inherited_CAD_minus_mechanical_role_mass_correction_kg": -0.011466258717555626,
+    "inherited_nonzero_head_mass_discrepancy_axis_ids": [
+      "rail_front_bolt_left_1",
+      "rail_front_bolt_left_2",
+      "rail_front_bolt_right_1",
+      "rail_front_bolt_right_2"
+    ],
+    "only_authorized16_head_loads_changed": true
+  },
+  "parent_bank_admission": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "75414a06fd56b7dee1e4f8d546bef46e0359fa64289fad7cdecf27337c291aef"
+  },
+  "public_parent_admission": "../parent-bank-admission.json",
+  "public_response_bank": "../response-bank.json",
+  "published_new_category_files": {
+    "force-binding.json": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/completed-force-binding-v2.json",
+      "sha256": "1c12a686d025d5cfbb809aed070d7d3adad3cafe8bab1592cb0f65335ded3d0a"
+    },
+    "grouped-hardware.csv": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/grouped-hardware.csv",
+      "sha256": "f189761e71264701b6bb05eedddaff4a9941e2d8caf51e6eacdb1d422d98a8b8"
+    },
+    "hardware-axis-crosswalk.csv": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/hardware-axis-crosswalk.csv",
+      "sha256": "89389068ec0300b73a479e09d33dd998cb768cd62764d91d93cff0bae6c48ffc"
+    },
+    "hardware-profile-intake.json": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/publication-payload/hardware-profile-intake.json",
+      "sha256": "8c3afc4b23ceff55da7765d4049c54852b4301981fb5d3d1bbacce396167421a"
+    },
+    "unchanged-source-bindings.json": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/unchanged-source-bindings-v1.json",
+      "sha256": "88b6bbc32ce7de52fc736ee243e340aef51ac36bf3be0c50e66653624dbfcda3"
+    },
+    "validation.json": {
+      "path": "fea/generated/v11-external-hex-heads-v1/planning/force-binding-validation-v2.json",
+      "sha256": "e35ae86e85add203037c5f5fb0dda6796297c10d37e2b8867c91bc9d7cbd7aae"
+    }
+  },
+  "raw_current_planning_bundle": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/planning-review-bundle-v2.json",
+    "sha256": "e12d806681eb5ea50514d6c627ec300e6b1c43a1ad34c16689129073c9ece778"
+  },
+  "raw_current_planning_source_index": {
+    "path": "fea/generated/v11-external-hex-heads-v1/planning/source-index-v2.json",
+    "sha256": "4b320dd21be238600901093b39d8516b52e52e3d78ba87a5d314740bbcf530f6"
+  },
+  "response_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "reused_public_category_sources": {
+    "geometry-packet.json": {
+      "relative_reference": "../../shorter-bolts/build-package/geometry-packet/geometry-packet.json",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/geometry-packet.json",
+        "sha256": "d8a1fc555d79b92debc3ea9536837093847baac0b1ad15e33462746f3cecdce0"
+      }
+    },
+    "horizontal_rail_marking_jig.stl": {
+      "relative_reference": "../../shorter-bolts/build-package/bracket-jig/horizontal_rail_marking_jig.stl",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/bracket-jig/horizontal_rail_marking_jig.stl",
+        "sha256": "4dc4758f37ad6fe2b286c796955587daa8ff7b6efcfa17d4fd23b061d82304c9"
+      }
+    },
+    "jig-reuse.json": {
+      "relative_reference": "../../four-bolt-outer-top/planning/jig-reuse.json",
+      "source": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/jig-reuse-v1.json",
+        "sha256": "1927bf84cf098e4ba7ee5a063bb9a51402f14f36d60fbe8da57107f3a462d9f5"
+      }
+    },
+    "left-rear-foot-leg-marking-jig.stl": {
+      "relative_reference": "../../shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/left-rear-foot-leg-marking-jig.stl",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/left-rear-foot-leg-marking-jig.stl",
+        "sha256": "c6bea1d60bba8a91648d3967c3e8e8f6ae8bfa661dfdb8ab2c54903f78a6847b"
+      }
+    },
+    "left-upper-rear-two-mark-template.stl": {
+      "relative_reference": "../../relocated-rear-pair/planning/left-upper-rear-marking-template.stl",
+      "source": {
+        "bytes": 67884,
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/planning/upper-rear-template-prototype-v1/left-upper-rear-two-mark-template.stl",
+        "sha256": "abefdbecde23b90192f399f60fd33dfa36570deff4ce98803d94dfa4a9cc2070"
+      }
+    },
+    "member-cut-planning.csv": {
+      "relative_reference": "../../shorter-bolts/build-package/geometry-packet/member-cut-planning.csv",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/member-cut-planning.csv",
+        "sha256": "b967d2aaf0e3942376d8004c79fd5722f21e68c5632ff36afa9c958b70b1e1d7"
+      }
+    },
+    "outer-top-hole-mask.csv": {
+      "relative_reference": "../../four-bolt-outer-top/planning/outer-top-hole-mask.csv",
+      "source": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-hole-mask.csv",
+        "sha256": "6afaa7f2503e00266a2582ce8ee829e5951c3fdd2c9641dd153a445e7eaed088"
+      }
+    },
+    "outer-top-mask-policy.json": {
+      "relative_reference": "../../four-bolt-outer-top/planning/outer-top-mask-policy.json",
+      "source": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-mask-policy-v1.json",
+        "sha256": "d2bf0a74d1a1c90607e2850d222f2161ca49bade65879ea85801c9415e93c29f"
+      }
+    },
+    "outer-top-mask-reference.svg": {
+      "relative_reference": "../../four-bolt-outer-top/planning/outer-top-mask-reference.svg",
+      "source": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/outer-top-mask-reference-v1.svg",
+        "sha256": "a614cf25415452732a456d157ad362fded339775506fb9edcd7504aa82d9f2f7"
+      }
+    },
+    "panel-screw-axis-planning.csv": {
+      "relative_reference": "../../shorter-bolts/build-package/geometry-packet/panel-screw-axis-planning.csv",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/panel-screw-axis-planning.csv",
+        "sha256": "e63ad1d1139e9d98dc95d8682bfee8c6a759a926c117611ec5a6ec7435474d8b"
+      }
+    },
+    "receiver-planning.csv": {
+      "relative_reference": "../../four-bolt-outer-top/planning/receiver-planning.csv",
+      "source": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/planning/receiver-planning.csv",
+        "sha256": "e162dd8cae314b64ece6507a49b03477e11d314b03fd65f9cf662ee5583ca5d5"
+      }
+    },
+    "right-rear-foot-leg-marking-jig.stl": {
+      "relative_reference": "../../shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/right-rear-foot-leg-marking-jig.stl",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/runner-leg-jigs/prototype-v3-verified/right-rear-foot-leg-marking-jig.stl",
+        "sha256": "4b4f7713859ee9d40cc08d050288dcab5cdc0a99915c162dd9084c935237d0e6"
+      }
+    },
+    "right-upper-rear-two-mark-template.stl": {
+      "relative_reference": "../../relocated-rear-pair/planning/right-upper-rear-marking-template.stl",
+      "source": {
+        "bytes": 69084,
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/planning/upper-rear-template-prototype-v1/right-upper-rear-two-mark-template.stl",
+        "sha256": "a5d039accc7c9f562f4e191def43de7e24077ce225f6dd6de7b506336c554b14"
+      }
+    },
+    "stock-allocation.csv": {
+      "relative_reference": "../../shorter-bolts/build-package/geometry-packet/stock-allocation.csv",
+      "source": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/stock-allocation.csv",
+        "sha256": "b9d02654fc07a6f97a22999de01fff74995072bad49d1095b18a80042287a4a2"
+      }
+    }
+  },
+  "schema": "all_external_hex_public_planning_source_index/v1",
+  "strength_reference_results_pending": true,
+  "structural_or_physical_release": false
+}

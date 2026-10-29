@@ -1,0 +1,69 @@
+{
+  "schema": "owner_outer_top_end_clearance_evaluation/v1",
+  "owner_request": "Can this be shifted so that we are in the window?",
+  "source_thread": "01a16a80-6193-78c0-855a-e6c4d93622d4",
+  "scope": "Investigate and, if compatible, implement a bounded mirrored outer-top factory-angle placement remedy. Keep factory steel hole centers matched to wood axes; flag broader geometry/loadpath conflicts before redesign.",
+  "base_revision": "v11-external-hex-heads-v1",
+  "base_geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "base_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "investigation_revision": "v11-outer-top-end-clearance-v1",
+  "recorded_end_distance_mm": 65.0875,
+  "full_principal_7D_marker_mm": 66.675,
+  "minimum_nominal_increase_mm": 1.5875,
+  "trial_translation_screen_mm": [
+    1.5875,
+    4.0
+  ],
+  "practical_4mm_screen_end_mm": 69.0875,
+  "practical_4mm_screen_margin_above_7D_mm": 2.4125,
+  "marker_scope": "Owner-directed full principal end-distance target; does not retroactively establish an NDS violation for every oblique load. Any added tolerance allowance is a design screen, not a new code rule.",
+  "fixed": {
+    "bolt_stacks": 106,
+    "outer_top_bolts_each": 4,
+    "cleat_bolts_each": 8,
+    "spacers": 0,
+    "head_style": "external hex",
+    "top_and_side_stock_actual_mm": [
+      88.9,
+      139.7
+    ],
+    "angles": 24,
+    "Hillman_axes": 66,
+    "timber_and_plywood_exteriors": "unchanged unless a broader change is separately reviewed",
+    "load_contract": {
+      "weight_lb": 250,
+      "downward_multiplier": 2,
+      "horizontal_force_N": 300,
+      "accessory_mass_kg": 25,
+      "duration_factor_CD": 1
+    }
+  },
+  "no_wood_packers": true,
+  "factory_hole_centers_must_match": true,
+  "historical_packer_precedent": "V10 standard-side-stock outer fittings moved50.8mm inboard on solid packers; reuse as placement/support evidence only, not authority to reintroduce packers.",
+  "required_checks": [
+    "Actual finished side/beam seating and load paths; no assumed stand-off or removed bearing path.",
+    "Factory-pattern/wood-hole match, side attachments, edge/end/row distances.",
+    "Washers, bend/heel, grip/body/thread/nut/tip windows and service/tool/panel clearance.",
+    "Fresh matched six cases/replays and affected member/bolt/brittle/component checks after any compatible geometry change."
+  ],
+  "workers": {
+    "joint_geometry": "Read-only BRep placement/contact/clearance feasibility and concrete alternatives.",
+    "zero_spacer_fitting_reuse": "Read-only eight-axis stack/profile/grip/thread windows; no duplicate geometry work."
+  },
+  "geometry_change_admitted": false,
+  "new_force_bank_computed": false,
+  "historical_pass_transferred": false,
+  "candidate_selected": false,
+  "purchase_authorized": false,
+  "physical_work_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false
+}

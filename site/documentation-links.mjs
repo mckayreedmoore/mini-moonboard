@@ -38,6 +38,19 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-external-hex-heads-preview')
+    return [
+      {label: 'All-frame external-hex trial and current numerical limits', path: current + 'owner-frame-v11/external-hex-heads/README.md'},
+      {label: 'Latest end/edge follow-through: four cleat-post minimum flags', path: current + 'owner-frame-v11/external-hex-heads/end-edge-followthrough/method-and-recommendation-v1.md'},
+      {label: 'Own six-case response bank and twelve replays', path: current + 'owner-frame-v11/external-hex-heads/response-bank.json'},
+      {label: 'Current bolt, timber and geometry references', path: current + 'owner-frame-v11/external-hex-heads/current-reference-summary.json'},
+      {label: 'Current fitting, washer and bond references', path: current + 'owner-frame-v11/external-hex-heads/component-reference-summary.json'},
+      {label: 'Provisional hardware, receiver and jig planning', path: current + 'owner-frame-v11/external-hex-heads/build-package/README.md'},
+      {label: 'Own checked geometry and nominal clearance', path: current + 'owner-frame-v11/external-hex-heads/geometry-receipt.json'},
+      {label: 'Independent head-only geometry/source check', path: current + 'owner-frame-v11/external-hex-heads/parent-geometry-validation.json'},
+      {label: 'Conditional profile, thread and fit checks', path: current + 'owner-frame-v11/external-hex-heads/hardware-profile-validation.json'},
+      {label: 'Owner direction: all frame heads external hex', path: current + 'owner-frame-v11/owner-all-frame-external-hex-trial.json'},
+    ];
   if (model === 'eoere-v11-four-bolt-outer-top-preview')
     return [
       {label: 'Four-bolt outer-top evaluation and current limits', path: current + 'owner-frame-v11/four-bolt-outer-top/README.md'},

@@ -1,0 +1,64 @@
+{
+  "schema": "v11_owner_all_frame_external_hex_trial_scope/v1",
+  "owner_preference": "All current frame bolts should use the wrench-and-not-Allen-key external hex head style.",
+  "preference_received_via_thread": "01a16a80-6193-78c0-855a-e6c4d93622d4",
+  "source_context": "Later explicit owner direction relayed from thread01a16a80-6193-78c0-855a-e6c4d93622d4 on2026-10-28 supersedes twelve-cleat-only head-style scope. Existing external-hex bolts stay; include every current internal-drive frame bolt. This is a head/access preference and development evaluation, not an exact product or unsupported material-property selection.",
+  "preference_scope": "All106 structural frame-bolt heads externalhex. Existing90 external-hex stacks retained;12cleat6.5in and4front6in A574socket positions evaluated for matching external-hex hardware. Climbing-hold hardware and66panel/kicker screws unchanged.",
+  "trial_revision": "v11-external-hex-heads-v1",
+  "parent_revision": "v11-four-bolt-outer-top-v1",
+  "parent_geometry": {
+    "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/geometry.json",
+    "sha256": "fa2644301a9050817e1fcb4bd8cd066f92f4446e7d74696b945bcd3900993b0d"
+  },
+  "parent_bank": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/response-bank.json",
+    "sha256": "41ea66e32d11a816b749170579534a9062085e4a1af4e19e1f98696112df9542"
+  },
+  "reviewed_option": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/four-bolt-outer-top/hardware-option-twelve-grade5.json",
+    "sha256": "4e7038ccc71c48ae759d5d90a9b280dc8392c51cf2ceaea9af10acdda9abb12e"
+  },
+  "exact_twelve_axis_ids": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2",
+    "eoere_bolt_067",
+    "eoere_bolt_070",
+    "eoere_bolt_071",
+    "eoere_bolt_074",
+    "v11_cleat_left_side_1",
+    "v11_cleat_left_side_2",
+    "v11_cleat_right_side_1",
+    "v11_cleat_right_side_2"
+  ],
+  "fixed": "All106axes, holes, timber and glued two3/4in-leaf cleat outlines, eight bolts per cleat, four per outer top corner and center top connection, paired1/2in upper-rear bolts, washer/nut seats, zero spacers,24angles,66screws, unchanged250lb/2down/300N/25kg/CD1 loads.",
+  "allowed_changes": "Sixteen current socket-cap heads become compatible externalhex heads at their same underhead faces. Evaluate supported conditional grade/type for12nominal3/8-16x6.5in cleat and4nominal3/8-16x6in front positions, without assuming grade from head shape. Update required body/root/runout/length profiles and changed head masses/centroids. No other wood/holes/axes/washer or nut-seat change.",
+  "conditional_type": "Twelve existing6.5in Grade5Style1 proposedtypes plus four individually qualified6in externalhex types, with source-backed material assignments; no blanket unsupported grade adoption.",
+  "conditional_grade5_basis": "Existing source-qualified J429_201405/F606_21 tensile-yield hypothesis92ksi; not actual observed conformity.",
+  "remaining_four_front_A574_axes_unchanged": false,
+  "required": "Fresh geometry/clearance/source checks, six matched cases with both independent replays, all affected section/bolt/washer/fitting/bond/geometry checks and current provisional packet/viewer. Reuse existing helpers and case coordinates after preparation/compatibility controls; do not transfer force values or a passing result.",
+  "trial_evaluation_only": true,
+  "development_candidate_selected": false,
+  "supplier_sku_selected": false,
+  "all_frame_bolts_substitution_selected": false,
+  "actual_Fy": null,
+  "actual_Fyb": null,
+  "actual_Cg": null,
+  "actual_Cdelta": null,
+  "structural_acceptance": false,
+  "purchase_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "supersedes_twelve_only_head_scope": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-external-hex-cleat-trial.json",
+    "sha256": "5be73c35532fb22f509c0d1a4440173c122a1343de83daf7dea39967fcdc9b85"
+  },
+  "exact_four_front_axis_ids": [
+    "rail_front_bolt_left_1",
+    "rail_front_bolt_left_2",
+    "rail_front_bolt_right_1",
+    "rail_front_bolt_right_2"
+  ],
+  "all_frame_external_hex_head_style_selected": true
+}

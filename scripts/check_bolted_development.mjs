@@ -10,6 +10,7 @@ import {gunzipSync} from 'node:zlib';
 import {validateRelocatedRearResults, RELOCATED_REAR_RESULTS_ASSET} from '../site/eoere-v11-relocated-rear-results.mjs';
 import {validateZeroSpacerResults, ZERO_SPACER_RESULTS_ASSET} from '../site/eoere-v11-zero-spacer-results.mjs';
 import {validateFourBoltOuterTopResults, FOUR_BOLT_OUTER_TOP_RESULTS_ASSET} from '../site/eoere-v11-four-bolt-outer-top-results.mjs';
+import {validateExternalHexHeadsResults, EXTERNAL_HEX_HEADS_RESULTS_ASSET} from '../site/eoere-v11-external-hex-heads-results.mjs';
 import {validatePackerFreeProvenance, validatePackerFreeDelta, PACKER_FREE_MODEL,
   PACKER_FREE_REVISION} from '../site/eoere-packer-free-overlay.mjs';
 import {validatePackerFreeResults, PACKER_FREE_RESULTS_ASSET} from '../site/eoere-packer-free-results.mjs';
@@ -553,6 +554,117 @@ function bound(ref) {
   const bytes = read(ref.path);
   assert.equal(sha(bytes), ref.sha256, `source binding: ${ref.path}`);
   return bytes;
+}
+
+export function validateExternalHexTrial(entry, index) {
+  const prefix = 'docs/bolted-frame-development/owner-frame-v11/external-hex-heads/';
+  assert.equal(entry.revision, 'v11-external-hex-heads-v1');
+  assert.equal(entry.parent_revision, index.owner_authorized_four_bolt_outer_top_trial.revision);
+  assert.deepEqual(entry.owner_direction, {
+    path: 'docs/bolted-frame-development/owner-frame-v11/owner-all-frame-external-hex-trial.json',
+    sha256: 'bc2373f1ffcbca4c71b0642831b54e9a96daafe92ce26aec0888b3d51f82aa5c',
+  });
+  const owner = JSON.parse(bound(entry.owner_direction));
+  assert.equal(owner.all_frame_external_hex_head_style_selected, true);
+  assert.equal(owner.development_candidate_selected, false);
+  assert.equal(entry.geometry_source.sha256, 'fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac');
+  assert.deepEqual([entry.target_bolt_stacks, entry.target_external_hex_heads, entry.changed_socket_head_positions,
+    entry.retained_external_hex_stacks, entry.target_spacer_pieces, entry.target_cleat_bolts_each,
+    entry.target_outer_top_bolts_each], [106, 106, 16, 90, 0, 8, 4]);
+  const receipt = JSON.parse(bound(entry.geometry_receipt));
+  assert.equal(entry.geometry_receipt.path, prefix + 'geometry-receipt.json');
+  assert.deepEqual(receipt.geometry, entry.geometry_source);
+  assert.equal(receipt.all106station_and_nominal_shaft_nut_washer_geometries_literal, true);
+  assert.equal(receipt.all30wood_profiles_24fitting_poses_66screw_axes_literal, true);
+  assert.equal(receipt.nominal_external_hex_frame_head_count, 106);
+  assert.equal(receipt.nominal_internal_drive_frame_head_count, 0);
+  assert.equal(receipt.occupied_part_count_verified, 1055);
+  const identity = JSON.parse(bound(entry.parent_geometry_validation));
+  assert.equal(identity.passed, true);
+  assert.deepEqual([identity.axes, identity.unchanged_axis_records, identity.direct_solid_hashes_verified], [106, 90, 566]);
+  const hardware = JSON.parse(bound(entry.hardware_profile_validation));
+  assert.equal(hardware.all106_parent_bindings_verified, true);
+  assert.deepEqual([hardware.type_profiles, hardware.all_detailed_profiles, hardware.front_resistance_profiles], [20, 28, 4]);
+  assert.equal(hardware.front_actual_order_and_pressure_face_source_verified, true);
+  assert.equal(hardware.actual_profile_contact_free_seating_or_material_qualified, false);
+  const profiles = JSON.parse(bound(entry.hardware_profile_clarification));
+  assert.deepEqual(profiles.current_geometry, entry.geometry_source);
+  assert.deepEqual(profiles.frozen_contract, hardware.contract);
+  assert.equal(Object.keys(profiles.all28_actual_face_resistance_profiles).length, 28);
+  assert.equal(profiles.affected_inherited_header_axis_ids.length, 8);
+  for (const profile of Object.values(profiles.all28_actual_face_resistance_profiles)) {
+    assert.equal(profile.conditional_Fy_ksi, 92); assert.equal(profile.conditional_NDS_Fyb_ksi, 92);
+    assert.equal(profile.actual_Fy_ksi, null); assert.equal(profile.actual_Fyb_ksi, null);
+    assert.ok(Math.abs(profile.strength_transition_axis_t_mm -
+      (profile.actual_prepared_head_pressure_face_s_mm + profile.minimum_body_mm)) < 1e-9);
+  }
+  const bank = JSON.parse(bound(entry.response_bank)), proof = JSON.parse(bound(entry.parent_bank_admission));
+  assert.equal(bank.physical_geometry.sha256, entry.geometry_source.sha256);
+  assert.equal(entry.response_bank.sha256, '8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d');
+  assert.equal(proof.bank.sha256, entry.response_bank.sha256);
+  assert.deepEqual([proof.case_count, proof.independent_replay_count, proof.local_shaft_closure_states, proof.source_failures], [6, 12, 636, 0]);
+  assert.equal(bank.all_six_cases_admitted, true);
+  assert.equal(bank.two_independent_replays_per_case, true);
+  assert.equal(bank.all636_shaft_end_closure_gates_pass, true);
+  assert.deepEqual(bank.load_contract, {accessory_mass_kg: 25, downward_multiplier: 2, duration_factor_CD: 1,
+    horizontal_force_N: 300, weight_lb: 250});
+  assert.equal(bank.maximum_gradient_inf_N, proof.maximum_gradient_inf_N);
+  assert.ok(bank.maximum_gradient_inf_N < 1e-7);
+  assert.equal(profiles.current_bank_identity_for_prepared_geometry_only.sha256, entry.response_bank.sha256);
+  const provenance = JSON.parse(bound(entry.viewer.provenance));
+  const sceneBytes = gunzipSync(bound(entry.viewer.scene));
+  const scene = JSON.parse(sceneBytes);
+  assert.equal(sha(sceneBytes), provenance.scene.decoded_sha256);
+  assert.equal(scene.geometry_source.sha256, entry.geometry_source.sha256);
+  assert.equal(scene.geometry_receipt.sha256, entry.geometry_receipt.sha256);
+  assert.deepEqual([...scene.changed_axis_ids].sort(), [...owner.exact_twelve_axis_ids, ...owner.exact_four_front_axis_ids].sort());
+  assert.equal(provenance.model, entry.viewer.model);
+  bound(entry.viewer.overlay); bound(entry.readable_review);
+  assert.equal(entry.conditional_numerical_scope_completed, true);
+  assert.equal(entry.all_applicable_criteria_resolved, false);
+  assert.equal(entry.viewer.geometry_only, false);
+  assert.deepEqual(entry.viewer.results_data, EXTERNAL_HEX_HEADS_RESULTS_ASSET);
+  const results = validateExternalHexHeadsResults(JSON.parse(bound(entry.viewer.results_data)));
+  assert.deepEqual(results.sources.response_bank, entry.response_bank);
+  assert.deepEqual(results.current_reference_summary, entry.reference_summary);
+  assert.equal(results.geometry.sha256, entry.geometry_source.sha256);
+  bound(entry.viewer.results_overlay); bound(entry.viewer.browser_validation);
+  for (const key of ['reference_completion', 'reference_controls', 'final_reference_source_proof',
+    'governing_profile_demand_comparison']) bound(entry[key]);
+  const components = JSON.parse(bound(entry.component_reference_summary));
+  const validation = JSON.parse(bound(entry.component_reference_validation));
+  assert.equal(components.response_bank.sha256, entry.response_bank.sha256);
+  assert.deepEqual(components.physical_geometry, entry.geometry_source);
+  assert.deepEqual([components.counts.axes, components.counts.end_cases, components.counts.body_cases,
+    components.counts.header_distinct_native_states, components.counts.selected_actual_governing_fine_states,
+    components.counts.bond_six_resultant_states], [106, 1272, 144, 48, 2, 12]);
+  assert.equal(validation.component_summary.sha256, entry.component_reference_summary.sha256);
+  assert.deepEqual([validation.current_coarse_native_states, validation.current_selected_fine_states,
+    validation.current_end_case_source_joins, validation.source_failures], [192, 2, 1272, 0]);
+  assert.equal(validation.all_false_release_and_null_actual_property_boundaries_verified, true);
+  for (const ref of Object.values(entry.build_package)) bound(ref);
+  if (entry.end_edge_followthrough) {
+    for (const ref of Object.values(entry.end_edge_followthrough)) bound(ref);
+    const end = JSON.parse(bound(entry.end_edge_followthrough.calculation));
+    const receipt = JSON.parse(bound(entry.end_edge_followthrough.source_receipt));
+    assert.deepEqual(end.geometry, entry.geometry_source);
+    assert.equal(end.response_bank.sha256, entry.response_bank.sha256);
+    assert.deepEqual([end.summary.current_planar_foot_cases, end.summary.current_planar_foot_reference_exceedances,
+      end.summary.current_planar_foot_unresolved, end.summary.net_end_flags, end.summary.primitive_end_flags], [12, 0, 0, 18, 16]);
+    assert.equal(end.summary.original_optional_foot_envelope_flags, 3);
+    assert.equal(end.summary.end_locations.length, 4);
+    assert.ok(end.summary.maximum_current_planar_foot_index < 1);
+    assert.ok(end.summary.maximum_net_minimum_end_index > 1);
+    assert.equal(end.top_full7D_marker.all24_net_and_primitive_full_end_comparisons_below_one, true);
+    assert.equal(end.actual_Cdelta, null); assert.equal(end.actual_Cg, null);
+    assert.equal(end.complete_joint_qualified, false);
+    assert.deepEqual([receipt.reused_selector_known_answers.observed_passed,
+      receipt.reused_selector_known_answers.observed_failed], [7, 0]);
+  }
+  for (const key of ['trial_selected', 'historical_capacity_transferred', 'structural_acceptance',
+    'purchase_authorized', 'fabrication_released', 'climbing_released']) assert.equal(entry[key], false);
+  for (const key of ['actual_Cg', 'actual_Cdelta', 'actual_Fy', 'actual_Fyb']) assert.equal(entry[key], null);
+  return entry;
 }
 
 function boundCompressedJson(ref, expectedPath, readArtifact = bound) {
@@ -5536,6 +5648,7 @@ export function checkDevelopment(index = readIndex(), {entryChecks = true} = {})
     }
     if (index.owner_authorized_relocated_rear_pair_trial !== undefined) validateRelocatedRearTrial(index.owner_authorized_relocated_rear_pair_trial, index);
     if (index.owner_authorized_zero_spacer_trial !== undefined) validateZeroSpacerTrial(index.owner_authorized_zero_spacer_trial, index);
+    if (index.owner_authorized_external_hex_trial !== undefined) validateExternalHexTrial(index.owner_authorized_external_hex_trial, index);
     const review = JSON.parse(bound(current.engineering_review));
     if (entryChecks) for (const name of ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md']) validateEntry(read(name).toString(), index);
     return {passed: true, revision: current.revision, development_record_pointer: index.development_selection.record_pointer,

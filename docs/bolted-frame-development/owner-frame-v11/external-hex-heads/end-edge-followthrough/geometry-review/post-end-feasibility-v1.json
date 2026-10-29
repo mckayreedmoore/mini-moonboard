@@ -1,0 +1,559 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_end_face_and_nominal_header_contacts": [
+    {
+      "actual_coplanar_header_contact_area_mm2": 12373.967187499979,
+      "actual_upper_face_area_mm2": 12373.967187499979,
+      "adjacent_member": "base_header",
+      "header_bottom_Z_mm": 238.9,
+      "nominal_end_face_fully_common_with_header": true,
+      "nominal_end_free": false,
+      "post": "base_post_outer_left",
+      "post_upper_end_Z_mm": 238.9,
+      "reference_patch_normal_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "saved_contact_cell_count": 6,
+      "side": "left",
+      "source_patch_id": "timber-face/base_header/base_post_outer_left/5-3-0",
+      "source_post_face_id": "base_post_outer_left/step-face-0003-339167f0a770a343"
+    },
+    {
+      "actual_coplanar_header_contact_area_mm2": 12373.96718750001,
+      "actual_upper_face_area_mm2": 12373.96718750001,
+      "adjacent_member": "base_header",
+      "header_bottom_Z_mm": 238.9,
+      "nominal_end_face_fully_common_with_header": true,
+      "nominal_end_free": false,
+      "post": "base_post_outer_right",
+      "post_upper_end_Z_mm": 238.9,
+      "reference_patch_normal_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "saved_contact_cell_count": 6,
+      "side": "right",
+      "source_patch_id": "timber-face/base_header/base_post_outer_right/5-4-0",
+      "source_post_face_id": "base_post_outer_right/step-face-0004-b2d3de10d74dafe5"
+    }
+  ],
+  "adjacent_plywood_and_steel_scope": "Both glued3/4in leaves retainZ139.7\u2013500.886mm bounds and side contact with the post/header/side path. The underheader fitting has saved post and header ownership. Neither plywood presence nor nominal bearing is credited as end-minimum reinforcement here.",
+  "bank_identity_only": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "bounded_extension_probes": [
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 1.0,
+      "intersection_with_unchanged_header_mm3": 86617.77031249992,
+      "intersection_with_unchanged_sloping_side_mm3": 0.0,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 7.0,
+      "probe_volume_mm3": 86617.77031249992,
+      "prospective_end_Z_mm": 245.9,
+      "prospective_near_bolt_end_distance_mm": 30.8125,
+      "side": "left"
+    },
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 1.0,
+      "intersection_with_unchanged_header_mm3": 111365.7046874999,
+      "intersection_with_unchanged_sloping_side_mm3": 0.0,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 9.0,
+      "probe_volume_mm3": 111365.7046874999,
+      "prospective_end_Z_mm": 247.9,
+      "prospective_near_bolt_end_distance_mm": 32.8125,
+      "side": "left"
+    },
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 0.8492616327667876,
+      "intersection_with_unchanged_header_mm3": 471448.14984374965,
+      "intersection_with_unchanged_sloping_side_mm3": 82216.58697117039,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 44.8625,
+      "probe_volume_mm3": 555127.1029492182,
+      "prospective_end_Z_mm": 283.7625,
+      "prospective_near_bolt_end_distance_mm": 68.675,
+      "side": "left"
+    },
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 1.0,
+      "intersection_with_unchanged_header_mm3": 86617.77031250007,
+      "intersection_with_unchanged_sloping_side_mm3": 0.0,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 7.0,
+      "probe_volume_mm3": 86617.77031250007,
+      "prospective_end_Z_mm": 245.9,
+      "prospective_near_bolt_end_distance_mm": 30.8125,
+      "side": "right"
+    },
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 1.0,
+      "intersection_with_unchanged_header_mm3": 111365.70468750011,
+      "intersection_with_unchanged_sloping_side_mm3": 0.0,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 9.0,
+      "probe_volume_mm3": 111365.70468750011,
+      "prospective_end_Z_mm": 247.9,
+      "prospective_near_bolt_end_distance_mm": 32.8125,
+      "side": "right"
+    },
+    {
+      "clear_extension": false,
+      "header_overlap_fraction": 0.8492616327667872,
+      "intersection_with_unchanged_header_mm3": 471448.1498437503,
+      "intersection_with_unchanged_sloping_side_mm3": 82216.58697117055,
+      "method": "In-memory extrudeLinear of actual finished upperend face using its outer and inner wires; no solid export or current body changed.",
+      "post_end_extension_mm": 44.8625,
+      "probe_volume_mm3": 555127.1029492192,
+      "prospective_end_Z_mm": 283.7625,
+      "prospective_near_bolt_end_distance_mm": 68.675,
+      "side": "right"
+    }
+  ],
+  "bounded_factory_fitting_relocation_probes": [
+    {
+      "actual_fitting_to_header_minimum_distance_mm": 7.0,
+      "actual_fitting_to_post_minimum_distance_mm": 0.0,
+      "compatible_with_current_seated_joint": false,
+      "fitting_header_intersection_mm3": 0.0,
+      "fitting_post_intersection_mm3": 0.0,
+      "header_flange_flush_seating_preserved": false,
+      "prospective_near_row_end_distance_mm": 30.8125,
+      "side": "left",
+      "whole_factory_fitting_delta_xyz_mm": [
+        0.0,
+        0.0,
+        -7.0
+      ]
+    },
+    {
+      "actual_fitting_to_header_minimum_distance_mm": 9.0,
+      "actual_fitting_to_post_minimum_distance_mm": 0.0,
+      "compatible_with_current_seated_joint": false,
+      "fitting_header_intersection_mm3": 0.0,
+      "fitting_post_intersection_mm3": 0.0,
+      "header_flange_flush_seating_preserved": false,
+      "prospective_near_row_end_distance_mm": 32.8125,
+      "side": "left",
+      "whole_factory_fitting_delta_xyz_mm": [
+        0.0,
+        0.0,
+        -9.0
+      ]
+    },
+    {
+      "actual_fitting_to_header_minimum_distance_mm": 7.0,
+      "actual_fitting_to_post_minimum_distance_mm": 0.0,
+      "compatible_with_current_seated_joint": false,
+      "fitting_header_intersection_mm3": 0.0,
+      "fitting_post_intersection_mm3": 0.0,
+      "header_flange_flush_seating_preserved": false,
+      "prospective_near_row_end_distance_mm": 30.8125,
+      "side": "right",
+      "whole_factory_fitting_delta_xyz_mm": [
+        0.0,
+        0.0,
+        -7.0
+      ]
+    },
+    {
+      "actual_fitting_to_header_minimum_distance_mm": 9.0,
+      "actual_fitting_to_post_minimum_distance_mm": 0.0,
+      "compatible_with_current_seated_joint": false,
+      "fitting_header_intersection_mm3": 0.0,
+      "fitting_post_intersection_mm3": 0.0,
+      "header_flange_flush_seating_preserved": false,
+      "prospective_near_row_end_distance_mm": 32.8125,
+      "side": "right",
+      "whole_factory_fitting_delta_xyz_mm": [
+        0.0,
+        0.0,
+        -9.0
+      ]
+    }
+  ],
+  "checked_receipt": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "6806c6639fa0a1a7c0f485475f35b6ea48e2d92682cb4c02177292a09d95b5d0"
+  },
+  "climbing_released": false,
+  "current_available_mm": 23.8125,
+  "current_case_contact_scope": {
+    "interpretation": "Existing model reactions only. Partial contact opening prevents an assumption of uniform full-face restraint. No TableA waiver, compressive end-block capacity, crack closure, reinforcement or complete load-path credit is assigned.",
+    "source": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/saved-post-header-end-contact-v1.json",
+      "sha256": "9138b698928f26b8c36a14bce6449caa823bf706757c1a7b9a34a2c7c1cfc3c5"
+    },
+    "summary": {
+      "all_pairs_have_some_compression": true,
+      "case_member_rows": 12,
+      "maximum_compression_N": 1781.4881357469958,
+      "minimum_compression_N": 76.19309123865222,
+      "pairs_with_open_cells": 9
+    }
+  },
+  "current_geometry_sha256_unchanged": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac",
+  "current_preparation_and_contact_owners": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json",
+    "sha256": "f0d639984ade7f396da1f4963ab9933ef9915886ad36012edcdd2a2ca6e8ec3b"
+  },
+  "current_saved_contact_actions": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/saved-post-header-end-contact-v1.json",
+    "sha256": "9138b698928f26b8c36a14bce6449caa823bf706757c1a7b9a34a2c7c1cfc3c5"
+  },
+  "current_saved_end_comparisons": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/saved-method-followthrough-v1.json",
+    "sha256": "08e80502d37d8dd55366805710d933aa6517212e8d1105fc480f257f10411e00"
+  },
+  "drilling_released": false,
+  "eight_per_cleat_and_four_per_outer_top_retained": true,
+  "end_bearing_does_not_waive_minimum": true,
+  "end_classification": "The current grain end is under the header, not geometrically free. Current saved reactions include some compression in all12post/case pairs, with9partially open6-cell patches; this does not establish uniform restraint, crack closure, reinforcement capacity or a minimum-end-distance exception.",
+  "extension_conclusion": "Atboth7mm and9mm every part of the actual-end-face extension is inside existingheader material. Even the44.8625mm full7D+2 principal-screen extension intersects header and sloping side. There is no clear small stock-length extension with all adjacent members fixed.",
+  "fabrication_released": false,
+  "flat_seat_constraint": {
+    "can_preserving_both_planes_increase_vertical_post_end_distance": false,
+    "header_seat_plane_normal_unoriented_xyz": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "post_side_plane_normal_unoriented_xyz": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "preserve_both_flush_planes": "translation_X=0 and translation_Z=0; only a Ytranslation is tangent to both planes."
+  },
+  "force_and_code_limits": "The30.44895mm requirement is the stated current supplemental signed-action comparison. Prospective23.8125+7/9 arithmetic is not a new passing connection result. Any authorized geometry/pattern remedy requires its own compatible bores/contacts, geometry/applicability and matched force bank; no Cdelta,Cg or material value is favorably adopted.",
+  "four_flagged_near_post_axes": [
+    {
+      "available_end_mm": 23.8125,
+      "axis_id": "v11_cleat_left_post_1",
+      "case_id": "a12-rear",
+      "host": "base_post_outer_left",
+      "minimum_index": 1.2786959338530566,
+      "needed_distance_gain_on_frozen_force_comparison_mm": 6.636446924875909,
+      "point_xyz_mm": [
+        -1257.3,
+        -130.0125,
+        215.0875
+      ],
+      "supplemental_required_minimum_mm": 30.44894692487591
+    },
+    {
+      "available_end_mm": 23.8125,
+      "axis_id": "v11_cleat_left_post_2",
+      "case_id": "a12-rear",
+      "host": "base_post_outer_left",
+      "minimum_index": 1.2478825362421213,
+      "needed_distance_gain_on_frozen_force_comparison_mm": 5.902702894265513,
+      "point_xyz_mm": [
+        -1257.3,
+        -79.2125,
+        215.0875
+      ],
+      "supplemental_required_minimum_mm": 29.715202894265513
+    },
+    {
+      "available_end_mm": 23.8125,
+      "axis_id": "v11_cleat_right_post_1",
+      "case_id": "k12-rear",
+      "host": "base_post_outer_right",
+      "minimum_index": 1.2784954452253139,
+      "needed_distance_gain_on_frozen_force_comparison_mm": 6.631672789427785,
+      "point_xyz_mm": [
+        1254.125,
+        -130.0125,
+        215.0875
+      ],
+      "supplemental_required_minimum_mm": 30.444172789427785
+    },
+    {
+      "available_end_mm": 23.8125,
+      "axis_id": "v11_cleat_right_post_2",
+      "case_id": "k12-rear",
+      "host": "base_post_outer_right",
+      "minimum_index": 1.248693946833426,
+      "needed_distance_gain_on_frozen_force_comparison_mm": 5.922024608970958,
+      "point_xyz_mm": [
+        1254.125,
+        -79.2125,
+        215.0875
+      ],
+      "supplemental_required_minimum_mm": 29.734524608970958
+    }
+  ],
+  "geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "historical_negative_reused": {
+    "current_local_wood_and_fitting_geometry_equal_to_that_review": true,
+    "finding": "The proposed106.3625mm past-arm centers lieZ132.5375, below both unchanged plywood leaves; the entire bores missplywood by2.003125mm and crossrunner+post instead. This cannot supply fourplywood-to-post pins/eightpercleat.",
+    "old_hardware_tip_or_force_values_transferred": false,
+    "review": {
+      "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-review/cleat-post-eight-bolt-option-v1/review.json",
+      "sha256": "b5533eced093bdf31e41990d611f0ce2508143d11aa2da23baef158ee8e156c3"
+    }
+  },
+  "minimum_broader_owner_choice": "Retaining eightpercleat requires a separately reviewed compatible fitting/post-hole pattern or a different header/receiver/seat arrangement. A rigid move of the existing seated angle cannot do it. Existing steel holes are not offset, no packer is introduced, and no bolt-count change is made by this review.",
+  "model_axes_holes_or_meshes_changed": false,
+  "native_or_global_solves": 0,
+  "new102_or_other_candidate_generated": false,
+  "new_body_or_mesh_exports": 0,
+  "owner_diagram": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/geometry-review/owner-review.svg",
+    "sha256": "b02aaee80b419284876f745d9a9af5ab178948dc9ef31dd9b200e39a198418c4"
+  },
+  "purchase_authorized": false,
+  "read_only_temporary_extension_and_translation_probes_only": true,
+  "schema": "v11_cleat_post_end_geometry_feasibility/v1",
+  "source_BReps": {
+    "base_header": {
+      "bounds_xyz_mm": [
+        -1219.2,
+        1216.025,
+        -175.7,
+        -36.0,
+        238.9,
+        277.0
+      ],
+      "bytes": 17038,
+      "center_of_mass_xyz_mm": [
+        -1.5697541241842776,
+        -105.85713036925569,
+        257.95
+      ],
+      "id": "base_header",
+      "kind": "timber",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/base_header.brep",
+      "sha256": "fb66386e8d48548dfd9102b7f0f9b389ae64d6ba56d1c67e49c263bdd98b2eb8",
+      "volume_mm3": 12936166.162725301
+    },
+    "base_post_outer_left": {
+      "bounds_xyz_mm": [
+        -1219.2,
+        -1130.3000000000002,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "bytes": 19705,
+      "center_of_mass_xyz_mm": [
+        -1174.9037573070048,
+        -106.17119196746617,
+        118.91718879520752
+      ],
+      "id": "base_post_outer_left",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_post_outer_left.brep",
+      "sha256": "65f99b1fa8b3b79a4cef5f8b63986fed29de58845eba2a8b3189200ec830f706",
+      "volume_mm3": 2909158.883218347
+    },
+    "base_post_outer_right": {
+      "bounds_xyz_mm": [
+        1127.125,
+        1216.0250000000005,
+        -175.7,
+        -36.0,
+        0.0,
+        238.9
+      ],
+      "bytes": 20389,
+      "center_of_mass_xyz_mm": [
+        1171.7287573070046,
+        -106.17119196746613,
+        118.9171887952075
+      ],
+      "id": "base_post_outer_right",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_post_outer_right.brep",
+      "sha256": "254b0fb978460398916edc03af5f5467427bb2746b87ec536d540d5eab40444a",
+      "volume_mm3": 2909158.8832183527
+    },
+    "base_side_left": {
+      "bounds_xyz_mm": [
+        -1219.2000000000007,
+        -1130.3,
+        -175.7,
+        1535.584507484,
+        276.99999999999994,
+        2246.2903761490006
+      ],
+      "bytes": 50972,
+      "center_of_mass_xyz_mm": [
+        -1174.7499999999998,
+        677.8409072728925,
+        1243.426977742066
+      ],
+      "id": "base_side_left",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_left.brep",
+      "sha256": "c09f42b1ab5b30d0fbc5931dd6555cd97f724636aca81279b870fbcc6541bf49",
+      "volume_mm3": 30958185.557358734
+    },
+    "base_side_right": {
+      "bounds_xyz_mm": [
+        1127.125,
+        1216.0250000000005,
+        -175.7,
+        1535.584507484,
+        276.99999999999994,
+        2246.2903761490006
+      ],
+      "bytes": 51682,
+      "center_of_mass_xyz_mm": [
+        1171.5749999999994,
+        677.8409072728924,
+        1243.4269777420654
+      ],
+      "id": "base_side_right",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_right.brep",
+      "sha256": "9ea34302825d531d158b7b613f51b9fea80b17e11bcbb85a3a69e330ebf848a1",
+      "volume_mm3": 30958185.557358738
+    },
+    "eoere_cleat_left": {
+      "bounds_xyz_mm": [
+        -1238.2500000000002,
+        -1219.2,
+        -175.7,
+        -36.0,
+        139.7,
+        500.886082829381
+      ],
+      "bytes": 15035,
+      "center_of_mass_xyz_mm": [
+        -1228.7249999999992,
+        -98.77605238546556,
+        283.2624578279488
+      ],
+      "id": "eoere_cleat_left",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_left.brep",
+      "sha256": "0c79c25e41328320460ef988159d62683ee53bd9bd9642f1a240a6330c3c4f0f",
+      "volume_mm3": 726938.4438975357
+    },
+    "eoere_cleat_left_outer": {
+      "bounds_xyz_mm": [
+        -1257.3000000000002,
+        -1238.25,
+        -175.7,
+        -36.0,
+        139.7,
+        500.886082829381
+      ],
+      "bytes": 15011,
+      "center_of_mass_xyz_mm": [
+        -1247.7749999999994,
+        -98.77605238546559,
+        283.2624578279488
+      ],
+      "id": "eoere_cleat_left_outer",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_left_outer.brep",
+      "sha256": "8a35962ddaed556a80b3d91c9a646ec232c57943473d4accdb147b9d9b6f2f8f",
+      "volume_mm3": 726938.4438975357
+    },
+    "eoere_cleat_right": {
+      "bounds_xyz_mm": [
+        1216.025,
+        1235.0750000000003,
+        -175.7,
+        -36.0,
+        139.7,
+        500.886082829381
+      ],
+      "bytes": 15351,
+      "center_of_mass_xyz_mm": [
+        1225.5500000000002,
+        -98.77605238546559,
+        283.262457827949
+      ],
+      "id": "eoere_cleat_right",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_right.brep",
+      "sha256": "cd02b9a2a0cf421622fffdc67e11b17f919e6154dd98f42cafda17b1b6b2e278",
+      "volume_mm3": 726938.4438975357
+    },
+    "eoere_cleat_right_outer": {
+      "bounds_xyz_mm": [
+        1235.075,
+        1254.125,
+        -175.7,
+        -36.0,
+        139.7,
+        500.886082829381
+      ],
+      "bytes": 14503,
+      "center_of_mass_xyz_mm": [
+        1244.5999999999988,
+        -98.77605238546556,
+        283.2624578279487
+      ],
+      "id": "eoere_cleat_right_outer",
+      "kind": "timber",
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_right_outer.brep",
+      "sha256": "97076b87cc365369419022999d55facc755fc1ecdf4d166b31058d52bbcab34f",
+      "volume_mm3": 726938.4438975358
+    },
+    "eoere_clip_header_outer_under_left": {
+      "bounds_xyz_mm": [
+        -1130.3,
+        -1041.3999999999999,
+        -149.0625,
+        -60.162499999999994,
+        150.0,
+        238.9
+      ],
+      "bytes": 13578,
+      "center_of_mass_xyz_mm": [
+        -1105.690284454248,
+        -104.6125,
+        214.29028445424825
+      ],
+      "id": "eoere_clip_header_outer_under_left",
+      "kind": "angle",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/eoere_clip_header_outer_under_left.brep",
+      "sha256": "bd3026e517f6eb639427f71cc7843aef3d6c6640694bef35d808675ec899438d",
+      "volume_mm3": 92796.27407994072
+    },
+    "eoere_clip_header_outer_under_right": {
+      "bounds_xyz_mm": [
+        1038.225,
+        1127.125,
+        -149.0625,
+        -60.162499999999994,
+        150.0,
+        238.9
+      ],
+      "bytes": 13578,
+      "center_of_mass_xyz_mm": [
+        1102.515284454248,
+        -104.6125,
+        214.29028445424825
+      ],
+      "id": "eoere_clip_header_outer_under_right",
+      "kind": "angle",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/eoere_clip_header_outer_under_right.brep",
+      "sha256": "bc88b149e6ee1c10230b64b7706e03426ef94eb94a0e3ec65f15c870822ca780",
+      "volume_mm3": 92796.27407994075
+    }
+  },
+  "status": "SIMPLE_POST_END_EXTENSION_AND_WHOLE_FITTING_RELOCATION_BLOCKED",
+  "structural_acceptance": false,
+  "worst_supplemental_net_required_minimum_mm": 30.44894692487591,
+  "zero_spacers_and_external_hex_retained": true
+}

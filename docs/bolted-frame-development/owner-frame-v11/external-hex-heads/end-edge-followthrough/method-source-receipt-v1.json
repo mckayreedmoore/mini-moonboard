@@ -1,0 +1,81 @@
+{
+  "PDF_reading_tool": {
+    "cryptography": "50.0.2",
+    "pypdf": "5.9.0",
+    "reproduction": "uv run --no-project --with pypdf==5.9.0 --with cryptography==50.0.2 python -B"
+  },
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "actual_connection_capacity": null,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "criterion_dispositions": {
+    "cleat_post_minimum_end": "Unresolved/above the supplemental half-minimum at four locations; no actualCdelta can be inferred by extending the permitted reduction below0.5.",
+    "coupled_brittle": "Existing full signed F/M, parallel-transfer and fitting references remain separate; this end/edge review introduces noFt90/Gc or reinforcement credit.",
+    "lower_rear_foot_planar": "Current existing-method component complete,12states/0flags,max0.654661245; original3optional two-edge diagnostics remain recorded separately.",
+    "top7D": "Conservative principal full-end marker, not a minimum failure; potential end-only principal factor0.976190476. All24actual saved supplemental net and primitive full-end comparisons already meet. No actual factor or whole-joint pass adopted."
+  },
+  "current_end_contact_observations": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/saved-post-header-end-contact-v1.json",
+    "sha256": "9138b698928f26b8c36a14bce6449caa823bf706757c1a7b9a34a2c7c1cfc3c5"
+  },
+  "current_saved_method_result": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/saved-method-followthrough-v1.json",
+    "sha256": "08e80502d37d8dd55366805710d933aa6517212e8d1105fc480f257f10411e00"
+  },
+  "fabrication_released": false,
+  "primary_sources": {
+    "NDS2018_Commentary": {
+      "locator": "C12.5.1.2 End Distance, printed263/PDF71; C12.5.1.3 Edge Distance, printed264/PDF72",
+      "official_url": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf",
+      "read_from_existing_exact_local_cache": true,
+      "scope": "Explicit supplemental oblique tension-end interpolation and50percent minimum; no oblique-edge guidance/reduction. The reported5D Douglas-fir metal-side single-bolt study is context, not qualification of this mixed multi-fastener cleat or permission to halve an alternate full-distance value.",
+      "sha256": "3402c7703cddef3e6693741ebaef9bfd0c1b0ddf075762c6f411fe1916751f7d"
+    },
+    "NDS2024_Errata_March2026": {
+      "locator": "PDF2,C12.5.1 row-spacing/edge shear cross-reference corrections",
+      "official_url": "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+      "scope": "Confirms correct Chapter3 shear locator3.4.4.1; it does not create a new oblique-edge rule or relax minimum end distances.",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    "NDS2024_ch12": {
+      "locator": "12.5.1.2(a-c), Tables12.5.1A/B and12.5.1.3, printed97-99/PDF19-21",
+      "scope": "Cdelta reduces Z proportionately only within the permitted end/spacing range; the smallest applicable factor propagates through a group/asymmetric multi-shear connection. Edge and between-row distances are separate.",
+      "source": {
+        "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+        "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a"
+      }
+    },
+    "NDS2024_ch3": {
+      "locator": "3.4.4.1(a), Eq3.4-6 and Figure3E, printed21/PDF7",
+      "scope": "Rectangular bending-member connection shear component, induced V from engineering mechanics; de is measured from the unloaded edge to the bolt center. No full3D splitting or arbitrary edge selection.",
+      "source": {
+        "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+        "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+      }
+    }
+  },
+  "producer": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/publish_followthrough_v1.py",
+    "sha256": "1bed601c55dfe1784c8f2eb7b1bb07a7ee95485efc80a7f0d7c3a8931c4502df"
+  },
+  "reused_selector_known_answers": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run pytest -q fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/test_rear_planar_application_v1.py",
+    "coverage": "Opposed bearing forces retain torsion; signed direction fixes branch; explicit couple/line offset/cut reversal/zero net reject selection; both-edge clearance needs no selection.",
+    "observed_failed": 0,
+    "observed_passed": 7,
+    "source": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/test_rear_planar_application_v1.py",
+      "sha256": "329aab6776ba3e4a64671568c630c6fc3bdace8cf5d739d82e9fd037e61e20ad"
+    }
+  },
+  "schema": "v11_current_end_edge_method_source_receipt/v1",
+  "structural_acceptance": false,
+  "unchanged_owner_constraints": {
+    "cleat_bolts_each": 8,
+    "geometry_and_hardware_changes": 0,
+    "smaller_cleat_bolts_or102_deletion_selected": false,
+    "total_axes": 106,
+    "wood_packers": 0
+  }
+}

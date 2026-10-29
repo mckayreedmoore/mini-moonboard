@@ -1,0 +1,84 @@
+{
+  "all_reference_routes_completed_against_one_bank": true,
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "fabrication_released": false,
+  "historical_forces_or_indices_transferred": false,
+  "native_or_global_mechanics_run": false,
+  "parent_admitted_bank": true,
+  "producer": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/publish_current_reference_controls_v1.py",
+    "sha256": "a778911c987745d8a5f976734d30e115dc01dcb766ff74c11349462acfcda841"
+  },
+  "readiness": {
+    "path": "fea/generated/v11-external-hex-heads-v1/references/adapter-readiness-v1.json",
+    "sha256": "abb9140bf51a00d275aaa94860c34be62fbe2a63f945f54a8441048d5a7005af"
+  },
+  "reference_routes": {
+    "connections": {
+      "outputs": {
+        "Grade5_92_force": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/force-only-Grade5-F606-92ksi-v1.json",
+          "sha256": "83ec79cdd88e4d35269d4f9e0125dce763ea556c884171d7de5cf7640c70074d"
+        },
+        "Grade5_92_rows": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/physical-row-Grade5-F606-92ksi-v1.json",
+          "sha256": "d85f742ec54317aef817b1ee31e54bcd6c1d69e6d2ce57bc6fb8b7d53de23efc"
+        },
+        "generic45_force": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/force-only-45ksi-v1.json",
+          "sha256": "7a91282b3d37c3487c159e5627995de73a5b3d5afd86709b1002c2729079d632"
+        },
+        "generic45_rows": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/physical-row-45ksi-v1.json",
+          "sha256": "e1fddf22c987d8a7e67654bf509cdddbe0d9444a988dd225245d055c388a6948"
+        },
+        "individual_Cg_floor": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/individual-EYM-Cg-equation-bound-v1.json",
+          "sha256": "5c757c8b51b0535aea0567e30ceaa703f40f3e3cf9e282aa07ff5b2a632e4eaf"
+        },
+        "method_disposition": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/numerical-method-disposition-v1.json",
+          "sha256": "b4ad5ac1f2b5a7ca9aa1130be6d1847d47fdc37348fce96f07a253f52cf43dd5"
+        },
+        "mixed_planes": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/mixed-media-plane-references-v1.json",
+          "sha256": "b3e3f315e881b95996f91bad90d96057dc0fee8658b133b72fb34de788c5e751"
+        },
+        "standard_Cg": {
+          "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/standard-Cg-net-lateral-v1.json",
+          "sha256": "991dc98a829fe997a5f06ced977a90783acd50f6544dff20ff4a12ef8d8d68ea"
+        }
+      },
+      "summary": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/connections/connection-summary-v1.json",
+        "sha256": "2892885c345bb105a38aa1dec1870a2494b918dd0a2a488a33e4faeee2b1cbda"
+      }
+    },
+    "families": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/families/reference-family-binding-v1.json",
+      "sha256": "20745371ce560d59bc9b5d0902a1a5a795c76122b908ab7a9e1a1bcdb8d37952"
+    }
+  },
+  "response_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "revision": "v11-external-hex-heads-v1",
+  "schema": "v11_external_hex_reference_run/v1",
+  "source_bindings": {
+    "completed_family_and_connection_run": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/reference-run-v1.json",
+      "sha256": "7f9cec8a69eb619dc57591ffd37dccf53355134fa56152de6808d1e78726860b"
+    },
+    "failed_eager_intake": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/runs/reference-v1/family-material-alias-attempt-v1.json",
+      "sha256": "5a577139f3f1eb676350347288f7622d4345aa1fb61907ecc7e2e3310543eca8"
+    },
+    "family_material_read_view": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/resume_families_v1.py",
+      "sha256": "b192517392c3a5e0bfba5b00464dc9b240bcbaaa4f42946225e815898b6c91c4"
+    }
+  },
+  "structural_acceptance": false
+}
