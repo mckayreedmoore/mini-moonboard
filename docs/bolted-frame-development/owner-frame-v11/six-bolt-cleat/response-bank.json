@@ -1,0 +1,554 @@
+{
+  "actual_factory_prepare_states": 6,
+  "actualcase_output_bases": {
+    "a1-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-forward": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-left": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "k12-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "k12-right": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1"
+  },
+  "actualcase_output_bases_by_case": {
+    "a1-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-forward": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-left": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "a12-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "k12-rear": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1",
+    "k12-right": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1"
+  },
+  "adapter_readiness": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/adapter-readiness.json",
+    "sha256": "4db66871fa62eef934b1443b0537313898f5eba8c69a7555164953762ce09f69"
+  },
+  "admission_gate_N": 1e-05,
+  "all612_shaft_end_closure_gates_pass": true,
+  "all_six_cases_admitted": true,
+  "analysis_geometry": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/geometry.json",
+    "sha256": "58ff42af6f2e7cbbda40ef4328306456a1b49f00e2113bb39a5d186663d2b98c"
+  },
+  "analysis_inventory": {
+    "bodies": 154,
+    "fittings": 24,
+    "ports": 100,
+    "roles": 510,
+    "shafts": 102,
+    "walls": 124,
+    "wood": 22
+  },
+  "analysis_revision": "eoere-v11-six-bolt-cleat-analysis-v1",
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "candidate_selected": false,
+  "case_ids": [
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cases": [
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-forward",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/v10-execution.json",
+        "sha256": "f000f6cc86153c1c54033820fa73f010cbb42763199c8ed2c58cd5bc4cb2421f"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/field.json",
+        "sha256": "290c35ca9d20e19316a9719f2e0090783f122103c2ac15716a91475b2af70010"
+      },
+      "gradient_inf_N": 2.624209692603241e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/independent-replay-plywood.json",
+        "sha256": "82ea046519a9391a164b79c3a5bffe6947e126b8e4a6ed595ce5776b2a3aa80d"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/independent-replay.json",
+        "sha256": "ec1cd92bb48757c117be9a1cfaba4efe08e2fe84b80859130cfa8dccb1a5255b"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/local-end-closure-v1.json",
+        "sha256": "76ce0ab11bf78edcc4354d95e40b5a4ff5bac469a8945b583b9b3fdf0e9446ae"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/v10-replay-binding.json",
+        "sha256": "e16f07460be49b7dc25ca400620e24c0e32a053efd5d7deae4b16b81e50d2f71"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/result.json",
+        "sha256": "492865392cf28a0f081d318382a389c1691714d8ff09e959edcbba0a7b6bdf39"
+      },
+      "result_gradient_inf_N": 2.624209692603241e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-left",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/v10-execution.json",
+        "sha256": "587500443f9e2397079eb6340586221eb1e32fda9a357f094910e7e757be7c47"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/field.json",
+        "sha256": "b7b8370867162420f4ddfd9dc650892e1106fd7c7c19f46201eb4476b4850f3e"
+      },
+      "gradient_inf_N": 4.470348358154297e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/independent-replay-plywood.json",
+        "sha256": "37588cd0a153e82b7406f23aec93fc03fd96e1ee98b4de1d71677d34fd6aab83"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/independent-replay.json",
+        "sha256": "e8a0ee4b79d9914df5bf31785f5f69c1d706453bbac5cf71d4f18edcafddde6a"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/local-end-closure-v1.json",
+        "sha256": "e1e69adbc1b486228d2486fed893a42cef1ea6d022b23c20ea2b41183a6af828"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/v10-replay-binding.json",
+        "sha256": "1f405c27987749e8105f91e95255525a3209d0f117e94cd4c3e0a178648352bd"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/result.json",
+        "sha256": "b4323067afdf819dbf3d40eb3b72813076be1ebd31e7ce740cb61962b6207058"
+      },
+      "result_gradient_inf_N": 4.470348358154297e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a12-rear",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/v10-execution.json",
+        "sha256": "8867733f83af38dc436784f7202fa0a30144e6071176cd5e909711f060600f7d"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/field.json",
+        "sha256": "ce0eef7cf1798705ed8df2be7f091c4507370968a8aea490f163199ab5df98b9"
+      },
+      "gradient_inf_N": 1.2720150266432029e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/independent-replay-plywood.json",
+        "sha256": "ab1376ac7bc9a595a7516acfd160bb4a869b57b609617e9dd7860c1403fdfeb1"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/independent-replay.json",
+        "sha256": "c7b59cb5f379c353611dbd7f6b91bd35485babaf2cc0eb9d43a7a912b331288a"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/local-end-closure-v1.json",
+        "sha256": "6214a02089790015959a8c354f8dd452265a56dd3291e5b73adb83fe579b2d13"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/v10-replay-binding.json",
+        "sha256": "e1a2240cbc64a2b66532826db84d5163d152d75be194c187d4a42d6ab83cb1df"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/result.json",
+        "sha256": "f2334b2b0e178badd6b8bd622d4782df19b8ebdd5e1237c98103039b72e73e7b"
+      },
+      "result_gradient_inf_N": 1.2720150266432029e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-right",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/v10-execution.json",
+        "sha256": "ad045a613bafbbab8fccd684fc9c7af4838e418b15d1cffbde35d6a259c79974"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/field.json",
+        "sha256": "c90b25f527cb10b071073d840a08f0ea3d0222b1c003ae10d0b59e7413324577"
+      },
+      "gradient_inf_N": 2.9802322387695312e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/independent-replay-plywood.json",
+        "sha256": "6015a45287a80463b6e4a9e9951b66f199572ae14bc487c7cacd670839067245"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/independent-replay.json",
+        "sha256": "50158efaa9715e0db0e1edb968bb061add6b17385496a81c213fc9ea850f1c8c"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/local-end-closure-v1.json",
+        "sha256": "f6f8d2dc7bf7ff6b59e44c86a0f12834153f2d02dcb009b195f8d3457dead34e"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/v10-replay-binding.json",
+        "sha256": "6763dace006a3d4729d0a53ec625af7af85b798333f7bcfefd096c0ea0830007"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/result.json",
+        "sha256": "41c02e16a50c0dd190a48fdb62f8b2e91601bf80f986dd9a8de2f95521c43582"
+      },
+      "result_gradient_inf_N": 2.9802322387695312e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "k12-rear",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/v10-execution.json",
+        "sha256": "d81d0abe7b419c46a6bb9cabbe8f24f3eb6d8cdbd553e06c79397c7e76cff160"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/field.json",
+        "sha256": "472106e43280f3949d0fd41e7dab55419fe41b6bf9fe2570162653b8acdeed31"
+      },
+      "gradient_inf_N": 1.3341484361717448e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/independent-replay-plywood.json",
+        "sha256": "32521f2d432ac890fc92b8ce63dffcef00c3aad74b4918179ed9804169927b71"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/independent-replay.json",
+        "sha256": "ced9fef2784f32b289535bf06447262903aa7c944aac8bdcf43528b77db0e156"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/local-end-closure-v1.json",
+        "sha256": "0ed565fb33868292ae24a46c05cfc89bdb460cebcdac3ddb45af5d5628317054"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/v10-replay-binding.json",
+        "sha256": "3301dde1f93ecaac74f564cf323a2235ad1cdff67ce2bce0250e9a382439a175"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/result.json",
+        "sha256": "f9185f350e754fadceee0cdfc713ec838210edb03623057e9e7a9fd6c9e31a56"
+      },
+      "result_gradient_inf_N": 1.3341484361717448e-08
+    },
+    {
+      "both_independent_replays_admitted": true,
+      "case_id": "a1-rear",
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/v10-execution.json",
+        "sha256": "80499ef971c03dfcad043e1d76a311f8a22a176bd24271733e517310cc3b093e"
+      },
+      "field": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/field.json",
+        "sha256": "73a9b02e9d830eae79981c057c7829f6532fa4b814ac31ff31c597c6acfa521f"
+      },
+      "gradient_inf_N": 1.4901161193847656e-08,
+      "independent_plywood_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/independent-replay-plywood.json",
+        "sha256": "1effd04f6df5957b2a80144ffd4bd7275825ef4dbb819ffb8a2a51daf8ff6c8c"
+      },
+      "independent_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/independent-replay.json",
+        "sha256": "78b32cb72880c226448416f743a4149d2462a756626f02975d07c87fd848584a"
+      },
+      "local_end_closure": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/local-end-closure-v1.json",
+        "sha256": "fa00bba4dd38521fcf7d1ee513ad11056e5e0cd8b3cfdccffc3d66dd72dd2447"
+      },
+      "replay_binding": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/v10-replay-binding.json",
+        "sha256": "f51b373ef551a47959ea882ce3436176f56e6bd37dc6a90a5a6ed83fc1f913d9"
+      },
+      "result": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/result.json",
+        "sha256": "94d605d114cc48b1fadc5b0a990326235eff98979177402d60b4886bbe68e2d7"
+      },
+      "result_gradient_inf_N": 1.4901161193847656e-08
+    }
+  ],
+  "climbing_released": false,
+  "complete_joint_qualified": false,
+  "fabrication_released": false,
+  "force_stiffness_vs_strength": "Uniform nominal9.525mm elastic cleat shafts and existing E/nu retained. Body/root/runout profiles are strength worksheets only; head masses/CG and source labels change.",
+  "fresh_fields_only": true,
+  "full_header_and_component_construction_checks_required": true,
+  "geometry_build_manifest": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/build-manifest.json",
+    "sha256": "2f1023781ddaf3676d83cd1542245aebc82aedb04e6150c33136a688189e8754"
+  },
+  "hardware_profile_contract": {
+    "path": "fea/generated/v11-external-hex-heads-v1/hardware/profile-contract-v1.json",
+    "sha256": "c50609adb2d2602aeff2b9d784d1abd44000147bb07f9096b363a839d583e2ee"
+  },
+  "historical_field_or_force_transfer": false,
+  "internal_target_N": 1e-07,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "material": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/material.json",
+    "sha256": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e"
+  },
+  "maximum_gradient_inf_N": 4.470348358154297e-08,
+  "numerical_initialization": "existing-default-cold-all-six; only fresh within-case branch q continuation",
+  "numerical_warm_start_only": false,
+  "owner_authorization": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-six-bolt-cleat-evaluation.json",
+    "sha256": "298e2d0f09a2f5accc9b9067b3936afab952c3b6119644458560a9ad792909ae"
+  },
+  "parent_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "parent_geometry_admission": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/geometry-admission-v1.json",
+    "sha256": "7398cbd89b87dd8ee6f1c6d1c10a2b6f973efc6283d481e0bcf350c91244b65b"
+  },
+  "parent_preparation_admission": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/parent-preparation-admission-v1.json",
+    "sha256": "7fbe7b8efe01e7e926b549f985887ebc8ee01072b7729bdb5622aea413c2c5aa"
+  },
+  "physical_clearance": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/clearance.json",
+    "sha256": "58280e46c0e740fb615b294440d7d0e88e0b6a00a7cc3ae8a1226baf5e5aafa5"
+  },
+  "physical_geometry": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json",
+    "sha256": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3"
+  },
+  "physical_inventory": {
+    "fitting_ports": 100,
+    "fitting_poses": 24,
+    "metal_role_rows": 510,
+    "occupied_parts": 1035,
+    "profiles": 30,
+    "receiver_wall_queries": 124,
+    "retained_spacers": 0,
+    "screw_axes": 66,
+    "structural_bolt_axes": 102
+  },
+  "physical_receipt": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "2e6f81accf530c3d42eb1f8833be7bc183d374fab32f30667995025f5079a100"
+  },
+  "preparation_adapter": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/prepare_six_bolt_cleat_v1.py",
+    "sha256": "56f3bb0ee5a6383c5fece0a92563ffe51b1995260b73751c9e54a669f474a20e"
+  },
+  "preparation_controls": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/preparation-controls-v1.json",
+    "sha256": "7e19bf4085e639b296f4ae2df579f914a142528746251bd7718d76630631bf38"
+  },
+  "preparation_inputs": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json",
+    "sha256": "b7cdf2f57247535c459680bef443922d7e99731eaf30a9d71f8a704a64c83056"
+  },
+  "prepared_inputs": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json",
+    "sha256": "b7cdf2f57247535c459680bef443922d7e99731eaf30a9d71f8a704a64c83056"
+  },
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/complete_bank_v3.py",
+    "sha256": "cf303965bf3aabc98e22eb8b794cc093b1b51eeb45cf5fc03707749eb1adef47"
+  },
+  "profile_contract": {
+    "path": "fea/generated/v11-external-hex-heads-v1/hardware/profile-contract-v1.json",
+    "sha256": "c50609adb2d2602aeff2b9d784d1abd44000147bb07f9096b363a839d583e2ee"
+  },
+  "restored_host_mass_reconciliation": {
+    "cad_solid_rows": [
+      {
+        "density_kg_m3": 499.9999999999999,
+        "host_id": "base_post_outer_left",
+        "mass_delta_kg": 0.007434398278039156,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_left_six_bolt_cleat.brep",
+          "sha256": "7a74ea86d5a05d6bd8a32c094fd9c10b7a82cdcaa95da30f8e0ce2b563f6a980"
+        },
+        "new_center_of_mass_xyz_mm": [
+          -1174.9029754450082,
+          -106.16326595708051,
+          119.40621863645319
+        ],
+        "new_mass_kg": 1.4620138398872125,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_post_outer_left.brep",
+          "sha256": "65f99b1fa8b3b79a4cef5f8b63986fed29de58845eba2a8b3189200ec830f706"
+        },
+        "old_center_of_mass_xyz_mm": [
+          -1174.9037573070048,
+          -106.17119196746617,
+          118.91718879520752
+        ],
+        "old_mass_kg": 1.4545794416091733,
+        "physics_host_id": "base_post_outer_left"
+      },
+      {
+        "density_kg_m3": 500.00000000000006,
+        "host_id": "base_post_outer_right",
+        "mass_delta_kg": 0.007434398278035825,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_right_six_bolt_cleat.brep",
+          "sha256": "d53c89495236c0953c8c837cba6a08baf377568332c212fe9da2775314b6367e"
+        },
+        "new_center_of_mass_xyz_mm": [
+          1171.7279754450087,
+          -106.1632659570805,
+          119.40621863645322
+        ],
+        "new_mass_kg": 1.4620138398872122,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_post_outer_right.brep",
+          "sha256": "254b0fb978460398916edc03af5f5467427bb2746b87ec536d540d5eab40444a"
+        },
+        "old_center_of_mass_xyz_mm": [
+          1171.7287573070046,
+          -106.17119196746614,
+          118.9171887952075
+        ],
+        "old_mass_kg": 1.4545794416091764,
+        "physics_host_id": "base_post_outer_right"
+      },
+      {
+        "density_kg_m3": 499.9999999999989,
+        "host_id": "eoere_cleat_left",
+        "mass_delta_kg": 0.0015930853452936211,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/eoere_cleat_left_six_bolt_cleat.brep",
+          "sha256": "8f2143bb06922558fe86e4ffb99c070d193431c806d09eee4c2005cd905729ca"
+        },
+        "new_center_of_mass_xyz_mm": [
+          -1228.7249999999995,
+          -98.8015218984159,
+          282.96495100771125
+        ],
+        "new_mass_kg": 0.3650623072940607,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_left.brep",
+          "sha256": "0c79c25e41328320460ef988159d62683ee53bd9bd9642f1a240a6330c3c4f0f"
+        },
+        "old_center_of_mass_xyz_mm": [
+          -1228.7249999999992,
+          -98.77605238546555,
+          283.2624578279488
+        ],
+        "old_mass_kg": 0.3634692219487671,
+        "physics_host_id": "eoere_cleat_left"
+      },
+      {
+        "density_kg_m3": 499.9999999999989,
+        "host_id": "eoere_cleat_left_outer",
+        "mass_delta_kg": 0.0015930853452936211,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/eoere_cleat_left_outer_six_bolt_cleat.brep",
+          "sha256": "ae90a61ea76bc9d357965260858fb8826ace90a19241da2453e4955228d72fa8"
+        },
+        "new_center_of_mass_xyz_mm": [
+          -1247.7749999999992,
+          -98.8015218984159,
+          282.96495100771125
+        ],
+        "new_mass_kg": 0.3650623072940607,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_left_outer.brep",
+          "sha256": "8a35962ddaed556a80b3d91c9a646ec232c57943473d4accdb147b9d9b6f2f8f"
+        },
+        "old_center_of_mass_xyz_mm": [
+          -1247.7749999999994,
+          -98.77605238546559,
+          283.2624578279488
+        ],
+        "old_mass_kg": 0.3634692219487671,
+        "physics_host_id": "eoere_cleat_left"
+      },
+      {
+        "density_kg_m3": 499.99999999999807,
+        "host_id": "eoere_cleat_right",
+        "mass_delta_kg": 0.0015930853452935656,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/eoere_cleat_right_six_bolt_cleat.brep",
+          "sha256": "09397117b87520809afbd78c83be657fdca779b6712463edd05d114dd2be165e"
+        },
+        "new_center_of_mass_xyz_mm": [
+          1225.5499999999997,
+          -98.80152189841593,
+          282.96495100771114
+        ],
+        "new_mass_kg": 0.36506230729406,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_right.brep",
+          "sha256": "cd02b9a2a0cf421622fffdc67e11b17f919e6154dd98f42cafda17b1b6b2e278"
+        },
+        "old_center_of_mass_xyz_mm": [
+          1225.5500000000002,
+          -98.77605238546559,
+          283.262457827949
+        ],
+        "old_mass_kg": 0.3634692219487664,
+        "physics_host_id": "eoere_cleat_right"
+      },
+      {
+        "density_kg_m3": 499.99999999999807,
+        "host_id": "eoere_cleat_right_outer",
+        "mass_delta_kg": 0.001593085345293399,
+        "new_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/eoere_cleat_right_outer_six_bolt_cleat.brep",
+          "sha256": "86a9798e15fe2d7fe908d10030f40dd46201ee4d8d33b61fd64666e356198380"
+        },
+        "new_center_of_mass_xyz_mm": [
+          1244.5999999999997,
+          -98.8015218984159,
+          282.9649510077112
+        ],
+        "new_mass_kg": 0.3650623072940599,
+        "old_brep": {
+          "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/eoere_cleat_right_outer.brep",
+          "sha256": "97076b87cc365369419022999d55facc755fc1ecdf4d166b31058d52bbcab34f"
+        },
+        "old_center_of_mass_xyz_mm": [
+          1244.5999999999988,
+          -98.77605238546556,
+          283.2624578279487
+        ],
+        "old_mass_kg": 0.3634692219487665,
+        "physics_host_id": "eoere_cleat_right"
+      }
+    ],
+    "cad_solids_counted": 6,
+    "density_scenario_kg_m3": 500.0,
+    "physics_gravity_rows_changed": 4,
+    "physics_host_rows": {
+      "base_post_outer_left": {
+        "first_moment_kg_mm": [
+          -8.733559377125175,
+          -0.777730989861368,
+          1.5990461396273759
+        ],
+        "mass_kg": 0.007434398278039156
+      },
+      "base_post_outer_right": {
+        "first_moment_kg_mm": [
+          8.709955162589495,
+          -0.7777309898610554,
+          1.5990461396270348
+        ],
+        "mass_kg": 0.007434398278035825
+      },
+      "eoere_cleat_left": {
+        "first_moment_kg_mm": [
+          -3.945275857619663,
+          -0.33331328136908667,
+          0.6853054884118137
+        ],
+        "mass_kg": 0.0031861706905872422
+      },
+      "eoere_cleat_right": {
+        "first_moment_kg_mm": [
+          3.9351597656768718,
+          -0.33331328136905825,
+          0.6853054884116432
+        ],
+        "mass_kg": 0.0031861706905869647
+      }
+    },
+    "six_leaf_and_post_deltas_counted_once": true
+  },
+  "runtime_adapter": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/run_six_bolt_cleat_v1.py",
+    "sha256": "02f1a95ca9891b7cf89393a83ea33d0ac783201c169179258459df8679d1cbed"
+  },
+  "schema": "eoere_v11_six_bolt_cleat_response_bank/v1",
+  "structural_acceptance": false,
+  "two_independent_replays_per_case": true
+}

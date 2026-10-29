@@ -1,0 +1,679 @@
+{
+  "actual_property_adopted": false,
+  "actual_property_inputs": {
+    "Ft90_MPa": null,
+    "Gc_N_per_mm": null,
+    "adhesive_G_MPa": null,
+    "bondline_thickness_mm": null,
+    "contact_compliance": null,
+    "fitting_Fu_MPa": null,
+    "fitting_Fy_MPa": null,
+    "friction_coefficient": null,
+    "glue_coverage_conformity": null,
+    "peel_allowable_MPa": null,
+    "preload_N": null,
+    "shear_allowable_MPa": null,
+    "torsion_allowable_Nmm": null,
+    "washer_strength_MPa": null,
+    "wood_bending_MPa": null,
+    "wood_shear_MPa": null,
+    "wood_tension_parallel_MPa": null,
+    "wood_tension_perpendicular_MPa": null
+  },
+  "actual_property_qualification": false,
+  "adapter_readiness": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/adapter-readiness-v4.json",
+    "sha256": "b9f05e7a254f611894dd7ea7de903a3fa1834aa9f7cf5d896d6e758e007ae793"
+  },
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "candidate_selected": false,
+  "checked_geometry_receipt": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/checked-receipt-v1.json",
+    "sha256": "2e6f81accf530c3d42eb1f8833be7bc183d374fab32f30667995025f5079a100"
+  },
+  "clearance": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/clearance.json",
+    "sha256": "58280e46c0e740fb615b294440d7d0e88e0b6a00a7cc3ae8a1226baf5e5aafa5"
+  },
+  "climbing_released": false,
+  "compact_metrics": {
+    "angle_baseline": {
+      "conditional_Fy235_marker_index": 0.43602952596737127,
+      "governing_case": "a12-forward",
+      "governing_fitting": "eoere_clip_angle_base_left",
+      "maximum_IP_VM_MPa": 61.35744826486961,
+      "maximum_gauge_plus_applied_force_residual_N": 7.997783804034327e-09,
+      "maximum_gauge_plus_applied_moment_residual_Nmm": 1.8909245402370503e-07,
+      "required_Fy_1_67_MPa": 102.46693860233225,
+      "states": 144
+    },
+    "angle_header": {
+      "bridge_gate": {
+        "all_gates_passed": true,
+        "fresh_case_event_rows": 12,
+        "maximum_abs_raw_high_minus_low_moment_Nmm": 7.104245014488697e-08,
+        "original_member_cut_gate": {
+          "gate_Nmm": 0.1,
+          "passed": true,
+          "per_member_raw_cut_closure_passed": {
+            "base_header": true,
+            "eoere_cleat_left": true,
+            "eoere_cleat_right": true,
+            "lumber_leg_left": true,
+            "lumber_leg_right": true
+          }
+        },
+        "raw_high_minus_low_moment_gate_Nmm": 0.0001,
+        "raw_high_minus_low_moment_gate_passed": true
+      },
+      "conditional_Fy235_marker_index": 0.435976772636823,
+      "event_aliases": 96,
+      "governing_case": "a12-forward",
+      "governing_fitting": "eoere_clip_angle_base_left",
+      "maximum_IP_VM_MPa": 61.35002489200803,
+      "maximum_gauge_plus_applied_force_residual_N": 5.976784035572769e-09,
+      "maximum_gauge_plus_applied_moment_residual_Nmm": 1.3407213592862707e-07,
+      "required_Fy_1_67_MPa": 102.4545415696534,
+      "states": 48
+    },
+    "bond": {
+      "all_12_reduced_wrenches_compression_only_representable": true,
+      "cleat_case_states": 12,
+      "max_six_resultant_replay_error_N_Nmm": 3.228706191293895e-10,
+      "maximum_long_wavelength_q_N_per_mm": 9.024847237078268,
+      "maximum_long_wavelength_width_average_shear_MPa": 0.06460162660757529,
+      "maximum_reduced_normal_compression_cap_MPa": 0.02615970987111078,
+      "maximum_reduced_tangential_traction_MPa": 0.006454200696652724
+    },
+    "counts": {
+      "actual_backing_domains": 384,
+      "axes": 102,
+      "baseline_body_case_states": 144,
+      "baseline_fine_states": 1,
+      "bond_leaf_wrench_states": 12,
+      "ends": 204,
+      "header_event_aliases": 96,
+      "header_fine_states": 1,
+      "header_variant_body_case_states": 48,
+      "washer_end_case_rows": 1224
+    },
+    "domain": {
+      "actual_domains": 384.0,
+      "affected_post_domains": {
+        "eoere_clip_header_outer_under_left": {
+          "all_rebuilt_from_current_fields": true,
+          "factory_steel_hole_10_mm_retained": true,
+          "near_timber_10_31875_mm_bore_absent": true,
+          "parent_106_two_void_domain_rejected": true,
+          "post_support_patches": 8,
+          "retained_far_timber_bore_at_65_0875_mm": true,
+          "unused_near_steel_factory_hole_at_23_8125_mm": true
+        },
+        "eoere_clip_header_outer_under_right": {
+          "all_rebuilt_from_current_fields": true,
+          "factory_steel_hole_10_mm_retained": true,
+          "near_timber_10_31875_mm_bore_absent": true,
+          "parent_106_two_void_domain_rejected": true,
+          "post_support_patches": 8,
+          "retained_far_timber_bore_at_65_0875_mm": true,
+          "unused_near_steel_factory_hole_at_23_8125_mm": true
+        }
+      },
+      "exact_cached_domains": 0.0,
+      "fittings": 24.0,
+      "maximum_actual_area_error_mm2": 2.467368176439777e-08,
+      "maximum_actual_centroid_error_mm": 2.524629394429212e-10,
+      "maximum_actual_first_moment_error_mm3": 1.8188075046055019e-06,
+      "newly_integrated_domains": 384.0,
+      "unchanged_area_gate_mm2": 1e-05,
+      "unchanged_centroid_gate_mm": 1e-06,
+      "unchanged_first_moment_gate_mm3": 0.0001
+    },
+    "fine": {
+      "baseline": {
+        "case_id": "a12-forward",
+        "fine_Fy235_marker_index": 0.4450477771386867,
+        "fine_VM_MPa": 62.626483609336155,
+        "fine_required_Fy_1_67_MPa": 104.58622762759137,
+        "fitting_id": "eoere_clip_angle_base_left",
+        "relative_VM_change": 0.020682661687434267
+      },
+      "header": {
+        "case_id": "a12-forward",
+        "fine_Fy235_marker_index": 0.4449971967443966,
+        "fine_VM_MPa": 62.61936600894204,
+        "fine_required_Fy_1_67_MPa": 104.5743412349332,
+        "fitting_id": "eoere_clip_angle_base_left",
+        "relative_VM_change": 0.020690148360467342
+      }
+    },
+    "schema": "v11_six_bolt_cleat_component_metric_projection/v1",
+    "washer": {
+      "maximum_CAD_thickness_plate_static_required_Fy_1_67_MPa": 49.94111520367765,
+      "maximum_CAD_thickness_required_Fy_1_67_MPa": 76.10670456041774,
+      "maximum_continuous_dimension_box_required_Fy_1_67_MPa": 84.96240456320305,
+      "maximum_minimum_thickness_plate_static_required_Fy_1_67_MPa": 109.33589461783801,
+      "maximum_minimum_thickness_required_Fy_1_67_MPa": 173.87420625625492,
+      "maximum_near_subset_continuous_dimension_box_required_Fy_1_67_MPa": 84.96240456320305,
+      "maximum_plywood_02in_mean_index": 0.3754589266666179,
+      "maximum_plywood_dry_mean_index": 0.2190177072221938,
+      "maximum_saved_shaft_axial_balance_residual_N": 5.215583342987884e-08,
+      "maximum_sawn_mean_index": 0.18143504620426587,
+      "maximum_source_force_replay_error_N": 0.0,
+      "maximum_source_global_moment_transport_error_Nmm": 8.731149137020111e-11
+    }
+  },
+  "complete_group_qualified": false,
+  "complete_joint_qualified": false,
+  "complete_physical_fitting_capacity": false,
+  "component_helper_map": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/component-helper-map-v4.json",
+    "sha256": "f2c1a8b69087840e24a789c08d857aee43559a77b937235dcb0707a942116605"
+  },
+  "component_method_use_receipt": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/calculix-method-use-receipt-v1.json",
+    "sha256": "3faf27b45b8d82c1f66d2f8463a6ee8fe843f4e0daa36b98a3be97dfc60c6a31"
+  },
+  "component_reuse_readiness": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/reuse-readiness-v4.json",
+    "sha256": "1e689fd918285748bbabb2576c90e8f6d0c54fca315e69692462517783a485c6"
+  },
+  "component_routes": {
+    "angle_baseline": {
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/execution-v1.json",
+        "sha256": "6b37cba376debcee8b5adcc560a810fb9fbd49e49aa22bbaf2bb3b20a874bdf6"
+      },
+      "fitting_demand": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-fitting-references-v1.json",
+        "sha256": "10f956da9b8e564c11a979081b60a7137e9ce402fe0f26eb3336044a1e9db51f"
+      },
+      "followthrough": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/fitting-followthrough-v2.json",
+        "sha256": "93fa69860b8b559d65efa213eb89c77fdd139fff6c90b3917afad7a8fc5a9b6b"
+      },
+      "map_readiness": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/input-readiness.json",
+        "sha256": "0f743aa55ee121f82e6b91566c0ab59a65914657872016d35c89f43dc013d0f2"
+      },
+      "observation": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/observation-v1.json",
+        "sha256": "ce16e23d9394f5e92638bed2db8af143475fe6227a592f01c64d45ca4fa90a04"
+      },
+      "source_coverage_check": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/source-coverage-check-v1.json",
+        "sha256": "23b980fd8a658f792749898114f5e084f18232394af5ecd538681baebcd0ca43"
+      }
+    },
+    "angle_header": {
+      "bridge": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-current-v2.json",
+        "sha256": "91aa2a0e3b93baf1c9018d63dd4cc0dd8929b499b9584045e8b493a44b657b4e"
+      },
+      "bridge_gate": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-gate-check-v1.json",
+        "sha256": "066ce58e7ba2bfb55375b0518335d7c080c1beb1c9224e6e37145dbb86c000a3"
+      },
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/header-native-v1/execution-v1.json",
+        "sha256": "aaceb88b9c4129ac7adb562c27a25a0540f92e9b86e0ec1012e1d03ed88074d8"
+      },
+      "fitting_demand": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/header-bridge-anchor-followthrough-v1.json",
+        "sha256": "1e01634778c1458f53c7b093a669c8e5d62078c9233022514e981dd41fe8d6e2"
+      },
+      "map_readiness": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/header-native-v1/input-readiness.json",
+        "sha256": "a48be5ad4f28ade9bfc1894013f13ab8ceacc4b2a9257941adbf350b49185015"
+      },
+      "observation": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/header-native-v1/observation-v1.json",
+        "sha256": "d1842b1314646fdce42d3655bbfcc40e1b68c7615c161dab036ac172038ade33"
+      },
+      "source_coverage_check": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/header-native-v1/source-coverage-check-v1.json",
+        "sha256": "d30142f71818351d6f2807b4c7d35d19920125050e9ee879bc620bb8678dec07"
+      }
+    },
+    "backing_domain_audit": {
+      "audit": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/actual-backing-domain-audit-v1.json",
+        "sha256": "f5ecd1623fa7c46c9fdfaec0ba4dba648ef0df401597c4491fc73bc11ad7da3a"
+      },
+      "integral_quadrature_audit": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/actual-backing-domain-integral-audit-v1.json",
+        "sha256": "10b5c60c2933bd4dd9fd14b0c854cb3c08fc4de46114205fdb44f9dbd48c5ddd"
+      }
+    },
+    "baseline_fine": {
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/baseline/execution-v1.json",
+        "sha256": "3b4f5ae9d27c81a192bb27389cc8c58f8666dd7bf43f6a62c5f3e7f3169522c8"
+      },
+      "observation": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/baseline/observation-v1.json",
+        "sha256": "6d17c24df6ec043c9389e2d76f9c4043ed897b80ea170b8a4a43f866173ff294"
+      },
+      "readiness": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/baseline/readiness.json",
+        "sha256": "bd350365f53d4247fd6f7a66e4b3c6b64849982f08ef23cfe3754796248940fe"
+      }
+    },
+    "bond_leaves": {
+      "six_resultant_demand": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json",
+        "sha256": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac"
+      },
+      "static_witness": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json",
+        "sha256": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac"
+      }
+    },
+    "header_fine": {
+      "execution": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/header/execution-v1.json",
+        "sha256": "aac94ccc977844c54b3d03c4b144d3f0ea71867c7040f3e98ee850f9c1e22bad"
+      },
+      "observation": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/header/observation-v1.json",
+        "sha256": "c6000a59dd9c6730f0e94ff0713ca3c7bca3e6933d4d7a033bfb9d644fb58690"
+      },
+      "readiness": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/header/readiness.json",
+        "sha256": "1a69bf62b1b3720913efc78d4426446cea74ccd91bbc3f8a4a2becf1d5c820e8"
+      }
+    },
+    "near_plate": {
+      "corrected_plate": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/near-seat-corrected-plate-v1.json",
+        "sha256": "5a8aa84a556f9a66d1fc293b5b26bf1532f48b955b4dac6474b610ddc020d4ff"
+      }
+    },
+    "washer_ends": {
+      "demand": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/all-1224-end-demands-static-v1.json",
+        "sha256": "78a1e621d63b6196bfab3d2e3af87e3c34f416d4cdead6ff68b127d3bde8900c"
+      },
+      "geometry_reuse": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/end-geometry-reuse-v1.json",
+        "sha256": "968c42abc1d2964db8b4988a97c6a3bf74646d66202b1e8e5528504ec5d8cddd"
+      },
+      "validation": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/adapter-all-ends-execution-v1.json",
+        "sha256": "a64b94cfa9b9e164bf0e815a81bde2e2edffd3a5a0e9c22e184e2ef8911cd8fe"
+      }
+    }
+  },
+  "counts": {
+    "angle_baseline_body_case_states": 144,
+    "axes": 102,
+    "baseline_fine_states": 1,
+    "bond_leaf_wrench_states": 12,
+    "ends": 204,
+    "header_event_aliases": 96,
+    "header_fine_states": 1,
+    "header_variant_body_case_states": 48,
+    "washer_end_case_rows": 1224
+  },
+  "current_bank_binding": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/current-bank-binding-v1.json",
+    "sha256": "4436cfe6a579321cbab51da4e102c65fc195bd4927923b34d645635569dc813e"
+  },
+  "current_input_census": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/derived-census-v1.json",
+    "sha256": "e5583dcd18311df3789ac4be7cbaf0c582c4a2d13dbea0541dbdcd5aae9c69b1"
+  },
+  "drilling_released": false,
+  "endpoint_census": {
+    "all_six_literal_endpoint_maps_identical": true,
+    "current_endpoint_counts_per_field": {
+      "plywood": 12,
+      "sawn_wood": 92,
+      "steel": 100
+    },
+    "parent_106_endpoint_counts": {
+      "plywood": 16,
+      "sawn_wood": 92,
+      "steel": 104
+    },
+    "removed_axis_literal_endpoints": {
+      "v11_cleat_left_post_1": {
+        "head": "eoere_cleat_left",
+        "nut": "eoere_clip_header_outer_under_left"
+      },
+      "v11_cleat_left_post_2": {
+        "head": "eoere_cleat_left",
+        "nut": "eoere_clip_header_outer_under_left"
+      },
+      "v11_cleat_right_post_1": {
+        "head": "eoere_cleat_right",
+        "nut": "eoere_clip_header_outer_under_right"
+      },
+      "v11_cleat_right_post_2": {
+        "head": "eoere_cleat_right",
+        "nut": "eoere_clip_header_outer_under_right"
+      }
+    },
+    "removed_endpoint_categories": {
+      "plywood": 4,
+      "steel": 4
+    },
+    "source": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/derived-census-v1.json",
+      "sha256": "e5583dcd18311df3789ac4be7cbaf0c582c4a2d13dbea0541dbdcd5aae9c69b1"
+    },
+    "stale_106_axis_and_212_endpoint_roster_rejected": true,
+    "stale_parent_bank_sha_rejected": true,
+    "topology_delta": "The four omitted axes each had one cleat-leaf plywood head endpoint and one angle-body steel nut endpoint. No sawn-wood endpoint was removed; the current 92/100/12 counts are derived from all 204 current capture rows in each of six fields."
+  },
+  "fabrication_released": false,
+  "geometry": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json",
+    "sha256": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3"
+  },
+  "geometry_metadata_receipt": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry-receipt.json",
+    "sha256": "c60aca45dcc8b1bd9a9594adfbf0a8a0a37fae34f3e7d4d29dc534df500d815b"
+  },
+  "geometry_receipt": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry-receipt.json",
+    "sha256": "c60aca45dcc8b1bd9a9594adfbf0a8a0a37fae34f3e7d4d29dc534df500d815b"
+  },
+  "header_bridge": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-current-v2.json",
+    "sha256": "91aa2a0e3b93baf1c9018d63dd4cc0dd8929b499b9584045e8b493a44b657b4e"
+  },
+  "header_bridge_gate": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-gate-check-v1.json",
+    "sha256": "066ce58e7ba2bfb55375b0518335d7c080c1beb1c9224e6e37145dbb86c000a3"
+  },
+  "historical_capacity_transferred": false,
+  "historical_field_or_force_transfer": false,
+  "interpretation_boundary": {
+    "actual_properties": "All actual material, contact, preload, adhesive and conformity inputs remain null.",
+    "backing_domains": "Current field-derived support patches are audited against exact cached or fresh quadrature; no historical force or stress is reused.",
+    "bond_leaf_values": "Twelve current six-resultant demands and contained net-face static witnesses; the compression-only representation is not an adhesive capacity, peel proof, or complete bond qualification.",
+    "native_values": "Current coarse and selected fine elastic map observations on the prescribed input fields; solver convergence and integration-point stress are not strength qualification.",
+    "washer_and_fitting_values": "Conditional current-load demands and geometry/method references; actual steel/wood properties and complete-joint interaction remain unqualified."
+  },
+  "mechanics_readiness": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/adapter-readiness.json",
+    "sha256": "4db66871fa62eef934b1443b0537313898f5eba8c69a7555164953762ce09f69"
+  },
+  "method_sources": {
+    "applicability": "Existing balanced-force, coupling, static/dynamic output and cross-version fixtures apply only to their small linear unit-cube method fixtures and unchanged extraction conventions. They do not validate this candidate's mesh, load mapping, bolt/nut coupling, contact, or capacity.",
+    "calculix_223": {
+      "cross_version_comparison": {
+        "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/calculix-2.23-upgrade-attempt01/cross-version-comparison.json",
+        "sha256": "e061ca7f61a2235915edee732a7a9895e7685bf68b66d814f994b2595ce1bf35"
+      },
+      "force_known_answer_audit": {
+        "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/calculix-2.23-upgrade-attempt01/force/independent-force-audit.json",
+        "sha256": "831b069ce6b26237a5154c130c31c12ddec509bea035abe4e8ca710bbe1c70fe"
+      },
+      "frozen_native_runner": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/run_admitted_native_v1.py",
+        "sha256": "71f751c37f3de4544a63fb2018e7331c46302de6d850f8738002c30ebdceec74"
+      },
+      "input_freeze": {
+        "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/calculix-2.23-upgrade-attempt01/input-freeze.json",
+        "sha256": "835fc062e93d50ef0a5985dfcd7f557d3997bd2976552b4be25cbcb00365ef6a"
+      },
+      "motion_output_known_answer_audit": {
+        "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/calculix-2.23-upgrade-attempt01/motion/independent-audit.json",
+        "sha256": "f9a24105faa4cbf452963994fda5c2fd2e6a2cbb2352cab56fc578f54a6df890"
+      },
+      "native_map_adapter": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/prepare_native_maps_v1.py",
+        "sha256": "b79ccd5888b4853c13f3082b15ad14aa8cbe84787b091f468fa8f1bca8d8f21a"
+      },
+      "native_runner": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/fitting-reuse/run_admitted_native_v1.py",
+        "sha256": "181edff324bebf457b9ce2747324b285441940b73fe86f610bcf1be4985cbb03"
+      },
+      "official_manual": {
+        "path": "fea/generated/ccx_2.23.pdf",
+        "sha256": "a0bf3fc03f374912ff2bf28da3f7dfb6a61428dd7f41b281a2e7e1fdb318f330"
+      },
+      "solver_profile": {
+        "path": "fea/calculix_223/solver-profile.json",
+        "sha256": "f233cb12fe58983e968600befe78cc5ee0785903d60541a6269fe45e8489689c"
+      },
+      "toolchain_readme": {
+        "path": "fea/calculix_223/README.md",
+        "sha256": "7a898a4e73bd9ca645ca9cb55290fd2c5529de7d7a6cfcf40b3f9fa5abc2dae9"
+      },
+      "upgrade_record": {
+        "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/calculix-2.23-upgrade-attempt01/README.md",
+        "sha256": "754bd28fdb1530ff3233f462e73a3720fbe913b248ff5390a1f6a20de4e07456"
+      }
+    },
+    "calculix_method_use_receipt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/calculix-method-use-receipt-v1.json",
+      "sha256": "3faf27b45b8d82c1f66d2f8463a6ee8fe843f4e0daa36b98a3be97dfc60c6a31"
+    },
+    "component_routes": {
+      "angle_baseline": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/replay_components_v1.py",
+        "sha256": "51ecefdd0438961363a3d93b9a29a8ac33677e89f87ec6bccae3c255b56963e7"
+      },
+      "angle_header": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/header-native-v1/prepare_header_variants_v1.py",
+        "sha256": "c1a5685285f6aaac85346167fb40e3924d48da00b1c21962cf7af91a4bfd68da"
+      },
+      "backing_domain_audit": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/references/fitting-reuse/audit_backing_domains_v1.py",
+        "sha256": "d0b5b9883744b59d834e25b3836106ee0fea7fa84bed95d75c32d24a8d5833bd"
+      },
+      "bond_leaves": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/fittings-contact/current_bond_transfer_v1.py",
+        "sha256": "7e58c4a1683be2f15cf91897b995f8608b236c4b20fd7f997ced7977716e22d9"
+      },
+      "selected_fine": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/item3/fittings/governing-fine-v1/baseline/prepare_governing_fine_v1.py",
+        "sha256": "e421cb9d30c154fb58d7de675537154e977ebf3334238e618f7ce9ad5dc3b9ee"
+      },
+      "washer_ends": {
+        "path": "fea/generated/v11-zero-spacer-eight-bolt-v1/references/fitting-reuse/evaluate_all_end_washers_v1.py",
+        "sha256": "f0db18b9a21ecb2f2384b75392e0bc9ffc16b4d3b42c91564e3d3910fc55c102"
+      }
+    },
+    "tri6_method_admissions": {
+      "current_TRI6_edge-precision-admission-v1.json": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/tri6-boundary-method-v1/edge-precision-admission-v1.json",
+        "sha256": "0e36a7b767ca8c415dbc6822cb9ad4c64c89adee57fab9f67ecca27f20131e5a"
+      },
+      "current_TRI6_edge_precision_v1.py": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/tri6-boundary-method-v1/edge_precision_v1.py",
+        "sha256": "9e667f415838766ddbf489a8dfd388fd95345ca0dcb940452c187818f78bce6a"
+      },
+      "current_TRI6_edge_precision_v2.py": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/tri6-boundary-method-v1/edge_precision_v2.py",
+        "sha256": "f8e3a8ec8edcd85ccbb9dcf3fc63cbd29007075d65b265a650395a0e9cdb1d39"
+      },
+      "current_TRI6_existing-v8-method-admission-v1.json": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/tri6-boundary-method-v1/existing-v8-method-admission-v1.json",
+        "sha256": "4b6c97843c83ed73af1b52a1c912f4ad634d483c9d12e554fd940a6fa6734ddc"
+      },
+      "current_TRI6_verify_edge_precision_v1.py": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/tri6-boundary-method-v1/verify_edge_precision_v1.py",
+        "sha256": "9d02e06833dc1625a95f9ae8a3ee27048e6368b5b3db3496d1376d7b26949f89"
+      }
+    }
+  },
+  "native_jobs": {
+    "baseline_coarse_execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/all-baseline-v1/execution-v1.json",
+      "sha256": "6b37cba376debcee8b5adcc560a810fb9fbd49e49aa22bbaf2bb3b20a874bdf6"
+    },
+    "baseline_fine_execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/baseline/execution-v1.json",
+      "sha256": "3b4f5ae9d27c81a192bb27389cc8c58f8666dd7bf43f6a62c5f3e7f3169522c8"
+    },
+    "coarse_manifest": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-job-manifest-coarse-v2.json",
+      "sha256": "80387731035ea8062060e315f515d183821c3c29b4c21c29a82b69ef85bd249e"
+    },
+    "complete_manifest": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-job-manifest-complete-v2.json",
+      "sha256": "4cb2d3a8779bd3b36b10c25a11fe9d2c98577cfb6592f980ce86a5ca0e10cbff"
+    },
+    "header_coarse_execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/header-native-v1/execution-v1.json",
+      "sha256": "aaceb88b9c4129ac7adb562c27a25a0540f92e9b86e0ec1012e1d03ed88074d8"
+    },
+    "header_fine_execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/native-maps-v2/governing-fine-v1/header/execution-v1.json",
+      "sha256": "aac94ccc977844c54b3d03c4b144d3f0ea71867c7040f3e98ee850f9c1e22bad"
+    }
+  },
+  "owner_authorization": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/owner-six-bolt-cleat-evaluation.json",
+    "sha256": "298e2d0f09a2f5accc9b9067b3936afab952c3b6119644458560a9ad792909ae"
+  },
+  "parent_bank_admission": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "0d8340c6bec153510da35452925e5b0c8d1dcd85b198aa31ddc82ba25e8f0932"
+  },
+  "parent_header_bridge_admission": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/header-bridge-admission-v1.json",
+    "sha256": "8f60e451f00080e9c8c15238c64e843911a1e13579c8ef4225b9d6a04dd25bb8"
+  },
+  "parent_runtime_proof": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/component-parent-runtime-proof-v1.json",
+    "sha256": "8277b52174dbb7f9effa74b230671613b2783eda22b500e8f70b361ffca223e0"
+  },
+  "physical_changes_authorized": false,
+  "physical_contact_prying_or_complete_joint_qualified": false,
+  "physical_force_bounds_established": false,
+  "physical_release": false,
+  "preparation_executions": {
+    "all_ends": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/executions/component-all-ends-v6/execution.json",
+      "sha256": "887689199863ba71d924caf44359fce27cd6650109c5853fae05fb3d3fe5ac02"
+    },
+    "core": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/executions/component-core-v6/execution.json",
+      "sha256": "ede9ba6d29b1e9c1cf53d4c37e879bb56fa32245626e2a4043a97538e852260c"
+    },
+    "header": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/executions/component-header-v7/execution.json",
+      "sha256": "2d80ad01a9790ba3c890668cee21f4d37caa3fafcc5f0e985c11b29ee9685e00"
+    },
+    "near_plate": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/executions/component-near-plate-v7/execution.json",
+      "sha256": "ec9120189cb59f2a544ba311679762b2081fced5f050220c0a4508a142de1739"
+    }
+  },
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v6.py",
+    "sha256": "bb73fc4924a6d7f3e7b9dd360ec915bd79bec5b434e274f2f910c569ec4543f1"
+  },
+  "publisher_source_chain": {
+    "v1": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v1.py",
+      "sha256": "e2af492a659de15f08731f7336c50b8a5bcafe1890170f918e7401959c58cc30"
+    },
+    "v2": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v2.py",
+      "sha256": "7b07c521e5531c27710211f855da077b47ae465e8452e70e33b3e326d87ab60b"
+    },
+    "v3": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v3.py",
+      "sha256": "d58a376ea5a2a2af0b8040cb3be8c8ec7d2a9a237c41eb3b4d5719e5b171ba88"
+    },
+    "v4": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v4.py",
+      "sha256": "9b3427726896734f9e02333506a63dc396e5f5657476121aaf26abc7c4ef9868"
+    },
+    "v5": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v5.py",
+      "sha256": "69fc4e9e1baba0abd05ae33ae7f84d613a2af5820d534bd3661e3dac7b1fa699"
+    },
+    "v6": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/publish_component_reference_summary_v6.py",
+      "sha256": "bb73fc4924a6d7f3e7b9dd360ec915bd79bec5b434e274f2f910c569ec4543f1"
+    }
+  },
+  "purchase_authorized": false,
+  "response_bank": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+  },
+  "route_bindings": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/component-route-bindings-v2.json",
+    "sha256": "7d348e915cffa557cd34812b9e56cd944bb1c9c3cc3d5ea02607e8ff3316d878"
+  },
+  "schema": "v11_six_bolt_cleat_component_reference_summary/v1",
+  "source_bindings": {
+    "checked_geometry_receipt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/checked-receipt-v1.json",
+      "sha256": "2e6f81accf530c3d42eb1f8833be7bc183d374fab32f30667995025f5079a100"
+    },
+    "clearance": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/clearance.json",
+      "sha256": "58280e46c0e740fb615b294440d7d0e88e0b6a00a7cc3ae8a1226baf5e5aafa5"
+    },
+    "component_helper_map": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/component-helper-map-v4.json",
+      "sha256": "f2c1a8b69087840e24a789c08d857aee43559a77b937235dcb0707a942116605"
+    },
+    "component_method_use_receipt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/calculix-method-use-receipt-v1.json",
+      "sha256": "3faf27b45b8d82c1f66d2f8463a6ee8fe843f4e0daa36b98a3be97dfc60c6a31"
+    },
+    "component_reuse_readiness": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/reuse-readiness-v4.json",
+      "sha256": "1e689fd918285748bbabb2576c90e8f6d0c54fca315e69692462517783a485c6"
+    },
+    "current_bank_binding": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/current-bank-binding-v1.json",
+      "sha256": "4436cfe6a579321cbab51da4e102c65fc195bd4927923b34d645635569dc813e"
+    },
+    "current_input_census": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/derived-census-v1.json",
+      "sha256": "e5583dcd18311df3789ac4be7cbaf0c582c4a2d13dbea0541dbdcd5aae9c69b1"
+    },
+    "geometry": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json",
+      "sha256": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3"
+    },
+    "geometry_metadata_receipt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry-receipt.json",
+      "sha256": "c60aca45dcc8b1bd9a9594adfbf0a8a0a37fae34f3e7d4d29dc534df500d815b"
+    },
+    "geometry_receipt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry-receipt.json",
+      "sha256": "c60aca45dcc8b1bd9a9594adfbf0a8a0a37fae34f3e7d4d29dc534df500d815b"
+    },
+    "header_bridge": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-current-v2.json",
+      "sha256": "91aa2a0e3b93baf1c9018d63dd4cc0dd8929b499b9584045e8b493a44b657b4e"
+    },
+    "header_bridge_gate": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-gate-check-v1.json",
+      "sha256": "066ce58e7ba2bfb55375b0518335d7c080c1beb1c9224e6e37145dbb86c000a3"
+    },
+    "mechanics_readiness": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/adapter-readiness.json",
+      "sha256": "4db66871fa62eef934b1443b0537313898f5eba8c69a7555164953762ce09f69"
+    },
+    "owner_authorization": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-six-bolt-cleat-evaluation.json",
+      "sha256": "298e2d0f09a2f5accc9b9067b3936afab952c3b6119644458560a9ad792909ae"
+    },
+    "parent_bank_admission": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/parent-bank-admission-v1.json",
+      "sha256": "0d8340c6bec153510da35452925e5b0c8d1dcd85b198aa31ddc82ba25e8f0932"
+    },
+    "parent_header_bridge_admission": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/parent-validation/header-bridge-admission-v1.json",
+      "sha256": "8f60e451f00080e9c8c15238c64e843911a1e13579c8ef4225b9d6a04dd25bb8"
+    },
+    "response_bank": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+      "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+    }
+  },
+  "structural_acceptance": false
+}

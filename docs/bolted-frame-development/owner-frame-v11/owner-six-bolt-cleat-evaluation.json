@@ -1,0 +1,61 @@
+{
+  "schema": "v11_owner_six_bolt_cleat_evaluation/v1",
+  "owner_instruction": "Go ahead and set a goal and do so",
+  "authorization_source": "Direct owner instruction following the recommendation to review the saved 102-bolt alternative first and evaluate its changed load sharing and joint behavior.",
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "parent_revision": "v11-external-hex-heads-v1",
+  "evaluation_authorized": true,
+  "geometry_generation_authorized": true,
+  "fresh_six_case_and_component_evaluation_authorized_when_parent_ready": true,
+  "parent_bolt_count": 106,
+  "candidate_bolt_count": 102,
+  "cleat_bolts_each": 6,
+  "cleat_side_bolts_each": 4,
+  "cleat_post_bolts_each": 2,
+  "outer_top_bolts_each": 4,
+  "center_top_bolts_each": 4,
+  "candidate_spacer_count": 0,
+  "omitted_axis_ids": [
+    "v11_cleat_left_post_1",
+    "v11_cleat_left_post_2",
+    "v11_cleat_right_post_1",
+    "v11_cleat_right_post_2"
+  ],
+  "fixed_constraints": [
+    "Retain the other 102 bolt axes, their current external-hex hardware profiles, and washer/nut seats.",
+    "Retain all timber and plywood exterior profiles, two glued nominal 3/4-inch leaves per cleat, standard actual 88.9 by 139.7 mm top and sides, 24 owned angles, and all 66 Hillman axes.",
+    "Restore only planned wood and plywood bores at the four omitted stations in a fresh-stock model. All factory steel holes remain. No physical drilled-hole repair is assumed or authorized.",
+    "Retain four bolts per outer top corner, four per center-top connection, matching half-inch upper-rear pairs, zero spacers, and no wood packers.",
+    "Recompute current geometry, mass/contact inputs, all six cases and two independent replays per case, affected member/net, bolt, end/edge/row/group, splitting, fitting/washer/contact and bond references. Do not transfer parent forces or passes.",
+    "Keep Hillman resistance deferred and the agent-review loop suspended. Do not add a floor-friction test or blanket external sign-off prerequisite."
+  ],
+  "superseded_constraint_for_this_trial_only": "Eight bolts per cleat; the preserved 106-bolt trial is unchanged.",
+  "parent_geometry": {
+    "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+    "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+  },
+  "parent_bank": {
+    "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+  },
+  "load_contract": {
+    "weight_lb": 250,
+    "downward_multiplier": 2,
+    "horizontal_force_N": 300,
+    "accessory_mass_kg": 25,
+    "duration_factor_CD": 1
+  },
+  "fresh_stock_model_only": true,
+  "matching_new_force_bank_required": true,
+  "historical_capacity_transferred": false,
+  "actual_Cg_adopted": null,
+  "actual_Cdelta_adopted": null,
+  "complete_joint_qualified": false,
+  "candidate_selected": false,
+  "selected_baseline_promoted": false,
+  "purchase_authorized": false,
+  "physical_hole_repair_or_drilling_authorized": false,
+  "fabrication_released": false,
+  "climbing_released": false,
+  "structural_acceptance": false
+}

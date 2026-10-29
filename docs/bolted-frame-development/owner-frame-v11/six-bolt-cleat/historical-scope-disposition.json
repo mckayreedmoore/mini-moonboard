@@ -1,0 +1,291 @@
+{
+  "candidate_change": {
+    "cleat_bolts_each": 6,
+    "fresh_102_response_bank_bound_but_not_dispositioned_by_this_record": true,
+    "historical_option_review_only_status_superseded_by_current_owner_decision": true,
+    "removed_axes": [
+      "v11_cleat_left_post_1",
+      "v11_cleat_left_post_2",
+      "v11_cleat_right_post_1",
+      "v11_cleat_right_post_2"
+    ],
+    "restored_wood_and_plywood_bores": true,
+    "retained_bolt_count": 102
+  },
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "fresh_102_check_matrix": [
+    {
+      "can_answer": "Fresh signed per-axis and group force/moment allocations and conditional member, bearing, steel, end/edge/row/group references under stated assumptions.",
+      "cannot_answer": "Actual complete-joint resistance without applicable factors, actual properties and a supported complete interaction method.",
+      "duty_id": "complete_joint_member_bolt_group",
+      "groups": [
+        "all surviving axes and receivers",
+        "left/right cleat-perimeter groups",
+        "outer-top and center-top groups",
+        "both rear-foot groups"
+      ]
+    },
+    {
+      "can_answer": "Rebuilt path topology, eligible signed E2/E3/E4 components, and conditional connected-parallel transfer with force/moment replay.",
+      "cannot_answer": "General transverse splitting or complete coupled 3D fracture capacity; no Ft90/Gc or complete crack-path resistance is assigned.",
+      "duty_id": "brittle_paths_and_splitting",
+      "groups": [
+        "all interrupted/connected 102 paths, especially restored post/cleat material and adjacent remaining holes"
+      ]
+    },
+    {
+      "can_answer": "Fresh six-resultant interface demand and statically admissible idealized compression/shear witness; G/t sensitivities may be reported as parameter requirements.",
+      "cannot_answer": "Actual peel/shear/torsion stresses or adhesive pass without bondline G/t, peel/shear/torsion allowables, and verified process/coverage/conformity.",
+      "duty_id": "bond_peel_shear_torsion",
+      "groups": [
+        "left/right two-leaf plywood-to-cleat bond planes"
+      ]
+    },
+    {
+      "can_answer": "Fresh force-dependent component comparisons within explicitly modeled constructions.",
+      "cannot_answer": "Complete assembly contact/prying compatibility, actual preload or physical hardware strength from conditional assumptions.",
+      "duty_id": "contact_prying_fittings",
+      "groups": [
+        "surviving head/nut/washer seats and 24 fittings"
+      ]
+    }
+  ],
+  "historical_dispositions": [
+    {
+      "102": "Those four axis checks are not applicable to deleted axes. Recheck every retained post row, receiver group and end/edge/row demand from the 102 BRep and actions. Removing the axes does not establish group or complete-joint capacity.",
+      "contact_limit": "Parent 106 has compressive reactions in all 12 post/header pairs, but nine patches are partly open; this gives no uniform-restraint or crack-closure credit.",
+      "duty_id": "cleat_post_near_end",
+      "parent_106": "Four near-post axes had 23.8125 mm available; 18 signed-net and 16 primitive rows exceeded the declared supplemental minimum-end comparison (max 1.278696 net / 1.199702 primitive). This is not an adopted Cdelta or proof of physical failure."
+    },
+    {
+      "102": "Reapply the tested signed selector to the fresh 102 foot actions; foot geometry is unchanged but action may change.",
+      "duty_id": "lower_rear_foot_planar",
+      "limit": "Does not qualify simultaneous width/grain force, out-of-plane couples, local transverse tension, full 3D splitting or global support.",
+      "parent_106": "The eligible signed Figure 3E planar branch passes all 12 cases, max 0.654661. Three older both-edge envelope flags remain separate optional diagnostics."
+    },
+    {
+      "102": "Retest signed end/row/group demand from its own fields; do not label the 7D marker an established failure.",
+      "duty_id": "outer_top_end",
+      "parent_106": "Old two-row shortfall is absent. The separate full-7D marker is 1.5875 mm short, but all 24 saved supplemental oblique full-end rows meet (max 0.893368); no actual Cdelta or whole-joint pass is adopted."
+    },
+    {
+      "102": "Retain as diagnostic-only unless an applicable sourced criterion is established.",
+      "duty_id": "legacy_signature_pressure_and_nm",
+      "parent_106": "Signature-based 1/n pressure and N/M diagnostics peak at 1.987282 and 2.402636; neither is an adopted whole-connection acceptance criterion."
+    },
+    {
+      "102": "Recompute each cleat perimeter cut, signed group force and moment from the 102 fields and restored-hole geometry.",
+      "duty_id": "cleat_perimeter_group",
+      "parent_106": "Cleat perimeter max is 0.412427. The governing perimeter calculation is a six-axis subset while eight are installed; the maintained ledger explicitly says it does not evaluate the changed six-bolt layout."
+    },
+    {
+      "102": "Recompute surviving-axis demand. Actual product, root/runout, Fy/Fyb, Cg and Cdelta remain unassigned.",
+      "duty_id": "mixed_bolt_material",
+      "parent_106": "No mixed-reference flags under the conditional Grade 5 Fy/Fyb 92 ksi hypothesis; old generic-45-ksi flags are reference comparisons, not delivered-product properties."
+    },
+    {
+      "102": "Recompute both cleats\u2019 six-component interface demand and the same idealized static witness from 102 actions. Report shear flow and torsion only as demands.",
+      "duty_id": "bonded_plywood_cleat",
+      "parent_106": "Twelve six-resultant bond-plane reductions and contained static witnesses use conditional T-88/perfect-composite behavior. They are not actual peel stress, compatible bond behavior, glue coverage or adhesive capacity."
+    }
+  ],
+  "retained_constraints": [
+    "Panel/Hillman resistance remains owner-deferred.",
+    "No-slip floor support remains an unverified analytical assumption; this record adds no floor-friction test.",
+    "This record adds no blanket external-signoff prerequisite.",
+    "No physical inspection, purchase, drilling, fabrication, climbing release or structural acceptance is claimed."
+  ],
+  "reusable_method_families": {
+    "Appendix_E_paths_and_split_plane": {
+      "106_interrupted_result": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/interrupted-path-net-and-signed-followthrough-v1.json",
+        "sha256": "cff01e6b091992c95061ab58fb12047f55568b9844ec92b5eb261b1a16ea0377"
+      },
+      "106_path_graph": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/geometry-paths-v1.json",
+        "sha256": "022181939b118b740011760bd018a89e0813710e46de96ed94a31018745dabb0"
+      },
+      "geometry_kernel": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/splitting/appendix-e-v1/geometry_paths.py",
+        "sha256": "d4063b3d115de55b30f8eb2de58bcb33c7d0c4641a8c9189bd67fc6b899d77df"
+      },
+      "split_map_kernel": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/splitting/build_split_plane_tie_map_v1.py",
+        "sha256": "b317093dc3d9c480abf9c9d8d3f003e1fa159d0f867677e0a162f84c34217501"
+      },
+      "use_on_102": "Rebuild from current 102 BRePs because restored bores can change connectivity, then join fresh signed actions."
+    },
+    "bond_plane_resultants_and_witness": {
+      "106_result": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/fitting-reuse/results-v1/current-bond-transfer-v1.json",
+        "sha256": "95f9dacec4c6d1d6ef08480ab78ab4017188e808b05ee52dd73d6c89696d74ec"
+      },
+      "limit": "T-88/perfect-composite behavior is conditional; actual G/t and adhesive allowables are null. The static witness is not actual peel-free compatibility or local bond capacity.",
+      "producer": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/fitting-reuse/reuse_existing_v1.py",
+        "sha256": "77fd40da7d44bdf4e7fd7ccc8b3d3e4d8040506717d26a25dc7fa634726a55ad"
+      },
+      "summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/component-reference-summary.json",
+        "sha256": "ff8609a2422e5cb7035df8fd7e7db6345d72022fe09102dc9a0ae7fdf40d2754"
+      }
+    },
+    "conditional_joint_component_families": {
+      "106_summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/current-reference-summary.json",
+        "sha256": "0b3a5c6b14c31da07538f78ca1c471975f074f73ddb222659c2f5c038bec924e"
+      },
+      "runner": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/run_external_hex_references_v1.py",
+        "sha256": "2fc4f00cf2fb627912ca7c32b7c3c976d56b51345714b10c05c72c2eaa3e763b"
+      },
+      "summary_producer": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/summarize_current_references_v2.py",
+        "sha256": "2ac6c996fdff06da2e89a180a4b8407f73ec6087c74f1e7a111935582e80b3b8"
+      },
+      "use_on_102": "Use the admitted 102 geometry and own bank for every force-dependent result. Reuse unchanged profile assumptions only when bindings match."
+    },
+    "connected_parallel_ligament_extension": {
+      "106_result": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/connected-ligament-extension-v1.json",
+        "sha256": "10f2c81dea713944a8e8471ea49feaea79a55637d466e7d00ea70f8951bebef3"
+      },
+      "kernel": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/brittle/connected_ligament_extension_v1.py",
+        "sha256": "59f3e98dbf11073187e736acffc44dc7f24ebbc4792d71dc747decc38681d390"
+      },
+      "limit": "Current method covers conditional parallel transfer along connected intact ligaments only; it is not a general splitting law and leaves transverse, axial/capture, shaft-axis torque and complete-joint interaction open."
+    },
+    "signed_Figure3E_planar": {
+      "106_replay_adapter": {
+        "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/replay_saved_methods_v1.py",
+        "sha256": "86865c073a6c305bdbde3d32d41dd7cf893c068a57bd39d30d74a6d1a9cdee1f"
+      },
+      "kernel": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/complete_rear_followthrough_v1.py",
+        "sha256": "6925a21755b838a7c71a159d15de7068f4f777dce7fed89766eb43853587b5a7"
+      },
+      "known_answer_controls": {
+        "path": "fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/test_rear_planar_application_v1.py",
+        "sha256": "329aab6776ba3e4a64671568c630c6fc3bdace8cf5d739d82e9fd037e61e20ad"
+      },
+      "limit": "Eligible planar connection-shear component only; not full 3D splitting or arbitrary edge selection."
+    }
+  },
+  "schema": "v11_six_bolt_cleat_historical_scope_disposition/v1",
+  "scope": "Source-bound disposition of prior 106-axis flags and still-open mechanics. No 102 demand is recomputed here and no historical capacity or force is transferred.",
+  "source_bindings": {
+    "appendix_e_geometry_paths_kernel": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/splitting/appendix-e-v1/geometry_paths.py",
+      "sha256": "d4063b3d115de55b30f8eb2de58bcb33c7d0c4641a8c9189bd67fc6b899d77df"
+    },
+    "bond_106_result": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/fitting-reuse/results-v1/current-bond-transfer-v1.json",
+      "sha256": "95f9dacec4c6d1d6ef08480ab78ab4017188e808b05ee52dd73d6c89696d74ec"
+    },
+    "bond_reuse_adapter": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/fitting-reuse/reuse_existing_v1.py",
+      "sha256": "77fd40da7d44bdf4e7fd7ccc8b3d3e4d8040506717d26a25dc7fa634726a55ad"
+    },
+    "candidate_102_geometry": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json",
+      "sha256": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3"
+    },
+    "candidate_102_response_bank": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+      "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+    },
+    "connected_ligament_106_result": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/connected-ligament-extension-v1.json",
+      "sha256": "10f2c81dea713944a8e8471ea49feaea79a55637d466e7d00ea70f8951bebef3"
+    },
+    "connected_ligament_kernel": {
+      "path": "fea/generated/v11-relocated-rear-pair-v1/references/connection-closeout-v1/brittle/connected_ligament_extension_v1.py",
+      "sha256": "59f3e98dbf11073187e736acffc44dc7f24ebbc4792d71dc747decc38681d390"
+    },
+    "end_edge_recommendation": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/end-edge-followthrough/method-and-recommendation-v1.md",
+      "sha256": "5455517d2e21ee5133c062b50cc51d14403e4ccd4c21ec59de1b679fd59d4f2f"
+    },
+    "end_edge_replay_adapter": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/end-edge-followthrough-v1/replay_saved_methods_v1.py",
+      "sha256": "86865c073a6c305bdbde3d32d41dd7cf893c068a57bd39d30d74a6d1a9cdee1f"
+    },
+    "end_edge_saved_actions": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/end-edge-followthrough/saved-method-followthrough-v1.json",
+      "sha256": "08e80502d37d8dd55366805710d933aa6517212e8d1105fc480f257f10411e00"
+    },
+    "end_edge_source_receipt": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/end-edge-followthrough/method-source-receipt-v1.json",
+      "sha256": "a60fe8249cdc3abce5cf53d91e3aa29e60ad272ad2029987bd000ad4c2d445d2"
+    },
+    "historical_option_B": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/owner-constraint-options-review-v1.json",
+      "sha256": "ce7b826352b79c2fd9c7a7611ec41982655e8cca7841427fde40fcc8b2cf9728"
+    },
+    "interrupted_path_106_result": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/interrupted-path-net-and-signed-followthrough-v1.json",
+      "sha256": "cff01e6b091992c95061ab58fb12047f55568b9844ec92b5eb261b1a16ea0377"
+    },
+    "owner_decision": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/owner-six-bolt-cleat-evaluation.json",
+      "sha256": "298e2d0f09a2f5accc9b9067b3936afab952c3b6119644458560a9ad792909ae"
+    },
+    "parent_106_component_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/component-reference-summary.json",
+      "sha256": "ff8609a2422e5cb7035df8fd7e7db6345d72022fe09102dc9a0ae7fdf40d2754"
+    },
+    "parent_106_geometry": {
+      "path": "fea/generated/v11-external-hex-heads-v1/geometry-v1/geometry.json",
+      "sha256": "fe77d1be8765b4910a371e3b48580e120777d9a5efb00cc5e27858af47ffecac"
+    },
+    "parent_106_reference_summary": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/current-reference-summary.json",
+      "sha256": "0b3a5c6b14c31da07538f78ca1c471975f074f73ddb222659c2f5c038bec924e"
+    },
+    "parent_106_response_bank": {
+      "path": "fea/generated/v11-external-hex-heads-v1/mechanics/analysis-v1/response-bank.json",
+      "sha256": "8106a0a1c4e178c1b5d125f8d6272dd491d3065c25fdb80a8aa83ae6c743fa1d"
+    },
+    "path_graph_106": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/geometry-paths-v1.json",
+      "sha256": "022181939b118b740011760bd018a89e0813710e46de96ed94a31018745dabb0"
+    },
+    "post_header_contact": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/end-edge-followthrough/saved-post-header-end-contact-v1.json",
+      "sha256": "9138b698928f26b8c36a14bce6449caa823bf706757c1a7b9a34a2c7c1cfc3c5"
+    },
+    "reference_family_adapter": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/run_external_hex_references_v1.py",
+      "sha256": "2fc4f00cf2fb627912ca7c32b7c3c976d56b51345714b10c05c72c2eaa3e763b"
+    },
+    "reference_summary_producer": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/summarize_current_references_v2.py",
+      "sha256": "2ac6c996fdff06da2e89a180a4b8407f73ec6087c74f1e7a111935582e80b3b8"
+    },
+    "signed_planar_kernel": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/complete_rear_followthrough_v1.py",
+      "sha256": "6925a21755b838a7c71a159d15de7068f4f777dce7fed89766eb43853587b5a7"
+    },
+    "signed_planar_known_answer_tests": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/rear-leg-closure-v1/test_rear_planar_application_v1.py",
+      "sha256": "329aab6776ba3e4a64671568c630c6fc3bdace8cf5d739d82e9fd037e61e20ad"
+    },
+    "split_plane_106_map": {
+      "path": "fea/generated/v11-external-hex-heads-v1/references/item3/brittle/split-plane-current-v1.json",
+      "sha256": "bf34dd69d85fb84fe663c97537bcdf7b2b1014f7bced416d4bc3be87ad801766"
+    },
+    "split_plane_tie_map_kernel": {
+      "path": "fea/generated/v11-shorter-bolts-v1/connections/method-closure/splitting/build_split_plane_tie_map_v1.py",
+      "sha256": "b317093dc3d9c480abf9c9d8d3f003e1fa159d0f867677e0a162f84c34217501"
+    }
+  },
+  "status": "scope_and_method_map_only; fresh_102_numerical_dispositions_are_owned_by_current_reference_worker",
+  "unassigned_inputs_and_methods": [
+    "Actual wood/bolt/washer/fitting/adhesive properties; actual Fy, Fyb, Cg and Cdelta.",
+    "Applicable complete end/edge/row/group allocation and simultaneous force/moment resistance.",
+    "Supported full transverse splitting/fracture and crack-path interaction for current geometry; no invented Ft90/Gc or reinforcement credit.",
+    "Actual bondline G/t, peel/shear/torsion allowables, glue coverage and process conformity.",
+    "Physical head/nut/washer contact compatibility, preload and assembly prying behavior."
+  ]
+}

@@ -38,6 +38,19 @@ const preservedEoere = {
 };
 
 export function documentsForModel(model, recordedDocuments = []) {
+  if (model === 'eoere-v11-six-bolt-cleat-preview')
+    return [
+      {label: 'Six-bolt cleat evaluation and remaining joint limits', path: current + 'owner-frame-v11/six-bolt-cleat/README.md'},
+      {label: 'Owner authorization for the 102-axis six-bolt trial', path: current + 'owner-frame-v11/owner-six-bolt-cleat-evaluation.json'},
+      {label: 'Own checked geometry and nominal clearance', path: current + 'owner-frame-v11/six-bolt-cleat/geometry-receipt.json'},
+      {label: 'Own six-case response bank', path: current + 'owner-frame-v11/six-bolt-cleat/response-bank.json'},
+      {label: 'Independent parent bank admission', path: current + 'owner-frame-v11/six-bolt-cleat/parent-bank-admission.json'},
+      {label: 'Current connection references and diagnostic flags', path: current + 'owner-frame-v11/six-bolt-cleat/current-reference-summary.json'},
+      {label: 'Current washer, bond and native fitting references', path: current + 'owner-frame-v11/six-bolt-cleat/component-reference-summary.json'},
+      {label: 'Whole-joint duties and unresolved methods', path: current + 'owner-frame-v11/six-bolt-cleat/historical-scope-disposition.json'},
+      {label: 'Provisional hardware, receiver and omitted-hole planning · HOLD', path: current + 'owner-frame-v11/six-bolt-cleat/planning/README.md'},
+      {label: 'Current development status and remaining gates', path: current + 'README.md'},
+    ];
   if (model === 'eoere-v11-external-hex-heads-preview')
     return [
       {label: 'All-frame external-hex trial and current numerical limits', path: current + 'owner-frame-v11/external-hex-heads/README.md'},
