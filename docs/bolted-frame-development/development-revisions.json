@@ -4817,7 +4817,47 @@
             "live_viewer_assets_verified_equal_to_local": true,
             "viewer_assets_geometry_and_frozen_results_changed": false,
             "raw_native_runs_or_CAD_rebuilt": false,
-            "further_engineering_resumed": false
+            "further_engineering_resumed": false,
+            "runtime_fetch_fix": {
+              "cause": "Pages publishes site/ only; relative ../docs requests escaped the project prefix and returned404 for four calculation summaries.",
+              "fix_commit": "69fe7b7175f1bc28767ec5429c72025147eceb3c",
+              "source_delivery": "Public repository at immutableaa226a78 revision, with all original exact-byte hashes retained.",
+              "regression_check": "Four real fetch helper calls succeed only at the published source URLs and reject altered bytes; test reproduced404beforefix.",
+              "public_browser_check_with_updated_module": "Full scene renders with zero failed requests/page errors. EarlierHTTP/assetbytechecks did not exercise these runtime requests.",
+              "geometry_or_numerical_results_changed": false
+            }
+          },
+          "build_packet_followthrough": {
+            "authority": "Owner asks to finish the build packet and proceed with the present design.",
+            "scope": "Documentation and existing-coordinate compilation only; includes13-board allocation and complete102-axis installation schedule, with no structural evaluation, CAD/model rebuild, redesigned feature or physical observation.",
+            "status": "complete",
+            "guide": {
+              "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-guide.md",
+              "sha256": "475bf1ddaf0e46621d01f570954e43ab3c88961eb32592d222faff76f4bb2077"
+            },
+            "manifest": {
+              "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-packet-manifest.json",
+              "sha256": "8b52f522a59d2a9457adb71588cbec84d71cbd726a35d77cf029f79465206288"
+            },
+            "counts": {
+              "part_cards": 30,
+              "timbers": 20,
+              "cleat_leaves": 4,
+              "face_panels_and_kickers": 6,
+              "stock_boards": 13,
+              "bolt_axes": 102,
+              "receiver_references": 136,
+              "panel_screw_axes": 66,
+              "timber_service_bores": 32,
+              "hold_openings": 142,
+              "LED_openings": 132
+            },
+            "PDF_pages": 44,
+            "PDF_bytes": 355615,
+            "existing_geometry_and_hardware_preserved": true,
+            "physical_Actual_Disposition_cells_preserved_blank": true,
+            "structural_acceptance": false,
+            "independent_packet_review": "No material findings after verifying counts, handed datums, current panel front references, retained routing shifts, washer/bolt requirements and four omitted axes."
           }
         }
       },

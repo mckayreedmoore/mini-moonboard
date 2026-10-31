@@ -1,0 +1,119 @@
+{
+  "schema": "fixed102_build_packet/v1",
+  "revision": "v11-six-bolt-cleat-v1",
+  "source_files": [
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-guide.md",
+      "sha256": "475bf1ddaf0e46621d01f570954e43ab3c88961eb32592d222faff76f4bb2077"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/part-reference-sheets.html",
+      "sha256": "7f4b035f27aae50bd5a20b7b65027a1e80dce36ac33245b52aae2be625b571d2"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/render_build_packet.cjs",
+      "sha256": "6a4d1a34e61df553ee309d0788f48e17bf56e1932d0e005a7382dccce22feb59"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/stock-allocation.csv",
+      "sha256": "b9d02654fc07a6f97a22999de01fff74995072bad49d1095b18a80042287a4a2"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/hardware-axis-crosswalk.csv",
+      "sha256": "e6bf310ac8ff81a6156070b6fa3d873a730cc6851f5c7420920b7d8c9eb3d838"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/cut-list.csv",
+      "sha256": "f7914097245547b26c82dc7f2ee866f28ddf11ee1d33d6703bc13cb46e20b5eb"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/screw-layout.csv",
+      "sha256": "c4dc01fa2664906d15ec2b3765b924d847f633e2b164a62d84840dcb34b0782d"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/service-passage-layout.csv",
+      "sha256": "9b2c155561089a25276f0d4ed3a749aa87718da3d5bbc739bf21923f844276f1"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/produce_part_reference_sheets.py",
+      "sha256": "fd345f8023a57ed6fc1058ef529e44088010b12866215e066e622b5b337c1bc6"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/produce_panel_opening_layout.py",
+      "sha256": "2810acafe2ed199657b7abf2859de1366f9fa5007a0493646ab42e5bf1964b4d"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/panel-opening-layout.csv",
+      "sha256": "2a2a7146dc5b1a7f12b73edf40f567ed0987c1faf2b9d641e077ee19315052c6"
+    }
+  ],
+  "part_reference_metadata": {
+    "candidate": "v11-six-bolt-cleat-v1",
+    "counts": {
+      "bolt_axes": 102,
+      "face_panels": 6,
+      "omitted_axes": 4,
+      "parts": 30,
+      "plywood_leaves": 4,
+      "receiver_rows": 136,
+      "screw_axes": 66,
+      "service_hosts": 8,
+      "service_passages": 32,
+      "stock_boards": 13,
+      "timbers": 20
+    },
+    "csv_sha256": {
+      "cut-list.csv": "f7914097245547b26c82dc7f2ee866f28ddf11ee1d33d6703bc13cb46e20b5eb",
+      "screw-layout.csv": "c4dc01fa2664906d15ec2b3765b924d847f633e2b164a62d84840dcb34b0782d",
+      "service-passage-layout.csv": "9b2c155561089a25276f0d4ed3a749aa87718da3d5bbc739bf21923f844276f1"
+    },
+    "sources": {
+      "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/geometry-packet.json": "d8a1fc555d79b92debc3ea9536837093847baac0b1ad15e33462746f3cecdce0",
+      "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/panel-screw-axis-planning.csv": "e63ad1d1139e9d98dc95d8682bfee8c6a759a926c117611ec5a6ec7435474d8b",
+      "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/build-package/geometry-packet/stock-allocation.csv": "b9d02654fc07a6f97a22999de01fff74995072bad49d1095b18a80042287a4a2",
+      "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/hardware-axis-crosswalk.csv": "e6bf310ac8ff81a6156070b6fa3d873a730cc6851f5c7420920b7d8c9eb3d838",
+      "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/omitted-post-hole-mask.csv": "8d3c86e48a47e659febb4007804679724ec5535f7bd64bb6014c49e89b354b8e",
+      "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/produce_part_reference_sheets.py": "fd345f8023a57ed6fc1058ef529e44088010b12866215e066e622b5b337c1bc6",
+      "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/receiver-planning.csv": "4d2b9ea9824af8f7a01ec5f5f2f77071878ab255d37339a610110ad0b14a1fc3",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/geometry.json": "712416189f209322c10acf4af3b16ac97f91b8ca4f2da415972a0033e4ce1e7d",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/enclosed-passages-v1/passage-datums.csv": "4ce93171eae595e3285bce3eb5a2714f22ae1a5d8c013de0ac56011b334113c5",
+      "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+      "scripts/eoere_builder_layout.py": "9fff533b662ec5ca72701b1b5e876f7e659996fe0bf00efbf65579b4f7f1be6d",
+      "scripts/eoere_front_posts_4x6.py": "98c37ff8a0cb2304f918ca237808d355a36b945bcbfe2476d9e4f279d64ca731"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-packet.html",
+      "sha256": "79cf59eaa677ae90eb373bd3316de7f3a3828ba4493aca5ab8b1d079303d4f7c",
+      "bytes": 250809
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-packet.pdf",
+      "sha256": "6455f5af94b5919fe20648e6c3cbbe1c05f1850e3c6b9181464695c7cbffcb47",
+      "bytes": 355615
+    }
+  ],
+  "PDF_pages": 44,
+  "renderer": {
+    "Bun": "1.4.2",
+    "Playwright": "1.59.1",
+    "Chromium": "147.0.7727.15"
+  },
+  "counts": {
+    "part_cards": 30,
+    "timbers": 20,
+    "cleat_leaves": 4,
+    "face_panels_and_kickers": 6,
+    "stock_boards": 13,
+    "bolt_axes": 102,
+    "receiver_references": 136,
+    "panel_screw_axes": 66,
+    "timber_service_bores": 32,
+    "hold_openings": 142,
+    "LED_openings": 132
+  },
+  "geometry_hardware_or_structural_results_changed": false,
+  "actual_observations_supplied": false,
+  "structural_acceptance": false
+}

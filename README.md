@@ -6,7 +6,7 @@ CadQuery exports STL meshes, STEP assemblies and JSON metadata. A static
 Three.js browser viewer displays those pre-generated assets, with part picking,
 connection inspection, hold previews and shareable problem highlights.
 
-**[Current owner-retained design · 102-bolt viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-six-bolt-cleat-preview&view=rear&holds=off)** · **[Completed project packet](docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md)**
+**[Current owner-retained design · 102-bolt viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-six-bolt-cleat-preview&view=rear&holds=off)** · **[Completed project packet](docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md)** · **[Build packet PDF](docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/build-packet.pdf)**
 
 The owner has closed development with the present `v11-six-bolt-cleat-v1` design: two bolts at each rail–leg joint, one at each leg–floor joint, six bolts per cleat, 102 frame bolts, 204 washers, 24 angles, 66 panel/kicker screws and zero spacers. The [planning packet](docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/README.md) contains the current hardware, receiver, stock and assembly references. Completed evaluations, retained exceedances and working assumptions remain explicit; project closure does not assert full structural acceptance.
 

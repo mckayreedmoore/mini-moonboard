@@ -1,8 +1,18 @@
-# Six-bolt cleat provisional planning packet
+# Six-bolt cleat build packet
 
 **Project closed at the owner’s direction.** Retain the present design and completed packet. No further analysis, testing, redesign or panel-screw work is commissioned. Preserve the results, assumptions and recorded limitations; project closure does not assert full structural acceptance.
 
-This is a geometry-bound planning draft for `v11-six-bolt-cleat-v1`. It follows the checked own geometry and [source index](source-index-v1.json). The candidate has **102 bolts, 102 nuts, 204 washers and zero spacers**, with **1035 occupied parts**. Each cleat has four side and two post bolts. The two outer-top connections retain four bolts each and the two center-top connections retain four each.
+The owner has requested finished build documentation for the retained `v11-six-bolt-cleat-v1` design. This packet compiles the existing geometry and construction information without changing structural results. It follows the checked own geometry and [source index](source-index-v1.json). The candidate has **102 bolts, 102 nuts, 204 washers and zero spacers**, with **1035 occupied parts**. Each cleat has four side and two post bolts. The two outer-top connections retain four bolts each and the two center-top connections retain four each.
+
+## Start at the bench
+
+- [Build guide and assembly sequence](build-guide.md).
+- [Combined printable packet (PDF)](build-packet.pdf) or [HTML for browser printing](build-packet.html).
+- [Thirty dimensioned part-reference sheets](part-reference-sheets.html) and [piece cut list](cut-list.csv).
+- [Current panel/kicker screw marks](screw-layout.csv), [T-nut and LED openings](panel-opening-layout.csv) and [32 timber service bores](service-passage-layout.csv).
+- [102-axis hardware crosswalk](hardware-axis-crosswalk.csv), [shopping quantities](grouped-hardware.csv), [136 receiver references](receiver-planning.csv) and [four-hole omission mask](omitted-post-hole-mask.csv).
+
+Use the current guide for the coordinated sequence and scope. Frozen planning CSV flags and the older geometry-only source index retain their issued-stage meaning; actual observations remain blank. The detailed evaluation and retained limitations remain in the [candidate record](../README.md#current-acceptance-work).
 
 The [hardware crosswalk](hardware-axis-crosswalk.csv) is filtered from the external-hex parent: exactly four `v11_cleat_*_post_*` rows are removed, and all 102 retained rows preserve their existing hardware fields and profile-contract pointers. Grouped quantities are recomputed from those retained rows. The conditional 6½-inch Grade 5 type quantity is **12**, the conditional 6-inch type quantity is **four**, and the Grade 8 nut quantity is **16**; none of these supplier/contract quantities is an observed delivered part.
 
@@ -27,7 +37,7 @@ The [current reuse check](../../../../../fea/generated/v11-six-bolt-cleat-v1/ref
 | Cleat adhesive process | [Existing T-88 product/process basis](../../../../../fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.md), with its cached manufacturer sheet: 1:1 by volume **or** 100:83 by weight; clean prepared faces, avoid adhesive starvation and allow the temperature-dependent cure. The [current laminate assumptions](../working-laminate-assumptions.json) govern resistance/compliance; the effective analysis zone is not a shop gap or clamping instruction. |
 | Governing resistance/procurement changes | [Current acceptance work](../README.md#current-acceptance-work): washer minima **2.35 mm for 184 ordinary ends, 2.85 mm for eight larger ends**, with twelve foot ends unchanged; Fy ≥200 MPa and existing maximum envelopes retained. The published leg bending size adjustment changes no stock or cut. |
 
-The frozen CSV flags and source indices describe their issued stage. Construction-source reconciliation is complete for this fixed-design evaluation; numerical completion and retained failures/method limits follow the [current-work table](../README.md#current-acceptance-work). Physical Actual/Disposition cells remain blank, and no cutting or fabrication is authorized.
+The frozen CSV flags and source indices describe their issued stage. Construction-source reconciliation is complete for this fixed-design evaluation; numerical completion and retained failures/method limits follow the [current-work table](../README.md#current-acceptance-work). Physical Actual/Disposition cells remain blank. The owner-requested build documentation does not alter the recorded structural disposition.
 
 ## Fixed-design calculation and purchase basis
 
@@ -55,4 +65,18 @@ The owner retains this 102-bolt design with its [recorded numerical exceedance](
 
 For the 66 Hillman screws, historical CSV occupied lengths of 50.8 mm and diameters of 4.1402 mm are not purchased dimensions, pilot sizes or drilling-depth instructions. The current calculations also retain the stated usable-thread/profile conditions; no delivered screw has been measured. Frame-bolt wood clearances follow the current receiver/type requirements, while the purchased steel's factory holes remain separate. Do not copy an occupied CAD diameter into a bit selection.
 
-All rows remain HOLD and Actual/Disposition cells stay blank. The [own six-case bank](../response-bank.json), [parent admission](../parent-bank-admission.json), [connection references](../current-reference-summary.json) and [component references](../component-reference-summary.json) retain their original conditional scopes. Later changed-basis and permanent results are bound by the maintained [current-work table](../README.md#current-acceptance-work). The frozen source index records the earlier geometry-only planning stage; its pending bank fields are preserved as that snapshot. Current result authority follows these separate matched records. Complete joints and actual hardware, bond and floor support remain unqualified. No purchase, marking, drilling, fabrication, or climbing release is granted.
+The frozen source rows retain their issued HOLD flags, and Actual/Disposition cells stay blank until observed. The [own six-case bank](../response-bank.json), [parent admission](../parent-bank-admission.json), [connection references](../current-reference-summary.json) and [component references](../component-reference-summary.json) retain their original conditional scopes. Later changed-basis and permanent results are bound by the maintained [current-work table](../README.md#current-acceptance-work). The frozen source index records the earlier geometry-only planning stage; its pending bank fields are preserved as that snapshot. Current result authority follows these separate matched records. Complete joints and actual hardware, bond and floor support remain unqualified. Project closure and this document compilation do not assert complete structural acceptance or observed material/installation conformity.
+
+## Printing and reproduction
+
+The combined PDF includes the guide, thirty part cards, hardware and stock information, current screw/bolt references and the separate hold/LED opening schedule. Dimensions govern; the diagrams are not full-size drilling templates or automatic saw settings. Raw native runs, CAD solids and numerical suites were not rebuilt to produce this packet. The generated files remain compact because the existing stock, geometry and hardware records are referenced rather than copied.
+
+From the repository root, regenerate the coordinate compilations and PDF using the existing shared Playwright installation:
+
+```sh
+python3 docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/produce_part_reference_sheets.py
+python3 docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/produce_panel_opening_layout.py
+bun docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/render_build_packet.cjs /path/to/node_modules/playwright
+```
+
+The panel-opening producer checks its retained local descriptor; restore that frozen input for reproduction. Reading and printing the issued packet needs no CAD or solver. [Source and output manifest](build-packet-manifest.json) records the inputs, counts and renderer used. Existing selected-baseline shop sheets, old SPAX fastening pages and earlier 112-bolt shopping quantities are not substitutes for this packet.
