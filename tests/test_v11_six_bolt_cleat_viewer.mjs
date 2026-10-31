@@ -8,7 +8,7 @@ import test from 'node:test';
 import {documentsForModel} from '../site/documentation-links.mjs';
 import {SIX_BOLT_CLEAT_MODEL,SIX_BOLT_CLEAT_ASSETS} from '../site/eoere-v11-six-bolt-cleat-overlay.mjs';
 import {SIX_BOLT_CLEAT_RESULTS_ASSET,SIX_BOLT_CLEAT_RESULTS_SOURCES,
-  sixBoltCleatResultsStatus,validateSixBoltCleatComponentReferenceSummary,
+  fetchPinnedJson,sixBoltCleatResultsStatus,validateSixBoltCleatComponentReferenceSummary,
   validateSixBoltCleatCurrentReferenceSummary,validateSixBoltCleatParentBankAdmission,
   validateSixBoltCleatResponseBank,validateSixBoltCleatResults}
   from '../site/eoere-v11-six-bolt-cleat-results.mjs';
@@ -27,6 +27,23 @@ const portableBytes=ref=>{
   assert.equal(hash(raw),ref.sha256,`public source hash must match its result binding: ${ref.path}`);
   return raw;
 };
+
+test('the deployed viewer fetches its four pinned summaries from the published repository',async()=>{
+  const originalFetch=globalThis.fetch;
+  const base='https://raw.githubusercontent.com/mckayreedmoore/mini-moonboard/aa226a78c759844b08b6050737f17186825b0aec/';
+  try{
+    for(const key of ['response_bank','parent_bank_admission','current_reference_summary','component_reference_summary']){
+      const publicRef=SIX_BOLT_CLEAT_RESULTS_SOURCES[key+'_public'];
+      const rawRef=SIX_BOLT_CLEAT_RESULTS_SOURCES[key];
+      const raw=portableBytes(publicRef);
+      globalThis.fetch=async url=>String(url)===base+publicRef.path
+        ? new Response(raw,{status:200}) : new Response('Not Found',{status:404});
+      assert.deepEqual(await fetchPinnedJson(publicRef,rawRef,key),JSON.parse(raw));
+      globalThis.fetch=async()=>new Response(Buffer.concat([raw,Buffer.from(' ')]),{status:200});
+      await assert.rejects(fetchPinnedJson(publicRef,rawRef,key),/differs from its exact raw source/);
+    }
+  }finally{globalThis.fetch=originalFetch;}
+});
 
 test('the six-bolt route preserves historical routes, index authority, and the selected default',()=>{
   const html=bytes('site/index.html').toString();

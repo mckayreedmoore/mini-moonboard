@@ -719,10 +719,13 @@ export function applySixBoltCleatResults(scene,data,bank,admission,summary,compo
       parent_runtime_proof:accepted.sources.parent_runtime_proof}}};
 }
 
-async function fetchPinnedJson(publicRef,rawRef,label){
+export async function fetchPinnedJson(publicRef,rawRef,label){
   require(isRef(publicRef)&&sameRef(publicRef,{path:publicRef.path,sha256:rawRef?.sha256}),label+' public and raw source pins must match');
   require(publicRef.path.startsWith('docs/')&&!publicRef.path.includes('..'),label+' must use a portable docs copy');
-  const response=await fetch(new URL('../'+publicRef.path,import.meta.url));require(response.ok,label+' portable copy unavailable');
+  // Pages serves site/ only; the portable docs live in the public repository.
+  // Use an immutable source revision and retain the exact-byte hash check below.
+  const docsBase='https://raw.githubusercontent.com/mckayreedmoore/mini-moonboard/aa226a78c759844b08b6050737f17186825b0aec/';
+  const response=await fetch(new URL(publicRef.path,docsBase));require(response.ok,label+' portable copy unavailable');
   const raw=await response.arrayBuffer();require(await sha256(raw)===rawRef.sha256,label+' portable copy differs from its exact raw source');
   return JSON.parse(new TextDecoder().decode(raw));
 }
