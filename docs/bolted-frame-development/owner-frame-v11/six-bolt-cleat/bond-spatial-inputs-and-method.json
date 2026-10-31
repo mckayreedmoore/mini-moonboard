@@ -1,0 +1,191 @@
+{
+  "candidate": "v11-six-bolt-cleat-v1",
+  "candidate_mechanics_states_executed": 0,
+  "changed_inputs": "This local constitutive extension adds finite bond compliance and thickness/width flexibility. The frozen frame operator, force bank, reviewed geometry and hardware are unchanged.",
+  "complete_acceptance_items_remaining": 4,
+  "corrected_input_selection": "The first reconstruction rejected contact-face signatures from the physical half-leaf BREP. The saved contact cells belong to the composite analysis BREP; that source reconstructs all eight patches and60cells with the original signature, area and centroid gates unchanged. No saved result was invalidated.",
+  "effective_interface_zone": {
+    "additional_normal_compliance_mm_per_MPa": 7.735346012277826e-05,
+    "additional_shear_compliance_mm_per_MPa": 0.00023206038036833478,
+    "purpose": "Represent a zero-geometric-gap adhesive compliance inside the existing occupied thickness. Keep the original wood axial/bending stiffness; add only the declared normal and tangential interface compliance.",
+    "rule": "For each through-thickness normal/shear mode, h_zone/C_effective = h_zone/C_wood + t_adhesive/C_adhesive. Keep the in-plane moduli and zero Poisson couplings unchanged. The zone includes retained wood compliance plus the additional bond compliance; it is not a replacement of wood by a stiffer glue volume.",
+    "scenarios": [
+      {
+        "effective_engineering_constants": [
+          477.35554197639703,
+          5697.112415206891,
+          454.5993819671447,
+          0.0,
+          0.0,
+          0.0,
+          413.6854375901017,
+          70.87122034093763,
+          70.87122034093763
+        ],
+        "maximum_series_compliance_replay_error_mm_per_MPa": 0.0,
+        "zone_width_mm": 0.2
+      },
+      {
+        "effective_engineering_constants": [
+          477.35554197639703,
+          5697.112415206891,
+          386.6219042898146,
+          0.0,
+          0.0,
+          0.0,
+          413.6854375901017,
+          65.48616153619881,
+          65.48616153619881
+        ],
+        "maximum_series_compliance_replay_error_mm_per_MPa": 2.168404344971009e-19,
+        "zone_width_mm": 0.1
+      }
+    ],
+    "scope": "Local response hypothesis using the existing FPL-ratio plywood thickness/shear proxies; not actual birch properties, a veneer schedule or a capacity. Finite-zone smearing requires an affected local comparison before its face-stress result is accepted."
+  },
+  "emails_permitted": false,
+  "engineering_question": "Prepare the full spatial glue/plywood comparison missing from the admitted longitudinal/normal plane result, using finite current load domains and a locally flexible plywood solid.",
+  "input_producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/prepare_bond_solid_inputs.py",
+    "sha256": "ec9695aec4fd2eb11ca76c7a19246a242ff466139cf81688601ec6dc4eb8df09"
+  },
+  "material": {
+    "E3_G13_G23_basis": "Retain the existing FPL-ratio response proxies from current_response_materials.equivalent_layers; not measured birch properties or design allowables.",
+    "EA_targets_N_per_mm": [
+      72969.51468603182,
+      85374.33218265722
+    ],
+    "EI_targets_Nmm": [
+      757939.8947269286,
+      3107082.7982594585
+    ],
+    "GA_target_N_per_mm": 7880.707586091437,
+    "equivalent_layers": [
+      {
+        "constants": [
+          477.35554197639703,
+          5697.112415206891,
+          551.5805834534689,
+          0.0,
+          0.0,
+          0.0,
+          413.6854375901017,
+          77.22128168348564,
+          77.22128168348564
+        ],
+        "thickness_mm": 4.7625
+      },
+      {
+        "constants": [
+          7183.485894877337,
+          3266.072065911977,
+          551.5805834534689,
+          0.0,
+          0.0,
+          0.0,
+          413.6854375901017,
+          77.22128168348564,
+          77.22128168348564
+        ],
+        "thickness_mm": 9.525
+      },
+      {
+        "constants": [
+          477.35554197639703,
+          5697.112415206891,
+          551.5805834534689,
+          0.0,
+          0.0,
+          0.0,
+          413.6854375901017,
+          77.22128168348564,
+          77.22128168348564
+        ],
+        "thickness_mm": 4.7625
+      }
+    ],
+    "independent_EA_EI_replay_relative_error": 3.3306690738754696e-16,
+    "local_axes": "1=worldY, 2=worldZ, 3=worldX",
+    "veneer_schedule_inferred": false
+  },
+  "method_decision": "Use a spatial solid treatment for the remaining widthwise and short-span duties, reusing the existing equivalent-layer and T10 machinery. Do not add a one-dimensional torsion result to the plane check as if it bounded local plate behavior.",
+  "native_candidate_batch_ready": false,
+  "native_method_control": {
+    "candidate_mechanics_states_executed": 0,
+    "dat": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/cube.dat",
+      "sha256": "76321afa42cbee998e868a23a9eadd085c7a1070bfc0168e7e7485940cd5b359"
+    },
+    "elements": 6,
+    "execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/execution.json",
+      "sha256": "74a03a5f56250bf16cd5b9a9a24230e98c94645b235e542cbaf28653a2a57060"
+    },
+    "maximum_displacement_error_mm": 1.541695937579135e-10,
+    "maximum_global_stress_error_MPa": 0.0,
+    "maximum_rigid_gauge_reaction_N": 1.652049e-16,
+    "minimum_stress_coordinate_affine_determinant_mm3": 0.08944272180001685,
+    "nodes": 27,
+    "observation_recipe": "Read U/RF and S/COORD blocks from cube.dat; compare all 27 displacement vectors and all 24 six-component stress vectors against readiness.json. Check only fixed rigid-mode DOFs for reaction; RF includes applied-force equilibrium rows at free nodes.",
+    "passed": true,
+    "physical_release": false,
+    "producer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/check_bond_solid_material.py",
+      "sha256": "996e0349f1ec7a1d76bacde21cb2511833d4691545e3e234ac9346c453153950"
+    },
+    "readiness": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/readiness.json",
+      "sha256": "7b2dc480f289853be6211c94ef5cc847014ed92f325f3be571fa058f1d6f20a9"
+    },
+    "schema": "v11_bond_solid_material_native_control/v1",
+    "scope": "Straight C3D10 homogeneous orthotropic constant-stress patch; global material orientation, consistent surface loads and GLOBAL=YES S/COORD recovery. Not a curved-interface convergence or candidate joint acceptance.",
+    "stress_coordinates": 24
+  },
+  "next_required_operations": [
+    "Map the saved affine bearing densities and washer captures onto finite physical bore and annular seat surfaces, preserving complete force/moment; contact-cell domains are reconstructed.",
+    "Prepare one bounded local mesh and verify its material/layer/face identities and loads before parent-owned native execution. No candidate native batch is admitted by this material coupon.",
+    "Use the current twelve cleat states for the spatial bond/interface comparison, with only justified governing refinement or interface-zone checks."
+  ],
+  "physical_release": false,
+  "raw_inputs": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-inputs.json",
+    "sha256": "f8c4605f9076cba8fd1f2be42f4fbe55d27d67afea710ccfd7c1982eec77b093"
+  },
+  "retention": "The approximately0.5MB full input map and the27-node/six-element method coupon remain active in the existing ignored evaluation-completion folder. Current BREP/material/source assets are shared; no copies of manuals, dependencies or frame runs are added. No archive or prune.",
+  "reused_checks": {
+    "contact_cells": 60,
+    "contact_patches": 8,
+    "current_leaf_states": 12,
+    "full_spatial_actions": 600,
+    "maximum_implied_uniform_contact_cell_pressure_MPa": 0.0768235343368242,
+    "maximum_leaf_six_wrench_error_N_Nmm": 7.275957614183426e-12
+  },
+  "schema": "v11_bond_spatial_inputs_and_material_method/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/bond-plane-followthrough.json": "c26023ce0e5484614940deb86c669c1841995a94af83a12705b034357558d541",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/recorded-material-baseline.json": "bde7665a71cba96758ea8c6dde25f37b5bbc46950e7a5748219b4374fa31594b",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/front-only-geometry/base_floor_left.brep": "8c1322eea375de5a0f15564a2826a6194ef385424ad1309d129f82a5816cc30a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/front-only-geometry/base_floor_right.brep": "698e9b8cbc50242d0b0380770025abf6b4ba33ca155c643c5fbe90d460dc3a7d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/base_header.brep": "fb66386e8d48548dfd9102b7f0f9b389ae64d6ba56d1c67e49c263bdd98b2eb8",
+    "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_left.brep": "c09f42b1ab5b30d0fbc5931dd6555cd97f724636aca81279b870fbcc6541bf49",
+    "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_right.brep": "9ea34302825d531d158b7b613f51b9fea80b17e11bcbb85a3a69e330ebf848a1",
+    "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/interleaf-leaf-wrench-v1/build_interleaf_leaf_wrenches_v1.py": "500fa4295e4387dce0b49185c210b81dac35c801f40828da0cf3d99a91224bcc",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_left_six_bolt_cleat.brep": "7a74ea86d5a05d6bd8a32c094fd9c10b7a82cdcaa95da30f8e0ce2b563f6a980",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_right_six_bolt_cleat.brep": "d53c89495236c0953c8c837cba6a08baf377568332c212fe9da2775314b6367e",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json": "b7cdf2f57247535c459680bef443922d7e99731eaf30a9d71f8a704a64c83056",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/eoere_cleat_left.brep": "b9d358830d9116dfe42831a51a295b96a8c206693d3ca52ae52b923d0e46242d",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/eoere_cleat_right.brep": "bfada7d01fdf94256c16ec06b08ba42861f0148f4194f028c5ef86586d2ff369",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/geometry.json": "58ff42af6f2e7cbbda40ef4328306456a1b49f00e2113bb39a5d186663d2b98c",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/material.json": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/local_bond_plane.py": "257c1e3f54a388796f22a68a92e1dc7edc3ecf53498a29a13bed931912d7fea4",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/prepare_bond_solid_inputs.py": "ec9695aec4fd2eb11ca76c7a19246a242ff466139cf81688601ec6dc4eb8df09",
+    "fea/wood_joint_reduced_contacts.py": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7",
+    "scripts/wood_joint_current_face_pair_atlas_attempt01.py": "016dbce14bff6408de418fc6cce35fa0590a72ceef43565164aa10f4b4bea3bb"
+  },
+  "structural_acceptance": false,
+  "whole_acceptance_items_closed": 0
+}

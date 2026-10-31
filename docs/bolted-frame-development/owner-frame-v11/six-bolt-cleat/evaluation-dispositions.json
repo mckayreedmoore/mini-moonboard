@@ -1,0 +1,1490 @@
+{
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "component_criteria": [
+    {
+      "id": "timber_net_shear_torsion",
+      "limit": 1,
+      "maximum_index": 0.9161883679893426,
+      "rows": 120,
+      "scope": "Existing conditional component construction",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/timber_net_shear_torsion.json",
+        "sha256": "5202ec251bdb18ad4914870caf60731a9c28e970bb9925c7359dc945d10f22bc"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "timber_normal_and_stability",
+      "limit": 1,
+      "maximum_index": 0.800123219089159,
+      "rows": 240,
+      "scope": "Existing conditional component construction",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/timber_normal_and_stability.json",
+        "sha256": "c77267fd00a82589ea36a5aa8ffc44e540bd4e87c2e950641231e335366ee8fe"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "cleat_actual_perimeter_rows",
+      "limit": 1,
+      "maximum_index": 0.41597728037418735,
+      "rows": 1512,
+      "scope": "Existing conditional component construction",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/cleat_actual_perimeter_rows.json",
+        "sha256": "fbf1cdb8d9bf64f991297f7fe9e39dd4bc2ed07f8918e7698853b80684a7e56f"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "direct_elastic_steel",
+      "limit": 1,
+      "maximum_index": 0.5140963394741042,
+      "rows": 612,
+      "scope": "Existing conditional component construction",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/direct_elastic_steel.json",
+        "sha256": "0e08554c5ea0716c7de84b294bdbfd7d29386506b0c96555d99cdd078f1f3a6a"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "mixed_conditional_bearing_and_hinge",
+      "limit": 1,
+      "maximum_index": 0.5945689617312178,
+      "rows": 120,
+      "scope": "Recorded conditional Grade5/common-work construction",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/current-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "front_conditional_bearing_and_hinge",
+      "limit": 1,
+      "maximum_index": 0.3870046565856933,
+      "rows": 24,
+      "scope": "Recorded conditional Grade5/common-work construction",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/current-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "rear_conditional_bearing_and_hinge",
+      "limit": 1,
+      "maximum_index": 0.7787434552585152,
+      "rows": 36,
+      "scope": "Recorded conditional Grade5/common-work construction",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/current-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "signed_foot_planar",
+      "limit": 1,
+      "maximum_index": 0.9990448815152528,
+      "rows": 12,
+      "scope": "Eligible signed Figure3E planar component; not complete3D joint",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/end-edge-followthrough-v1/saved-method-followthrough-v1.json",
+        "sha256": "3e026bba1220372d081b8482b10ff8190eef7d7e9c73c57969b422bd9620314b"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "parallel_E2",
+      "limit": 1,
+      "maximum_index": 0.02837560328625858,
+      "rows": 336,
+      "scope": "Eligible parallel-grain component only",
+      "source": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/parallel-current-v1.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "parallel_E3",
+      "limit": 1,
+      "maximum_index": 0.1155408678015924,
+      "rows": 420,
+      "scope": "Eligible parallel-grain component only",
+      "source": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/parallel-current-v1.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "parallel_E4",
+      "limit": 1,
+      "maximum_index": 0.02209402485944953,
+      "rows": 192,
+      "scope": "Eligible parallel-grain component only",
+      "source": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/parallel-current-v1.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "connected_parallel",
+      "limit": 1,
+      "maximum_index": 0.09403995277806301,
+      "rows": 216,
+      "scope": "Connected parallel-ligament extension only",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/connected-ligament-extension-v1.json",
+        "sha256": "eb2354f5a2af67e45d6dbefa616ea85b2b840cf7a20b17cfccb0d5cc4ac1163b"
+      },
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "washer_mean_sawn",
+      "limit": 1,
+      "maximum_index": 0.18143504620426587,
+      "rows": 1224,
+      "scope": "Separate conditional mean-bearing reference; not compatible plate/seat capacity",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "washer_mean_plywood_dry",
+      "limit": 1,
+      "maximum_index": 0.2190177072221938,
+      "rows": 1224,
+      "scope": "Separate conditional mean-bearing reference; not compatible plate/seat capacity",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    },
+    {
+      "id": "washer_mean_plywood_02in",
+      "limit": 1,
+      "maximum_index": 0.3754589266666179,
+      "rows": 1224,
+      "scope": "Separate conditional mean-bearing reference; not compatible plate/seat capacity",
+      "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json",
+      "status": "meets_stated_criterion",
+      "whole_joint_acceptance": false
+    }
+  ],
+  "diagnostic_exceedance_register": [
+    {
+      "above_one_rows": 13,
+      "id": "reduced_connection_axial_bending",
+      "maximum": {
+        "Cg": 0.25,
+        "case_id": "a12-forward",
+        "component": "v11_cleat_left_side_1",
+        "index": 2.4230872818486335
+      },
+      "remedy_attempted": false,
+      "scope": "Unadopted universal1/n construction; exceeded diagnostic, not an applicable complete-joint failure",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/reduced_connection_axial_bending.json",
+        "sha256": "00ccf8bba7f8fc6f171239c7189bd2b689d8f8a8cda2b2a99e9d54ac738781db"
+      }
+    },
+    {
+      "above_one_rows": 13,
+      "id": "wood_bearing_whole_affine",
+      "maximum": {
+        "Cg": 0.5,
+        "case_id": "a12-rear",
+        "component": "proposal_upper_rear_left_added_half_in",
+        "index": 1.9873493174754011
+      },
+      "remedy_attempted": false,
+      "scope": "Unadopted universal1/n construction; exceeded diagnostic, not an applicable complete-joint failure",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/families/wood_bearing_whole_affine.json",
+        "sha256": "9b99bb25ba6416b98910e9b3e2d7324d43b1ac49d849f5870f42d6abfe0cc81b"
+      }
+    },
+    {
+      "above_one_rows": 13,
+      "id": "rear_affine_Fe_over5",
+      "maximum_index": 1.6227600879956223,
+      "remedy_attempted": false,
+      "scope": "Separate saved affine pressure construction; not the contracted witness criterion",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/runs/rear-reference-v1/rear-wrench-run-v1.json",
+        "sha256": "a01c958f08ce5673bffa5febb4f6b23251274856638d14bd773dbe220b1b2753"
+      }
+    },
+    {
+      "above_one_rows": 2,
+      "id": "optional_both_unloaded_edge_foot",
+      "maximum_index": 1.089124390972596,
+      "remedy_attempted": false,
+      "scope": "Optional two-edge envelope, not the supported signed planar selector",
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/current-reduced-depth-shear-v1.json",
+        "sha256": "7ceeea3ed91e2151196bc60ea62fb26a07c008c05632b0f699f6d6a7c91f2f33"
+      }
+    },
+    {
+      "id": "principal_full7D_marker",
+      "remedy_attempted": false,
+      "scope": "Full principal marker only; all24 supplemental top full-end comparisons meet. Actual oblique factor remains unassigned.",
+      "shortfall_mm": 1.5875,
+      "source": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/end-edge-followthrough-v1/saved-method-followthrough-v1.json",
+        "sha256": "3e026bba1220372d081b8482b10ff8190eef7d7e9c73c57969b422bd9620314b"
+      }
+    }
+  ],
+  "dispositions": [
+    {
+      "governing_axis_case": [
+        "v11_cleat_left_side_1",
+        "a12-forward"
+      ],
+      "id": "specified_grade5_profile_material",
+      "maximum_index": 0.5945689617312178,
+      "remaining_product_limit": "Conditional long HCS types are design/receiving requirements, not a verified supplier SKU. Delivered conformity is a later observation, not a reason to rerun these specified-material calculations.",
+      "required_Fyb_ksi": 54.70034447927203,
+      "scope": "120 mixed reference states under specified 92 ksi basis; 24 active special profiles retain the existing 92 ksi material specification. Not complete joint resistance.",
+      "status": "meets_stated_criterion"
+    },
+    {
+      "current_demands": {
+        "all_12_reduced_wrenches_compression_only_representable": true,
+        "cleat_case_states": 12,
+        "max_six_resultant_replay_error_N_Nmm": 3.228706191293895e-10,
+        "maximum_long_wavelength_q_N_per_mm": 9.024847237078268,
+        "maximum_long_wavelength_width_average_shear_MPa": 0.06460162660757529,
+        "maximum_reduced_normal_compression_cap_MPa": 0.02615970987111078,
+        "maximum_reduced_tangential_traction_MPa": 0.006454200696652724
+      },
+      "id": "bond_strength_and_composite_stiffness",
+      "later_observations": "Face condition, grade stamp, coverage and cure remain unobserved; these are separate from the missing design basis.",
+      "method_decision": "Retain existing T-88 product/process basis and perfect-bond conditional operator; no adhesive coupon-to-allowable conversion or arbitrary slip threshold. Current saved demands and shear-lag scenarios exhaust the available specified-input comparisons. Do not transfer historical 112-bolt demands.",
+      "missing": [
+        "Applicable design allowable for the specified plywood-face/T-88 bond under the relevant loading and service conditions.",
+        "Applicable joint resistance/compatibility treatment for local bolt load introduction and normal/shear/torsional transfer.",
+        "A justified effective bond stiffness or conventional composite-action basis for this laminate; the current operator assumes perfect compatibility."
+      ],
+      "process_source": "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/adhesive-bond-basis.json",
+      "scope": "Strength and finite-slip applicability of two glued plywood leaves, not equilibrium of saved bond resultants.",
+      "status": "not_numerically_evaluable"
+    },
+    {
+      "conditional_235MPa_marker": 0.4450477771386867,
+      "id": "fitting_material_comparison",
+      "marker_is_adopted_product_strength": false,
+      "method_decision": "Retain current native and analytical component demands. Do not assign generic mild-steel strength to the owned product or rerun the fitting to cure an unspecified material.",
+      "missing": [
+        "Angle-specific minimum Fy/Fu or an applicable rated-component basis for ZX128-B-T4. The owned-product identity and retail load claim establish neither."
+      ],
+      "required_Fy_MPa_under_existing_1_67_comparison": 104.58622762759137,
+      "scope": "Strength of owned Eoere angles at current modeled dimensions; native stress-demand calculations are complete.",
+      "status": "not_numerically_evaluable"
+    },
+    {
+      "id": "washer_material_comparison",
+      "method_decision": "Retain the completed dimensional and plate constructions as strength requirements, without inventing material conformity.",
+      "missing": [
+        "Applicable minimum washer yield or bending resistance for the scheduled product. Do not transfer the bolt 92 ksi property or infer washer Fy from a Grade 5 name."
+      ],
+      "required_Fy_MPa_under_existing_1_67_comparison": 173.87420625625492,
+      "scope": "Bending strength of scheduled washers under the existing minimum-thickness construction; wood and plywood mean bearing comparisons remain separate.",
+      "status": "not_numerically_evaluable"
+    },
+    {
+      "id": "assembly_seating_and_prying",
+      "method_decision": "Do not add preload/friction or unused reinforcement credit. Existing 1224 end/case rows and 384 support domains remain usable components; no physical contact calibration or new native campaign is automatically required.",
+      "missing": [
+        "Applicable interaction/allocation for captured axial forces, flange flexure/prying and seat contact consistent with the saved full actions."
+      ],
+      "scope": "Complete compatible seat/washer/flange/wood assembly resistance, distinct from individual passing mean-pressure comparisons.",
+      "status": "not_numerically_evaluable"
+    },
+    {
+      "available_comparisons_executed": {
+        "fixed_equations": 248,
+        "fixed_hypothesis_interface_cases": 252,
+        "mixed_axis_cases": 120,
+        "two_media_lateral_axis_cases": 492
+      },
+      "exact_remaining_interface_cases": [
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_075",
+            "eoere_bolt_077"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_076",
+            "eoere_bolt_078"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_008",
+            "eoere_bolt_012"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "a12-forward",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_076",
+            "eoere_bolt_078"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_split_header_center_right+wood:base_post_center_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "a12-left",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_008",
+            "eoere_bolt_012"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "a12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_075",
+            "eoere_bolt_077"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_split_header_center_left+wood:base_post_center_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "k12-right",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_009",
+            "eoere_bolt_013"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_side_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_007",
+            "eoere_bolt_011"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "k12-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_002",
+            "eoere_bolt_029"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_1+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_019",
+            "eoere_bolt_040"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_left_2+wood:base_rail_bottom_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_025",
+            "eoere_bolt_059"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_1+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_014",
+            "eoere_bolt_062"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_bottom_right_2+wood:base_rail_bottom_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_003",
+            "eoere_bolt_030"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_1+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_020",
+            "eoere_bolt_041"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_left_2+wood:base_rail_service_lower_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_026",
+            "eoere_bolt_060"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_1+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_015",
+            "eoere_bolt_063"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_lower_right_2+wood:base_rail_service_lower_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_004",
+            "eoere_bolt_031"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_1+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_021",
+            "eoere_bolt_042"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_left_2+wood:base_rail_service_upper_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_027",
+            "eoere_bolt_061"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_1+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_016",
+            "eoere_bolt_064"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_horizontal_upper_right_2+wood:base_rail_service_upper_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_001",
+            "eoere_bolt_005"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_006",
+            "eoere_bolt_010"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_left_1+wood:base_side_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_017",
+            "eoere_bolt_018"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_single_top_right_2+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_007",
+            "eoere_bolt_011"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_principal_center_left",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_022",
+            "eoere_bolt_023"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_left+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_008",
+            "eoere_bolt_012"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_principal_center_right",
+          "nominal_unmerged_singleton_lateral_components": false
+        },
+        {
+          "axis_ids": [
+            "eoere_bolt_024",
+            "eoere_bolt_028"
+          ],
+          "case_id": "a1-rear",
+          "group_id": "interface:steel:eoere_clip_split_top_center_right+wood:base_rail_top",
+          "nominal_unmerged_singleton_lateral_components": false
+        }
+      ],
+      "id": "complete_joint_and_group_resistance",
+      "missing": [
+        "Applicable row/oblique effective-area and group-ownership interpretation for the listed110 interface cases; fixed gross-area/pitch alternatives do not prove a continuous oblique bound.",
+        "Complete geometry-factor application to the relevant groups and shear planes, beyond supplemental directional markers.",
+        "Supported simultaneous axial-seat, independent boundary-couple and asymmetric multi-member resistance allocation consistent with the saved signed actions."
+      ],
+      "row_application_cases_not_qualified": 110,
+      "status": "not_numerically_evaluable",
+      "whole_joint_capacity": null,
+      "why_no_additional_scalar_comparison": "The existing standard Cg, six-mode, common-work, steel and seat component comparisons are already executed. Multiplying their maxima or inventing a universal interaction would create a new unsupported criterion. Selecting an applicable complete allocation remains an engineering-method limitation, not absent raw forces or a request for another force solve."
+    },
+    {
+      "available_parallel_checks": {
+        "counts": {
+          "E2": 336,
+          "E3": 420,
+          "E4": 192,
+          "unresolved_case_rows": 204
+        },
+        "flags": {
+          "E2": 0,
+          "E3": 0,
+          "E4": 0
+        },
+        "maxima": {
+          "E2": 0.02837560328625858,
+          "E3": 0.1155408678015924,
+          "E4": 0.02209402485944953
+        }
+      },
+      "connected_parallel_checks": {
+        "above_one_count": 0,
+        "case_direction_rows": 216,
+        "interrupted_directions": 36,
+        "maximum_conditional_extension_index": 0.09403995277806301,
+        "maximum_force_replay_error_N": 4.582862941503293e-13,
+        "maximum_moment_replay_error_Nmm": 7.275957614183426e-12,
+        "new_BRep_patch_queries": 0,
+        "unchanged_patch_reuse": 36
+      },
+      "exclusion_inventory": {
+        "complete_roster_groups": 56,
+        "excluded_cleat_side_groups": [
+          "cleat-header-left/base_side_left",
+          "cleat-header-right/base_side_right"
+        ],
+        "interrupted_E3_E4_rows": 192,
+        "outside_common_core_E3_E4_rows": 12
+      },
+      "header_existing_reinforcement": {
+        "anchor_summary": {
+          "anchor_states": 192,
+          "case_event_variants": 12,
+          "flat_leaf_states": 96,
+          "maximum_added_root_force_N": 0.0,
+          "maximum_added_root_moment_Nmm": 0.0,
+          "maximum_conditional_affine_principal_extension_marker": 0.07925191063466952,
+          "maximum_conditional_force_only_principal_marker": 0.029008212590743005,
+          "maximum_required_Fu_affine_extension_MPa": 10.727568299559062,
+          "maximum_required_Fu_force_only_MPa": 3.684104061319185,
+          "physical_paths": 8
+        },
+        "equilibrium_gate_passed": true,
+        "incremental_strip_rows": 96,
+        "maximum_incremental_strip_index": 0.0424136482765323
+      },
+      "id": "complete_transverse_and_interrupted_path_resistance",
+      "missing": [
+        "Applicable cross-grain timber-transfer resistance and interaction for the current local forces/moments, or supported complete reinforcement-and-anchorage allocation.",
+        "Complete retained-material transfer treatment at the two cleat/side groups outside the chosen common core; a conservative core exclusion is not missing physical wood.",
+        "Compatibility and baseline anchorage/heel/prying coverage for the existing header bridges; equilibrium and incremental strip resistance alone do not establish complete reinforcement."
+      ],
+      "status": "not_numerically_evaluable",
+      "why_no_additional_scalar_comparison": "The connected-parallel extension already addresses36 interrupted directions (216rows) within its scope; do not label all204 exclusions as unperformed available parallel calculations or subtract them as equivalent counts. The source-point census does not establish physical crack demand or pressure on retained material. No supported resistance is provided to turn its185 positive states into capacity ratios. No universal fracture/contact campaign is commissioned."
+    }
+  ],
+  "evaluation_complete": true,
+  "finalizer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finalize_packet.py",
+    "sha256": "64ad31d9b85e9ee8a85441903fad7b64b9d9f38cae935f608184ba2a3dfa2f98"
+  },
+  "invariants": {
+    "exceedance_remedies_attempted": false,
+    "force_solve_run": false,
+    "geometry_changed": false,
+    "loads_changed": false,
+    "native_solve_run": false,
+    "physical_release": false,
+    "structural_acceptance": false
+  },
+  "method_review": {
+    "NDS_11_1_2": "Member/local connection stresses require their own checks; Appendix E is one available method, not a universal whole-joint scalar interaction.",
+    "NDS_11_1_3": "Eccentric cross-grain tension needs an appropriate engineering procedure or test. Passing lateral yield alone does not cover it; physical testing is not the sole route.",
+    "NDS_11_1_4": "Mixed-fastener types need supported analysis/test basis. Wood/steel media alone are not different fastener types. Deferred Hillman resistance is not silently supplied by bolt checks.",
+    "NDS_11_1_5_and_11_2_3": "Contact/fabrication assumptions and metal component failure modes remain separate from wood lateral reference values.",
+    "NDS_12_3_8": "Adjacent-pair/three-member formulas have stated opposing-force and member-count scope. They do not authorize summing arbitrary asymmetric mixed-plane capacities. Detailed bearing/dowel analysis is an available alternative, represented only conditionally by the saved common-work constructions.",
+    "NDS_12_3_9": "Two-member angled loading separates lateral capacity and axial bearing area; it does not dispense with an axial return path or arbitrary boundary moments. Shaft bending induced by lateral forces is already part of yield-mode mechanics and is not automatically a second independent load.",
+    "NDS_12_5_1": "The smallest applicable end/spacing geometry factor propagates across the relevant group/shear planes. The principal 7D marker is not automatically the applicable factor for these oblique groups.",
+    "conventional_route_selected_for_this_evaluation": "Retain saved component yield/bearing, member and geometry comparisons within their stated scope. Reject universal1/n as a whole-joint factor, plane-capacity sums, assumed permanent friction/preload and duplicated reinforcement credit. No complete adjusted multiaxial joint scalar is assigned where the supplied methods do not cover its boundary actions.",
+    "primary_scope": "Retained 2024 NDS chapter PDFs read directly; no automatic claim about later editions or universal absence of an engineering method."
+  },
+  "numerical_reconciliation": {
+    "active_profile_contracts_at_Fy_and_Fyb_92ksi": 24,
+    "bond_mean_shear_governor_MPa_cleat_case": [
+      0.06460162660757529,
+      "eoere_cleat_right",
+      "k12-right"
+    ],
+    "bond_rows": 12,
+    "fine_stress_to_required_Fy_rows": 2,
+    "maximum_hinge_index_error": 5.551115123125783e-17,
+    "maximum_mean_shear_arithmetic_error_MPa": 0.0,
+    "maximum_q_arithmetic_error_N_per_mm": 0.0,
+    "mixed_hinge_and_bearing_rows": 120
+  },
+  "prior_material_reconciliation": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/materials-v1.json",
+    "sha256": "409226f3117577fec1478e7075606a9e85999f62fc8d84b15975e1d0d90e21b7"
+  },
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/complete_dispositions.py",
+    "sha256": "5755f3f6f346c3ab4f207fd8fe814bbf3710933f04b8569e1a2276a7a65d1026"
+  },
+  "remaining_evaluation_work": [],
+  "response_bank": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+  },
+  "schema": "v11_fixed_design_evaluation_dispositions/v1",
+  "source_scope": "Historical records supply only unchanged product/process/method scope. All numerical demands below use the current 102-bolt records.",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/external-hex-heads/hardware-profile-clarification.json": "1ea799e914021930ac14537743f58f6638f130a407b4822df6fac8e2ffcb8261",
+    "docs/bolted-frame-development/owner-frame-v11/owner-material-purchase-decisions.json": "6f437911a9603ee4310eb284938479050049f6e54afd80792733d77f9d6b1da3",
+    "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/adhesive-bond-basis.json": "4af30196346a6e27eac2f3deb8d94f1121b33ed1134aedf9933f41b61fa5da3f",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json": "b1c7a406c5eab5f64e732fda1198bb31a78d23e5e46aedf6012bd3d0d6636bca",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/current-reference-summary.json": "cd961d2de881e1a66ab9cee6cb7f7b33dc3b8d50a274904033c3e1aff7af1d9b",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/transverse-opening-admission.json": "8e45ce14350041ba8062d85dac6afacb6f33ac4db6be76d946c8072094f43e60",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/transverse-opening-summary.json": "883c7a4f4a610229aa28b00218403d31a1a368122fe60ff972dc48e4ff7918da",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/cleat-adhesive-basis-v1.md": "ef3c76ecd5f6f41c7e92ff2cbe7d8082ec5f08b076f6dc859a275cdc225530ed",
+    "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/source-bindings-v1.json": "50263db8d6251a8c8d294ed33cfa60afb877d2af378f090825c4ccf59bd3a951",
+    "fea/generated/v10-catalog-buying-list-v1/hardware-audit-v2/angles/factory-angle-audit-v1.json": "1d145760dad185dc57164d4a3bf250b0e9685ae865d81d160acfe6712650bbec",
+    "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.json": "27e3411114ae7ceccac82d71cc9f819083561cfc07c5cfab5c90d8e9aad9b6ac",
+    "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/source-cache/system-three-t88-tds.pdf": "c7016c3e0f5d365863d1070e70dc4f8f22eb77c5b0b4ed9a9a80c7c8137afc2c",
+    "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/adhesive/assess_adhesive_interleaf_basis_v1.py": "f27a8ba76a89df244988f3f4ead5fd0f77ba03933881123397bb8c2aa1b57797",
+    "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/cleat-interleaf-shear-flow-v1.json": "b9f1db0053d2cec4253c21a6fa3c850c13f6dbca3bd040ffb7d554be830b26ff",
+    "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/material-support-reuse.json": "bb6cad804bac10c1884d77ced0f8e76eabfaf3f21c3fb771fde78609f4be0fd5",
+    "fea/generated/v11-shorter-bolts-v1/geometry-v3/geometry.json": "73ce1f19ce97959d3867984cc813c178895b50212128fce6a976548ad6bce4c8",
+    "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/material.json": "a7ae19a0b29dcacb46b603d88933ef73bd6ed03c2665c0f8b9f4dc88fa646185",
+    "fea/generated/v11-shorter-bolts-v1/mechanics/analysis-v3/response-bank.json": "0ac9bb41342279c536e955e30bc2b5588e07c235843186820982e7a60455c35c",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/header-bridge-anchor-followthrough-v1.json": "1e01634778c1458f53c7b093a669c8e5d62078c9233022514e981dd41fe8d6e2",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/parallel-current-v1.json": "be58c4693954786650d129d53b2cd4be01bb3abb1dd2ab2092059a897fc636b0",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle/header-bridge-current-v2.json": "91aa2a0e3b93baf1c9018d63dd4cc0dd8929b499b9584045e8b493a44b657b4e",
+    "fea/generated/v11-six-bolt-cleat-v1/references/mixed-common-work-v1/runs/reference-v4/mixed-common-work-Mp4-rows-v1.json": "89114d1df584554e08a052cc021ffb5591ae6e0335587f5677843382050ecd69",
+    "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/connections/numerical-method-disposition-v1.json": "63e8aa5936146388654b389418f022924c27451d6631068a8fb47489103eeb49",
+    "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/connections/standard-Cg-net-lateral-v1.json": "c4a67dd57e107367897e3d75bef0abdde97f5ef4402bb4e9909d3b95c7c68981"
+  },
+  "stage": "fixed_design_numerical_and_bounded_method_evaluation_complete; acceptance_limits_and_diagnostics_retained",
+  "verification": {
+    "audit": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/packet-audit-v1.json",
+      "sha256": "cc4307215ee3876bc0343ad6f43069377fddfee70d98d9ad6281fceb8a52affb"
+    },
+    "hardware_rows": 102,
+    "meaning": "Evaluation complete under recorded methods, including explicit not-evaluable acceptance claims. Not a complete design pass.",
+    "physical_observations_blank": true,
+    "receiver_rows": 136,
+    "software_checks": [
+      {
+        "command": "node --test tests/test_v11_six_bolt_cleat_viewer.mjs tests/test_documentation_links.mjs tests/test_v11_matching_rear_viewer.mjs",
+        "failed": 0,
+        "passed": 39,
+        "scope": "Current/historical viewer source contracts and documentation; not a new browser render."
+      },
+      {
+        "command": "uv run pytest -q tests/test_v11_joint_criterion_proofs.py tests/test_eoere_panel_size_reference.py",
+        "failed": 0,
+        "passed": 22,
+        "scope": "Existing method-proof and panel-size-reference regression checks; not panel strength qualification."
+      }
+    ],
+    "source_paths_verified": 180
+  }
+}

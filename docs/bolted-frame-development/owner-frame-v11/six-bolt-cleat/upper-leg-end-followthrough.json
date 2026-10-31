@@ -1,0 +1,305 @@
+{
+  "candidate": "v11-six-bolt-cleat-v1",
+  "criterion_reference": {
+    "publication": "NDS2024 Table12.5.1A and12.5.1.2(a), printed98",
+    "rule": "For ordinary softwood square-ended members with parallel-to-grain tension toward the end, full end distance7D, minimum3.5D, Cdelta_end=e/(7D) between those limits.",
+    "url": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-12-Dowel-Type-Fasteners.pdf"
+  },
+  "decision": "Within the already declared effective-EA and partition hypotheses, end-distance reduction alone does not invalidate the current upper-pair lateral comparisons. No geometry change follows from this sensitivity.",
+  "engineering_benchmark": "Use the shorter grain-parallel end clearance and the full7D reference regardless of load sign. This conservatively tests end-distance reduction within that formula; it does not establish its applicability to the current angled ends.",
+  "geometry_hardware_or_saved_actions_changed": false,
+  "groups": [
+    {
+      "axes": [
+        {
+          "axis": "lumber_leg_bolt_left_1",
+          "end_only_ratio_benchmark": 1.0,
+          "ends": [
+            {
+              "end": "upper",
+              "end_normal_angle_to_grain_deg": 36.1635137838692,
+              "grain_parallel_distance_mm": 107.22118563630261,
+              "plane_vertex_replay_error_mm": 4.547473508864641e-13
+            },
+            {
+              "end": "lower",
+              "end_normal_angle_to_grain_deg": 13.836486216217054,
+              "grain_parallel_distance_mm": 1797.214064316206,
+              "plane_vertex_replay_error_mm": 0.0
+            }
+          ],
+          "full_7D_benchmark_mm": 88.89999999999999,
+          "local_grain_u_v_mm": [
+            1818.5345703650792,
+            0.0,
+            -86.56354983440004
+          ],
+          "minimum_3_5D_benchmark_mm": 44.449999999999996,
+          "nearest_end_distance_mm": 107.22118563630261,
+          "nominal_D_mm": 12.7
+        },
+        {
+          "axis": "proposal_upper_rear_left_added_half_in",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "ends": [
+            {
+              "end": "upper",
+              "end_normal_angle_to_grain_deg": 36.1635137838692,
+              "grain_parallel_distance_mm": 65.81700036127108,
+              "plane_vertex_replay_error_mm": 2.2737367544323206e-13
+            },
+            {
+              "end": "lower",
+              "end_normal_angle_to_grain_deg": 13.836486216217054,
+              "grain_parallel_distance_mm": 1871.2835719627617,
+              "plane_vertex_replay_error_mm": 0.0
+            }
+          ],
+          "full_7D_benchmark_mm": 88.89999999999999,
+          "local_grain_u_v_mm": [
+            1884.3710205505788,
+            0.0,
+            -53.13645020618697
+          ],
+          "minimum_3_5D_benchmark_mm": 44.449999999999996,
+          "nearest_end_distance_mm": 65.81700036127108,
+          "nominal_D_mm": 12.7
+        }
+      ],
+      "cases": [
+        {
+          "case": "a12-forward",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.7506864848724636,
+            "singletons_individual_reference": 0.5052393986879502,
+            "two_fastener_group_force_reference": 0.7143397566927203,
+            "two_fastener_individual_reference": 0.5118940209604358
+          },
+          "maximum": 0.7506864848724636
+        },
+        {
+          "case": "a12-left",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.8440347649052652,
+            "singletons_individual_reference": 0.5667311878232089,
+            "two_fastener_group_force_reference": 0.8087570557374925,
+            "two_fastener_individual_reference": 0.5741957323436767
+          },
+          "maximum": 0.8440347649052652
+        },
+        {
+          "case": "a12-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.9074380131232855,
+            "singletons_individual_reference": 0.6162301476803105,
+            "two_fastener_group_force_reference": 0.8739428191215022,
+            "two_fastener_individual_reference": 0.6243466541847117
+          },
+          "maximum": 0.9074380131232855
+        },
+        {
+          "case": "k12-right",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.22825709775975533,
+            "singletons_individual_reference": 0.15561467063794196,
+            "two_fastener_group_force_reference": 0.2248208291072446,
+            "two_fastener_individual_reference": 0.15766430662405467
+          },
+          "maximum": 0.22825709775975533
+        },
+        {
+          "case": "k12-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.2709955668134712,
+            "singletons_individual_reference": 0.18067931120411057,
+            "two_fastener_group_force_reference": 0.25419472561397954,
+            "two_fastener_individual_reference": 0.18305907923415454
+          },
+          "maximum": 0.2709955668134712
+        },
+        {
+          "case": "a1-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.24361330356160565,
+            "singletons_individual_reference": 0.16681682882013293,
+            "two_fastener_group_force_reference": 0.23575330441609488,
+            "two_fastener_individual_reference": 0.16901401096264734
+          },
+          "maximum": 0.24361330356160565
+        }
+      ],
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "host": "lumber_leg_left",
+      "maximum_end_reduced_pure_lateral_reference": 0.9074380131232855,
+      "retained_Cg_box_reference": 0.987,
+      "retained_EA_box_lbf": [
+        8399999.999999987,
+        30800000.17123847
+      ]
+    },
+    {
+      "axes": [
+        {
+          "axis": "lumber_leg_bolt_right_1",
+          "end_only_ratio_benchmark": 1.0,
+          "ends": [
+            {
+              "end": "upper",
+              "end_normal_angle_to_grain_deg": 36.1635137838692,
+              "grain_parallel_distance_mm": 107.22118563630261,
+              "plane_vertex_replay_error_mm": 4.547473508864641e-13
+            },
+            {
+              "end": "lower",
+              "end_normal_angle_to_grain_deg": 13.836486216217054,
+              "grain_parallel_distance_mm": 1797.214064316206,
+              "plane_vertex_replay_error_mm": 0.0
+            }
+          ],
+          "full_7D_benchmark_mm": 88.89999999999999,
+          "local_grain_u_v_mm": [
+            1818.5345703650792,
+            88.89999999999986,
+            -86.56354983440004
+          ],
+          "minimum_3_5D_benchmark_mm": 44.449999999999996,
+          "nearest_end_distance_mm": 107.22118563630261,
+          "nominal_D_mm": 12.7
+        },
+        {
+          "axis": "proposal_upper_rear_right_added_half_in",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "ends": [
+            {
+              "end": "upper",
+              "end_normal_angle_to_grain_deg": 36.1635137838692,
+              "grain_parallel_distance_mm": 65.81700036127108,
+              "plane_vertex_replay_error_mm": 2.2737367544323206e-13
+            },
+            {
+              "end": "lower",
+              "end_normal_angle_to_grain_deg": 13.836486216217054,
+              "grain_parallel_distance_mm": 1871.2835719627617,
+              "plane_vertex_replay_error_mm": 0.0
+            }
+          ],
+          "full_7D_benchmark_mm": 88.89999999999999,
+          "local_grain_u_v_mm": [
+            1884.3710205505788,
+            88.89999999999986,
+            -53.13645020618697
+          ],
+          "minimum_3_5D_benchmark_mm": 44.449999999999996,
+          "nearest_end_distance_mm": 65.81700036127108,
+          "nominal_D_mm": 12.7
+        }
+      ],
+      "cases": [
+        {
+          "case": "a12-forward",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.23298525208365484,
+            "singletons_individual_reference": 0.15584493911338423,
+            "two_fastener_group_force_reference": 0.21462846908497324,
+            "two_fastener_individual_reference": 0.1578976080176132
+          },
+          "maximum": 0.23298525208365484
+        },
+        {
+          "case": "a12-left",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.21675214382424962,
+            "singletons_individual_reference": 0.1476915930870068,
+            "two_fastener_group_force_reference": 0.21421118304956963,
+            "two_fastener_individual_reference": 0.14963687242857832
+          },
+          "maximum": 0.21675214382424962
+        },
+        {
+          "case": "a12-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.2580972852583598,
+            "singletons_individual_reference": 0.1721313869145984,
+            "two_fastener_group_force_reference": 0.24146505363863238,
+            "two_fastener_individual_reference": 0.1743985683025313
+          },
+          "maximum": 0.2580972852583598
+        },
+        {
+          "case": "k12-right",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.8325555238191579,
+            "singletons_individual_reference": 0.5591156741562754,
+            "two_fastener_group_force_reference": 0.7974193617504233,
+            "two_fastener_individual_reference": 0.5664799130256083
+          },
+          "maximum": 0.8325555238191579
+        },
+        {
+          "case": "k12-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.8965298167816503,
+            "singletons_individual_reference": 0.6080094300535183,
+            "two_fastener_group_force_reference": 0.8636593549682257,
+            "two_fastener_individual_reference": 0.6160176596286913
+          },
+          "maximum": 0.8965298167816503
+        },
+        {
+          "case": "a1-rear",
+          "end_only_ratio_benchmark": 0.7403487104754903,
+          "lateral_references_after_end_only_reduction": {
+            "singletons_force_reference": 0.17751897341124784,
+            "singletons_individual_reference": 0.11844111830755545,
+            "two_fastener_group_force_reference": 0.16388905106092053,
+            "two_fastener_individual_reference": 0.12000113303703693
+          },
+          "maximum": 0.17751897341124784
+        }
+      ],
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "host": "lumber_leg_right",
+      "maximum_end_reduced_pure_lateral_reference": 0.8965298167816503,
+      "retained_Cg_box_reference": 0.987,
+      "retained_EA_box_lbf": [
+        8399999.999999987,
+        30800000.17123847
+      ]
+    }
+  ],
+  "limits": [
+    "The current upper ends are angled about36.16degrees to the grain-normal plane; NDS defines end distance from a square-cut end. Actual geometry-factor applicability remains a separate method decision.",
+    "This carries the existing0.987 bound only inside its recorded positiveEA domain. The universal0.5 Cg bound is a different result and is not silently upgraded.",
+    "Spacing between physical rows, loaded/unloaded edges, other shear planes, simultaneous couples/axial return, splitting and full joint strength are not qualified. No actual connection-wide Cdelta is assigned.",
+    "Use current profile planes and axes, not the two excluded inherited singleton core entries."
+  ],
+  "maximum_end_reduced_pure_lateral_reference": 0.9074380131232855,
+  "physical_release": false,
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/check_upper_leg_end_reduction.py",
+    "sha256": "04cdb2a2961b404692e70bba2c8a6b038f0531733d5d4848cd1a8a3abf4f3161"
+  },
+  "question": "Can the current upper-leg end distance alone overturn the saved two-bolt pure-lateral comparisons in their existing effective-EA domain?",
+  "schema": "v11_upper_leg_end_only_lateral_sensitivity/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/core-axis-registration-admission.json": "629020c760bc4d40437e066c5161846fd2695054d8e2c6f1dfd627223f76fbed",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-pair-washer-followthrough.json": "9ea183dac4ff4015ca55dfe1121bf673aa6216c80fdd3e2e420cff094844c677",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/check_upper_leg_end_reduction.py": "04cdb2a2961b404692e70bba2c8a6b038f0531733d5d4848cd1a8a3abf4f3161"
+  },
+  "stopping_condition": "Read the four current bolt positions and both recorded end planes per leg, independently replay from vertices, and apply a conservative7D end-only ratio to the twelve saved comparisons. No CAD, frame or native rerun.",
+  "structural_acceptance": false,
+  "whole_acceptance_items_closed": 0
+}

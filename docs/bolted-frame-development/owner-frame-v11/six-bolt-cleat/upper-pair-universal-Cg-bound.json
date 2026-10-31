@@ -1,0 +1,218 @@
+{
+  "candidate": "v11-six-bolt-cleat-v1",
+  "geometry_hardware_load_or_native_changes": false,
+  "maximum_paired_aggregate_directional_index": 0.8673461680387138,
+  "maximum_paired_individual_index": 0.9124503903824777,
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bound_upper_pair_without_EA.py",
+    "sha256": "f2a20fb93d95a722530f0b0efa628e61ee07362fb61d4b3924bc66b3440c3dae"
+  },
+  "proof": {
+    "basis": "NDS 2024 Eq.11.3-1 for an eligible two-fastener row",
+    "conclusion": "Cg >= 0.5 without an EA box. Singleton Cg=1. Both partitions of the two axes are covered.",
+    "denominator": "1+m^2-(1-R)*m >= 1+m^2-m >= 3/4",
+    "domain": "0<R<=1, 0<m<1 for positive member EA, pitch and load-slip modulus.",
+    "identity": "Cg-1/2=[R*(1+m^2)+(1-R)*m]/[2*(1+m^2-(1-R)*m)] > 0",
+    "source": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-11-Mechanical-Connections.pdf",
+    "two_bolt_form": "Cg=(1+R)*(1+m^2)/(2*(1+m^2-(1-R)*m))"
+  },
+  "question": "Does uncertainty in effective EA alone prevent the upper two-bolt lateral comparisons?",
+  "result": "All twelve saved directional pure-lateral comparisons meet even at the universal two-fastener Cg floor and Cdelta=1. Uncertainty in EA alone is no longer an open input for these particular comparisons.",
+  "rows": [
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "a12-forward",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.7481066746000721,
+      "minimum_current_directional_Z_lbf": 755.1585263197734,
+      "paired_aggregate_directional_index": 0.7026303525162629,
+      "paired_individual_index": 0.7481066746000721,
+      "singleton_direction_independent_index": 0.5557697710467071,
+      "sum_lateral_force_magnitudes_lbf": 530.597301553724
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "a12-forward",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.23075919941345063,
+      "minimum_current_directional_Z_lbf": 759.8230608096541,
+      "paired_aggregate_directional_index": 0.2098142944333876,
+      "paired_individual_index": 0.23075919941345063,
+      "singleton_direction_independent_index": 0.1724903309399409,
+      "sum_lateral_force_magnitudes_lbf": 159.42173939799451
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "a12-left",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.8391574081823112,
+      "minimum_current_directional_Z_lbf": 756.9374015234363,
+      "paired_aggregate_directional_index": 0.7936304692915958,
+      "paired_individual_index": 0.8391574081823112,
+      "singleton_direction_independent_index": 0.6248800497940967,
+      "sum_lateral_force_magnitudes_lbf": 600.7285851954058
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "a12-left",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.21868656098007264,
+      "minimum_current_directional_Z_lbf": 745.906461679628,
+      "paired_aggregate_directional_index": 0.21331332525039998,
+      "paired_individual_index": 0.21868656098007264,
+      "singleton_direction_independent_index": 0.1604721701730812,
+      "sum_lateral_force_magnitudes_lbf": 159.1117876666415
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "a12-rear",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.9124503903824777,
+      "minimum_current_directional_Z_lbf": 748.429280027882,
+      "paired_aggregate_directional_index": 0.8673461680387138,
+      "paired_individual_index": 0.9124503903824777,
+      "singleton_direction_independent_index": 0.6718205628522655,
+      "sum_lateral_force_magnitudes_lbf": 649.1472680801569
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "a12-rear",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.25487450066916123,
+      "minimum_current_directional_Z_lbf": 762.0792054321557,
+      "paired_aggregate_directional_index": 0.23535010145386095,
+      "paired_individual_index": 0.25487450066916123,
+      "singleton_direction_independent_index": 0.19108199231825146,
+      "sum_lateral_force_magnitudes_lbf": 179.3554183143356
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "k12-right",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.23041824147573697,
+      "minimum_current_directional_Z_lbf": 745.5048891225667,
+      "paired_aggregate_directional_index": 0.2239990954526766,
+      "paired_individual_index": 0.23041824147573697,
+      "singleton_direction_independent_index": 0.1689898479833128,
+      "sum_lateral_force_magnitudes_lbf": 166.99242081900292
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "k12-right",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.8278811367364659,
+      "minimum_current_directional_Z_lbf": 756.8124747846105,
+      "paired_aggregate_directional_index": 0.7826339976137614,
+      "paired_individual_index": 0.8278811367364659,
+      "singleton_direction_independent_index": 0.6163814084587599,
+      "sum_lateral_force_magnitudes_lbf": 592.3071725846437
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "k12-rear",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.26753139011912613,
+      "minimum_current_directional_Z_lbf": 762.3080447015304,
+      "paired_aggregate_directional_index": 0.2476830274596331,
+      "paired_individual_index": 0.26753139011912613,
+      "singleton_direction_independent_index": 0.20063121843492798,
+      "sum_lateral_force_magnitudes_lbf": 188.8107643685084
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "k12-rear",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.9002779949941202,
+      "minimum_current_directional_Z_lbf": 749.430157943951,
+      "paired_aggregate_directional_index": 0.8559955981628914,
+      "paired_individual_index": 0.9002779949941202,
+      "singleton_direction_independent_index": 0.6637446937571224,
+      "sum_lateral_force_magnitudes_lbf": 641.5089163305425
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "case": "a1-rear",
+      "group": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.24700524820519204,
+      "minimum_current_directional_Z_lbf": 742.2289386047647,
+      "paired_aggregate_directional_index": 0.23592834499210671,
+      "paired_individual_index": 0.24700524820519204,
+      "singleton_direction_independent_index": 0.18035879514650893,
+      "sum_lateral_force_magnitudes_lbf": 175.11284509027013
+    },
+    {
+      "Cg_lower_bound": 0.5,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "case": "a1-rear",
+      "group": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "minimum_Cdelta_to_keep_this_lateral_reference_below_one": 0.17537545841254734,
+      "minimum_current_directional_Z_lbf": 761.7615034096508,
+      "paired_aggregate_directional_index": 0.1598052838325335,
+      "paired_individual_index": 0.17537545841254734,
+      "singleton_direction_independent_index": 0.1314259430499502,
+      "sum_lateral_force_magnitudes_lbf": 121.73351326507668
+    }
+  ],
+  "schema": "v11_upper_pair_universal_Cg_floor/v1",
+  "scope": [
+    "Uses the already computed minimum of the two bolts' current directional six-mode Z values. The deliberately smaller direction-independent Fe90 floor need not replace an applicable directional value.",
+    "No actual Cg, physical row eligibility or Cdelta is assigned. If Cdelta is reduced, these indices must be divided by the applicable connection-wide Cdelta before acceptance.",
+    "These are the saved net lateral resultants only. Axial captures, independent free couples, mixed-media complete strength, geometry and transverse transfer keep their own checks.",
+    "This proof is restricted to the NDS two-fastener lateral equation. It does not validate inherited universal1/n pressure or axial/bending diagnostics."
+  ],
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-pair-washer-followthrough.json": "9ea183dac4ff4015ca55dfe1121bf673aa6216c80fdd3e2e420cff094844c677",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf": "45a3d78de1a4fba573589be0fc776e37bd581e4cedec24e38d63856161092d33",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bound_upper_pair_without_EA.py": "f2a20fb93d95a722530f0b0efa628e61ee07362fb61d4b3924bc66b3440c3dae",
+    "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/connections/standard-Cg-net-lateral-v1.json": "c4a67dd57e107367897e3d75bef0abdde97f5ef4402bb4e9909d3b95c7c68981"
+  },
+  "stopping_condition": "Prove the n=2 scalar bound and apply it to the twelve saved upper-pair directional comparisons and both partitions; no force solve or geometry calculation.",
+  "whole_acceptance_items_closed": 0
+}

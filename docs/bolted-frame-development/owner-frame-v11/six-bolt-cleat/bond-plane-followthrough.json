@@ -1,0 +1,568 @@
+{
+  "audit": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/local-bond-plane-audit.json",
+    "sha256": "2e287f8fda3e26d9e7d270481d79fa2ae5b382b95aead1844ff1933c6deec68c"
+  },
+  "audit_producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/audit_local_bond_plane.py",
+    "sha256": "db51c3bc9f9237c4371ff95c2066790d19b8c9048a8f1fd8538335c64f884784"
+  },
+  "calculation_producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/local_bond_plane.py",
+    "sha256": "257c1e3f54a388796f22a68a92e1dc7edc3ecf53498a29a13bed931912d7fea4"
+  },
+  "candidate": "v11-six-bolt-cleat-v1",
+  "changed_input": "The owner-authorized T88 baseline permits this local constitutive extension; all twelve saved current leaf loads carry forward. No previous frame result is invalidated.",
+  "complete_acceptance_items_remaining": 4,
+  "controls": {
+    "axial_Green_function_relative_error": 0.000262784192470944,
+    "normal_foundation_relative_error": 3.391533598406937e-08
+  },
+  "decision": "All twelve longitudinal/normal plane comparisons meet the declared adhesive screening references. This adds a compatible local plane response; it does not close the full glued-cleat or complete-joint claim.",
+  "energy_per_unit_length": "Sum of EA_i*(u_i_prime)^2/2 + EI_i*(w_i_double_prime)^2/2, plus b*ks*((u_outer-u_inner)-r_outer*w_outer_prime+r_inner*w_inner_prime)^2/2 + b*kn*(w_outer-w_inner)^2/2. r_i=interface_x-leaf_centroid_x.",
+  "geometry_hardware_force_bank_or_frozen_operator_changed": false,
+  "geometry_model": "Saved trapezoidal outline and all six bores determine net strip width at each Z. Point forces/couples keep their current coordinates and are projected with work-conjugate linear/Hermite functions. Strip-average loading remains an explicit idealization.",
+  "governing_comparisons": {
+    "longitudinal_shear_reference_index": {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.02577321860732959,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00026256006467619,
+      "maximum_free_residual_N_Nmm": 9.376094567414839e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0006661518564734219,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.007803536706758791,
+      "normal_tension_reference_index": 0.0006107721606060706,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        312.3679683609812,
+        -53.088907344263326,
+        92850.53294057977
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 1.5866142348386347e-05,
+      "peaks": {
+        "compression": [
+          0.13450872905358047,
+          299.4379636291986
+        ],
+        "shear": [
+          0.06397203130607095,
+          338.1804415771248
+        ],
+        "tension": [
+          0.0058955761323240645,
+          284.84764815567996
+        ]
+      }
+    },
+    "normal_compression_reference_index": {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.01650249183018324,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 7.227240047074507e-05,
+      "maximum_free_residual_N_Nmm": 2.7264468371868134e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0001459849525250058,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.013014479962858086,
+      "normal_tension_reference_index": 0.001060736264756271,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -635.7893909800988,
+        -79.84429198960746,
+        -187336.26234196118
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.0002602861204650253,
+      "peaks": {
+        "compression": [
+          0.22432920160177322,
+          342.4017483953066
+        ],
+        "shear": [
+          0.04096104332457858,
+          382.32949494436576
+        ],
+        "tension": [
+          0.010238926736579052,
+          357.25808152639314
+        ]
+      }
+    },
+    "normal_tension_reference_index": {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.01650249183018324,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 7.227240047074507e-05,
+      "maximum_free_residual_N_Nmm": 2.7264468371868134e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0001459849525250058,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.013014479962858086,
+      "normal_tension_reference_index": 0.001060736264756271,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -635.7893909800988,
+        -79.84429198960746,
+        -187336.26234196118
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.0002602861204650253,
+      "peaks": {
+        "compression": [
+          0.22432920160177322,
+          342.4017483953066
+        ],
+        "shear": [
+          0.04096104332457858,
+          382.32949494436576
+        ],
+        "tension": [
+          0.010238926736579052,
+          357.25808152639314
+        ]
+      }
+    }
+  },
+  "limits": [
+    "Fy, Mx and Mz and widthwise variation are excluded; this is not a complete leaf or bond calculation.",
+    "Apparent long-span EI is reused locally under an Euler-beam idealization. Local plywood shear/thickness flexibility and veneer/interface failure are not thereby qualified.",
+    "The tapered perimeter and six bores reduce strip width; load at each saved point is smeared across that strip. Section-average peaks are not physical bore-edge or washer-edge stress bounds.",
+    "The new 7000psi/5 tensile reference is the same project fivefold screening reserve applied to the already sourced T88 short-term tensile value, not a plywood peel allowable."
+  ],
+  "method_reference": {
+    "scope": "General need to check local shear, peel and adherend bending, printed pp.2-3. The worksheet energy and controls derive this separate two-beam extension; NASA lap-joint stress multipliers and its composite capacities are not transferred.",
+    "title": "NASA TM-102120, Simplified Procedures for Designing Adhesively Bonded Composite Joints, Chamis and Murthy (1989)",
+    "url": "https://ntrs.nasa.gov/api/citations/19890016677/downloads/19890016677.pdf"
+  },
+  "model": "Two variable-width Euler beams with axial and apparent flatwise bending stiffness; linear normal/shear bond. Independent physical leaves and current Fx/Fz/My; section-average tractions across width.",
+  "normal_reference_rule": "Use the already sourced short-term T88 tensile value 7000psi divided by the same project-only fivefold reserve; kn=E/t=12927.669924690676MPa/mm is an unconfined linear spring assumption. No plywood peel allowable is inferred.",
+  "parameters": {
+    "EA_full_width_per_leaf_N": 11926794.205917213,
+    "EI_full_width_per_leaf_Nmm2": 434059466.9168463,
+    "normal_stiffness_MPa_per_mm": 12927.669924690676,
+    "shear_screening_reference_MPa": 2.48211262554061,
+    "shear_stiffness_MPa_per_mm": 4309.2233082302255,
+    "tension_screening_reference_MPa": 9.652660210435705
+  },
+  "physical_release": false,
+  "question": "Does finite adhesive stiffness with the current longitudinal and normal leaf loads introduce a failing section-average shear/peel comparison in a compatible two-beam plane model?",
+  "raw_result": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/local-bond-plane-result.json",
+    "sha256": "5faa878644dab8c9b1fd14176299ce57afa1547863c8488b5e44d0cb402c9d76"
+  },
+  "remaining_bond_claim_work": [
+    "Retain Fy/Mx/Mz and widthwise variation in an applicable joint/laminate treatment.",
+    "Address local plywood shear/thickness flexibility and veneer/interface resistance; the apparent long-span EI alone does not prove short-span/local behavior.",
+    "Do not add this compatible plane shear to the old VQ/EI shear as if they were independent applied loads. Both are reductions of the same current loads."
+  ],
+  "results": [
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.01650249183018324,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 7.227240047074507e-05,
+      "maximum_free_residual_N_Nmm": 2.7264468371868134e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0001459849525250058,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.013014479962858086,
+      "normal_tension_reference_index": 0.001060736264756271,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -635.7893909800988,
+        -79.84429198960746,
+        -187336.26234196118
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.0002602861204650253,
+      "peaks": {
+        "compression": [
+          0.22432920160177322,
+          342.4017483953066
+        ],
+        "shear": [
+          0.04096104332457858,
+          382.32949494436576
+        ],
+        "tension": [
+          0.010238926736579052,
+          357.25808152639314
+        ]
+      }
+    },
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.02577321860732959,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00026256006467619,
+      "maximum_free_residual_N_Nmm": 9.376094567414839e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0006661518564734219,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.007803536706758791,
+      "normal_tension_reference_index": 0.0006107721606060706,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        312.3679683609812,
+        -53.088907344263326,
+        92850.53294057977
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 1.5866142348386347e-05,
+      "peaks": {
+        "compression": [
+          0.13450872905358047,
+          299.4379636291986
+        ],
+        "shear": [
+          0.06397203130607095,
+          338.1804415771248
+        ],
+        "tension": [
+          0.0058955761323240645,
+          284.84764815567996
+        ]
+      }
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.017023912545554593,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.0002325097223539324,
+      "maximum_free_residual_N_Nmm": 3.485994284346816e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.00018093491094311011,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.01256266365963796,
+      "normal_tension_reference_index": 0.0010251915391929947,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -755.7071830082249,
+        -94.69494624738287,
+        -210792.65345173143
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.0001892545260488987,
+      "peaks": {
+        "compression": [
+          0.2165412922222749,
+          342.5239681889832
+        ],
+        "shear": [
+          0.04225526826542024,
+          343.80885066803387
+        ],
+        "tension": [
+          0.009895825578443556,
+          357.3880651019338
+        ]
+      }
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.017675969459144965,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00016701849932948543,
+      "maximum_free_residual_N_Nmm": 5.792817319161259e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.000649192284031426,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.004508897088338077,
+      "normal_tension_reference_index": 0.00036428239958573836,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        241.15777741215115,
+        -15.804533482158334,
+        67968.3434447642
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 9.969607344828546e-05,
+      "peaks": {
+        "compression": [
+          0.07771937770991136,
+          299.4379636291986
+        ],
+        "shear": [
+          0.043873746963213944,
+          304.2505243319661
+        ],
+        "tension": [
+          0.003516294223843297,
+          284.84764815567996
+        ]
+      }
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.015364667827384753,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 5.7338439977433486e-05,
+      "maximum_free_residual_N_Nmm": 4.595875680024619e-08,
+      "maximum_gauge_reaction_N_Nmm": 0.00016145674252037692,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.012033754774104267,
+      "normal_tension_reference_index": 0.0009787154059219259,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -534.3283155200597,
+        -68.71790241906719,
+        -156619.77660175078
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 9.781072731129825e-05,
+      "peaks": {
+        "compression": [
+          0.20742454623238746,
+          342.4017483953066
+        ],
+        "shear": [
+          0.038136836001589305,
+          302.5338506680339
+        ],
+        "tension": [
+          0.009447207256083003,
+          357.25808152639314
+        ]
+      }
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.02319821987296476,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00021229430256002046,
+      "maximum_free_residual_N_Nmm": 6.82053723721765e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0005874839520321499,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.008543310183664363,
+      "normal_tension_reference_index": 0.0006685551771880565,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        332.3933067345208,
+        -22.714137392457094,
+        96249.32956091152
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 1.823037746362388e-05,
+      "peaks": {
+        "compression": [
+          0.1472601254915485,
+          299.5601834228752
+        ],
+        "shear": [
+          0.05758059443675291,
+          304.2505243319661
+        ],
+        "tension": [
+          0.006453335957323946,
+          285.01717556226873
+        ]
+      }
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.0183358702933521,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00018563709004008888,
+      "maximum_free_residual_N_Nmm": 7.249182090163231e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0009326749208773636,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.0048394480255104545,
+      "normal_tension_reference_index": 0.0003862492345190611,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -240.83710668798653,
+        -20.16969523535041,
+        -68974.96341831818
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 9.909679647535086e-06,
+      "peaks": {
+        "compression": [
+          0.08341704892199357,
+          299.4379636291986
+        ],
+        "shear": [
+          0.04551169515540425,
+          304.2505243319661
+        ],
+        "tension": [
+          0.00372833261735339,
+          284.84764815567996
+        ]
+      }
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.016611674851126957,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00021096405936877477,
+      "maximum_free_residual_N_Nmm": 3.2777825254015625e-07,
+      "maximum_gauge_reaction_N_Nmm": 6.221774704827005e-05,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.012526354971093898,
+      "normal_tension_reference_index": 0.001022224457079854,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        759.4593968225142,
+        -97.54069037502515,
+        211302.0556102944
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.00011682015610858798,
+      "peaks": {
+        "compression": [
+          0.21591544323441353,
+          342.5239681889832
+        ],
+        "shear": [
+          0.04123204787935765,
+          343.80885066803387
+        ],
+        "tension": [
+          0.009867185342988949,
+          357.3880651019338
+        ]
+      }
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.02382961579307484,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.00023416541748028097,
+      "maximum_free_residual_N_Nmm": 8.485408216074575e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0009651692550105054,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.008541471430419176,
+      "normal_tension_reference_index": 0.000668409913462632,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -333.0846088036622,
+        -28.31997850396395,
+        -96849.5850132855
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 3.3081581932492554e-05,
+      "peaks": {
+        "compression": [
+          0.1472284310981795,
+          299.5601834228752
+        ],
+        "shear": [
+          0.059147790221772974,
+          304.2505243319661
+        ],
+        "tension": [
+          0.006451933775941521,
+          285.01717556226873
+        ]
+      }
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.01550216586373067,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 7.582594529312314e-05,
+      "maximum_free_residual_N_Nmm": 2.255546860396862e-08,
+      "maximum_gauge_reaction_N_Nmm": 0.00011135867381015001,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.01188970924457275,
+      "normal_tension_reference_index": 0.0009668688823100721,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        522.0066437113363,
+        -67.74472439250141,
+        153298.89171638162
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.0001073357998393476,
+      "peaks": {
+        "compression": [
+          0.20494164881917312,
+          342.4017483953066
+        ],
+        "shear": [
+          0.03847812161359055,
+          302.84342205923883
+        ],
+        "tension": [
+          0.009332856788982876,
+          357.25808152639314
+        ]
+      }
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_left",
+      "longitudinal_shear_reference_index": 0.020274380921420112,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 0.0002053363803843425,
+      "maximum_free_residual_N_Nmm": 5.91157004237175e-07,
+      "maximum_gauge_reaction_N_Nmm": 0.0007250041071745015,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.006237438988287996,
+      "normal_tension_reference_index": 0.0004882000525432958,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        -303.8743732953227,
+        -7.345187736718622,
+        -83090.5506784529
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 2.9996546800248325e-05,
+      "peaks": {
+        "compression": [
+          0.10751406988797836,
+          299.4379636291986
+        ],
+        "shear": [
+          0.05032329686007652,
+          304.2505243319661
+        ],
+        "tension": [
+          0.0047124292219172925,
+          284.84764815567996
+        ]
+      }
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_right",
+      "longitudinal_shear_reference_index": 0.006612592002943677,
+      "maximum_1mm_to_half_mm_peak_difference_MPa": 4.057851257998832e-05,
+      "maximum_free_residual_N_Nmm": 5.1381384480464476e-08,
+      "maximum_gauge_reaction_N_Nmm": 9.939540632709042e-05,
+      "nodes_per_leaf": 730,
+      "normal_compression_reference_index": 0.0037748598877354596,
+      "normal_tension_reference_index": 0.00029500823107541464,
+      "outer_bond_Fx_Fz_My_about_interface_origin": [
+        175.73819333728085,
+        -17.447975089061057,
+        44515.84656165846
+      ],
+      "outer_leaf_equilibrium_error_N_Nmm": 0.00016390184464398772,
+      "peaks": {
+        "compression": [
+          0.0650668568541319,
+          299.8744318181818
+        ],
+        "shear": [
+          0.01641319809805537,
+          169.74597887742064
+        ],
+        "tension": [
+          0.002847614213852677,
+          285.2163521126983
+        ]
+      }
+    }
+  ],
+  "retention": "Both short worksheets, initial method-defect record in the audit and approximately167KB raw result stay active in the existing ignored evaluation-completion folder; no archive or prune.",
+  "schema": "v11_bond_plane_followthrough/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/recorded-material-baseline.json": "bde7665a71cba96758ea8c6dde25f37b5bbc46950e7a5748219b4374fa31594b",
+    "fea/generated/v11-shorter-bolts-v1/connection-disposition-inputs-v1/interleaf-leaf-wrench-v1/build_interleaf_leaf_wrenches_v1.py": "500fa4295e4387dce0b49185c210b81dac35c801f40828da0cf3d99a91224bcc",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a1-rear/field.json": "73a9b02e9d830eae79981c057c7829f6532fa4b814ac31ff31c597c6acfa521f",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-forward/field.json": "290c35ca9d20e19316a9719f2e0090783f122103c2ac15716a91475b2af70010",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-left/field.json": "b7b8370867162420f4ddfd9dc650892e1106fd7c7c19f46201eb4476b4850f3e",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/a12-rear/field.json": "ce0eef7cf1798705ed8df2be7f091c4507370968a8aea490f163199ab5df98b9",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-rear/field.json": "472106e43280f3949d0fd41e7dab55419fe41b6bf9fe2570162653b8acdeed31",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/k12-right/field.json": "c90b25f527cb10b071073d840a08f0ea3d0222b1c003ae10d0b59e7413324577",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/material.json": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/local_bond_plane.py": "257c1e3f54a388796f22a68a92e1dc7edc3ecf53498a29a13bed931912d7fea4"
+  },
+  "structural_acceptance": false,
+  "verification": {
+    "all_12_fine_replays_identical": true,
+    "analytic_controls": {
+      "axial_Green_function_relative_error": 0.000262784192470944,
+      "normal_foundation_relative_error": 3.391533598406937e-08
+    },
+    "force_gate_N": 0.0001,
+    "mesh_relative_peak_changes": {
+      "compression": 0.000712481462339154,
+      "shear": 0.005502502573015433,
+      "tension": 0.0006898821204328609
+    },
+    "mirror_peak_error_MPa": 0.0,
+    "moment_gate_Nmm": 0.1,
+    "unit_separated_residual_maxima": {
+      "free_force_error_N": 9.376094567414839e-07,
+      "free_moment_error_Nmm": 1.9697441189236997e-07,
+      "gauge_force_error_N": 6.673918237656059e-06,
+      "gauge_moment_error_Nmm": 0.0009651692550105054,
+      "outer_leaf_force_error_N": 9.743360180891614e-07,
+      "outer_leaf_moment_error_Nmm": 0.0002602861204650253
+    }
+  },
+  "whole_acceptance_items_closed": 0
+}

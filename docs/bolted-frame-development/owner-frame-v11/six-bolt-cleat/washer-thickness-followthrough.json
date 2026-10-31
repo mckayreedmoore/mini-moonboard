@@ -1,0 +1,294 @@
+{
+  "schema": "v11-six-bolt-washer-minimum-thickness-followthrough-v1",
+  "candidate": "v11-six-bolt-cleat-v1",
+  "decision": "Parent-reported proposed response2.30mm was checked against the current schedule. A blanket196-washer application exceeds12 foot stack envelopes. This calculation supplies the narrower no-geometry proposal:2.30mm for184 ordinary SKU15023 ends, retain1.6256mm minimum for12 frame-foot ends and existing SKU15025 minimum; retainFy200MPa throughout. Parent adoption pending; no supplied conformity or product substitution is inferred.",
+  "specification": {
+    "SKU15023": {
+      "quantity_at_new_minimum": 184,
+      "quantity_at_retained_foot_minimum": 12,
+      "retained_foot_minimum_thickness_mm": 1.6256,
+      "retained_foot_CAD_thickness_mm": 2.032,
+      "minimum_delivered_thickness_mm": 2.3,
+      "maximum_existing_catalog_and_CAD_thickness_mm": 2.6416,
+      "minimum_tensile_yield_strength_MPa": 200.0,
+      "existing_catalog_thickness_range_mm": [
+        1.6256,
+        2.6416
+      ],
+      "nominal_or_merchant_label_alone_sufficient": false,
+      "scope": "2.30mm minimum applies to184 ordinary ends with2.6416mm CAD envelope. Both ends of the six listed foot axes retain1.6256mm minimum and2.032mm CAD envelope.",
+      "retained_foot_axis_ids_both_ends": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_right_1"
+      ]
+    },
+    "SKU15025": {
+      "quantity": 8,
+      "thickness_basis": "Existing minimum retained literally.",
+      "minimum_tensile_yield_strength_MPa": 200.0
+    },
+    "retained": "Existing axis positions, head/nut radius hypotheses, ID/OD/support annuli, maximum stack envelopes,204 washer count and102 bolt axes.",
+    "procurement_condition": "Current listing permits washers thinner than2.30mm and does not establishFy200. The provisionalSKU alone does not meet this tightened specification; applicable documentation/receiving must establish thickness and material. Any substitute or dimension outside the retained envelope needs a separate affected check."
+  },
+  "method": "Existing exact statically admissible annulus field helper coefficients(a,b,c,s,t). Omega1.67 applied once. Existing near-seat continuousID-box screens are also updated at the new thickness; all other radius/face assumptions remain literal.",
+  "source_result_replay": "All1224 baseline current-demand rows and204 changed-prior a12forward rows reproduce their previous minimum-thickness requiredFy within1e-10MPa before changing thickness.",
+  "summary": [
+    {
+      "stage": "baseline",
+      "rows": 1224,
+      "maximum_Fy200_index": 0.4751021974928824,
+      "governing": {
+        "case_id": "a12-forward",
+        "axis_id": "eoere_bolt_082",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left",
+        "washer_sku": "15023",
+        "capture_N": 393.6580666408869,
+        "new_minimum_thickness_mm": 2.3,
+        "governing_after_required_Fy_MPa": 95.02043949857648
+      },
+      "by_sku": [
+        {
+          "washer_sku": "15023",
+          "rows": 1176,
+          "maximum_Fy200_index": 0.4751021974928824,
+          "governing": {
+            "case_id": "a12-forward",
+            "axis_id": "eoere_bolt_082",
+            "end": "nut",
+            "host": "eoere_clip_header_outer_under_left",
+            "washer_sku": "15023",
+            "capture_N": 393.6580666408869,
+            "new_minimum_thickness_mm": 2.3,
+            "governing_after_required_Fy_MPa": 95.02043949857648
+          }
+        },
+        {
+          "washer_sku": "15025",
+          "rows": 48,
+          "maximum_Fy200_index": 0.41503537113029465,
+          "governing": {
+            "case_id": "a12-left",
+            "axis_id": "proposal_upper_rear_left_added_half_in",
+            "end": "head",
+            "host": "lumber_leg_left",
+            "washer_sku": "15025",
+            "capture_N": 341.8503439080531,
+            "new_minimum_thickness_mm": 2.1843999999999997,
+            "governing_after_required_Fy_MPa": 83.00707422605893
+          }
+        }
+      ]
+    },
+    {
+      "stage": "capture20x_flange4x_a12forward",
+      "rows": 204,
+      "maximum_Fy200_index": 0.8475092223021342,
+      "governing": {
+        "case_id": "a12-forward",
+        "axis_id": "eoere_bolt_082",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left",
+        "washer_sku": "15023",
+        "capture_N": 702.2254236506197,
+        "new_minimum_thickness_mm": 2.3,
+        "governing_after_required_Fy_MPa": 169.50184446042684
+      },
+      "by_sku": [
+        {
+          "washer_sku": "15023",
+          "rows": 196,
+          "maximum_Fy200_index": 0.8475092223021342,
+          "governing": {
+            "case_id": "a12-forward",
+            "axis_id": "eoere_bolt_082",
+            "end": "nut",
+            "host": "eoere_clip_header_outer_under_left",
+            "washer_sku": "15023",
+            "capture_N": 702.2254236506197,
+            "new_minimum_thickness_mm": 2.3,
+            "governing_after_required_Fy_MPa": 169.50184446042684
+          }
+        },
+        {
+          "washer_sku": "15025",
+          "rows": 8,
+          "maximum_Fy200_index": 0.7701255019621408,
+          "governing": {
+            "case_id": "a12-forward",
+            "axis_id": "proposal_upper_rear_left_added_half_in",
+            "end": "nut",
+            "host": "base_side_left",
+            "washer_sku": "15025",
+            "capture_N": 634.3258575314792,
+            "new_minimum_thickness_mm": 2.1843999999999997,
+            "governing_after_required_Fy_MPa": 154.02510039242816
+          }
+        }
+      ]
+    }
+  ],
+  "old_minimum_probe_exceedance_count": 6,
+  "all1428_comparisons_meet_new_specification": true,
+  "resistance_only_change": true,
+  "elastic_response_or_force_fields_changed_by_this_calculation": false,
+  "blanket_2p30mm_within_all196_existing_modeled_maximums": false,
+  "narrowed_184_end_spec_within_existing_modeled_maximums": true,
+  "retained_foot_end_identities": [
+    {
+      "axis_id": "rail_front_bolt_left_1",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_front_bolt_left_1",
+      "end": "nut"
+    },
+    {
+      "axis_id": "rail_front_bolt_left_2",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_front_bolt_left_2",
+      "end": "nut"
+    },
+    {
+      "axis_id": "rail_front_bolt_right_1",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_front_bolt_right_1",
+      "end": "nut"
+    },
+    {
+      "axis_id": "rail_front_bolt_right_2",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_front_bolt_right_2",
+      "end": "nut"
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "end": "nut"
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "end": "head"
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "end": "nut"
+    }
+  ],
+  "actual_stack_or_thread_fit_observed": false,
+  "whole_assembly_accepted": false,
+  "structural_acceptance": false,
+  "new_native_frame_CAD_runs": 0,
+  "actual_observations_changed": false,
+  "limitations": [
+    "Changed-prior result covers one governing load case; it is not a universal stiffness/demand bound or completion of other affected structural checks.",
+    "2.30mm is proposed only for184 ordinary ends within their modeled2.6416mm envelopes. Twelve frame-foot ends retain the old1.6256mm minimum within their2.032mm CAD envelopes. This verifies envelope inclusion, not actual washer geometry/thread engagement.",
+    "The original1.6256mm baseline records and six changed-prior exceedances remain unchanged historical evidence.",
+    "Scalar compression_n defect in the raw changed-prior action export is recorded in the audit; this calculation consumes independently verified current force magnitudes, not stale scalars."
+  ],
+  "old_minimum_probe_exceedance_identities": [
+    {
+      "axis_id": "eoere_bolt_005",
+      "end": "head",
+      "host": "base_rail_top",
+      "washer_sku": "15023",
+      "capture_N": 685.077923924271,
+      "before_required_Fy_MPa": 302.8696609079051
+    },
+    {
+      "axis_id": "eoere_bolt_005",
+      "end": "nut",
+      "host": "eoere_clip_single_top_left_1",
+      "washer_sku": "15023",
+      "capture_N": 684.3178555524432,
+      "before_required_Fy_MPa": 302.25526680165154
+    },
+    {
+      "axis_id": "eoere_bolt_006",
+      "end": "head",
+      "host": "base_side_left",
+      "washer_sku": "15023",
+      "capture_N": 640.2163239067823,
+      "before_required_Fy_MPa": 283.03656293380544
+    },
+    {
+      "axis_id": "eoere_bolt_006",
+      "end": "nut",
+      "host": "eoere_clip_single_top_left_1",
+      "washer_sku": "15023",
+      "capture_N": 640.2163239086533,
+      "before_required_Fy_MPa": 282.77613133090733
+    },
+    {
+      "axis_id": "eoere_bolt_082",
+      "end": "head",
+      "host": "eoere_clip_angle_base_left",
+      "washer_sku": "15023",
+      "capture_N": 702.9737953578552,
+      "before_required_Fy_MPa": 303.1193287709532
+    },
+    {
+      "axis_id": "eoere_bolt_082",
+      "end": "nut",
+      "host": "eoere_clip_header_outer_under_left",
+      "washer_sku": "15023",
+      "capture_N": 702.2254236506197,
+      "before_required_Fy_MPa": 310.1648321145623
+    }
+  ],
+  "calculation": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/washer-thickness-followthrough-v1.json",
+    "sha256": "4164afe5947c5c6b81a69a87e2cfcde8a20468395b468ecb7a8de18ace9d59cd"
+  },
+  "source_sha256": {
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/all-1224-end-demands-static-v1.json": "78a1e621d63b6196bfab3d2e3af87e3c34f416d4cdead6ff68b127d3bde8900c",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/a12-forward-stiff/changed-prior-results.json": "2bf3a09bfaec31d7e8e4b2ae8eb5ebdc31109b6330d6a82e2cf93839d06850b4",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-washer-thickness-v1.json": "a77576a3cc8d8e9323180265801b10057a9121f144bbaf062ac2f52a13252368",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/end-geometry-reuse-v1.json": "968c42abc1d2964db8b4988a97c6a3bf74646d66202b1e8e5528504ec5d8cddd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/washer-material-specification.json": "885c4548e605ee161b2738262a5ee1b50c73ac0ff7df09f4ab7afda673ba6cda",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/hardware-axis-crosswalk.csv": "e6bf310ac8ff81a6156070b6fa3d873a730cc6851f5c7420920b7d8c9eb3d838",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-v1.py": "3e3540512c94df5802dad9163cdb292dd998e9979c4e19e34e165793ba1b4125",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/washer_thickness_followthrough.py": "ae1246a4980a503a1bc4b1dd4e944c9bb3e42970040bf34363b88ed972065fc3"
+  },
+  "adoption_status": "Calculated for parent adoption; parent owns maintained specification and procurement instructions.",
+  "retained_foot_summary": [
+    {
+      "stage": "baseline",
+      "rows": 72,
+      "maximum_Fy200_index": 0.23946132770368597,
+      "governing": {
+        "case_id": "k12-right",
+        "axis_id": "rail_rear_bolt_right_1",
+        "end": "nut",
+        "host": "base_floor_right",
+        "capture_N": 108.42997972932716
+      }
+    },
+    {
+      "stage": "capture20x_flange4x_a12forward",
+      "rows": 12,
+      "maximum_Fy200_index": 0.4242014459541702,
+      "governing": {
+        "case_id": "a12-forward",
+        "axis_id": "rail_rear_bolt_left_1",
+        "end": "nut",
+        "host": "base_floor_left",
+        "capture_N": 192.0817637947722
+      }
+    }
+  ]
+}

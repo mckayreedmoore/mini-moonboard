@@ -1,0 +1,84 @@
+{
+  "schema": "v11-current-working-laminate-assumptions-v1",
+  "candidate": "v11-six-bolt-cleat-v1",
+  "authority": "Owner-directed continuation with reasonable history/online-based assumptions; assistant adopts the values below for conditional numerical evaluation.",
+  "assumptions": {
+    "plywood": "Two nominal19.05mm generic-birch leaves; existing conditional APA24oc PS1Group1 five-ply response/strength proxy;36.5mm credited wall.",
+    "adhesive": "Retained structural-cleat T88 exception; full-face well-made wood-limited bond on clean unfinished faces, correct mix and full cure.",
+    "normal_resistance_MPa": 0.35,
+    "normal_basis": "Project assumption for the weakest panel/internal/new face-bond normal path: round down the previously sourced weaker278psi panel sample divided by5. Not a Paged minimum or a measured T88 normal adhesion value.",
+    "rolling_shear_reference_MPa": 0.25855339849381354,
+    "rolling_basis": "Existing APA rolling-shear reference times permanent-load factor0.90.",
+    "compression_reference_MPa": 1.4478990315653557,
+    "compression_basis": "Existing conditional dry-panel210psi face-bearing reference.",
+    "short_term_E_MPa": 2585.5339849381353,
+    "short_term_G_MPa": 861.8446616460451,
+    "effective_glue_thickness_mm": 0.2,
+    "sustained_compliance_multiplier": 10.0,
+    "creep_basis": "Deliberately reduced effective interface stiffness:10% retained. Engineering allowance/sensitivity, not a published T88 creep factor or a life prediction. Strength references are assumed to remain applicable in the stated service envelope.",
+    "service": "Dry indoor service, panel moisture below16%, approximately room temperature, working range10\u201330C; sound veneers and a continuous properly cured bond.",
+    "interaction": "Project linear envelope: (abs(tau_xy)+abs(tau_xz))/Fs + max(sigma_xx/Ft,-sigma_xx/Fc) <=1; no compression-induced shear-strength benefit credited. Not an APA-prescribed multiaxial law."
+  },
+  "carried_forward": {
+    "load_contract": {
+      "accessory_mass_kg": 25,
+      "downward_multiplier": 2,
+      "duration_factor_CD": 1,
+      "horizontal_force_N": 300,
+      "weight_lb": 250
+    },
+    "timber": "Dry DF-L No.2; existing section/orthotropic response assumptions.",
+    "support": "Existing unverified no-slip floor analytical support.",
+    "bolts": "Partially threaded Grade5 profile; retained separate Fy/Fyb references92ksi.",
+    "angle": "Retained Q235B Fy235MPa/Fu370MPa and modeled6.35mm geometry.",
+    "washers": "Project minimumFy200MPa and current dimensional envelopes.",
+    "geometry": "102bolts;two rail-leg bolts andone leg-floor bolt;two nominal3/4inch cleat leaves;existing66Hillman count and panel/screw exclusions."
+  },
+  "online_context": [
+    {
+      "url": "https://pagedplywood.us/wp-content/uploads/2025/07/Paged_Plywood_Integrity_baltic_birch_platforms.pdf",
+      "locator": "PDFp2:278psi half-inch and393psi three-quarter sample internal bond; informational values.",
+      "use": "Representative source for an explicitly assumed conservative nominal resistance."
+    },
+    {
+      "url": "https://www.systemthree.com/products/t-88-structural-epoxy-adhesive",
+      "use": "Structural woodworking product/process basis; retain existing TDS/legacy response values."
+    },
+    {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10963582/",
+      "doi": "10.1007/s10443-023-10184-y",
+      "locator": "Table6; long tensile creep tests21.5C/55%RH,744days.",
+      "use": "Context that finite creep allowance and full cure matter. Tested epoxy is not T88;10x is a project choice, not extracted from this paper."
+    }
+  ],
+  "calculation": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/owner-assumed-laminate-comparison.json",
+    "sha256": "b34d7501eef2718d49214e85301c6f104ac0430532eaca7507fccdcdae4c8b68",
+    "side_case_comparisons": 24,
+    "maximum_same_point_interaction_index": 0.7354166061440196,
+    "governing": {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "side": "inner",
+      "recovered_interface_corner_records": 11550,
+      "maximum_linear_interaction_index": 0.7354166061440196,
+      "separate_peak_bound": 0.9812738994744088,
+      "maximum_shear_component_sum_MPa": 0.1805452717695472,
+      "governing_stress_xyz_MPa": [
+        -0.05375546992354226,
+        0.1136919438128204,
+        -0.28733077172623234,
+        0.1264582017540376,
+        0.054087070015509615,
+        0.24006563175814252
+      ]
+    },
+    "tenfold_compliance_modal_EI_loss": 0.005308991264171725
+  },
+  "adoption_scope": "These are the current project material/process/exposure assumptions for numerical work. Published sample values and selected engineering reserves are distinguished from guarantees or observed purchased properties.",
+  "next_dependent_check": "Current coarse spatial comparison meets. The next bond numerical decision is governing spatial mesh/zone sensitivity using the existing helper, mesh/load inputs and current governing cases, not another product-data search or full-frame rebuild.",
+  "frozen_original_results_replaced": false,
+  "new_native_frame_CAD_runs": 0,
+  "actual_observations_changed": false,
+  "complete_structural_acceptance": false
+}

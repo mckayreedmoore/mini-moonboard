@@ -1,0 +1,74 @@
+{
+  "actual_observations": null,
+  "actual_product_Fy_MPa": null,
+  "all1224_current_case_ends_below_specified_material_reference": true,
+  "candidate": "v11-six-bolt-cleat-v1",
+  "current_comparisons": [
+    {
+      "case_end_rows": 1176,
+      "governing": {
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left"
+      },
+      "maximum_conditional_material_index": 0.8693710312812746,
+      "provisional_SKU": "15023",
+      "quantity": 196,
+      "required_Fy_MPa": 173.87420625625492,
+      "specified_minimum_Fy_MPa": 200.0
+    },
+    {
+      "case_end_rows": 48,
+      "governing": {
+        "axis_id": "proposal_upper_rear_left_added_half_in",
+        "case_id": "a12-left",
+        "end": "head",
+        "host": "lumber_leg_left"
+      },
+      "maximum_conditional_material_index": 0.41503537113029465,
+      "provisional_SKU": "15025",
+      "quantity": 8,
+      "required_Fy_MPa": 83.00707422605893,
+      "specified_minimum_Fy_MPa": 200.0
+    }
+  ],
+  "force_bank_changed": false,
+  "geometry_changed": false,
+  "hardware_SKU_or_stack_changed": false,
+  "maximum_conditional_material_index": 0.8693710312812746,
+  "minimum_thickness_and_reference_factor": "RequiredFy values already include the saved1.67 comparison and each end minimum-thickness construction. Do not apply1.67 again.",
+  "physical_release": false,
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/specify_washer_material.py",
+    "sha256": "9e2babacd8d9c3cfefebc19e4991243182e065d2d9efb346b9ad8a71d0191d2e"
+  },
+  "provenance": "Project design/receiving requirement selected during owner-authorized acceptance resolution. Not a manufacturer-published property or empirical inference from a Grade5 label.",
+  "response_bank": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+  },
+  "schema": "v11_project_washer_material_specification/v1",
+  "scope": "Closes the conditional specified-material input/comparison only. Actual product conformity, elastic/plastic contact compatibility and complete seat/prying acceptance remain separate. Mean wood/plywood bearing comparisons are unchanged.",
+  "source_bindings": [
+    {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/all-1224-end-demands-static-v1.json",
+      "sha256": "78a1e621d63b6196bfab3d2e3af87e3c34f416d4cdead6ff68b127d3bde8900c"
+    },
+    {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/hardware-axis-crosswalk.csv",
+      "sha256": "e6bf310ac8ff81a6156070b6fa3d873a730cc6851f5c7420920b7d8c9eb3d838"
+    }
+  ],
+  "specification": {
+    "acceptable_documentation": "An applicable specified material standard and condition, supplier technical data or material certification establishing the minimum. A new physical test is not prescribed.",
+    "applies_to": "All204washers in the fixed102-bolt arrangement, under the recorded service/design basis.",
+    "geometry": "Retain the current scheduled dimensional envelopes, minimum thicknesses, bearing-face constraints and stack positions. This is not permission to substitute a different washer shape or thickness.",
+    "material_or_SKU_substitution": "Report any needed substitute and recheck its dimensions, stack and affected analysis before adopting it.",
+    "minimum_tensile_yield_strength_MPa": 200.0,
+    "purchase_condition": "The existing provisional15023/15025SKUs are eligible only if their supplied material meets this requirement. No such source is currently bound. Do not represent the present listing as meeting200MPa or order solely on its Grade5 wording."
+  },
+  "status": "conditional_washer_material_comparison_meets_specified_design_input",
+  "structural_acceptance": false,
+  "why_no_new_frame_solve": "Washer yield is a resistance specification only. No geometry, elastic constants, prepared spring/operator or external load changes."
+}

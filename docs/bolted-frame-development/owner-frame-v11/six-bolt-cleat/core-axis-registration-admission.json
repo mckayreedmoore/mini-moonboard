@@ -1,0 +1,92 @@
+{
+  "all_selected_cached_cores_match_current_axes": true,
+  "cached_axis_occurrences_audited": 98,
+  "cached_core_rows": 52,
+  "candidate": "v11-six-bolt-cleat-v1",
+  "cause": "The frozen relocation producer copied all earlier singleton core records and appended newly measured paired records. Two old leg singleton entries were left in the candidate-labeled cache even though their centers no longer lie on the current axes.",
+  "consumer_checks": [
+    {
+      "case_rows": 336,
+      "file": "parallel-current-v1.json",
+      "groups": 56,
+      "uses_rejected_singletons": false
+    },
+    {
+      "case_rows": 336,
+      "file": "current-reduced-depth-shear-v1.json",
+      "groups": 56,
+      "uses_rejected_singletons": false
+    }
+  ],
+  "correction": "The two named entries are excluded from current geometry authority. Preserve the frozen source bytes. Future cache consumers must select by host plus complete axis set and apply checked_core against the current physical axes before reuse; an equal member outline or matching axis name is insufficient.",
+  "current_component_results_invalidated": [],
+  "current_path_groups": 56,
+  "existing_result_reuse": "Current paired upper-group geometry, parallel and reduced-depth results carry forward unchanged; no affected numerical result was found that needs recomputation.",
+  "invalid_legacy_entries": [
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_left_1"
+      ],
+      "cached_center_xyz_mm": [
+        -1263.65,
+        1125.245692062,
+        1749.987315516
+      ],
+      "current_axis_origin_xyz_mm": [
+        -1308.1,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "current_reuse_status": "rejected; preserved historical singleton, not registered to current axis",
+      "host": "lumber_leg_left",
+      "normal_offset_mm": 6.509254164620031
+    },
+    {
+      "axis_ids": [
+        "lumber_leg_bolt_right_1"
+      ],
+      "cached_center_xyz_mm": [
+        1260.475,
+        1125.245692062,
+        1749.987315516
+      ],
+      "current_axis_origin_xyz_mm": [
+        1304.925,
+        1120.9889444131895,
+        1745.062836941169
+      ],
+      "current_reuse_status": "rejected; preserved historical singleton, not registered to current axis",
+      "host": "lumber_leg_right",
+      "normal_offset_mm": 6.509254164620031
+    }
+  ],
+  "new_geometry_queries_or_frame_native_runs": 0,
+  "off_axis_reuse_regressions_rejected": 2,
+  "other_current_path_groups": "Six use the independently qualified net-core fallback; two retain their existing geometry exclusions.",
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/audit_current_core_registration.py",
+    "sha256": "bceccc9c847e33780fb4cf88c49ef7eb49a4e27051a6bed3dba15d0b7a6668da"
+  },
+  "question": "Does an inherited upper-leg singleton core match the current bolt axis, and does any current component consumer select it?",
+  "registered_cached_cores_selected": 48,
+  "schema": "v11_core_axis_registration_admission/v1",
+  "source_sha256": {
+    "fea/generated/v11-relocated-rear-pair-v1/references/item3/brittle/continue_brittle_components_v2.py": "772b010334587e9e4b8977e9cd858a61e1e1d02efe1d2b7af2f665882f1274d5",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/geometry/current-sawn-reduced-depth-v2.json": "d9c1b92a4b36a2571e7b987fecb48a18439efd569aca85c2ac2b91bdc66ad1f9",
+    "fea/generated/v11-shorter-bolts-v1/connections/method-closure/splitting/appendix-e-v1/geometry_paths.py": "d4063b3d115de55b30f8eb2de58bcb33c7d0c4641a8c9189bd67fc6b899d77df",
+    "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/geometry.json": "f8e4a4eeac74c5357bc0d50d5085e4ccb9f09022dbf3b194f1ebc8e38221baa3",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json": "b7cdf2f57247535c459680bef443922d7e99731eaf30a9d71f8a704a64c83056",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/audit_current_core_registration.py": "bceccc9c847e33780fb4cf88c49ef7eb49a4e27051a6bed3dba15d0b7a6668da",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/current-reduced-depth-shear-v1.json": "7ceeea3ed91e2151196bc60ea62fb26a07c008c05632b0f699f6d6a7c91f2f33",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/geometry-cores-current-v1.json": "bc607c1e01dda87ffdb0d0fc165d33c5c3d5c104a239e117a64ecd31c2fff9fe",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/geometry-paths-v1.json": "d763d7b32671c20946c8b1db159b7b42155aec2242bf50cc20d7c5949aa88842",
+    "fea/generated/v11-six-bolt-cleat-v1/references/item3/brittle-current-v1/parallel-current-v1.json": "be58c4693954786650d129d53b2cd4be01bb3abb1dd2ab2092059a897fc636b0"
+  },
+  "structural_acceptance": false,
+  "tested_hypotheses": {
+    "current_consumer_selects_stale_singletons": "rejected; current roster and both 336-row consumers use paired keys",
+    "current_physical_prepared_axis_disagreement": "rejected; all 102 prepared origins match physical axes",
+    "inherited_old_singletons": "confirmed by exact equality to the preserved shorter-bolt records"
+  },
+  "whole_acceptance_items_closed": 0
+}

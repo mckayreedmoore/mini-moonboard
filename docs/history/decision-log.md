@@ -603,3 +603,80 @@ The parent will freeze current inputs, complete candidate-specific checks and
 validate methods before serialized native joint/full-frame work. Historical
 mesh, contact and force results remain historical; none transfers by station
 name alone. No fabrication or climbing release is granted.
+
+## 2026-10-29: Ordinary wood glue is the current cleat default
+
+For the fixed `v11-six-bolt-cleat-v1` development trial, the owner directed:
+“Also unless it is very specifically needed, just use normal wood glue.”
+This supersedes the earlier T-88 adhesive choice as the current default. The
+owner also reconfirmed “3/4 inch generic” birch plywood; no brand, core or
+structural grade was identified. Two nominal 19.05 mm leaves, the 102 bolt
+axes, two rail–leg bolts and one leg–floor bolt remain.
+
+Retain the source-bound T-88 calculations as their own material scenarios;
+their adhesive properties and composite-action results do not transfer to
+ordinary wood glue. Reuse unaffected geometry, saved actions within recorded
+assumptions, load mappings and methods. Establish the ordinary-glue basis and
+run only specifically dependent checks. The modeled 0.2 mm bondline is not an
+observed physical gap or evidence that epoxy is necessary. Propose T-88 or
+another adhesive only with a concrete requirement and supporting evidence.
+See the [maintained trial packet](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md).
+
+## 2026-10-30: Structural adhesive exception for the glued cleats
+
+The assistant applied the owner's ordinary-glue-unless-specifically-needed
+condition to the existing two-leaf structural cleat. Its analyzed bond carries
+interleaf actions and supplies composite stiffness. Current manufacturer
+Limitations exclude structural load-bearing use for Titebond Original, II and
+III. The earlier adhesive review already recorded the III limitation; the
+current review confirms three ordinary bottled products. Their product-use
+restriction, rather than the modeled 0.2 mm bondline or a favorable comparison,
+is the specific reason for this exception.
+
+Retain the earlier T-88 candidate as the conditional product/calculation basis
+for this cleat lamination. System Three identifies it for structural woodworking
+and as a candidate for load-bearing construction/repair. This is an assistant
+implementation choice under existing owner authority, not a new explicit owner
+brand selection. Ordinary glue remains the general preference. Another supported
+structural adhesive could be considered; epoxy chemistry is not uniquely proven
+necessary by these product-specific exclusions.
+
+Reuse the existing T-88 process and numerical scenarios with every original
+material, modulus, interface and refinement limit. No bond design allowable,
+sustained behavior, purchased glue, physical bond quality or whole acceptance
+claim is established by product classification. Geometry, hardware, force bank
+and observation cells remain unchanged. See the [source-bound decision and
+manufacturer links](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#structural-glue-exception).
+
+
+### October 30, 2026 — adopt working laminate assumptions and continue
+
+The owner directs reusing history, finding reasonable online values and continuing conditional numerical work when exact-product data is unavailable, with assumptions reported at the end. Adopt the [current laminate working basis](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/working-laminate-assumptions.json): generic ¾-inch birch leaves, retained T-88 structural-cleat exception, project normal resistance 0.35 MPa (weaker published Paged sample / five, rounded down), existing conditional panel shear/compression references and tenfold sustained interface compliance. The compliance multiplier is a project allowance, not published T-88 creep data or a lifetime prediction. The 24 saved spatial comparisons meet the adopted combined envelope, maximum 0.735417; the two-leaf sustained modal rigidity loss is 0.530899%. This supersedes the earlier material-data hold for numerical work, while governing mesh/zone and complete joint/transverse/seat methods remain open. No complete acceptance, purchased-property qualification, geometry change, native/frame/CAD rerun or physical observation follows. Preserve issued results and the earlier blocked audit. The durable working preference is recorded in AGENTS.md.
+
+
+### October 30, 2026 — complete the reduced engineering decision review
+
+After clearing the earlier acceptance goal, the owner authorized a new finite goal for the reduced work approach and use of subagents. The [governing-family worksheet](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#governing-joint-family-worksheet) now carries forward matched evidence for seven families, identifies exact uncovered criteria and limits later work to the smallest justified action. Three bounded technical reviews and an independent packet review are complete; stale current work orders were corrected. New numerical work is limited to saved-field stress-amplification arithmetic and two-leaf modal threshold inversion; no response, native, CAD, frame or historical-suite run occurred. The evaluation packet is complete within this reduced scope. Complete joint/group, transverse/anchorage, bond/composite and seat/prying acceptance remain unsupported; angle and specified-washer material comparisons remain conditionally closed. This is not resolution by relabeling: the owner explicitly selected a decision-review packet rather than full acceptance, and all four unqualified claims remain visible. Geometry, loads, two rail–leg/one leg–floor bolts, adopted material assumptions, selected-baseline authority and blank physical observations remain. No redesign, fabrication release, archive or pruning follows.
+
+
+### October 30, 2026 — full-acceptance evaluation and scoped washer response
+
+The owner explicitly supersedes reduced-review completion with full structural acceptance/build readiness, requests checking possible errors in exceedances and continuing independent work. The new goal stays active; unsupported claims do not complete it. Current assembly constitutive/free-body replay confirms an explicit compatible elastic/contact/capture demand model. A physically informed capture20×/backing4× governing-case probe confirms six old-minimum washer exceedances; independent force/unit/helper replay finds no arithmetic error. After reporting the proposed response, the parent adopts the [scoped thickness addendum](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/washer-thickness-followthrough.json): 184 ordinary ends ≥2.30 mm inside existing 2.6416 mm envelopes; 12 foot ends retain ≥1.6256 mm inside 2.032 mm envelopes; eight other ends unchanged, all Fy ≥200 MPa. All 1,428 baseline/probe comparisons meet (0.475102/0.847509). Actual supplied conformity remains unobserved; no geometry, stack maximum or frozen calculation changed. The current outer-top conservative principal-direction lateral/placement envelope also meets all 24 group cases at 0.635618; it does not accept independent moments/brittle paths. The first finite-composite global scenario passes the governing foot component at 0.9990452911; targeted fine local bond mechanics is running. Four full structural claims and panel/Hillman scope reconciliation remain open.
+
+The first fine local bond run subsequently meets the strength envelope but fails the original local stability criterion. Its bulk refinement retained the original 16-segment bore rims. A separate, source-bound refinement changes only that curvature resolution to 32 segments; no criterion is relaxed. All six finite-composite cases are now independently admitted, with the same governing planar foot component. Changed spring-scenario shaft and two fitting native comparisons meet their declared component references. Independent review rejects acceptance from the earlier hybrid DIN/Leijten splitting screens; their arithmetic stays preserved while a consistent published method is assessed. These findings change numerical/method followthrough, not reviewed geometry or physical authorization. See the maintained [current work and source bindings](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#current-acceptance-work).
+
+The complete six-case spring scenario subsequently finds six washer exceedances under the preceding minima. Exact annulus/near-seat replay supports a second resistance-only specification: **184 ordinary ends ≥2.35 mm and eight larger ends ≥2.85 mm**, with twelve foot ends unchanged at ≥1.6256 mm and Fy ≥200 MPa throughout. Parent adopts it over the first-case addendum after independently checking all **2,448** baseline/spring rows and existing maximum envelopes; maximum ratio **0.976699**. All 102 existing partial-thread/profile/grip inputs remain, without new delivered-fit qualification. The six failed preceding-policy rows remain preserved. Both fine bond runs are now terminal and fail local stability despite meeting strength; no automatic extra refinement or relaxed gate is adopted. The [current work record](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#current-acceptance-work) binds these results.
+
+Parent adopts the joined conventional-method admission for **baseline leg/header timber components**, with retained-plane bevel geometry and the explicit generic axial-thread/material/L1 assumptions. NDS yield/placement already addresses ordinary induced bearing variation; the failed optional per-width DIN extension is retained as a diagnostic, not invented as an extra mandatory criterion. The full header inventory includes eight bolts and ten screws. This admission does not transfer to changed-spring fields, Hillman resistance or whole assembly acceptance. The changed-spring worksheet separately records left-leg normal/stability **1.017366** under audit, with no timber remedy yet adopted. See the [current acceptance work](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#current-acceptance-work) for source-bound scope.
+
+The exact leg audit subsequently confirms published Table 4A **CFb = 1.3** for the existing nominal 4×6 DF-L No. 2 legs; the preceding reference deliberately used CF = 1. Parent adopts the bending factor once, recomputing CL while retaining all other conservative strengths, E/Emin and response stiffness. The full failing-leg replay becomes **0.813023**; parent independently reproduces the witness. No stronger grade, geometry or force change is required. The old 1.017366 conditional result remains frozen. The saved original-prior permanent response separately passes duration-adjusted member/local checks.
+
+
+### October 30, 2026 — retain the present design and exceedance
+
+The owner directs keeping panel/Hillman evaluations where their basis changed and states that no attempt to resolve the current exceedance is needed: the present design will be retained. Finish the changed-basis numerical evaluation and consolidated candidate packet, carrying unaffected evidence forward. The corrected near-end comparison remains recorded at 1.132432 for the scalar mode and 1.152355 for the additional project interaction under the retained assumptions; owner acknowledgement does not make either a passing result. Stop hardware-response/profile/probe work. The completed unadopted two-longer-screw worksheet remains recoverable history, with no geometry, hardware policy, material or duration change. Full structural acceptance remains unachieved. This direction does not establish observations of actual stock, holes, installation or floor support, or silently change selected-baseline authority. See the [current work record](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#current-acceptance-work).
+
+
+### October 30, 2026 — owner closes the project with the present design
+
+The owner directs no further concern or work on panel screws and calls the project done, proceeding with the design as it stands. Close further engineering, evaluation, testing, redesign and remedy work. Preserve the completed [candidate packet](../bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md), current geometry/hardware, all results and explicit assumptions/limitations. This is owner-directed project closure, not a passing structural disposition or an observed-conformity claim. The existing full-acceptance goal remains unachieved and inactive; no new acceptance goal or automatic work is commissioned. Selected-baseline authority, frozen evidence and blank physical observation cells remain unchanged.

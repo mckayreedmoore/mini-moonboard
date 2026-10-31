@@ -1,0 +1,211 @@
+{
+  "candidate": "v11-six-bolt-cleat-v1",
+  "closed_whole_acceptance_items": [],
+  "geometry_or_hardware_changed": false,
+  "method_question": "Can continuous variation inside the recorded two-bolt effective-EA range invalidate the saved upper-pair lateral references, and which washer property is actually required for each current SKU?",
+  "native_or_frame_solve": false,
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/upper_pair_and_washer_requirements.py",
+    "sha256": "02fda9a0432461fb78b99e104c48adaaba9dd0df0779e25195c1c23fafc5dea7"
+  },
+  "proof": {
+    "bound": "R>=EAmin/EAmax; u<=1+gamma*s/EAmin; m>=1/(u_max+sqrt(u_max^2-1)). Evaluate the increasing closed form at both lower bounds. This is a conservative box bound, not a sampled optimum.",
+    "dCg_dR": "(1+m^2)*(1-m)^2/(2*(1+m^2-(1-R)*m)^2) >=0",
+    "dCg_dm": "(1-R^2)*(1-m^2)/(2*(1+m^2-(1-R)*m)^2) >=0",
+    "domain": "0<R<=1 and0<m<1; bothEA entries lie inside the declared positiveEA box; pitch and diameter fixed.",
+    "maximum_identity_difference_against_saved_equation_results": 4.440892098500626e-16,
+    "physical_applicability_limit": "TheEA box is a declared conventional effective-area domain from the saved parallel/perpendicular hypotheses, not a proof that all actual oblique effective stiffnesses lie in it. Actual Cg and Cdelta remain unassigned. The comparison covers both possible partitions of these two same-diameter axes only; moments, axial seats and splitting remain separate.",
+    "two_bolt_identity": "For n=2, NDS Eq11.3-1 simplifies to Cg=(1+R)(1+m^2)/(2*(1+m^2-(1-R)*m))."
+  },
+  "schema": "v11_upper_pair_and_washer_requirements/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json": "b1c7a406c5eab5f64e732fda1198bb31a78d23e5e46aedf6012bd3d0d6636bca",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/current-reference-summary.json": "cd961d2de881e1a66ab9cee6cb7f7b33dc3b8d50a274904033c3e1aff7af1d9b",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/hardware-axis-crosswalk.csv": "e6bf310ac8ff81a6156070b6fa3d873a730cc6851f5c7420920b7d8c9eb3d838",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/all-end-washers-v1/all-1224-end-demands-static-v1.json": "78a1e621d63b6196bfab3d2e3af87e3c34f416d4cdead6ff68b127d3bde8900c",
+    "fea/generated/v11-six-bolt-cleat-v1/references/runs/reference-v2/connections/standard-Cg-net-lateral-v1.json": "c4a67dd57e107367897e3d75bef0abdde97f5ef4402bb4e9909d3b95c7c68981"
+  },
+  "stopping_condition": "Evaluate closed-form bound and all twelve upper-pair case rows; extract maxima from the existing1224washer rows. No global/native solve or property substitution.",
+  "structural_acceptance": false,
+  "upper_pair_results": [
+    {
+      "Cg_equation_lower_bound": 0.9878361556976779,
+      "EA_box_lbf": [
+        8399999.999999987,
+        30800000.17123847
+      ],
+      "R_min": 0.27272727121099305,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "proposal_upper_rear_left_added_half_in"
+      ],
+      "cases": [
+        {
+          "case_id": "a12-forward",
+          "singletons_force_reference": 0.5557697710467071,
+          "singletons_individual_reference": 0.37405333730003604,
+          "two_fastener_group_force_reference": 0.528860517708831,
+          "two_fastener_individual_reference": 0.37898007831817226
+        },
+        {
+          "case_id": "a12-left",
+          "singletons_force_reference": 0.6248800497940967,
+          "singletons_individual_reference": 0.4195787040911556,
+          "two_fastener_group_force_reference": 0.5987622433032068,
+          "two_fastener_individual_reference": 0.4251050700011708
+        },
+        {
+          "case_id": "a12-rear",
+          "singletons_force_reference": 0.6718205628522655,
+          "singletons_individual_reference": 0.45622519519123883,
+          "two_fastener_group_force_reference": 0.6470224391659188,
+          "two_fastener_individual_reference": 0.4622342403153382
+        },
+        {
+          "case_id": "k12-right",
+          "singletons_force_reference": 0.1689898479833128,
+          "singletons_individual_reference": 0.11520912073786849,
+          "two_fastener_group_force_reference": 0.16644581091757912,
+          "two_fastener_individual_reference": 0.1167265660971312
+        },
+        {
+          "case_id": "k12-rear",
+          "singletons_force_reference": 0.20063121843492798,
+          "singletons_individual_reference": 0.13376569505956307,
+          "two_fastener_group_force_reference": 0.18819273731798083,
+          "two_fastener_individual_reference": 0.13552755325183694
+        },
+        {
+          "case_id": "a1-rear",
+          "singletons_force_reference": 0.18035879514650893,
+          "singletons_individual_reference": 0.12350262410259602,
+          "two_fastener_group_force_reference": 0.17453965491479156,
+          "two_fastener_individual_reference": 0.12512930506848635
+        }
+      ],
+      "diameter_in": 0.49999999999999994,
+      "group_id": "interface:wood:base_side_left+wood:lumber_leg_left",
+      "m_min": 0.8109976471218228,
+      "maximum_lateral_reference": 0.6718205628522655,
+      "pitch_in": 2.906943601558979,
+      "rounded_down_Cg_box_reference": 0.987,
+      "status": "conditional_lateral_group_reference_meets_in_declared_EA_box"
+    },
+    {
+      "Cg_equation_lower_bound": 0.9878361556976779,
+      "EA_box_lbf": [
+        8399999.999999987,
+        30800000.17123847
+      ],
+      "R_min": 0.27272727121099305,
+      "axis_ids": [
+        "lumber_leg_bolt_right_1",
+        "proposal_upper_rear_right_added_half_in"
+      ],
+      "cases": [
+        {
+          "case_id": "a12-forward",
+          "singletons_force_reference": 0.1724903309399409,
+          "singletons_individual_reference": 0.11537959970672532,
+          "two_fastener_group_force_reference": 0.15889991031838857,
+          "two_fastener_individual_reference": 0.11689929048300438
+        },
+        {
+          "case_id": "a12-left",
+          "singletons_force_reference": 0.1604721701730812,
+          "singletons_individual_reference": 0.10934328049003632,
+          "two_fastener_group_force_reference": 0.1585909731401781,
+          "two_fastener_individual_reference": 0.1107834655420834
+        },
+        {
+          "case_id": "a12-rear",
+          "singletons_force_reference": 0.19108199231825146,
+          "singletons_individual_reference": 0.12743725033458062,
+          "two_fastener_group_force_reference": 0.17876834108625658,
+          "two_fastener_individual_reference": 0.12911575515155077
+        },
+        {
+          "case_id": "k12-right",
+          "singletons_force_reference": 0.6163814084587599,
+          "singletons_individual_reference": 0.41394056836823295,
+          "two_fastener_group_force_reference": 0.5903683961801144,
+          "two_fastener_individual_reference": 0.41939267311877704
+        },
+        {
+          "case_id": "k12-rear",
+          "singletons_force_reference": 0.6637446937571224,
+          "singletons_individual_reference": 0.4501389974970601,
+          "two_fastener_group_force_reference": 0.6394090897408197,
+          "two_fastener_individual_reference": 0.4560678799362311
+        },
+        {
+          "case_id": "a1-rear",
+          "singletons_force_reference": 0.1314259430499502,
+          "singletons_individual_reference": 0.08768772920627367,
+          "two_fastener_group_force_reference": 0.1213350476140043,
+          "two_fastener_individual_reference": 0.08884268409956805
+        }
+      ],
+      "diameter_in": 0.49999999999999994,
+      "group_id": "interface:wood:base_side_right+wood:lumber_leg_right",
+      "m_min": 0.8109976471218228,
+      "maximum_lateral_reference": 0.6637446937571224,
+      "pitch_in": 2.906943601558979,
+      "rounded_down_Cg_box_reference": 0.987,
+      "status": "conditional_lateral_group_reference_meets_in_declared_EA_box"
+    }
+  ],
+  "washer_requirements": [
+    {
+      "end_case_rows": 1176,
+      "governing": {
+        "axis_id": "eoere_bolt_082",
+        "case_id": "a12-forward",
+        "end": "nut",
+        "host": "eoere_clip_header_outer_under_left",
+        "radii_a_b_c_s_and_minimum_t_mm": [
+          5.55625,
+          13.081,
+          6.435089999999999,
+          5.55625,
+          1.6256
+        ],
+        "saved_axial_capture_N": 393.6580666408869
+      },
+      "quantity": 196,
+      "required_minimum_Fy_MPa_under_saved_construction": 173.87420625625492,
+      "scope": "Strength requirement only; no numeric washer yield guarantee is established by the supplier Grade5 description. Not a complete compatible washer/seat field.",
+      "sku": "15023"
+    },
+    {
+      "end_case_rows": 48,
+      "governing": {
+        "axis_id": "proposal_upper_rear_left_added_half_in",
+        "case_id": "a12-left",
+        "end": "head",
+        "host": "lumber_leg_left",
+        "radii_a_b_c_s_and_minimum_t_mm": [
+          7.14375,
+          17.4625,
+          8.5725,
+          7.14375,
+          2.1843999999999997
+        ],
+        "saved_axial_capture_N": 341.8503439080531
+      },
+      "quantity": 8,
+      "required_minimum_Fy_MPa_under_saved_construction": 83.00707422605893,
+      "scope": "Strength requirement only; no numeric washer yield guarantee is established by the supplier Grade5 description. Not a complete compatible washer/seat field.",
+      "sku": "15025"
+    }
+  ],
+  "washer_source_review": {
+    "exact_product_page_fetch": "15023 and15025 direct pages returned503; supplier category page available. Historical product/profile records retained.",
+    "no_hardness_or_bolt_strength_conversion": true,
+    "numeric_yield_minimum_published": false,
+    "retrieval_date": "2026-10-29",
+    "supplier_material_description": "tempered medium carbon steel",
+    "supplier_url": "https://boltdepot.com/Browse?Category=Washers&F_Grade=Grade_5&Units=US",
+    "unavoidable_input_for_current_SKUs": "Supplier/product material resistance sufficient for the listed required minimums, or an owner-reviewed procurement-specification alternative. No physical test is mandated by this record."
+  }
+}

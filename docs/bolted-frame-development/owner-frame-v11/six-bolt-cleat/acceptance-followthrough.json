@@ -1,0 +1,77 @@
+{
+  "all_six_acceptance_items_complete": false,
+  "angle_material": {
+    "basis": {
+      "Fu_MPa": 370,
+      "Fy_MPa": 235,
+      "basis": "Preserved primary catalog claim; a development hypothesis, not delivered-lot conformity.",
+      "grade": "Q235B"
+    },
+    "component_scopes": "Native and ideal-sector constructions, nominal net/root sections and affine hole extensions keep their separate recorded scopes. Their passing indices do not combine into complete fitting capacity.",
+    "correction": "The completed evaluation used an older catalog audit to leave all angle material comparisons non-evaluable. It overlooked the later Q235B conditional basis. That basis is now reused; the issued evaluation bytes are preserved.",
+    "current_reference_indices": {
+      "augmented_header_hole_affine_extension_Fu": 0.028993427836646112,
+      "hole_affine_extension_Fu": 0.029095824108911403,
+      "ideal_heel_sector_Fy": 0.9096334770719576,
+      "native_governing_fine_Fy": 0.4450477771386867,
+      "nominal_net_section": 0.4919664759229504,
+      "nominal_root_Fy": 0.31253890688281555
+    },
+    "governing_body": "eoere_clip_angle_base_left",
+    "governing_case": "a12-rear",
+    "governing_index": 0.9096334770719576,
+    "governing_required_Fy_MPa": 213.76386711191003,
+    "primary_product_source": {
+      "exact_material_excerpt": "Material: Carbon Steel Q235B",
+      "locator": "Product Description; product information identifies manufacturer/model/ASIN",
+      "manufacturer": "eoere",
+      "model": "ZX128-B-T4",
+      "retrieval_date": "2026-10-29",
+      "url": "https://www.amazon.com/dp/B0C7V7VS89"
+    },
+    "rule": "Carry forward the previously recorded Fy235/Fu370 Q235B development hypothesis; no historical demand transfers and no new material upgrade.",
+    "status": "conditional_material_comparison_meets",
+    "still_unqualified": [
+      "Delivered product material conformity",
+      "Modeled6.35mm thickness and Ri=t geometry versus listing1/4inch(6mm)",
+      "Compatible straight/curved/holed flange/washer/wood assembly resistance"
+    ]
+  },
+  "candidate": "v11-six-bolt-cleat-v1",
+  "geometry_hardware_loads_changed": false,
+  "new_native_or_frame_solve": false,
+  "next_decisions": {
+    "assembly": "Evaluate an applicable conventional seat/prying idealization or admissible combined construction using saved capture/backing actions; no arbitrary prying factor or another global solve.",
+    "bond": "Establish a defensible laminate design allowable/composite-action route for retained T88 and plywood before a numerical acceptance claim.",
+    "joint_group": "Use NDS11.3.6 row ownership and current signed actions to determine applicable group and geometry factors; distinguish lateral-yield-induced shaft bending from independent boundary moments.",
+    "transverse": "Check whether saved header reinforcement/anchorage components and exact retained paths provide a complete conventional return path; no source-point-census capacity conversion.",
+    "washers": "Reuse historical washer source screen; determine a source-backed scheduled-product resistance or state the smallest required procurement-specification change. No bolt-grade-to-washer-yield conversion."
+  },
+  "open_items": [
+    "complete_joint_and_group_resistance",
+    "transverse_transfer_and_anchorage",
+    "glued_cleat_strength_and_composite_action",
+    "washer_material_strength",
+    "compatible_seats_contact_prying"
+  ],
+  "physical_release": false,
+  "prior_evaluation_snapshot": {
+    "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/evaluation-dispositions.json",
+    "sha256": "2c4f0bb0b461dc0429b20cb88fba0196286b6b717fc085103d7fd9d5780e1475"
+  },
+  "producer": {
+    "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/angle_material_followthrough.py",
+    "sha256": "f08b0198eacfa9cd4d12684ef737d4fa29376204f5961de008357310bf3095b1"
+  },
+  "schema": "v11_acceptance_followthrough/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/relocated-rear-pair/connection-closeout.json": "31c7c27dd50a2a8851f748a0eefefefa4c2fea93a6d3d1f0314d299d9ddfa4c1",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/component-reference-summary.json": "b1c7a406c5eab5f64e732fda1198bb31a78d23e5e46aedf6012bd3d0d6636bca",
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/evaluation-dispositions.json": "2c4f0bb0b461dc0429b20cb88fba0196286b6b717fc085103d7fd9d5780e1475",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-fitting-references-v1.json": "10f956da9b8e564c11a979081b60a7137e9ce402fe0f26eb3336044a1e9db51f",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/fitting-followthrough-v2.json": "93fa69860b8b559d65efa213eb89c77fdd139fff6c90b3917afad7a8fc5a9b6b",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/formed-heel-quarter-sector-v1.json": "2016ad8adee37932494cce69b8ede78a8ee007b9bb39bca764bb5f6d1b3fbc49",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/header-bridge-anchor-followthrough-v1.json": "1e01634778c1458f53c7b093a669c8e5d62078c9233022514e981dd41fe8d6e2"
+  },
+  "structural_acceptance": false
+}

@@ -3542,6 +3542,2217 @@
       },
       "display_device_scale_factor": 0.5,
       "physical_or_structural_acceptance": false
+    },
+    "transverse_opening_demands": {
+      "summary": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/transverse-opening-summary.json",
+        "sha256": "883c7a4f4a610229aa28b00218403d31a1a368122fe60ff972dc48e4ff7918da"
+      },
+      "parent_admission": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/transverse-opening-admission.json",
+        "sha256": "8e45ce14350041ba8062d85dac6afacb6f33ac4db6be76d946c8072094f43e60"
+      },
+      "body_case_direction_states": 264,
+      "cut_side_records": 79488,
+      "sawn_members": 20,
+      "bonded_plywood_composites": 2,
+      "positive_point_placement_bound_states": 185,
+      "current_state_independent_corner_LPs": 264,
+      "source_files_verified_before_and_after": 1587,
+      "scope": "Necessary normal-transfer lower bounds under original point/free-couple/mapped-gravity placement; no physical splitting-demand bound, resistance or complete joint acceptance.",
+      "geometry_changed": false,
+      "new_frame_or_native_solve": false,
+      "complete_joint_qualified": false,
+      "next_action": "Fixed-design evaluation completed; retain source-point demand limits and terminal transverse-transfer disposition. Qualifying resistance or remedies requires a later scoped task."
+    },
+    "evaluation_disposition": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/evaluation-dispositions.json",
+      "status": "fixed_design_evaluation_complete_with_recorded_non_evaluable_claims",
+      "scope": "Fixed-design evaluation; component results and exact non-evaluable acceptance claims. No exceedance remedies, selection or structural release.",
+      "sha256": "2c4f0bb0b461dc0429b20cb88fba0196286b6b717fc085103d7fd9d5780e1475"
+    },
+    "acceptance_followthrough": {
+      "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/acceptance-followthrough.json",
+      "sha256": "8c2d7bd6269a364251660e8d547fcf9da566eea9176af3e883e3612add12e2d7",
+      "conditionally_closed": [
+        "angle_material_comparison",
+        "specified_washer_material_comparison"
+      ],
+      "open_acceptance_items": 4,
+      "complete_joint_qualified": false,
+      "structural_acceptance": false,
+      "upper_pair_and_washer_requirements": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-pair-washer-followthrough.json",
+        "sha256": "9ea183dac4ff4015ca55dfe1121bf673aa6216c80fdd3e2e420cff094844c677",
+        "whole_acceptance_items_closed": 0
+      },
+      "washer_material_specification": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/washer-material-specification.json",
+        "sha256": "885c4548e605ee161b2738262a5ee1b50c73ac0ff7df09f4ab7afda673ba6cda",
+        "minimum_specified_Fy_MPa": 200,
+        "supplier_property_assigned": false,
+        "provisional_SKU_documentation_pending": true,
+        "current_thickness_addendum_ref": "owner_authorized_six_bolt_cleat_trial.acceptance_followthrough.washer_thickness_followthrough"
+      },
+      "seat_normal_traction_followthrough": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/seat-normal-traction-followthrough.json",
+        "sha256": "e72c6e129bcc8c1feec96732e9ba82e263c5b100bd0832e048434cbc286c7b20",
+        "native_states_executed": 24,
+        "actually_changed_load_states": 18,
+        "unaffected_native_states_reused": 168,
+        "whole_acceptance_items_closed": 0,
+        "complete_seat_contact_prying_accepted": false
+      },
+      "header_postsplit_anchor_route": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/header-postsplit-anchor-route.json",
+        "sha256": "191636ed9d01f27aafb162f378b809058c91b650bf1d1f59dcbb8313630f86bd",
+        "status": "separated_member_route_rejected_by_loaded_edge_minimum",
+        "intact_member_failure_established": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "upper_pair_universal_Cg_bound": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-pair-universal-Cg-bound.json",
+        "sha256": "f940d67c838136ec153bab38b0f967b715c64683046f5f4f3e01c5d7e5006b57",
+        "Cg_floor": 0.5,
+        "maximum_pure_lateral_index_at_Cdelta_1": 0.9124503903824777,
+        "EA_box_required_for_this_comparison": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "owner_ordinary_wood_glue_direction": {
+        "date": "2026-10-29",
+        "owner_quote": "Also unless it is very specifically needed, just use normal wood glue",
+        "current_default": "ordinary wood glue for the two plywood cleat leaves",
+        "working_interpretation": "PVA-type wood glue; no manufacturer, product, capacity, modulus or creep property assigned yet",
+        "T88_required_by_current_evidence": false,
+        "T88_may_be_proposed_only_with_specific_need": true,
+        "earlier_T88_choice_superseded_for_current_trial": true,
+        "purchased_plywood_latest_owner_description": "3/4 inch generic",
+        "unchanged": [
+          "two nominal19.05mm leaves",
+          "current102 bolt axes and two rail-leg/one leg-floor counts",
+          "panel/Hillman exclusions",
+          "reviewed geometry and saved source actions under recorded assumptions",
+          "all physical Actual/Disposition cells"
+        ],
+        "reuse": [
+          "all existing geometry and current actions",
+          "contact/washer/bolt/wood component evidence within its recorded assumptions",
+          "600 spatial load mappings and shared meshing/output methods"
+        ],
+        "update_before_current_glue_acceptance": [
+          "adhesive strength/process and stiffness/bondline assumptions",
+          "glue-dependent mean/plane/spatial stress and composite-action comparisons"
+        ],
+        "preserved_T88_results_are_current_wood_glue_acceptance": false,
+        "FPL_source": {
+          "url": "https://research.fs.usda.gov/download/treesearch/62250.pdf",
+          "publication": "FPL-GTR-282 chapter10,2021",
+          "locators": "Table10-1 printed10-9;Selection printed10-12;Short-and-long-term performance printed10-19 to10-20",
+          "use": "PVAc formulation, close-contact process and sustained-load behavior need an applicable basis. Generic class cautions do not prove T88 is specifically required."
+        },
+        "whole_acceptance_items_closed": 0
+      },
+      "structural_glue_exception": {
+        "date": "2026-10-30",
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/structural-glue-exception.json",
+          "sha256": "3bd627ddc0ae1c02076fd0116322e6b98cec7f9f374d4ae42ee429c79d98da51"
+        },
+        "ordinary_glue_general_preference_retained": true,
+        "current_conditional_cleat_adhesive": "System Three T88",
+        "specific_exception": "Current interleaf bond is a structural load path; screened Titebond Original, II and III each exclude structural load-bearing applications.",
+        "prior_review_already_recorded_III_exclusion": true,
+        "selection_authority": "Assistant implementation under the owner's reasonable-baseline and ordinary-glue-unless-specifically-needed instructions; not a new explicit owner brand selection.",
+        "T88_uniquely_required_chemistry": false,
+        "existing_T88_calculations_reused_as_current_conditional_scenario": true,
+        "all_original_material_interface_modulus_and_refinement_limits_retained": true,
+        "complete_bond_accepted": false,
+        "new_native_frame_CAD_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "bore_prescription_and_shaft_transfer": {
+        "audit": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bore-prescription-audit.json",
+          "sha256": "efe623bcb9c199f912939e5a954f503944f3cc6f6393687f6d4d159c9c1211f4"
+        },
+        "shaft_transfer": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bore-quadrature-shaft-transfer.json",
+          "sha256": "9b817f163e8a5f13f0977e72474933105ecec12e209bcd873b77332b82dfb108"
+        },
+        "baseline_bore_maps": 600,
+        "header_bore_maps_audited": 216,
+        "baseline_source_row_hash_joins": 1200,
+        "maximum_projection_change_relative_to_base_peak": 0.0012852959442016495,
+        "baseline_discrete_shaft_states": 552,
+        "mixed_shaft_states_included": 120,
+        "maximum_composed_discrete_metal_reference": 0.5346794958710425,
+        "maximum_added_metal_reference_bound": 0.023865968068239946,
+        "baseline_discrete_bore_to_shaft_metal_comparison_meets": true,
+        "header_variant_shaft_transfer_qualified": false,
+        "continuum_or_complete_seat_acceptance": false,
+        "new_native_frame_CAD_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "two_media_end_reduction": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/two-media-end-reduction.json",
+          "sha256": "743df03a604b74071b4c157deadb3922adf676bd1285b25d3eee60183f40cc52"
+        },
+        "interface_cases": 252,
+        "wood_axis_host_case_rows": 552,
+        "end_reduced_case_rows": 104,
+        "interfaces_with_end_reduction": 22,
+        "minimum_end_only_factor": 0.8998875140607425,
+        "maximum_end_reduced_lateral_reference": 0.9124503903824777,
+        "direct_profile_distance_and_signed_force_replay_pass": true,
+        "actual_complete_Cdelta_or_angled_end_qualification": false,
+        "end_reductions_alone_require_bolt_move": false,
+        "new_native_frame_CAD_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "all_two_media_Cg_bound": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/all-two-media-Cg-bound.json",
+          "sha256": "9c4935d61d4df8c885bfbb357f60f1f520b04a8e3187f02d28fa816280826009"
+        },
+        "interfaces": 42,
+        "two_axis_interfaces": 40,
+        "one_axis_interfaces": 2,
+        "interface_cases": 252,
+        "earlier_row_method_cases_covered": 110,
+        "fixed_equation_identities_checked": 248,
+        "maximum_lateral_index_at_Cdelta1": 0.9124503903824777,
+        "earlier110_maximum_lateral_index_at_Cdelta1": 0.3841671660241964,
+        "earlier110_maximum_lateral_index_if_Cdelta0_5": 0.7683343320483929,
+        "continuous_positive_EA_and_two_axis_partition_bound": true,
+        "actual_Cdelta_or_geometry_minima_established": false,
+        "twenty_mixed_shafts_in_scope": false,
+        "complete_joint_transfer_accepted": false,
+        "new_native_frame_CAD_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "ordinary_glue_coupling_sensitivity": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/ordinary-glue-coupling.json",
+          "sha256": "25447b18b771d07cc2130fe5bd92c17399a6c3e12cec6b5bc49b3830190a13ad"
+        },
+        "uncrosslinked_film_source": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/cowan-1978-pvac-films.pdf",
+          "sha256": "7de403560ee7a74dd07a54dce02cd9ad9091d9768cefdbfdb5757796aebf6a48",
+          "url": "https://wfs.swst.org/index.php/wfs/article/download/431/431/0",
+          "locators": "Table1 printed142/PDF5;methods printed140-141/PDF3-4"
+        },
+        "crosslinked_flooring_source_not_adopted": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/belleville-2008-interface.pdf",
+          "sha256": "627564249daec0ca03785c6ed82a147463eb07197c6b9cd52eaf296ef4c9bf7f",
+          "url": "https://wfs.swst.org/index.php/wfs/article/download/584/584/584",
+          "reason": "Literature elastic constants for a separate crosslinked formulation; printed E/G/nu are inconsistent. No silent table correction or transfer to generic glue."
+        },
+        "source_row_thickness_comparisons": 22,
+        "forty_percent_RH_example_E_MPa": 25.420970139911745,
+        "assumed_G_rule": "E/3;response proxy,not measured shear modulus",
+        "assumed_bondline_mm": 0.2,
+        "example_relative_modal_rigidity_reduction": 0.05054869285301977,
+        "independent_energy_replay_pass": true,
+        "generic_glue_property_or_creep_law_established": false,
+        "rigidity_contours_are_acceptance_gates": false,
+        "applicable_design_failure_established": false,
+        "T88_required": false,
+        "new_native_frame_CAD_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "seat_normal_prescription_audit": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/seat-normal-prescription-audit.json",
+          "sha256": "3636d19f3faec914473003894e66440d82d579c25662d95e18094b8ee20a8314"
+        },
+        "baseline_interfaces": 600,
+        "header_variant_interfaces": 216,
+        "source_capture_hash_joins": 816,
+        "far_prescriptions_reused": 768,
+        "corrected_near_prescriptions_reused": 48,
+        "maximum_relative_pressure_discrepancy": 5.298484894504418e-06,
+        "exact_pointwise_traction_identity_claimed": false,
+        "new_footprint_mismatch_found": false,
+        "new_native_runs": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "mixed_shaft_field_reuse": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mixed-shaft-field-reuse.json",
+          "sha256": "849a887f294b6e400f7075fe0bb34e8b7026c054076fd8d9788142eea27b0365"
+        },
+        "conditional_single_shaft_material_reference_meets": true,
+        "states": 120,
+        "bearing_endpoints": 960,
+        "metal_intervals": 1392,
+        "maximum_same_field_reference": 0.7432112021640223,
+        "maximum_combined_N_V_T_M_metal_reference": 0.5175667409647643,
+        "no_additional_combined_bolt_calculation_missing_for_these_states": true,
+        "complete_joint_group_or_seat_accepted": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "plywood_normal_source_context": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/plywood-normal-source-context.json",
+          "sha256": "68c29b8137b8d50df2279624dac933a7f5792a8ce9f9f664b5d114116ab67a70"
+        },
+        "manufacturer_source": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/paged-integrity-birch-platforms.pdf",
+          "sha256": "a91ba4eea8e8596422ce87511575a60dd95afac223b04a50466c2418b0c5cb33"
+        },
+        "source_pdf_page": 2,
+        "three_quarter_sample_internal_bond_psi": 393,
+        "weaker_sample_internal_bond_psi": 278,
+        "auxiliary_normal_screen_reference_MPa": 0.38334850550016086,
+        "current_coarse_peak_auxiliary_normal_index": 0.14295403465796752,
+        "normal_and_rolling_auxiliary_sum_bound": 0.8528077212014248,
+        "generic_birch_design_minimum_or_T88_normal_adhesion_assigned": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "upper_pair_load_geometry": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-pair-load-geometry.json",
+        "sha256": "a451c98c40fc201e2e231f9f3425132a5918d1663a9e66078f0ff57050bf5012",
+        "source_receiver_wrenches": 48,
+        "short_upper_leg_end_loaded_by_net_grain_force_cases": 0,
+        "minimum_stagger_merge_ratio_for_net_force": 0.4715900389839034,
+        "actual_complete_Cg_or_Cdelta_assigned": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "upper_leg_end_followthrough": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/upper-leg-end-followthrough.json",
+        "sha256": "1ddc7035cd2729f35dc5be3274660befc2569604ba69255d8bdbf669b18c3d9d",
+        "maximum_end_reduced_pure_lateral_reference": 0.9074380131232855,
+        "actual_connection_Cdelta_assigned": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "core_axis_registration_admission": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/core-axis-registration-admission.json",
+        "sha256": "629020c760bc4d40437e066c5161846fd2695054d8e2c6f1dfd627223f76fbed",
+        "rejected_unused_legacy_records": 2,
+        "current_selected_cached_records_pass": 48,
+        "current_component_results_invalidated": 0,
+        "whole_acceptance_items_closed": 0
+      },
+      "goal_execution": {
+        "status": "blocked_full_structural_acceptance_owner_retains_failed_comparison",
+        "complete": false,
+        "current_product_source_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/current-T88-link-verification.json",
+          "sha256": "54c4cabb277364ce30f37af10b28ee9cbe2d90eb597ff5b913fb23dbe11d1a56"
+        },
+        "prepared_unsent_product_data_inquiry": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/T88-product-data-inquiry-v1.json",
+          "sha256": "6564470dc7faf8dbe2b715bae53f27ab79775928d725d77bc7fab5364d885e82"
+        },
+        "explicit_messaging_authorization_received": false,
+        "other_method_gaps_remain": [
+          "complete_joint_and_group_resistance",
+          "transverse_transfer_and_anchorage",
+          "compatible_seats_contact_prying"
+        ],
+        "same_missing_input_recurred_in_at_least_three_consecutive_continuations": false,
+        "complete_acceptance_items_remaining": 4,
+        "structural_acceptance": false,
+        "previous_execution_status": "complete_reduced_engineering_review",
+        "prior_blocking_input": "Applicable T-88/plywood laminate bond resistance and justified stiffness/composite-action basis",
+        "vendor_reply_required_before_baseline_work": false,
+        "emails_permitted": false,
+        "inquiry_disposition": "cancelled_by_owner_never_sent; frozen local draft retained as history",
+        "material_baseline": {
+          "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/working-laminate-assumptions.json",
+          "sha256": "5f0b66e0da287db84d31716d31c6a7dada25804fa3f1ec8a30b507a031ad8d22",
+          "normal_reference_MPa": 0.35,
+          "sustained_interface_compliance_multiplier": 10,
+          "maximum_same_point_interaction_index": 0.7354166061440196,
+          "tenfold_compliance_modal_EI_loss": 0.005308991264171725,
+          "project_assumptions_not_guaranteed_properties": true,
+          "physical_observations_changed": false,
+          "whole_acceptance_items_closed": 0
+        },
+        "owner_reaffirmed_continuation_and_goal": true,
+        "completion_checklist": [
+          "complete_joint_group_geometry_and_simultaneous_transfer",
+          "transverse_splitting_and_intact_header_anchorage",
+          "bond_strength_composite_numerical_and_sustained_response",
+          "complete_fitting_washer_bolt_wood_seat_prying",
+          "resolve_panel_hillman_scope",
+          "final_build_packet_and_affected_verification"
+        ],
+        "next_bounded_check": "None. Owner closes the project and further panel-screw/engineering work. Preserve the current design, evidence, assumptions and limitations; do not start more work without a new owner instruction.",
+        "completion_rule": "All applicable structural criteria have supported acceptance and final construction packet is coherent under explicit assumptions. Unresolved exceedances, essential load-path gaps or unsupported acceptance prevent completion; continue independent evaluations.",
+        "goal_tracker_status_last_observed": "blocked",
+        "prior_blocked_audit_is_historical": true,
+        "current_local_native_batch": {
+          "status": "terminal_native_and_observation_complete",
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/input-readiness.json",
+            "sha256": "c4a2525e25265fe0ff5001d6f1402243c936f052b11bb829633269d0dcfb0f36"
+          },
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-execution-start.json",
+            "sha256": "104d594deaca21e93267d666fc0838c0e450e9038feabed6a4e5cc839054f99b"
+          },
+          "tool_session_id": 7136,
+          "docker_container_id": "941f6fe21b76",
+          "docker_client_pid": 84363,
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-execution.json",
+            "sha256": "e66716fec719cb4295655566329032277175e716cb429f5ce2d961ebfd5534f6"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-observation.json",
+            "sha256": "ddb840f625bc48a41282fdadbbeb9df2dd53db985e1c43e8a656f823ebe0c782"
+          },
+          "complete_states_last_observed": 12,
+          "scheduled_local_states": 12,
+          "new_global_cases": 0
+        },
+        "blocked_audit_scope": "Earlier three-turn material-data hold is preserved as history. Later owner instruction resumes conditional numerical work with adopted normal-resistance and sustained-compliance assumptions; actual-product qualification is not a missing working numerical baseline. A fresh blocked audit would require a new current impasse. Complete joint, transverse and seat method gaps remain open.",
+        "preserved_material_baseline": {
+          "adhesive_choice_scope": "retained_T88_conditional_cleat_exception_under_owner_general_ordinary_glue_preference; see structural_glue_exception",
+          "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/recorded-material-baseline.json",
+          "sha256": "bde7665a71cba96758ea8c6dde25f37b5bbc46950e7a5748219b4374fa31594b",
+          "owner_directed_online_history_baseline": true,
+          "emails_permitted": false,
+          "vendor_reply_required_before_baseline_work": false,
+          "whole_acceptance_items_closed": 0
+        },
+        "preserved_blocked_disposition": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/complete-seat-method-decision.json",
+          "sha256": "e7ab3bf2e0ba4ef941baa4f04e65c07b417fb36d29b1a9df3a050b53c340eb66"
+        },
+        "goal_tracker_note": "Full structural acceptance is blocked after three consecutive same-condition goal turns. Latest owner-directed fixed-design evaluation/packet is complete; the retained exceeded criterion and recorded method limits are not accepted or resolved.",
+        "prior_full_acceptance_completion_rule": "Supported conditional meets/exceeds for all four remaining claims, affected checks complete and maintained packet reconciled. Unsupported acceptance remains open. Report required remedies before design changes.",
+        "prior_full_acceptance_checklist": [
+          "supported_local_bond_and_composite_comparison",
+          "supported_complete_joint_and_group_comparison",
+          "supported_transverse_transfer_and_header_anchorage_comparison",
+          "supported_complete_seat_and_prying_comparison",
+          "affected_verification_and_final_packet"
+        ],
+        "completion_scope": "Full structural acceptance of applicable candidate criteria and coherent build-ready packet; completed reduced review is not completion.",
+        "panel_hillman_scope": "Changed-basis diagnostic update complete for21 admitted fields; retain85panel-reference/39generic-head/25thread-over-gross flags and NULL actual Hillman capacity. Carry unchanged geometry/product limits forward; no remedy.",
+        "targeted_bond_native_batch": {
+          "status": "terminal_native_observation_complete_local_stability_failed",
+          "local_states": 2,
+          "mesh_mm": 3.5,
+          "zone_mm": 0.2,
+          "native_tool_session_id": 28314,
+          "docker_container_id": "6d8d27129781",
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/input-readiness.json",
+            "sha256": "c1a816c2b7eed91558898a258f2a0fc390905025be169ea22dff13fcdb6dcf7b"
+          },
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/native-execution-start.json",
+            "sha256": "e4903160edc23c6a4934eba45d63552f5010e8941f6efc1f519bbe6554f5c3aa"
+          },
+          "do_not_restart_on_observation_timeout": true,
+          "resource_update": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/native-resource-update.json",
+            "sha256": "53a1999c4119db32b1e4341e83e5daf46e6dd0ffc03c3a9b23743870e63231a8",
+            "actual_memory_cap_GiB": 18,
+            "mechanical_inputs_changed": false
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/native-observation.json",
+            "sha256": "a2c09bfaad91b7122345728c7a9b016b1aca7583ef033b28c63b2bb68df9a275"
+          },
+          "comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/adopted-envelope-comparison.json",
+            "sha256": "618326991539f4ccf4bff180d42787470449578344ec75a9a8580e62e88a309d"
+          },
+          "independent_review": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/independent-same-side-review.json",
+            "sha256": "f5f942f4f684f730cd7c8a7b55ef30b1b0e7a350068c4a496f7c25f8a659a74d"
+          },
+          "bore_rim_audit": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02/bore-rim-resolution-comparison.json",
+            "sha256": "c2e267701fb0621abe5893f8f13e7310daef1bfe86f34d54ec3de19bd777d10e"
+          },
+          "five_percent_local_stability_meets": false,
+          "strength_allowance_maximum": 0.8209060250050816
+        },
+        "current_rim_refined_bond_native_batch": {
+          "status": "terminal_native_observation_complete_strength_meets_local_stability_failed",
+          "native_tool_session_id": 19280,
+          "docker_container_id": "e78fdf300692",
+          "last_observed_up_minutes": 21,
+          "local_states": 2,
+          "bulk_mesh_mm": 3.5,
+          "zone_mm": 0.2,
+          "bore_corner_segments": 32,
+          "bore_arc_mm": 1.0130409123,
+          "nodes": 402323,
+          "elements": 268630,
+          "memory_cap_GiB": 20,
+          "swap_total_cap_GiB": 24,
+          "cpu_count": 1,
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/input-readiness.json",
+            "sha256": "c02516f2ee352991940d0c8ba54ed6718e21384b909328f570c88f9dfcec9684"
+          },
+          "preparation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/preparation.json",
+            "sha256": "529aa70deea76d3fa510e29ca1dc369ebf45adba606e028c14ac9fcc6eb69460"
+          },
+          "resource_policy": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/parent-resource-policy.json",
+            "sha256": "36f160f0321e13ba71f7e7b0043ede9bf3ef5800c9e2b316e3514bc705700491"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/rim_refined_bond_check.py",
+            "sha256": "81ab9429e4f81097f1f47ed83318cf2bc71e7ac72350b8e584109be79b30b360"
+          },
+          "do_not_restart_on_observation_timeout": true,
+          "mechanical_change": "Only critical bore curvature16 to32; same global mesh/zone/loads/material/two states.",
+          "original_five_percent_stability_criterion_retained": true,
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/native-execution.json",
+            "sha256": "aba63480ed28ca9b96425303ed4adb3c243834b1ea0c1da177a376d02088b2ea"
+          },
+          "resource_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/parent-resource-execution.json",
+            "sha256": "2f68e19a23899672fd0e48a2ae09bedd3a7e5263d51e0f1563e89d1d6dea230c"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/native-observation.json",
+            "sha256": "250752f8cf757cfc073e2dab640edb848ed74ab5c4c246c462ed9570470210e2"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/adopted-envelope-comparison.json",
+            "sha256": "9959ad657332575f12b9306bdad86d374ff47c1407a396711e908b50b789bf89"
+          },
+          "stability_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh35-zone02-rim32/same-side-stability-comparison.json",
+            "sha256": "1fcf9ccc7a2a96c796dd5cbbbce1dbcc9f28f742640bdf94bac23465749e1785"
+          },
+          "elapsed_seconds": 1544.878634555993,
+          "maximum_strength_with_1_10_allowance": 0.8008791458635061,
+          "original_five_percent_stability_meets": false,
+          "next_action": "Observed strength QoI accepted under explicit parentdecision; preserve failed auxiliary screen. Check missing left strength governor via existing span or one new RHS on same mesh; zone/localcompliance/changedloads remain."
+        },
+        "other_spring_scenario_cases": {
+          "status": "all6_full_recoveries_and_selected_shaft_washer_checks_complete_other_resistance_open",
+          "tool_session_id": 68300,
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/remaining-five-readiness.json",
+            "sha256": "77271159f00e97359f425f1b8cb1fc92166c34a9526a715e85e3a7aa651eeceb"
+          },
+          "resource_policy": "One thread;2GiB address-space cap; one case at a time under shared lock; sole heavy native job remains rim32.",
+          "case_results": [
+            {
+              "case": "a12-left",
+              "result": {
+                "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/a12-left-stiff/changed-prior-results.json",
+                "sha256": "8f8ab55d8d6f4306e340837c64eba39c40f52d740c5030024a993032eba4fcd7"
+              },
+              "gradient_inf_N": 2.6578831580081896e-08,
+              "planar_foot_indices": [
+                0.9830101778638489,
+                0.033096748043250926
+              ]
+            },
+            {
+              "case": "a12-rear",
+              "result": {
+                "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/a12-rear-stiff/changed-prior-results.json",
+                "sha256": "c54eb4860fbb25c8e90f76889a3bc98bd68854bbed68850410a3ff74d28374b5"
+              },
+              "gradient_inf_N": 2.9921856992132234e-08,
+              "planar_foot_indices": [
+                0.3959373977679885,
+                0.11350812347501235
+              ]
+            },
+            {
+              "case": "k12-right",
+              "result": {
+                "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/k12-right-stiff/changed-prior-results.json",
+                "sha256": "c356703c5568f125f46fb67a58c06cac6d2bd99e871f31fc3a28f36dc20382eb"
+              },
+              "gradient_inf_N": 2.5911967252434387e-08,
+              "planar_foot_indices": [
+                0.03539927125003242,
+                0.9868701706541474
+              ]
+            },
+            {
+              "case": "k12-rear",
+              "result": {
+                "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/k12-rear-stiff/changed-prior-results.json",
+                "sha256": "6b78b2c79df40fbda5c6a2b75ece7a4d413aed87e219118efb74ff1ada35671d"
+              },
+              "gradient_inf_N": 1.2321329734277242e-08,
+              "planar_foot_indices": [
+                0.10802963381565027,
+                0.4054642180682278
+              ]
+            },
+            {
+              "case": "a1-rear",
+              "result": {
+                "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/a1-rear-stiff/changed-prior-results.json",
+                "sha256": "4a4c972da4189db21da9d0b43c68662fe5866dcf892886f96ac05a5cf5136468"
+              },
+              "gradient_inf_N": 2.2351741790771484e-08,
+              "planar_foot_indices": [
+                0.05536353757067166,
+                0.128752348683387
+              ]
+            }
+          ],
+          "all12_spring_scenario_planar_foot_components_meet": true,
+          "maximum_foot_component": 0.9868701706541474,
+          "selected_shaft_washer_result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/six-stiff-cases-selected-shaft-washer-v1.json",
+            "sha256": "7d7bda2180f6be21462a4f634b8c6d233f8812cd00630107da275ade1da202c8"
+          }
+        },
+        "equivalent_zone_comparison": {
+          "status": "mesh_and_integration_complete_mapping_deck_pending_native_not_started",
+          "mesh_summary": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh5-zone01/mesh-current/summary.json",
+            "sha256": "2e985332bb4e579a66574b57a8e8cfd04022eeaa6035a7f3b9cc0dd9c117c5ca"
+          },
+          "mesh_mm": 5,
+          "zone_mm": 0.1,
+          "nodes": 175833,
+          "elements": 117934,
+          "changed_input": "Artificial zone .2to.1 at fixedphysicalglue compliance; same nominal5mm andoriginalcurvature16.",
+          "limit": "Coarse matched-mesh zone comparison, not a mesh-by-zone interaction bound.",
+          "integration_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/mesh5-zone01/parent-integrate-execution.json",
+            "sha256": "cc2ec4f2dc3274873b1896b108a27e40ee0333d04d444580ad6d0cc608d4d7fe"
+          }
+        },
+        "current_left_governing_bond_native_batch": {
+          "status": "terminal_native_and_observation_strength_comparison_complete",
+          "native_tool_session_id": 27250,
+          "docker_container_id": "e14b47c0393a",
+          "docker_client_pid": 47131,
+          "local_states": 1,
+          "source_actions_mapped": 50,
+          "bulk_mesh_mm": 3.5,
+          "zone_mm": 0.2,
+          "bore_corner_segments": 32,
+          "mesh_rebuilt": false,
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/input-readiness.json",
+            "sha256": "36b4962ed1e98e3536febfbdf17d77958cfd8fbddbc2de68684c0a7c84ebc588"
+          },
+          "preparation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/preparation.json",
+            "sha256": "9478bc31470634eca1398e3991102db809360e5bba527ccdb6e942b1d274be3c"
+          },
+          "coverage_correction": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/governing-coverage-correction.json",
+            "sha256": "27d3e088eda90d3e4e3a08ecfd072550ce123f09d58a43bb1426de863a87e083"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/left_governing_bond_check.py",
+            "sha256": "b4572168285c577acc5658cdfa72337794ab030076a001fdd303c30ad6b2ffc7"
+          },
+          "resource_policy": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/parent-resource-policy.json",
+            "sha256": "3b41db70e951acc1a02599fc56a6df2c85456828d932c8e22c101f4a7b87c4a2"
+          },
+          "memory_cap_GiB": 20,
+          "memory_plus_swap_cap_GiB": 24,
+          "cpus": 1,
+          "question": "Missing original left strength governor is outside exact2state loadspan; evaluate onlya12left on existingrim32mesh.",
+          "do_not_restart_on_observation_timeout": true,
+          "subsequent_steps": "On authoritative terminal execution, same one-state driver observe then compare. Review against original a12-left all-point/both-side strength values and retained verification scope; no whole acceptance from convergence.",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/native-execution.json",
+            "sha256": "a1bc1c2128133f1822798dd2eb9722f9357c5752d21124822d95cd68e9af2795"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/native-observation.json",
+            "sha256": "8ad2731a0452139162fe7ddf282c94cddb17efe07337e3b7379961ab18597027"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/a12-left-rim32/adopted-envelope-comparison.json",
+            "sha256": "f4736898a176fe3f289d00e558abc436b9dc7ea87aaeb05294606e4a28f2d754"
+          },
+          "elapsed_seconds": 793.7153234500001,
+          "maximum_interaction": 0.7202734217125338,
+          "with_1_10_allowance": 0.7923007638837872,
+          "strength_comparison_meets": true,
+          "coverage_gap": "Original leftstrengthgovernor nowevaluated on existingrim32mesh; no new mesh. Equivalentzone/compliance/changedloads remain."
+        },
+        "current_composed_creep_native_batch": {
+          "status": "terminal_observed",
+          "tool_session_id": 95969,
+          "docker_container_id": "91e7089973e2",
+          "docker_client_pid": 95450,
+          "local_states": 3,
+          "source_actions_mapped": 150,
+          "global_actions": "AdmittedfiniteEI scenario; changedleafcutreactionreference supplied.",
+          "local_compliance_multiplier": 10,
+          "zone_mm": 0.2,
+          "mesh_mm": 5,
+          "nodes": 175743,
+          "elements": 117860,
+          "mesh_rebuilt": false,
+          "memory_cap_GiB": 10,
+          "cpu_count": 1,
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone02/input-readiness.json",
+            "sha256": "2c7fe30171c812cbdaef81807d2a75688340e03879d00c1a67265097e13d617e"
+          },
+          "plan": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/plan.json",
+            "sha256": "1a85d0c6b8b66c9f38185d7cf697c7a349a2bf659358acd1e8f35109fd41eeaf"
+          },
+          "input_audit": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/readiness-audit.json",
+            "sha256": "0ae7d4f4dbf0c3d72e3c93bc1e074693fae3776beb405bd57d59a4296a4ea2bc"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/composed_creep_bond_check.py",
+            "sha256": "69fd26c6736e65d0e36901351cb8dae9c09d81ffd6c7c9507a4b20b46efe2145"
+          },
+          "do_not_restart_on_observation_timeout": true,
+          "post_terminal": "Observation and strength comparison complete. Equivalent zone01 remains prepared; instantaneous zone01 is a separate prepared three-state check.",
+          "zone01_equivalent_composed_counterpart": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/input-readiness.json",
+            "sha256": "b01b89786df3f22b1f10b9082388431c207d44fe65d2e891c02d0266ee10d5be"
+          },
+          "zone01_native_started": false,
+          "instantaneous_zone_inference_permitted": false,
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone02/native-execution.json",
+            "sha256": "fa3f8de97ddd7d5b491bfab28e0667b75a6bd6931a38dab8a1e553d2572701da"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone02/native-observation.json",
+            "sha256": "2d4719d61597450c05d9325cc71e3d45b73a2d280424b5764e8b44044b91500d"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone02/adopted-envelope-comparison.json",
+            "sha256": "8d52f6024c09be99ca970739a29545c98bec1dd95c66d09669daf4ee7dde80ca"
+          },
+          "maximum_interaction": 0.6660862529516053,
+          "with_1_10_allowance": 0.7326948782467658,
+          "strength_comparison_meets": true,
+          "parent_verification": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/parent-changed-group-composed-bond-intake-v1.json",
+            "sha256": "0dff9b8822454e8b883899a32e802975a2b806b94278ae826fd2a3d00728eaea"
+          }
+        },
+        "current_changed_fitting_native_batch": {
+          "status": "terminal_native_and_observation_pass",
+          "tool_session_id": 7342,
+          "docker_container_id": "a58e2915bc33",
+          "native_states": 217,
+          "exact_reused_tensor_states": 71,
+          "changed_targets_total": 288,
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/input-readiness.json",
+            "sha256": "3f6234056c9b7dda3168affc791a6f78a08cb0a8083694760a8d4a5bb9000f41"
+          },
+          "span_result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/load-span-result.json",
+            "sha256": "1e1e482b025b934b05b430fadd197c27bb2f4c39279404aa4a31931dd20e706b"
+          },
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/parent-native-execution-start.json",
+            "sha256": "573f790f64c0865ac6329369cacde0bbda7a9e196a183b4e78370bb4c9ab7553"
+          },
+          "memory_cap_GiB": 2,
+          "cpu_count": 1,
+          "mesh_rebuilt": false,
+          "do_not_restart_on_observation_timeout": true,
+          "post_terminal": "All native observation gates and the complete288-target component join pass. Parent independently verified17sourcepins with bounded-memory hashes and all direct material ratios. Same-state fullassemblyjoin remains.",
+          "returncode": 0,
+          "seconds": 1025.9223257400008,
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/parent-native-execution.json",
+            "sha256": "2bd0466bf3a7c1b1840a845c477f41ed357fa6204472292d77dc37ab24321227"
+          },
+          "observer_execution_adapter": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/native-execution.json",
+            "sha256": "e7fe49b626894a854258f95f2ad89d129a18b159c3c63d5834b8dab34f2eb014"
+          },
+          "inputs_unchanged": true,
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/native-complete-bank-observation.json",
+            "sha256": "3053559d83e51800ae2c9ead92c85e4c645c4e1e030af973b03692f4838dc092"
+          },
+          "independent_verification": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/native-complete-bank-verification.json",
+            "sha256": "e129b39f273a4fc2c17bcc2a68b5b20ce7cf8b002a206c6648ddc4b69a741979"
+          },
+          "all288_material_comparisons_meet": true,
+          "maximum_index": 0.7895159444091069
+        },
+        "instantaneous_zone01_preparation": {
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/instant-zone01-three-state-v1/input-readiness.json",
+            "sha256": "ad5af7c91c60ac9ff08e5cc18fcc59bbc5a1d33548444c31a859fee0b352506a"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/instant_zone_three_state_check.py",
+            "sha256": "3fdd8dc2925cefa4dd9453f776b12082e932f637cee4e4b2a8be8d1a48cf39a7"
+          },
+          "local_states": 3,
+          "source_actions": 150,
+          "native_started": true,
+          "question": "Equivalent.1mm physical interface zone at instantaneous1x compliance and original forces, using original selected3governors and existing mesh. No creep-only monotonicity inference.",
+          "status": "terminal_native_observation_and_comparison_complete",
+          "tool_session_id": 11443,
+          "docker_client_pid": 88940,
+          "docker_container_id": "315f1a6c3cf2",
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/instant-zone01-three-state-v1/native-execution-start.json",
+            "sha256": "d7cee16f05348dcf42626a86ba6418b07c95f0bb1cf1f9bb694d29a4ba7aab20"
+          },
+          "cpu_count": 1,
+          "memory_cap_GiB": 10,
+          "do_not_restart_on_observation_timeout": true,
+          "post_terminal": "All selected strength comparisons meet. The actual left/right strength governors change by at most4.365%; the selected noncritical left-peel case changes8.88/14.65%, retained explicitly. No all-local-quantity5% claim.",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/instant-zone01-three-state-v1/native-execution.json",
+            "sha256": "3d9117cc995506abf7dcb9d3a45289c65367e89b2b016072508cdd71fc649ba8"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/instant-zone01-three-state-v1/native-observation.json",
+            "sha256": "944c2b018620ca8f0ffad714d0008c5acf8c3e6e4ade8e179a75e22b54a0e2ba"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/instant-zone01-three-state-v1/adopted-envelope-comparison.json",
+            "sha256": "fcf7edb64d68fbe2670291330f52ee317e250f13551477ac3e2394093b543796"
+          },
+          "parent_zone_admission": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-instantaneous-zone-comparison-v1.json",
+            "sha256": "ab8ce6cea189fcc285fda7167cf837fde0d0604b15f886a4345590dd32c8ee80"
+          },
+          "maximum_interaction": 0.7675150692195619,
+          "with_1_10_allowance": 0.8442665761415182,
+          "elapsed_seconds": 607.4642256209918
+        },
+        "changed_spring_bond_preparation": {
+          "status": "terminal_native_observation_and_strength_comparison_complete",
+          "span_result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/load-span-result.json",
+            "sha256": "dd04d8f463f64e5cb73b4819bb9d37a58101abc83ea8f6cad83a979b0087aeb6"
+          },
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/input-readiness.json",
+            "sha256": "5937e6238ddc36439efcb927696dac0b704838a4f314e9673ca930579993dd7f"
+          },
+          "independent_control": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/independent-readiness-control.json",
+            "sha256": "b2efdfe1224a8306a30232596d7c53ab3639c54bf428e7af23c2b18443b3d41a"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring_bond_load_span.py",
+            "sha256": "d6f304da8d0f2ff4c4b4040290b4609cacb94de9dd31f4c725fd14d059cd5f94"
+          },
+          "local_states": 12,
+          "source_actions": 600,
+          "existing_operator_reused": true,
+          "mechanical_deck_prefix_identical_to_original": true,
+          "all12_targets_outside_old12_state_span": true,
+          "missing_load_direction_rank": 12,
+          "maximum_nodal_span_residual_range_N": [
+            0.2253,
+            1.0783
+          ],
+          "new_mesh_global_CAD_solves": 0,
+          "native_started": true,
+          "parent_serialized_execution_required": true,
+          "after_observation": "All12changed-load local fields and24side comparisons are evaluated on the original5mm/.2mm operator. Actual left/right strength-governor state identities match earlier targeted cases; their changed traction fields are different, so original refinement percentages are not transferred. Retain the mesh/zone applicability limit; no new test or remedy commissioned.",
+          "tool_session_id": 12001,
+          "docker_client_pid": 67486,
+          "docker_container_id": "999c62c952b2",
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/native-execution-start.json",
+            "sha256": "46da2359bd91ef5756b35a35d76f99a3f85f01bc9b16382e7c2d673501afa5bb"
+          },
+          "memory_cap_GiB": 10,
+          "cpu_count": 1,
+          "do_not_restart_on_observation_timeout": true,
+          "post_terminal": "Use spring_bond_load_span.py observe --basis, then compare --basis; retain failed results, audit implementation issues and report current criteria without pursuing remedies.",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/native-execution.json",
+            "sha256": "1b341737e887c8e998eefbb47334510a771f9ac9d649cd4111a6f1e309f81cdd"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/native-observation.json",
+            "sha256": "3e97366cb5a793c9e39f234bb8d67c7176a5b7b49e88c2390c259fc413eb5972"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/adopted-envelope-comparison.json",
+            "sha256": "11980b4acee42b1b1f0dad309ed988042f1f290a75a50318e35df6cd513540a5"
+          },
+          "elapsed_seconds": 2257.3691542329907,
+          "maximum_interaction": 0.8521427028925759,
+          "with_1_10_allowance": 0.9373569731818335,
+          "all24_conditional_side_strength_comparisons_meet": true,
+          "governing": {
+            "case": "a12-left",
+            "cleat": "eoere_cleat_left",
+            "side": "outer",
+            "maximum_interaction": 0.8521427028925759,
+            "maximum_peel_MPa": 0.02265678351067812,
+            "maximum_shear_MPa": 0.1857025161210596
+          },
+          "changed_load_refinement_coverage_admitted": false,
+          "independent_table_intake": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/spring-bond-load-span-v1/component-basis/independent-table-intake.json",
+            "sha256": "14320fcc926154fea6f475cb458ebfc1fcbd1a148f81ee747bf6c545e48d4a75"
+          },
+          "source_pins_independently_verified": 136,
+          "new_peel_governor": {
+            "case": "a12-left",
+            "cleat": "eoere_cleat_right",
+            "side": "inner",
+            "peel_MPa": 0.08894093279418147,
+            "covered_by_old_targeted_refinement": false
+          }
+        },
+        "changed_permanent_case_preparation": {
+          "status": "both_responses_and_checks_independently_admitted",
+          "audit": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/readiness-audit.json",
+            "sha256": "ce9faf8dfa1a216a1bfec891eaf76c9c6289191acb6135b9aadd3e2489b94680"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent_scenario_followthrough.py",
+            "sha256": "07ab5967d187ec6c0595a293a90735bacc5623cca89237339a1baf4598d13414"
+          },
+          "readiness": [
+            {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/finite-EI/readiness.json",
+              "sha256": "e3d35b1923ffe3535e855188f54a5d96532280f45f8eb194f3a1e1a27fc61f33"
+            },
+            {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/springs/readiness.json",
+              "sha256": "2891a6d4fa060bc195167020159b14cc92a3a5c42bc3eac675f31f82ffe87e5e"
+            }
+          ],
+          "additional_cases": 2,
+          "same_permanent_force_N": 2258.396086657283,
+          "retained_load_rows": 838,
+          "cold_entry": true,
+          "nonlinear_field_subtraction": false,
+          "memory_cap_GiB": 2,
+          "thread_count": 1,
+          "parent_serialized_execution_required": true,
+          "question": "Complete duration-adjusted permanent coverage for the two admitted stiffness scenarios; original deadresponse alone is not transferred.",
+          "finite_EI_tool_session_id": 64730,
+          "springs_response_started": true,
+          "admission": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/independent-admission.json",
+            "sha256": "89d619c4e69dbae1d2258138dbc3402cbadcf2345d2ff5df946a7459097bd4a4"
+          },
+          "admission_driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/admit_permanent_scenarios.py",
+            "sha256": "6a075442bc8c6bc140a720899c59a08e5a39a12c752d0de7b9e21dd3a2a0f4e6"
+          },
+          "finite_EI_response_terminal": true,
+          "springs_response_terminal": true,
+          "all_duration_and_header_components_meet": true
+        },
+        "current_composed_zone01_native_batch": {
+          "status": "terminal_observed_strength_comparison_meets",
+          "tool_session_id": 16309,
+          "docker_client_pid": 36190,
+          "docker_container_id": "a705d24f58c0",
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/input-readiness.json",
+            "sha256": "b01b89786df3f22b1f10b9082388431c207d44fe65d2e891c02d0266ee10d5be"
+          },
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/native-execution-start.json",
+            "sha256": "1c5ea26adfb187d8d72d0197046930d3021110627bdde3142eac29e55c34ddf0"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/composed_creep_bond_check.py",
+            "sha256": "69fd26c6736e65d0e36901351cb8dae9c09d81ffd6c7c9507a4b20b46efe2145"
+          },
+          "states": 3,
+          "actions": 150,
+          "zone_width_mm": 0.1,
+          "local_compliance_multiplier": 10,
+          "fresh_global_finite_EI_actions": true,
+          "memory_cap_GiB": 10,
+          "cpu_count": 1,
+          "do_not_restart_on_observation_timeout": true,
+          "post_terminal": "Observation and equivalent-zone strength comparison complete; no further rerun commissioned.",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/native-execution.json",
+            "sha256": "ec741efc41fe11acfcd95176633ac915bc83c887c682c4ee9cf4bcff328f9704"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/native-observation.json",
+            "sha256": "35d4bc149d0f52561b7a762f2481bd7334cd4c49f387c1b635f42238467bed3f"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-targeted-acceptance-v2/composed-creep10-three-state-v1/zone01/adopted-envelope-comparison.json",
+            "sha256": "a6c93ee57d777156272de2a5e41e83b2108a007a7e555944574adf8759d452e3"
+          },
+          "zone_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-composed-zone-comparison-v1.json",
+            "sha256": "e6c919cadd238cfc48ee3d8cc77127c08e9ebb03ac4df9376470e171a2132d59"
+          },
+          "elapsed_seconds": 629.6068775089952
+        },
+        "permanent_fitting_native_preparation": {
+          "status": "terminal_native_observation_and_independent_verification_complete",
+          "load_span": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/load-span-result.json",
+            "sha256": "d12ef88ec0667a1c790fa82ed80493c0a63bb02dad76a059fcd5a89aab080897"
+          },
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/input-readiness.json",
+            "sha256": "a3e5b4fc06b8d763124fc3337f35c0404681789408b368348f2c348c8e552ae5"
+          },
+          "targets": 72,
+          "existing_native_basis_states": 435,
+          "retained_rank": 412,
+          "retained_condition_number": 20880000000.0,
+          "existing_field_reuse_targets_admitted": 0,
+          "interpretation": "Numerical exact-map gate admits none. Ill-conditioning prevents treating computed residuals as proof of algebraic nonmembership. All72physical loads are prepared directly; no minimum-rank claim.",
+          "memory_cap_GiB": 2,
+          "cpu_count": 1,
+          "tool_session_id": 40786,
+          "docker_client_pid": 43246,
+          "docker_container_id": "93dd84e5086c",
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/parent-native-execution-start.json",
+            "sha256": "c6e6555271fbd6b46c6ffe8f0f3cbb0162763eaee65a483df364ad6092d66cfd"
+          },
+          "post_terminal": "Complete. Retained4mm fixed-traction/IP scope; no whole-assembly or physical conformity acceptance follows.",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/parent-native-execution.json",
+            "sha256": "859cb267096cb257eb2b0a8f687752df471f443084a69f1692c1370e3155ae36"
+          },
+          "execution_adapter": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/native-execution.json",
+            "sha256": "a6629cfe958eef413b8d892aa761cb5c58dac0f408961ad947e3182d1f21ef3b"
+          },
+          "elapsed_seconds": 330.41733117999684,
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/native-complete-bank-observation.json",
+            "sha256": "d14954000dc82b5a0625ce1279af8b0461ed9a5f4e7c9a4525f5ac0e6f4d1e71"
+          },
+          "verification": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-fittings-common-span-v1/native-complete-bank-verification.json",
+            "sha256": "38491044d412ee102469dab3ae3edc40bc157649114d0f7c1f230e8fa601ad0d"
+          },
+          "maximum_material_index": 0.16181372075987602,
+          "global_governing": {
+            "state_id": "permanent-springs:eoere_clip_split_top_center_right",
+            "fitting_id": "eoere_clip_split_top_center_right",
+            "case_id": "permanent-only",
+            "native_step": 72,
+            "maximum_IP_VM_MPa": 22.77019423866519,
+            "required_Fy_1_67_MPa": 38.026224378570866,
+            "conditional_Fy235_marker_index": 0.16181372075987602,
+            "peak_element": 32132,
+            "peak_IP": 2,
+            "peak_simultaneous_tensor_MPa": [
+              21.2271,
+              3.085219,
+              0.4489209,
+              6.654115,
+              -0.652573,
+              -0.3946017
+            ],
+            "tensor_order": [
+              "Sxx",
+              "Syy",
+              "Szz",
+              "Sxy",
+              "Sxz",
+              "Syz"
+            ],
+            "element_corner_centroid_local_mm": [
+              24.859531257647063,
+              -30.59383074527409,
+              5.950924243131945
+            ],
+            "centroid_is_not_IP_coordinate": true,
+            "integration_points": 86864,
+            "printed_displacement_nodes": 16099,
+            "declared_work_nodes": 14883,
+            "additional_inherited_work_output_nodes": 1216,
+            "gauge_plus_applied_force_residual_N": 7.027170908644969e-10,
+            "gauge_plus_applied_moment_residual_Nmm": 4.9865817628841584e-08,
+            "gauge_reactions": [
+              {
+                "node": 21019,
+                "dof": 1,
+                "RF_N": -1.807496e-08
+              },
+              {
+                "node": 21019,
+                "dof": 2,
+                "RF_N": -8.996608e-10
+              },
+              {
+                "node": 21019,
+                "dof": 3,
+                "RF_N": 3.921154e-09
+              },
+              {
+                "node": 21020,
+                "dof": 1,
+                "RF_N": 3.289624e-09
+              },
+              {
+                "node": 21020,
+                "dof": 2,
+                "RF_N": -2.338206e-09
+              },
+              {
+                "node": 21021,
+                "dof": 1,
+                "RF_N": 1.502752e-08
+              }
+            ],
+            "half_CLOAD_U_work_Nmm": 4.210908851255514,
+            "serialized_nodal_force_max_error_N": 4.884981308350689e-15,
+            "target_index": 71,
+            "scenario": "springs",
+            "physical_response_state_id": "permanent-springs/admitted-actions",
+            "admitted_recovery": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/springs/recovered-actions.json",
+              "sha256": "e6419eb14b2237cdcaf223baca60b05e496a148c938c19ffae23ee3a98529945"
+            },
+            "governing_index": 0.16181372075987602
+          },
+          "all72_conditional_material_comparisons_meet": true
+        },
+        "permanent_bond_native_preparation": {
+          "status": "terminal_native_observation_and_strength_comparison_complete",
+          "span_result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/load-span-result.json",
+            "sha256": "a5f244b6c3cfff70eaa8a9d3701de7c7a9bb7cd9e2b5a2fe3cddbec51b5bc177"
+          },
+          "readiness": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/input-readiness.json",
+            "sha256": "c288e39cea1212a3e9ebea311d1823cb0d54529deb26c5119d152b9fc026d926"
+          },
+          "input_audit": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/native-readiness-audit.json",
+            "sha256": "60003ac7b0ad7ad696bb4e8a99bfb72adf907af68de3a3b86fb658191d445f27"
+          },
+          "driver": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent_bond_native_check.py",
+            "sha256": "2f282ce03831a10bf2226533bf84331056c8fe19e9fc3b7930f1e2d882d3e354"
+          },
+          "states": 6,
+          "source_actions": 300,
+          "same_mesh_and_instantaneous_operator": true,
+          "smallest_independent_subset_claimed": false,
+          "remaining": "No further numerical job or remedy queued. Preserve5mm/.2/local1x and permanent-force refinement/zone applicability limits; this is not full bond or material qualification.",
+          "tool_session_id": 28067,
+          "docker_client_pid": 56508,
+          "execution_start": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/native-execution-start.json",
+            "sha256": "595365f2312e388839ce25af9e73815f59e9ea7356230adb74681831c3632012"
+          },
+          "memory_cap_GiB": 10,
+          "cpu_count": 1,
+          "do_not_restart_on_observation_timeout": true,
+          "docker_container_id": "1338fc915ee6",
+          "terminal_execution": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/native-execution.json",
+            "sha256": "f361944bb75e657735e878c2c1e8ef077a8b3efae97fb09611dc1df983a567a6"
+          },
+          "observation": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/native-observation.json",
+            "sha256": "9b4d91ef237eb44a7726afaaff4baa2454228699e61e3ff0d4026fbeafc752f0"
+          },
+          "strength_comparison": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/adopted-envelope-comparison.json",
+            "sha256": "b76def59e5731e837a08517f13d4c314fe7bf3752bc2d11b39fca276ec4f354d"
+          },
+          "elapsed_seconds": 1118.883314316001,
+          "maximum_interaction": 0.239934938637843,
+          "with_1_10_allowance": 0.2639284325016273,
+          "all12_conditional_side_comparisons_meet": true,
+          "independent_table_intake": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bond-load-span-v1/independent-table-intake.json",
+            "sha256": "bdf04e02f75fc3e01270000e9ada05a369404a51a081bf4488cf6094af5c9b1b"
+          },
+          "source_pins_independently_verified": 104
+        },
+        "owner_fixed_design_exceedance_direction": {
+          "authority": "Latest owner reply to the panel/Hillman scope question in this thread.",
+          "direction": "Keep evaluations if their basis changed. Do not try to resolve the current exceedance; retain the present design.",
+          "full_structural_acceptance_achieved": false,
+          "geometry_or_hardware_change_authorized_by_this_reply": false,
+          "remedy_work_stopped": true,
+          "earlier_completed_reduced_review_unchanged": true,
+          "current_work_completion": [
+            "Finish current fixed-design changed-basis local numerical runs and existing applicable consumers.",
+            "Audit panel/Hillman changed bases and update only affected existing evaluations.",
+            "Reconcile the candidate evaluation/construction packet, explicit retained exceedance, assumptions and remaining method/material/observation limits.",
+            "Verify affected source bindings, maintained documentation and preserved observations; no historical full suite or CAD rebuild."
+          ],
+          "current_work_completion_verified": true
+        },
+        "remedy_trials_to_pursue": [],
+        "actual_work_status": "project_closed_by_owner_existing_design_and_completed_packet_retained",
+        "stored_full_acceptance_objective_achieved": false,
+        "panel_hillman_changed_basis_evaluation": {
+          "status": "complete_fixed_design_existing_diagnostics_with_retained_flags",
+          "result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/panel-hillman-changed-basis-v1/result.json",
+            "sha256": "8c475f4e9cb9810b5f8e9fed6ba59534539b8c218065cc2e4ee5ab042233b1ec"
+          },
+          "producer": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/check_panel_hillman_changed_basis_v1.py",
+            "sha256": "ca79739f92bc14ae03479c93fbdedc4caada7d9c0fdf738be297807f99899aea"
+          },
+          "fields": 21,
+          "panel_records": 126,
+          "panel_comparisons": 504,
+          "same_axis_screw_records": 1386,
+          "matched_control_values": 288,
+          "matched_control_max_error": 0,
+          "panel_reference_flags": 85,
+          "generic_head_flags": 39,
+          "required_thread_over_gross_flags": 25,
+          "maximum_panel_reference": 4.616903821759273,
+          "maximum_generic_head_reference": 2.572440052266333,
+          "actual_Hillman_capacity": null,
+          "complete_panel_capacity": null,
+          "scope": "Existing homogeneous-panel and generic APA/NDS diagnostics with current response coefficients/actions; face material and geometry unchanged. No Hillman product resistance/stiffness or local head/hole/punching qualification follows. CD1.6 arithmetic remains historical/nonadopted. Owner retains present design; no remedy.",
+          "source_pins_parent_verified": 220
+        },
+        "permanent_bore_composition": {
+          "status": "complete_all276_component_comparisons_meet",
+          "result": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bore-quadrature-shaft-transfer-v1.json",
+            "sha256": "053605c91c8c5c9177ddfa52214c6c9829dd90ed20e6ee7e58ec6736153697a4"
+          },
+          "verification": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-bore-transfer-source-arithmetic-verification-v1.json",
+            "sha256": "855f6be9df16997bbfb90babed077b97d6b1ec65fa72799d63a6a0ed95f3e360"
+          },
+          "source_pins_verified": 20,
+          "bore_prescriptions": 300,
+          "steel_axis_states": 276,
+          "maximum_combined_metal": 0.07102717415466157,
+          "maximum_Fyb5": 0.09070128451235747,
+          "scope": "Existing small bore quadrature and same-axis shaft fields only. All actual source couples retained. No native/global/CAD or full-map replay; no whole-joint acceptance."
+        },
+        "final_source_audit": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/fixed-design-final-source-verification-v1.json",
+          "sha256": "09946eacaa17a3dbf24ab169593c0ecd39c0731ecc7ee6c19bcde911e188620d"
+        },
+        "current_owner_work_complete": true,
+        "current_owner_completion_scope": "Finite evaluation/packet completion under latest owner instruction, not full structural acceptance or a fabrication/climbing release.",
+        "final_targeted_verification": {
+          "status": "pass_after_final_results_and_document_reconciliation",
+          "index_reference_bindings_checked": 223,
+          "unique_index_reference_files_checked": 209,
+          "local_file_links_checked": 330,
+          "markdown_fragments_checked": 63,
+          "maintained_document_sha256": {
+            "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md": "4d343322cabe1bf4baef836ca1f93a711f3ef858995dc74da5f5176a3c84ceb4",
+            "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/README.md": "cb6720b653f4faf751cf1dfce2cda28c2a5bd9f69b3a1f2fdcd035f583a01832",
+            "docs/bolted-frame-development/README.md": "c71a21cd8d067812299bb3a4f344c6c4fd444e8a90277e42dd21e6e96ef667c4",
+            "docs/wood-joints-mvp/completion-ledger.md": "939124be295845f4fc5a6ef098582f2b27fab5af6f1c22ec1e894fafa584da4b"
+          },
+          "upstream_source_audit": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/fixed-design-final-source-verification-v1.json",
+            "sha256": "09946eacaa17a3dbf24ab169593c0ecd39c0731ecc7ee6c19bcde911e188620d"
+          },
+          "upstream_audit_scope": "1408unique file hashes,29protected records/historyprefix,725selectedmeshes and172selectedsourcepins,238blankphysicalrows verified and carried forward unchanged. Root final additions and current doc links verified here.",
+          "earlier_diff_check_failure": "Source audit recorded environmental threaded-lstatresourceerror, not a whitespace defect; root threadless gitdiffcheck now passes.",
+          "final_six_state_bond_table_independently_verified": true,
+          "all_planned_native_jobs_terminal": true,
+          "further_solves_or_remedies_queued": false,
+          "physical_observations_changed": false,
+          "full_structural_acceptance": false,
+          "historical_full_suites_repeated": false,
+          "CAD_or_viewer_rebuilt": false,
+          "scope_note": "Engineering-packet verification at numerical completion. Later owner administrative-closure text has a separate documentation-only check; original as-of document digests are preserved."
+        },
+        "full_acceptance_impasse_audit": {
+          "condition": "Owner retains current exceeded criterion and disallows remedy work; fixed-design evaluation/packet is complete but stored full-acceptance objective is unachieved.",
+          "consecutive_goal_turns_at_impasse": 3,
+          "independent_authorized_work_remaining": false,
+          "goal_tool_status_left_active_pending_required_recurrence_threshold": false,
+          "previous_goal_turn_classification": "no progress: retained exceeded criterion and no-remedy direction revalidated; no independent authorized work remains",
+          "current_goal_turn_classification": "no progress: same blocker verified for third consecutive goal turn; terminal receipts and completed packet unchanged",
+          "verified_failed_source": {
+            "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/current067-DIN-threshold-and-cantilever-audit-v23.json",
+            "sha256": "d8cfdc926474c44cca090356e61ff5385574a010493d9f4bd99aac3a31620d1b"
+          },
+          "goal_tool_status_returned": "blocked"
+        },
+        "owner_project_closure": {
+          "authority": "Owner latest instruction: do not worry about panel screws; call the project done and move with the present design.",
+          "project_status": "closed_by_owner_with_present_design_and_recorded_limits",
+          "further_engineering_work_authorized": false,
+          "further_panel_screw_work_authorized": false,
+          "further_native_tests_redesign_or_remedies_queued": false,
+          "completed_evaluation_packet_preserved": true,
+          "full_structural_acceptance_claimed": false,
+          "selected_baseline_authority_changed": false,
+          "physical_observations_changed": false,
+          "goal_tracker_status": "blocked_inactive_unachieved_full_acceptance_goal_not_resumed",
+          "administrative_document_sha256": {
+            "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md": "073afa60e61c0832d5d640b40290313c45c2e644110fb0ccb1020987154e5a88",
+            "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/README.md": "abe804c67f6d8c4119ecf418cfbb2a62d5be7664f7666a361ea5c678c2d7f4c2",
+            "docs/bolted-frame-development/README.md": "e107310ebe56c9e6b308b5e9951a95fe91f072cf21bb1f73620da354cd1421b4",
+            "docs/wood-joints-mvp/completion-ledger.md": "edfd529f3735ba99c34ec6c8dee6ddc0d15b66c0bb9f2fefdbfedc1d522b78aa",
+            "docs/history/decision-log.md": "e42e38b2b024a3b1790037a91d03fb95bbe4dce13c586ae6f8e7998e14996d3c"
+          },
+          "publication": {
+            "owner_requested": true,
+            "target": "existing GitHub repository and GitHub Pages viewer",
+            "branch": "master",
+            "viewer_url": "https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-v11-six-bolt-cleat-preview&view=rear&holds=off",
+            "packet_url": "https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md",
+            "live_viewer_assets_verified_equal_to_local": true,
+            "viewer_assets_geometry_and_frozen_results_changed": false,
+            "raw_native_runs_or_CAD_rebuilt": false,
+            "further_engineering_resumed": false
+          }
+        }
+      },
+      "recorded_material_baseline": {
+        "adhesive_choice_scope": "preserved_T88_scenario; current_default_is_ordinary_wood_glue",
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/recorded-material-baseline.json",
+        "sha256": "bde7665a71cba96758ea8c6dde25f37b5bbc46950e7a5748219b4374fa31594b",
+        "owner_directed_online_history_baseline": true,
+        "emails_permitted": false,
+        "vendor_reply_required_before_baseline_work": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "bond_plane_followthrough": {
+        "adhesive_choice_scope": "preserved_T88_scenario; current_default_is_ordinary_wood_glue",
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/bond-plane-followthrough.json",
+        "sha256": "c26023ce0e5484614940deb86c669c1841995a94af83a12705b034357558d541",
+        "plane_comparisons_meet": 12,
+        "whole_acceptance_items_closed": 0
+      },
+      "bond_spatial_inputs_and_method": {
+        "adhesive_choice_scope": "preserved_T88_scenario; current_default_is_ordinary_wood_glue",
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/bond-spatial-inputs-and-method.json",
+        "sha256": "ff5765fd83707a13ae2b6c1cd658442fe47e8793700dd61a0376219161993001",
+        "finite_contact_cells": 60,
+        "full_spatial_actions": 600,
+        "native_T10_material_control_pass": true,
+        "candidate_native_batch_ready": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "bond_rolling_shear_comparison_basis": {
+        "source": {
+          "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+          "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+        },
+        "source_sections": "D510F2020 section4.4.4, Table9, Table13; printed17,26,32",
+        "conditional_panel_scenario": "Retained APA24oc plywood, five-ply; not identification of purchased generic birch.",
+        "weaker_direction_Fs_Ib_over_Q_lbf_per_ft": 250,
+        "three_quarter_category_Ib_over_Q_in2_per_ft": 6.0,
+        "conservative_rolling_shear_reference_MPa": 0.28728155388201504,
+        "comparison": "sqrt(2) times maximum resultant interface shear divided by weaker-direction Fs bounds an L1 sum of the two shear components. This is an explicitly conservative component screening interaction.",
+        "normal_tensile_capacity_assigned": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "bond_solid_followthrough": {
+        "adhesive_choice_scope": "preserved_T88_scenario; current_default_is_ordinary_wood_glue",
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/bond-solid-followthrough.json",
+        "sha256": "64ccad9dbee4aaf81e7630d7def70c192d374f374a52de0254d5b3ccd1fe89d1",
+        "native_states_complete": 12,
+        "native_returncode": 0,
+        "native_inputs_unchanged": true,
+        "maximum_recovered_shear_MPa": 0.14419877981998971,
+        "maximum_recovered_tensile_peel_MPa": 0.05480121554135005,
+        "conditional_rolling_shear_component_screen": 0.7098536865434573,
+        "governing_refinement_or_zone_comparison_complete": false,
+        "plywood_normal_tensile_resistance_assigned": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "bond_solid_load_admission": {
+        "adhesive_choice_scope": "preserved_T88_scenario; current_default_is_ordinary_wood_glue",
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/bond-solid-load-admission.json",
+        "sha256": "9a337ac0295898d23d502aac1f68c6a34a0b7d7c9ed44ebc2c09ffbc3b60e894",
+        "local_states": 12,
+        "source_actions": 600,
+        "whole_acceptance_items_closed": 0
+      },
+      "transverse_method_source_review": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/transverse-method-source-review.json",
+        "sha256": "bd48add5561543cc332f6021b0af57a1c5f2b51f18bc438a6f36d6fce06efbd3",
+        "summary": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#transverse-splitting-method-limits",
+        "source_recovered": true,
+        "new_candidate_resistance_comparisons": 0,
+        "whole_claims_closed": 0,
+        "complete_joint_qualified": false,
+        "structural_acceptance": false
+      },
+      "center_post_splitting_method_admission": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/center-post-splitting-method-admission.json",
+        "sha256": "bf0b94afbe88de1bc590c902a26e709e4df54cc0ec4c4868ef7480e0aca5cc96",
+        "current_member_case_inventories": 12,
+        "single_bookkeeping_group_proves_source_single_load_configuration": false,
+        "whole_claims_closed": 0,
+        "new_frame_CAD_native_runs": 0
+      },
+      "panel_duration_and_glued_method_basis": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/panel-duration-and-glued-method-basis.json",
+        "sha256": "6341d0ff191134527f28454aaf1908b38aeed20621b3c5dfb5f3ccd310b14cc5",
+        "source": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#panel-duration-and-glued-beam-method-scope",
+        "CD": 0.9,
+        "maximum_conditional_panel_reference": 0.7887263183816191,
+        "whole_claims_closed": 0,
+        "new_frame_native_CAD_runs": 0
+      },
+      "fitting_wood_normal_bearing": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/fitting-wood-normal-bearing.json",
+        "sha256": "cbe7eb5eedc5e3fdc99cfdfd061f450a5ddae04f4238fcf463b14f68fffd80df",
+        "summary": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#fitting-to-wood-normal-bearing",
+        "counts": {
+          "baseline_pressure_prescriptions": 2304,
+          "active_baseline_prescriptions": 729,
+          "distinct_backing_domains": 384,
+          "active_domains": 227,
+          "exact_header_load_aliases": 768
+        },
+        "maximum_prescribed_pressure_MPa": 0.9514562608180916,
+        "maximum_conditional_bearing_index": 0.22079530178927986,
+        "whole_claims_closed": 0,
+        "new_frame_CAD_native_runs": 0
+      },
+      "complete_seat_method_disposition": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/complete-seat-method-decision.json",
+        "sha256": "e7ab3bf2e0ba4ef941baa4f04e65c07b417fb36d29b1a9df3a050b53c340eb66",
+        "summary": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#seat-and-prying-method-decision",
+        "complete_assembly_resistance_supplied": false,
+        "whole_claims_closed": 0,
+        "whole_claims_open": 4,
+        "new_native_frame_CAD_runs": 0
+      },
+      "current_working_laminate_assumptions": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/working-laminate-assumptions.json",
+        "sha256": "5f0b66e0da287db84d31716d31c6a7dada25804fa3f1ec8a30b507a031ad8d22",
+        "normal_reference_MPa": 0.35,
+        "sustained_interface_compliance_multiplier": 10,
+        "maximum_same_point_interaction_index": 0.7354166061440196,
+        "tenfold_compliance_modal_EI_loss": 0.005308991264171725,
+        "project_assumptions_not_guaranteed_properties": true,
+        "physical_observations_changed": false,
+        "whole_acceptance_items_closed": 0
+      },
+      "reduced_engineering_review": {
+        "status": "complete_reduced_scope_with_four_full_claims_open",
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/reduced-engineering-review.json",
+        "sha256": "66d36c271117b2ff6a1c893b9114e848c749c81c0c1bb4c44a7acd99ed179a9c",
+        "worksheet": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/README.md#governing-joint-family-worksheet",
+        "governing_family_rows": 7,
+        "subagent_reviews": 3,
+        "full_acceptance_claims_remaining": 4,
+        "structural_acceptance": false,
+        "new_native_frame_CAD_runs": 0,
+        "physical_observations_changed": false,
+        "independent_packet_review_complete": true,
+        "review_findings_corrected": 2,
+        "verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/reduced-review-verification.json",
+          "sha256": "7aa3055845cd51661b43607afa9941f8727aea5162257974b6033d5d6a27fd6d",
+          "direct_source_bindings": 44,
+          "protected_records_unchanged": 29,
+          "blank_physical_observation_rows": 238,
+          "local_file_links": 257,
+          "markdown_fragments": 50,
+          "new_arithmetic_comparisons": 7
+        }
+      },
+      "washer_thickness_followthrough": {
+        "path": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/washer-thickness-followthrough.json",
+        "sha256": "c7a764f59d89882182707da0706f4b779724fefbabf0627811415aecf3bb7cec",
+        "parent_adoption": "adopted_resistance_only_scoped_minimum_specification",
+        "ordinary_15023_ends_at_2p30mm": 184,
+        "foot_15023_ends_retained_1p6256mm": 12,
+        "other_15025_ends_unchanged": 8,
+        "baseline_maximum": 0.4751021974928824,
+        "stiff_probe_maximum": 0.8475092223021342,
+        "old_probe_exceedances_preserved": 6,
+        "physical_observations_changed": false,
+        "geometry_changed": false,
+        "verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/washer-thickness-parent-verification.json",
+          "sha256": "6f2e37c1a49085f8d86aafce271182ffc2838d8dcb017d4be4b0bbcb05036727"
+        }
+      },
+      "current_assembly_model_replay": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/acceptance-assembly-followthrough-v2.json",
+        "sha256": "f5460c9e2b30541a55515f924a027c2a903772b1ea5146a3774f2cf3cc3424cd",
+        "compatible_declared_elastic_demand_model_replayed": true,
+        "full_assembly_acceptance": false
+      },
+      "finite_composite_governing_case": {
+        "case": "a12-forward",
+        "EI_z_ratio": 0.9946910087358283,
+        "left_foot_component": 0.9990452911098157,
+        "gradient_inf_N": 1.8461390208224238e-08,
+        "admission": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/a12-forward/independent-force-admission.json",
+          "sha256": "7eeadda6076cec97e63ee2baab143ee6d9d6e7c354f513a1c94357e4b965b306"
+        },
+        "changed_cases_evaluated": 1,
+        "other_changed_cases_remaining": 5,
+        "full_structural_acceptance": false,
+        "remaining_cases_readiness": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/remaining-five-readiness.json",
+          "sha256": "ee91f0aa80b027b0a2a29c4c2e38b05adf2c037def5d03865b596376f21ba2f9"
+        },
+        "status": "governing_case_carried_into_completed_six_case_bank"
+      },
+      "current_outer_top_lateral_geometry": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/outer-top-principal-envelope-v4.json",
+        "sha256": "c88c5d2a53b1f2cdec14eaba939d4e6918f86023702bb5ec7f0f106cec53ef6e",
+        "adopted_component_engineering_envelope": true,
+        "rows": 24,
+        "own_axis_case_states": 48,
+        "maximum": 0.6356175994973163,
+        "parent_arithmetic_error": 0,
+        "whole_joint_accepted": false
+      },
+      "finite_composite_six_case_bank": {
+        "status": "all6_force_body_foot_admitted_downstream_resistance_open",
+        "admission": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/bank-v1/six-case-admission.json",
+          "sha256": "413544c9917b7cbf6131b739f37f86e9461a1ac17629c135b74ecb80cee3b0b0"
+        },
+        "bank": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/bank-v1/response-bank.json",
+          "sha256": "cacff1a3c1b151b40f00385ffb26ae785942ce5f4881faa6c062df3b70d3352b"
+        },
+        "reader": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/read_finite_composite_bank.py",
+          "sha256": "a77c6709447e634f44160c4a39913e4760c7329a224ca06bae9e7a25b0f82a65"
+        },
+        "maximum_gradient_N": 2.9802322387695312e-08,
+        "maximum_body_force_residual_N": 7.947215617290629e-07,
+        "maximum_body_moment_residual_Nmm": 0.0009680449562190366,
+        "all12_signed_planar_foot_components_meet": true,
+        "maximum_foot_component": 0.9990452911098157,
+        "structural_acceptance": false
+      },
+      "changed_stiffness_component_checks": {
+        "status": "a12_forward_component_meets_other_cases_open",
+        "full_recovery": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/a12-forward-stiff/recovered-actions.json",
+          "sha256": "f083334d8e44d985f82d80543378328fa9f7ed1ad87153d8d9ac58edba1a131d"
+        },
+        "selected_shaft_reference": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-selected-bearing-shaft-reference-v1.json",
+          "sha256": "5e604bd40ecbe24e0c677052d5a1a17def46460ea6bc2aacb41e8b22c0f38ef5"
+        },
+        "shaft_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-shaft-material-verification.json",
+          "sha256": "e4075949ac677adb7bb8d1e266314fbad3c2329bf68795afb74c20f6700c1d62"
+        },
+        "selected_bearing_maximum": 0.8541268153,
+        "shaft_bending_maximum": 0.7200422537,
+        "combined_shaft_maximum": 0.4909987466,
+        "fitting_native_observation": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/angle-load-span-check-v1/native-observation.json",
+          "sha256": "08b82c22e74585f97de805b9bf5cc31482f3b7cf1e1f5c3c3858e15106b90d3d"
+        },
+        "fitting_native_maximum": 0.670403832,
+        "heel_net": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fitting-heel-net-v1.json",
+          "sha256": "968d4579df6b29cdbcdbd0ab85cbe254772251f4c460a12f85430e8a4950f256"
+        },
+        "heel_cover_maximum": 0.931355485,
+        "net_section_maximum": 0.684337613,
+        "historical_N_event_bug_scope_audit": "complete_all_old_material_bounds_conservative_no_passes_invalidated",
+        "complete_joint_accepted": false
+      },
+      "cleat_side_parallel_components": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/cleat-side-parallel-components-v12.json",
+          "sha256": "7d5a827d7f780dd36606d75b0fd11e1d3de296dd2ad21ca4faf366e7bb69f9f2"
+        },
+        "E3_comparisons": 48,
+        "E4_comparisons": 72,
+        "E3_maximum": 0.17740215492487674,
+        "E4_maximum": 0.2317771499013542,
+        "net_tension_area_credit": 0,
+        "complete_joint_accepted": false
+      },
+      "transverse_method_followthrough": {
+        "status": "prior_hybrid_screens_not_source_qualified; consistent_DIN_route_under_review",
+        "independent_method_review": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/splitting-method-validity-review-v1.json",
+          "sha256": "e9c8a346e576b905cfeb33b00c1e52400498ee4394c77459cb4748aa242faa74"
+        },
+        "consistent_DIN_pilot": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/consistent-DIN-header-pilot-v1.json",
+          "sha256": "f104fa8b48fd5fd1e655fa87eb58ba34cc9d5e0141a113f9e2bcf7b65a14b9b6"
+        },
+        "published_method_readiness": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/DIN-published-method-readiness-review-v1.json",
+          "sha256": "1203b2c977d98fd0f90fa6a1b8b035c8ea70954cec6cbdadea67f4bdb4600fa3"
+        },
+        "permanent_only_response": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-only-v1/result.json",
+          "sha256": "1fa82941d43784fcba3c76635c081a24c798b8b45fd4fbc435b46f6a1794512a"
+        },
+        "permanent_force_recovery": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-only-v1/recovered-actions.json",
+          "sha256": "db1cbb2d7789836a4f2923bd1421a381abc7aeae68e19f655efc2bf41161ce20"
+        },
+        "actual_splitting_acceptance": false,
+        "limits": [
+          "DIN/Leijten hybrid header and free-end leg screens cannot establish full acceptance.",
+          "Axial screw applicability, duration, 3D interaction and leg bevel/end geometry remain under review."
+        ]
+      },
+      "historical_axial_event_scope_audit": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/historical-axial-event-scope-audit-v1.json",
+        "sha256": "8867b618e746b0af9ccef887d23c24960f3ee3dbf724669473eb6ee1ee8e8a9c",
+        "source_states": 612,
+        "source_cut_samples": 28344,
+        "affected_mixed_states": 105,
+        "all_old_interval_and_state_material_bounds_conservative": true,
+        "old_Fy2_maximum": 0.5175667409647643,
+        "corrected_Fy2_maximum": 0.5119836711199871,
+        "historical_passes_invalidated": 0,
+        "frozen_reports_modified": false,
+        "future_reuse": "Use corrected midpoint preceding-event N/T; no response/native rerun required.",
+        "verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/historical-axial-event-audit-verification.json",
+          "sha256": "041ba4481f9bc96cf572c88985a36d9da1ed783e771909f2e4aeff0e826d55a5"
+        },
+        "cause_location": "Producer main-loop near-coincident event accumulator; verification corrects overbroad helper attribution in raw artifact."
+      },
+      "upper_end_parallel_component": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/upper-end-parallel-bearing-component-v13.json",
+          "sha256": "49de5b8dfed630a1d7e9854ee637ac2eb279902516089fba31c1cee9a39460cb"
+        },
+        "adopted_scope": "Conditional parallel-grain end shear-out component and positive affine density/first-moment envelope; minimum retained-plane bevel geometry is explicit engineering extension. Not complete transverse/mixed joint acceptance.",
+        "minimum_plane_mm": 60.59554847384193,
+        "four_D_mm": 50.8,
+        "E3_comparisons": 24,
+        "E4_comparisons": 12,
+        "E3_maximum": 0.47563818,
+        "E4_maximum": 0.67034651,
+        "blanket_seven_D_from_raw_pressure_reversals_rejected": true,
+        "parent_v12_v13_arithmetic_comparisons": 156,
+        "maximum_replay_discrepancy": 3.637978807091713e-11,
+        "complete_joint_accepted": false
+      },
+      "DIN_axial_scope_and_duration_review": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/DIN-axial-scope-and-duration-review-v2.json",
+          "sha256": "68728aff1c6db11a62ea9d83e41c32a2443e447d7b4b4ed2da54adc1ad843a9d"
+        },
+        "status": "full_primary_source_inspected_generic_planar_method_supported_project_3D_inventory_join_in_progress",
+        "full_primary_handbook": "fea/generated/reference-sources/wuerth-assy-method-handbook.pdf",
+        "generic_axial_effective_width_mm": 28.956,
+        "existing_conditional_usable_thread_mm": 38.1,
+        "derived_axial_kr": 1.375,
+        "long_term_kmod": 0.7,
+        "mixed_project_L1_maximum": 0.9301816650731364,
+        "permanent_project_L1_maximum": 0.5659818408981746,
+        "limit": "Project L1 does not by itself prove complete3D fracture domain. Support-bolt/normal-contact and screw group inventory join remains required; Hillman product/thread qualification is not inferred."
+      },
+      "washer_minimum_six_case_extension": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/washer-minimum-six-case-followthrough-v2.json",
+        "sha256": "99afe76e89f2628fdee212dcbb8b251c91237ba4bc843ff418c1a3aaf131fe4f",
+        "parent_adopted": true,
+        "governs_over_previous_partial_case_addendum": true,
+        "minimum_Fy_MPa": 200,
+        "ordinary_ends": {
+          "quantity": 184,
+          "minimum_t_mm": 2.35,
+          "maximum_t_mm": 2.6416
+        },
+        "large_ends": {
+          "quantity": 8,
+          "minimum_t_mm": 2.85,
+          "maximum_t_mm": 3.175
+        },
+        "foot_ends": {
+          "quantity": 12,
+          "minimum_t_mm": 1.6256,
+          "maximum_t_mm": 2.032
+        },
+        "baseline_rows": 1224,
+        "spring_rows": 1224,
+        "near_IDbox_rows": 48,
+        "baseline_maximum": 0.4586104329,
+        "spring_maximum": 0.9766988049,
+        "parent_independent_replay_maximum_error_MPa": 2.220446049250313e-16,
+        "all204_minima_fit_existing_maximum_envelopes": true,
+        "all102_existing_profile_grip_inputs_retained_not_newly_qualified": true,
+        "geometry_or_forces_changed": false,
+        "actual_conformity_observed": false,
+        "six_previous_policy_exceedances_preserved": true,
+        "full_structural_acceptance": false
+      },
+      "bond_strength_numerical_decision": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-strength-numerical-decision-v1.json",
+        "sha256": "3f5a413acbb8b85c23f5eb21e16ef356877987475f90ab978c4640fdaa5a77e4",
+        "parent_adopted": true,
+        "scope": "Numerical adequacy of unchanged governing strength quantity for two observed states only; preserves failed original auxiliary screen.",
+        "original_auxiliary_screen_passed": false,
+        "maximum_retained_strength_envelope": 0.8209060250050816,
+        "left_strength_governor_refined": false,
+        "whole_bond_acceptance": false
+      },
+      "header_complete_DIN_signed_groups": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/header-complete-DIN-signed-groups-v3.json",
+          "sha256": "ca3978311387f15bd5c6a765148fb3a7af888deee26793cf86360be2946665b4"
+        },
+        "scope": "Generic signed component/L1 project method with all8bolts+10screws,11groups/case and actualclearspacing. Complete wood acceptance remains subject to action inventory/moment applicability join.",
+        "rows": 77,
+        "mixed_kmod": 0.7,
+        "mixed_maximum": 0.9301816650731364,
+        "permanent_kmod": 0.6,
+        "permanent_maximum": 0.5752471467398212,
+        "full_wood_acceptance": false
+      },
+      "baseline_leg_header_wood_component_admission": {
+        "parent_adopted": true,
+        "review": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/ordinary-induced-bearing-moment-method-review-v2.json",
+          "sha256": "d1c605f23e2f336d7d1b26029672b38fdc449912fc7c68342684a075de46f40b"
+        },
+        "header_groups": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/header-complete-DIN-signed-groups-v3.json",
+          "sha256": "ca3978311387f15bd5c6a765148fb3a7af888deee26793cf86360be2946665b4"
+        },
+        "scope": "Conditional baseline leg/header timber components under joined conventional yield/placement, actual retained-plane geometry, fullpressure/shaft/member/parallel/normal checks and genericDIN axial/L1 assumptions. Not Hillman resistance, actual conformity, wholeassembly or changed-spring acceptance.",
+        "foot_Cdelta": 0.9659400300328644,
+        "foot_lateral_maximum": 0.5306052238516249,
+        "signed_foot_shear_maximum": 0.9990448815,
+        "header_long_term_project_L1_maximum": 0.9301816650731364,
+        "header_permanent_project_L1_maximum": 0.5752471467398212,
+        "independent_ratio_checks": 89,
+        "maximum_ratio_replay_error": 2.7755575615628914e-17,
+        "optional_through_width_DIN_bound_is_not_adopted_failure": true,
+        "ordinary_induced_bearing_moments_are_included_by_conventional_method": true,
+        "whole_structural_acceptance": false
+      },
+      "finite_composite_downstream_components": {
+        "summary": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/downstream-v3/summary.json",
+          "sha256": "b60f3b7470a42298b93feb2acd8efd3ede5390a415519a637328b125d85a9c77"
+        },
+        "directional_groups_perimeter": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/downstream-v3/directional-groups-and-perimeter.json",
+          "sha256": "042c27e422e74a595c9ae2e938431eb6ee11cf56f9e83ae16519f0a3b346644a"
+        },
+        "end_only_direction_fallback": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/downstream-v3/changed-sign-principal-end-followthrough.json",
+          "sha256": "d09c76b79d4291e0c3cf9c41441cb36f9c75b886ebf486c5daeac0a41b7a42cb"
+        },
+        "member_normal_maximum": 0.6537525756856315,
+        "member_shear_torsion_maximum": 0.9161884458192453,
+        "member_stability_maximum": 0.8001230514436786,
+        "two_media_end_only_maximum": 0.91245039376,
+        "cleat_perimeter_maximum": 0.41597678143,
+        "complete_selected_rear_common_work_reference": "updated_adopted_reference_meets; see changed_rear_common_work",
+        "native_fitting_bond_changed_load_transfer": "open",
+        "full_geometry_group_qualification": false
+      },
+      "spring_downstream_components": {
+        "summary": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/downstream-members-fitting-v1/summary.json",
+          "sha256": "e7953db15490ecc463ca2e0b88204e6dcd89b04abbf5ebdea22a91385a0d3f1f"
+        },
+        "end_only_direction_fallback": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/finite-composite-sensitivity-v1/downstream-v3/changed-sign-principal-end-followthrough.json",
+          "sha256": "d09c76b79d4291e0c3cf9c41441cb36f9c75b886ebf486c5daeac0a41b7a42cb"
+        },
+        "member_stability_exceedance": {
+          "case": "a12-left",
+          "host": "lumber_leg_left",
+          "index": 1.0173656637106392,
+          "status": "resolved_by_parent_adopted_published_Fb_size_factor; priorCF1resultpreserved"
+        },
+        "maximum_ideal_heel_cover": 0.9433407150180088,
+        "maximum_nominal_fitting_net": 0.8019777966036021,
+        "two_media_end_only_maximum": 0.90923771251,
+        "native_fitting_bond_changed_load_transfer": "open",
+        "full_structural_acceptance": false
+      },
+      "leg_bending_size_factor_correction": {
+        "parent_adopted": true,
+        "proposal": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/leg-stability-audit-v1/published-size-factor-proposal.json",
+          "sha256": "bf5b7d704f22efc0d3029d618f00f358e9ac71b887d96c2768edcb864c5cfd5a"
+        },
+        "original_failure_audit": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/assembly-stiffness-sensitivity-v1/leg-stability-audit-v1/governing-audit.json",
+          "sha256": "f0a7b33b731b589943b3e58b813dc07e574c68a4b5ff1d649735fcc2cf478025"
+        },
+        "scope": "Existing dry DF-L No2 solid nominal4x6 legs only; Table4A CFb1.3 once on Fb, recomputeCL. Other strength and E/Emin inputs retained conservatively; no grade/geometry/stiffness/force change.",
+        "Fb_base_psi": 900,
+        "CFb": 1.3,
+        "Fb_star_before_duration_psi": 1170,
+        "prior_CF1_spring_left_leg_index": 1.0173656637106392,
+        "corrected_full_failing_leg_index": 0.8130225916324322,
+        "parent_independent_witness_replay": 0.8130225916324323,
+        "new_CL_at_governing_witness": 0.9275823926214604,
+        "other_previously_passing_leg_rows": "Retained conservative lower-resistance comparisons; increasing Fb*CL cannot invalidate them. No new whole-bank maximum is asserted.",
+        "physical_grade_or_dimensions_observed": false,
+        "whole_structural_acceptance": false
+      },
+      "permanent_member_foot_cleat_duration": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-member-foot-cleat-duration-v1.json",
+          "sha256": "cc936beb03296331904cfa8f3c7f5c27b2cd0d017b2e3566f1db4b0f65deedcc"
+        },
+        "scope": "Original-prior saved permanent response; NDS/APA CD.90 strengths with Cp/CL recalculated and E/Emin/Fcperp unchanged. No new solve or transfer to changed-stiffness permanent fields.",
+        "sawn_members": 20,
+        "member_normal_maximum": 0.1496429005,
+        "member_shear_torsion_maximum": 0.1776777467,
+        "member_stability_maximum": 0.1494762478,
+        "reduced_depth_groups": 56,
+        "reduced_depth_maximum": 0.2655147128,
+        "perimeter_subsets": 126,
+        "perimeter_maximum": 0.030017769,
+        "all_checked_applicable_components_meet": true,
+        "full_structural_acceptance": false
+      },
+      "mixed_cleat_end_placement_audit": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mixed-cleat-end-placement-audit-v14.json",
+          "sha256": "4541d5bf23ca0ab10c81b59e9735f5aa50f317bbae5236ce81b8a16eaae9474c"
+        },
+        "axes": 20,
+        "end_minimum_failures_under_documented_angle_method": 0,
+        "minimum_new_side_sawn_margin_mm": 2.291451,
+        "actual_complete_Cdelta": "unassigned; obliqueedge/row and plywood/mixedyield applicability remain",
+        "geometry_change_justified_by_markers_alone": false
+      },
+      "changed_rear_common_work": {
+        "summary": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-rear-common-work-v3/summary.json",
+          "sha256": "0d5c24113bd1fdeec594492345e360534ef17bb051e9bd5627bdbd01144f4124"
+        },
+        "axis_states": 72,
+        "source_result_pins_verified": 102,
+        "finite_EI_maxima": {
+          "contracted_bearing": 0.778743441319866,
+          "Mp_over_4": 0.6780321611482784,
+          "same_field_Fy_over_2": 0.5774776256402527
+        },
+        "spring_maxima": {
+          "contracted_bearing": 0.7776051805077296,
+          "Mp_over_4": 0.6861319924205433,
+          "same_field_Fy_over_2": 0.5944121589244656
+        },
+        "all_adopted_component_references_meet": true,
+        "original_affine_diagnostic_not_used_as_substitute": true,
+        "native_global_CAD_runs": 0,
+        "complete_joint_accepted": false
+      },
+      "changed_timber_component_join": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-demand-timber-components-v1.json",
+          "sha256": "1687244ecf116698e3d8a64d23e1ebf6f70543f419685f9d5365a1b1ed7aaa14"
+        },
+        "foot_join": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-foot-adopted-factor-join-v1.json",
+          "sha256": "d7b9330fab3bf007381bc24f38b679c6142b34ac217bfaf9b96cd1883758f2b4"
+        },
+        "cases": 12,
+        "finite_EI_header_maximum": 0.930181333,
+        "spring_header_maximum": 0.94469808,
+        "finite_EI_foot_lateral_maximum": 0.5306054503,
+        "spring_foot_lateral_maximum": 0.4674980289,
+        "finite_EI_signed_foot_maximum": 0.9990452911,
+        "spring_signed_foot_maximum": 0.9868701707,
+        "all_adopted_changed_header_upper_side_parallel_and_foot_components_meet": true,
+        "scope": "Same baseline methods and geometry; not wholemixedjoint/obliqueedge/bond/nativefitting acceptance."
+      },
+      "mixed_plane_group_end_components": {
+        "parent_adopted_component_scope": true,
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mixed-plane-group-readiness-v1.json",
+          "sha256": "cfe8c87fbf9a8ab15442d6e55b7945f23f255e25b2b49799fa835b6859d40479"
+        },
+        "baseline_plane_case_rows": 240,
+        "physical_host_pair_planes": 16,
+        "group_case_comparisons": 96,
+        "maximum_reference": 0.946986567077718,
+        "Cg_lower_bound": 0.5,
+        "physical_maximum_row_size": 2,
+        "minimum_connection_wide_end_factor": 0.5116235471,
+        "plywood_placement_scope": "DirectNDS12.1.1/12.1.3.4panel scope plusfacegrainstrengthaxis, bothsign7Dandbothloadededge4D; actualmaterialconformitynotobserved.",
+        "geometry_scope": "Centerlinegrainray mappingtobevelliteralprojectextension; allendfactorspropagatedacrossbothplanes/allwoodreceivers. RetainedplaneE3/E4remainseparate.",
+        "prior_plywood_sawn_only_exclusion": "Methodscopechoicecorrected; notnormativeban.",
+        "complete_Cdelta_or_joint_accepted": false,
+        "remaining": "Exact sawnobliqueedge/corner/between-row applicability and sharedshaft/fullcomponentjoin; no sourcecapacityinvented."
+      },
+      "mixed_oblique_boundary_review": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mixed-oblique-boundary-method-review-v15.json",
+          "sha256": "79889a65074c8df475aaff071b78c520ea61d03f1e988d1a9f26866023187466"
+        },
+        "bounded_DIN_route": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/true-longitudinal-edge-DIN-route-v16.json",
+          "sha256": "2d9b18c3cc42f42f5a477375302289c01f9939c4a225bce16ca6f16a3b3060d8"
+        },
+        "true_longitudinal_edge_gap": {
+          "axis": "eoere_bolt_067",
+          "host": "base_side_left",
+          "case": "a1-rear",
+          "distance_mm": 30.0560083,
+          "four_D_mm": 38.1,
+          "grain_force_N": -1.432991,
+          "crossgrain_force_N": 2.651913,
+          "status": "specific local applicability criterion remains unsupported; no confirmed adopted resistance exceedance"
+        },
+        "other_four_37p0457_markers": "ClassifiedasbeveledENDface, notlongitudinaledge; retainexplicitend/cornerpathmethod.",
+        "DIN_scalar_index": 0.0320832815,
+        "DIN_geometry_applicability": "unsupported_nonprismaticgroup; do not call scalarpass accepted.",
+        "geometry_changed": false
+      },
+      "current_build_source_reuse": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/current-build-source-reuse.json",
+        "sha256": "b68f71c99a85c4860368eb5d5a06a649123335b86c42f5a9c1e25513d1f7ef2c",
+        "unchanged_profile_records": 30,
+        "unchanged_screw_axes": 66,
+        "cut_stock_assets_copied_or_rebuilt": 0,
+        "final_build_packet_complete": false,
+        "reused_adhesive_process": {
+          "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.md",
+          "sha256": "17206318f7ae1049b6035f2adf820319591fb44ec427abf805c3049d0f1d4eeb",
+          "cached_manufacturer_sheet": {
+            "path": "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/source-cache/system-three-t88-tds.pdf",
+            "sha256": "c7016c3e0f5d365863d1070e70dc4f8f22eb77c5b0b4ed9a9a80c7c8137afc2c"
+          },
+          "analysis_zone_is_not_shop_gap": true,
+          "current_resistance_compliance_basis": "working-laminate-assumptions.json",
+          "product_process_does_not_supply_strength_acceptance": true
+        },
+        "current_assembly_and_assumptions_record": "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/planning/README.md",
+        "shop_sources_reused_without_rebuild": true
+      },
+      "bond_left_governor_numerical_admission": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-strength-numerical-left-governor-admission-v2.json",
+        "sha256": "2a8370ded3dc647201e624fa68d3ab4b4980f8f74452be66f301460d67e6bb78",
+        "parent_adopted": true,
+        "left_original_strength_governor_refinement_gap_closed": true,
+        "retained_envelope": 0.8209060250050816,
+        "full_bond_acceptance": false
+      },
+      "changed_mixed_plane_group_end_components": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-mixed-plane-group-end-components-v1.json",
+          "sha256": "1e41e827cdf4b079d8f96976a7c202df55c903bdc2e9a3293598590b5746d671"
+        },
+        "parent_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/parent-changed-group-composed-bond-intake-v1.json",
+          "sha256": "0dff9b8822454e8b883899a32e802975a2b806b94278ae826fd2a3d00728eaea"
+        },
+        "fields": 12,
+        "planes": 480,
+        "group_end_comparisons": 192,
+        "maximum_finite_composite": 0.9469870717687465,
+        "maximum_spring": 0.9576337818675742,
+        "all_comparisons_meet": true,
+        "parent_adopted_component_scope": true,
+        "complete_Cdelta_or_joint_accepted": false
+      },
+      "isolated067_rejected_response": {
+        "proposal": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/eoere067-clearance-response-proposal-v17.json",
+          "sha256": "c3b45d6fe79ec694622d645f1557fde2b768267f6596d7882cac7d9c74843cdc"
+        },
+        "adopted": false,
+        "geometry_changed": false,
+        "status": "rejected_geometry_feasibility"
+      },
+      "cluster_translation_rejected_response": {
+        "proposal": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/left-fitting-cluster-Y-translation-proposal-v18.json",
+          "sha256": "d10116c6069c3a1da90eee92807cc9c26e41247f0b265cd6eaa05172e87c0ec7"
+        },
+        "adopted": false,
+        "geometry_changed": false,
+        "status": "rejected_geometry_feasibility"
+      },
+      "remaining_current_component_joins": {
+        "changed_wood_normal_pressure": "Completed all4608backing and1248washer-to-wood comparisons; source112pins and parentzeroerrorreplay. Normalcomponent admitted, wholeassemblyjoin pending.",
+        "canonical_torque_residuals": "Closed as explicitly adopted numerical coordinate-transport residuals after physicalaxis/source closure audit; no friction resistance credited.",
+        "staggered_placement": "Closed within explicit bounded actualrow/4Denvelope disposition for2centerpairs and4mixedside physicalhostpairgroups; oldprojectedsingletonmarkers remaindiagnostics. Actual067edge remainsopen.",
+        "true_longitudinal_edge_states": "067/base_side_left: baselinea1rear, finiteEI/a1rear, spring/a1rear andspring/k12rear load toward the30.056mm edge; anyremedy/method must coverall applicable states.",
+        "changed_bore_quadrature_shaft_extension": "Completed all 1,200 current bore maps and 1,104 steel shaft states using the original local quadrature and bound kernels; source-couple verification and parent zero-error ratio replay pass. No full map bank or solve was repeated.",
+        "all56_changed_local_paths": "Complete for all twelve fields: 56 groups and 718 full-wrench cuts per field. Parent independently replays 2,856 adopted scalar component rows. Optional two-edge diagnostics retain their two original-scope flags; the adopted rear-foot Figure3E method remains separate."
+      },
+      "changed_normal_wood_and_canonical_torque": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-normal-wood-and-torque-v1.json",
+          "sha256": "d362b91637f08c675a36acc3ef3d4d53ab2b4188da0ace05f114c4165e494f7b"
+        },
+        "parent_adopted_component_scope": true,
+        "backing_rows": 4608,
+        "washer_to_wood_rows": 1248,
+        "maximum_backing_index": 0.36197033618947133,
+        "maximum_washer_to_wood_index": 0.5274358896776425,
+        "parent_backing_ratio_and_annulus_pressure_replay_maximum_error": 0.0,
+        "parent_source_pins_verified": 112,
+        "canonical_torque_disposition": {
+          "parent_adopted_numerical_residual_treatment": true,
+          "physical_source_axis_T_max_Nmm": 1.5903003818349658e-11,
+          "canonical_transfer_T_max_Nmm": 2.118295120065744e-06,
+          "source_transport_decomposition_error_max_Nmm": 2.4508444028187635e-11,
+          "scope": "21canonical coordinate-transport residuals only. Retaininsteelmaps; no newphysicalwood-frictionorpreloadchannel/capacityinvented."
+        },
+        "whole_assembly_accepted": false,
+        "parent_admission": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/placement-and-normal-component-parent-admission-v1.json",
+          "sha256": "f74f228b38fac37b85c4983152650be99f5f43c3f9961df61fa7813843b6d93b"
+        }
+      },
+      "actual_row_spacing_component_admission": {
+        "parent_adopted": true,
+        "decision": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/placement-and-normal-component-parent-admission-v1.json",
+          "sha256": "f74f228b38fac37b85c4983152650be99f5f43c3f9961df61fa7813843b6d93b"
+        },
+        "center_pair_result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/center-principal-two-point-spacing-method-review-v20.json",
+          "sha256": "9fe6b2b7f39acc85525a6b8d9635e4f3fad82b09f77c2742146c09842566ffe8"
+        },
+        "mixed_grid_result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mixed-side-actual-row-placement-method-v21.json",
+          "sha256": "638739f23f357abe4b2f189f637dc2bca6e5ac0f424c86da29288dab2d21e1cc"
+        },
+        "center_maximum_index": 0.75,
+        "mixed_actual_row_maximum_index": 0.9230769230769231,
+        "current_geometry_changed": false,
+        "true067_edge_gap_resolved": false
+      },
+      "smaller067_cluster_response_proposal": {
+        "proposal": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/left-fitting-cluster-5_16-Y3_6-proposal-v19.json",
+          "sha256": "1498550e8b8dd089c3d44a7e56e77609ccd4e5df3402a3a35d94a5de9871f709"
+        },
+        "adopted": false,
+        "current_geometry_changed": false,
+        "status": "targeted_geometry_envelopes_meet_hardware_clearance_and_installation_conditions_open",
+        "critical_steel_hole_condition": "5/16shaft in10mmfactoryhole stillneeds supportedmetal-holeclearance/scope; no wood-onlyreading ofNDS12.1.3.2 silentlyadopted.",
+        "hardware_feasibility": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/067-hardware-proposal-v19/hardware-feasibility-addendum.json",
+          "sha256": "de535abec9fe1f903b258dccc204af9c758c754b04303b3d3383fe6d63e39f61"
+        },
+        "parent_source_pins_verified": 9,
+        "unadopted_type": "Nominal 6-inch ASME full-body 5/16-18 Grade 5 hex cap screw, matching washer-faced nut and two standard USS 5/16 washers under the recorded dimensional/strength conditions.",
+        "still_open": [
+          "Source-qualified thread-root/runout profile and supported 10 mm steel-hole clearance applicability.",
+          "Washer seat/float and installation-order conditions, followed by matched actions and affected mechanics."
+        ],
+        "bounded_primary_clearance_lookup": {
+          "AWC_chapter12": "https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf",
+          "AISC_specification": "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16w-rev-june-2019.pdf",
+          "AISC_hole_FAQ": "https://www.aisc.org/aisc/solutions-center/engineering-faqs/5-connections/",
+          "disposition": "The NDS hole clause does not expressly provide a wood-only exemption. AISC Table J3.3 starts at 1/2 inch; its listed hole sizes supply no direct 5/16-inch permission. No clearance pass, friction resistance or capacity was inferred."
+        }
+      },
+      "changed_bore_quadrature_shaft_transfer": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-bore-quadrature-shaft-transfer-v1.json",
+          "sha256": "e96933a93b9e81219a0127723f3a706e73e7ff63061b36edb473037ecee9af46"
+        },
+        "source_couple_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-bore-transfer-source-couple-verification-v1.json",
+          "sha256": "4fc85efcea733acf944758f7292357570b5b408ae29c8035b7721a69da6ced7e"
+        },
+        "parent_adopted_component_scope": true,
+        "bore_maps": 1200,
+        "shaft_states": 1104,
+        "parent_source_pins_verified": 40,
+        "parent_all1104_additive_index_replay_maximum_error": 0.0,
+        "maximum_finite_EI_combined": 0.5290964604347494,
+        "maximum_finite_EI_bending": 0.7641167320348234,
+        "maximum_spring_combined": 0.5070430074680841,
+        "maximum_spring_bending": 0.7396424030369788,
+        "existing_pressure_maximum_replay_error_MPa": 3.552713678800501e-15,
+        "whole_assembly_accepted": false
+      },
+      "complete_changed_fitting_material_components": {
+        "observation": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/native-complete-bank-observation.json",
+          "sha256": "3053559d83e51800ae2c9ead92c85e4c645c4e1e030af973b03692f4838dc092"
+        },
+        "independent_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-fittings-common-span-v2/native-complete-bank-verification.json",
+          "sha256": "e129b39f273a4fc2c17bcc2a68b5b20ce7cf8b002a206c6648ddc4b69a741979"
+        },
+        "parent_adopted_retained_mesh_component_scope": true,
+        "targets": 288,
+        "new_direct_states": 217,
+        "reused_tensor_states": 71,
+        "maximum_index": 0.7895159444091069,
+        "governing_case": "spring/a12-left/single_top_left_1",
+        "governing_element": 31017,
+        "governing_IP": 3,
+        "parent_material_ratio_replay_maximum_error": 0.0,
+        "parent_source_pins_verified": 17,
+        "source_hash_verification_streamed": true,
+        "whole_assembly_accepted": false
+      },
+      "changed_permanent_duration_components": {
+        "independent_admission": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/independent-admission.json",
+          "sha256": "89d619c4e69dbae1d2258138dbc3402cbadcf2345d2ff5df946a7459097bd4a4"
+        },
+        "parent_adopted_component_scope": true,
+        "rows": [
+          {
+            "scenario": "finite-EI",
+            "result": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/finite-EI/result.json",
+              "sha256": "e476e16f4dea4517e3fd2111e4c86df66759422d228cc1817ed6c372a4c25c38"
+            },
+            "duration_checks": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/finite-EI/duration-checks.json",
+              "sha256": "909b922eb57dce562c6163ab7410e8441e3e1e4fa23fce6709ddd1be2b154dc1"
+            },
+            "header_checks": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/finite-EI/header-DIN-permanent-check.json",
+              "sha256": "ccd4bc67dbb941384b61932cb3be0b18a98826b15e03673e8b09aba95285a27e"
+            },
+            "gradient_inf_N": 7.838873925837269e-09,
+            "maximum_local_duration_index": 0.2655151007490412,
+            "maximum_header_index": 0.5752472623290232,
+            "force_replay_error_N": 0.0,
+            "normal_replay_error_N": 0.0
+          },
+          {
+            "scenario": "springs",
+            "result": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/springs/result.json",
+              "sha256": "a4ab559606a042e1c4fae8e324fd596043096d5d2ef3e884a13230e1bc838714"
+            },
+            "duration_checks": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/springs/duration-checks.json",
+              "sha256": "72b8130de522f3ad1cc11bd5f9c961bd1f0c532298329bffa846c99e97f3694c"
+            },
+            "header_checks": {
+              "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-scenario-followthrough-v1/springs/header-DIN-permanent-check.json",
+              "sha256": "2a5b769090015f6bc1f37f6ef4ceabb54f764feb85f380388e8fbbd206a33924"
+            },
+            "gradient_inf_N": 5.06634578734122e-08,
+            "maximum_local_duration_index": 0.26434575558709117,
+            "maximum_header_index": 0.5762535444917312,
+            "force_replay_error_N": 0.0,
+            "normal_replay_error_N": 0.0
+          }
+        ],
+        "full_structural_acceptance": false
+      },
+      "changed_local_cutpath_components": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/changed-local-cutpaths-v1/summary.json",
+          "sha256": "8d9a0615ba31272eba6ee4bfa63e1d62aea25d11652130ddc5c210be26b83224"
+        },
+        "parent_adopted_component_scope": true,
+        "changed_fields": 12,
+        "groups_per_field": 56,
+        "full_wrench_cuts_per_field": 718,
+        "parent_scalar_rows_replayed": 2856,
+        "parent_scalar_replay_maximum_error": 0.0,
+        "parent_source_pins_verified": 76,
+        "all_named_components_meet": true,
+        "maximum_index": 0.1678083599109589,
+        "optional_unselected_both_edge_flags_preserved": true,
+        "no_whole_structural_acceptance": true
+      },
+      "same_state_component_coverage": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/same-state-component-coverage-v1.json",
+          "sha256": "71c9f72234fdc250fbec0fe25ee7efcad4c23bb01a4f68d0cc71281317bfe51a"
+        },
+        "independent_verification": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/same-state-component-coverage-verification-v1.json",
+          "sha256": "1f83f2bb44c5a9f14236f77e30614d1922ee3739afa1368f5544ad34b02bafa2"
+        },
+        "source_bindings_verified": 96,
+        "combined_load_cases": 18,
+        "axis_states": 1836,
+        "washer_end_states": 3672,
+        "fitting_states": 432,
+        "backing_domains": 6912,
+        "all_case_axis_end_and_host_identities_match": true,
+        "whole_joint_or_seat_adopted": false
+      },
+      "permanent_connection_scalar_components": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/permanent-connection-components-v1/scalar-summary.json",
+          "sha256": "9f5366da7284dd5546ad2e79c8a16a5248962d6c31271122dc03865d35acfb3e"
+        },
+        "source_pins_verified": 96,
+        "permanent_fields": 3,
+        "all_named_scalar_components_meet": true,
+        "parent_adopted_component_scope": true,
+        "native_fitting_and_bore_composition_and_bond_not_inferred": true
+      },
+      "instantaneous_bond_zone_strength_admission": {
+        "decision": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-instantaneous-zone-comparison-v1.json",
+          "sha256": "ab8ce6cea189fcc285fda7167cf837fde0d0604b15f886a4345590dd32c8ee80"
+        },
+        "parent_adopted_governing_strength_scope": true,
+        "maximum_relative_change_on_original_strength_governors": 0.0436466389355048,
+        "with_1_10_allowance": 0.8442665761415182,
+        "all_auxiliary_stability_passed": false,
+        "full_bond_accepted": false
+      },
+      "near_end_signed_group_method_audit": {
+        "v22": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/current067-DIN-rectangular-end-signed-group-audit-v22.json",
+          "sha256": "56ba84a0cd31b9ec34fac59dabd9682fcea12349fa9b1185f861a34a2dc940f2"
+        },
+        "v23": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/current067-DIN-threshold-and-cantilever-audit-v23.json",
+          "sha256": "d8cfdc926474c44cca090356e61ff5385574a010493d9f4bd99aac3a31620d1b"
+        },
+        "status": "method_applicability_audited_unreinforced_long_duration_comparison_exceeds",
+        "source_common_rectangle_barrier_withdrawn": true,
+        "mandatory_half_factor_triggered": false,
+        "retained_kmod": 0.7,
+        "negative_scalar_index_without_half": 1.1324323277202593,
+        "positive_scalar_index_without_half": 0.01992254718,
+        "signed_project_L1_without_half": 1.1523548749,
+        "L1_is_additional_project_assumption": true,
+        "whole_group_or_candidate_accepted": false,
+        "geometry_changed": false,
+        "meaning": "The retained long-duration unreinforced scalar comparison remains above1 after correcting the half-rule. The prior2.2649/2.3047 values remain optional conservative screens. This is not an observed failure, and the beveled-end extension is not a literal fullcode compliance claim."
+      },
+      "unadopted_length_only_response": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/first-lower-rim-length-only-proposal-v24.json",
+          "sha256": "960646a1e20a9269ebd847bff0ad9592acc7e6a18a2097e71d418c3e19b14ef4"
+        },
+        "status": "not_pursued_owner_retains_present_design",
+        "adopted": false,
+        "model_or_policy_changed": false,
+        "reason": "Owner directs no remedy work; retain the completed hypothetical worksheet as recoverable history."
+      },
+      "composed_bond_zone_strength_comparison": {
+        "result": {
+          "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-composed-zone-comparison-v1.json",
+          "sha256": "e6c919cadd238cfc48ee3d8cc77127c08e9ebb03ac4df9376470e171a2132d59"
+        },
+        "parent_adopted_component_scope": true,
+        "maximum_relative_strength_zone_change": 0.047530128594129306,
+        "retained_with_1_10_allowance": 0.7326948782467659,
+        "full_bond_accepted": false
+      }
     }
   }
 }

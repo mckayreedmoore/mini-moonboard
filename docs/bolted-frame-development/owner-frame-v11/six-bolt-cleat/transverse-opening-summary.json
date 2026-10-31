@@ -1,0 +1,2251 @@
+{
+  "actual_Cdelta": null,
+  "actual_Cg": null,
+  "bodies": [
+    {
+      "body": "base_floor_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 408,
+          "peak": {
+            "axis": 1,
+            "body": "base_floor_left",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 1.2593106205226525e-11,
+            "selected_action_count": 49,
+            "side": "high",
+            "station_mm": -19.04999990000018,
+            "wrench_N_Nmm": [
+              5.8193450058752205e-12,
+              -7.723599537712289e-12,
+              9.299583325628191e-10,
+              7.530616130679846e-09,
+              -1.2298755698566479e-08,
+              -1.2277873856643808e-10
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1224,
+          "peak": {
+            "axis": 2,
+            "body": "base_floor_left",
+            "case_id": "a12-left",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 35.72019524800159,
+            "selected_action_count": 23,
+            "side": "low",
+            "station_mm": -0.5849109917170665,
+            "wrench_N_Nmm": [
+              -3.519935611901552,
+              -131.57599647409603,
+              30.47970271030681,
+              170413.49623755788,
+              -1427.9942123555895,
+              -39513.92866134387
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-rear",
+            "k12-right",
+            "k12-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/front-only-geometry/base_floor_left.brep",
+        "sha256": "8c1322eea375de5a0f15564a2826a6194ef385424ad1309d129f82a5816cc30a"
+      },
+      "joint_ids": [
+        "front-foot-left",
+        "rear-foot-left"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1815.6464830416933
+        ],
+        [
+          -19.050000000000182,
+          19.049999999999955
+        ],
+        [
+          -69.85000000000048,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_floor_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 360,
+          "peak": {
+            "axis": 1,
+            "body": "base_floor_right",
+            "case_id": "a1-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 1.0390550972988124e-11,
+            "selected_action_count": 49,
+            "side": "low",
+            "station_mm": 19.049999899999953,
+            "wrench_N_Nmm": [
+              1.425526363618701e-12,
+              3.552713678800501e-14,
+              -9.308820381193073e-10,
+              -2.837623469531536e-10,
+              -1.627731540238382e-08,
+              2.393640841447109e-11
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1320,
+          "peak": {
+            "axis": 2,
+            "body": "base_floor_right",
+            "case_id": "k12-right",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 33.29591444708828,
+            "selected_action_count": 23,
+            "side": "low",
+            "station_mm": -0.5849109917170665,
+            "wrench_N_Nmm": [
+              -4.796499049650016,
+              -136.21775389572534,
+              -33.63378855977588,
+              -171663.7810640291,
+              1359.9476473299017,
+              -39460.23991186336
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-bolt-moves-v4/front-only-geometry/base_floor_right.brep",
+        "sha256": "698e9b8cbc50242d0b0380770025abf6b4ba33ca155c643c5fbe90d460dc3a7d"
+      },
+      "joint_ids": [
+        "front-foot-right",
+        "rear-foot-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1815.6464830416933
+        ],
+        [
+          -19.050000000000182,
+          19.049999999999955
+        ],
+        [
+          -69.85000000000048,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_header",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 2136,
+          "peak": {
+            "axis": 1,
+            "body": "base_header",
+            "case_id": "a12-forward",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 1058.9509449664458,
+            "selected_action_count": 251,
+            "side": "low",
+            "station_mm": 69.8499999,
+            "wrench_N_Nmm": [
+              1058.9509449664458,
+              232.9070767985515,
+              138.25165608323175,
+              -215322.63028069795,
+              1061532.3751812777,
+              2126.004933693828
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 504,
+          "peak": {
+            "axis": 2,
+            "body": "base_header",
+            "case_id": "a12-forward",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 0.0,
+            "selected_action_count": 16,
+            "side": "low",
+            "station_mm": -19.04999989999999,
+            "wrench_N_Nmm": [
+              -475.4044928686539,
+              -0.0,
+              -0.0,
+              -0.0,
+              6070.761243522238,
+              380618.7475912668
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/base_header.brep",
+        "sha256": "fb66386e8d48548dfd9102b7f0f9b389ae64d6ba56d1c67e49c263bdd98b2eb8"
+      },
+      "joint_ids": [
+        "center-header-left",
+        "center-header-right",
+        "cleat-header-left",
+        "cleat-header-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          2435.2250000000004
+        ],
+        [
+          -69.85,
+          69.85
+        ],
+        [
+          -19.04999999999999,
+          19.05000000000002
+        ]
+      ]
+    },
+    {
+      "body": "base_post_center_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 888,
+          "peak": {
+            "axis": 1,
+            "body": "base_post_center_left",
+            "case_id": "k12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 19.95613944035521,
+            "selected_action_count": 20,
+            "side": "low",
+            "station_mm": 1.4210854715202004e-14,
+            "wrench_N_Nmm": [
+              -5.851639657901423,
+              153.2515383915906,
+              -245.72396906173682,
+              -9158.810505589561,
+              -6165.47842657351,
+              -1657.0980520923003
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 792,
+          "peak": {
+            "axis": 2,
+            "body": "base_post_center_left",
+            "case_id": "k12-right",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 181.912999588255,
+            "selected_action_count": 2,
+            "side": "high",
+            "station_mm": 69.8499999,
+            "wrench_N_Nmm": [
+              181.912999588255,
+              -88.97556060032296,
+              63.987164681424666,
+              -2118.0552955209505,
+              -584.082844006346,
+              -21767.64261148831
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/base_post_center_left.brep",
+        "sha256": "88872d62daa332accd29cba79795e2547264301b32d94be00150ee7c02b01f23"
+      },
+      "joint_ids": [
+        "center-header-left"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          238.9
+        ],
+        [
+          -19.049999999999997,
+          19.050000000000004
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_post_center_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 792,
+          "peak": {
+            "axis": 1,
+            "body": "base_post_center_right",
+            "case_id": "a12-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 13.776521063655416,
+            "selected_action_count": 20,
+            "side": "high",
+            "station_mm": -3.552713678800501e-15,
+            "wrench_N_Nmm": [
+              -10.849559021272588,
+              -132.31088966767499,
+              195.82038993882227,
+              11846.416040231927,
+              -5883.1705322893,
+              -1608.9634457687578
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 792,
+          "peak": {
+            "axis": 2,
+            "body": "base_post_center_right",
+            "case_id": "a12-left",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 188.8655412385444,
+            "selected_action_count": 39,
+            "side": "low",
+            "station_mm": 69.8499999,
+            "wrench_N_Nmm": [
+              188.8655412385444,
+              -82.04262058599885,
+              -62.031438135450735,
+              3907.0538430790657,
+              566.2307274332516,
+              -23578.927099444933
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/single-leg-header-integration-v1/coherent-return-paired-foot-v1/frame-completion-v1/owner-inward-angles-v8/geometry/base_post_center_right.brep",
+        "sha256": "6eb232b82e74ebf3989aa00af0a22bdfce6facacdad483797957784b414a5542"
+      },
+      "joint_ids": [
+        "center-header-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          238.9
+        ],
+        [
+          -19.049999999999997,
+          19.050000000000004
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_post_outer_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 648,
+          "peak": {
+            "axis": 1,
+            "body": "base_post_outer_left",
+            "case_id": "a12-forward",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 71.49507926300068,
+            "selected_action_count": 33,
+            "side": "high",
+            "station_mm": -25.40000000000009,
+            "wrench_N_Nmm": [
+              -137.1622271820381,
+              -372.02616589261345,
+              -265.34954981180385,
+              10023.042836241,
+              -21676.309456229163,
+              -19568.644141706554
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1416,
+          "peak": {
+            "axis": 2,
+            "body": "base_post_outer_left",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 278.37472608629946,
+            "selected_action_count": 25,
+            "side": "low",
+            "station_mm": 10.150000000000006,
+            "wrench_N_Nmm": [
+              162.7304592230354,
+              -444.19642898519487,
+              -211.81167576511592,
+              -43069.649673057516,
+              -17514.144236608117,
+              2265.601713453777
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_left_six_bolt_cleat.brep",
+        "sha256": "7a74ea86d5a05d6bd8a32c094fd9c10b7a82cdcaa95da30f8e0ce2b563f6a980"
+      },
+      "joint_ids": [
+        "cleat-header-left",
+        "front-foot-left"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          238.9
+        ],
+        [
+          -44.450000000000045,
+          44.450000000000045
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_post_outer_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 696,
+          "peak": {
+            "axis": 1,
+            "body": "base_post_outer_right",
+            "case_id": "k12-right",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 21.267947648114955,
+            "selected_action_count": 27,
+            "side": "high",
+            "station_mm": 25.399999999999864,
+            "wrench_N_Nmm": [
+              -225.97585403531718,
+              409.66192094762084,
+              61.43970908637411,
+              -8808.93715697905,
+              -33225.21086781258,
+              -18755.54569080856
+            ]
+          },
+          "positive_bound_cases": [
+            "k12-right"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1440,
+          "peak": {
+            "axis": 2,
+            "body": "base_post_outer_right",
+            "case_id": "k12-right",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 276.6733616638574,
+            "selected_action_count": 35,
+            "side": "high",
+            "station_mm": 10.150000000000006,
+            "wrench_N_Nmm": [
+              160.09271060914483,
+              -450.7243702522445,
+              214.54535898896813,
+              43651.45705968091,
+              17480.140865340516,
+              3669.4161046520235
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/geometry-v1/breps/base_post_outer_right_six_bolt_cleat.brep",
+        "sha256": "d53c89495236c0953c8c837cba6a08baf377568332c212fe9da2775314b6367e"
+      },
+      "joint_ids": [
+        "cleat-header-right",
+        "front-foot-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          238.9
+        ],
+        [
+          -44.450000000000045,
+          44.45000000000027
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "base_principal_center_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1320,
+          "peak": {
+            "axis": 1,
+            "body": "base_principal_center_left",
+            "case_id": "a12-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 2.3334787545829024e-10,
+            "selected_action_count": 213,
+            "side": "low",
+            "station_mm": 19.04999990000018,
+            "wrench_N_Nmm": [
+              2.375344365646015e-11,
+              1.6900258970053983e-09,
+              -6.105764782660117e-10,
+              -1.2583477655425668e-06,
+              2.865708521746581e-08,
+              -3.093952032767792e-08
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 6216,
+          "peak": {
+            "axis": 2,
+            "body": "base_principal_center_left",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 645.240700922611,
+            "selected_action_count": 8,
+            "side": "low",
+            "station_mm": -69.85000028223735,
+            "wrench_N_Nmm": [
+              645.240700922611,
+              185.78692023602827,
+              62.88550127032057,
+              152385.77869818622,
+              574.0266755040857,
+              -492659.918387762
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_principal_center_left.brep",
+        "sha256": "f0be538d115fe9358e88669720e1b105c0982623a8f69eb33fa2288dab6f77bb"
+      },
+      "joint_ids": [
+        "center-header-left",
+        "center-top-left",
+        "horizontal_bottom_left_2",
+        "horizontal_lower_left_2",
+        "horizontal_upper_left_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -32.15221639226225,
+          2423.2149029571838
+        ],
+        [
+          -19.050000000000182,
+          19.050000000000182
+        ],
+        [
+          -69.85000038223734,
+          69.85000036616445
+        ]
+      ]
+    },
+    {
+      "body": "base_principal_center_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1368,
+          "peak": {
+            "axis": 1,
+            "body": "base_principal_center_right",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 2.2280410916403833e-10,
+            "selected_action_count": 213,
+            "side": "high",
+            "station_mm": -19.049999900000365,
+            "wrench_N_Nmm": [
+              6.966871524127782e-11,
+              1.1042047276532685e-09,
+              3.452313990237599e-10,
+              -3.20073013426736e-06,
+              1.2454991137328997e-07,
+              2.6259374431849687e-08
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 6216,
+          "peak": {
+            "axis": 2,
+            "body": "base_principal_center_right",
+            "case_id": "a12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 272.96153182603115,
+            "selected_action_count": 8,
+            "side": "low",
+            "station_mm": -69.85000028223735,
+            "wrench_N_Nmm": [
+              272.96153182603115,
+              65.25711554177003,
+              -41.29293963400824,
+              -106876.7376432268,
+              -376.9270856536791,
+              -337787.89124659024
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-v9-eight-bolt-v1/geometry-v1/breps/base_principal_center_right.brep",
+        "sha256": "d626e0003b3b18e711950a879bedcc92a287fdecb26ccb0da19013aeab81f9b4"
+      },
+      "joint_ids": [
+        "center-header-right",
+        "center-top-right",
+        "horizontal_bottom_right_1",
+        "horizontal_lower_right_1",
+        "horizontal_upper_right_1"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -32.15221639226225,
+          2423.2149029571838
+        ],
+        [
+          -19.050000000000367,
+          19.050000000000182
+        ],
+        [
+          -69.85000038223734,
+          69.85000036616445
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_bottom_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1608,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_bottom_left",
+            "case_id": "a12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 11.233809233254679,
+            "selected_action_count": 35,
+            "side": "low",
+            "station_mm": 1.3498543161440234e-08,
+            "wrench_N_Nmm": [
+              -1.1986368886151377,
+              -169.79331195881485,
+              -59.055580873315,
+              97582.12640242008,
+              -1120.6726461367484,
+              1653.087936547228
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1656,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_bottom_left",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 507.3852166326438,
+            "selected_action_count": 33,
+            "side": "high",
+            "station_mm": -25.399999988557287,
+            "wrench_N_Nmm": [
+              267.54300627722716,
+              325.71857528649184,
+              154.84994302147138,
+              44423.28030557708,
+              14234.682485490377,
+              13225.984012343115
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_bottom_left.brep",
+        "sha256": "af3c5557be90c2b2dffbb306b1842ee3e09429c2a66fb15a1653b3f85c84cad5"
+      },
+      "joint_ids": [
+        "horizontal_bottom_left_1",
+        "horizontal_bottom_left_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1041.25
+        ],
+        [
+          -19.050000001830842,
+          19.050000001830387
+        ],
+        [
+          -69.8499999997322,
+          69.84999999958097
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_bottom_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1488,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_bottom_right",
+            "case_id": "k12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 11.135935389999258,
+            "selected_action_count": 53,
+            "side": "high",
+            "station_mm": 1.3498543161440234e-08,
+            "wrench_N_Nmm": [
+              -1.6174831986190306,
+              -170.3199535202646,
+              59.98829456242597,
+              85930.38866749073,
+              76.68500305647156,
+              1668.6713753981094
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1776,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_bottom_right",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 24.86110196181312,
+            "selected_action_count": 46,
+            "side": "low",
+            "station_mm": -69.84999989973221,
+            "wrench_N_Nmm": [
+              -21.30103178786409,
+              -0.2140572769617486,
+              -21.001831374533307,
+              -12341.171214585562,
+              1352.9926404339117,
+              11417.277200095861
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_bottom_right.brep",
+        "sha256": "d0c4a0c75c5762a7a1fe79f93b8d2b9d45bbe31b8d042a7dd45e46c2dbe68186"
+      },
+      "joint_ids": [
+        "horizontal_bottom_right_1",
+        "horizontal_bottom_right_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1077.275
+        ],
+        [
+          -19.050000001830842,
+          19.050000001830387
+        ],
+        [
+          -69.8499999997322,
+          69.84999999958097
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_service_lower_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1608,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_service_lower_left",
+            "case_id": "a12-forward",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 5.145608322280053,
+            "selected_action_count": 47,
+            "side": "low",
+            "station_mm": 1.3183002191135031e-08,
+            "wrench_N_Nmm": [
+              -11.55001539736319,
+              -118.80892458015053,
+              18.31586008380809,
+              57536.41726762891,
+              -7539.249797114182,
+              1525.610058135356
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1848,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_service_lower_left",
+            "case_id": "a12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 102.05321388914777,
+            "selected_action_count": 2,
+            "side": "low",
+            "station_mm": -69.8499999004371,
+            "wrench_N_Nmm": [
+              102.05321388914777,
+              -49.80770584384624,
+              -22.065284834068677,
+              -11573.640793147477,
+              -201.41467998942085,
+              -50199.798952080986
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_service_lower_left.brep",
+        "sha256": "028bdb33ae4cb602a92abeeb347564ba03f63a67fc6fa36f023b1839dac9e367"
+      },
+      "joint_ids": [
+        "horizontal_lower_left_1",
+        "horizontal_lower_left_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1041.25
+        ],
+        [
+          -19.050000001892858,
+          19.05000000189172
+        ],
+        [
+          -69.85000000043709,
+          69.85000000028538
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_service_lower_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1464,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_service_lower_right",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 5.108657940223851,
+            "selected_action_count": 48,
+            "side": "low",
+            "station_mm": 1.3183002191135031e-08,
+            "wrench_N_Nmm": [
+              -11.94718142311273,
+              -119.75983030642533,
+              -0.0,
+              68701.73764348046,
+              -5279.780457349516,
+              1548.1901366607963
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1848,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_service_lower_right",
+            "case_id": "k12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 102.75145667497819,
+            "selected_action_count": 2,
+            "side": "low",
+            "station_mm": -69.8499999004371,
+            "wrench_N_Nmm": [
+              102.75145667497819,
+              49.40916316175792,
+              -22.34724724677158,
+              -12141.807778086077,
+              -203.98846816362357,
+              -60559.33026737369
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_service_lower_right.brep",
+        "sha256": "daed7bb69bd298a2f86a346eaa6d7019fe86c6a8b350a13aff9f8df7e93cb4ed"
+      },
+      "joint_ids": [
+        "horizontal_lower_right_1",
+        "horizontal_lower_right_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1077.275
+        ],
+        [
+          -19.050000001892858,
+          19.05000000189172
+        ],
+        [
+          -69.85000000043709,
+          69.85000000028538
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_service_upper_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1560,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_service_upper_left",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 9.472113330540262,
+            "selected_action_count": 52,
+            "side": "high",
+            "station_mm": 1.2800158198529584e-08,
+            "wrench_N_Nmm": [
+              -3.3996938102581282,
+              -157.651644881681,
+              -1.4400363756491927,
+              80675.34963164733,
+              -3332.1258727430413,
+              1560.722844923631
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1800,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_service_upper_left",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 24.107862570971403,
+            "selected_action_count": 43,
+            "side": "high",
+            "station_mm": -69.84999990011531,
+            "wrench_N_Nmm": [
+              -20.842778423948367,
+              2.655731907166974,
+              -20.589318282428255,
+              -8804.38591008084,
+              1315.564493057908,
+              11044.647392595385
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_service_upper_left.brep",
+        "sha256": "02e873f347b3a2afefab24b9e36e8dcfa84911e7300e152ae82ab0db427a5970"
+      },
+      "joint_ids": [
+        "horizontal_upper_left_1",
+        "horizontal_upper_left_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1041.25
+        ],
+        [
+          -19.050000001849202,
+          19.050000001848293
+        ],
+        [
+          -69.8500000001153,
+          69.84999999996381
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_service_upper_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 1464,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_service_upper_right",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 10.005400048453728,
+            "selected_action_count": 36,
+            "side": "low",
+            "station_mm": 1.2800158198529584e-08,
+            "wrench_N_Nmm": [
+              -1.8624931770456157,
+              -160.63946569279744,
+              -0.07107222885032341,
+              91622.336217703,
+              -900.6963946482315,
+              1527.8495351863462
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1680,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_service_upper_right",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 25.299754282874055,
+            "selected_action_count": 43,
+            "side": "high",
+            "station_mm": -69.84999990011531,
+            "wrench_N_Nmm": [
+              -20.442969057880518,
+              -0.16643395941010036,
+              -20.035248526727703,
+              -10624.222390473553,
+              1353.3591988614742,
+              10460.733383756426
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": []
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/enclosed-passages-v1/attempt02/base_rail_service_upper_right.brep",
+        "sha256": "bb4cc7a4b6c136cc513c8ba6ba05780f6a6415eb051c5f402618e092eb615e5d"
+      },
+      "joint_ids": [
+        "horizontal_upper_right_1",
+        "horizontal_upper_right_2"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          1077.275
+        ],
+        [
+          -19.050000001849202,
+          19.050000001848293
+        ],
+        [
+          -69.8500000001153,
+          69.84999999996381
+        ]
+      ]
+    },
+    {
+      "body": "base_rail_top",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 2904,
+          "peak": {
+            "axis": 1,
+            "body": "base_rail_top",
+            "case_id": "k12-right",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 87.10619788391392,
+            "selected_action_count": 24,
+            "side": "high",
+            "station_mm": 25.400000012951068,
+            "wrench_N_Nmm": [
+              -489.5785954641077,
+              -1569.5971219496723,
+              530.6477344261287,
+              2917719.4752937993,
+              -795507.0623361442,
+              46365.80073762507
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-left",
+            "k12-right",
+            "k12-rear"
+          ],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 2184,
+          "peak": {
+            "axis": 2,
+            "body": "base_rail_top",
+            "case_id": "k12-right",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 1544.9934770128198,
+            "selected_action_count": 8,
+            "side": "low",
+            "station_mm": -69.84999990003993,
+            "wrench_N_Nmm": [
+              1544.9934770128198,
+              -478.86572815855106,
+              -527.7626010729558,
+              -598414.7291554495,
+              34425.35127499495,
+              -2768126.4405424525
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_rail_top.brep",
+        "sha256": "28f4ed422c34da88fc606c0270e38f8a9d5981f77c5e295e98ebf2d0883fb52b"
+      },
+      "joint_ids": [
+        "center-top-left",
+        "center-top-right",
+        "outer-top-left",
+        "outer-top-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          0.0,
+          2257.425
+        ],
+        [
+          -44.450000002003,
+          44.450000001438205
+        ],
+        [
+          -69.85000000003993,
+          69.85000000012293
+        ]
+      ]
+    },
+    {
+      "body": "base_side_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 552,
+          "peak": {
+            "axis": 1,
+            "body": "base_side_left",
+            "case_id": "a12-left",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 2.3725298317071144e-09,
+            "selected_action_count": 253,
+            "side": "low",
+            "station_mm": 44.449999900000726,
+            "wrench_N_Nmm": [
+              -3.354330146976281e-10,
+              8.194376732717501e-09,
+              5.089702881377889e-09,
+              -1.309758226852864e-05,
+              -5.240747912584969e-07,
+              -3.5487241553909505e-07
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 8232,
+          "peak": {
+            "axis": 2,
+            "body": "base_side_left",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 2103.359416769128,
+            "selected_action_count": 245,
+            "side": "high",
+            "station_mm": -69.85000028834432,
+            "wrench_N_Nmm": [
+              2103.359416769128,
+              1535.2815578733944,
+              250.38321414178844,
+              109939.68399865212,
+              55710.85844505355,
+              -1185215.4794523425
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_left.brep",
+        "sha256": "c09f42b1ab5b30d0fbc5931dd6555cd97f724636aca81279b870fbcc6541bf49"
+      },
+      "joint_ids": [
+        "cleat-header-left",
+        "horizontal_bottom_left_1",
+        "horizontal_lower_left_1",
+        "horizontal_upper_left_1",
+        "outer-top-left",
+        "rear-upper-left"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -27.65270311763446,
+          2512.1149029630415
+        ],
+        [
+          -44.45000000000006,
+          44.45000000000073
+        ],
+        [
+          -69.85000038834431,
+          69.85000038834491
+        ]
+      ]
+    },
+    {
+      "body": "base_side_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 600,
+          "peak": {
+            "axis": 1,
+            "body": "base_side_right",
+            "case_id": "a1-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 1.1322735432007817e-09,
+            "selected_action_count": 253,
+            "side": "high",
+            "station_mm": -44.449999900000726,
+            "wrench_N_Nmm": [
+              -3.2103741887112847e-10,
+              -4.230940930938232e-09,
+              -8.54257109494938e-10,
+              5.774607416242361e-06,
+              -5.9226933099816e-07,
+              -1.8060307869739524e-07
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 8328,
+          "peak": {
+            "axis": 2,
+            "body": "base_side_right",
+            "case_id": "k12-rear",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 1577.6650988865476,
+            "selected_action_count": 159,
+            "side": "low",
+            "station_mm": -16.71354961035254,
+            "wrench_N_Nmm": [
+              1419.271993895529,
+              1223.0257520572216,
+              -366.0984291287311,
+              -1130353.5217807083,
+              -77167.78716235899,
+              -3901985.4918528018
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-four-bolt-outer-top-v1/geometry-v1/breps/base_side_right.brep",
+        "sha256": "9ea34302825d531d158b7b613f51b9fea80b17e11bcbb85a3a69e330ebf848a1"
+      },
+      "joint_ids": [
+        "cleat-header-right",
+        "horizontal_bottom_right_2",
+        "horizontal_lower_right_2",
+        "horizontal_upper_right_2",
+        "outer-top-right",
+        "rear-upper-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -27.65270311763446,
+          2512.1149029630415
+        ],
+        [
+          -44.45000000000073,
+          44.45000000000006
+        ],
+        [
+          -69.85000038834431,
+          69.85000038834491
+        ]
+      ]
+    },
+    {
+      "body": "lumber_leg_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 504,
+          "peak": {
+            "axis": 1,
+            "body": "lumber_leg_left",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 2.5147528504021466e-10,
+            "selected_action_count": 52,
+            "side": "high",
+            "station_mm": -44.449999900000726,
+            "wrench_N_Nmm": [
+              2.5147528504021466e-10,
+              8.706280141268508e-11,
+              -9.676739409769652e-10,
+              -8.215283742174506e-08,
+              3.9901690191173103e-07,
+              1.8656709867649747e-09
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 2088,
+          "peak": {
+            "axis": 2,
+            "body": "lumber_leg_left",
+            "case_id": "a12-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 456.85355921786913,
+            "selected_action_count": 19,
+            "side": "high",
+            "station_mm": 5.986026068862548,
+            "wrench_N_Nmm": [
+              456.85355921786913,
+              -79.06510023496855,
+              -10.21122929403538,
+              67427.9824427569,
+              4322.203353908208,
+              -110696.61964915015
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/breps/lumber_leg_left.brep",
+        "sha256": "5b56097280473264540cb3d39ec99a36e740e412a550ce7b4b0d538b22f79c76"
+      },
+      "joint_ids": [
+        "rear-foot-left",
+        "rear-upper-left"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -17.203977315890256,
+          1971.8221073749128
+        ],
+        [
+          -44.45000000000073,
+          44.45000000000027
+        ],
+        [
+          -69.85000001032745,
+          69.85000001032631
+        ]
+      ]
+    },
+    {
+      "body": "lumber_leg_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 504,
+          "peak": {
+            "axis": 1,
+            "body": "lumber_leg_right",
+            "case_id": "a1-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 1.2799006299246685e-10,
+            "selected_action_count": 52,
+            "side": "low",
+            "station_mm": 44.449999900000726,
+            "wrench_N_Nmm": [
+              1.2799006299246685e-10,
+              1.9162627040714142e-10,
+              3.0813396278972505e-10,
+              -2.5112240109592676e-07,
+              2.4196017062410696e-07,
+              -6.690953905086301e-09
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 2088,
+          "peak": {
+            "axis": 2,
+            "body": "lumber_leg_right",
+            "case_id": "k12-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 421.8291101115706,
+            "selected_action_count": 19,
+            "side": "high",
+            "station_mm": 5.986026068862548,
+            "wrench_N_Nmm": [
+              421.8291101115706,
+              -180.15571376883514,
+              14.825797113337025,
+              -56239.94331923075,
+              -4681.5120707978895,
+              -107942.48204460263
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-relocated-rear-pair-v1/geometry-v1/breps/lumber_leg_right.brep",
+        "sha256": "4b00f768123cbb7476e0253c6b7b1b326a34e1e35ed81c51bf4224871ec6be64"
+      },
+      "joint_ids": [
+        "rear-foot-right",
+        "rear-upper-right"
+      ],
+      "material_scope": "sawn timber; two directions perpendicular to grain",
+      "support_envelope_luv_mm": [
+        [
+          -17.203977315890256,
+          1971.8221073749128
+        ],
+        [
+          -44.45000000000027,
+          44.45000000000073
+        ],
+        [
+          -69.85000001032745,
+          69.85000001032631
+        ]
+      ]
+    },
+    {
+      "body": "eoere_cleat_left",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 360,
+          "peak": {
+            "axis": 1,
+            "body": "eoere_cleat_left",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 1.8578843368611985e-11,
+            "selected_action_count": 49,
+            "side": "high",
+            "station_mm": -19.049999899999953,
+            "wrench_N_Nmm": [
+              -3.623767952376511e-12,
+              1.0896883395616896e-10,
+              -3.4940850213160957e-10,
+              -1.2757652712025447e-09,
+              6.710419659809587e-09,
+              2.096774654108908e-09
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1224,
+          "peak": {
+            "axis": 2,
+            "body": "eoere_cleat_left",
+            "case_id": "a12-left",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 202.3349698595705,
+            "selected_action_count": 40,
+            "side": "high",
+            "station_mm": -24.162499999999994,
+            "wrench_N_Nmm": [
+              1.0896883395616896e-10,
+              -120.5183824559972,
+              352.31461165709555,
+              27059.29369814042,
+              7708.962351647588,
+              2700.1139269237146
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/eoere_cleat_left.brep",
+        "sha256": "b9d358830d9116dfe42831a51a295b96a8c206693d3ca52ae52b923d0e46242d"
+      },
+      "joint_ids": [
+        "cleat-header-left"
+      ],
+      "material_scope": "perfect-bond plywood composite; local axes are not a sawn-grain qualification",
+      "support_envelope_luv_mm": [
+        [
+          -1.1368683772161603e-13,
+          361.186082829381
+        ],
+        [
+          -19.049999999999955,
+          19.050000000000182
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    },
+    {
+      "body": "eoere_cleat_right",
+      "directions": [
+        {
+          "axis": 1,
+          "axis_name": "u",
+          "case_count": 6,
+          "cut_side_count": 360,
+          "peak": {
+            "axis": 1,
+            "body": "eoere_cleat_right",
+            "case_id": "k12-rear",
+            "event": "after",
+            "minimum_tensile_normal_resultant_N": 2.5287120150616085e-11,
+            "selected_action_count": 49,
+            "side": "low",
+            "station_mm": 19.049999899999953,
+            "wrench_N_Nmm": [
+              2.453592884421596e-12,
+              -8.355982572538778e-11,
+              4.685958288064285e-10,
+              1.1254371656832518e-08,
+              9.133355873236934e-09,
+              1.7364953835681224e-09
+            ]
+          },
+          "positive_bound_cases": [],
+          "positive_net_normal_cases": []
+        },
+        {
+          "axis": 2,
+          "axis_name": "v",
+          "case_count": 6,
+          "cut_side_count": 1224,
+          "peak": {
+            "axis": 2,
+            "body": "eoere_cleat_right",
+            "case_id": "k12-right",
+            "event": "before",
+            "minimum_tensile_normal_resultant_N": 203.45126643718214,
+            "selected_action_count": 40,
+            "side": "high",
+            "station_mm": -24.162499999999994,
+            "wrench_N_Nmm": [
+              4.0955683289212175e-11,
+              -121.56541695899323,
+              -353.9933019032704,
+              -27200.64726233166,
+              -7751.493251255841,
+              2723.5718624512074
+            ]
+          },
+          "positive_bound_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "k12-rear",
+            "a1-rear"
+          ],
+          "positive_net_normal_cases": [
+            "a12-forward",
+            "a12-left",
+            "a12-rear",
+            "k12-right",
+            "a1-rear"
+          ]
+        }
+      ],
+      "finished_analysis_BRep": {
+        "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/geometry/eoere_cleat_right.brep",
+        "sha256": "bfada7d01fdf94256c16ec06b08ba42861f0148f4194f028c5ef86586d2ff369"
+      },
+      "joint_ids": [
+        "cleat-header-right"
+      ],
+      "material_scope": "perfect-bond plywood composite; local axes are not a sawn-grain qualification",
+      "support_envelope_luv_mm": [
+        [
+          -1.1368683772161603e-13,
+          361.186082829381
+        ],
+        [
+          -19.049999999999955,
+          19.049999999999955
+        ],
+        [
+          -69.85,
+          69.85
+        ]
+      ]
+    }
+  ],
+  "candidate_revision": "v11-six-bolt-cleat-v1",
+  "candidate_selected": false,
+  "climbing_released": false,
+  "complete_joint_capacity": null,
+  "complete_joint_qualified": false,
+  "controls": {
+    "analytic_controls": 4,
+    "free_couple_rotation_control_passed": true,
+    "independent_corner_LPs": 68,
+    "maximum_LP_difference_N": 2.2737367544323206e-13,
+    "rotated_BRep_envelope_maximum_error_mm": 0.0,
+    "shear_and_torsion_exclusion_controls": 68
+  },
+  "counts": {
+    "active_bolt_axes": 102,
+    "analysis_bodies": 22,
+    "body_case_closures": 132,
+    "body_case_direction_states": 264,
+    "bonded_plywood_composites": 2,
+    "cut_side_records": 79488,
+    "joint_clusters": 26,
+    "physical_wood_receiver_ids": 24,
+    "positive_bound_states": 185,
+    "positive_net_normal_states": 103,
+    "sawn_members": 20,
+    "unique_source_files_verified_before_and_after": 1587
+  },
+  "fabrication_released": false,
+  "geometry_changed": false,
+  "historical_force_transfer": false,
+  "load_contract": {
+    "accessory_mass_kg": 25,
+    "downward_multiplier": 2,
+    "duration_factor_CD": 1,
+    "horizontal_force_N": 300,
+    "weight_lb": 250
+  },
+  "maximum_two_side_force_difference_N": 8.1956841313513e-09,
+  "maximum_two_side_moment_difference_Nmm": 1.3453098016260476e-05,
+  "maximum_whole_body_force_norm_N": 9.652493747281448e-09,
+  "maximum_whole_body_moment_norm_Nmm": 1.1843230475354264e-05,
+  "method": {
+    "action_annotations": {
+      "path": "fea/generated/v10-packer-free-v1/connections/method-closure/splitting/build_base_header_center_u_opening_v1.py",
+      "sha256": "b51fee734d23b8831a6b9adebe083e39d5ab33af1e0f8692e62f1d11e5a8c79d"
+    },
+    "cut_sampling": "Near faces, cloud action coordinates, envelope center and consecutive interval midpoints; before/after intact event assignments; both sides.",
+    "event_epsilon_mm": 1e-07,
+    "gravity": "Original mapped self-weight point, unchanged; not a distributed physical gravity model.",
+    "high_side_sign": "High-side physical cut traction is negated into the same on-low sign convention.",
+    "hull_bound": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/closure.py",
+      "sha256": "095cc122b4f0292fecd108446c24744a2671a703d156527afcd243eb8de9035d"
+    },
+    "limits": [
+      "Necessary normal-transfer bound for the saved point-action placement, not a physical tensile demand bound.",
+      "Zero does not give a retained-material pressure witness or a splitting pass.",
+      "Simultaneous shear, torsion and all moments remain in the wrench; the normal bound excludes shear/torsion capacity.",
+      "Finite sampling supplies no continuous maximum; positive counts are overlapping method records, not failed joints.",
+      "Existing bolt/capture actions are included once; no spare tie force, preload, reinforcement or host redistribution is credited.",
+      "Plywood leaves remain the admitted perfect-bond composites; no separate leaf/bond or panel/screw strength is assigned."
+    ],
+    "member_point_inputs": {
+      "path": "scripts/thin_bolted_timber_common_shaft_checks.py",
+      "sha256": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7"
+    },
+    "normal_bound": "T_min = (max(abs(N), abs((-Mq-cp*N)/hp), abs((Mp-cq*N)/hq)) + N)/2",
+    "positive_reporting_tolerance_N": 1e-06,
+    "section_axes": "[normal,p,q] is a right-handed cyclic permutation of [grain,u,v]; moments are about the cut datum",
+    "support": "Whole finished analysis-BRep local bounding rectangle: a superset of each retained cut, including holes and taper.",
+    "whole_body_force_gate_N": 0.0001,
+    "whole_body_moment_gate_Nmm": 0.1
+  },
+  "new_frame_or_native_solve": false,
+  "parent_bank_admission": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/parent-bank-admission-v1.json",
+    "sha256": "0d8340c6bec153510da35452925e5b0c8d1dcd85b198aa31ddc82ba25e8f0932"
+  },
+  "physical_leaf_to_analysis_composite": {
+    "eoere_cleat_left_outer": "eoere_cleat_left",
+    "eoere_cleat_right_outer": "eoere_cleat_right"
+  },
+  "physical_release": false,
+  "producer": {
+    "path": "scripts/v11_six_bolt_transverse_demands.py",
+    "sha256": "7457b8125c866da04a1b4fe79306f1c8c92c9ab1126b5bfdff9cd567d11a2322"
+  },
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "raw_outputs": {
+    "actions.jsonl.gz": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/actions.jsonl.gz",
+      "sha256": "4ff28fbf9bf384fbd58079f8489ed8b8202e63f43ad9fea9902b8d96fc5720b0"
+    },
+    "closures.json": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/closures.json",
+      "sha256": "e6b5eb874dbb0216f68f34e4ed42aad9becea7fe24410a22b9948048995b9c92"
+    },
+    "controls.json": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/controls.json",
+      "sha256": "6b90ecf6bd858750efafeae0002d3803367181c519d2b4b44d17a05419cd5eb4"
+    },
+    "cuts.jsonl.gz": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/cuts.jsonl.gz",
+      "sha256": "aa8fb770fcc176dc87b83d96e1f85aa70bae712b03780ecd6a95b4ec06945878"
+    },
+    "producer.py.snapshot": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/producer.py.snapshot",
+      "sha256": "7457b8125c866da04a1b4fe79306f1c8c92c9ab1126b5bfdff9cd567d11a2322"
+    },
+    "source-pins.json": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/source-pins.json",
+      "sha256": "d93b98ead4f62d56efffc0082098b8420b424ded794e3429c68dc2eaf1eb59ff"
+    },
+    "states.json": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/attempt01/states.json",
+      "sha256": "a48a439ab1dcfa2ad29f2ba90c8a6c6ca4e8d54684eb587a9a09990dfdf798b1"
+    }
+  },
+  "reproduction_command": "uv run python -m scripts.v11_six_bolt_transverse_demands --output fea/generated/v11-six-bolt-cleat-v1/references/transverse-opening-v1/NEW_ATTEMPT",
+  "response_bank": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/response-bank.json",
+    "sha256": "4134b376f92c92a84b7c55316f10a84d4daedff51285f0725b9cdd87a4c04626"
+  },
+  "schema": "v11_six_bolt_transverse_opening_demands/v1",
+  "software_versions": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "transverse_splitting_resistance_N": null
+}

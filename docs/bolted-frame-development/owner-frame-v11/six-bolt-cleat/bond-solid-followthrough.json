@@ -1,0 +1,1417 @@
+{
+  "actual_observations_assigned": false,
+  "adhesive_screening_references_MPa": {
+    "compression": 17.236893232920902,
+    "rule": "Previously selected fivefold reserve on manufacturer short-term references; not plywood-specific design allowables.",
+    "shear": 2.48211262554061,
+    "tension": 9.652660210435705
+  },
+  "candidate": "v11-six-bolt-cleat-v1",
+  "completion": "Twelve local states executed once; frozen inputs and observer gates pass. The stated coarse recovered stresses are below the selected component screening references. No complete acceptance claim is closed.",
+  "free_body_checks": {
+    "gates_pass": true,
+    "maximum_fixed_gauge_reaction_N": 1.1212001267666446e-09,
+    "maximum_global_coordinate_roundtrip_error_mm": 4.9998092322312004e-05,
+    "original_force_gate_N": 0.0001,
+    "original_moment_gate_Nmm": 0.1
+  },
+  "geometry_hardware_saved_frame_actions_changed": false,
+  "interpretation": [
+    "Both interface sides are reported. Recovered cut force/moment discrepancies are measured rather than subjected to the separate exact applied-wrench gates. The recovery is not an exactly equilibrated continuum field or rigorous peak bound.",
+    "The 5mm mesh and 0.2mm effective internal zone have no candidate governing refinement or finite-zone sensitivity result. Current screens do not establish convergence or complete local strength.",
+    "The spatial peaks are higher than the earlier section-average plane result; both retain their own scope and are not added as independent loads.",
+    "Normal tensile resistance of the plywood veneer/internal bond and the wood/adhesive interface remains unassigned. T88 bulk tension and panel rolling shear do not provide that resistance.",
+    "No numerical refinement can supply a missing material resistance. Select an applicable conditional normal-resistance basis before a further strength-driven refinement; any subsequent run must target its specific governing question.",
+    "Full cleat strength/composite action, complete joints/groups, transverse transfer/anchorage and seat/contact/prying remain open. Existing conditional angle/washer material comparisons remain separate."
+  ],
+  "maxima": {
+    "adhesive_compression_screening_index": 0.016473601657972854,
+    "adhesive_shear_screening_index": 0.058095180023744045,
+    "adhesive_tensile_screening_index": 0.005677317376416424,
+    "conservative_rolling_shear_component_screen": {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "side": "inner",
+      "value": 0.7098536865434573
+    },
+    "cut_force_relative_norm_discrepancy": {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "side": "inner",
+      "value": 0.0017849887383530351
+    },
+    "cut_moment_relative_norm_discrepancy": {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_right",
+      "side": "inner",
+      "value": 0.00261133620153299
+    },
+    "maximum_recovered_compression_MPa": {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "side": "outer",
+      "value": 0.2839537129401469
+    },
+    "maximum_recovered_shear_MPa": {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "side": "inner",
+      "value": 0.14419877981998971
+    },
+    "maximum_recovered_tensile_peel_MPa": {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "side": "inner",
+      "value": 0.05480121554135005
+    }
+  },
+  "native_execution": {
+    "local_states": 12,
+    "new_global_cases": 0,
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-execution.json",
+    "returncode": 0,
+    "seconds": 2238.3170768160016,
+    "sha256": "e66716fec719cb4295655566329032277175e716cb429f5ce2d961ebfd5534f6"
+  },
+  "observation": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-observation.json",
+    "sha256": "ddb840f625bc48a41282fdadbbeb9df2dd53db985e1c43e8a656f823ebe0c782"
+  },
+  "physical_release": false,
+  "postprocessor_correction": {
+    "corrected_producer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/observe_bond_solid_native_v2.py",
+      "sha256": "cb3fa528ef0691e50cd4ef1feb5ec0d66f76e0599d3048576f83b84b9f53351a"
+    },
+    "failed_attempt": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/observer-attempt01-failure.json",
+      "sha256": "86af69191588e7ff7ea8bccb405503618f2d353b2958b79ceff5e7e88decaf11"
+    },
+    "native_reexecution": false
+  },
+  "question": "What full spatial interface demands do the twelve existing leaf-action states produce under the admitted finite-traction and response-material hypothesis?",
+  "remaining_whole_acceptance_items": 4,
+  "retention": "Keep this compact result and source bindings; native DAT, deck, mesh, mappings, failed observer and corrected observer stay active in the existing ignored evaluation folder. No archive/prune.",
+  "rolling_shear_comparison": {
+    "authority": "Retained conditional APA24oc five-ply panel scenario, not generic-birch product identification.",
+    "interaction": "The absolute sum of the two tangential components divided by weaker-direction Fs is bounded by sqrt(2) times the resultant divided by Fs. This conservative project component screen is not an APA-prescribed biaxial failure law.",
+    "larger_three_quarter_category_Ib_over_Q_in2_per_ft": 6,
+    "printed_pages": [
+      17,
+      26,
+      32
+    ],
+    "reference_MPa": 0.28728155388201504,
+    "sections": [
+      "4.4.4",
+      "Table9",
+      "Table13"
+    ],
+    "source": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf",
+      "sha256": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a"
+    },
+    "weaker_direction_Fs_Ib_over_Q_lbf_per_ft": 250
+  },
+  "rows": [
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.4495050659078265,
+          "cut_force_relative_norm_discrepancy": 0.0017849887383530351,
+          "cut_force_residual_N": [
+            -1.1307134272348094,
+            -0.04542312842349361,
+            -0.22625766640091172
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0024523074574493943,
+          "cut_moment_residual_Nmm": [
+            -34.51522137239226,
+            32.94289091717292,
+            -2.947463317444999
+          ],
+          "integrated_cut_force_N": [
+            634.6586770402248,
+            -85.94639189698123,
+            79.61803432322449
+          ],
+          "integrated_cut_moment_Nmm": [
+            -9739.226725134007,
+            -16269.71259942143,
+            4473.391284901319
+          ],
+          "maximum_recovered_compression_MPa": 0.2646265749296096,
+          "maximum_recovered_shear_MPa": 0.09131189040157853,
+          "maximum_recovered_tensile_peel_MPa": 0.05480121554135005,
+          "maximum_shear_screening_index": 0.03678797225476043,
+          "maximum_tensile_screening_index": 0.005677317376416424,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            635.7893904674596,
+            -85.90096876855773,
+            79.8442919896254
+          ],
+          "target_cut_moment_Nmm": [
+            -9704.711503761615,
+            -16302.655490338602,
+            4476.338748218764
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.46828393539828783,
+          "cut_force_relative_norm_discrepancy": 0.0017142458883566312,
+          "cut_force_residual_N": [
+            1.020740942231896,
+            -0.21646807809953827,
+            0.3735349876221079
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.002334883724993469,
+          "cut_moment_residual_Nmm": [
+            17.55502002065441,
+            -39.970055518391746,
+            -12.877544973251133
+          ],
+          "integrated_cut_force_N": [
+            -634.7686495252249,
+            85.68450069042822,
+            -79.47075700165308
+          ],
+          "integrated_cut_moment_Nmm": [
+            9722.266523762664,
+            16262.685434820445,
+            -4489.216293191988
+          ],
+          "maximum_recovered_compression_MPa": 0.2701760591196173,
+          "maximum_recovered_shear_MPa": 0.09512660619196776,
+          "maximum_recovered_tensile_peel_MPa": 0.0356498812686969,
+          "maximum_shear_screening_index": 0.03832485488898755,
+          "maximum_tensile_screening_index": 0.0036932700925445426,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -128.03809266614135,
+            178.5791409630504
+          ],
+          "target_cut_force_N": [
+            -635.7893904674568,
+            85.90096876852776,
+            -79.84429198927519
+          ],
+          "target_cut_moment_Nmm": [
+            9704.71150374201,
+            16302.655490338837,
+            -4476.338748218737
+          ]
+        }
+      }
+    },
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.32133946367655514,
+          "cut_force_relative_norm_discrepancy": 0.0010925770340242972,
+          "cut_force_residual_N": [
+            -0.3312890753823581,
+            0.024126982486187387,
+            -0.09899657815925167
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.001800691575369087,
+          "cut_moment_residual_Nmm": [
+            3.839149966966488,
+            13.002835234374288,
+            0.39800137833668714
+          ],
+          "integrated_cut_force_N": [
+            312.03667846950754,
+            -15.676741497142142,
+            52.98991076876176
+          ],
+          "integrated_cut_moment_Nmm": [
+            -2161.108299300161,
+            -7185.75060553178,
+            478.49840398079294
+          ],
+          "maximum_recovered_compression_MPa": 0.11202650578562205,
+          "maximum_recovered_shear_MPa": 0.06527649211177607,
+          "maximum_recovered_tensile_peel_MPa": 0.0239307888179035,
+          "maximum_shear_screening_index": 0.02629876317459958,
+          "maximum_tensile_screening_index": 0.002479191051605794,
+          "peel_location_xyz_mm": [
+            0.0,
+            -68.35743360572123,
+            178.82460685458656
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            312.3679675448899,
+            -15.70086847962833,
+            53.08890734692101
+          ],
+          "target_cut_moment_Nmm": [
+            -2164.9474492671275,
+            -7198.753440766154,
+            478.10040260245626
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.32156477442989667,
+          "cut_force_relative_norm_discrepancy": 0.0006361889272110587,
+          "cut_force_residual_N": [
+            0.162582782938955,
+            -0.048120361612333795,
+            0.1094687548690203
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0008852399093553872,
+          "cut_moment_residual_Nmm": [
+            -6.214008778306379,
+            -0.8687128885094353,
+            -2.2569577425883836
+          ],
+          "integrated_cut_force_N": [
+            -312.20538476195395,
+            15.652748117946292,
+            -52.97943859199407
+          ],
+          "integrated_cut_moment_Nmm": [
+            2158.733440481008,
+            7197.884727876937,
+            -480.3573603450077
+          ],
+          "maximum_recovered_compression_MPa": 0.11134548810579609,
+          "maximum_recovered_shear_MPa": 0.06532226145316018,
+          "maximum_recovered_tensile_peel_MPa": 0.00586220471489108,
+          "maximum_shear_screening_index": 0.026317202846076675,
+          "maximum_tensile_screening_index": 0.0006073149356851203,
+          "peel_location_xyz_mm": [
+            0.0,
+            -156.64999999999998,
+            357.1010118829156
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            -312.3679675448929,
+            15.700868479558626,
+            -53.08890734686309
+          ],
+          "target_cut_moment_Nmm": [
+            2164.9474492593145,
+            7198.753440765447,
+            -478.1004026024193
+          ]
+        }
+      }
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.7028626990788152,
+          "cut_force_relative_norm_discrepancy": 0.0013561502688102418,
+          "cut_force_residual_N": [
+            -0.9900354751803206,
+            0.02765823255937505,
+            -0.31416047387740775
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0021425149529292666,
+          "cut_moment_residual_Nmm": [
+            -67.92467553057122,
+            11.061994614494324,
+            -7.370941994734494
+          ],
+          "integrated_cut_force_N": [
+            754.7171472440672,
+            -83.45464562524815,
+            94.38078577344211
+          ],
+          "integrated_cut_moment_Nmm": [
+            -6687.997446971814,
+            -31244.036714983115,
+            4776.190369952883
+          ],
+          "maximum_recovered_compression_MPa": 0.27801698350517784,
+          "maximum_recovered_shear_MPa": 0.14277863947100172,
+          "maximum_recovered_tensile_peel_MPa": 0.04852348987342735,
+          "maximum_shear_screening_index": 0.057523030180753464,
+          "maximum_tensile_screening_index": 0.005026955141440442,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            755.7071827192475,
+            -83.48230385780752,
+            94.69494624731952
+          ],
+          "target_cut_moment_Nmm": [
+            -6620.072771441242,
+            -31255.09870959761,
+            4783.5613119476175
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.6874213101507874,
+          "cut_force_relative_norm_discrepancy": 0.0016426057928852062,
+          "cut_force_residual_N": [
+            1.127928268363803,
+            -0.30339183596409214,
+            0.4686446682836305
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.002358822349716615,
+          "cut_moment_residual_Nmm": [
+            50.640053765318044,
+            -54.61042492950219,
+            -16.120188723976753
+          ],
+          "integrated_cut_force_N": [
+            -754.5792544508802,
+            83.17891202173448,
+            -94.22630157868646
+          ],
+          "integrated_cut_moment_Nmm": [
+            6670.7128251881595,
+            31200.488284667426,
+            -4799.681500671615
+          ],
+          "maximum_recovered_compression_MPa": 0.2832552339092104,
+          "maximum_recovered_shear_MPa": 0.13964189525968435,
+          "maximum_recovered_tensile_peel_MPa": 0.029622241380279,
+          "maximum_shear_screening_index": 0.05625929050228735,
+          "maximum_tensile_screening_index": 0.0030688163402098974,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            -755.707182719244,
+            83.48230385769857,
+            -94.69494624697009
+          ],
+          "target_cut_moment_Nmm": [
+            6620.0727714228415,
+            31255.09870959693,
+            -4783.561311947638
+          ]
+        }
+      }
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.22417466393701646,
+          "cut_force_relative_norm_discrepancy": 0.0008618144113432427,
+          "cut_force_residual_N": [
+            -0.2054171254403343,
+            0.004649156496014939,
+            -0.03464211433628961
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0009460106463530372,
+          "cut_moment_residual_Nmm": [
+            4.289583768922853,
+            7.7361245897755,
+            -0.11222587273471163
+          ],
+          "integrated_cut_force_N": [
+            240.95235931237355,
+            -7.120600346677622,
+            15.769891368967714
+          ],
+          "integrated_cut_moment_Nmm": [
+            -718.327435073068,
+            -9265.078206413773,
+            970.0187028709012
+          ],
+          "maximum_recovered_compression_MPa": 0.0703103847482651,
+          "maximum_recovered_shear_MPa": 0.04553855761978218,
+          "maximum_recovered_tensile_peel_MPa": 0.013931925290484337,
+          "maximum_shear_screening_index": 0.01834669271297219,
+          "maximum_tensile_screening_index": 0.0014433249473986688,
+          "peel_location_xyz_mm": [
+            0.0,
+            -68.35743360572123,
+            178.82460685458656
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            241.15777643781388,
+            -7.125249503173637,
+            15.804533483304004
+          ],
+          "target_cut_moment_Nmm": [
+            -722.6170188419909,
+            -9272.814331003548,
+            970.1309287436359
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.22416710116263133,
+          "cut_force_relative_norm_discrepancy": 0.00048817647613060553,
+          "cut_force_residual_N": [
+            0.11162133042563482,
+            -0.010088496019224458,
+            0.03701762060228475
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0005139042481427603,
+          "cut_moment_residual_Nmm": [
+            -4.770734454918397,
+            -0.13541933552187402,
+            -0.5627333394573952
+          ],
+          "integrated_cut_force_N": [
+            -241.0461551073895,
+            7.115161007154172,
+            -15.767515862642878
+          ],
+          "integrated_cut_moment_Nmm": [
+            717.8462843808701,
+            9272.678911668118,
+            -970.6936620831397
+          ],
+          "maximum_recovered_compression_MPa": 0.06886774109373539,
+          "maximum_recovered_shear_MPa": 0.04553702132736155,
+          "maximum_recovered_tensile_peel_MPa": 0.0029157175759503494,
+          "maximum_shear_screening_index": 0.018346073767480025,
+          "maximum_tensile_screening_index": 0.0003020636293400344,
+          "peel_location_xyz_mm": [
+            0.0,
+            -71.34128379556265,
+            172.24681775061785
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            -241.15777643781513,
+            7.1252495031733964,
+            -15.804533483245162
+          ],
+          "target_cut_moment_Nmm": [
+            722.6170188357885,
+            9272.81433100364,
+            -970.1309287436823
+          ]
+        }
+      }
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.35163406696364885,
+          "cut_force_relative_norm_discrepancy": 0.001621325169268015,
+          "cut_force_residual_N": [
+            -0.8640992021172451,
+            -0.010730434994798088,
+            -0.16161603670325064
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.002580113084181747,
+          "cut_moment_residual_Nmm": [
+            -23.120285223338215,
+            32.93504790979205,
+            -3.5293918859010773
+          ],
+          "integrated_cut_force_N": [
+            533.4642160253509,
+            -61.62379570845884,
+            68.55628638378771
+          ],
+          "integrated_cut_moment_Nmm": [
+            -5474.594667467842,
+            -14488.929646339668,
+            2120.41286284923
+          ],
+          "maximum_recovered_compression_MPa": 0.22550825504517222,
+          "maximum_recovered_shear_MPa": 0.07143049949659526,
+          "maximum_recovered_tensile_peel_MPa": 0.023659189879145965,
+          "maximum_shear_screening_index": 0.028778105699791737,
+          "maximum_tensile_screening_index": 0.0024510538404291377,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -141.6547760647062,
+            334.75800182052694
+          ],
+          "target_cut_force_N": [
+            534.3283152274681,
+            -61.613065273464045,
+            68.71790242049096
+          ],
+          "target_cut_moment_Nmm": [
+            -5451.474382244503,
+            -14521.86469424946,
+            2123.942254735131
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.37571749106631336,
+          "cut_force_relative_norm_discrepancy": 0.0014763203069328643,
+          "cut_force_residual_N": [
+            0.7595281434048502,
+            -0.1651653815815024,
+            0.1914977751437732
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.002538526386185404,
+          "cut_moment_residual_Nmm": [
+            14.09306912188913,
+            -36.15508908095762,
+            -8.587182270272478
+          ],
+          "integrated_cut_force_N": [
+            -533.5687870840528,
+            61.44789989190363,
+            -68.52640464511009
+          ],
+          "integrated_cut_moment_Nmm": [
+            5465.56745133882,
+            14485.709605168824,
+            -2132.5294370054157
+          ],
+          "maximum_recovered_compression_MPa": 0.23177479371188617,
+          "maximum_recovered_shear_MPa": 0.0763227757999021,
+          "maximum_recovered_tensile_peel_MPa": 0.012234480115991634,
+          "maximum_shear_screening_index": 0.030749118720299333,
+          "maximum_tensile_screening_index": 0.001267472370234753,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            302.78690733385866
+          ],
+          "target_cut_force_N": [
+            -534.3283152274577,
+            61.613065273485134,
+            -68.71790242025386
+          ],
+          "target_cut_moment_Nmm": [
+            5451.474382216931,
+            14521.864694249782,
+            -2123.9422547351433
+          ]
+        }
+      }
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.289909974697496,
+          "cut_force_relative_norm_discrepancy": 0.0007879570936707348,
+          "cut_force_residual_N": [
+            -0.24324146410225467,
+            0.04671869862480804,
+            -0.08850090422804868
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0008880872907229776,
+          "cut_moment_residual_Nmm": [
+            -8.728653617499958,
+            1.8082526470152516,
+            -2.0441979527638523
+          ],
+          "integrated_cut_force_N": [
+            332.1500645441663,
+            -20.550630175365885,
+            22.625636490445768
+          ],
+          "integrated_cut_moment_Nmm": [
+            -1192.4023347719722,
+            -10212.125131950623,
+            563.5500168417561
+          ],
+          "maximum_recovered_compression_MPa": 0.10529241638129755,
+          "maximum_recovered_shear_MPa": 0.05889194548328057,
+          "maximum_recovered_tensile_peel_MPa": 0.004976239618165127,
+          "maximum_shear_screening_index": 0.023726540398405077,
+          "maximum_tensile_screening_index": 0.0005155303833015072,
+          "peel_location_xyz_mm": [
+            0.0,
+            -159.825,
+            353.31719422642965
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            332.39330600826855,
+            -20.597348873990693,
+            22.714137394673816
+          ],
+          "target_cut_moment_Nmm": [
+            -1183.6736811544722,
+            -10213.933384597638,
+            565.59421479452
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.2900590605024535,
+          "cut_force_relative_norm_discrepancy": 0.0006839414148479486,
+          "cut_force_residual_N": [
+            0.20080883602742006,
+            -0.05856393968103646,
+            0.09147804051861996
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0011098709531907076,
+          "cut_moment_residual_Nmm": [
+            8.302849327647209,
+            -7.158632248254435,
+            -3.2318501096964383
+          ],
+          "integrated_cut_force_N": [
+            -332.19249717225466,
+            20.538784934284443,
+            -22.622659354124423
+          ],
+          "integrated_cut_moment_Nmm": [
+            1191.9765304700381,
+            10206.774752347175,
+            -568.8260649042148
+          ],
+          "maximum_recovered_compression_MPa": 0.10325564452006485,
+          "maximum_recovered_shear_MPa": 0.05892223058508518,
+          "maximum_recovered_tensile_peel_MPa": 0.004571809923258657,
+          "maximum_shear_screening_index": 0.023738741739106936,
+          "maximum_tensile_screening_index": 0.0004736321204299693,
+          "peel_location_xyz_mm": [
+            0.0,
+            -156.64999999999998,
+            357.1010118829156
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            -332.3933060082821,
+            20.59734887396548,
+            -22.714137394643043
+          ],
+          "target_cut_moment_Nmm": [
+            1183.673681142391,
+            10213.93338459543,
+            -565.5942147945184
+          ]
+        }
+      }
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.22979656800203133,
+          "cut_force_relative_norm_discrepancy": 0.0009408589064971788,
+          "cut_force_residual_N": [
+            -0.22254226391191878,
+            0.01022809391271906,
+            -0.046334122246491916
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0012019509864465163,
+          "cut_moment_residual_Nmm": [
+            3.125056654390619,
+            9.41608117890155,
+            0.3768108920235136
+          ],
+          "integrated_cut_force_N": [
+            240.61456399263358,
+            -8.988504850092681,
+            20.12336111471166
+          ],
+          "integrated_cut_moment_Nmm": [
+            -881.985800745281,
+            -8154.069739016258,
+            896.9312858282883
+          ],
+          "maximum_recovered_compression_MPa": 0.07368246120880165,
+          "maximum_recovered_shear_MPa": 0.04668058409905236,
+          "maximum_recovered_tensile_peel_MPa": 0.018737013729936386,
+          "maximum_shear_screening_index": 0.018806795315698142,
+          "maximum_tensile_screening_index": 0.0019411243451498876,
+          "peel_location_xyz_mm": [
+            0.0,
+            -68.35743360572123,
+            178.82460685458656
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            240.8371062565455,
+            -8.9987329440054,
+            20.16969523695815
+          ],
+          "target_cut_moment_Nmm": [
+            -885.1108573996717,
+            -8163.485820195159,
+            896.5544749362648
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.2297698825840726,
+          "cut_force_relative_norm_discrepancy": 0.00048807394423229516,
+          "cut_force_residual_N": [
+            0.10582685921582424,
+            -0.017847412487306258,
+            0.049147559462412005
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0004893656786547608,
+          "cut_moment_residual_Nmm": [
+            -3.8897776542476095,
+            0.8642359403929731,
+            -0.6799250963784971
+          ],
+          "integrated_cut_force_N": [
+            -240.7312793973321,
+            8.980885531517892,
+            -20.120547677436804
+          ],
+          "integrated_cut_moment_Nmm": [
+            881.2210797379406,
+            8164.350056135239,
+            -897.2344000326266
+          ],
+          "maximum_recovered_compression_MPa": 0.07222734071722081,
+          "maximum_recovered_shear_MPa": 0.046675163257009024,
+          "maximum_recovered_tensile_peel_MPa": 0.004386965949409964,
+          "maximum_shear_screening_index": 0.018804611352735482,
+          "maximum_tensile_screening_index": 0.0004544825834299148,
+          "peel_location_xyz_mm": [
+            0.0,
+            -71.34128379556265,
+            172.24681775061785
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            -240.8371062565479,
+            8.998732944005198,
+            -20.169695236899216
+          ],
+          "target_cut_moment_Nmm": [
+            885.1108573921882,
+            8163.485820194846,
+            -896.5544749362481
+          ]
+        }
+      }
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.7098536865434573,
+          "cut_force_relative_norm_discrepancy": 0.0013339914480524724,
+          "cut_force_residual_N": [
+            -0.9784447711366511,
+            0.03434335050167192,
+            -0.31254072308355774
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0020945386004636466,
+          "cut_moment_residual_Nmm": [
+            -67.98415949044647,
+            10.155983053824457,
+            -7.429460185519019
+          ],
+          "integrated_cut_force_N": [
+            758.4809529294383,
+            -85.0673580228079,
+            97.2281496523444
+          ],
+          "integrated_cut_moment_Nmm": [
+            -6840.624974440898,
+            -31937.348610317084,
+            4797.868739794227
+          ],
+          "maximum_recovered_compression_MPa": 0.27878945619450207,
+          "maximum_recovered_shear_MPa": 0.14419877981998971,
+          "maximum_recovered_tensile_peel_MPa": 0.04734293772174572,
+          "maximum_shear_screening_index": 0.058095180023744045,
+          "maximum_tensile_screening_index": 0.004904651846188704,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            759.459397700575,
+            -85.10170137330957,
+            97.54069037542796
+          ],
+          "target_cut_moment_Nmm": [
+            -6772.640814950451,
+            -31947.504593370908,
+            4805.298199979746
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.6950887851986502,
+          "cut_force_relative_norm_discrepancy": 0.00162708406579976,
+          "cut_force_residual_N": [
+            1.1210352571780504,
+            -0.3066898879767166,
+            0.4696248580614366
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.002309641145063543,
+          "cut_moment_residual_Nmm": [
+            50.886129816017274,
+            -54.438910597331414,
+            -16.10679790523318
+          ],
+          "integrated_cut_force_N": [
+            -758.3383624433923,
+            84.79501148529188,
+            -97.07106551725045
+          ],
+          "integrated_cut_moment_Nmm": [
+            6823.526944754594,
+            31893.065682772747,
+            -4821.404997884948
+          ],
+          "maximum_recovered_compression_MPa": 0.2839537129401469,
+          "maximum_recovered_shear_MPa": 0.14119945644047613,
+          "maximum_recovered_tensile_peel_MPa": 0.028605380174093437,
+          "maximum_shear_screening_index": 0.056886804807949665,
+          "maximum_tensile_screening_index": 0.0029634711624022076,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            -759.4593977005703,
+            85.1017013732686,
+            -97.54069037531188
+          ],
+          "target_cut_moment_Nmm": [
+            6772.640814938577,
+            31947.50459337008,
+            -4805.298199979715
+          ]
+        }
+      }
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.29719532979876767,
+          "cut_force_relative_norm_discrepancy": 0.00080955018462761,
+          "cut_force_residual_N": [
+            -0.24979404028874796,
+            0.04517846942669834,
+            -0.09509875816759106
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0008218313248147518,
+          "cut_moment_residual_Nmm": [
+            -7.498051499157782,
+            2.741930301182947,
+            -1.7161207654797295
+          ],
+          "integrated_cut_force_N": [
+            332.83481434012685,
+            -19.324448334993342,
+            28.224879747608664
+          ],
+          "integrated_cut_moment_Nmm": [
+            -1347.5002167129594,
+            -9832.355289916108,
+            453.16709400021267
+          ],
+          "maximum_recovered_compression_MPa": 0.10740749349706719,
+          "maximum_recovered_shear_MPa": 0.06037188330155714,
+          "maximum_recovered_tensile_peel_MPa": 0.005101183502914029,
+          "maximum_shear_screening_index": 0.02432278160158345,
+          "maximum_tensile_screening_index": 0.0005284743678637963,
+          "peel_location_xyz_mm": [
+            0.0,
+            -159.825,
+            353.31719422642965
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            333.0846083804156,
+            -19.36962680442004,
+            28.319978505776255
+          ],
+          "target_cut_moment_Nmm": [
+            -1340.0021652138016,
+            -9835.09722021729,
+            454.8832147656924
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.2973437491382254,
+          "cut_force_relative_norm_discrepancy": 0.0006770244490555936,
+          "cut_force_residual_N": [
+            0.19549983915038638,
+            -0.05771997102734261,
+            0.09920156449182116
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0010010597247788167,
+          "cut_moment_residual_Nmm": [
+            6.7692533579136125,
+            -6.533307280664303,
+            -3.2301910903383373
+          ],
+          "integrated_cut_force_N": [
+            -332.8891085412613,
+            19.311906833333715,
+            -28.220776941284537
+          ],
+          "integrated_cut_moment_Nmm": [
+            1346.7714185623893,
+            9828.563912935411,
+            -458.1134058559841
+          ],
+          "maximum_recovered_compression_MPa": 0.10546125385869627,
+          "maximum_recovered_shear_MPa": 0.060402033018403314,
+          "maximum_recovered_tensile_peel_MPa": 0.004713821552858699,
+          "maximum_shear_screening_index": 0.024334928398040606,
+          "maximum_tensile_screening_index": 0.0004883442957789482,
+          "peel_location_xyz_mm": [
+            0.0,
+            -156.64999999999998,
+            357.1010118829156
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -140.4999058729299,
+            329.65919393584267
+          ],
+          "target_cut_force_N": [
+            -333.0846083804117,
+            19.369626804361058,
+            -28.31997850577636
+          ],
+          "target_cut_moment_Nmm": [
+            1340.0021652044757,
+            9835.097220216076,
+            -454.8832147656458
+          ]
+        }
+      }
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.3487334002418154,
+          "cut_force_relative_norm_discrepancy": 0.0016213541178482778,
+          "cut_force_residual_N": [
+            -0.8450560260716884,
+            -0.009774466873011534,
+            -0.15330700842270062
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.00261133620153299,
+          "cut_moment_residual_Nmm": [
+            -21.533601073586397,
+            32.48337621756218,
+            -3.4160395365679506
+          ],
+          "integrated_cut_force_N": [
+            521.1615881290481,
+            -59.59296851923338,
+            67.59141738599234
+          ],
+          "integrated_cut_moment_Nmm": [
+            -5276.293006732756,
+            -13863.720495184953,
+            1928.430799744025
+          ],
+          "maximum_recovered_compression_MPa": 0.22155409502113524,
+          "maximum_recovered_shear_MPa": 0.07084126172847216,
+          "maximum_recovered_tensile_peel_MPa": 0.02214136395839269,
+          "maximum_shear_screening_index": 0.02854071205292015,
+          "maximum_tensile_screening_index": 0.0022938095277046187,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -141.6547760647062,
+            334.75800182052694
+          ],
+          "target_cut_force_N": [
+            522.0066441551198,
+            -59.58319405236037,
+            67.74472439441504
+          ],
+          "target_cut_moment_Nmm": [
+            -5254.75940565917,
+            -13896.203871402515,
+            1931.846839280593
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.36690639808415376,
+          "cut_force_relative_norm_discrepancy": 0.0014660947283880778,
+          "cut_force_residual_N": [
+            0.737957388347013,
+            -0.1610212533951909,
+            0.18079709994024995
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0025528087549663778,
+          "cut_moment_residual_Nmm": [
+            12.758662703520713,
+            -35.078287378359164,
+            -8.332280403011282
+          ],
+          "integrated_cut_force_N": [
+            -521.2686867667753,
+            59.422172798881626,
+            -67.56392729400622
+          ],
+          "integrated_cut_moment_Nmm": [
+            5267.518068358844,
+            13861.125584024405,
+            -1940.179119683749
+          ],
+          "maximum_recovered_compression_MPa": 0.227820952540248,
+          "maximum_recovered_shear_MPa": 0.0745329015187743,
+          "maximum_recovered_tensile_peel_MPa": 0.01109430323562036,
+          "maximum_shear_screening_index": 0.030028009507643054,
+          "maximum_tensile_screening_index": 0.0011493518878480837,
+          "peel_location_xyz_mm": [
+            0.0,
+            -85.50822850164027,
+            296.8996408152492
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            302.78690733385866
+          ],
+          "target_cut_force_N": [
+            -522.0066441551223,
+            59.583194052276816,
+            -67.74472439394647
+          ],
+          "target_cut_moment_Nmm": [
+            5254.7594056553235,
+            13896.203871402764,
+            -1931.8468392807376
+          ]
+        }
+      }
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_left",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.2909138022010984,
+          "cut_force_relative_norm_discrepancy": 0.00030821464312094784,
+          "cut_force_residual_N": [
+            -0.08924511305309579,
+            -0.02712537724715247,
+            0.008772891247980752
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.0014882809480118483,
+          "cut_moment_residual_Nmm": [
+            17.230207160613475,
+            -11.472643583701938,
+            -4.652528048335853
+          ],
+          "integrated_cut_force_N": [
+            303.78512784824045,
+            2.009916056588697,
+            7.353960630300977
+          ],
+          "integrated_cut_moment_Nmm": [
+            462.4051524965168,
+            -14249.769058888858,
+            544.4043735893744
+          ],
+          "maximum_recovered_compression_MPa": 0.0834843476034607,
+          "maximum_recovered_shear_MPa": 0.05909586173237981,
+          "maximum_recovered_tensile_peel_MPa": 0.002922935710503809,
+          "maximum_shear_screening_index": 0.023808694708004473,
+          "maximum_tensile_screening_index": 0.00030281141641593873,
+          "peel_location_xyz_mm": [
+            0.0,
+            -159.825,
+            353.31719422642965
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            303.87437296129355,
+            2.0370414338358493,
+            7.345187739052996
+          ],
+          "target_cut_moment_Nmm": [
+            445.1749453359033,
+            -14238.296415305156,
+            549.0569016377102
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.2912522246153253,
+          "cut_force_relative_norm_discrepancy": 0.0004682699947031361,
+          "cut_force_residual_N": [
+            0.13775662252550092,
+            0.0355336395237158,
+            -0.004599146175175761
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.001196194581977312,
+          "cut_moment_residual_Nmm": [
+            -16.382823987048653,
+            -4.202429401462723,
+            -2.1768990519055933
+          ],
+          "integrated_cut_force_N": [
+            -303.73661633876543,
+            -2.0015077943081465,
+            -7.349786885221974
+          ],
+          "integrated_cut_moment_Nmm": [
+            -461.55776932117993,
+            14234.09398590293,
+            -551.2338006896344
+          ],
+          "maximum_recovered_compression_MPa": 0.07998101923259202,
+          "maximum_recovered_shear_MPa": 0.05916460843345405,
+          "maximum_recovered_tensile_peel_MPa": 0.002917340478351213,
+          "maximum_shear_screening_index": 0.023836391558005092,
+          "maximum_tensile_screening_index": 0.0003022317594063045,
+          "peel_location_xyz_mm": [
+            0.0,
+            -159.825,
+            353.31719422642965
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -125.24585903694957,
+            340.11309266614137
+          ],
+          "target_cut_force_N": [
+            -303.87437296129093,
+            -2.0370414338318623,
+            -7.345187739046798
+          ],
+          "target_cut_moment_Nmm": [
+            -445.1749453341313,
+            14238.296415304392,
+            -549.0569016377289
+          ]
+        }
+      }
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_right",
+      "interface_sides": {
+        "inner": {
+          "conservative_rolling_shear_component_screen": 0.18688073317264092,
+          "cut_force_relative_norm_discrepancy": 0.0006322523161775257,
+          "cut_force_residual_N": [
+            -0.0321646978732133,
+            0.05185973288505252,
+            -0.09373341151980696
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.001739220215878828,
+          "cut_moment_residual_Nmm": [
+            -18.50587974503992,
+            -8.794738780710759,
+            -2.49228639970363
+          ],
+          "integrated_cut_force_N": [
+            175.70602922026416,
+            -10.274968024131276,
+            17.354241677762708
+          ],
+          "integrated_cut_moment_Nmm": [
+            -1270.7970264004507,
+            -11780.668635985367,
+            831.308500840091
+          ],
+          "maximum_recovered_compression_MPa": 0.07718272734995762,
+          "maximum_recovered_shear_MPa": 0.03796271570635865,
+          "maximum_recovered_tensile_peel_MPa": 0.003616588254164512,
+          "maximum_shear_screening_index": 0.015294517789292614,
+          "maximum_tensile_screening_index": 0.00037467269906119125,
+          "peel_location_xyz_mm": [
+            0.0,
+            -55.75887468779225,
+            173.15107494364608
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            175.73819391813737,
+            -10.326827757016328,
+            17.447975089282515
+          ],
+          "target_cut_moment_Nmm": [
+            -1252.2911466554108,
+            -11771.873897204656,
+            833.8007872397947
+          ]
+        },
+        "outer": {
+          "conservative_rolling_shear_component_screen": 0.186957770987568,
+          "cut_force_relative_norm_discrepancy": 0.001036235559017983,
+          "cut_force_residual_N": [
+            0.1497209108899824,
+            -0.06259385453156163,
+            0.08526265188584503
+          ],
+          "cut_moment_relative_norm_discrepancy": 0.001905741294557401,
+          "cut_moment_residual_Nmm": [
+            18.532290850776462,
+            -12.664309020467044,
+            -2.7714480241799038
+          ],
+          "integrated_cut_force_N": [
+            -175.58847300724705,
+            10.264233902436747,
+            -17.362712437367634
+          ],
+          "integrated_cut_moment_Nmm": [
+            1270.8234375036948,
+            11759.209588183994,
+            -836.5722352639729
+          ],
+          "maximum_recovered_compression_MPa": 0.06508242929640168,
+          "maximum_recovered_shear_MPa": 0.0379783650706193,
+          "maximum_recovered_tensile_peel_MPa": 0.0016396227712776623,
+          "maximum_shear_screening_index": 0.015300822645929505,
+          "maximum_tensile_screening_index": 0.00016986226962646315,
+          "peel_location_xyz_mm": [
+            0.0,
+            -36.0,
+            144.6477545593064
+          ],
+          "shear_location_xyz_mm": [
+            0.0,
+            -130.0125,
+            168.653125
+          ],
+          "target_cut_force_N": [
+            -175.73819391813703,
+            10.326827756968308,
+            -17.44797508925348
+          ],
+          "target_cut_moment_Nmm": [
+            1252.2911466529183,
+            11771.873897204461,
+            -833.800787239793
+          ]
+        }
+      }
+    }
+  ],
+  "schema": "v11_finished_local_spatial_bond_comparison/v1",
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/six-bolt-cleat/recorded-material-baseline.json": "bde7665a71cba96758ea8c6dde25f37b5bbc46950e7a5748219b4374fa31594b",
+    "fea/calculix_223/solver-profile.json": "f233cb12fe58983e968600befe78cc5ee0785903d60541a6269fe45e8489689c",
+    "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-senior-review-v1/plywood-gusset-v1/sources/apa-D510F-2020.pdf": "b09fca5c358f16a598ed289cff46e7b515b783af4e5fb82919cc1af22155960a",
+    "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/source-cache/system-three-t88-tds.pdf": "c7016c3e0f5d365863d1070e70dc4f8f22eb77c5b0b4ed9a9a80c7c8137afc2c",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/input-readiness.json": "c4a2525e25265fe0ff5001d6f1402243c936f052b11bb829633269d0dcfb0f36",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/load-mapping.json": "2a042a2aa9a551903fe3e89c5b02e7d8ff9d051014f287c364533ab7d4cce4e5",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/local-bond.dat": "5da79466305436f8b4d6c363fe404c0fb57f89bc61de2fa57a7fd320cdd3fd5f",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mapped-forces.npz": "ddaff8074434c7877803b161482c72480b2e32413cacc788f64b49b23220b61f",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/integration-audit.json": "d86e2a6a4a043dfb0d77a5ed06137c4f64e55b544979c08cf4c1eaae10859394",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/leaf-body-moments.json.gz": "2ee5f3f86be2e7a58f8544cdfe010670a831432e3f2e4c14e845a46167db6fed",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/mesh.json.gz": "679a67d8bae328bc12104375c4228edec095c60566219995cb6e0918dde7470e",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-execution.json": "e66716fec719cb4295655566329032277175e716cb429f5ce2d961ebfd5534f6",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/native-observation.json": "ddb840f625bc48a41282fdadbbeb9df2dd53db985e1c43e8a656f823ebe0c782",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/observer-attempt01-failure.json": "86af69191588e7ff7ea8bccb405503618f2d353b2958b79ceff5e7e88decaf11",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/preparation.json": "266eebbb010a1132e9bfbafe42c0b3fb749543b6e4ed28b33d177e4d46993214",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/gauge-load-control/observation.json": "7da6ad8a1a8461a3cbe80420d4a047da7eefc3b65c092605cf4a9e19e271af39",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/observation.json": "9359c8388d0c4715bd9807bd54fdb14e03758d168b0880e621cbe38fd95f4228",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/observe_bond_solid_native.py": "435a0d16f3add1ac607cb01e7240e2e3f78d9f216263f2649ca55c1072ffb013",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/observe_bond_solid_native_v2.py": "cb3fa528ef0691e50cd4ef1feb5ec0d66f76e0599d3048576f83b84b9f53351a",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/prepare_bond_solid_deck.py": "564164f1b4da6c9412247097f20038fd3ff7336f6d8447f595054a309393bd5a",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/summarize_bond_solid_native.py": "51f97d7ad610c42f304875155133407b2b3f436e5d7c2aa48b8476ba32d46e54",
+    "fea/section_force_coupon.py": "43e27ec03623eb22de1cb8c24fd46867b6f3d164ea61cff720d446ccda03b127"
+  },
+  "structural_acceptance": false,
+  "whole_acceptance_items_closed": 0
+}

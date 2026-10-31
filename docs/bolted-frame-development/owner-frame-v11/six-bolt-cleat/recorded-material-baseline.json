@@ -1,0 +1,192 @@
+{
+  "T88_working_baseline": {
+    "G_MPa": 861.8446616460451,
+    "G_over_t_MPa_per_mm": 4309.2233082302255,
+    "G_rule": "G=E/3, lower limit for stable isotropic elasticity with Poisson ratio below0.5; flexuralE used as representative linearE is an explicit approximation.",
+    "authority": "Owner now directs a reasonable online/history-based calculation baseline. These are screening hypotheses, not newly discovered product guarantees.",
+    "compression_reference_MPa": 17.236893232920902,
+    "compression_reference_rule": "Published cured compression12500psi divided by5; plywood bearing remains a separate check.",
+    "effective_bondline_thickness_mm": 0.2,
+    "factor_rule": "Project-only fivefold reserve on published short-term material/test references, not an NDS adhesive factor, manufacturer allowable or certified plywood-interface capacity.",
+    "legacy_flexural_modulus_used_as_isotropic_elastic_E_MPa": 2585.5339849381353,
+    "legacy_source_url": "https://simplexaero.com/wp-content/uploads/2011/02/T-88_TDS.pdf",
+    "legacy_to_current_formulation_equivalence_proven": false,
+    "process": "Reuse selected T88 surface/mix/contact process;1:1 byvolume or100:83 byweight; full cure3days at70F from the current TDS.",
+    "project_screening_factor": 5.0,
+    "shear_reference_MPa": 2.48211262554061,
+    "shear_reference_rule": "Reported maple lap-shear1800psi divided by5; used only as a declared adhesive screening reference, not as a measured birch-panel bond property.",
+    "thickness_rule": "Project model assumption, deliberately thicker than the previously sourced generic3-to4mil clamped-joint estimate. Not a measured gap, manufacturer tolerance, added CAD gap or changed bolt grip."
+  },
+  "candidate": "v11-six-bolt-cleat-v1",
+  "composite_baseline_check": {
+    "EI_effective_Nmm2": 3030629981.7539935,
+    "EI_perfect_Nmm2": 3032250650.9901285,
+    "gamma": 0.9992511226450373,
+    "gamma_rule": "gamma=1/[1+(pi*lambda/L)^2], lambda^2=EA_leaf/(2*b*G/t)",
+    "independent_energy_replay_pass": true,
+    "lambda_mm": 3.147379862679432,
+    "length_mm": 361.18608283,
+    "model": "Two identical axial leaves, common transverse rotation, continuous linear shear coupling; one sinusoidal mode, not a local bolt/peel model.",
+    "relative_rigidity_reduction": 0.000534477331419092
+  },
+  "current_12_case_screening_results": [
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.059083448958528406,
+      "mean_shear_reference_index": 0.02380369381734235,
+      "mean_shear_slip_mm": 1.3710927638789194e-05,
+      "reduced_face_compression_reference_index": 0.001351140691068992,
+      "reduced_face_shear_reference_index": 0.0026002851886090315
+    },
+    {
+      "case": "a12-forward",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.060374036127782624,
+      "mean_shear_reference_index": 0.02432364893782087,
+      "mean_shear_slip_mm": 1.4010421788184821e-05,
+      "reduced_face_compression_reference_index": 0.0006027066188510409,
+      "reduced_face_shear_reference_index": 0.0009112511989003015
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.06385689628412251,
+      "mean_shear_reference_index": 0.025726832709782592,
+      "mean_shear_slip_mm": 1.4818655640834773e-05,
+      "reduced_face_compression_reference_index": 0.0015114982952976,
+      "reduced_face_shear_reference_index": 0.002126770336089408
+    },
+    {
+      "case": "a12-left",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.041199457946049366,
+      "mean_shear_reference_index": 0.01659854493390526,
+      "mean_shear_slip_mm": 9.560761881929427e-06,
+      "reduced_face_compression_reference_index": 0.0004632245523620551,
+      "reduced_face_shear_reference_index": 0.000283361261491433
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.04893916737510747,
+      "mean_shear_reference_index": 0.019716739229126805,
+      "mean_shear_slip_mm": 1.1356841795977038e-05,
+      "reduced_face_compression_reference_index": 0.0010568501248635197,
+      "reduced_face_shear_reference_index": 0.0016674831119907368
+    },
+    {
+      "case": "a12-rear",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.06307477726709707,
+      "mean_shear_reference_index": 0.025411730562934966,
+      "mean_shear_slip_mm": 1.463715680425054e-05,
+      "reduced_face_compression_reference_index": 0.0006205883527389997,
+      "reduced_face_shear_reference_index": 0.00043380541782662155
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.0428041886007985,
+      "mean_shear_reference_index": 0.017245063000102846,
+      "mean_shear_slip_mm": 9.933156288059239e-06,
+      "reduced_face_compression_reference_index": 0.00046383691109637724,
+      "reduced_face_shear_reference_index": 0.00035506360341238763
+    },
+    {
+      "case": "k12-right",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.06460162660757529,
+      "mean_shear_reference_index": 0.026026871602373363,
+      "mean_shear_slip_mm": 1.4991478042967058e-05,
+      "reduced_face_compression_reference_index": 0.0015176580557538122,
+      "reduced_face_shear_reference_index": 0.0021813380856222898
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.06343386405822787,
+      "mean_shear_reference_index": 0.025556400384697222,
+      "mean_shear_slip_mm": 1.47204866215856e-05,
+      "reduced_face_compression_reference_index": 0.0006203168085572225,
+      "reduced_face_shear_reference_index": 0.0005142957869901873
+    },
+    {
+      "case": "k12-rear",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.04847436942975415,
+      "mean_shear_reference_index": 0.019529480222194317,
+      "mean_shear_slip_mm": 1.1248980607983928e-05,
+      "reduced_face_compression_reference_index": 0.0010293275671506349,
+      "reduced_face_shear_reference_index": 0.0016202472473536731
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_left",
+      "long_wavelength_mean_tau_MPa": 0.04838370406995827,
+      "mean_shear_reference_index": 0.019492952725874067,
+      "mean_shear_slip_mm": 1.1227940770103463e-05,
+      "reduced_face_compression_reference_index": 0.0005578043144446436,
+      "reduced_face_shear_reference_index": 0.0001284588062445916
+    },
+    {
+      "case": "a1-rear",
+      "cleat": "eoere_cleat_right",
+      "long_wavelength_mean_tau_MPa": 0.02275610936941486,
+      "mean_shear_reference_index": 0.009168040618003193,
+      "mean_shear_slip_mm": 5.280791395969839e-06,
+      "reduced_face_compression_reference_index": 0.00035285443772549804,
+      "reduced_face_shear_reference_index": 0.0003959148784482537
+    }
+  ],
+  "decision": "Use the recorded plywood/T88 choices and this explicit screening baseline to continue calculations without a supplier reply. The long-wavelength screen meets its selected reference and finite-coupling effect is quantified. Full local bond/cleat/joint acceptance is not inferred.",
+  "emails_permitted": false,
+  "limits": [
+    "Generic birch purchase does not establish the assumed APA product grade, layup, density or directional properties. Calculation-baseline values remain hypotheses, separate from Actual cells.",
+    "Mean shear and reduced resultant witnesses are not bounds on local bolt-introduction shear or peel. The single-mode rigidity comparison is not a whole-frame response sensitivity or a local shear-transfer proof.",
+    "Bulk adhesive references do not establish plywood veneer/interface failure, creep, cyclic life or physical bond quality. No new coupon-test prerequisite or contact with another party is introduced."
+  ],
+  "maximum_mean_shear_reference_index": 0.026026871602373363,
+  "maximum_mean_shear_slip_mm": 1.4991478042967058e-05,
+  "owner_steering": [
+    "No emails sent please. Go ahead and instead look it up online",
+    "Look for a reasonable baseline and use that. Also look for what was used previously",
+    "Also we have purchased generic birch plywood.",
+    "Please look at history, I believe these decisions have already been made"
+  ],
+  "physical_geometry_force_bank_or_material_operator_changed": false,
+  "physical_release": false,
+  "producer": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/use_recorded_material_baseline.py",
+    "sha256": "8e0f684f11a421d17d72fcc83df9ff017074261bb073446c82315369e3f76b1b"
+  },
+  "schema": "v11_owner_authorized_recorded_material_baseline/v1",
+  "settled_choices_carried_forward": {
+    "adhesive": "System Three T-88; selected October26 for the current three-quarter-inch leaves",
+    "credited_strength_wall_mm": 36.5,
+    "earlier_PL_Premium": "Historical Candidate13 selection for two12.7mm leaves, not the current choice",
+    "face_purchase_history": "Separate older record identifies RoseburgAC-fir face panels; do not silently relabel that historical purchase or infer an exact product for the latest birch report.",
+    "nominal_leaf_mm": 19.05,
+    "nominal_leaves_per_cleat": 2,
+    "nominal_pair_mm": 38.1,
+    "plywood_numerical_baseline": "Retain the already selected APA24oc PS1 Group1 panel operator and strength scenario as a conditional calculation baseline. Do not replace it with the early isotropic E7000 model or clear-birch data.",
+    "purchase_description": "Latest owner report: purchased generic birch plywood. No brand, core species or structural grade inferred."
+  },
+  "source_sha256": {
+    "docs/bolted-frame-development/owner-frame-v11/owner-six-bolt-cleat-evaluation.json": "298e2d0f09a2f5accc9b9067b3936afab952c3b6119644458560a9ad792909ae",
+    "docs/bolted-frame-development/owner-frame-v11/owner-v9-eight-bolt-request.json": "8704cdfba23c59ea2a56d87bddf8f1123caedfbaad3c5163d6196eda2234fde0",
+    "docs/bolted-frame-development/owner-frame-v11/shorter-bolts/adhesive-bond-basis.json": "4af30196346a6e27eac2f3deb8d94f1121b33ed1134aedf9933f41b61fa5da3f",
+    "docs/history/material-selection-recommendation.md": "d2f6ba384180a681a7a5dcb19dafaa42c19a82ea008b274383174940d8fa9441",
+    "docs/purchased-materials.md": "3a1e09c02e223cdec91ad96e258046e73322a23c6417252453f818624c3b8bad",
+    "fea/generated/v10-candidate13-integration-v1/adhesive-basis-proposal/cleat-adhesive-basis-v1.md": "ef3c76ecd5f6f41c7e92ff2cbe7d8082ec5f08b076f6dc859a275cdc225530ed",
+    "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/cleat-adhesive-selection-v1.json": "27e3411114ae7ceccac82d71cc9f819083561cfc07c5cfab5c90d8e9aad9b6ac",
+    "fea/generated/v11-shorter-bolts-v1/build-package/adhesive/source-cache/system-three-t88-tds.pdf": "c7016c3e0f5d365863d1070e70dc4f8f22eb77c5b0b4ed9a9a80c7c8137afc2c",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/four-hosts/preparation/inputs.json": "b7cdf2f57247535c459680bef443922d7e99731eaf30a9d71f8a704a64c83056",
+    "fea/generated/v11-six-bolt-cleat-v1/mechanics/analysis-v1/material.json": "8dc4d81a9f4cc9876d8757a90a85bbe554d4bcaaa37f4037f574e94f6537835e",
+    "fea/generated/v11-six-bolt-cleat-v1/references/components/results-v1/current-bond-transfer-v1.json": "d754ce58e9975c831fbe981dac416247a1a3f98b106df89f135d717d5883ccac",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/legacy-system-three-t88-tds.pdf": "ad3d122496195c227adcd62856ff89251a51c1787911e70fe30ff859b39b72df",
+    "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/use_recorded_material_baseline.py": "8e0f684f11a421d17d72fcc83df9ff017074261bb073446c82315369e3f76b1b"
+  },
+  "vendor_reply_required_before_baseline_calculations": false,
+  "whole_acceptance_items_closed": 0
+}

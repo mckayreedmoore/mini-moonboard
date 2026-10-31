@@ -1,0 +1,162 @@
+{
+  "candidate": "v11-six-bolt-cleat-v1",
+  "changed_model": "A candidate-specific local solid response replaces the longitudinal/normal beam idealization for this next comparison. The current102-bolt geometry, twelve saved cleat load states, original frame force bank, bolt positions and hardware remain unchanged.",
+  "complete_acceptance_items_remaining": 4,
+  "emails_permitted": false,
+  "engineering_question": "Run the missing full spatial glue/plywood check with finite current bore/washer/contact loading and the recorded local material baseline.",
+  "gauge_force_control": {
+    "additional_fixed_node_CLOAD_N": 0.001,
+    "candidate_states_executed": 0,
+    "dat": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/gauge-load-control/cube.dat",
+      "sha256": "76321afa42cbee998e868a23a9eadd085c7a1070bfc0168e7e7485940cd5b359"
+    },
+    "deck": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/gauge-load-control/cube.inp",
+      "sha256": "458c940fe2e264418e57a33c748170ecde038ec4035b360a449d107bea245f8a"
+    },
+    "execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/gauge-load-control/execution.json",
+      "sha256": "2d7bdf02190d16c400a7486fdc4886bb9e32047cbc328f6316d89c05a90e23d7"
+    },
+    "observed_rule": "NODE PRINT RF reports total nodal force. At constrained DOFs subtract the applied CLOAD to recover the support reaction. Free displacements and all stresses reproduce the original cube to printed precision.",
+    "passed": true,
+    "printed_fixed_node_force_N": -6.909866e-17,
+    "reaction_after_subtracting_applied_CLOAD_N": -0.0010000000000000692,
+    "source_deck": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-method-cube-v1/cube.inp",
+      "sha256": "c6a51cf810561390bb46e201850de65508729f37fbafff80105a6aea28e175ef"
+    }
+  },
+  "input_readiness": {
+    "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/input-readiness.json",
+    "sha256": "c4a2525e25265fe0ff5001d6f1402243c936f052b11bb829633269d0dcfb0f36"
+  },
+  "load_checks": {
+    "all_pressure_samples_nonnegative": true,
+    "mapped_states": 12,
+    "maximum_relative_gravity_density_correction": 1.476284043899767e-07,
+    "maximum_serialized_force_residual_N": 4.645318812772359e-10,
+    "maximum_serialized_moment_residual_Nmm": 5.885893473132897e-08,
+    "maximum_source_force_error_N": 2.5432989048113086e-12,
+    "maximum_source_moment_error_Nmm": 1.9489987480190366e-11,
+    "pressure_maxima_MPa": {
+      "current_contact_cell": 0.07682353433682992,
+      "full_supported_washer_annulus": 0.5436469515779272,
+      "positive_radial_bearing": 1.9087557410186284
+    },
+    "source_actions": 600
+  },
+  "load_hypothesis": "Positive radial bearing on each physical bore half, uniform starting pressure on current contact cells and full supported washer annuli; small positive corrections preserve each complete source wrench.",
+  "mesh_summary": {
+    "CAD_volume_mm3": 1460249.2291762438,
+    "elements": 117860,
+    "gmsh_version": "4.12.1",
+    "integrated_volume_mm3": 1460249.7754313503,
+    "interface_area_mm2": 38326.776167678596,
+    "mesh_sha256": "679a67d8bae328bc12104375c4228edec095c60566219995cb6e0918dde7470e",
+    "mesh_size_mm": 5.0,
+    "minimum_sampled_jacobian": 0.000460812306090345,
+    "nodes": 175743,
+    "patches": 42,
+    "preparation": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/preparation.json",
+      "sha256": "266eebbb010a1132e9bfbafe42c0b3fb749543b6e4ed28b33d177e4d46993214"
+    },
+    "producer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mesh_bond_solid.py",
+      "sha256": "a298eafe45e18ecc1a08ab09a8908a7f912818d587a4837e55019bad64edd19b"
+    },
+    "schema": "v11_local_glued_cleat_C3D10_mesh/v1",
+    "volumes": 8
+  },
+  "mesh_warning_disposition": "The generation log reported96 negative-distortion elements before high-order optimization. Post-optimization minDetJac and all integration determinants passed; fixed-mesh reintegration independently checks the current2.23 four-point native locations. Initial warnings are retained; no warning is substituted for the post-optimization geometry evidence.",
+  "native_four_point_integration_audit": {
+    "gmsh_version": "4.12.1",
+    "maximum_recombined_body_moment_difference": 6.394884621840902e-14,
+    "mesh_sha256": "679a67d8bae328bc12104375c4228edec095c60566219995cb6e0918dde7470e",
+    "minimum_native_2_23_four_point_jacobian": 0.0004608123061410341,
+    "native_mechanics_executed": false,
+    "native_rule_source": "Retained helper literals, independently matched to all four observed current2.23 cube coordinates before use.",
+    "producer_sha256": "168b1a659528c1072910a46761f5608f71e6a0e9e1f8b9a4d88d19d7fad4132a"
+  },
+  "native_result_accepted": false,
+  "next_required_results": [
+    "Observe all twelve native local states with corrected gauge reactions and verified stress coordinates.",
+    "Recover and compare both sides of the complete interface, including cut-resultant discrepancies; assess the specific governing refinement or finite-zone sensitivity needed.",
+    "Compare adhesive and applicable plywood/interface resistance under the stated baseline. Convergence or a material-method control alone is not acceptance."
+  ],
+  "physical_release": false,
+  "retention": "One shared mesh and36 finite-load BREP faces serve both hands after an explicit reflected-cell join. The81.8MB native deck, compressed mesh/force/body-weight arrays and native outputs remain active in the existing ignored folder. Their size serves this specific spatial comparison; no permanent meshes/manual/dependency copies or archive/prune.",
+  "reviewed_geometry_or_frame_run_changed": false,
+  "schema": "v11_local_bond_solid_load_admission/v1",
+  "source_action_counts": {
+    "consistent_body_force": 24,
+    "current_contact_cell": 360,
+    "full_supported_washer_annulus": 72,
+    "positive_radial_bearing": 144
+  },
+  "source_bindings": {
+    "deck_preparer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/prepare_bond_solid_deck.py",
+      "sha256": "564164f1b4da6c9412247097f20038fd3ff7336f6d8447f595054a309393bd5a"
+    },
+    "fixed_mesh_auditor": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/audit_bond_mesh_integration.py",
+      "sha256": "168b1a659528c1072910a46761f5608f71e6a0e9e1f8b9a4d88d19d7fad4132a"
+    },
+    "geometry_preparation": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/preparation.json",
+      "sha256": "266eebbb010a1132e9bfbafe42c0b3fb749543b6e4ed28b33d177e4d46993214"
+    },
+    "geometry_preparer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/prepare_bond_solid_mesh.py",
+      "sha256": "3832ac8b9e24040d777cc7eaff168ccbc2f121157bf48ee405f57d505ae324db"
+    },
+    "leaf_body_weights": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/leaf-body-moments.json.gz",
+      "sha256": "2ee5f3f86be2e7a58f8544cdfe010670a831432e3f2e4c14e845a46167db6fed"
+    },
+    "load_mapping": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/load-mapping.json",
+      "sha256": "2a042a2aa9a551903fe3e89c5b02e7d8ff9d051014f287c364533ab7d4cce4e5"
+    },
+    "mapped_forces": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mapped-forces.npz",
+      "sha256": "ddaff8074434c7877803b161482c72480b2e32413cacc788f64b49b23220b61f"
+    },
+    "mesh": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/mesh.json.gz",
+      "sha256": "679a67d8bae328bc12104375c4228edec095c60566219995cb6e0918dde7470e"
+    },
+    "mesh_execution": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-execution.json",
+      "sha256": "d649f37ae7f027e9cabb2610c2d41035fb0d691f3042d40c5bda4a3e4cf93fe7"
+    },
+    "mesh_integration": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/bond-solid-local-v1/mesh-5mm/integration-audit.json",
+      "sha256": "d86e2a6a4a043dfb0d77a5ed06137c4f64e55b544979c08cf4c1eaae10859394"
+    },
+    "mesh_runner": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/run_bond_solid_mesh.py",
+      "sha256": "2101eae4d8ee3f365e4d62abdd78d021788dbeec345e6f2e65f94136d2617cd5"
+    },
+    "mesh_worker": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/mesh_bond_solid.py",
+      "sha256": "a298eafe45e18ecc1a08ab09a8908a7f912818d587a4837e55019bad64edd19b"
+    },
+    "native_observer": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/observe_bond_solid_native.py",
+      "sha256": "435a0d16f3add1ac607cb01e7240e2e3f78d9f216263f2649ca55c1072ffb013"
+    },
+    "native_runner": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/run_bond_solid_native.py",
+      "sha256": "8c299c379f63e515f558c317d1ea5357ed3cf0918644a39d4e60ce81cfe2e670"
+    },
+    "pressure_mapper": {
+      "path": "fea/generated/v11-six-bolt-cleat-v1/references/evaluation-completion-v1/map_bond_solid_loads.py",
+      "sha256": "532d94b3b4232c7b033dc24795eb1d485b5511fe3ac54b845a908f25bb7e40fd"
+    }
+  },
+  "whole_acceptance_items_closed": 0
+}

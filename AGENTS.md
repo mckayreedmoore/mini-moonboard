@@ -86,6 +86,14 @@ Builder docs start at [docs/README.md](docs/README.md). Older studies are in
 [docs/history/](docs/history/). See
 [docs/selected-working-set.md](docs/selected-working-set.md).
 
+## Durable working preference: incremental progress
+
+When a design input lacks an exact product-specific value, first reuse history and consult primary online sources. Choose a reasonable conservative value, range or response assumption within the owner's authorized scope, label its source and applicability, and continue the dependent numerical checks. Do not block conditional analysis solely because actual-product qualification is unavailable when a defensible working baseline can answer the question. Carry the adopted assumption forward instead of reopening the same missing-input discussion. Keep published facts, project assumptions and observations distinct; do not invent a manufacturer guarantee, conceal an applicable failure or claim physical release. List the working assumptions together in the final response after completing the work.
+
+Reuse valid calculations, source research, helpers and test evidence within their recorded limits. Prefer small, reviewable changes and short inspectable worksheets. Before any rebuild, rerun, new abstraction or new experiment, name the changed input, demonstrated defect or unresolved decision, the result it invalidates, and the smallest affected check needed. Reuse unaffected results and run targeted regressions. Do not grow custom frameworks, repeated reports or test/evidence scaffolding without a concrete decision they resolve.
+
+Keep the maintained summary explicit about settled design decisions, reusable results, applicable failures and exact open acceptance claims. Completing an evaluation packet does not resolve its unqualified acceptance claims. For an acceptance-resolution task, restating a missing method/input is progress only when it narrows the work; it does not close that item. Use conventional justified methods and incremental checks first, and identify specific unavoidable external inputs without adding blanket testing or sign-off prerequisites.
+
 ## Keep the repository compact
 
 - Use `docs/bolted-frame-development/README.md` for the current development summary and
